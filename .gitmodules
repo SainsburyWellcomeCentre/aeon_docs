@@ -1,0 +1,15 @@
+[submodule "aeon_mecha"]
+	path = aeon_mecha
+	url = https://github.com/SainsburyWellcomeCentre/aeon_mecha
+[submodule "aeon_analysis"]
+	path = aeon_analysis
+	url = https://github.com/SainsburyWellcomeCentre/aeon_analysis
+[submodule "aeon_blog"]
+	path = aeon_blog
+	url = https://github.com/SainsburyWellcomeCentre/aeon_blog
+[submodule "aeon_experiments"]
+	path = aeon_experiments
+	url = https://github.com/SainsburyWellcomeCentre/aeon_experiments
+[submodule "aeon_acquisition"]
+	path = aeon_acquisition
+	url = https://github.com/SainsburyWellcomeCentre/aeon_acquisition

@@ -10,9 +10,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.extend([
+	os.path.abspath('../aeon_mecha/'),
+	os.path.abspath('../aeon_analysis/aeon_analysis'),
+	os.path.abspath('../aeon_acquisition'),
+	os.path.abspath('../aeon_experiments'),
+	os.path.abspath('../aeon_blog'),
+])
 
 
 # -- Project information -----------------------------------------------------

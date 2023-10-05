@@ -1,7 +1,7 @@
 cff-version: 1.0.0
 message: "If you use this software, please cite it as below. This reference will be updated at the publication of the journal article. Please cite the article reference after that."
 authors: 
-- family-names: Sainsbury Wellcome Centre Foraging Behaviour Working Group
+- family-names: "Sainsbury Wellcome Centre Foraging Behaviour Working Group"
 title: "Aeon: An open-source platform to study the neural basis of ethological behaviours over continuous, long-term timescales timescales"
 doi: 10.5281/zenodo.8411158
 date-released: 2023-10-05

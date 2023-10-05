@@ -8,17 +8,3 @@ title: "Aeon: An open-source platform to study the neural basis of ethological b
 doi: 10.5281/zenodo.8411158
 date-released: 2023-10-05
 url: https://github.com/SainsburyWellcomeCentre/aeon_docs
-
-APA
-
-Sainsbury Wellcome Centre Foraging Behaviour Working Group. (2023). Aeon: An open-source platform to study neural basis of ethological behaviours over continuous, long-term timescales. https://doi.org/10.5281/zenodo.8411158
-
-BibTeX
-@software{Aeon_v1_2023,
-  author = {Sainsbury Wellcome Centre Foraging Behaviour Working Group},
-  doi = {10.5281/zenodo.8411158},
-  month = {12},
-  title = {{Aeon: An open-source platform to study neural basis of ethological behaviours over continuous, long-term timescales}},
-  url = {https://github.com/SainsburyWellcomeCentre/aeon_docs},
-  year = {2023}
-}

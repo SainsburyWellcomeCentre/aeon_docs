@@ -1,3 +1,4 @@
+cff-version: 1.2.0
 message: "If you use this software, please cite it as below. This reference will be updated at the publication of the journal article. Please cite the article reference after that."
 authors: Sainsbury Wellcome Centre Foraging Behaviour Working Group
 title: "Aeon: An open-source platform to study the neural basis of ethological behaviours over continuous, long-term timescales timescales"

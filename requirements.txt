@@ -1,0 +1,4 @@
+myst-parser
+linkify-it-py
+sphinx-design
+sphinx-autodoc-typehints

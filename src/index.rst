@@ -65,5 +65,7 @@ Welcome to Project Aeon's online docs!
    :hidden:
 
    Home <self>
+   data_contract
+   design_considerations
    Developer API <api>
    dev_practices/dev_practices

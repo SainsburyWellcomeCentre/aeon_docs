@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aeon.analysis.utils &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for aeon.analysis.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<div class="viewcode-block" id="distancetravelled">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.distancetravelled">[docs]</a>
+<span class="k">def</span> <span class="nf">distancetravelled</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the total distance travelled on the wheel, by taking into account</span>
+<span class="sd">    its radius and the total number of turns in both directions across time.</span>
+
+<span class="sd">    :param Series angle: A series of magnetic encoder measurements.</span>
+<span class="sd">    :param float radius: The radius of the wheel, in metric units.</span>
+<span class="sd">    :return: The total distance travelled on the wheel, in metric units.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">maxvalue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">jumpthreshold</span> <span class="o">=</span> <span class="n">maxvalue</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">turns</span> <span class="o">=</span> <span class="n">angle</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">clickup</span> <span class="o">=</span> <span class="p">(</span><span class="n">turns</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">jumpthreshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">clickdown</span> <span class="o">=</span> <span class="p">(</span><span class="n">turns</span> <span class="o">&gt;</span> <span class="n">jumpthreshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">turns</span> <span class="o">=</span> <span class="p">(</span><span class="n">clickup</span> <span class="o">+</span> <span class="n">clickdown</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="p">(</span><span class="n">turns</span> <span class="o">+</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">maxvalue</span><span class="p">)</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">-</span> <span class="n">distance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">distance</span></div>
+
+
+
+<div class="viewcode-block" id="visits">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.visits">[docs]</a>
+<span class="k">def</span> <span class="nf">visits</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="s2">&quot;Enter&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;Exit&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes duration, onset and offset times from paired events. Allows for missing data</span>
+<span class="sd">    by trying to match event onset times with subsequent offset times. If the match fails,</span>
+<span class="sd">    event offset metadata is filled with NaN. Any additional metadata columns in the data</span>
+<span class="sd">    frame will be paired and included in the output.</span>
+
+<span class="sd">    :param DataFrame data: A pandas data frame containing visit onset and offset events.</span>
+<span class="sd">    :param str, optional onset: The label used to identify event onsets.</span>
+<span class="sd">    :param str, optional offset: The label used to identify event offsets.</span>
+<span class="sd">    :return: A pandas data frame containing duration and metadata for each visit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lonset</span> <span class="o">=</span> <span class="n">onset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">loffset</span> <span class="o">=</span> <span class="n">offset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">lsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">lonset</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">rsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">loffset</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">id_onset</span> <span class="o">=</span> <span class="s2">&quot;id&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">event_onset</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">event_offset</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span> <span class="o">+</span> <span class="n">rsuffix</span>
+    <span class="n">time_onset</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">time_offset</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="o">+</span> <span class="n">rsuffix</span>
+
+    <span class="c1"># find all possible onset / offset pairs</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">data_onset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="n">onset</span><span class="p">]</span>
+    <span class="n">data_offset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="n">offset</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_onset</span><span class="p">,</span> <span class="n">data_offset</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="n">lsuffix</span><span class="p">,</span> <span class="n">rsuffix</span><span class="p">])</span>
+
+    <span class="c1"># valid pairings have the smallest positive duration</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">time_offset</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">time_onset</span><span class="p">]</span>
+    <span class="n">valid_visits</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_visits</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">time_onset</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+
+    <span class="c1"># duplicate offsets indicate missing data from previous pairing</span>
+    <span class="n">missing_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">time_offset</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">missing_data</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">missing_data</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">rsuffix</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span>
+
+    <span class="c1"># rename columns and sort data</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">time_onset</span><span class="p">:</span> <span class="n">lonset</span><span class="p">,</span> <span class="n">id_onset</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">time_offset</span><span class="p">:</span> <span class="n">loffset</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">lonset</span><span class="p">,</span> <span class="n">loffset</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]]</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">event_onset</span><span class="p">,</span> <span class="n">event_offset</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="rate">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.rate">[docs]</a>
+<span class="k">def</span> <span class="nf">rate</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the continuous event rate from a discrete event sequence, given the specified</span>
+<span class="sd">    window size and sampling frequency.</span>
+
+<span class="sd">    :param Series events: The discrete sequence of events.</span>
+<span class="sd">    :param offset window: The time period of each window used to compute the rate.</span>
+<span class="sd">    :param DateOffset, Timedelta or str frequency: The sampling frequency for the continuous rate.</span>
+<span class="sd">    :param number, optional weight: A weight used to scale the continuous rate of each window.</span>
+<span class="sd">    :param datetime, optional start: The left bound of the time range for the continuous rate.</span>
+<span class="sd">    :param datetime, optional end: The right bound of the time range for the continuous rate.</span>
+<span class="sd">    :param datetime, optional smooth: The size of the smoothing kernel applied to the continuous rate output.</span>
+<span class="sd">    :param DateOffset, Timedelta or str, optional smooth:</span>
+<span class="sd">    The size of the smoothing kernel applied to the continuous rate output.</span>
+<span class="sd">    :param bool, optional center: Specifies whether to center the convolution kernels.</span>
+<span class="sd">    :return: A Series containing the continuous event rate over time.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">rate</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="k">if</span> <span class="n">smooth</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="get_events_rates">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.get_events_rates">[docs]</a>
+<span class="k">def</span> <span class="nf">get_events_rates</span><span class="p">(</span>
+    <span class="n">events</span><span class="p">,</span> <span class="n">window_len_sec</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">unit_len_sec</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="c1"># events is an array with the time (in seconds) of event occurence</span>
+    <span class="c1"># window_len_sec is the size of the window over which the event rate is estimated</span>
+    <span class="c1"># unit_len_sec is the length of one sample point</span>
+    <span class="n">window_len_sec_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">window_len_sec</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">S&quot;</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">counts_resampled</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">counts_rolled</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">counts_resampled</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window_len_sec_str</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">unit_len_sec</span> <span class="o">/</span> <span class="n">window_len_sec</span>
+    <span class="p">)</span>
+    <span class="n">counts_rolled_smoothed</span> <span class="o">=</span> <span class="n">counts_rolled</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span>
+        <span class="n">window_len_sec_str</span> <span class="k">if</span> <span class="n">smooth</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">counts_rolled_smoothed</span></div>
+
+
+
+<div class="viewcode-block" id="sessiontime">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.sessiontime">[docs]</a>
+<span class="k">def</span> <span class="nf">sessiontime</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts absolute to relative time, with optional reference starting time.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">60</span></div>
+
+
+
+<div class="viewcode-block" id="distance">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.distance">[docs]</a>
+<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the euclidean distance to a specified target.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">position</span><span class="p">[[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]]</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="activepatch">
+<a class="viewcode-back" href="../../../api/aeon.analysis.utils.html#aeon.analysis.utils.activepatch">[docs]</a>
+<span class="k">def</span> <span class="nf">activepatch</span><span class="p">(</span><span class="n">wheel</span><span class="p">,</span> <span class="n">in_patch</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes a decision boundary for when a patch is active based on wheel movement.</span>
+
+<span class="sd">    :param Series wheel: A pandas Series containing the cumulative distance travelled on the wheel.</span>
+<span class="sd">    :param Series in_patch: A Series of type bool containing whether the specified patch may be active.</span>
+<span class="sd">    :return: A pandas Series specifying for each timepoint whether the patch is active.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exit_patch</span> <span class="o">=</span> <span class="n">in_patch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="n">in_wheel</span> <span class="o">=</span> <span class="p">(</span><span class="n">wheel</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">in_patch</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pad&quot;</span><span class="p">)</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="n">exit_patch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">in_wheel</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

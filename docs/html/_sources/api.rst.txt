@@ -1,0 +1,28 @@
+..
+  This file is auto-generated.
+
+.. _api:
+
+Developer API
+=============
+
+.. toctree::
+    :caption: API
+    :maxdepth: 1
+
+.. autosummary::
+    :toctree: api
+
+    aeon.util
+    aeon.analysis.movies
+    aeon.analysis.plotting
+    aeon.analysis.utils
+    aeon.io.api
+    aeon.io.device
+    aeon.io.reader
+    aeon.io.video
+    aeon.schema.core
+    aeon.schema.dataset
+    aeon.schema.foraging
+    aeon.schema.octagon
+    aeon.schema.social

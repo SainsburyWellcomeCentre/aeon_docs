@@ -1,0 +1,4 @@
+# Sphinx documentation
+docs/
+src/api/
+src/api.rst

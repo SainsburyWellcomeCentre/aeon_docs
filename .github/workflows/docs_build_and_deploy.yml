@@ -1,0 +1,103 @@
+name: Docs
+
+# Generate the documentation on all merges to main, all pull requests, or by
+# manual workflow dispatch. The build job can be used as a CI check that the
+# docs still build successfully. The deploy job only runs when a tag is
+# pushed and actually moves the generated html to the gh-pages branch
+# (which triggers a GitHub pages deployment).
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build_sphinx_docs:
+    name: Build Sphinx Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: false # Disable automatic checkout of all submodules
+      
+      - name: Checkout public submodules # Skip aeon_experiments
+        run: |
+          git submodule sync
+          git submodule update --init aeon_acquisition
+          git submodule update --init aeon_analysis
+          git submodule update --init aeon_blog
+          git submodule update --init aeon_mecha
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Upgrade pip
+        shell: bash
+        run: |
+          # install pip=>20.1 to use "pip cache dir"
+          python3 -m pip install --upgrade pip
+
+      - name: Get pip cache dir
+        shell: bash
+        id: pip-cache
+        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        shell: bash
+        run: python3 -m pip install -r ./requirements.txt
+
+      # temporarily disabled until we fix broken links
+      # - name: Check links
+      #  shell: bash
+      #  run: make linkcheck
+
+      # needs to have sphinx.ext.githubpages in conf.py extensions list
+      - name: Building documentation
+        shell: bash
+        run: make html
+
+      - name: Upload the content for deployment
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: ./docs/
+
+  deploy_sphinx_docs:
+    name: Deploy Sphinx Docs
+    needs: build_sphinx_docs
+    permissions:
+      contents: write
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Clear previous build if present
+        shell: bash
+        run: rm -rf ./docs/
+
+      - name: Download the content for deployment
+        uses: actions/download-artifact@v3
+        with:
+          name: docs
+          path: ./docs/
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/

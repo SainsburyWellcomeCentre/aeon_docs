@@ -15,9 +15,8 @@ def make_api_doctree():
     doctree = ""
 
     for root, dirs, files in os.walk("./aeon_mecha/aeon"):
-        # remove leading "../"
-        root = root[3:]
-
+        # remove leading "./"
+        root = root[2:]
         for file in sorted(files):
             if file.endswith(".py") and not file.startswith("_"):
                 # convert file path to module name

@@ -14,7 +14,7 @@ def make_api_doctree():
     """
     doctree = ""
 
-    for root, dirs, files in os.walk("../aeon_mecha/aeon"):
+    for root, dirs, files in os.walk("./aeon_mecha/aeon"):
         # remove leading "../"
         root = root[3:]
 

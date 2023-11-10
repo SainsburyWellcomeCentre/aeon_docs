@@ -1,3 +1,10 @@
+# mininum dependencies to build aeon_mecha docs
+dotmap
+matplotlib
+opencv-python
+pandas 
+importlib_metadata # remove when PR#281 is merged
+
 myst-parser
 linkify-it-py
 sphinx-design

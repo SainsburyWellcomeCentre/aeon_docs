@@ -68,7 +68,7 @@ jobs:
       # needs to have sphinx.ext.githubpages in conf.py extensions list
       - name: Building documentation
         shell: bash
-        run: make html
+        run: make clean html
 
       - name: Upload the content for deployment
         uses: actions/upload-artifact@v3

@@ -2,7 +2,7 @@
 
 This repo contains the source for the currently WIP version of Project Aeon's online docs. 
 
-The docs are built via Sphinx, and hosted via GitHub Pages. `src/` is the Sphinx source directory, and `docs/` is the Sphinx and GitHub Pages build directory. The docs are available at: https://sainsburywellcomecentre.github.io/aeon_docs/
+The docs are built via Sphinx, and hosted via GitHub Pages at: sainsburywellcomecentre.github.io/aeon_docs/. `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
 
 All organizational details will eventually be available on the docs, but for now some useful info can be found in the sections below:
 

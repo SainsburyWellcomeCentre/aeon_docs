@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-      - update-docs # for testing
     tags:
       - '*'
   pull_request:

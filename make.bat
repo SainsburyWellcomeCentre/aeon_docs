@@ -10,6 +10,11 @@ if "%SPHINXBUILD%" == "" (
 set SOURCEDIR=src
 set BUILDDIR=docs
 
+if "%1" == "" goto help
+
+echo "Building api docs..."
+python make_api_doctree.py
+
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
@@ -22,8 +27,6 @@ if errorlevel 9009 (
 	echo.https://www.sphinx-doc.org/
 	exit /b 1
 )
-
-if "%1" == "" goto help
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end

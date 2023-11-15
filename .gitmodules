@@ -1,15 +1,20 @@
 [submodule "aeon_mecha"]
 	path = aeon_mecha
 	url = https://github.com/SainsburyWellcomeCentre/aeon_mecha
+	branch = main
 [submodule "aeon_analysis"]
 	path = aeon_analysis
 	url = https://github.com/SainsburyWellcomeCentre/aeon_analysis
+	branch = main
 [submodule "aeon_blog"]
 	path = aeon_blog
 	url = https://github.com/SainsburyWellcomeCentre/aeon_blog
+	branch = main
 [submodule "aeon_experiments"]
 	path = aeon_experiments
 	url = https://github.com/SainsburyWellcomeCentre/aeon_experiments
+	branch = main
 [submodule "aeon_acquisition"]
 	path = aeon_acquisition
 	url = https://github.com/SainsburyWellcomeCentre/aeon_acquisition
+	branch = main

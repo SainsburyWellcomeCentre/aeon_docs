@@ -2,22 +2,52 @@
 
 This repo contains the source for the currently WIP version of Project Aeon's online docs. 
 
-The docs are built via Sphinx, and hosted via GitHub Pages. `src/` is the Sphinx source directory, and `docs/` is the Sphinx and GitHub Pages build directory. The docs are available at: https://sainsburywellcomecentre.github.io/aeon_docs/
+The docs are built via Sphinx, and hosted via GitHub Pages at: sainsburywellcomecentre.github.io/aeon_docs/. `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
 
 All organizational details will eventually be available on the docs, but for now some useful info can be found in the sections below:
+
+## Building the documentation locally
+
+From the root of the repository, install the requirements for building the documentation:
+```bash
+pip install -r requirements.txt
+``` 
+
+Then, populate submodules:
+```bash
+git submodule init
+git submodule update
+``` 
+
+(Optional) Update submodules and point to the latest commits:
+```bash
+git submodule sync
+git submodule update --remote
+```
+
+Finally, build the documentation:
+```bash
+make html
+```
+You can view the local build by opening ``docs/html/index.html`` in a browser.
+
+To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
+```bash
+make clean html
+```
 
 ## Project Aeon Organization Overview
 
 ProjectAeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint.
 
-If you are interested in joining this project, please contact the [project maintainers](#Project-Maintainers).
+If you are interested in joining this project, please contact the [project maintainers](#project-maintainers).
 
 ## Credentials
 
 Below are the required sets of credentials for Project Aeon's members: 
 
 - Microsoft Teams: contact Jai Bhagat, Goncalo Lopes, or Dario Campagner
-- SWC Github organization: contact SWC Helpdesk(helpdesk@swc.ucl.ac.uk)
+- SWC Github organization: contact SWC Helpdesk (helpdesk@swc.ucl.ac.uk)
 - SWC Github 'aeon' project: contact Jai Bhagat or Goncalo Lopes
 - SWC HPC: contact SWC Helpdesk
 - 'aeon' HPC Linux group: contact SWC Helpdesk
@@ -98,9 +128,9 @@ In brief, each of our repos has 'main' and 'prod' branches. Feature and bug fix 
 
 When contributing to any repository, the change to be made should first be discussed in a Github Discussion or a Github Issue. Thereafter, contributors should create a new branch (branched off of 'main') that contains the changes/additions they wish to make, and then create a pull request for merging this branch into 'main'.
 
-All pull requests will be reviewed by the [project maintainers](#Project-Maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
+All pull requests will be reviewed by the [project maintainers](#project-maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
 
-1) Ensure new code adheres to the [style and documentation guidelines](#Style-and-Documentation-Guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
+1) Ensure new code adheres to the [style and documentation guidelines](#style-and-documentation-guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
 
 2) As necessary, ensure `changelog`, `readme`, config and doc files are updated.
 
@@ -114,8 +144,7 @@ We also believe in the [readme manifesto](http://thinkinghard.com/blog/TheREADME
 
 ### Code of Conduct
 
-Please see our 
-[code of conduct](https://github.com/ProjectAeon/blog/blob/main/code_of_conduct.md).
+Please see our [code of conduct](https://github.com/ProjectAeon/blog/blob/main/code_of_conduct.md).
 
 ## Project Maintainers
 

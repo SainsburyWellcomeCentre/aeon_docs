@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aeon.schema.octagon &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for aeon.schema.octagon</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
+
+
+<div class="viewcode-block" id="photodiode">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.photodiode">[docs]</a>
+<span class="k">def</span> <span class="nf">photodiode</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Photodiode&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_44_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;adc&quot;</span><span class="p">,</span> <span class="s2">&quot;encoder&quot;</span><span class="p">])}</span></div>
+
+
+
+<div class="viewcode-block" id="OSC">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC">[docs]</a>
+<span class="k">class</span> <span class="nc">OSC</span><span class="p">:</span>
+<div class="viewcode-block" id="OSC.background_color">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.background_color">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">background_color</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;BackgroundColor&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_backgroundcolor_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.change_subject_state">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.change_subject_state">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">change_subject_state</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;ChangeSubjectState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_changesubjectstate_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.end_trial">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.end_trial">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">end_trial</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;EndTrial&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_endtrial_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="OSC.slice">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.slice">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">slice</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Slice&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_octagonslice_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;wall_id&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;delay&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.gratings_slice">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.gratings_slice">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">gratings_slice</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;GratingsSlice&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_octagongratingsslice_*&quot;</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                    <span class="s2">&quot;typetag&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;wall_id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;contrast&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;opacity&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;spatial_frequency&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;temporal_frequency&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;angle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;delay&quot;</span><span class="p">,</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.poke">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.poke">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">poke</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Poke&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_poke_*&quot;</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                    <span class="s2">&quot;typetag&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;wall_id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;poke_id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;reward&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;reward_interval&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;delay&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;led_delay&quot;</span><span class="p">,</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.response">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.response">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Response&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_response_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;wall_id&quot;</span><span class="p">,</span> <span class="s2">&quot;poke_id&quot;</span><span class="p">,</span> <span class="s2">&quot;response_time&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.run_pre_trial_no_poke">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.run_pre_trial_no_poke">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">run_pre_trial_no_poke</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;RunPreTrialNoPoke&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_run_pre_no_poke_*&quot;</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                    <span class="s2">&quot;typetag&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;wait_for_poke&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;reward_iti&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timeout_iti&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pre_trial_duration&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;activity_reset_flag&quot;</span><span class="p">,</span>
+                <span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="OSC.start_new_session">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.start_new_session">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">start_new_session</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;StartNewSession&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_startnewsession_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;typetag&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">])}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="TaskLogic">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic">[docs]</a>
+<span class="k">class</span> <span class="nc">TaskLogic</span><span class="p">:</span>
+<div class="viewcode-block" id="TaskLogic.trial_initiation">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.trial_initiation">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">trial_initiation</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;TrialInitiation&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_1_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;trial_type&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.response">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.response">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Response&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_2_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wall_id&quot;</span><span class="p">,</span> <span class="s2">&quot;poke_id&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.pre_trial">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.pre_trial">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">pre_trial</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;PreTrialState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_3_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.inter_trial_interval">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.inter_trial_interval">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">inter_trial_interval</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;InterTrialInterval&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_4_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.slice_onset">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.slice_onset">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">slice_onset</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SliceOnset&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_10_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wall_id&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.draw_background">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.draw_background">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">draw_background</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;DrawBackground&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_11_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="TaskLogic.gratings_slice_onset">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.gratings_slice_onset">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">gratings_slice_onset</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;GratingsSliceOnset&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_12_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wall_id&quot;</span><span class="p">])}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Wall">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall">[docs]</a>
+<span class="k">class</span> <span class="nc">Wall</span><span class="p">:</span>
+<div class="viewcode-block" id="Wall.beam_break0">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break0">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">beam_break0</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;BeamBreak0&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">DigitalBitmask</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x1</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="Wall.beam_break1">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break1">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">beam_break1</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;BeamBreak1&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">DigitalBitmask</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="Wall.beam_break2">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break2">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">beam_break2</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;BeamBreak2&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">DigitalBitmask</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_led0">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led0">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_led0</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetLed0&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x1</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_led1">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led1">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_led1</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetLed1&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_led2">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led2">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_led2</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetLed2&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_valve0">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve0">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_valve0</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetValve0&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_valve1">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve1">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_valve1</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetValve1&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.set_valve2">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve2">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_valve2</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SetValve2&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_34_*&quot;</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_led0">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led0">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_led0</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearLed0&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x1</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_led1">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led1">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_led1</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearLed1&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_led2">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led2">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_led2</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearLed2&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_valve0">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve0">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_valve0</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearValve0&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_valve1">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve1">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_valve1</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearValve1&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="Wall.clear_valve2">
+<a class="viewcode-back" href="../../../api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve2">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear_valve2</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ClearValve2&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="s2">&quot;Clear&quot;</span><span class="p">)}</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

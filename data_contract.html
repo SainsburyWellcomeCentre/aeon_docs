@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Contract &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Design Considerations" href="design_considerations.html" />
+    <link rel="prev" title="Welcome to Project Aeon’s online docs!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="data-contract">
+<h1>Data Contract<a class="headerlink" href="#data-contract" title="Link to this heading">¶</a></h1>
+<p><strong>Version</strong>: 0.2.0-draft</p>
+<section id="devices">
+<h2>Devices<a class="headerlink" href="#devices" title="Link to this heading">¶</a></h2>
+<section id="videocontroller">
+<h3>VideoController<a class="headerlink" href="#videocontroller" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>harp data: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_address.bin</span> <span class="pre">[HARP]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>address</p></th>
+<th class="head"><p>payload</p></th>
+<th class="head"><p>attributes</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm_enable</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">39</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>specifies which PWM has been enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm1_freq</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>frequency</p></td>
+<td><p>the frequency of PWM1 (max: 1000Hz)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm1_dutycycle</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">51</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>dutycycle</p></td>
+<td><p>the duty cycle of PWM1 (max: 100%)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm1_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">55</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>mode</p></td>
+<td><p>should always be 0 (infinite)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm1_trig</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">56</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>start_trigger</p></td>
+<td><p>should always be 0 (software trigger)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm1_conf_event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">57</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>rise_event</p></td>
+<td><p>should always be 1 (enabled)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm2_freq</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">58</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>frequency</p></td>
+<td><p>the frequency of PWM1 (max: 1000Hz)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm2_dutycycle</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">59</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>dutycycle</p></td>
+<td><p>the duty cycle of PWM1 (max: 100%)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm2_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">63</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>mode</p></td>
+<td><p>should always be 0 (infinite)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm2_trig</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>start_trigger</p></td>
+<td><p>should always be 0 (software trigger)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm2_conf_event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">65</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>rise_event</p></td>
+<td><p>should always be 1 (enabled)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm_start</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">66</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>specifies which PWM has started</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwm_stop</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">67</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>specifies which PWM has stopped</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwm_rise_event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">68</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>specifies which PWM has been triggered</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="videosource">
+<h3>VideoSource<a class="headerlink" href="#videosource" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>video frames: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.avi</span> <span class="pre">[FMP4</span> <span class="pre">codec]</span></code></p></li>
+<li><p>video metadata: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>hw_counter</p></th>
+<th class="head"><p>hw_timestamp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>(optional) harp data: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_address.bin</span> <span class="pre">[HARP]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>address</p></th>
+<th class="head"><p>payload</p></th>
+<th class="head"><p>attributes</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">position</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>[x, y, angle, major, minor, area, id]</p></td>
+<td><p>one entry for each animal, for each frame</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">region</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">201</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>area code</p></td>
+<td><p>one entry for each animal, for each frame</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>area code map:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>none</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>nest</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>corridor</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>arena</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>patch1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>patch2</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="audiosource">
+<h3>AudioSource<a class="headerlink" href="#audiosource" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>audio buffers: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.wav</span> <span class="pre">[PCM</span> <span class="pre">16-bit</span> <span class="pre">mono]</span></code></p></li>
+<li><p>audio metadata: <code class="docutils literal notranslate"><span class="pre">MISSING</span></code></p></li>
+</ul>
+</section>
+<section id="patchcontroller">
+<h3>PatchController<a class="headerlink" href="#patchcontroller" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>patch state: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_State.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>threshold</p></th>
+<th class="head"><p>d1</p></th>
+<th class="head"><p>delta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>harp data: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_address.bin</span> <span class="pre">[HARP]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>address</p></th>
+<th class="head"><p>payload</p></th>
+<th class="head"><p>attributes</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">beam_break</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">32</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>the current state of the beam break</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delivery_set</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">35</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>a pellet delivery has been requested</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delivery_clear</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">36</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>the pellet delivery pin has been cleared</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">expansion_board</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">87</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>expansion</p></td>
+<td><p>the type of board in the expansion port</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">encoder_read</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">90</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p>[angle, intensity]</p></td>
+<td><p>the current state of the magnetic encoder</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">encoder_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">91</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>mode</p></td>
+<td><p>should always be 4 (500Hz)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dispenser_state</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>value</p></td>
+<td><p>the estimated number of pellets in the dispenser</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delivery_manual</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">201</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>event</p></td>
+<td><p>a manual pellet delivery has been requested</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">missed_pellet</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">202</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>event</p></td>
+<td><p>a pellet has been missed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delivery_retry</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">203</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>bitmask</p></td>
+<td><p>a pellet delivery command has been retried</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="weightscale">
+<h3>WeightScale<a class="headerlink" href="#weightscale" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>harp data: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_address.bin</span> <span class="pre">[HARP]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>address</p></th>
+<th class="head"><p>payload</p></th>
+<th class="head"><p>attributes</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weight_raw</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>[value, stable]</p></td>
+<td><p>the raw weight samples (g)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">weight_tare</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">201</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>event</p></td>
+<td><p>a tare command has been sent</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weight_filtered</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">202</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>[value, stable]</p></td>
+<td><p>filtered weight samples (<code class="docutils literal notranslate"><span class="pre">stable</span></code> is slope of regression)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">weight_baseline</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">203</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>event</p></td>
+<td><p>a baseline has been taken</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weight_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">204</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>[value, stable]</p></td>
+<td><p>the stable baselined weight of a subject in the nest (g)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="experimentalmetadata">
+<h3>ExperimentalMetadata<a class="headerlink" href="#experimentalmetadata" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>environment state: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_EnvironmentState.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Maintenance</span> <span class="pre">\</span> <span class="pre">Experiment</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>subject state: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_SubjectState.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>id</p></th>
+<th class="head"><p>weight</p></th>
+<th class="head"><p>event</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>subject visits: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_SubjectVisits.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>id</p></th>
+<th class="head"><p>event</p></th>
+<th class="head"><p>area</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Enter</span> <span class="pre">\</span> <span class="pre">Exit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>message log: <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_MessageLog.csv</span> <span class="pre">[CSV]</span></code></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>time</p></th>
+<th class="head"><p>priority</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Notification</span> <span class="pre">\</span> <span class="pre">Alert</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TSV</span> <span class="pre">str</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Contract</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#devices">Devices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Project Aeon’s online docs!</a></li>
+      <li>Next: <a href="design_considerations.html" title="next chapter">Design Considerations</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/data_contract.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

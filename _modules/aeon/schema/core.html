@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aeon.schema.core &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for aeon.schema.core</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">aeon.io.device</span> <span class="k">as</span> <span class="nn">_device</span>
+<span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
+
+
+<div class="viewcode-block" id="heartbeat">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.heartbeat">[docs]</a>
+<span class="k">def</span> <span class="nf">heartbeat</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Heartbeat event for Harp devices.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Heartbeat&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_8_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="video">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.video">[docs]</a>
+<span class="k">def</span> <span class="nf">video</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Video frame metadata.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Video&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="position">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.position">[docs]</a>
+<span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Position tracking data for the specified camera.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Position&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="encoder">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.encoder">[docs]</a>
+<span class="k">def</span> <span class="nf">encoder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wheel magnetic encoder data.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Encoder&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_90_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="environment">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.environment">[docs]</a>
+<span class="k">def</span> <span class="nf">environment</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for environment mode and subjects.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_device</span><span class="o">.</span><span class="n">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">environment_state</span><span class="p">,</span> <span class="n">subject_state</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="environment_state">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.environment_state">[docs]</a>
+<span class="k">def</span> <span class="nf">environment_state</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Environment state log.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;EnvironmentState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_EnvironmentState_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+
+
+<div class="viewcode-block" id="subject_state">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.subject_state">[docs]</a>
+<span class="k">def</span> <span class="nf">subject_state</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subject state log.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SubjectState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_SubjectState_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="messageLog">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.messageLog">[docs]</a>
+<span class="k">def</span> <span class="nf">messageLog</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Message log data.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;MessageLog&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_MessageLog_*&quot;</span><span class="p">)}</span></div>
+
+
+
+<div class="viewcode-block" id="metadata">
+<a class="viewcode-back" href="../../../api/aeon.schema.core.html#aeon.schema.core.metadata">[docs]</a>
+<span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for acquisition epochs.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">pattern</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">)}</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

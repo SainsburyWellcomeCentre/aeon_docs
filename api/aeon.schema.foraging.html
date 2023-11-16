@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>aeon.schema.foraging &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="aeon.schema.octagon" href="aeon.schema.octagon.html" />
+    <link rel="prev" title="aeon.schema.dataset" href="aeon.schema.dataset.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-aeon.schema.foraging">
+<span id="aeon-schema-foraging"></span><h1>aeon.schema.foraging<a class="headerlink" href="#module-aeon.schema.foraging" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">Area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#Area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.Area" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Arena">
+<span class="sig-name descname"><span class="pre">Arena</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Arena" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Corridor">
+<span class="sig-name descname"><span class="pre">Corridor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Corridor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Nest">
+<span class="sig-name descname"><span class="pre">Nest</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Nest" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Null">
+<span class="sig-name descname"><span class="pre">Null</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Null" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Patch1">
+<span class="sig-name descname"><span class="pre">Patch1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Patch1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Area.Patch2">
+<span class="sig-name descname"><span class="pre">Patch2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#aeon.schema.foraging.Area.Patch2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.beam_break">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">beam_break</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#beam_break"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.beam_break" title="Link to this definition">¶</a></dt>
+<dd><p>Beam break events for pellet detection.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.deliver_pellet">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">deliver_pellet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#deliver_pellet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.deliver_pellet" title="Link to this definition">¶</a></dt>
+<dd><p>Pellet delivery commands.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.depletionFunction">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">depletionFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#depletionFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.depletionFunction" title="Link to this definition">¶</a></dt>
+<dd><p>State of the linear depletion function for foraging patches.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.feeder">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">feeder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#feeder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.feeder" title="Link to this definition">¶</a></dt>
+<dd><p>Feeder commands and events.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.patch">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.patch" title="Link to this definition">¶</a></dt>
+<dd><p>Data streams for a patch.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.region">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.region" title="Link to this definition">¶</a></dt>
+<dd><p>Region tracking data for the specified camera.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.session">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.session" title="Link to this definition">¶</a></dt>
+<dd><p>Session metadata for Experiment 0.1.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.weight">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight" title="Link to this definition">¶</a></dt>
+<dd><p>Weight measurement data streams for a specific nest.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.weight_filtered">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_filtered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#weight_filtered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_filtered" title="Link to this definition">¶</a></dt>
+<dd><p>Filtered weight measurement for a specific nest.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.weight_raw">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#weight_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_raw" title="Link to this definition">¶</a></dt>
+<dd><p>Raw weight measurement for a specific nest.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.schema.foraging.weight_subject">
+<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_subject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/schema/foraging.html#weight_subject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_subject" title="Link to this definition">¶</a></dt>
+<dd><p>Subject weight measurement for a specific nest.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Developer API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aeon.util.html">aeon.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.movies.html">aeon.analysis.movies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.plotting.html">aeon.analysis.plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.utils.html">aeon.analysis.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.core.html">aeon.schema.core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">aeon.schema.foraging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.api.html">aeon.io.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.device.html">aeon.io.device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.reader.html">aeon.io.reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.video.html">aeon.io.video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">Developer API</a><ul>
+      <li>Previous: <a href="aeon.schema.dataset.html" title="previous chapter">aeon.schema.dataset</a></li>
+      <li>Next: <a href="aeon.schema.octagon.html" title="next chapter">aeon.schema.octagon</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/aeon.schema.foraging.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

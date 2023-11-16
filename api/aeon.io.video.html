@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>aeon.io.video &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Development Practices" href="../dev_practices/dev_practices.html" />
+    <link rel="prev" title="aeon.io.reader" href="aeon.io.reader.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-aeon.io.video">
+<span id="aeon-io-video"></span><h1>aeon.io.video<a class="headerlink" href="#module-aeon.io.video" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.video.export">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.video.</span></span><span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fourcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/video.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.video.export" title="Link to this definition">¶</a></dt>
+<dd><p>Exports the specified frame sequence to a new video file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frames</strong> (<em>iterable</em>) – An object to iterate over the raw video frame data.</p></li>
+<li><p><strong>file</strong> (<em>str</em>) – The path to the exported video file.</p></li>
+<li><p><strong>fps</strong> – The frame rate of the exported video.</p></li>
+<li><p><strong>fourcc</strong> (<em>optional</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Specifies the four character code of the codec used to compress the frames.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.video.frames">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.video.</span></span><span class="sig-name descname"><span class="pre">frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/video.html#frames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.video.frames" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts the raw frames corresponding to the provided video metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>DataFrame</em>) – </p>
+</dd>
+</dl>
+<p>A pandas DataFrame where each row specifies video acquisition path and frame number.
+:return:
+An object to iterate over numpy arrays for each row in the DataFrame,
+containing the raw video frame data.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Developer API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aeon.util.html">aeon.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.movies.html">aeon.analysis.movies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.plotting.html">aeon.analysis.plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.utils.html">aeon.analysis.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.core.html">aeon.schema.core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.api.html">aeon.io.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.device.html">aeon.io.device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.reader.html">aeon.io.reader</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">aeon.io.video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">Developer API</a><ul>
+      <li>Previous: <a href="aeon.io.reader.html" title="previous chapter">aeon.io.reader</a></li>
+      <li>Next: <a href="../dev_practices/dev_practices.html" title="next chapter">Development Practices</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/aeon.io.video.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>aeon.analysis.plotting &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="aeon.analysis.utils" href="aeon.analysis.utils.html" />
+    <link rel="prev" title="aeon.analysis.movies" href="aeon.analysis.movies.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-aeon.analysis.plotting">
+<span id="aeon-analysis-plotting"></span><h1>aeon.analysis.plotting<a class="headerlink" href="#module-aeon.analysis.plotting" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.analysis.plotting.circle">
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/analysis/plotting.html#circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.circle" title="Link to this definition">¶</a></dt>
+<dd><p>Plot a circle centered at the given x, y position with the specified radius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>number</em>) – The x-component of the circle center.</p></li>
+<li><p><strong>y</strong> (<em>number</em>) – The y-component of the circle center.</p></li>
+<li><p><strong>radius</strong> (<em>number</em>) – The radius of the circle.</p></li>
+<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>optional</em>) – The format used to plot the circle line.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em><em>, </em><em>optional</em>) – The Axes on which to draw the circle.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.analysis.plotting.colorline">
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">colorline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm=&lt;matplotlib.colors.Normalize</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/analysis/plotting.html#colorline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.colorline" title="Link to this definition">¶</a></dt>
+<dd><p>Plot a dynamically colored line on the specified Axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>array-like x</em><em>,</em>) – The horizontal / vertical coordinates of the data points.</p></li>
+<li><p><strong>z</strong> (<em>array-like</em><em>, </em><em>optional</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>The dynamic variable used to color each data point by indexing the color map.
+:param str or ~matplotlib.colors.Colormap, optional cmap:
+The colormap used to map normalized data values to RGBA colors.
+:param matplotlib.colors.Normalize, optional norm:
+The normalizing object used to scale data to the range [0, 1] for indexing the color map.
+:param Axes, optional ax: The Axes on which to draw the colored line.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.analysis.plotting.heatmap">
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/analysis/plotting.html#heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.heatmap" title="Link to this definition">¶</a></dt>
+<dd><p>Draw a heatmap of time spent in each location from specified position data and sampling frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>Series</em>) – A series of position data containing x and y coordinates.</p></li>
+<li><p><strong>frequency</strong> (<em>number</em>) – The sampling frequency for the position data.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em><em>, </em><em>optional</em>) – The Axes on which to draw the heatmap.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.analysis.plotting.rateplot">
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">rateplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/analysis/plotting.html#rateplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.rateplot" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the continuous event rate and raster of a discrete event sequence, given the specified
+window size and sampling frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>events</strong> (<em>Series</em>) – The discrete sequence of events.</p></li>
+<li><p><strong>window</strong> (<em>offset</em>) – The time period of each window used to compute the rate.</p></li>
+<li><p><strong>frequency</strong> (<em>DateOffset</em><em>, </em><em>Timedelta</em><em> or </em><em>str</em>) – The sampling frequency for the continuous rate.</p></li>
+<li><p><strong>weight</strong> (<em>number</em><em>, </em><em>optional</em>) – A weight used to scale the continuous rate of each window.</p></li>
+<li><p><strong>start</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The left bound of the time range for the continuous rate.</p></li>
+<li><p><strong>end</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The right bound of the time range for the continuous rate.</p></li>
+<li><p><strong>smooth</strong> (<em>DateOffset</em><em>, </em><em>Timedelta</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The size of the smoothing kernel applied to the continuous rate output.</p></li>
+<li><p><strong>smooth</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>The size of the smoothing kernel applied to the continuous rate output.
+:param bool, optional center: Specifies whether to center the convolution kernels.
+:param Axes, optional ax: The Axes on which to draw the rate plot and raster.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.analysis.plotting.set_ymargin">
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">set_ymargin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/analysis/plotting.html#set_ymargin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.set_ymargin" title="Link to this definition">¶</a></dt>
+<dd><p>Set the vertical margins of the specified Axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>Axes</em>) – The Axes for which to specify the vertical margin.</p></li>
+<li><p><strong>bottom</strong> (<em>number</em>) – The size of the bottom margin.</p></li>
+<li><p><strong>top</strong> (<em>number</em>) – The size of the top margins.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Developer API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aeon.util.html">aeon.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.movies.html">aeon.analysis.movies</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">aeon.analysis.plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.utils.html">aeon.analysis.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.core.html">aeon.schema.core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.api.html">aeon.io.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.device.html">aeon.io.device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.reader.html">aeon.io.reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.video.html">aeon.io.video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">Developer API</a><ul>
+      <li>Previous: <a href="aeon.analysis.movies.html" title="previous chapter">aeon.analysis.movies</a></li>
+      <li>Next: <a href="aeon.analysis.utils.html" title="next chapter">aeon.analysis.utils</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/aeon.analysis.plotting.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

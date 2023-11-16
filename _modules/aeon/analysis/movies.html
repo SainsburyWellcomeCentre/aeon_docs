@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aeon.analysis.movies &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for aeon.analysis.movies</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">aeon.io</span> <span class="kn">import</span> <span class="n">video</span>
+
+
+<div class="viewcode-block" id="gridframes">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.gridframes">[docs]</a>
+<span class="k">def</span> <span class="nf">gridframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Arranges a set of frames into a grid layout with the specified</span>
+<span class="sd">    pixel dimensions and shape.</span>
+
+<span class="sd">    :param list frames: A list of frames to include in the grid layout.</span>
+<span class="sd">    :param int width: The width of the output grid image, in pixels.</span>
+<span class="sd">    :param int height: The height of the output grid image, in pixels.</span>
+<span class="sd">    :param optional shape:</span>
+<span class="sd">    Either the number of frames to include, or the number of rows and columns</span>
+<span class="sd">    in the output grid image layout.</span>
+<span class="sd">    :return: A new image containing the arrangement of the frames in a grid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+
+    <span class="n">dsize</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">cellsize</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span> <span class="o">//</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">width</span> <span class="o">//</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dsize</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">j</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">frame</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">i0</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">cellsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">j0</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="n">cellsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i0</span> <span class="o">+</span> <span class="n">cellsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">j1</span> <span class="o">=</span> <span class="n">j0</span> <span class="o">+</span> <span class="n">cellsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">,</span> <span class="n">j0</span><span class="p">:</span><span class="n">j1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">(</span><span class="n">cellsize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cellsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">grid</span></div>
+
+
+
+<div class="viewcode-block" id="averageframes">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.averageframes">[docs]</a>
+<span class="k">def</span> <span class="nf">averageframes</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the average of the specified collection of frames.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convertScaleAbs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">frames</span><span class="p">)))</span></div>
+
+
+
+<div class="viewcode-block" id="groupframes">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.groupframes">[docs]</a>
+<span class="k">def</span> <span class="nf">groupframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Applies the specified function to each group of n-frames.</span>
+
+<span class="sd">    :param iterable frames: A sequence of frames to process.</span>
+<span class="sd">    :param int n: The number of frames in each group.</span>
+<span class="sd">    :param callable fun: The function used to process each group of frames.</span>
+<span class="sd">    :return: An iterable returning the results of applying the function to each group.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">fun</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+            <span class="n">group</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="triggerclip">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.triggerclip">[docs]</a>
+<span class="k">def</span> <span class="nf">triggerclip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">after</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Split video data around the specified sequence of event timestamps.</span>
+
+<span class="sd">    :param DataFrame data:</span>
+<span class="sd">    A pandas DataFrame where each row specifies video acquisition path and frame number.</span>
+<span class="sd">    :param iterable events: A sequence of timestamps to extract.</span>
+<span class="sd">    :param Timedelta before: The left offset from each timestamp used to clip the data.</span>
+<span class="sd">    :param Timedelta after: The right offset from each timestamp used to clip the data.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    A pandas DataFrame containing the frames, clip and sequence numbers for each event timestamp.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">before</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
+        <span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">before</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">after</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
+        <span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">after</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">events</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">:</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="n">clips</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">events</span><span class="p">):</span>
+        <span class="n">clip</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">index</span> <span class="o">-</span> <span class="n">before</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">after</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">clip</span><span class="p">[</span><span class="s2">&quot;frame_sequence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clip</span><span class="p">)))</span>
+        <span class="n">clip</span><span class="p">[</span><span class="s2">&quot;clip_sequence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">clips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clip</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">clips</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="collatemovie">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.collatemovie">[docs]</a>
+<span class="k">def</span> <span class="nf">collatemovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a single movie using the specified aggregation function.</span>
+
+<span class="sd">    :param DataFrame clipdata:</span>
+<span class="sd">    A pandas DataFrame where each row specifies video path, frame number, clip and sequence number.</span>
+<span class="sd">    This DataFrame can be obtained from the output of the triggerclip function.</span>
+<span class="sd">    :param callable fun: The aggregation function used to process the frames in each clip.</span>
+<span class="sd">    :return: The sequence of processed frames representing the collated movie.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">clipcount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">clipdata</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;clip_sequence&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">frame_sequence</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+    <span class="n">allframes</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">frames</span><span class="p">(</span><span class="n">clipdata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frame_sequence&quot;</span><span class="p">,</span> <span class="s2">&quot;clip_sequence&quot;</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">groupframes</span><span class="p">(</span><span class="n">allframes</span><span class="p">,</span> <span class="n">clipcount</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="gridmovie">
+<a class="viewcode-back" href="../../../api/aeon.analysis.movies.html#aeon.analysis.movies.gridmovie">[docs]</a>
+<span class="k">def</span> <span class="nf">gridmovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a grid movie with the specified pixel dimensions</span>
+<span class="sd">    and grid layout.</span>
+
+<span class="sd">    :param DataFrame clipdata:</span>
+<span class="sd">    A pandas DataFrame where each row specifies video path, frame number, clip and sequence number.</span>
+<span class="sd">    This DataFrame can be obtained from the output of the triggerclip function.</span>
+<span class="sd">    :param int width: The width of the output grid movie, in pixels.</span>
+<span class="sd">    :param int height: The height of the output grid movie, in pixels.</span>
+<span class="sd">    :param optional shape:</span>
+<span class="sd">    Either the number of frames to include, or the number of rows and columns</span>
+<span class="sd">    in the output grid movie layout.</span>
+<span class="sd">    :return: The sequence of processed frames representing the collated grid movie.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">collatemovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">gridframes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="p">))</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

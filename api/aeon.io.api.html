@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>aeon.io.api &#8212; aeon_docs 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="aeon.io.device" href="aeon.io.device.html" />
+    <link rel="prev" title="aeon.schema.social" href="aeon.schema.social.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-aeon.io.api">
+<span id="aeon-io-api"></span><h1>aeon.io.api<a class="headerlink" href="#module-aeon.io.api" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.api.aeon">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.api.</span></span><span class="sig-name descname"><span class="pre">aeon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/api.html#aeon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.api.aeon" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a Harp timestamp, in seconds, to a datetime object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.api.chunk">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.api.</span></span><span class="sig-name descname"><span class="pre">chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/api.html#chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.api.chunk" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the whole hour acquisition chunk for a measurement timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>datetime</em><em> or </em><em>Series</em>) – An object or series specifying the measurement timestamps.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A datetime object or series specifying the acquisition chunk for the measurement timestamp.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.api.chunk_key">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.api.</span></span><span class="sig-name descname"><span class="pre">chunk_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/api.html#chunk_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.api.chunk_key" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the acquisition chunk key for the specified file name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.api.chunk_range">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.api.</span></span><span class="sig-name descname"><span class="pre">chunk_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/api.html#chunk_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.api.chunk_range" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a range of whole hour acquisition chunks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>datetime</em>) – The left bound of the time range.</p></li>
+<li><p><strong>end</strong> (<em>datetime</em>) – The right bound of the time range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DatetimeIndex representing the acquisition chunk range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aeon.io.api.load">
+<span class="sig-prename descclassname"><span class="pre">aeon.io.api.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/aeon/io/api.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.api.load" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts chunk data from the root path of an Aeon dataset using the specified data stream
+reader. A subset of the data can be loaded by specifying an optional time range, or a list
+of timestamps used to index the data on file. Returned data will be sorted chronologically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>str</em><em> or </em><em>PathLike</em>) – The root path, or prioritised sequence of paths, where epoch data is stored.</p></li>
+<li><p><strong>reader</strong> (<a class="reference internal" href="aeon.io.reader.html#aeon.io.reader.Reader" title="aeon.io.reader.Reader"><em>Reader</em></a>) – A data stream reader object used to read chunk data from the dataset.</p></li>
+<li><p><strong>start</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The left bound of the time range to extract.</p></li>
+<li><p><strong>end</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The right bound of the time range to extract.</p></li>
+<li><p><strong>time</strong> (<em>datetime</em><em>, </em><em>optional</em>) – An object or series specifying the timestamps to extract.</p></li>
+<li><p><strong>tolerance</strong> (<em>datetime</em><em>, </em><em>optional</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>The maximum distance between original and new timestamps for inexact matches.
+:param str, optional epoch: A wildcard pattern to use when searching epoch data.
+:return: A pandas data frame containing epoch event metadata, sorted by time.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">aeon_docs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=SainsburyWellcomeCentre&repo=aeon_docs&type=watch&count=None&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_considerations.html">Design Considerations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Developer API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aeon.util.html">aeon.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.movies.html">aeon.analysis.movies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.plotting.html">aeon.analysis.plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.utils.html">aeon.analysis.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.core.html">aeon.schema.core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">aeon.io.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.device.html">aeon.io.device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.reader.html">aeon.io.reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.io.video.html">aeon.io.video</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_practices/dev_practices.html">Development Practices</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">Developer API</a><ul>
+      <li>Previous: <a href="aeon.schema.social.html" title="previous chapter">aeon.schema.social</a></li>
+      <li>Next: <a href="aeon.io.device.html" title="next chapter">aeon.io.device</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022–2023, Jai Bhagat, Goncalo Lopes, Chang Huan Lo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/aeon.io.api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

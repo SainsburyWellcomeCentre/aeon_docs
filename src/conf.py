@@ -20,7 +20,6 @@ sys.path.extend(
         os.path.abspath("../aeon_analysis/aeon_analysis"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
-        os.path.abspath("../aeon_blog"),
     ]
 )
 
@@ -57,6 +56,7 @@ extensions = [
 myst_enable_extensions = [
     "colon_fence",
     "linkify",
+    "deflist",
 ]
 
 # Automatically add anchors to markdown headings

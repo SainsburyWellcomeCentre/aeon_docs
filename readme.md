@@ -40,7 +40,7 @@ make clean html
 
 ProjectAeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint.
 
-If you are interested in joining this project, please contact the [project maintainers](#project-maintainers).
+If you are interested in joining this project, please contact the [project maintainers](target-project-maintainers).
 
 ## Credentials
 
@@ -128,7 +128,7 @@ In brief, each of our repos has 'main' and 'prod' branches. Feature and bug fix 
 
 When contributing to any repository, the change to be made should first be discussed in a Github Discussion or a Github Issue. Thereafter, contributors should create a new branch (branched off of 'main') that contains the changes/additions they wish to make, and then create a pull request for merging this branch into 'main'.
 
-All pull requests will be reviewed by the [project maintainers](#project-maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
+All pull requests will be reviewed by the [project maintainers](target-project-maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
 
 1) Ensure new code adheres to the [style and documentation guidelines](#style-and-documentation-guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
 
@@ -138,14 +138,15 @@ All pull requests will be reviewed by the [project maintainers](#project-maintai
 
 ### Style and Documentation Guidelines
 
-Please see our [style and documentation guidelines](https://github.com/ProjectAeon/blog/blob/main/style_and_doc_guidelines.md).
+Please see our [style and documentation guidelines](target-style-doc-guidelines).
 
 We also believe in the [readme manifesto](http://thinkinghard.com/blog/TheREADMEManifesto.html), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
 
 ### Code of Conduct
 
-Please see our [code of conduct](https://github.com/ProjectAeon/blog/blob/main/code_of_conduct.md).
+Please see our [code of conduct](target-code-of-conduct).
 
+(target-project-maintainers)=
 ## Project Maintainers
 
 Jai Bhagat (jai.bhagat.21@ucl.ac.uk)
@@ -160,6 +161,6 @@ If you use this software, please cite it as below:
 
 Sainsbury Wellcome Centre Foraging Behaviour Working Group. (2023). Aeon: An open-source platform to study the neural basis of ethological behaviours over naturalistic timescales,  https://doi.org/10.5281/zenodo.8413142
 
-[![DOI](https://zenodo.org/badge/485512362.svg)](https://zenodo.org/badge/latestdoi/485512362)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8413142.svg)](https://zenodo.org/doi/10.5281/zenodo.8411157)
 
 

@@ -28,7 +28,6 @@ jobs:
           git submodule sync
           git submodule update --init aeon_acquisition
           git submodule update --init aeon_analysis
-          git submodule update --init aeon_blog
           git submodule update --init aeon_mecha
         
       - name: Setup Python

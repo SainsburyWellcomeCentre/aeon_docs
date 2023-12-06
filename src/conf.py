@@ -11,6 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import subprocess
 import sys
 from datetime import date
 
@@ -29,10 +30,23 @@ sys.path.extend(
 project = "aeon_docs"
 copyright = f"2022–{date.today().year}, Jai Bhagat, Goncalo Lopes, Chang Huan Lo"
 author = "Jai Bhagat, Goncalo Lopes, Chang Huan Lo"
+organisation = "Sainsbury Wellcome Centre"
+
+
+def get_current_release_tag():
+    return (
+        subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"])
+        .strip()
+        .decode("utf-8")
+    )
+
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.0"
+release = get_current_release_tag()
+# release = "0.1.0"
 
+# GitHub repo URL
+github_url = f"https://github.com/{organisation.replace(' ', '')}/{project}"
 
 # -- General configuration ---------------------------------------------------
 
@@ -78,12 +92,26 @@ exclude_patterns = ["_templates"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"
+html_theme = "pydata_sphinx_theme"
 html_theme_options = {
-    "github_user": "SainsburyWellcomeCentre",
-    "github_repo": "aeon_docs",
-    "github_button": True,
-    "github_count": None,
+    "announcement": f"{project} is a WIP. Please report any issues on <a href='{github_url}/issues'>GitHub</a>.",
+    "logo": {
+        "text": f"{project} {release}"
+        # "image_light": "_static/logo-light.png",
+        # "image_dark": "_static/logo-dark.png",
+    },
+    "icon_links": [
+        {
+            # Label for this link
+            "name": "GitHub",
+            # URL where the link will redirect
+            "url": github_url,
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-github",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        }
+    ],
 }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

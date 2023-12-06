@@ -7,7 +7,7 @@ If you are interested in joining this project, please contact the [project maint
 
 ## Repositories
 
-:::{attention}
+:::{important}
 You must be an SWC Github 'aeon' project member to view some of these repositories.
 :::
 

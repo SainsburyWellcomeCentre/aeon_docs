@@ -4,7 +4,6 @@ This repo contains the source for the currently WIP version of Project Aeon's on
 
 The docs are built via Sphinx, and hosted via GitHub Pages at: sainsburywellcomecentre.github.io/aeon_docs/. `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
 
-All organizational details will eventually be available on the docs, but for now some useful info can be found in the sections below:
 
 ## Building the documentation locally
 
@@ -40,7 +39,7 @@ make clean html
 
 ProjectAeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint.
 
-If you are interested in joining this project, please contact the [project maintainers](target-project-maintainers).
+If you are interested in joining this project, please contact the [project maintainers](#project-maintainers).
 
 ## Credentials
 
@@ -92,61 +91,7 @@ Contains low-level source code for pellet delivery via feeders used in Aeon expe
 
 Contains source code for the Aeon docs site, built via Sphinx. Built docs at: https://sainsburywellcomecentre.github.io/aeon_docs/
 
-## Dev Practices
 
-### Software Development Life Cycle (SDLC)
-
-Our SDLC roughly follows the [iterative model](https://www.tutorialspoint.com/sdlc/sdlc_iterative_model.htm).
-
-### Versioning
-
-We version all the following, according to [SemVer](http://semver.org/) numbering: 
-
-- Experiments, by name, including full hardware specs (arena, I/O devices, 
-  acquisition computer, etc.)
-- Repositories, including code related to:
-  - Bonsai experiment workflows
-  - Quality Control protocols (for raw and preprocessed data)
-  - Data processing algorithms
-- aeon-db Database
-  - aeon-db tables
-
-### Issue Tracking
-
-We prioritize and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in 'aeon_experiments'.
-
-### Continuous Integration (CI)
-
-We use Github Actions to run CI. We run unit tests on Github Virtual Machines on Windows, MacOS, and Ubuntu. We run integration tests on the SWC HPC. Workflows of the CI jobs we run can be found in each repo's respective `.github/workflows/` directory.
-
-### Contributing
-
-Each repository roughly follows the [github flow](https://guides.github.com/introduction/flow/) (which is adapted from the more general 
-[gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)). 
-
-In brief, each of our repos has 'main' and 'prod' branches. Feature and bug fix branches are branched off of 'main', with Pull Requests sent back into 'main'. 'main' contains the full commit history of the project, up to the latest stable commit. Upon merges into 'main', a squash merge is performed into 'prod', such that 'prod' contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges. 'prod' thus serves as a "production" branch to allow for easier readability of project history and easier reversion of uncaught bug commits. At certain agreed upon timepoints we create "stable releases" (available in the "releases" section of the repository) which serve as a snapshot of the code at the time, version numbered according to [SemVer](http://semver.org/).
-
-When contributing to any repository, the change to be made should first be discussed in a Github Discussion or a Github Issue. Thereafter, contributors should create a new branch (branched off of 'main') that contains the changes/additions they wish to make, and then create a pull request for merging this branch into 'main'.
-
-All pull requests will be reviewed by the [project maintainers](target-project-maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
-
-1) Ensure new code adheres to the [style and documentation guidelines](#style-and-documentation-guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
-
-2) As necessary, ensure `changelog`, `readme`, config and doc files are updated.
-
-3) When a branch is ready to be merged back into 'main', always make sure to first pull 'main' locally, then rebase the feature branch onto 'main' (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into 'prod' can be handled via CI. E.g., see [here](https://github.com/SainsburyWellcomeCentre/aeon_mecha/tree/main/.github/workflows/squash_merge_to_prod.yml)
-
-### Style and Documentation Guidelines
-
-Please see our [style and documentation guidelines](target-style-doc-guidelines).
-
-We also believe in the [readme manifesto](http://thinkinghard.com/blog/TheREADMEManifesto.html), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
-
-### Code of Conduct
-
-Please see our [code of conduct](target-code-of-conduct).
-
-(target-project-maintainers)=
 ## Project Maintainers
 
 Jai Bhagat (jai.bhagat.21@ucl.ac.uk)

@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - new-theme # temporarily add branch to test new theme deployment
     tags:
       - '*'
   pull_request:

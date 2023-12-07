@@ -1,4 +1,4 @@
-# Development Practices
+# Community
 
 ## Software Development Life Cycle (SDLC)
 

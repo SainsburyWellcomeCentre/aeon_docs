@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - new-theme # temporarily add branch to test new theme deployment
     tags:
       - '*'
   pull_request:
@@ -19,10 +20,12 @@ jobs:
     name: Build Sphinx Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: false # Disable automatic checkout of all submodules
-      
+      - name: Fetch tags
+        run: |
+          git fetch --prune --prune-tags --force --depth=1 --no-recurse-submodules
       - name: Checkout public submodules # Skip aeon_experiments
         run: |
           git submodule sync

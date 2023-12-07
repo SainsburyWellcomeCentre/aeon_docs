@@ -34,11 +34,16 @@ organisation = "Sainsbury Wellcome Centre"
 
 
 def get_current_release_tag():
-    return (
-        subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"])
-        .strip()
-        .decode("utf-8")
-    )
+    try:
+        # Get the current release tag from git
+        return (
+            subprocess.check_output(["git", "describe", "--tags", "--abbrev=0"])
+            .strip()
+            .decode("utf-8")
+        )
+    except subprocess.CalledProcessError:
+        # If this fails, just return a default
+        return ""
 
 
 # The full version, including alpha/beta/rc tags

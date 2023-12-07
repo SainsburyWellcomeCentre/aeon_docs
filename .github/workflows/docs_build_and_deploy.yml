@@ -20,9 +20,10 @@ jobs:
     name: Build Sphinx Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: false # Disable automatic checkout of all submodules
+          fetch-tags: true # Fetch all tags to allow for tag-based deployments
       
       - name: Checkout public submodules # Skip aeon_experiments
         run: |

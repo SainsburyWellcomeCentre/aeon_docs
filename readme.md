@@ -2,7 +2,7 @@
 
 This repo contains the source for the currently WIP version of Project Aeon's online docs. 
 
-The docs are built via Sphinx, and hosted via GitHub Pages at: sainsburywellcomecentre.github.io/aeon_docs/. `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
+The docs are built via [Sphinx](https://www.sphinx-doc.org/en/master/), and hosted via GitHub Pages at [sainsburywellcomecentre.github.io/aeon_docs/](https://sainsburywellcomecentre.github.io/aeon_docs/). `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
 
 
 ## Building the documentation locally
@@ -28,11 +28,46 @@ Finally, build the documentation:
 ```bash
 make html
 ```
-You can view the local build by opening ``docs/html/index.html`` in a browser.
+You can view the local build by opening `docs/html/index.html` in a browser.
 
 To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
 ```bash
 make clean html
+```
+
+To check that external URLs are correctly resolved, run:
+```bash
+make linkcheck
+```
+
+If the linkcheck step incorrectly marks URLs with valid anchors as broken, 
+you can skip checking the anchors in specific URLs by adding them to 
+`linkcheck_anchors_ignore_for_url` in `src/conf.py`, e.g.: 
+```python
+# linkcheck will skip verifying that anchors exist when checking
+# these URLs
+linkcheck_anchors_ignore_for_url = [
+    "https://example.com",
+]
+```
+
+To skip linkcheck for specific URLs, add them to
+`linkcheck_ignore` in `src/conf.py`, e.g.:
+```python
+# linkcheck will skip checking these URLs entirely
+linkcheck_ignore = [
+    "https://github.com/org/private_repository",
+]
+```
+
+To suppress warnings for expected redirects, add them to 
+`linkcheck_allowed_redirects` in `src/conf.py`, e.g.:
+```python
+# linkcheck will treat redirections from these source URI:canonical URI
+# mappings as "working".
+linkcheck_allowed_redirects = {
+    r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+}
 ```
 
 ## Project Aeon Organization Overview

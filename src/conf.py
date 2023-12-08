@@ -125,10 +125,17 @@ html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 
-# The linkcheck builder will skip verifying these URLs
+# linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
-    "https://github.com/SainsburyWellcomeCentre/aeon_experiments",  # This is currently a private repo
+    "https://github.com/SainsburyWellcomeCentre/aeon_experiments",  # This is currently a private repository
 ]
+
+# linkcheck will treat redirections from these source URI:canonical URI
+# mappings as "working".
+linkcheck_allowed_redirects = {
+    r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
+    r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+}
 
 myst_url_schemes = {
     "http": None,

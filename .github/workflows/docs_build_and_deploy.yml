@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-      - fix-external-urls # temporarily added to test deployment
     tags:
       - '*'
   pull_request:

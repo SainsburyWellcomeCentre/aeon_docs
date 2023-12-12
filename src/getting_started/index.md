@@ -1,5 +1,9 @@
 (target-repositories)=
-# Repositories
+# Getting Started
+
+## Introduction to Project Aeon
+
+## Repositories
 
 :::{important}
 You must be an SWC Github 'aeon' project member to view some of these repositories.

@@ -1,6 +1,5 @@
 import os
 
-
 # modules to ignore in the api doc
 ignore_modules = [
     "aeon.dj_pipeline",
@@ -36,7 +35,7 @@ def make_api_doctree():
         api_head = f.read()
 
     # write file for api doc with header + doctree
-    with open("./src/api.rst", "w") as f:
+    with open("./src/reference/api.rst", "w") as f:
         f.write("..\n  This file is auto-generated.\n\n")
         f.write(api_head)
         f.write(doctree)

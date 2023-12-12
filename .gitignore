@@ -1,4 +1,4 @@
 # Sphinx documentation
 docs/
-src/api/
-src/api.rst
+src/reference/api/
+src/reference/api.rst

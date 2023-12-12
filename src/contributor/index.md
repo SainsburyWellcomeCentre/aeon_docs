@@ -1,4 +1,4 @@
-# Community
+# Contributor Guide
 
 ## Software Development Life Cycle (SDLC)
 
@@ -48,13 +48,9 @@ Please see our [style and documentation guidelines](target-style-doc-guidelines)
 
 We also believe in the [readme manifesto](http://thinkinghard.com/blog/TheREADMEManifesto.html), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
 
-## Code of Conduct
-
-Please see our [code of conduct](target-code-of-conduct).
 
 :::{toctree}
 :maxdepth: 1
 :hidden:
 
 style_and_doc_guidelines
-code_of_conduct

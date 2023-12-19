@@ -84,7 +84,12 @@ myst_heading_anchors = 3
 templates_path = ["_templates"]
 
 autosummary_generate = True
-autodoc_default_flags = ["members", "inherited-members"]
+autodoc_default_options = {
+    "members": True,
+    "inherited-members": True,
+    "show-inheritance": True,
+    "undoc-members": True,
+}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

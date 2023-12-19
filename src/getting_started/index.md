@@ -6,7 +6,15 @@
 ## Repositories
 
 :::{important}
-You must be an SWC Github 'aeon' project member to view some of these repositories.
+You must be an SWC Github 'aeon' project member to view some of these repositories. The required sets of credentials are as follows: 
+- Microsoft Teams: contact Jai Bhagat, Goncalo Lopes, or Dario Campagner
+- SWC Github organization: contact SWC Helpdesk (helpdesk@swc.ucl.ac.uk)
+- SWC Github 'aeon' project: contact Jai Bhagat or Goncalo Lopes
+- SWC HPC: contact SWC Helpdesk
+- 'aeon' HPC Linux group: contact SWC Helpdesk
+- Datajoint database username: contact Thinh Nguyen (thinh@vathes.com)
+
+To be granted these credentials, please send a single email to all contact parties requesting this access.
 :::
 
 ::::{grid} 1 2 2 2
@@ -27,7 +35,7 @@ Aeon experiment workflows written in the Bonsai visual programming language
 :::{grid-item-card} {fas}`computer;sd-text-primary` aeon_acquisition
 :link: https://github.com/SainsburyWellcomeCentre/aeon_acquisition
 :link-type: url
-Source code for the 'aeon_acquisition' Bonsai package used in Aeon experiment workflows
+Source code for the `aeon_acquisition` Bonsai package used in Aeon experiment workflows
 :::
 
 :::{grid-item-card} {fas}`chart-line;sd-text-primary` aeon_analysis

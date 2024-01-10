@@ -3,7 +3,7 @@
 
 The purpose of this document is to establish Project Aeon code style and documentation guidelines.
 
-We generally adhere to [pep8](https://www.python.org/dev/peps/pep-0008/), [pep257](https://www.python.org/dev/peps/pep-0257/), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`.
+We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`.
 
 ## General Guidelines
 

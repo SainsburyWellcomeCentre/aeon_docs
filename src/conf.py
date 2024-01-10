@@ -28,8 +28,8 @@ sys.path.extend(
 # -- Project information -----------------------------------------------------
 
 project = "aeon_docs"
-copyright = f"2022–{date.today().year}, Jai Bhagat, Goncalo Lopes, Chang Huan Lo"
 author = "Jai Bhagat, Goncalo Lopes, Chang Huan Lo"
+copyright = f"2022–{date.today().year}, {author}"
 organisation = "Sainsbury Wellcome Centre"
 
 
@@ -48,7 +48,6 @@ def get_current_release_tag():
 
 # The full version, including alpha/beta/rc tags
 release = get_current_release_tag()
-# release = "0.1.0"
 
 # GitHub repo URL
 github_url = f"https://github.com/{organisation.replace(' ', '')}/{project}"
@@ -125,3 +124,26 @@ html_theme_options = {
 html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
+
+# linkcheck will skip checking these URLs entirely
+linkcheck_ignore = [
+    "https://github.com/SainsburyWellcomeCentre/aeon_experiments",  # This is currently a private repository
+]
+
+# linkcheck will treat redirections from these source URI:canonical URI
+# mappings as "working".
+linkcheck_allowed_redirects = {
+    r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
+    r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+}
+
+myst_url_schemes = {
+    "http": None,
+    "https": None,
+    "ftp": None,
+    "mailto": None,
+    "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
+    "semver": "https://semver.org/",
+    "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
+    "python-pep": "https://peps.python.org/pep-{{path}}",
+}

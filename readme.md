@@ -2,7 +2,7 @@
 
 This repo contains the source for the currently WIP version of Project Aeon's online docs. 
 
-The docs are built via Sphinx, and hosted via GitHub Pages at: sainsburywellcomecentre.github.io/aeon_docs/. `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
+The docs are built via [Sphinx](https://www.sphinx-doc.org/en/master/), and hosted via GitHub Pages at [sainsburywellcomecentre.github.io/aeon_docs/](https://sainsburywellcomecentre.github.io/aeon_docs/). `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
 
 
 ## Building the documentation locally
@@ -28,11 +28,46 @@ Finally, build the documentation:
 ```bash
 make html
 ```
-You can view the local build by opening ``docs/html/index.html`` in a browser.
+You can view the local build by opening `docs/html/index.html` in a browser.
 
 To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
 ```bash
 make clean html
+```
+
+To check that external URLs are correctly resolved, run:
+```bash
+make linkcheck
+```
+
+If the linkcheck step incorrectly marks URLs with valid anchors as broken, 
+you can skip checking the anchors in specific URLs by adding them to 
+`linkcheck_anchors_ignore_for_url` in `src/conf.py`, e.g.: 
+```python
+# linkcheck will skip verifying that anchors exist when checking
+# these URLs
+linkcheck_anchors_ignore_for_url = [
+    "https://example.com",
+]
+```
+
+To skip linkcheck for specific URLs, add them to
+`linkcheck_ignore` in `src/conf.py`, e.g.:
+```python
+# linkcheck will skip checking these URLs entirely
+linkcheck_ignore = [
+    "https://github.com/org/private_repository",
+]
+```
+
+To suppress warnings for expected redirects, add them to 
+`linkcheck_allowed_redirects` in `src/conf.py`, e.g.:
+```python
+# linkcheck will treat redirections from these source URI:canonical URI
+# mappings as "working".
+linkcheck_allowed_redirects = {
+    r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+}
 ```
 
 ## Project Aeon Organization Overview
@@ -67,7 +102,7 @@ To be granted these credentials, please send a single email to all contact parti
 Project Aeon's main library for interfacing with acquired data. Contains Python modules for raw data file io, data querying, data processing, data qc, database ingestion, and building computational data pipelines. This is the main user repository.
 
 > [!NOTE]
-> All experiment data is acquired and/or triggered and/or synced by [Harp devices](https://www.cf-hw.org/harp). Code in the 'aeon_acquisition' and 'aeon_mecha' repos makes use of the [Harp protocol](https://github.com/harp-tech/protocol) during data acquisition, raw data file writing, and raw data file reading. In the 'harp-tech/protocol' Github repo, you can find documentation on [Harp device operation and common registers](https://github.com/harp-tech/protocol/blob/master/Device%201.0%201.4%2020200901.pdf), the [Harp binary protocol](https://github.com/harp-tech/protocol/blob/master/Binary%20Protocol%201.0%201.1%2020180223.pdf), and [Harp clock synchronization](https://github.com/harp-tech/protocol/blob/master/Synchronization%20Clock%201.0%201.0%2020200712.pdf).
+> All experiment data is acquired and/or triggered and/or synced by [Harp devices](https://www.cf-hw.org/harp). Code in the 'aeon_acquisition' and 'aeon_mecha' repos makes use of the [Harp protocol](https://harp-tech.org/articles/about.html) during data acquisition, raw data file writing, and raw data file reading. See also the documentation on [Harp device operation and common registers](https://harp-tech.org/protocol/Device.html), the [Harp binary protocol](https://harp-tech.org/protocol/BinaryProtocol-8bit.html), and [Harp clock synchronization](https://harp-tech.org/protocol/SynchronizationClock.html).
 
 ### [aeon_experiments](https://github.com/SainsburyWellcomeCentre/aeon_experiments)
 

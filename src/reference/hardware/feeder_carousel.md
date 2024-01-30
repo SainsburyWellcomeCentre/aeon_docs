@@ -10,6 +10,8 @@ Insert description of the feeder.
 ## Assembly Instructions
 ### Pellet Hopper
 ::::{carousel}
+:data-bs-interval: "false"
+
 :::{figure} ../../_static/images/feeder.png
 %
 1\. Trim slightly the motor metal pin using a grinding wheel or a handheld Dremel. Trim until you create a flat surface on the pin. 
@@ -38,6 +40,8 @@ Insert description of the feeder.
 
 ### IR Sensor
 ::::{carousel}
+:data-bs-interval: "false"
+
 :::{figure} ../../_static/images/feeder.png
 %
 6\. Place the wheel frame on the feeder base with 4 screws (ID 4).

@@ -158,5 +158,4 @@ myst_url_schemes = {
 carousel_show_captions_below = True
 carousel_show_controls = True
 carousel_show_indicators = True
-carousel_data_bs_interval = False
 carousel_show_dark = True

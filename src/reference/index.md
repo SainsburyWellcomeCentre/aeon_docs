@@ -7,4 +7,5 @@ This reference manual details all software and hardware components, and a glossa
 
 api
 data_contract
+hardware
 glossary

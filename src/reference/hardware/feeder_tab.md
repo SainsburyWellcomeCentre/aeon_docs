@@ -7,7 +7,7 @@ Insert description of the feeder.
 ![Parts1](../../_static/images/feeder-main.png)
 ![Parts2](../../_static/images/feeder-parts.png)
 
-## Assembly Instructions
+## Assembly Guide
 ::::{tab-set}
 :::{tab-item} Pellet Hopper
 ![Assembly](../../_static/images/feeder-pellet-hopper.png)

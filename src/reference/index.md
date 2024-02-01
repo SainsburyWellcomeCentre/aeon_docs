@@ -5,7 +5,7 @@ This reference manual details all software and hardware components, and a glossa
 :::{toctree}
 :maxdepth: 2
 
+hardware
 api
 data_contract
-hardware
 glossary

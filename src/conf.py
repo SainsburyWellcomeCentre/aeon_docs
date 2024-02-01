@@ -159,3 +159,4 @@ carousel_show_captions_below = True
 carousel_show_controls = True
 carousel_show_indicators = True
 carousel_show_dark = True
+carousel_show_buttons_on_top = True

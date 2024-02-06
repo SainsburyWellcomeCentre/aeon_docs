@@ -10,6 +10,7 @@ This section describes the hardware components available in Project Aeon.
 |  [Feeder](target-feeder)   | An underground feeder... | 3.00 |
 |  [Feeder2](target-feeder-tab)   | An underground feeder... | 3.00 |
 |  [Feeder3](target-feeder-carousel)   | An underground feeder... | 3.00 |
+|  [Feeder4](target-feeder-carousel-in-tab)   | An underground feeder... | 3.00 |
 
 :::{toctree}
 :maxdepth: 1
@@ -17,3 +18,4 @@ This section describes the hardware components available in Project Aeon.
 hardware/feeder
 hardware/feeder_tab
 hardware/feeder_carousel
+hardware/feeder_carousel_in_tab

@@ -67,7 +67,6 @@ extensions = [
     "sphinx_autodoc_typehints",
     "myst_parser",
     "sphinx_design",
-    "sphinx_carousel.carousel",
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -154,10 +153,3 @@ myst_url_schemes = {
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
 }
-
-# -- Options for Sphinx Carousel ----
-carousel_show_captions_below = True
-carousel_show_controls = True
-carousel_show_indicators = True
-carousel_show_dark = True
-carousel_show_buttons_on_top = True

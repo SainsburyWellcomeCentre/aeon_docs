@@ -137,6 +137,8 @@ Gonçalo Lopes (g.lopes@neurogears.org)
 
 Dario Campagner (d.campagner@ucl.ac.uk)
 
+Chang Huan Lo (changhuan.lo@ucl.ac.uk)
+
 ## Citation Policy
 
 If you use this software, please cite it as below:

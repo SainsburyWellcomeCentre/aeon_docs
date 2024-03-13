@@ -16,6 +16,7 @@ If you have any questions or need further information, feel free to reach out to
 * Jai Bhagat (jai.bhagat.21@ucl.ac.uk)
 * Gonçalo Lopes (g.lopes@neurogears.org)
 * Dario Campagner (d.campagner@ucl.ac.uk)
+* Chang Huan Lo (changhuan.lo@ucl.ac.uk)
 
 (target-project-contributors)=
 ## Contributors

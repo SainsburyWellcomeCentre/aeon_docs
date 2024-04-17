@@ -75,6 +75,7 @@ myst_enable_extensions = [
     "colon_fence",
     "linkify",
     "deflist",
+    "attrs_inline",
 ]
 
 # Automatically add anchors to markdown headings
@@ -121,6 +122,7 @@ html_theme_options = {
             "type": "fontawesome",
         }
     ],
+    "show_toc_level": 3,  # Show the first 3 levels of the local TOC
 }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

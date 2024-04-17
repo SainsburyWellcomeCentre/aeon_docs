@@ -1,13 +1,13 @@
 (target-home)=
 # Project Aeon
 
-ProjectAeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. For a full list of contributors, please see the [Contributors](target-project-contributors) section.
+Project Aeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. For a full list of contributors, please see the [Contributors](target-project-contributors) section.
 
 ::::{grid} 1 2 2 2
 :gutter: 3 
 
 :::{grid-item-card} {fas}`person-running;sd-text-primary` Getting started
-New to Project Aeon? Check out the Introduction to Project Aeon. 
+New to Project Aeon? Check out the introduction to Project Aeon. 
 ++++++
 ```{button-ref} getting_started/index
 :expand:

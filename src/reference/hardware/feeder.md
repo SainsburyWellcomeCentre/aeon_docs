@@ -1,6 +1,6 @@
 (target-feeder)=
 # Feeder
-![Feeder](../../_static/images/feeder.png)
+![Feeder](../../_static/images/feeder.png){align=center}
 Insert description of the feeder.
 
 ## Parts List

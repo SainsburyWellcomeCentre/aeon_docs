@@ -75,6 +75,7 @@ myst_enable_extensions = [
     "colon_fence",
     "linkify",
     "deflist",
+    "attrs_inline",
 ]
 
 # Automatically add anchors to markdown headings

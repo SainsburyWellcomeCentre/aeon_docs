@@ -5,7 +5,7 @@
 [submodule "aeon_analysis"]
 	path = aeon_analysis
 	url = https://github.com/SainsburyWellcomeCentre/aeon_analysis
-	branch = main
+	branch = api-notebooks
 [submodule "aeon_blog"]
 	path = aeon_blog
 	url = https://github.com/SainsburyWellcomeCentre/aeon_blog

@@ -65,8 +65,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
-    "myst_parser",
-    "nbsphinx",
+    "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
 ]
@@ -82,6 +81,9 @@ myst_enable_extensions = [
 
 # Automatically add anchors to markdown headings
 myst_heading_anchors = 3
+
+# Disable notebook execution
+nb_execution_mode = "off"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -1,11 +1,12 @@
-# mininum dependencies to build aeon_mecha docs
+# minimum dependencies to build aeon_mecha docs
 dotmap
 matplotlib
 opencv-python
 pandas 
 
-myst-parser
 linkify-it-py
-sphinx-design
-sphinx-autodoc-typehints
+myst-parser
 pydata-sphinx-theme
+sphinx-autodoc-typehints
+sphinx-copybutton
+sphinx-design

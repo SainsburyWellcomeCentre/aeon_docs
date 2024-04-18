@@ -67,6 +67,7 @@ extensions = [
     "sphinx_autodoc_typehints",
     "myst_parser",
     "sphinx_design",
+    "sphinx_copybutton",
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -130,11 +131,6 @@ html_theme_options = {
 # html_static_path = ['_static']
 html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-]
-
-# linkcheck will skip checking these URLs entirely
-linkcheck_ignore = [
-    "https://github.com/SainsburyWellcomeCentre/aeon_experiments",  # This is currently a private repository
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

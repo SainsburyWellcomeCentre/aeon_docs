@@ -5,8 +5,7 @@ opencv-python
 pandas 
 
 linkify-it-py
-myst-parser
-nbsphinx
+myst-nb
 pydata-sphinx-theme
 sphinx-autodoc-typehints
 sphinx-copybutton

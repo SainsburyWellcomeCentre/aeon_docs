@@ -66,6 +66,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
     "myst_parser",
+    "nbsphinx",
     "sphinx_design",
     "sphinx_copybutton",
 ]

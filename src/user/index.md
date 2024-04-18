@@ -1,3 +1,10 @@
 (target-user-guide)=
 # User Guide
-This guide is an overview and explains the important features of Project Aeon.
+This guide contains tutorials for learning the basics, and how-to guides targeted at specific tasks.
+
+:::{toctree}
+:maxdepth: 2
+:caption: Tutorials
+
+tutorials/exp01_patchsummary
+tutorials/dj_example_notebook

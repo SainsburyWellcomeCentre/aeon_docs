@@ -83,10 +83,29 @@ All commands below should be run in a bash shell
 installing git).
 :::
 
-If setting up on SWC's HPC, first connect to the remote HPC system using SSH.
-```sh 
+
+
+:::{dropdown} Setting up on SWC's HPC
+:color: primary
+:icon: server
+If setting up on SWC's remote HPC system, you will have to first connect to the HPC using SSH and add miniconda to your system path.
+```sh
 ssh <your_SWC_username>@ssh.swc.ucl.ac.uk
+ssh hpc-gw1
+module load miniconda
 ```
+**Optional**: Add the following commands to the `.profile` file to add miniconda as an environment module and Bonsai and its dependencies to your system path on startup (this will be initialized each time you SSH into the HPC). This file should be located in the home directory, i.e. `~/.profile`. If it does not exist, create it with `touch ~/.profile`.
+
+```
+# Set env modules
+module load miniconda
+
+# Save Bonsai and deps to path
+export PATH=$PATH:/ceph/aeon/aeon/code/bonsai/Bonsai.Player/bin/Debug/net5.0
+export DOTNET_ROOT=/ceph/aeon/aeon/code/dotnet
+export PATH=$PATH:/ceph/aeon/aeon/code/dotnet
+```
+:::
 
 Clone the `aeon_mecha` repository into the `~/ProjectAeon/aeon_mecha` directory. 
 ```sh
@@ -126,7 +145,7 @@ This will install the package alongside all `dev` dependencies.
 
 :::{important}
 You must be an SWC `aeon` project member to access Aeon data hosted on 
-SWC's HPC. The required sets of credentials are as follows: 
+SWC's Ceph storage. The required sets of credentials are as follows: 
 - Microsoft Teams: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk), [Gonçalo Lopes](mailto:g.lopes@neurogears.org), or [Dario Campagner](mailto:d.campagner@ucl.ac.uk)
 - SWC Github organization: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
 - SWC Github `aeon` project: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk) or [Gonçalo Lopes](mailto:g.lopes@neurogears.org)
@@ -138,3 +157,19 @@ To be granted these credentials, please send a single email to
 [all contact parties](mailto:jai.bhagat.21@ucl.ac.uk,g.lopes@neurogears.org,d.campagner@ucl.ac.uk,helpdesk@swc.ucl.ac.uk,thinh@vathes.com?subject=Request%20for%20Aeon%20credentials) 
 requesting this access.
 :::
+
+:::::{tab-set}
+::::{tab-item} Local
+:::{admonition} Note
+:class: note
+The links below point to the SWC internal wiki, which is only accessible from within the SWC network (or using VPN).
+:::
+In order to access Aeon data, you need to be on the SWC network or connected via VPN. You also need to [mount the Ceph storage on your local machine](https://wiki.ucl.ac.uk/display/SSC/How+to+Mount). The Ceph storage path for different operating systems can be found [here](https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph), replacing `xxxxxxxx` with `aeon`.
+::::
+
+::::{tab-item} Remote
+For using an IDE (e.g. PyCharm, VSCode, Jupyter, etc.), you will need to set up local port forwarding from a specified port on the HPC. These instructions can typically be found in your IDE's online documentation. Here are instructions for [PyCharm Professional](https://www.jetbrains.com/help/pycharm/configuring-remote-interpreters-via-ssh.html), and for [VSCode](https://code.visualstudio.com/docs/remote/ssh).
+::::
+:::::
+
+Once you have access to the data, you can interact with it within the `aeon` conda environment. To learn more, check out the [Tutorials](target-user-guide).

@@ -96,7 +96,8 @@ module load miniconda
 ```
 **Optional**: Add the following commands to the `.profile` file to add miniconda as an environment module and Bonsai and its dependencies to your system path on startup (this will be initialized each time you SSH into the HPC). This file should be located in the home directory, i.e. `~/.profile`. If it does not exist, create it with `touch ~/.profile`.
 
-```
+```{code-block} sh
+:caption: .profile
 # Set env modules
 module load miniconda
 
@@ -168,7 +169,7 @@ In order to access Aeon data, you need to be on the SWC network or connected via
 ::::
 
 ::::{tab-item} Remote
-For using an IDE (e.g. PyCharm, VSCode, Jupyter, etc.), you will need to set up local port forwarding from a specified port on the HPC. These instructions can typically be found in your IDE's online documentation. Here are instructions for [PyCharm Professional](https://www.jetbrains.com/help/pycharm/configuring-remote-interpreters-via-ssh.html), and for [VSCode](https://code.visualstudio.com/docs/remote/ssh).
+For using an IDE (e.g. PyCharm, VS Code, Jupyter, etc.), you will need to set up local port forwarding from a specified port on the HPC. These instructions can typically be found in your IDE's online documentation. Here are instructions for [PyCharm Professional](https://www.jetbrains.com/help/pycharm/configuring-remote-interpreters-via-ssh.html), and for [VS Code](https://code.visualstudio.com/docs/remote/ssh).
 ::::
 :::::
 

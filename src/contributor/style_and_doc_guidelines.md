@@ -3,7 +3,7 @@
 
 The purpose of this document is to establish Project Aeon code style and documentation guidelines.
 
-We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`.
+We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`. We also believe in the [readme manifesto](https://www.thinkinghard.com/blog/TheREADMEManifesto), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
 
 ## General Guidelines
 

@@ -36,18 +36,11 @@ When contributing to any repository, the change to be made should first be discu
 
 All pull requests will be reviewed by the [project maintainers](target-project-maintainers). Minimally, maintainers should follow the below steps when reviewing pull requests:
 
-1) Ensure new code adheres to the [style and documentation guidelines](#style-and-documentation-guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
+1) Ensure new code adheres to the [style and documentation guidelines](target-style-doc-guidelines), is covered by a test, and passes a build test. These can all be checked via CI.
 
 2) As necessary, ensure `changelog`, `readme`, config and doc files are updated.
 
 3) When a branch is ready to be merged back into 'main', always make sure to first pull 'main' locally, then rebase the feature branch onto 'main' (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into 'prod' can be handled via CI. E.g., see [here](aeon-mecha-github:blob/main/.github/workflows/squash_merge_to_prod.yml)
-
-## Style and Documentation Guidelines
-
-Please see our [style and documentation guidelines](target-style-doc-guidelines).
-
-We also believe in the [readme manifesto](https://www.thinkinghard.com/blog/TheREADMEManifesto), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
-
 
 :::{toctree}
 :maxdepth: 1

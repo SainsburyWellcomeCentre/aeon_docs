@@ -8,3 +8,11 @@ This guide contains tutorials for learning the basics, and how-to guides targete
 
 tutorials/exp01_patchsummary
 tutorials/dj_example_notebook
+:::
+
+:::{toctree}
+:maxdepth: 2
+:caption: How-to Guides
+
+how_to/diagram_copy
+:::

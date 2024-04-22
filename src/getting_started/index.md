@@ -165,7 +165,7 @@ requesting this access.
 :class: note
 The links below point to the SWC internal wiki, which is only accessible from within the SWC network (or using VPN).
 :::
-In order to access Aeon data, you need to be on the SWC network or connected via VPN. You also need to [mount the Ceph storage on your local machine](https://wiki.ucl.ac.uk/display/SSC/How+to+Mount). The Ceph storage path for different operating systems can be found [here](https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph), replacing `xxxxxxxx` with `aeon`.
+In order to access Aeon data locally, you need to be on the SWC network or connected via VPN. You also need to [mount the Ceph storage on your local machine](https://wiki.ucl.ac.uk/display/SSC/How+to+Mount). The Ceph storage path for different operating systems can be found [here](https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph), replacing `xxxxxxxx` with `aeon`.
 ::::
 
 ::::{tab-item} Remote
@@ -173,4 +173,4 @@ For using an IDE (e.g. PyCharm, VS Code, Jupyter, etc.), you will need to set up
 ::::
 :::::
 
-Once you have access to the data, you can interact with it within the `aeon` conda environment. To learn more, check out the [Tutorials](target-user-guide).
+Within the `aeon` conda environment, Aeon data can be accessed directly from Ceph or the DataJoint database using the [Aeon API](target-api-reference). Examples for retrieving and visualizing the data can be found in the [User Guide](target-user-guide).

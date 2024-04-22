@@ -139,12 +139,16 @@ html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 
+# linkcheck will skip checking these URLs entirely
+linkcheck_ignore = [
+    r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
+]
+
 # linkcheck will treat redirections from these source URI:canonical URI
 # mappings as "working".
 linkcheck_allowed_redirects = {
     r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
-    r"https://wiki\.ucl\.ac\.uk/.*": r"https://www\.ucl\.ac\.uk/.*",
 }
 
 myst_url_schemes = {

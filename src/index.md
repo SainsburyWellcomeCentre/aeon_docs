@@ -68,4 +68,4 @@ getting_started/index
 user/index
 contributor/index
 reference/index
-About<about/index>
+about/index

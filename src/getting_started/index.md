@@ -172,7 +172,7 @@ In order to access Aeon data locally, you need to be on the SWC network or conne
 
 For using an IDE (e.g. VS Code, PyCharm Professional, Jupyter, etc.) to access Aeon data, you will need to configure the connection to SWC's HPC using SSH. 
 Please ensure you have met all the [prerequisites](niu-howto:#prerequisites) before proceeding. 
-We recommend editing the SSH config file following this [guide](niu-howto:#ssh-config-file).
+In order to avoid typing the SSH commands each time you log into the HPC, we recommend modifying the SSH config file following this [guide](niu-howto:#ssh-config-file).
 The next step is to configure your IDE to connect to the `swc-gateway` node via SSH. These instructions can typically be found in your IDE's online documentation. Here are the instructions for [VS Code](https://code.visualstudio.com/docs/remote/ssh), and for [PyCharm Professional](https://www.jetbrains.com/help/pycharm/remote-development-overview.html#client_to_server).
 ::::
 :::::

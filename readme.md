@@ -80,19 +80,19 @@ If you are interested in joining this project, please contact the [project maint
 
 Below are the required sets of credentials for Project Aeon's members: 
 
-- Microsoft Teams: contact Jai Bhagat, Goncalo Lopes, or Dario Campagner
-- SWC Github organization: contact SWC Helpdesk (helpdesk@swc.ucl.ac.uk)
-- SWC Github 'aeon' project: contact Jai Bhagat or Goncalo Lopes
-- SWC HPC: contact SWC Helpdesk
-- 'aeon' HPC Linux group: contact SWC Helpdesk
-- Datajoint database username: contact Thinh Nguyen (thinh@vathes.com)
+- Microsoft Teams: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk), [Gonçalo Lopes](mailto:g.lopes@neurogears.org), or [Dario Campagner](mailto:d.campagner@ucl.ac.uk)
+- SWC Github organization: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
+- SWC Github `aeon` project: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk) or [Gonçalo Lopes](mailto:g.lopes@neurogears.org)
+- SWC HPC: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
+- `aeon` HPC Linux group: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
+- Datajoint database username: contact [Thinh Nguyen](mailto:thinh@vathes.com)
 
-To be granted these credentials, please send a single email to all contact parties requesting this access.
+To be granted these credentials, please send a single email to [all contact parties](mailto:jai.bhagat.21@ucl.ac.uk,g.lopes@neurogears.org,d.campagner@ucl.ac.uk,helpdesk@swc.ucl.ac.uk,thinh@vathes.com?subject=Request%20for%20Aeon%20credentials) requesting this access.
 
 ## Repositories
 
 > [!IMPORTANT] 
-> You must be an SWC Github 'aeon' project member to view some of these repositories.
+> You must be an SWC Github `aeon` project member to view some of these repositories.
 
 ### [aeon_mecha](https://github.com/SainsburyWellcomeCentre/aeon_mecha)
 

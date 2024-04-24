@@ -3,7 +3,7 @@
 
 The purpose of this document is to establish Project Aeon code style and documentation guidelines.
 
-We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`.
+We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`. We also believe in the [readme manifesto](https://www.thinkinghard.com/blog/TheREADMEManifesto), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
 
 ## General Guidelines
 
@@ -55,7 +55,7 @@ We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [
   - Prefix 'n' is used for integer values e.g. `n_items`.
   - Suffix 'num' is used for referring to a particular instance e.g. `item_num`.
   - Suffices that indicate unit measurement are used when using multiple units e.g. `wheel_deg` and `wheel_mm`.
-  - Re-use of variable names (i.e. mutation) is generally avoided.
+  - Reuse of variable names (i.e. mutation) is generally avoided.
   - Variables across related files which share names should share meanings.
 * Comments are for explaining _what_ a particular chunk of code does when it may be unintuitive, not for explaining exactly _how_ the code does what it does.
 * Block comments read as a narrative.

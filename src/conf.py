@@ -65,8 +65,9 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
-    "myst_parser",
+    "myst_nb",
     "sphinx_design",
+    "sphinx_copybutton",
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -80,6 +81,12 @@ myst_enable_extensions = [
 
 # Automatically add anchors to markdown headings
 myst_heading_anchors = 3
+
+# Set the Markdown format to myst
+myst_render_markdown_format = "myst"
+
+# Disable notebook execution
+nb_execution_mode = "off"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -134,7 +141,7 @@ html_css_files = [
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
-    "https://github.com/SainsburyWellcomeCentre/aeon_experiments",  # This is currently a private repository
+    r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI
@@ -153,4 +160,5 @@ myst_url_schemes = {
     "semver": "https://semver.org/",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
+    "niu-howto": "https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#{{fragment}}",
 }

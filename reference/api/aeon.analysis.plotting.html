@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.analysis.plotting &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.analysis.plotting &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.analysis.plotting';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -371,7 +375,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.schemas.html">aeon.schema.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_01.html">aeon.schema.social_01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_02.html">aeon.schema.social_02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_03.html">aeon.schema.social_03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.streams.html">aeon.schema.streams</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
@@ -440,7 +448,7 @@ document.write(`
 <span id="aeon-analysis-plotting"></span><h1>aeon.analysis.plotting<a class="headerlink" href="#module-aeon.analysis.plotting" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="aeon.analysis.plotting.circle">
-<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/analysis/plotting.html#circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.circle" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/analysis/plotting.html#circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.circle" title="Link to this definition">#</a></dt>
 <dd><p>Plot a circle centered at the given x, y position with the specified radius.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -448,7 +456,6 @@ document.write(`
 <li><p><strong>x</strong> (<em>number</em>) – The x-component of the circle center.</p></li>
 <li><p><strong>y</strong> (<em>number</em>) – The y-component of the circle center.</p></li>
 <li><p><strong>radius</strong> (<em>number</em>) – The radius of the circle.</p></li>
-<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>optional</em>) – The format used to plot the circle line.</p></li>
 <li><p><strong>ax</strong> (<em>Axes</em><em>, </em><em>optional</em>) – The Axes on which to draw the circle.</p></li>
 </ul>
 </dd>
@@ -457,7 +464,7 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="aeon.analysis.plotting.colorline">
-<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">colorline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm=&lt;matplotlib.colors.Normalize</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/analysis/plotting.html#colorline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.colorline" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">colorline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/analysis/plotting.html#colorline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.colorline" title="Link to this definition">#</a></dt>
 <dd><p>Plot a dynamically colored line on the specified Axes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -493,8 +500,8 @@ The normalizing object used to scale data to the range [0, 1] for indexing the c
 <dl class="py function">
 <dt class="sig sig-object py" id="aeon.analysis.plotting.rateplot">
 <span class="sig-prename descclassname"><span class="pre">aeon.analysis.plotting.</span></span><span class="sig-name descname"><span class="pre">rateplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/analysis/plotting.html#rateplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.analysis.plotting.rateplot" title="Link to this definition">#</a></dt>
-<dd><p>Plot the continuous event rate and raster of a discrete event sequence, given the specified
-window size and sampling frequency.</p>
+<dd><p>Plot the continuous event rate and raster of a discrete event sequence.</p>
+<p>The window size and sampling frequency can be specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -504,7 +511,7 @@ window size and sampling frequency.</p>
 <li><p><strong>weight</strong> (<em>number</em><em>, </em><em>optional</em>) – A weight used to scale the continuous rate of each window.</p></li>
 <li><p><strong>start</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The left bound of the time range for the continuous rate.</p></li>
 <li><p><strong>end</strong> (<em>datetime</em><em>, </em><em>optional</em>) – The right bound of the time range for the continuous rate.</p></li>
-<li><p><strong>smooth</strong> (<em>DateOffset</em><em>, </em><em>Timedelta</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The size of the smoothing kernel applied to the continuous rate output.</p></li>
+<li><p><strong>smooth</strong> (<em>DateOffset</em><em>, </em><em>Timedelta</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The size of the smoothing kernel applied to the rate output.</p></li>
 <li><p><strong>smooth</strong></p></li>
 </ul>
 </dd>

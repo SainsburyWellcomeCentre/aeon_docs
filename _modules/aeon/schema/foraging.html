@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.schema.foraging &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.schema.foraging &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/schema/foraging';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -396,18 +400,18 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for aeon.schema.foraging</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span> <span class="k">as</span> <span class="n">_Enum</span>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">aeon.io.device</span> <span class="k">as</span> <span class="nn">_device</span>
 <span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
 <span class="kn">import</span> <span class="nn">aeon.schema.core</span> <span class="k">as</span> <span class="nn">_stream</span>
+<span class="kn">from</span> <span class="nn">aeon.schema.streams</span> <span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamGroup</span>
 
 
 <div class="viewcode-block" id="Area">
 <a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Area">[docs]</a>
-<span class="k">class</span> <span class="nc">Area</span><span class="p">(</span><span class="n">_Enum</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Area</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">Null</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">Nest</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Corridor</span> <span class="o">=</span> <span class="mi">2</span>
@@ -454,91 +458,113 @@ document.write(`
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;stable&quot;</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="region">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.region">[docs]</a>
-<span class="k">def</span> <span class="nf">region</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Region">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Region">[docs]</a>
+<span class="k">class</span> <span class="nc">Region</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Region tracking data for the specified camera.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Region&quot;</span><span class="p">:</span> <span class="n">_RegionReader</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_201_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_RegionReader</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_201_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="depletionFunction">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.depletionFunction">[docs]</a>
-<span class="k">def</span> <span class="nf">depletionFunction</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="DepletionFunction">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.DepletionFunction">[docs]</a>
+<span class="k">class</span> <span class="nc">DepletionFunction</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;State of the linear depletion function for foraging patches.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;DepletionState&quot;</span><span class="p">:</span> <span class="n">_PatchState</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_State_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_PatchState</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_State_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="feeder">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.feeder">[docs]</a>
-<span class="k">def</span> <span class="nf">feeder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Feeder">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Feeder">[docs]</a>
+<span class="k">class</span> <span class="nc">Feeder</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Feeder commands and events.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_device</span><span class="o">.</span><span class="n">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">beam_break</span><span class="p">,</span> <span class="n">deliver_pellet</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">BeamBreak</span><span class="p">,</span> <span class="n">DeliverPellet</span><span class="p">)</span></div>
 
 
 
-<div class="viewcode-block" id="beam_break">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.beam_break">[docs]</a>
-<span class="k">def</span> <span class="nf">beam_break</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="BeamBreak">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.BeamBreak">[docs]</a>
+<span class="k">class</span> <span class="nc">BeamBreak</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Beam break events for pellet detection.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;BeamBreak&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="s2">&quot;PelletDetected&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="s2">&quot;PelletDetected&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="deliver_pellet">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.deliver_pellet">[docs]</a>
-<span class="k">def</span> <span class="nf">deliver_pellet</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="DeliverPellet">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.DeliverPellet">[docs]</a>
+<span class="k">class</span> <span class="nc">DeliverPellet</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Pellet delivery commands.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;DeliverPellet&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="s2">&quot;TriggerPellet&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="s2">&quot;TriggerPellet&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="patch">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.patch">[docs]</a>
-<span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Patch">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Patch">[docs]</a>
+<span class="k">class</span> <span class="nc">Patch</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Data streams for a patch.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_device</span><span class="o">.</span><span class="n">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">depletionFunction</span><span class="p">,</span> <span class="n">_stream</span><span class="o">.</span><span class="n">encoder</span><span class="p">,</span> <span class="n">feeder</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">DepletionFunction</span><span class="p">,</span> <span class="n">_stream</span><span class="o">.</span><span class="n">Encoder</span><span class="p">,</span> <span class="n">Feeder</span><span class="p">)</span></div>
 
 
 
-<div class="viewcode-block" id="weight">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight">[docs]</a>
-<span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Weight">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Weight">[docs]</a>
+<span class="k">class</span> <span class="nc">Weight</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Weight measurement data streams for a specific nest.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_device</span><span class="o">.</span><span class="n">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">weight_raw</span><span class="p">,</span> <span class="n">weight_filtered</span><span class="p">,</span> <span class="n">weight_subject</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">WeightRaw</span><span class="p">,</span> <span class="n">WeightFiltered</span><span class="p">,</span> <span class="n">WeightSubject</span><span class="p">)</span></div>
 
 
 
-<div class="viewcode-block" id="weight_raw">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_raw">[docs]</a>
-<span class="k">def</span> <span class="nf">weight_raw</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="WeightRaw">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightRaw">[docs]</a>
+<span class="k">class</span> <span class="nc">WeightRaw</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Raw weight measurement for a specific nest.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;WeightRaw&quot;</span><span class="p">:</span> <span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="weight_filtered">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_filtered">[docs]</a>
-<span class="k">def</span> <span class="nf">weight_filtered</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="WeightFiltered">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightFiltered">[docs]</a>
+<span class="k">class</span> <span class="nc">WeightFiltered</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Filtered weight measurement for a specific nest.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;WeightFiltered&quot;</span><span class="p">:</span> <span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_202_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_202_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="weight_subject">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_subject">[docs]</a>
-<span class="k">def</span> <span class="nf">weight_subject</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="WeightSubject">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightSubject">[docs]</a>
+<span class="k">class</span> <span class="nc">WeightSubject</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Subject weight measurement for a specific nest.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;WeightSubject&quot;</span><span class="p">:</span> <span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_204_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_Weight</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_204_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="session">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.session">[docs]</a>
-<span class="k">def</span> <span class="nf">session</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionData">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.foraging.html#aeon.schema.foraging.SessionData">[docs]</a>
+<span class="k">class</span> <span class="nc">SessionData</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Session metadata for Experiment 0.1.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="n">pattern</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_2*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">])}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_2*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">]))</span></div>
 
 </pre></div>
 

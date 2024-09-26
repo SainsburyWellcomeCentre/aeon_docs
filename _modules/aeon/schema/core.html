@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.schema.core &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.schema.core &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/schema/core';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -396,79 +400,97 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for aeon.schema.core</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">aeon.io.device</span> <span class="k">as</span> <span class="nn">_device</span>
-<span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
+<span></span><span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
+<span class="kn">from</span> <span class="nn">aeon.schema.streams</span> <span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamGroup</span>
 
 
-<div class="viewcode-block" id="heartbeat">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.heartbeat">[docs]</a>
-<span class="k">def</span> <span class="nf">heartbeat</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Heartbeat">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Heartbeat">[docs]</a>
+<span class="k">class</span> <span class="nc">Heartbeat</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Heartbeat event for Harp devices.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Heartbeat&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_8_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_8_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="video">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.video">[docs]</a>
-<span class="k">def</span> <span class="nf">video</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Video">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Video">[docs]</a>
+<span class="k">class</span> <span class="nc">Video</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Video frame metadata.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Video&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="position">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.position">[docs]</a>
-<span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Position">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Position">[docs]</a>
+<span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Position tracking data for the specified camera.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Position&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="encoder">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.encoder">[docs]</a>
-<span class="k">def</span> <span class="nf">encoder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Encoder">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Encoder">[docs]</a>
+<span class="k">class</span> <span class="nc">Encoder</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Wheel magnetic encoder data.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Encoder&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_90_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_90_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="environment">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.environment">[docs]</a>
-<span class="k">def</span> <span class="nf">environment</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Environment">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Environment">[docs]</a>
+<span class="k">class</span> <span class="nc">Environment</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for environment mode and subjects.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_device</span><span class="o">.</span><span class="n">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">environment_state</span><span class="p">,</span> <span class="n">subject_state</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">EnvironmentState</span><span class="p">,</span> <span class="n">SubjectState</span><span class="p">)</span></div>
 
 
 
-<div class="viewcode-block" id="environment_state">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.environment_state">[docs]</a>
-<span class="k">def</span> <span class="nf">environment_state</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentState">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.EnvironmentState">[docs]</a>
+<span class="k">class</span> <span class="nc">EnvironmentState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Environment state log.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;EnvironmentState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_EnvironmentState_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_EnvironmentState_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]))</span></div>
 
 
 
-<div class="viewcode-block" id="subject_state">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.subject_state">[docs]</a>
-<span class="k">def</span> <span class="nf">subject_state</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="SubjectState">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.SubjectState">[docs]</a>
+<span class="k">class</span> <span class="nc">SubjectState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Subject state log.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;SubjectState&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_SubjectState_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_SubjectState_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="messageLog">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.messageLog">[docs]</a>
-<span class="k">def</span> <span class="nf">messageLog</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="MessageLog">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.MessageLog">[docs]</a>
+<span class="k">class</span> <span class="nc">MessageLog</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Message log data.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;MessageLog&quot;</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_MessageLog_*&quot;</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_MessageLog_*&quot;</span><span class="p">))</span></div>
 
 
 
-<div class="viewcode-block" id="metadata">
-<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.metadata">[docs]</a>
-<span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<div class="viewcode-block" id="Metadata">
+<a class="viewcode-back" href="../../../reference/api/aeon.schema.core.html#aeon.schema.core.Metadata">[docs]</a>
+<span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for acquisition epochs.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="n">pattern</span><span class="p">:</span> <span class="n">_reader</span><span class="o">.</span><span class="n">Metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">)}</span></div>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span></div>
 
 </pre></div>
 

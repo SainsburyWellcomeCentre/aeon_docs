@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.schema.core &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.schema.core &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.schema.core';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -371,7 +375,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.schemas.html">aeon.schema.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_01.html">aeon.schema.social_01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_02.html">aeon.schema.social_02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_03.html">aeon.schema.social_03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.streams.html">aeon.schema.streams</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
@@ -438,58 +446,67 @@ document.write(`
                   
   <section id="module-aeon.schema.core">
 <span id="aeon-schema-core"></span><h1>aeon.schema.core<a class="headerlink" href="#module-aeon.schema.core" title="Link to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.encoder">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.encoder" title="Link to this definition">#</a></dt>
-<dd><p>Wheel magnetic encoder data.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Encoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Encoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Wheel magnetic encoder data.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.environment">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.environment" title="Link to this definition">#</a></dt>
-<dd><p>Metadata for environment mode and subjects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Environment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Environment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Environment" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<p>Metadata for environment mode and subjects.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.environment_state">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">environment_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#environment_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.environment_state" title="Link to this definition">#</a></dt>
-<dd><p>Environment state log.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.EnvironmentState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">EnvironmentState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#EnvironmentState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.EnvironmentState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Environment state log.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.heartbeat">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">heartbeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#heartbeat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.heartbeat" title="Link to this definition">#</a></dt>
-<dd><p>Heartbeat event for Harp devices.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Heartbeat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Heartbeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Heartbeat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Heartbeat" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Heartbeat event for Harp devices.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.messageLog">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">messageLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#messageLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.messageLog" title="Link to this definition">#</a></dt>
-<dd><p>Message log data.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.MessageLog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">MessageLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#MessageLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.MessageLog" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Message log data.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.metadata">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.metadata" title="Link to this definition">#</a></dt>
-<dd><p>Metadata for acquisition epochs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Metadata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Metadata" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Metadata for acquisition epochs.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.position">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.position" title="Link to this definition">#</a></dt>
-<dd><p>Position tracking data for the specified camera.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Position">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Position" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Position tracking data for the specified camera.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.subject_state">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">subject_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#subject_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.subject_state" title="Link to this definition">#</a></dt>
-<dd><p>Subject state log.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.SubjectState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">SubjectState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#SubjectState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.SubjectState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Subject state log.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.core.video">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">video</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#video"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.video" title="Link to this definition">#</a></dt>
-<dd><p>Video frame metadata.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.core.Video">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.core.</span></span><span class="sig-name descname"><span class="pre">Video</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/core.html#Video"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.core.Video" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Video frame metadata.</p>
 </dd></dl>
 
 </section>
@@ -540,15 +557,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.encoder"><code class="docutils literal notranslate"><span class="pre">encoder()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.environment"><code class="docutils literal notranslate"><span class="pre">environment()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.environment_state"><code class="docutils literal notranslate"><span class="pre">environment_state()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.heartbeat"><code class="docutils literal notranslate"><span class="pre">heartbeat()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.messageLog"><code class="docutils literal notranslate"><span class="pre">messageLog()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.metadata"><code class="docutils literal notranslate"><span class="pre">metadata()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.position"><code class="docutils literal notranslate"><span class="pre">position()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.subject_state"><code class="docutils literal notranslate"><span class="pre">subject_state()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.video"><code class="docutils literal notranslate"><span class="pre">video()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Encoder"><code class="docutils literal notranslate"><span class="pre">Encoder</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Environment"><code class="docutils literal notranslate"><span class="pre">Environment</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.EnvironmentState"><code class="docutils literal notranslate"><span class="pre">EnvironmentState</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Heartbeat"><code class="docutils literal notranslate"><span class="pre">Heartbeat</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.MessageLog"><code class="docutils literal notranslate"><span class="pre">MessageLog</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Metadata"><code class="docutils literal notranslate"><span class="pre">Metadata</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Position"><code class="docutils literal notranslate"><span class="pre">Position</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.SubjectState"><code class="docutils literal notranslate"><span class="pre">SubjectState</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.core.Video"><code class="docutils literal notranslate"><span class="pre">Video</span></code></a></li>
 </ul>
   </nav></div>
 

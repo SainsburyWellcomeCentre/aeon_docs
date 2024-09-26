@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributor Guide &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>Contributor Guide &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,15 +39,17 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../_static/documentation_options.js?v=e463f385"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributor/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Style and Documentation Guidelines" href="style_and_doc_guidelines.html" />
-    <link rel="prev" title="User Guide" href="../user/index.html" />
+    <link rel="prev" title="High level diagram" href="../user/how_to/diagram_copy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -445,21 +449,16 @@ acquisition computer, etc.)</p></li>
 </section>
 <section id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
-<p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/github-flow">github flow</a> (which is adapted from the more general
+<p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">github flow</a> (which is adapted from the more general
 <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">gitflow</a>).</p>
 <p>In brief, each of our repos has ‘main’ and ‘prod’ branches. Feature and bug fix branches are branched off of ‘main’, with Pull Requests sent back into ‘main’. ‘main’ contains the full commit history of the project, up to the latest stable commit. Upon merges into ‘main’, a squash merge is performed into ‘prod’, such that ‘prod’ contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges. ‘prod’ thus serves as a “production” branch to allow for easier readability of project history and easier reversion of uncaught bug commits. At certain agreed upon timepoints we create “stable releases” (available in the “releases” section of the repository) which serve as a snapshot of the code at the time, version numbered according to <a class="reference external" href="https://semver.org/">SemVer</a>.</p>
 <p>When contributing to any repository, the change to be made should first be discussed in a Github Discussion or a Github Issue. Thereafter, contributors should create a new branch (branched off of ‘main’) that contains the changes/additions they wish to make, and then create a pull request for merging this branch into ‘main’.</p>
 <p>All pull requests will be reviewed by the <a class="reference internal" href="../about/index.html#target-project-maintainers"><span class="std std-ref">project maintainers</span></a>. Minimally, maintainers should follow the below steps when reviewing pull requests:</p>
 <ol class="arabic simple">
-<li><p>Ensure new code adheres to the <a class="reference internal" href="#style-and-documentation-guidelines">style and documentation guidelines</a>, is covered by a test, and passes a build test. These can all be checked via CI.</p></li>
+<li><p>Ensure new code adheres to the <a class="reference internal" href="style_and_doc_guidelines.html#target-style-doc-guidelines"><span class="std std-ref">style and documentation guidelines</span></a>, is covered by a test, and passes a build test. These can all be checked via CI.</p></li>
 <li><p>As necessary, ensure <code class="docutils literal notranslate"><span class="pre">changelog</span></code>, <code class="docutils literal notranslate"><span class="pre">readme</span></code>, config and doc files are updated.</p></li>
 <li><p>When a branch is ready to be merged back into ‘main’, always make sure to first pull ‘main’ locally, then rebase the feature branch onto ‘main’ (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into ‘prod’ can be handled via CI. E.g., see <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_mecha/blob/main/.github/workflows/squash_merge_to_prod.yml">here</a></p></li>
 </ol>
-</section>
-<section id="style-and-documentation-guidelines">
-<h2>Style and Documentation Guidelines<a class="headerlink" href="#style-and-documentation-guidelines" title="Link to this heading">#</a></h2>
-<p>Please see our <a class="reference internal" href="style_and_doc_guidelines.html#target-style-doc-guidelines"><span class="std std-ref">style and documentation guidelines</span></a>.</p>
-<p>We also believe in the <a class="reference external" href="http://thinkinghard.com/blog/TheREADMEManifesto.html">readme manifesto</a>, which says that <code class="docutils literal notranslate"><span class="pre">readme</span></code> files should provide at least a general description that covers <em>all</em> of a project’s files, and that one <code class="docutils literal notranslate"><span class="pre">readme</span></code> per subdirectory is generally good practice.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -476,12 +475,12 @@ acquisition computer, etc.)</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../user/index.html"
+       href="../user/how_to/diagram_copy.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">User Guide</p>
+        <p class="prev-next-title">High level diagram</p>
       </div>
     </a>
     <a class="right-next"
@@ -516,7 +515,6 @@ acquisition computer, etc.)</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-tracking">Issue Tracking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration-ci">Continuous Integration (CI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-and-documentation-guidelines">Style and Documentation Guidelines</a></li>
 </ul>
   </nav></div>
 

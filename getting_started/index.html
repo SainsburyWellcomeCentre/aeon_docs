@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Getting Started &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>Getting Started &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../_static/documentation_options.js?v=e463f385"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -407,25 +411,16 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="getting-started">
-<span id="target-repositories"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
-<section id="introduction-to-project-aeon">
-<h2>Introduction to Project Aeon<a class="headerlink" href="#introduction-to-project-aeon" title="Link to this heading">#</a></h2>
-</section>
+<span id="target-getting-started"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>Project Aeon is a collaborative effort to perform behavioral neuroscience
+experiments where the behavior and neural activity of freely moving animals
+engaging in a complex task are continuously recorded…
+Further information about the project can be found in the
+<a class="reference internal" href="../about/index.html#target-about"><span class="std std-ref">About</span></a> section.</p>
 <section id="repositories">
-<h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading">#</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You must be an SWC Github ‘aeon’ project member to view some of these repositories. The required sets of credentials are as follows:</p>
-<ul class="simple">
-<li><p>Microsoft Teams: contact Jai Bhagat, Goncalo Lopes, or Dario Campagner</p></li>
-<li><p>SWC Github organization: contact SWC Helpdesk (<a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">helpdesk<span>&#64;</span>swc<span>&#46;</span>ucl<span>&#46;</span>ac<span>&#46;</span>uk</a>)</p></li>
-<li><p>SWC Github ‘aeon’ project: contact Jai Bhagat or Goncalo Lopes</p></li>
-<li><p>SWC HPC: contact SWC Helpdesk</p></li>
-<li><p>‘aeon’ HPC Linux group: contact SWC Helpdesk</p></li>
-<li><p>Datajoint database username: contact Thinh Nguyen (<a class="reference external" href="mailto:thinh&#37;&#52;&#48;vathes&#46;com">thinh<span>&#64;</span>vathes<span>&#46;</span>com</a>)</p></li>
-</ul>
-<p>To be granted these credentials, please send a single email to all contact parties requesting this access.</p>
-</div>
+<span id="target-repositories"></span><h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading">#</a></h2>
+<p>Project Aeon spans multiple repositories, each serving a different purpose.
+The following is a list of repositories that are part of the project:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -451,7 +446,8 @@ document.write(`
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 <span class="fas fa-computer sd-text-primary"></span> aeon_acquisition</div>
-<p class="sd-card-text">Source code for the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> Bonsai package used in Aeon experiment workflows</p>
+<p class="sd-card-text">Source code for the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> Bonsai package used in
+Aeon experiment workflows</p>
 </div>
 <a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition"><span>https://github.com/SainsburyWellcomeCentre/aeon_acquisition</span></a></div>
 </div>
@@ -486,8 +482,130 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All experiment data is acquired and/or triggered and/or synced by <a class="reference external" href="https://www.cf-hw.org/harp">Harp devices</a>. Code in the ‘aeon_acquisition’ and ‘aeon_mecha’ repos makes use of the <a class="reference external" href="https://harp-tech.org/articles/about#">Harp protocol</a> during data acquisition, raw data file writing, and raw data file reading. See also the documentation on <a class="reference external" href="https://harp-tech.org/protocol/Device#">Harp device operation and common registers</a>, the <a class="reference external" href="https://harp-tech.org/protocol/BinaryProtocol-8bit#">Harp binary protocol</a>, and <a class="reference external" href="https://harp-tech.org/protocol/SynchronizationClock#">Harp clock synchronization</a>.</p>
+<p>All experiment data is acquired and/or triggered and/or synced by
+<a class="reference external" href="https://www.cf-hw.org/harp">Harp devices</a>.
+Code in the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> and <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> repositories makes use of
+the <a class="reference external" href="https://harp-tech.org/articles/about#">Harp protocol</a> during data acquisition,
+raw data file writing, and raw data file reading.
+See also the documentation on
+<a class="reference external" href="https://harp-tech.org/protocol/Device#">Harp device operation and common registers</a>,
+the <a class="reference external" href="https://harp-tech.org/protocol/BinaryProtocol-8bit#">Harp binary protocol</a>, and
+<a class="reference external" href="https://harp-tech.org/protocol/SynchronizationClock#">Harp clock synchronization</a>.</p>
 </div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<section id="aeon-mecha">
+<h3><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code><a class="headerlink" href="#aeon-mecha" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>We always recommend installing <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> inside a
+<a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>
+or <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a> environment,
+to avoid dependency conflicts with other packages.
+In the following we assume you have <code class="docutils literal notranslate"><span class="pre">conda</span></code> installed,
+but the same commands will also work with <code class="docutils literal notranslate"><span class="pre">mamba</span></code>/<code class="docutils literal notranslate"><span class="pre">micromamba</span></code>.</p>
+<p>All commands below should be run in a bash shell
+(Windows users can use the ‘mingw64’ terminal that is included when
+installing git).</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-server" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg></span><span class="sd-summary-text">Setting up on SWC’s HPC</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If setting up on SWC’s remote HPC system, you will have to first connect to the HPC using SSH and add miniconda to your system path.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;your_SWC_username&gt;@ssh.swc.ucl.ac.uk
+ssh<span class="w"> </span>hpc-gw1
+module<span class="w"> </span>load<span class="w"> </span>miniconda
+</pre></div>
+</div>
+<p class="sd-card-text"><strong>Optional</strong>: Add the following commands to the <code class="docutils literal notranslate"><span class="pre">.profile</span></code> file to add miniconda as an environment module and Bonsai and its dependencies to your system path on startup (this will be initialized each time you SSH into the HPC). This file should be located in the home directory, i.e. <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>. If it does not exist, create it with <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">~/.profile</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">.profile</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set env modules</span>
+module<span class="w"> </span>load<span class="w"> </span>miniconda
+
+<span class="c1"># Save Bonsai and deps to path</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/ceph/aeon/aeon/code/bonsai/Bonsai.Player/bin/Debug/net5.0
+<span class="nb">export</span><span class="w"> </span><span class="nv">DOTNET_ROOT</span><span class="o">=</span>/ceph/aeon/aeon/code/dotnet
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/ceph/aeon/aeon/code/dotnet
+</pre></div>
+</div>
+</div>
+</div>
+</details><p>Clone the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> repository into the <code class="docutils literal notranslate"><span class="pre">~/ProjectAeon/aeon_mecha</span></code> directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/ProjectAeon<span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span>~/ProjectAeon
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SainsburyWellcomeCentre/aeon_mecha
+<span class="nb">cd</span><span class="w"> </span>aeon_mecha
+</pre></div>
+</div>
+<p>Create the <code class="docutils literal notranslate"><span class="pre">aeon</span></code> conda environment and activate it.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>aeon<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>python&gt;<span class="o">=</span><span class="m">3</span>.11
+conda<span class="w"> </span>activate<span class="w"> </span>aeon
+</pre></div>
+</div>
+<p>Install the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> package in editable mode.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Users</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Developers</label><div class="sd-tab-content docutils">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span><span class="w">  </span><span class="c1"># works on most shells</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[dev]&#39;</span><span class="w">  </span><span class="c1"># works on zsh (the default shell on macOS)</span>
+</pre></div>
+</div>
+<p>This will install the package alongside all <code class="docutils literal notranslate"><span class="pre">dev</span></code> dependencies.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="accessing-data">
+<h2>Accessing Data<a class="headerlink" href="#accessing-data" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You must be an SWC <code class="docutils literal notranslate"><span class="pre">aeon</span></code> project member to access Aeon data hosted on
+SWC’s Ceph storage. The required sets of credentials are as follows:</p>
+<ul class="simple">
+<li><p>Microsoft Teams: contact <a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk">Jai Bhagat</a>, <a class="reference external" href="mailto:g&#46;lopes&#37;&#52;&#48;neurogears&#46;org">Gonçalo Lopes</a>, or <a class="reference external" href="mailto:d&#46;campagner&#37;&#52;&#48;ucl&#46;ac&#46;uk">Dario Campagner</a></p></li>
+<li><p>SWC Github organization: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
+<li><p>SWC Github <code class="docutils literal notranslate"><span class="pre">aeon</span></code> project: contact <a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk">Jai Bhagat</a> or <a class="reference external" href="mailto:g&#46;lopes&#37;&#52;&#48;neurogears&#46;org">Gonçalo Lopes</a></p></li>
+<li><p>SWC HPC: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aeon</span></code> HPC Linux group: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
+<li><p>Datajoint database username: contact <a class="reference external" href="mailto:thinh&#37;&#52;&#48;vathes&#46;com">Thinh Nguyen</a></p></li>
+</ul>
+<p>To be granted these credentials, please send a single email to
+<a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk,g&#46;lopes&#37;&#52;&#48;neurogears&#46;org,d&#46;campagner&#37;&#52;&#48;ucl&#46;ac&#46;uk,helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk,thinh&#37;&#52;&#48;vathes&#46;com?subject=Request%20for%20Aeon%20credentials">all contact parties</a>
+requesting this access.</p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Local</label><div class="sd-tab-content docutils">
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The links below point to the SWC internal wiki, which is only accessible from within the SWC network (or using VPN).</p>
+</div>
+<p>In order to access Aeon data locally, you need to be on the SWC network or connected via VPN. You also need to <a class="reference external" href="https://wiki.ucl.ac.uk/display/SSC/How+to+Mount">mount the Ceph storage on your local machine</a>. The Ceph storage path for different operating systems can be found <a class="reference external" href="https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph">here</a>, replacing <code class="docutils literal notranslate"><span class="pre">xxxxxxxx</span></code> with <code class="docutils literal notranslate"><span class="pre">aeon</span></code>.</p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Remote</label><div class="sd-tab-content docutils">
+<p>For using an IDE (e.g. VS Code, PyCharm Professional, Jupyter, etc.) to access Aeon data, you will need to configure the connection to SWC’s HPC using SSH.
+Please ensure you have met all the <a class="reference external" href="https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#prerequisites">prerequisites</a> before proceeding.
+In order to avoid typing the SSH commands each time you log into the HPC, we recommend modifying the SSH config file following this <a class="reference external" href="https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#ssh-config-file">guide</a>.
+The next step is to configure your IDE to connect to the <code class="docutils literal notranslate"><span class="pre">swc-gateway</span></code> node via SSH. These instructions can typically be found in your IDE’s online documentation. Here are the instructions for <a class="reference external" href="https://code.visualstudio.com/docs/remote/ssh">VS Code</a>, and for <a class="reference external" href="https://www.jetbrains.com/help/pycharm/remote-development-overview.html#client_to_server">PyCharm Professional</a>.</p>
+</div>
+</div>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">aeon</span></code> conda environment, Aeon data can be accessed directly from Ceph or the DataJoint database using the <a class="reference internal" href="../reference/api.html#target-api-reference"><span class="std std-ref">Aeon API</span></a>. Examples for retrieving and visualizing the data can be found in the <a class="reference internal" href="../user/index.html#target-user-guide"><span class="std std-ref">User Guide</span></a>.</p>
 </section>
 </section>
 
@@ -537,8 +655,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-project-aeon">Introduction to Project Aeon</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repositories">Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data">Accessing Data</a></li>
 </ul>
   </nav></div>
 

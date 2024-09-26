@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.schema.social &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>High level diagram &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,15 +39,17 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.schema.social';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how_to/diagram_copy';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Data Schema" href="../data_contract.html" />
-    <link rel="prev" title="aeon.schema.octagon" href="aeon.schema.octagon.html" />
+    <link rel="next" title="Contributor Guide" href="../../contributor/index.html" />
+    <link rel="prev" title="Accessing Aeon Data from the Datajoint Database" href="../tutorials/dj_example_notebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -145,8 +149,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../user/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
     User Guide
   </a>
 </li>
@@ -159,8 +163,8 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="../index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
     Reference
   </a>
 </li>
@@ -279,8 +283,8 @@ document.write(`
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../user/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
     User Guide
   </a>
 </li>
@@ -293,8 +297,8 @@ document.write(`
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="../index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
     Reference
   </a>
 </li>
@@ -353,29 +357,15 @@ document.write(`
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../hardware.html">Hardware Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/feeder.html">Feeder</a></li>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/exp01_patchsummary.html">Accessing Aeon Data on Ceph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/dj_example_notebook.html">Accessing Aeon Data from the Datajoint Database</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="aeon.util.html">aeon.util</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.io.api.html">aeon.io.api</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.io.device.html">aeon.io.device</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.io.reader.html">aeon.io.reader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.io.video.html">aeon.io.video</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.movies.html">aeon.analysis.movies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.plotting.html">aeon.analysis.plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.analysis.utils.html">aeon.analysis.utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.core.html">aeon.schema.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">aeon.schema.social</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">High level diagram</a></li>
+
 </ul>
 </div>
 </nav></div>
@@ -414,12 +404,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Reference</a></li>
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    
-    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API Reference</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">aeon.schema.social</li>
+    <li class="breadcrumb-item active" aria-current="page">High level diagram</li>
   </ul>
 </nav>
 </div>
@@ -436,69 +423,136 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-aeon.schema.social">
-<span id="aeon-schema-social"></span><h1>aeon.schema.social<a class="headerlink" href="#module-aeon.schema.social" title="Link to this heading">#</a></h1>
-<p>Readers for data relevant to Social experiments.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="aeon.schema.social.Pose">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.social.</span></span><span class="sig-name descname"><span class="pre">Pose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bin'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/social.html#Pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.social.Pose" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="aeon.io.reader.html#aeon.io.reader.Harp" title="aeon.io.reader.Harp"><code class="xref py py-class docutils literal notranslate"><span class="pre">Harp</span></code></a></p>
-<p>Reader for Harp-binarized tracking data given a model that outputs id, parts, and likelihoods.</p>
-<dl class="simple">
-<dt>Columns:</dt><dd><p>class (int): Int ID of a subject in the environment.
-class_likelihood (float): Likelihood of the subject’s identity.
-part (str): Bodypart on the subject.
-part_likelihood (float): Likelihood of the specified bodypart.
-x (float): X-coordinate of the bodypart.
-y (float): Y-coordinate of the bodypart.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.social.Pose.get_bodyparts">
-<span class="sig-name descname"><span class="pre">get_bodyparts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/social.html#Pose.get_bodyparts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.social.Pose.get_bodyparts" title="Link to this definition">#</a></dt>
-<dd><p>Returns a list of bodyparts from a model’s config file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
-</dd>
-</dl>
-</dd></dl>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../../../..</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/nfs/nhome/live/thinh/code/ProjectAeon/aeon
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datajoint</span> <span class="k">as</span> <span class="nn">dj</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_db_prefix</span> <span class="o">=</span> <span class="s2">&quot;aeon_&quot;</span>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.social.Pose.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ceph_proc_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/ceph/aeon/aeon/data/processed'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/social.html#Pose.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.social.Pose.read" title="Link to this definition">#</a></dt>
-<dd><p>Reads data from the Harp-binarized tracking file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
+<span class="n">lab</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;lab&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;lab&quot;</span><span class="p">)</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;subject&quot;</span><span class="p">)</span>
+<span class="n">acquisition</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;acquisition&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;acquisition&quot;</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;qc&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;qc&quot;</span><span class="p">)</span>
+<span class="n">tracking</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;tracking&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;tracking&quot;</span><span class="p">)</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">create_virtual_module</span><span class="p">(</span><span class="s2">&quot;analysis&quot;</span><span class="p">,</span> <span class="n">_db_prefix</span> <span class="o">+</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-07-28 19:53:12,486][INFO]: Connecting thinh@aeon-db2:3306
+[2022-07-28 19:53:12,497][INFO]: Connected thinh@aeon-db2:3306
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lab</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">spawn_missing_classes</span><span class="p">()</span>
+<span class="n">subject</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">spawn_missing_classes</span><span class="p">()</span>
+<span class="n">acquisition</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">spawn_missing_classes</span><span class="p">()</span>
+<span class="n">tracking</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">spawn_missing_classes</span><span class="p">()</span>
+<span class="n">analysis</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">spawn_missing_classes</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="high-level-diagram">
+<h1>High level diagram<a class="headerlink" href="#high-level-diagram" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diagram</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">acquisition</span><span class="o">.</span><span class="n">Epoch</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">lab</span><span class="o">.</span><span class="n">Arena</span>
+    <span class="o">+</span> <span class="n">lab</span><span class="o">.</span><span class="n">FoodPatch</span>
+    <span class="o">+</span> <span class="n">lab</span><span class="o">.</span><span class="n">Camera</span>
+    <span class="o">+</span> <span class="n">lab</span><span class="o">.</span><span class="n">WeightScale</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">Experiment</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">ExperimentCamera</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">FoodPatchWheel</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">FoodPatchEvent</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">WheelState</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">EventType</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">WeightMeasurement</span>
+    <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">CameraQC</span>
+    <span class="o">+</span> <span class="n">tracking</span><span class="o">.</span><span class="n">CameraTracking</span><span class="o">.</span><span class="n">Object</span>
+<span class="p">)</span>
 
-</dd></dl>
+<span class="n">diagram</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4fce03ffc8a3c032199d0665ad88de45e04b6bdd15ca0c8ed3211693281afd04.svg" src="../../_images/4fce03ffc8a3c032199d0665ad88de45e04b6bdd15ca0c8ed3211693281afd04.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diagram</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;aeon/dj_pipeline/docs/datajoint_overview_diagram.svg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis-pipeline-diagram">
+<h1>Analysis pipeline diagram<a class="headerlink" href="#analysis-pipeline-diagram" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_diagram</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">analysis</span><span class="o">.</span><span class="n">Visit</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">Place</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">VisitEnd</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">OverlapVisit</span><span class="o">.</span><span class="n">Visit</span>
+    <span class="o">+</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">Experiment</span>
+    <span class="o">+</span> <span class="n">tracking</span><span class="o">.</span><span class="n">CameraTracking</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">VisitSubjectPosition</span><span class="o">.</span><span class="n">TimeSlice</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">VisitTimeDistribution</span>
+    <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">VisitSummary</span>
+<span class="p">)</span>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.social.class_int2str">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.social.</span></span><span class="sig-name descname"><span class="pre">class_int2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/social.html#class_int2str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.social.class_int2str" title="Link to this definition">#</a></dt>
-<dd><p>Converts a class integer in a tracking data dataframe to its associated string (subject id).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.social.get_config_file">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.social.</span></span><span class="sig-name descname"><span class="pre">get_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/social.html#get_config_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.social.get_config_file" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config file from a model’s config directory.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
+<span class="n">analysis_diagram</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a7155a2c7c3d505a2e739479c97c1c4dbe20fc1c849b8db83b70c1a1792e576e.svg" src="../../_images/a7155a2c7c3d505a2e739479c97c1c4dbe20fc1c849b8db83b70c1a1792e576e.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diagram</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;aeon/dj_pipeline/docs/datajoint_analysis_diagram.svg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">aeon</span><span class="o">/</span><span class="n">dj_pipeline</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datajoint_analysis_diagram.svg  datajoint_overview_diagram.svg  <span class=" -Color -Color-Bold -Color-Bold-Blue">notebooks</span>/
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -512,20 +566,20 @@ y (float): Y-coordinate of the bodypart.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="aeon.schema.octagon.html"
+       href="../tutorials/dj_example_notebook.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">aeon.schema.octagon</p>
+        <p class="prev-next-title">Accessing Aeon Data from the Datajoint Database</p>
       </div>
     </a>
     <a class="right-next"
-       href="../data_contract.html"
+       href="../../contributor/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Schema</p>
+        <p class="prev-next-title">Contributor Guide</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -547,20 +601,16 @@ y (float): Y-coordinate of the bodypart.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.social.Pose"><code class="docutils literal notranslate"><span class="pre">Pose</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.social.Pose.get_bodyparts"><code class="docutils literal notranslate"><span class="pre">Pose.get_bodyparts()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.social.Pose.read"><code class="docutils literal notranslate"><span class="pre">Pose.read()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">High level diagram</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-pipeline-diagram">Analysis pipeline diagram</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.social.class_int2str"><code class="docutils literal notranslate"><span class="pre">class_int2str()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.social.get_config_file"><code class="docutils literal notranslate"><span class="pre">get_config_file()</span></code></a></li>
-</ul>
+
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/reference/api/aeon.schema.social.rst.txt">
+    <a href="../../_sources/user/how_to/diagram_copy.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

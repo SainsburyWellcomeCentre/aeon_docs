@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.schema.foraging &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.schema.foraging &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.schema.foraging';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -371,7 +375,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">aeon.schema.foraging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.schemas.html">aeon.schema.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_01.html">aeon.schema.social_01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_02.html">aeon.schema.social_02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_03.html">aeon.schema.social_03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.streams.html">aeon.schema.streams</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
@@ -474,70 +482,81 @@ document.write(`
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.beam_break">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">beam_break</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#beam_break"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.beam_break" title="Link to this definition">#</a></dt>
-<dd><p>Beam break events for pellet detection.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.BeamBreak">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">BeamBreak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#BeamBreak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.BeamBreak" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Beam break events for pellet detection.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.deliver_pellet">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">deliver_pellet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#deliver_pellet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.deliver_pellet" title="Link to this definition">#</a></dt>
-<dd><p>Pellet delivery commands.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.DeliverPellet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">DeliverPellet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#DeliverPellet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.DeliverPellet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Pellet delivery commands.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.depletionFunction">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">depletionFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#depletionFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.depletionFunction" title="Link to this definition">#</a></dt>
-<dd><p>State of the linear depletion function for foraging patches.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.DepletionFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">DepletionFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#DepletionFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.DepletionFunction" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>State of the linear depletion function for foraging patches.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.feeder">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">feeder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#feeder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.feeder" title="Link to this definition">#</a></dt>
-<dd><p>Feeder commands and events.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Feeder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">Feeder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#Feeder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.Feeder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<p>Feeder commands and events.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.patch">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.patch" title="Link to this definition">#</a></dt>
-<dd><p>Data streams for a patch.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Patch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">Patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#Patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.Patch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<p>Data streams for a patch.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.region">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.region" title="Link to this definition">#</a></dt>
-<dd><p>Region tracking data for the specified camera.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Region">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">Region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#Region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.Region" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Region tracking data for the specified camera.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.session">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.session" title="Link to this definition">#</a></dt>
-<dd><p>Session metadata for Experiment 0.1.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.SessionData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">SessionData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#SessionData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.SessionData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Session metadata for Experiment 0.1.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.weight">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight" title="Link to this definition">#</a></dt>
-<dd><p>Weight measurement data streams for a specific nest.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.Weight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">Weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#Weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.Weight" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<p>Weight measurement data streams for a specific nest.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.weight_filtered">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_filtered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#weight_filtered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_filtered" title="Link to this definition">#</a></dt>
-<dd><p>Filtered weight measurement for a specific nest.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.WeightFiltered">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">WeightFiltered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#WeightFiltered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.WeightFiltered" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Filtered weight measurement for a specific nest.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.weight_raw">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#weight_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_raw" title="Link to this definition">#</a></dt>
-<dd><p>Raw weight measurement for a specific nest.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.WeightRaw">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">WeightRaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#WeightRaw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.WeightRaw" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Raw weight measurement for a specific nest.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.foraging.weight_subject">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">weight_subject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#weight_subject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.weight_subject" title="Link to this definition">#</a></dt>
-<dd><p>Subject weight measurement for a specific nest.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.foraging.WeightSubject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.foraging.</span></span><span class="sig-name descname"><span class="pre">WeightSubject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/foraging.html#WeightSubject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.foraging.WeightSubject" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+<p>Subject weight measurement for a specific nest.</p>
 </dd></dl>
 
 </section>
@@ -597,17 +616,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.Area.Patch2"><code class="docutils literal notranslate"><span class="pre">Area.Patch2</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.beam_break"><code class="docutils literal notranslate"><span class="pre">beam_break()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.deliver_pellet"><code class="docutils literal notranslate"><span class="pre">deliver_pellet()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.depletionFunction"><code class="docutils literal notranslate"><span class="pre">depletionFunction()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.feeder"><code class="docutils literal notranslate"><span class="pre">feeder()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.patch"><code class="docutils literal notranslate"><span class="pre">patch()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.region"><code class="docutils literal notranslate"><span class="pre">region()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.session"><code class="docutils literal notranslate"><span class="pre">session()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.weight"><code class="docutils literal notranslate"><span class="pre">weight()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.weight_filtered"><code class="docutils literal notranslate"><span class="pre">weight_filtered()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.weight_raw"><code class="docutils literal notranslate"><span class="pre">weight_raw()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.weight_subject"><code class="docutils literal notranslate"><span class="pre">weight_subject()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.BeamBreak"><code class="docutils literal notranslate"><span class="pre">BeamBreak</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.DeliverPellet"><code class="docutils literal notranslate"><span class="pre">DeliverPellet</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.DepletionFunction"><code class="docutils literal notranslate"><span class="pre">DepletionFunction</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.Feeder"><code class="docutils literal notranslate"><span class="pre">Feeder</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.Patch"><code class="docutils literal notranslate"><span class="pre">Patch</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.Region"><code class="docutils literal notranslate"><span class="pre">Region</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.SessionData"><code class="docutils literal notranslate"><span class="pre">SessionData</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.Weight"><code class="docutils literal notranslate"><span class="pre">Weight</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.WeightFiltered"><code class="docutils literal notranslate"><span class="pre">WeightFiltered</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.WeightRaw"><code class="docutils literal notranslate"><span class="pre">WeightRaw</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.foraging.WeightSubject"><code class="docutils literal notranslate"><span class="pre">WeightSubject</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>Index &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="_static/documentation_options.js?v=e463f385"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="index" title="Index" href="#" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -378,7 +382,6 @@ document.write(`
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
@@ -452,8 +455,6 @@ document.write(`
         <li><a href="reference/api/aeon.io.reader.html#module-aeon.io.reader">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     aeon.io.video
 
@@ -468,6 +469,8 @@ document.write(`
         <li><a href="reference/api/aeon.schema.core.html#module-aeon.schema.core">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     aeon.schema.dataset
 
@@ -490,10 +493,38 @@ document.write(`
 </li>
       </ul></li>
       <li>
-    aeon.schema.social
+    aeon.schema.schemas
 
       <ul>
-        <li><a href="reference/api/aeon.schema.social.html#module-aeon.schema.social">module</a>
+        <li><a href="reference/api/aeon.schema.schemas.html#module-aeon.schema.schemas">module</a>
+</li>
+      </ul></li>
+      <li>
+    aeon.schema.social_01
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_01.html#module-aeon.schema.social_01">module</a>
+</li>
+      </ul></li>
+      <li>
+    aeon.schema.social_02
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_02.html#module-aeon.schema.social_02">module</a>
+</li>
+      </ul></li>
+      <li>
+    aeon.schema.social_03
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_03.html#module-aeon.schema.social_03">module</a>
+</li>
+      </ul></li>
+      <li>
+    aeon.schema.streams
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.streams.html#module-aeon.schema.streams">module</a>
 </li>
       </ul></li>
       <li>
@@ -508,7 +539,13 @@ document.write(`
       <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Area.Arena">Arena (aeon.schema.foraging.Area attribute)</a>
 </li>
       <li><a href="reference/api/aeon.io.device.html#aeon.io.device.Device.args">args (aeon.io.device.Device attribute)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Device.args">(aeon.schema.streams.Device attribute)</a>
 </li>
+        <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.StreamGroup.args">(aeon.schema.streams.StreamGroup attribute)</a>
+</li>
+      </ul></li>
       <li><a href="reference/api/aeon.analysis.movies.html#aeon.analysis.movies.averageframes">averageframes() (in module aeon.analysis.movies)</a>
 </li>
   </ul></td>
@@ -517,18 +554,10 @@ document.write(`
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.background_color">background_color() (aeon.schema.octagon.OSC static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.beam_break">beam_break() (in module aeon.schema.foraging)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break0">beam_break0() (aeon.schema.octagon.Wall static method)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.BeamBreak">BeamBreak (class in aeon.schema.foraging)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break1">beam_break1() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.beam_break2">beam_break2() (aeon.schema.octagon.Wall static method)</a>
-</li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.BitmaskEvent">BitmaskEvent (class in aeon.io.reader)</a>
 </li>
   </ul></td>
@@ -537,8 +566,6 @@ document.write(`
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.change_subject_state">change_subject_state() (aeon.schema.octagon.OSC static method)</a>
-</li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Chunk">Chunk (class in aeon.io.reader)</a>
 </li>
       <li><a href="reference/api/aeon.io.api.html#aeon.io.api.chunk">chunk() (in module aeon.io.api)</a>
@@ -549,22 +576,10 @@ document.write(`
 </li>
       <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.circle">circle() (in module aeon.analysis.plotting)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.social.html#aeon.schema.social.class_int2str">class_int2str() (in module aeon.schema.social)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led0">clear_led0() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led1">clear_led1() (aeon.schema.octagon.Wall static method)</a>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose.class_int2str">class_int2str() (aeon.io.reader.Pose static method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_led2">clear_led2() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve0">clear_valve0() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve1">clear_valve1() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.clear_valve2">clear_valve2() (aeon.schema.octagon.Wall static method)</a>
-</li>
       <li><a href="reference/api/aeon.analysis.movies.html#aeon.analysis.movies.collatemovie">collatemovie() (in module aeon.analysis.movies)</a>
 </li>
       <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.colorline">colorline() (in module aeon.analysis.plotting)</a>
@@ -583,12 +598,16 @@ document.write(`
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.deliver_pellet">deliver_pellet() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.DeliverPellet">DeliverPellet (class in aeon.schema.foraging)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.depletionFunction">depletionFunction() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.DepletionFunction">DepletionFunction (class in aeon.schema.foraging)</a>
 </li>
       <li><a href="reference/api/aeon.io.device.html#aeon.io.device.Device">Device (class in aeon.io.device)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Device">(class in aeon.schema.streams)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.DigitalBitmask">DigitalBitmask (class in aeon.io.reader)</a>
@@ -597,8 +616,6 @@ document.write(`
 </li>
       <li><a href="reference/api/aeon.analysis.utils.html#aeon.analysis.utils.distancetravelled">distancetravelled() (in module aeon.analysis.utils)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.draw_background">draw_background() (aeon.schema.octagon.TaskLogic static method)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -606,16 +623,28 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Encoder">Encoder (class in aeon.io.reader)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Encoder">(class in aeon.schema.core)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.encoder">encoder() (in module aeon.schema.core)</a>
+      </ul></li>
+      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Environment">Environment (class in aeon.schema.core)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Environment">(class in aeon.schema.social_02)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.end_trial">end_trial() (aeon.schema.octagon.OSC static method)</a>
+      </ul></li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Environment.BlockState">Environment.BlockState (class in aeon.schema.social_02)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.environment">environment() (in module aeon.schema.core)</a>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Environment.EnvironmentState">Environment.EnvironmentState (class in aeon.schema.social_02)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.environment_state">environment_state() (in module aeon.schema.core)</a>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Environment.LightEvents">Environment.LightEvents (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Environment.MessageLog">Environment.MessageLog (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.EnvironmentState">EnvironmentState (class in aeon.schema.core)</a>
 </li>
       <li><a href="reference/api/aeon.io.video.html#aeon.io.video.export">export() (in module aeon.io.video)</a>
 </li>
@@ -627,7 +656,7 @@ document.write(`
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.feeder">feeder() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Feeder">Feeder (class in aeon.schema.foraging)</a>
 </li>
       <li><a href="reference/api/aeon.util.html#aeon.util.find_nested_key">find_nested_key() (in module aeon.util)</a>
 </li>
@@ -643,17 +672,15 @@ document.write(`
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.social.html#aeon.schema.social.Pose.get_bodyparts">get_bodyparts() (aeon.schema.social.Pose method)</a>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_bodyparts">get_bodyparts() (aeon.io.reader.Pose static method)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.social.html#aeon.schema.social.get_config_file">get_config_file() (in module aeon.schema.social)</a>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_class_names">get_class_names() (aeon.io.reader.Pose static method)</a>
 </li>
-      <li><a href="reference/api/aeon.analysis.utils.html#aeon.analysis.utils.get_events_rates">get_events_rates() (in module aeon.analysis.utils)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.gratings_slice">gratings_slice() (aeon.schema.octagon.OSC static method)</a>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_config_file">get_config_file() (aeon.io.reader.Pose class method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.gratings_slice_onset">gratings_slice_onset() (aeon.schema.octagon.TaskLogic static method)</a>
+      <li><a href="reference/api/aeon.analysis.utils.html#aeon.analysis.utils.get_events_rates">get_events_rates() (in module aeon.analysis.utils)</a>
 </li>
       <li><a href="reference/api/aeon.analysis.movies.html#aeon.analysis.movies.gridframes">gridframes() (in module aeon.analysis.movies)</a>
 </li>
@@ -670,20 +697,14 @@ document.write(`
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Harp">Harp (class in aeon.io.reader)</a>
 </li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Heartbeat">Heartbeat (class in aeon.io.reader)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.heartbeat">heartbeat() (in module aeon.schema.core)</a>
-</li>
-      <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.heatmap">heatmap() (in module aeon.analysis.plotting)</a>
-</li>
-  </ul></td>
-</tr></table>
 
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
+      <ul>
+        <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Heartbeat">(class in aeon.schema.core)</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.inter_trial_interval">inter_trial_interval() (aeon.schema.octagon.TaskLogic static method)</a>
+      <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.heatmap">heatmap() (in module aeon.analysis.plotting)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -703,12 +724,14 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.messageLog">messageLog() (in module aeon.schema.core)</a>
+      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.MessageLog">MessageLog (class in aeon.schema.core)</a>
 </li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Metadata">Metadata (class in aeon.io.reader)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Metadata">(class in aeon.schema.core)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.metadata">metadata() (in module aeon.schema.core)</a>
-</li>
+      </ul></li>
       <li>
     module
 
@@ -735,7 +758,15 @@ document.write(`
 </li>
         <li><a href="reference/api/aeon.schema.octagon.html#module-aeon.schema.octagon">aeon.schema.octagon</a>
 </li>
-        <li><a href="reference/api/aeon.schema.social.html#module-aeon.schema.social">aeon.schema.social</a>
+        <li><a href="reference/api/aeon.schema.schemas.html#module-aeon.schema.schemas">aeon.schema.schemas</a>
+</li>
+        <li><a href="reference/api/aeon.schema.social_01.html#module-aeon.schema.social_01">aeon.schema.social_01</a>
+</li>
+        <li><a href="reference/api/aeon.schema.social_02.html#module-aeon.schema.social_02">aeon.schema.social_02</a>
+</li>
+        <li><a href="reference/api/aeon.schema.social_03.html#module-aeon.schema.social_03">aeon.schema.social_03</a>
+</li>
+        <li><a href="reference/api/aeon.schema.streams.html#module-aeon.schema.streams">aeon.schema.streams</a>
 </li>
         <li><a href="reference/api/aeon.util.html#module-aeon.util">aeon.util</a>
 </li>
@@ -747,7 +778,11 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.io.device.html#aeon.io.device.Device.name">name (aeon.io.device.Device attribute)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Device.name">(aeon.schema.streams.Device attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Area.Nest">Nest (aeon.schema.foraging.Area attribute)</a>
@@ -762,38 +797,86 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC">OSC (class in aeon.schema.octagon)</a>
 </li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.BackgroundColor">OSC.BackgroundColor (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.ChangeSubjectState">OSC.ChangeSubjectState (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.EndTrial">OSC.EndTrial (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.GratingsSlice">OSC.GratingsSlice (class in aeon.schema.octagon)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.Poke">OSC.Poke (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.Response">OSC.Response (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.RunPreTrialNoPoke">OSC.RunPreTrialNoPoke (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.Slice">OSC.Slice (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.StartNewSession">OSC.StartNewSession (class in aeon.schema.octagon)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.patch">patch() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Patch">Patch (class in aeon.schema.foraging)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch">(class in aeon.schema.social_02)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.DepletionState">Patch.DepletionState (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.Encoder">Patch.Encoder (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.Feeder">Patch.Feeder (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.ManualDelivery">Patch.ManualDelivery (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.MissedPellet">Patch.MissedPellet (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Patch.RetriedDelivery">Patch.RetriedDelivery (class in aeon.schema.social_02)</a>
 </li>
       <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Area.Patch1">Patch1 (aeon.schema.foraging.Area attribute)</a>
 </li>
       <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Area.Patch2">Patch2 (aeon.schema.foraging.Area attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Device.path">path (aeon.schema.streams.Device attribute)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.StreamGroup.path">(aeon.schema.streams.StreamGroup attribute)</a>
+</li>
+      </ul></li>
       <li><a href="reference/api/aeon.io.device.html#aeon.io.device.Device.pattern">pattern (aeon.io.device.Device attribute)</a>
 
       <ul>
         <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Reader.pattern">(aeon.io.reader.Reader attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.photodiode">photodiode() (in module aeon.schema.octagon)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Photodiode">Photodiode (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.poke">poke() (aeon.schema.octagon.OSC static method)</a>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose">Pose (class in aeon.io.reader)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_01.html#aeon.schema.social_01.Pose">(class in aeon.schema.social_01)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.social.html#aeon.schema.social.Pose">Pose (class in aeon.schema.social)</a>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.Pose">(class in aeon.schema.social_02)</a>
 </li>
+        <li><a href="reference/api/aeon.schema.social_03.html#aeon.schema.social_03.Pose">(class in aeon.schema.social_03)</a>
+</li>
+      </ul></li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Position">Position (class in aeon.io.reader)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Position">(class in aeon.schema.core)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.position">position() (in module aeon.schema.core)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.pre_trial">pre_trial() (aeon.schema.octagon.TaskLogic static method)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -823,6 +906,8 @@ document.write(`
 </li>
         <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Metadata.read">(aeon.io.reader.Metadata method)</a>
 </li>
+        <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Pose.read">(aeon.io.reader.Pose method)</a>
+</li>
         <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Position.read">(aeon.io.reader.Position method)</a>
 </li>
         <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Reader.read">(aeon.io.reader.Reader method)</a>
@@ -831,23 +916,21 @@ document.write(`
 </li>
         <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Video.read">(aeon.io.reader.Video method)</a>
 </li>
-        <li><a href="reference/api/aeon.schema.social.html#aeon.schema.social.Pose.read">(aeon.schema.social.Pose method)</a>
-</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Stream.reader">reader (aeon.schema.streams.Stream attribute)</a>
+</li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Reader">Reader (class in aeon.io.reader)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.region">region() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Region">Region (class in aeon.schema.foraging)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.response">response() (aeon.schema.octagon.OSC static method)</a>
+      <li><a href="reference/api/aeon.schema.social_01.html#aeon.schema.social_01.RfidEvents">RfidEvents (class in aeon.schema.social_01)</a>
 
       <ul>
-        <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.response">(aeon.schema.octagon.TaskLogic static method)</a>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.RfidEvents">(class in aeon.schema.social_02)</a>
 </li>
       </ul></li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.run_pre_trial_no_poke">run_pre_trial_no_poke() (aeon.schema.octagon.OSC static method)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -856,35 +939,29 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/glossary.html#term-Session"><strong>Session</strong></a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.session">session() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.SessionData">SessionData (class in aeon.schema.foraging)</a>
 </li>
       <li><a href="reference/api/aeon.analysis.utils.html#aeon.analysis.utils.sessiontime">sessiontime() (in module aeon.analysis.utils)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led0">set_led0() (aeon.schema.octagon.Wall static method)</a>
+      <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.set_ymargin">set_ymargin() (in module aeon.analysis.plotting)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led1">set_led1() (aeon.schema.octagon.Wall static method)</a>
+      <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.Stream">Stream (class in aeon.schema.streams)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_led2">set_led2() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve0">set_valve0() (aeon.schema.octagon.Wall static method)</a>
+      <li><a href="reference/api/aeon.schema.streams.html#aeon.schema.streams.StreamGroup">StreamGroup (class in aeon.schema.streams)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve1">set_valve1() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.set_valve2">set_valve2() (aeon.schema.octagon.Wall static method)</a>
-</li>
-      <li><a href="reference/api/aeon.analysis.plotting.html#aeon.analysis.plotting.set_ymargin">set_ymargin() (in module aeon.analysis.plotting)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.slice">slice() (aeon.schema.octagon.OSC static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.slice_onset">slice_onset() (aeon.schema.octagon.TaskLogic static method)</a>
-</li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.OSC.start_new_session">start_new_session() (aeon.schema.octagon.OSC static method)</a>
-</li>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Subject">Subject (class in aeon.io.reader)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.subject_state">subject_state() (in module aeon.schema.core)</a>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData">SubjectData (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectState">SubjectData.SubjectState (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectVisits">SubjectData.SubjectVisits (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectWeight">SubjectData.SubjectWeight (class in aeon.schema.social_02)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.SubjectState">SubjectState (class in aeon.schema.core)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -896,13 +973,25 @@ document.write(`
 </li>
       <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic">TaskLogic (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.to_dict">to_dict() (in module aeon.io.reader)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.DrawBackground">TaskLogic.DrawBackground (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.GratingsSliceOnset">TaskLogic.GratingsSliceOnset (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.InterTrialInterval">TaskLogic.InterTrialInterval (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.PreTrialState">TaskLogic.PreTrialState (class in aeon.schema.octagon)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/glossary.html#term-Trial"><strong>Trial</strong></a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.Response">TaskLogic.Response (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.trial_initiation">trial_initiation() (aeon.schema.octagon.TaskLogic static method)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.SliceOnset">TaskLogic.SliceOnset (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.TaskLogic.TrialInitiation">TaskLogic.TrialInitiation (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.to_dict">to_dict() (in module aeon.io.reader)</a>
+</li>
+      <li><a href="reference/glossary.html#term-Trial"><strong>Trial</strong></a>
 </li>
       <li><a href="reference/api/aeon.analysis.movies.html#aeon.analysis.movies.triggerclip">triggerclip() (in module aeon.analysis.movies)</a>
 </li>
@@ -913,11 +1002,13 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.io.reader.html#aeon.io.reader.Video">Video (class in aeon.io.reader)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.Video">(class in aeon.schema.core)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.core.html#aeon.schema.core.video">video() (in module aeon.schema.core)</a>
-</li>
       <li><a href="reference/api/aeon.analysis.utils.html#aeon.analysis.utils.visits">visits() (in module aeon.analysis.utils)</a>
 </li>
   </ul></td>
@@ -928,15 +1019,53 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall">Wall (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight">weight() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.BeamBreak0">Wall.BeamBreak0 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.BeamBreak1">Wall.BeamBreak1 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.BeamBreak2">Wall.BeamBreak2 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearLed0">Wall.ClearLed0 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearLed1">Wall.ClearLed1 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearLed2">Wall.ClearLed2 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearValve0">Wall.ClearValve0 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearValve1">Wall.ClearValve1 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.ClearValve2">Wall.ClearValve2 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetLed0">Wall.SetLed0 (class in aeon.schema.octagon)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_filtered">weight_filtered() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetLed1">Wall.SetLed1 (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_raw">weight_raw() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetLed2">Wall.SetLed2 (class in aeon.schema.octagon)</a>
 </li>
-      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.weight_subject">weight_subject() (in module aeon.schema.foraging)</a>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetValve0">Wall.SetValve0 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetValve1">Wall.SetValve1 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.octagon.html#aeon.schema.octagon.Wall.SetValve2">Wall.SetValve2 (class in aeon.schema.octagon)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.Weight">Weight (class in aeon.schema.foraging)</a>
+</li>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightFiltered">WeightFiltered (class in aeon.schema.foraging)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.WeightFiltered">(class in aeon.schema.social_02)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightRaw">WeightRaw (class in aeon.schema.foraging)</a>
+
+      <ul>
+        <li><a href="reference/api/aeon.schema.social_02.html#aeon.schema.social_02.WeightRaw">(class in aeon.schema.social_02)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/api/aeon.schema.foraging.html#aeon.schema.foraging.WeightSubject">WeightSubject (class in aeon.schema.foraging)</a>
 </li>
   </ul></td>
 </tr></table>

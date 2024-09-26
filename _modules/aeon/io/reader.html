@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.io.reader &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.io.reader &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/io/reader';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -396,16 +400,21 @@ document.write(`
                 <article class="bd-article">
                   
   <h1>Source code for aeon.io.reader</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">dotmap</span> <span class="kn">import</span> <span class="n">DotMap</span>
 
-<span class="kn">from</span> <span class="nn">aeon.io.api</span> <span class="kn">import</span> <span class="n">chunk_key</span>
+<span class="kn">from</span> <span class="nn">aeon</span> <span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">aeon.io.api</span> <span class="kn">import</span> <span class="n">aeon</span> <span class="k">as</span> <span class="n">aeon_time</span>
+<span class="kn">from</span> <span class="nn">aeon.io.api</span> <span class="kn">import</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">chunk_key</span>
 
 <span class="n">_SECONDS_PER_TICK</span> <span class="o">=</span> <span class="mf">32e-6</span>
 <span class="n">_payloadtypes</span> <span class="o">=</span> <span class="p">{</span>
@@ -440,7 +449,7 @@ document.write(`
 
 <div class="viewcode-block" id="Reader.read">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Reader.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the specified file.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([]))</span></div>
 </div>
@@ -503,7 +512,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns path and epoch information for the specified chunk.&quot;&quot;&quot;</span>
         <span class="n">epoch</span><span class="p">,</span> <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk_key</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="n">epoch</span><span class="p">}</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">chunk</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">chunk</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
 </div>
 
 
@@ -528,7 +537,7 @@ document.write(`
         <span class="n">workflow</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Workflow&quot;</span><span class="p">)</span>
         <span class="n">commit</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Commit&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="n">workflow</span><span class="p">,</span> <span class="s2">&quot;commit&quot;</span><span class="p">:</span> <span class="n">commit</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">DotMap</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]}</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">time</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
 </div>
 
 
@@ -536,8 +545,9 @@ document.write(`
 <div class="viewcode-block" id="Csv">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Csv">[docs]</a>
 <span class="k">class</span> <span class="nc">Csv</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts data from comma-separated (csv) text files, where the first column</span>
-<span class="sd">    stores the Aeon timestamp, in seconds.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts data from comma-separated (CSV) text files.</span>
+
+<span class="sd">    The first column stores the Aeon timestamp, in seconds.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">):</span>
@@ -548,7 +558,13 @@ document.write(`
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Csv.read">[docs]</a>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the specified CSV text file.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+            <span class="n">file</span><span class="p">,</span>
+            <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span></div>
 </div>
 
 
@@ -612,7 +628,28 @@ document.write(`
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;angle&quot;</span><span class="p">,</span> <span class="s2">&quot;intensity&quot;</span><span class="p">])</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;angle&quot;</span><span class="p">,</span> <span class="s2">&quot;intensity&quot;</span><span class="p">])</span>
+
+<div class="viewcode-block" id="Encoder.read">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Encoder.read">[docs]</a>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">downsample</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads encoder data from the specified Harp binary file.</span>
+
+<span class="sd">        By default the encoder data is downsampled to 50Hz. Setting downsample to</span>
+<span class="sd">        False or None can be used to force the raw data to be returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">downsample</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># resample requires a DatetimeIndex so we convert early</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">aeon_time</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+            <span class="n">first_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">first_valid_index</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">first_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># since data is absolute angular position we decimate by taking first of each bin</span>
+                <span class="n">chunk_origin</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">(</span><span class="n">first_index</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;20ms&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">chunk_origin</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+</div>
 
 
 
@@ -655,11 +692,12 @@ document.write(`
 <div class="viewcode-block" id="BitmaskEvent.read">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.BitmaskEvent.read">[docs]</a>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data and matches it to the</span>
-<span class="sd">        specified unique identifier.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data.</span>
+
+<span class="sd">        Each data value is matched against the unique event identifier.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
         <span class="n">data</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span>
         <span class="k">return</span> <span class="n">data</span></div>
 </div>
@@ -682,8 +720,9 @@ document.write(`
 <div class="viewcode-block" id="DigitalBitmask.read">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.DigitalBitmask.read">[docs]</a>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data and matches it to the</span>
-<span class="sd">        specified unique identifier.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data.</span>
+
+<span class="sd">        Each data value is checked against the specified bitmask.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
         <span class="n">state</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
@@ -720,9 +759,173 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="Pose">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose">[docs]</a>
+<span class="k">class</span> <span class="nc">Pose</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reader for Harp-binarized tracking data given a model that outputs id, parts, and likelihoods.</span>
+
+<span class="sd">    Columns:</span>
+<span class="sd">        class (int): Int ID of a subject in the environment.</span>
+<span class="sd">        class_likelihood (float): Likelihood of the subject&#39;s identity.</span>
+<span class="sd">        part (str): Bodypart on the subject.</span>
+<span class="sd">        part_likelihood (float): Likelihood of the specified bodypart.</span>
+<span class="sd">        x (float): X-coordinate of the bodypart.</span>
+<span class="sd">        y (float): Y-coordinate of the bodypart.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_root</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/ceph/aeon/aeon/data/processed&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pose reader constructor.&quot;&quot;&quot;</span>
+        <span class="c1"># `pattern` for this reader should typically be &#39;&lt;hpcnode&gt;_&lt;jobid&gt;*&#39;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model_root</span> <span class="o">=</span> <span class="n">model_root</span>
+
+<div class="viewcode-block" id="Pose.read">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose.read">[docs]</a>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the Harp-binarized tracking file.&quot;&quot;&quot;</span>
+        <span class="c1"># Get config file from `file`, then bodyparts from config file.</span>
+        <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">*</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
+        <span class="n">config_file_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_root</span><span class="p">)</span> <span class="o">/</span> <span class="n">model_dir</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_file_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find model dir </span><span class="si">{</span><span class="n">config_file_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">config_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config_file</span><span class="p">(</span><span class="n">config_file_dir</span><span class="p">)</span>
+        <span class="n">identities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_names</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bodyparts</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+
+        <span class="c1"># Using bodyparts, assign column names to Harp register values, and read data in default format.</span>
+        <span class="n">BONSAI_SLEAP_V2</span> <span class="o">=</span> <span class="mf">0.2</span>
+        <span class="n">BONSAI_SLEAP_V3</span> <span class="o">=</span> <span class="mf">0.3</span>
+        <span class="k">try</span><span class="p">:</span>  <span class="c1"># Bonsai.Sleap0.2</span>
+            <span class="n">bonsai_sleap_v</span> <span class="o">=</span> <span class="n">BONSAI_SLEAP_V2</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+                <span class="n">columns</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_x&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_y&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_likelihood&quot;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># column mismatch; Bonsai.Sleap0.3</span>
+            <span class="n">bonsai_sleap_v</span> <span class="o">=</span> <span class="n">BONSAI_SLEAP_V3</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span>
+            <span class="n">columns</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">identity</span><span class="si">}</span><span class="s2">_likelihood&quot;</span> <span class="k">for</span> <span class="n">identity</span> <span class="ow">in</span> <span class="n">identities</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+                <span class="n">columns</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_x&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_y&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_likelihood&quot;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="c1"># Drop any repeat parts.</span>
+        <span class="n">unique_parts</span><span class="p">,</span> <span class="n">unique_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">parts</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">repeat_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)),</span> <span class="n">unique_idxs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">repeat_idxs</span><span class="p">:</span>  <span class="c1"># drop x, y, and likelihood cols for repeat parts (skip first 5 cols)</span>
+            <span class="n">init_rep_part_col_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">repeat_idxs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span>
+            <span class="n">rep_part_col_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">init_rep_part_col_idx</span><span class="p">])</span>
+            <span class="n">keep_part_col_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)),</span> <span class="n">rep_part_col_idxs</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">keep_part_col_idxs</span><span class="p">]</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">unique_parts</span>
+
+        <span class="c1"># Set new columns, and reformat `data`.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">config_file</span><span class="p">)</span>
+        <span class="n">n_parts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+        <span class="n">part_data_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()]</span> <span class="o">*</span> <span class="n">n_parts</span>
+        <span class="n">new_columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;part&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;part_likelihood&quot;</span><span class="p">])</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_columns</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">part</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parts</span><span class="p">):</span>
+            <span class="n">part_columns</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">columns</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">identities</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">if</span> <span class="n">bonsai_sleap_v</span> <span class="o">==</span> <span class="n">BONSAI_SLEAP_V3</span> <span class="k">else</span> <span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">part_columns</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_x&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_y&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_likelihood&quot;</span><span class="p">])</span>
+            <span class="n">part_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">part_columns</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">bonsai_sleap_v</span> <span class="o">==</span> <span class="n">BONSAI_SLEAP_V3</span><span class="p">:</span>
+                <span class="c1"># combine all identity_likelihood cols into a single col as dict</span>
+                <span class="n">part_data</span><span class="p">[</span><span class="s2">&quot;identity_likelihood&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">part_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">{</span><span class="n">identity</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">identity</span><span class="si">}</span><span class="s2">_likelihood&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">identity</span> <span class="ow">in</span> <span class="n">identities</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+                <span class="p">)</span>
+                <span class="n">part_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">identities</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">part_data</span> <span class="o">=</span> <span class="n">part_data</span><span class="p">[</span>  <span class="c1"># reorder columns</span>
+                    <span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_x&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_y&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">part</span><span class="si">}</span><span class="s2">_likelihood&quot;</span><span class="p">]</span>
+                <span class="p">]</span>
+            <span class="n">part_data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;part&quot;</span><span class="p">,</span> <span class="n">part</span><span class="p">)</span>
+            <span class="n">part_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_columns</span>
+            <span class="n">part_data_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">part_data</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">part_data_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Pose.get_class_names">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_class_names">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_class_names</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of classes from a model&#39;s config file.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config_file</span><span class="o">.</span><span class="n">stem</span> <span class="o">!=</span> <span class="s2">&quot;confmap_config&quot;</span><span class="p">:</span>  <span class="c1"># SLEAP</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The model config file &#39;</span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">&#39; is not supported.&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">heads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">][</span><span class="s2">&quot;heads&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;class_vectors&quot;</span><span class="p">)[</span><span class="s2">&quot;classes&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find class_vectors in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span></div>
+
+
+<div class="viewcode-block" id="Pose.get_bodyparts">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_bodyparts">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_bodyparts</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of bodyparts from a model&#39;s config file.&quot;&quot;&quot;</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config_file</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;confmap_config&quot;</span><span class="p">:</span>  <span class="c1"># SLEAP</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">heads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">][</span><span class="s2">&quot;heads&quot;</span><span class="p">]</span>
+                <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;anchor_part&quot;</span><span class="p">)]</span>
+                <span class="n">parts</span> <span class="o">+=</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;part_names&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">parts</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find bodyparts in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+        <span class="k">return</span> <span class="n">parts</span></div>
+
+
+<div class="viewcode-block" id="Pose.class_int2str">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose.class_int2str">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts a class integer in a tracking data dataframe to its associated string (subject id).&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">config_file</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;confmap_config&quot;</span><span class="p">:</span>  <span class="c1"># SLEAP</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">heads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">][</span><span class="s2">&quot;heads&quot;</span><span class="p">]</span>
+                <span class="n">classes</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;classes&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find classes in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subj</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="Pose.get_config_file">
+<a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.Pose.get_config_file">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_config_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_file_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">config_file_names</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the config file from a model&#39;s config directory.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">config_file_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config_file_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;confmap_config.json&quot;</span><span class="p">]</span>  <span class="c1"># SLEAP (add for other trackers to this list)</span>
+        <span class="n">config_file</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">config_file_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">config_file_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                <span class="n">config_file</span> <span class="o">=</span> <span class="n">config_file_dir</span> <span class="o">/</span> <span class="n">f</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">config_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find config file in </span><span class="si">{</span><span class="n">config_file_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">config_file</span></div>
+</div>
+
+
+
 <div class="viewcode-block" id="from_dict">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.from_dict">[docs]</a>
 <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a dictionary to a DotMap object.&quot;&quot;&quot;</span>
     <span class="n">reader_type</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">reader_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;type&quot;</span><span class="p">}</span>
@@ -737,6 +940,7 @@ document.write(`
 <div class="viewcode-block" id="to_dict">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.reader.html#aeon.io.reader.to_dict">[docs]</a>
 <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="n">dotmap</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a DotMap object to a dictionary.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dotmap</span><span class="p">,</span> <span class="n">Reader</span><span class="p">):</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">dotmap</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pattern&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">dotmap</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>

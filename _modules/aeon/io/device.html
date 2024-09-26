@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.io.device &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.io.device &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/io/device';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -398,50 +402,53 @@ document.write(`
   <h1>Source code for aeon.io.device</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">inspect</span>
 
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">deprecated</span>
+
 
 <div class="viewcode-block" id="compositeStream">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.device.html#aeon.io.device.compositeStream">[docs]</a>
+<span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;Please use the StreamGroup class from the streams module instead.&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">compositeStream</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Merges multiple data streams into a single composite stream.&quot;&quot;&quot;</span>
     <span class="n">composite</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">binder_fn</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">binder_fn</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">binder_fn</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="nb">staticmethod</span><span class="p">):</span>
                         <span class="n">composite</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="vm">__func__</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">composite</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">stream</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+                <span class="n">composite</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">binder_fn</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">composite</span></div>
 
 
 
 <div class="viewcode-block" id="Device">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.device.html#aeon.io.device.Device">[docs]</a>
+<span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;The Device class has been moved to the streams module.&quot;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Device</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Groups multiple data streams into a logical device.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Groups multiple Readers into a logical device.</span>
 
-<span class="sd">    If a device contains a single stream with the same pattern as the device</span>
-<span class="sd">    `name`, it will be considered a singleton, and the stream reader will be</span>
-<span class="sd">    paired directly with the device without nesting.</span>
+<span class="sd">    If a device contains a single stream reader with the same pattern as the device `name`, it will be</span>
+<span class="sd">    considered a singleton, and the stream reader will be paired directly with the device without nesting.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        name (str): Name of the device.</span>
-<span class="sd">        args (Any): Data streams collected from the device.</span>
+<span class="sd">        args (any): A binder function or class that returns a dictionary of Readers.</span>
 <span class="sd">        pattern (str, optional): Pattern used to find raw chunk files,</span>
 <span class="sd">            usually in the format `&lt;Device&gt;_&lt;DataStream&gt;`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">compositeStream</span><span class="p">(</span><span class="n">name</span> <span class="k">if</span> <span class="n">pattern</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pattern</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span> <span class="o">=</span> <span class="n">compositeStream</span><span class="p">(</span><span class="n">name</span> <span class="k">if</span> <span class="n">pattern</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pattern</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">singleton</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">singleton</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">singleton</span><span class="p">:</span>
                 <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">singleton</span><span class="p">))</span>
-        <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">))</span></div>
 
 </pre></div>
 

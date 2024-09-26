@@ -1,0 +1,6 @@
+﻿aeon.schema.social_01
+=====================
+
+.. automodule:: aeon.schema.social_01
+   :members:
+   :undoc-members:

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.schema.octagon &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.schema.octagon &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,14 +39,16 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.schema.octagon';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="aeon.schema.social" href="aeon.schema.social.html" />
+    <link rel="next" title="aeon.schema.schemas" href="aeon.schema.schemas.html" />
     <link rel="prev" title="aeon.schema.foraging" href="aeon.schema.foraging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -371,7 +375,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">aeon.schema.octagon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.schemas.html">aeon.schema.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_01.html">aeon.schema.social_01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_02.html">aeon.schema.social_02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_03.html">aeon.schema.social_03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.streams.html">aeon.schema.streams</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
@@ -440,181 +448,213 @@ document.write(`
 <span id="aeon-schema-octagon"></span><h1>aeon.schema.octagon<a class="headerlink" href="#module-aeon.schema.octagon" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="aeon.schema.octagon.OSC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">OSC</span></span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.background_color">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">background_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.background_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.background_color" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">OSC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.BackgroundColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BackgroundColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.BackgroundColor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.BackgroundColor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.change_subject_state">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">change_subject_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.change_subject_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.change_subject_state" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.ChangeSubjectState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChangeSubjectState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.ChangeSubjectState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.ChangeSubjectState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.end_trial">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_trial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.end_trial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.end_trial" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.EndTrial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EndTrial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.EndTrial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.EndTrial" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.gratings_slice">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gratings_slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.gratings_slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.gratings_slice" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.GratingsSlice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GratingsSlice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.GratingsSlice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.GratingsSlice" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.poke">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">poke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.poke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.poke" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.Poke">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Poke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.Poke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.Poke" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.response">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.response" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.Response">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.Response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.Response" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.run_pre_trial_no_poke">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_pre_trial_no_poke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.run_pre_trial_no_poke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.run_pre_trial_no_poke" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.RunPreTrialNoPoke">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RunPreTrialNoPoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.RunPreTrialNoPoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.RunPreTrialNoPoke" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.slice">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.slice" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.Slice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.Slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.Slice" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.start_new_session">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_new_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.start_new_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.start_new_session" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.OSC.StartNewSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StartNewSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#OSC.StartNewSession"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.OSC.StartNewSession" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Photodiode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">Photodiode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Photodiode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Photodiode" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">TaskLogic</span></span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.draw_background">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">draw_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.draw_background"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.draw_background" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">TaskLogic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.DrawBackground">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DrawBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.DrawBackground"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.DrawBackground" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.gratings_slice_onset">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gratings_slice_onset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.gratings_slice_onset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.gratings_slice_onset" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.GratingsSliceOnset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GratingsSliceOnset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.GratingsSliceOnset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.GratingsSliceOnset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.inter_trial_interval">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inter_trial_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.inter_trial_interval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.inter_trial_interval" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.InterTrialInterval">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InterTrialInterval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.InterTrialInterval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.InterTrialInterval" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.pre_trial">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pre_trial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.pre_trial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.pre_trial" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.PreTrialState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PreTrialState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.PreTrialState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.PreTrialState" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.response">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.response" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.Response">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.Response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.Response" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.slice_onset">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">slice_onset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.slice_onset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.slice_onset" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.SliceOnset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SliceOnset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.SliceOnset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.SliceOnset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.trial_initiation">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trial_initiation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.trial_initiation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.trial_initiation" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.TaskLogic.TrialInitiation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TrialInitiation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#TaskLogic.TrialInitiation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.TaskLogic.TrialInitiation" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aeon.schema.octagon.Wall">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">Wall</span></span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.beam_break0">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">beam_break0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.beam_break0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.beam_break0" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.beam_break1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">beam_break1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.beam_break1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.beam_break1" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.beam_break2">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">beam_break2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.beam_break2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.beam_break2" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_led0">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_led0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_led0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_led0" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_led1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_led1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_led1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_led1" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_led2">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_led2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_led2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_led2" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_valve0">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_valve0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_valve0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_valve0" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_valve1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_valve1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_valve1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_valve1" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.clear_valve2">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_valve2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.clear_valve2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.clear_valve2" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_led0">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_led0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_led0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_led0" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_led1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_led1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_led1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_led1" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_led2">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_led2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_led2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_led2" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_valve0">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_valve0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_valve0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_valve0" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_valve1">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_valve1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_valve1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_valve1" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.set_valve2">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_valve2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.set_valve2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.set_valve2" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">Wall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.StreamGroup" title="aeon.schema.streams.StreamGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamGroup</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.BeamBreak0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BeamBreak0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.BeamBreak0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.BeamBreak0" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="aeon.schema.octagon.photodiode">
-<span class="sig-prename descclassname"><span class="pre">aeon.schema.octagon.</span></span><span class="sig-name descname"><span class="pre">photodiode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#photodiode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.photodiode" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.BeamBreak1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BeamBreak1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.BeamBreak1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.BeamBreak1" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.BeamBreak2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BeamBreak2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.BeamBreak2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.BeamBreak2" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearLed0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearLed0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearLed0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearLed0" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearLed1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearLed1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearLed1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearLed1" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearLed2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearLed2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearLed2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearLed2" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearValve0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearValve0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearValve0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearValve0" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearValve1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearValve1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearValve1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearValve1" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.ClearValve2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClearValve2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.ClearValve2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.ClearValve2" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetLed0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetLed0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetLed0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetLed0" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetLed1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetLed1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetLed1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetLed1" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetLed2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetLed2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetLed2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetLed2" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetValve0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetValve0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetValve0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetValve0" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetValve1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetValve1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetValve1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetValve1" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.schema.octagon.Wall.SetValve2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SetValve2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/schema/octagon.html#Wall.SetValve2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.schema.octagon.Wall.SetValve2" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="aeon.schema.streams.html#aeon.schema.streams.Stream" title="aeon.schema.streams.Stream"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stream</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
 
 </section>
 
@@ -638,11 +678,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="aeon.schema.social.html"
+       href="aeon.schema.schemas.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">aeon.schema.social</p>
+        <p class="prev-next-title">aeon.schema.schemas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -665,46 +705,46 @@ document.write(`
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC"><code class="docutils literal notranslate"><span class="pre">OSC</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.background_color"><code class="docutils literal notranslate"><span class="pre">OSC.background_color()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.change_subject_state"><code class="docutils literal notranslate"><span class="pre">OSC.change_subject_state()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.end_trial"><code class="docutils literal notranslate"><span class="pre">OSC.end_trial()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.gratings_slice"><code class="docutils literal notranslate"><span class="pre">OSC.gratings_slice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.poke"><code class="docutils literal notranslate"><span class="pre">OSC.poke()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.response"><code class="docutils literal notranslate"><span class="pre">OSC.response()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.run_pre_trial_no_poke"><code class="docutils literal notranslate"><span class="pre">OSC.run_pre_trial_no_poke()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.slice"><code class="docutils literal notranslate"><span class="pre">OSC.slice()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.start_new_session"><code class="docutils literal notranslate"><span class="pre">OSC.start_new_session()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.BackgroundColor"><code class="docutils literal notranslate"><span class="pre">OSC.BackgroundColor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.ChangeSubjectState"><code class="docutils literal notranslate"><span class="pre">OSC.ChangeSubjectState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.EndTrial"><code class="docutils literal notranslate"><span class="pre">OSC.EndTrial</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.GratingsSlice"><code class="docutils literal notranslate"><span class="pre">OSC.GratingsSlice</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.Poke"><code class="docutils literal notranslate"><span class="pre">OSC.Poke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.Response"><code class="docutils literal notranslate"><span class="pre">OSC.Response</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.RunPreTrialNoPoke"><code class="docutils literal notranslate"><span class="pre">OSC.RunPreTrialNoPoke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.Slice"><code class="docutils literal notranslate"><span class="pre">OSC.Slice</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.OSC.StartNewSession"><code class="docutils literal notranslate"><span class="pre">OSC.StartNewSession</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Photodiode"><code class="docutils literal notranslate"><span class="pre">Photodiode</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic"><code class="docutils literal notranslate"><span class="pre">TaskLogic</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.draw_background"><code class="docutils literal notranslate"><span class="pre">TaskLogic.draw_background()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.gratings_slice_onset"><code class="docutils literal notranslate"><span class="pre">TaskLogic.gratings_slice_onset()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.inter_trial_interval"><code class="docutils literal notranslate"><span class="pre">TaskLogic.inter_trial_interval()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.pre_trial"><code class="docutils literal notranslate"><span class="pre">TaskLogic.pre_trial()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.response"><code class="docutils literal notranslate"><span class="pre">TaskLogic.response()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.slice_onset"><code class="docutils literal notranslate"><span class="pre">TaskLogic.slice_onset()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.trial_initiation"><code class="docutils literal notranslate"><span class="pre">TaskLogic.trial_initiation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.DrawBackground"><code class="docutils literal notranslate"><span class="pre">TaskLogic.DrawBackground</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.GratingsSliceOnset"><code class="docutils literal notranslate"><span class="pre">TaskLogic.GratingsSliceOnset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.InterTrialInterval"><code class="docutils literal notranslate"><span class="pre">TaskLogic.InterTrialInterval</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.PreTrialState"><code class="docutils literal notranslate"><span class="pre">TaskLogic.PreTrialState</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.Response"><code class="docutils literal notranslate"><span class="pre">TaskLogic.Response</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.SliceOnset"><code class="docutils literal notranslate"><span class="pre">TaskLogic.SliceOnset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.TaskLogic.TrialInitiation"><code class="docutils literal notranslate"><span class="pre">TaskLogic.TrialInitiation</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall"><code class="docutils literal notranslate"><span class="pre">Wall</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.beam_break0"><code class="docutils literal notranslate"><span class="pre">Wall.beam_break0()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.beam_break1"><code class="docutils literal notranslate"><span class="pre">Wall.beam_break1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.beam_break2"><code class="docutils literal notranslate"><span class="pre">Wall.beam_break2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_led0"><code class="docutils literal notranslate"><span class="pre">Wall.clear_led0()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_led1"><code class="docutils literal notranslate"><span class="pre">Wall.clear_led1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_led2"><code class="docutils literal notranslate"><span class="pre">Wall.clear_led2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_valve0"><code class="docutils literal notranslate"><span class="pre">Wall.clear_valve0()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_valve1"><code class="docutils literal notranslate"><span class="pre">Wall.clear_valve1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.clear_valve2"><code class="docutils literal notranslate"><span class="pre">Wall.clear_valve2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_led0"><code class="docutils literal notranslate"><span class="pre">Wall.set_led0()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_led1"><code class="docutils literal notranslate"><span class="pre">Wall.set_led1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_led2"><code class="docutils literal notranslate"><span class="pre">Wall.set_led2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_valve0"><code class="docutils literal notranslate"><span class="pre">Wall.set_valve0()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_valve1"><code class="docutils literal notranslate"><span class="pre">Wall.set_valve1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.set_valve2"><code class="docutils literal notranslate"><span class="pre">Wall.set_valve2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.BeamBreak0"><code class="docutils literal notranslate"><span class="pre">Wall.BeamBreak0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.BeamBreak1"><code class="docutils literal notranslate"><span class="pre">Wall.BeamBreak1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.BeamBreak2"><code class="docutils literal notranslate"><span class="pre">Wall.BeamBreak2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearLed0"><code class="docutils literal notranslate"><span class="pre">Wall.ClearLed0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearLed1"><code class="docutils literal notranslate"><span class="pre">Wall.ClearLed1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearLed2"><code class="docutils literal notranslate"><span class="pre">Wall.ClearLed2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearValve0"><code class="docutils literal notranslate"><span class="pre">Wall.ClearValve0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearValve1"><code class="docutils literal notranslate"><span class="pre">Wall.ClearValve1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.ClearValve2"><code class="docutils literal notranslate"><span class="pre">Wall.ClearValve2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetLed0"><code class="docutils literal notranslate"><span class="pre">Wall.SetLed0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetLed1"><code class="docutils literal notranslate"><span class="pre">Wall.SetLed1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetLed2"><code class="docutils literal notranslate"><span class="pre">Wall.SetLed2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetValve0"><code class="docutils literal notranslate"><span class="pre">Wall.SetValve0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetValve1"><code class="docutils literal notranslate"><span class="pre">Wall.SetValve1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.Wall.SetValve2"><code class="docutils literal notranslate"><span class="pre">Wall.SetValve2</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.schema.octagon.photodiode"><code class="docutils literal notranslate"><span class="pre">photodiode()</span></code></a></li>
 </ul>
   </nav></div>
 

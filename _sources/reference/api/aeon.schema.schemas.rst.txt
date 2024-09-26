@@ -1,0 +1,6 @@
+﻿aeon.schema.schemas
+===================
+
+.. automodule:: aeon.schema.schemas
+   :members:
+   :undoc-members:

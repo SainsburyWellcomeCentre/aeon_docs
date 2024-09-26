@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>aeon.io.reader &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.io.reader &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon.io.reader';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -371,7 +375,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.dataset.html">aeon.schema.dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.foraging.html">aeon.schema.foraging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aeon.schema.octagon.html">aeon.schema.octagon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social.html">aeon.schema.social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.schemas.html">aeon.schema.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_01.html">aeon.schema.social_01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_02.html">aeon.schema.social_02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.social_03.html">aeon.schema.social_03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aeon.schema.streams.html">aeon.schema.streams</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_contract.html">Data Schema</a></li>
@@ -450,8 +458,8 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="aeon.io.reader.BitmaskEvent.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#BitmaskEvent.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.BitmaskEvent.read" title="Link to this definition">#</a></dt>
-<dd><p>Reads a specific event code from digital data and matches it to the
-specified unique identifier.</p>
+<dd><p>Reads a specific event code from digital data.</p>
+<p>Each data value is matched against the unique event identifier.</p>
 </dd></dl>
 
 </dd></dl>
@@ -473,8 +481,8 @@ specified unique identifier.</p>
 <dt class="sig sig-object py" id="aeon.io.reader.Csv">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.io.reader.</span></span><span class="sig-name descname"><span class="pre">Csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'csv'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Csv" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#aeon.io.reader.Reader" title="aeon.io.reader.Reader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Reader</span></code></a></p>
-<p>Extracts data from comma-separated (csv) text files, where the first column
-stores the Aeon timestamp, in seconds.</p>
+<p>Extracts data from comma-separated (CSV) text files.</p>
+<p>The first column stores the Aeon timestamp, in seconds.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="aeon.io.reader.Csv.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Csv.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Csv.read" title="Link to this definition">#</a></dt>
@@ -495,8 +503,8 @@ stores the Aeon timestamp, in seconds.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="aeon.io.reader.DigitalBitmask.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#DigitalBitmask.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.DigitalBitmask.read" title="Link to this definition">#</a></dt>
-<dd><p>Reads a specific event code from digital data and matches it to the
-specified unique identifier.</p>
+<dd><p>Reads a specific event code from digital data.</p>
+<p>Each data value is checked against the specified bitmask.</p>
 </dd></dl>
 
 </dd></dl>
@@ -513,8 +521,10 @@ intensity (float): Intensity of the magnetic field.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="aeon.io.reader.Encoder.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aeon.io.reader.Encoder.read" title="Link to this definition">#</a></dt>
-<dd><p>Reads data from the specified Harp binary file.</p>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downsample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Encoder.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Encoder.read" title="Link to this definition">#</a></dt>
+<dd><p>Reads encoder data from the specified Harp binary file.</p>
+<p>By default the encoder data is downsampled to 50Hz. Setting downsample to
+False or None can be used to force the raw data to be returned.</p>
 </dd></dl>
 
 </dd></dl>
@@ -580,6 +590,77 @@ message (str): Log message data. Can be structured using tab</p>
 <dt class="sig sig-object py" id="aeon.io.reader.Metadata.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Metadata.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Metadata.read" title="Link to this definition">#</a></dt>
 <dd><p>Returns metadata for the specified epoch.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aeon.io.reader.</span></span><span class="sig-name descname"><span class="pre">Pose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/ceph/aeon/aeon/data/processed'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#aeon.io.reader.Harp" title="aeon.io.reader.Harp"><code class="xref py py-class docutils literal notranslate"><span class="pre">Harp</span></code></a></p>
+<p>Reader for Harp-binarized tracking data given a model that outputs id, parts, and likelihoods.</p>
+<dl class="simple">
+<dt>Columns:</dt><dd><p>class (int): Int ID of a subject in the environment.
+class_likelihood (float): Likelihood of the subject’s identity.
+part (str): Bodypart on the subject.
+part_likelihood (float): Likelihood of the specified bodypart.
+x (float): X-coordinate of the bodypart.
+y (float): Y-coordinate of the bodypart.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose.class_int2str">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">class_int2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose.class_int2str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose.class_int2str" title="Link to this definition">#</a></dt>
+<dd><p>Converts a class integer in a tracking data dataframe to its associated string (subject id).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose.get_bodyparts">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_bodyparts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose.get_bodyparts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose.get_bodyparts" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of bodyparts from a model’s config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose.get_class_names">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_class_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose.get_class_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose.get_class_names" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of classes from a model’s config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose.get_config_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose.get_config_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose.get_config_file" title="Link to this definition">#</a></dt>
+<dd><p>Returns the config file from a model’s config directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aeon.io.reader.Pose.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Pose.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Pose.read" title="Link to this definition">#</a></dt>
+<dd><p>Reads data from the Harp-binarized tracking file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -654,7 +735,7 @@ usually in the format <cite>&lt;Device&gt;_&lt;DataStream&gt;</cite>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="aeon.io.reader.Reader.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Reader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Reader.read" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#Reader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.Reader.read" title="Link to this definition">#</a></dt>
 <dd><p>Reads data from the specified file.</p>
 </dd></dl>
 
@@ -703,12 +784,14 @@ hw_timestamp (int): Internal camera timestamp for the current frame.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="aeon.io.reader.from_dict">
 <span class="sig-prename descclassname"><span class="pre">aeon.io.reader.</span></span><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.from_dict" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Converts a dictionary to a DotMap object.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="aeon.io.reader.to_dict">
 <span class="sig-prename descclassname"><span class="pre">aeon.io.reader.</span></span><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dotmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/aeon/io/reader.html#to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aeon.io.reader.to_dict" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Converts a DotMap object to a dictionary.</p>
+</dd></dl>
 
 </section>
 
@@ -792,6 +875,14 @@ hw_timestamp (int): Internal camera timestamp for the current frame.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Metadata"><code class="docutils literal notranslate"><span class="pre">Metadata</span></code></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Metadata.read"><code class="docutils literal notranslate"><span class="pre">Metadata.read()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose"><code class="docutils literal notranslate"><span class="pre">Pose</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose.class_int2str"><code class="docutils literal notranslate"><span class="pre">Pose.class_int2str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose.get_bodyparts"><code class="docutils literal notranslate"><span class="pre">Pose.get_bodyparts()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose.get_class_names"><code class="docutils literal notranslate"><span class="pre">Pose.get_class_names()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose.get_config_file"><code class="docutils literal notranslate"><span class="pre">Pose.get_config_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Pose.read"><code class="docutils literal notranslate"><span class="pre">Pose.read()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon.io.reader.Position"><code class="docutils literal notranslate"><span class="pre">Position</span></code></a><ul class="visible nav section-nav flex-column">

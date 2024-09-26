@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.analysis.movies &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.analysis.movies &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/analysis/movies';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -407,9 +411,8 @@ document.write(`
 
 <div class="viewcode-block" id="gridframes">
 <a class="viewcode-back" href="../../../reference/api/aeon.analysis.movies.html#aeon.analysis.movies.gridframes">[docs]</a>
-<span class="k">def</span> <span class="nf">gridframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Arranges a set of frames into a grid layout with the specified</span>
-<span class="sd">    pixel dimensions and shape.</span>
+<span class="k">def</span> <span class="nf">gridframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Arranges a set of frames into a grid layout with the specified pixel dimensions and shape.</span>
 
 <span class="sd">    :param list frames: A list of frames to include in the grid layout.</span>
 <span class="sd">    :param int width: The width of the output grid image, in pixels.</span>
@@ -421,7 +424,7 @@ document.write(`
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
 
@@ -447,7 +450,7 @@ document.write(`
 <a class="viewcode-back" href="../../../reference/api/aeon.analysis.movies.html#aeon.analysis.movies.averageframes">[docs]</a>
 <span class="k">def</span> <span class="nf">averageframes</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the average of the specified collection of frames.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convertScaleAbs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">frames</span><span class="p">)))</span></div>
+    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convertScaleAbs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">frames</span><span class="p">)))</span></div>
 
 
 
@@ -474,7 +477,7 @@ document.write(`
 
 <div class="viewcode-block" id="triggerclip">
 <a class="viewcode-back" href="../../../reference/api/aeon.analysis.movies.html#aeon.analysis.movies.triggerclip">[docs]</a>
-<span class="k">def</span> <span class="nf">triggerclip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">after</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
+<span class="k">def</span> <span class="nf">triggerclip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Split video data around the specified sequence of event timestamps.</span>
 
 <span class="sd">    :param DataFrame data:</span>
@@ -485,10 +488,16 @@ document.write(`
 <span class="sd">    :return:</span>
 <span class="sd">    A pandas DataFrame containing the frames, clip and sequence numbers for each event timestamp.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">before</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">before</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">before</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
         <span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">before</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">after</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">after</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">after</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">:</span>
         <span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">after</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">events</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">:</span>
         <span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span>
 
@@ -522,8 +531,7 @@ document.write(`
 <div class="viewcode-block" id="gridmovie">
 <a class="viewcode-back" href="../../../reference/api/aeon.analysis.movies.html#aeon.analysis.movies.gridmovie">[docs]</a>
 <span class="k">def</span> <span class="nf">gridmovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a grid movie with the specified pixel dimensions</span>
-<span class="sd">    and grid layout.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a grid movie with the specified pixel dimensions and grid layout.</span>
 
 <span class="sd">    :param DataFrame clipdata:</span>
 <span class="sd">    A pandas DataFrame where each row specifies video path, frame number, clip and sequence number.</span>

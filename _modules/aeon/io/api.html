@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.io.api &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>aeon.io.api &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -28,6 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -36,9 +38,11 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../../../_static/documentation_options.js?v=e463f385"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/io/api';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +125,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -472,12 +476,14 @@ document.write(`
 
 <div class="viewcode-block" id="load">
 <a class="viewcode-back" href="../../../reference/api/aeon.io.api.html#aeon.io.api.load">[docs]</a>
-<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts chunk data from the root path of an Aeon dataset using the specified data stream</span>
-<span class="sd">    reader. A subset of the data can be loaded by specifying an optional time range, or a list</span>
-<span class="sd">    of timestamps used to index the data on file. Returned data will be sorted chronologically.</span>
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts chunk data from the root path of an Aeon dataset.</span>
 
-<span class="sd">    :param str or PathLike root: The root path, or prioritised sequence of paths, where epoch data is stored.</span>
+<span class="sd">    Reads all chunk data using the specified data stream reader. A subset of the data can be loaded</span>
+<span class="sd">    by specifying an optional time range, or a list of timestamps used to index the data on file.</span>
+<span class="sd">    Returned data will be sorted chronologically.</span>
+
+<span class="sd">    :param str or PathLike root: The root path, or prioritised sequence of paths, where data is stored.</span>
 <span class="sd">    :param Reader reader: A data stream reader object used to read chunk data from the dataset.</span>
 <span class="sd">    :param datetime, optional start: The left bound of the time range to extract.</span>
 <span class="sd">    :param datetime, optional end: The right bound of the time range to extract.</span>
@@ -485,6 +491,7 @@ document.write(`
 <span class="sd">    :param datetime, optional tolerance:</span>
 <span class="sd">    The maximum distance between original and new timestamps for inexact matches.</span>
 <span class="sd">    :param str, optional epoch: A wildcard pattern to use when searching epoch data.</span>
+<span class="sd">    :param optional kwargs: Optional keyword arguments to forward to the reader when reading chunk data.</span>
 <span class="sd">    :return: A pandas data frame containing epoch event metadata, sorted by time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -496,7 +503,7 @@ document.write(`
     <span class="n">fileset</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">chunk_key</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span> <span class="n">fname</span>
         <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">root</span>
-        <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">epoch_pattern</span><span class="si">}</span><span class="s2">/**/</span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">extension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">epoch_pattern</span><span class="si">}</span><span class="s2">/**/</span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">extension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fileset</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 
@@ -512,9 +519,9 @@ document.write(`
         <span class="n">filetimes</span> <span class="o">=</span> <span class="p">[</span><span class="n">chunk</span> <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">chunk</span><span class="p">),</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
         <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">time</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">chunk</span><span class="p">):</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">filetimes</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">filetimes</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">filetimes</span><span class="p">):</span>
-                <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">_set_index</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">frame</span> <span class="o">=</span> <span class="n">_empty</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -525,9 +532,10 @@ document.write(`
             <span class="k">if</span> <span class="n">missing</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="c1"># expand reindex to allow adjacent chunks</span>
                 <span class="c1"># to fill missing values</span>
-                <span class="n">previous</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">previous</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">previous</span><span class="p">,</span> <span class="n">frame</span><span class="p">])</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pad&quot;</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">dataframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -545,7 +553,7 @@ document.write(`
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">_empty</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">])</span>
     <span class="n">_set_index</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -554,10 +562,12 @@ document.write(`
             <span class="kn">import</span> <span class="nn">warnings</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">has_duplicates</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data index for </span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2"> contains out-of-order timestamps!&quot;</span><span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;data index for </span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2"> contains out-of-order timestamps!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span>
+                <span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data index for </span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2"> contains duplicate keys!&quot;</span><span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data index for </span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2"> contains duplicate keys!&quot;</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)]</span>
             <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">data</span></div>

@@ -1,7 +1,7 @@
 ..
   This file is auto-generated.
 
-.. _api:
+.. _target-api-reference:
 
 API Reference
 =============
@@ -18,6 +18,7 @@ API Reference
     aeon.io.device
     aeon.io.reader
     aeon.io.video
+    aeon.analysis.block_plotting
     aeon.analysis.movies
     aeon.analysis.plotting
     aeon.analysis.utils
@@ -25,4 +26,8 @@ API Reference
     aeon.schema.dataset
     aeon.schema.foraging
     aeon.schema.octagon
-    aeon.schema.social
+    aeon.schema.schemas
+    aeon.schema.social_01
+    aeon.schema.social_02
+    aeon.schema.social_03
+    aeon.schema.streams

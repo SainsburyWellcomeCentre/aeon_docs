@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Style and Documentation Guidelines &#8212; aeon_docs v0.0.5 documentation</title>
+    <title>Style and Documentation Guidelines &#8212; aeon_docs v0.0.6 documentation</title>
   
   
   
@@ -29,6 +29,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
@@ -37,9 +39,11 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=d39b79ef"></script>
+    <script src="../_static/documentation_options.js?v=e463f385"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributor/style_and_doc_guidelines';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +128,7 @@
   
   
   
-    <p class="title logo__title">aeon_docs v0.0.5</p>
+    <p class="title logo__title">aeon_docs v0.0.6</p>
   
 </a></div>
     
@@ -415,7 +419,7 @@ document.write(`
   <section id="style-and-documentation-guidelines">
 <span id="target-style-doc-guidelines"></span><h1>Style and Documentation Guidelines<a class="headerlink" href="#style-and-documentation-guidelines" title="Link to this heading">#</a></h1>
 <p>The purpose of this document is to establish Project Aeon code style and documentation guidelines.</p>
-<p>We generally adhere to <a class="reference external" href="https://peps.python.org/pep-0008">pep8</a>, <a class="reference external" href="https://peps.python.org/pep-0257">pep257</a>, and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">google’s style guide</a> for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
+<p>We generally adhere to <a class="reference external" href="https://peps.python.org/pep-0008">pep8</a>, <a class="reference external" href="https://peps.python.org/pep-0257">pep257</a>, and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">google’s style guide</a> for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. We also believe in the <a class="reference external" href="https://www.thinkinghard.com/blog/TheREADMEManifesto">readme manifesto</a>, which says that <code class="docutils literal notranslate"><span class="pre">readme</span></code> files should provide at least a general description that covers <em>all</em> of a project’s files, and that one <code class="docutils literal notranslate"><span class="pre">readme</span></code> per subdirectory is generally good practice.</p>
 <section id="general-guidelines">
 <h2>General Guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -482,7 +486,7 @@ document.write(`
 <li><p>Prefix ‘n’ is used for integer values e.g. <code class="docutils literal notranslate"><span class="pre">n_items</span></code>.</p></li>
 <li><p>Suffix ‘num’ is used for referring to a particular instance e.g. <code class="docutils literal notranslate"><span class="pre">item_num</span></code>.</p></li>
 <li><p>Suffices that indicate unit measurement are used when using multiple units e.g. <code class="docutils literal notranslate"><span class="pre">wheel_deg</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel_mm</span></code>.</p></li>
-<li><p>Re-use of variable names (i.e. mutation) is generally avoided.</p></li>
+<li><p>Reuse of variable names (i.e. mutation) is generally avoided.</p></li>
 <li><p>Variables across related files which share names should share meanings.</p></li>
 </ul>
 </li>

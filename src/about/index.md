@@ -27,13 +27,10 @@ List researchers and support staff at UCL's SWC, Neurogears, and Datajoint...
 
 Project Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behavior, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
 
-## Licence
-
-Insert link to licence here.
-
 :::{toctree}
 :maxdepth: 1
 :hidden:
 
 design_considerations
 code_of_conduct
+license

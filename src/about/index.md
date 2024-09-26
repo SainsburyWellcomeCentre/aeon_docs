@@ -1,5 +1,5 @@
 (target-about)=
-# About Project Aeon
+# About
 
 Development of Project Aeon is supported by... 
 

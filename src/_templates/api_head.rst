@@ -1,4 +1,4 @@
-.. _api:
+.. _target-api-reference:
 
 API Reference
 =============

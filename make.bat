@@ -12,8 +12,11 @@ set BUILDDIR=docs
 
 if "%1" == "" goto help
 
-echo "Building api docs..."
+echo "Building API docs..."
 python make_api_doctree.py
+
+echo "Copying example notebooks into src..."
+python copy_examples_to_src.py
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (

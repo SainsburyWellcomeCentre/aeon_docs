@@ -12,19 +12,23 @@ BUILDDIR      = docs
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
+$(SOURCEDIR)/reference/api.rst:
+	@echo "Generating API documentation..."
+	@python make_api_doctree.py
 
-# Generate the API documentation
-api.rst:
-	python make_api_doctree.py
+copy-examples:
+	@echo "Copying example notebooks to 'src'..."
+	@python copy_examples_to_src.py
 
-# Remove all generated files
 clean:
-	rm -rf ./docs
-	rm -f ./src/reference/api.rst
-	rm -rf ./src/reference/api
+	@echo "Removing auto-generated files under 'docs' and 'src'..."
+	@rm -rf $(BUILDDIR)
+	@rm -f $(SOURCEDIR)/reference/api.rst
+	@rm -rf $(SOURCEDIR)/reference/api
+
+.PHONY: help Makefile copy-examples
 
 # Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile api.rst
+# "make mode" option. $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile $(SOURCEDIR)/reference/api.rst copy-examples
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

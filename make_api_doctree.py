@@ -9,7 +9,7 @@ ignore_modules = [
 
 def make_api_doctree():
     """
-    Create a doctree of all modules in aeon_mecha/aeon
+    Create a doctree of all modules in aeon_mecha/aeon.
     """
     doctree = ""
 

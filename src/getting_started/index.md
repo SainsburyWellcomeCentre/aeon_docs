@@ -1,16 +1,22 @@
 (target-getting-started)=
 # Getting Started
 
-Project Aeon is a collaborative effort to perform behavioral neuroscience 
-experiments where the behavior and neural activity of freely moving animals 
-engaging in a complex task are continuously recorded... 
+<!-- Discover how Aeon allows us to record and quantify different natural behaviours, 
+such as foraging, nesting, escape and social interaction, and their neural basis, 
+continuously over multiple weeks. -->
+Aeon is an open-source platform designed to study the neural basis of natural behaviours over naturalistic timescales, from weeks to months. 
+It features a modular, scalable, and programmable arena where animals live. 
+Equipped with various [interactive and non-interactive modules](target-hardware) like feeders, nesting areas, microphones, RFID readers, and high-speed cameras, this setup mimics complex environments, allowing 
+- animals to exhibit natural behaviours such as foraging, nesting, and social interaction, and
+- continuous tracking of animal position, pose, and identity, providing a means to quantify the animal's behavioural dynamics and internal states at millisecond resolution. 
+
 Further information about the project can be found in the 
 [About](target-about) section.
 
 (target-repositories)=
 ## Repositories
 
-Project Aeon spans multiple repositories, each serving a different purpose. 
+Aeon spans multiple repositories, each serving a different purpose. 
 The following is a list of repositories that are part of the project:
 ::::{grid} 1 2 2 2
 :gutter: 3 

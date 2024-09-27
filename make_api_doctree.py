@@ -12,8 +12,8 @@ def make_api_doctree():
     Create a doctree of all modules in aeon_mecha/aeon.
     """
     doctree = ""
-
-    for root, dirs, files in os.walk("./aeon_mecha/aeon"):
+    api_path = os.path.join(".", "aeon_mecha", "aeon")
+    for root, dirs, files in os.walk(api_path):
         # remove leading "./"
         root = root[2:]
         for file in sorted(files):

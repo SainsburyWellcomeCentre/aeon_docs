@@ -1,55 +1,91 @@
 (target-home)=
-# Project Aeon
 
-Project Aeon is a collaborative effort to perform behavioral neuroscience experiments where the behavior and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. For a full list of contributors, please see the [Contributors](target-project-contributors) section.
+![Banner](_static/images/landing-banner.png){align=center}
+# Aeon
 
-::::{grid} 1 2 2 2
-:gutter: 3 
+An open-source platform to study the neural basis of ethological behaviours over naturalistic timescales.
+<!-- This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. For a full list of contributors, please see the [Contributors](target-project-contributors) section. -->
 
-:::{grid-item-card} {fas}`person-running;sd-text-primary` Getting started
-New to Project Aeon? Check out the introduction to Project Aeon. 
-++++++
+::::{grid} 2
+:gutter: 2
+
+:::{grid-item}
+:columns: 4
+:child-align: center
+![Experiment](_static/images/landing-247.png){align=left}
+:::
+:::{grid-item}
+:columns: 8
+:child-align: center
+:padding: 0 0 5 0
+<p class="h4">Learn more about Aeon</p>
+
+Discover how Aeon allows us to record and quantify different natural behaviours, 
+such as foraging, nesting, escape and social interaction, and their neural basis, 
+continuously over multiple weeks.
+
 ```{button-ref} getting_started/index
-:expand:
-:color: secondary
-:click-parent:
+:color: primary
 To the Introduction
 ```
 :::
 
-:::{grid-item-card} {fas}`book-open;sd-text-primary` User Guide
-The user guide contains tutorials for learning the basics, and how-to guides targeted at specific tasks. 
-++++++
+:::{grid-item}
+:columns: 8
+:child-align: center
+:padding: 0 0 0 5
+<p class="h4">Browse Aeon functional modules</p>
+
+Gain insights into the software and hardware components that make up Aeon.
+
+```{button-ref} reference/index
+:color: primary
+To the Reference Guide
+```
+:::
+:::{grid-item}
+:columns: 4
+:child-align: center
+![Experiment](_static/images/landing-feeder.png){align=right}
+:::
+
+:::{grid-item}
+:columns: 4
+:child-align: center
+![Experiment](_static/images/landing-sleeping.png){align=left}
+:::
+:::{grid-item}
+:columns: 8
+:child-align: center
+:padding: 0 0 5 0
+<p class="h4">Explore the sample data</p>
+
+Learn more about how Aeon data is acquired, stored and processed through the sample data and example analysis notebooks.
+
 ```{button-ref} user/index
-:expand:
-:color: secondary
-:click-parent:
+:color: primary
 To the User Guide
 ```
 :::
 
-:::{grid-item-card} {fas}`code-pull-request;sd-text-primary` Contributor Guide
-Want to contribute to the project? The contributing guidelines are a good place to start.
-++++++	
+:::{grid-item}
+:columns: 8
+:child-align: center
+:padding: 0 0 0 5
+<p class="h4">Contribute to Aeon</p>
+
+Want to contribute to Aeon? The contributing guidelines are a good place to start.
+
 ```{button-ref} contributor/index
-:expand:
-:color: secondary
-:click-parent:
+:color: primary
 To the Contributor Guide
 ```
 :::
-
-:::{grid-item-card} {fas}`file-code;sd-text-primary` Reference
-The reference guide contains detailed information about all software and hardware components, and a glossary of terms used in Project Aeon. 
-++++++
-```{button-ref} reference/index
-:expand:
-:color: secondary
-:click-parent:
-To the Reference Guide
-```
+:::{grid-item}
+:columns: 4
+:child-align: center
+![Experiment](_static/images/landing-hexslot.png){align=right}
 :::
-
 ::::
 
 ## Citation Policy

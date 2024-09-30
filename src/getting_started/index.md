@@ -15,18 +15,24 @@ Further information about the project can be found in the
 
 (target-tutorials)=
 ## Tutorials
-::::{grid} 1 3 3 3
+::::{grid} 1 2 2 2
 :gutter: 3 
 
 :::{grid-item-card} {fas}`location-crosshairs;sd-text-primary` Multi-animal tracking
 :link: target-multianimal-tracking
 :link-type: ref
+:img-bottom: ../_static/images/getting_started_ma.png
+:img-alt:
+
 Online tracking of multiple animals in the Aeon arena.
 :::
 
 :::{grid-item-card} {fas}`brain;sd-text-primary` Long-term Neuropixels recording
 :link: target-npx-recording
 :link-type: ref
+:img-bottom: ../_static/images/getting_started_npx.png
+:img-alt:
+
 Recording and analysis of Neuropixels data over days.
 :::
 ::::

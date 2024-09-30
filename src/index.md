@@ -4,7 +4,6 @@
 # Aeon
 
 An open-source platform to study the neural basis of ethological behaviours over naturalistic timescales.
-<!-- This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. For a full list of contributors, please see the [Contributors](target-project-contributors) section. -->
 
 ::::{grid} 2
 :gutter: 2
@@ -12,7 +11,7 @@ An open-source platform to study the neural basis of ethological behaviours over
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Experiment](_static/images/landing-247.png){align=left}
+![247Experiment](_static/images/landing-247.png){align=left}
 :::
 :::{grid-item}
 :columns: 8
@@ -45,14 +44,14 @@ To the Reference Guide
 :::
 :::{grid-item}
 :columns: 4
-:child-align: center
-![Experiment](_static/images/landing-feeder.png){align=right}
+:child-align: right
+![Feeder](_static/images/landing-feeder.png){align=right} 
 :::
 
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Experiment](_static/images/landing-sleeping.png){align=left}
+![Sleeping](_static/images/landing-sleeping.png){align=left}
 :::
 :::{grid-item}
 :columns: 8
@@ -84,7 +83,7 @@ To the Contributor Guide
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Experiment](_static/images/landing-hexslot.png){align=right}
+![Hexslot](_static/images/landing-hexslot.png){align=right}
 :::
 ::::
 

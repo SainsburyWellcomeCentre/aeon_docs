@@ -13,6 +13,24 @@ Equipped with various [interactive and non-interactive modules](target-hardware)
 Further information about the project can be found in the 
 [About](target-about) section.
 
+(target-tutorials)=
+## Tutorials
+::::{grid} 1 3 3 3
+:gutter: 3 
+
+:::{grid-item-card} {fas}`location-crosshairs;sd-text-primary` Multi-animal tracking
+:link: target-multianimal-tracking
+:link-type: ref
+Online tracking of multiple animals in the Aeon arena.
+:::
+
+:::{grid-item-card} {fas}`brain;sd-text-primary` Long-term Neuropixels recording
+:link: target-npx-recording
+:link-type: ref
+Recording and analysis of Neuropixels data over days.
+:::
+::::
+
 (target-repositories)=
 ## Repositories
 

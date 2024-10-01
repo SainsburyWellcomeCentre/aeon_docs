@@ -1,7 +1,7 @@
 (target-about)=
 # About
 
-The development of Aeon is funded by the [Gatsby Charitable Foundation](http://www.gatsby.org.uk/) and [Wellcome](https://wellcome.ac.uk/). This joint initiative involves people from the [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/) and the [Gatsby Computational Neuroscience Unit](https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit) at UCL, [NeuroGEARS Ltd](https://neurogears.org/), and [DataJoint](https://www.datajoint.com/). For a full list of people involved, please refer to this [page](target-people).
+The development of Aeon is funded by the [Gatsby Charitable Foundation](http://www.gatsby.org.uk/) and [Wellcome](https://wellcome.ac.uk/). This joint initiative involves people from the [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/) and the [Gatsby Computational Neuroscience Unit](https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit) at UCL, [NeuroGEARS Ltd](https://neurogears.org/), and [DataJoint Inc](https://www.datajoint.com/). For a full list of people involved, please refer to this [page](target-people).
 
 The brain's computations are shaped by evolutionary pressures related to survival and the resulting behavioural responses. 
 Understanding the neural basis of natural behaviours is crucial for advancing our knowledge of the brain, as it sheds light on the functions of neural circuits in processing real-world stimuli. 

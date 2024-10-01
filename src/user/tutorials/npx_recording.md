@@ -20,13 +20,13 @@ To address these challenges, we developed a closed-loop control system capable o
 ![commutator-location-control](../../_static/images/npx-commutator-location.png){width=250px align=left}
 Using the live position estimate from the overhead camera, we can control the horizontal position of the commutator on a linear rail to follow the animal as it moves through the arena. 
 
-*Relevant repositories: [aeon_experiment](aeon-experiments-github:), [aeon_lineardrive](aeon-lineardrive-github:)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_lineardrive](aeon-lineardrive-github:)*
 
 ## Closed-loop control of commutator rotation
 ![commutator-rotation-control](../../_static/images/npx-commutator-rotation.png){width=250px align=left}
 Using the heading direction computed by the IMU sensor on the [Onix neuropixels headstage](https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html), the cable commutation is adapted in real time to avoid tangling.
 
-*Relevant repositories: [aeon_experiment](aeon-experiments-github:), [bonsai-commutator](https://github.com/open-ephys/bonsai-commutator), [bonsai-onix1](https://github.com/open-ephys/onix-bonsai-onix1)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [bonsai-commutator](https://github.com/open-ephys/bonsai-commutator), [bonsai-onix1](https://github.com/open-ephys/onix-bonsai-onix1)*
 
 ## Neuropixels 2.0 recordings
 ![npx-20-recordings](../../_static/images/npx-recording-sites.png){width=250px align=left}

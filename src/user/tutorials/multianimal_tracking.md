@@ -15,7 +15,7 @@ This is possible through the multipronged approach using multiple cameras as wel
 An overhead camera with a view of the entire arena feeds into a Bonsai workflow and
 continuously estimates the animals' x, y positions, body length, and orientation.
 
-*Relevant repositories: [aeon_experiment](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
 
 ## Identifying animals
 ![identifying-animals](../../_static/images/ma-identifying-animals.png){width=250px align=left}
@@ -24,11 +24,11 @@ determined using computer vision ([SLEAP](https://sleap.ai/)) from the overhead 
 band, two bands, or none) as features. Furthermore, animals are implanted with RFID tags that
 allow us to quantify their visits to important sites (nest, foraging patches, gates) which are equipped with RFID antennae. 
 
-*Relevant repositories: [aeon_experiment](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
 
 ## Pose estimation
 ![pose-estimation](../../_static/images/ma-pose-estimation.png){width=250px align=left}
 A zoomed-in view of the overhead camera together with side-view cameras at
 behavioural hotspots such as the foraging patches allows for analysis of posture.
 
-*Relevant repositories: [aeon_experiment](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*

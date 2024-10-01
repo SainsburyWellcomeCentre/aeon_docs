@@ -32,7 +32,7 @@ You can view the local build by opening `docs/html/index.html` in a browser.
 
 To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
 ```bash
-make clean html
+make clean && make html
 ```
 
 To check that external URLs are correctly resolved, run:

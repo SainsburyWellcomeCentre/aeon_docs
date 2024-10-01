@@ -44,7 +44,7 @@ To the Reference Guide
 :::
 :::{grid-item}
 :columns: 4
-:child-align: right
+:child-align: center
 ![Feeder](_static/images/landing-feeder.png){align=right} 
 :::
 

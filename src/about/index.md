@@ -1,6 +1,8 @@
 (target-about)=
 # About
 
+The development of Aeon is funded by the [Gatsby Charitable Foundation](http://www.gatsby.org.uk/) and [Wellcome](https://wellcome.ac.uk/). This joint initiative involves people from the [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/) and the [Gatsby Computational Neuroscience Unit](https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit) at UCL, [NeuroGEARS Ltd](https://neurogears.org/), and [DataJoint](https://www.datajoint.com/). For a full list of people involved, please refer to this [page](target-people).
+
 The brain's computations are shaped by evolutionary pressures related to survival and the resulting behavioural responses. 
 Understanding the neural basis of natural behaviours is crucial for advancing our knowledge of the brain, as it sheds light on the functions of neural circuits in processing real-world stimuli. 
 However, replicating natural conditions in a laboratory setting presents a challenge, as it requires simulating complex and dynamic environments which include the presence of conspecifics. 
@@ -26,19 +28,6 @@ If you have any questions or need further information, feel free to reach out to
 * Dario Campagner (d.campagner@ucl.ac.uk)
 * Chang Huan Lo (changhuan.lo@ucl.ac.uk)
 
-(target-project-contributors)=
-## Contributors
-Dario Campagner[^1][^2], Jai Bhagat[^1], Gonçalo Lopes[^3], Lorenza Calcaterra[^1], 
-Jaerong Ahn[^4], André Almeida[^3], Filipe Carvalho[^3], Bruno Cruz[^3], 
-Andrew Erskine[^3], Orsolya Folsz[^1], Zimo Li[^2], Chang Huan Lo[^1], 
-Thinh Nguyen[^4], Anaya Pouget[^1], Joaquin Rapela[^2], Jasmine Reggiani[^1], 
-Thomas Ryan[^3], The SWC foraging behaviour working group[^1][^2]
-
-[^1]: Sainsbury Wellcome Centre, UCL
-[^2]: Gatsby CNU, UCL
-[^3]: NeuroGEARS Ltd, London
-[^4]: DataJoint Neuro, Vathes LLC, Houston, TX
-
 ## Code of Conduct
 
 Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behavior, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
@@ -47,6 +36,7 @@ Aeon is dedicated to providing a welcoming and positive experience for all its p
 :maxdepth: 1
 :hidden:
 
+people
 design_considerations
 code_of_conduct
 license

@@ -9,7 +9,7 @@ The following is a list of repositories that are part of the project:
 :::{grid-item-card} {fas}`database;sd-text-primary` aeon_mecha
 :link: https://github.com/SainsburyWellcomeCentre/aeon_mecha
 :link-type: url
-Project Aeon's main library for interfacing with acquired data
+Aeon's main library for interfacing with acquired data
 :::
 
 :::{grid-item-card} {fas}`flask;sd-text-primary` aeon_experiments

@@ -1,11 +1,10 @@
 # Installation
 
-This guide will walk you through the installation of the `aeon_mecha` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage.
+This guide will walk you through the installation of the `aeon_mecha` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage (currently only applicable to SWC members).
 
 ## `aeon_mecha`
 
-:::{admonition} Note
-:class: note
+:::{note}
 We always recommend installing `aeon_mecha` inside a 
 [conda](https://docs.conda.io/en/latest/)
 or [mamba](https://mamba.readthedocs.io/en/latest/) environment, 
@@ -75,7 +74,7 @@ This will install the package alongside all `dev` dependencies.
 :::
 ::::
 
-## Setting up data access
+## Setting up SWC Ceph data access
 
 :::{important}
 You must be an SWC `aeon` project member to access Aeon data hosted on 
@@ -94,8 +93,7 @@ requesting this access.
 
 :::::{tab-set}
 ::::{tab-item} Local
-:::{admonition} Note
-:class: note
+:::{note}
 The links below point to the SWC internal wiki, which is only accessible from within the SWC network (or using VPN).
 :::
 In order to access Aeon data locally, you need to be on the SWC network or connected via VPN. You also need to [mount the Ceph storage on your local machine](https://wiki.ucl.ac.uk/display/SSC/How+to+Mount). The Ceph storage path for different operating systems can be found [here](https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph), replacing `xxxxxxxx` with `aeon`.

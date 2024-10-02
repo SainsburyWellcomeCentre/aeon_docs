@@ -27,7 +27,7 @@ sys.path.extend(
 
 # -- Project information -----------------------------------------------------
 
-project = "aeon_docs"
+project = "Aeon"
 author = "Jai Bhagat, Goncalo Lopes, Chang Huan Lo"
 copyright = f"2022–{date.today().year}, {author}"
 organisation = "Sainsbury Wellcome Centre"
@@ -50,7 +50,7 @@ def get_current_release_tag():
 release = get_current_release_tag()
 
 # GitHub repo URL
-github_url = f"https://github.com/{organisation.replace(' ', '')}/{project}"
+github_url = f"https://github.com/{organisation.replace(' ', '')}/aeon_docs"
 
 # -- General configuration ---------------------------------------------------
 
@@ -111,11 +111,14 @@ exclude_patterns = ["_templates"]
 #
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
-    "announcement": f"{project} is a WIP. Please report any issues on <a href='{github_url}/issues'>GitHub</a>.",
+    "announcement": (
+        f"This website is currently under active development. "
+        f"Please report any issues on <a href='{github_url}/issues'>GitHub</a>."
+    ),
     "logo": {
         "text": f"{project} {release}"
-        # "image_light": "_static/logo-light.png",
-        # "image_dark": "_static/logo-dark.png",
+        # "image_light": "_static/images/logo-light.png",
+        # "image_dark": "_static/images/logo-dark.png",
     },
     "icon_links": [
         {
@@ -130,13 +133,16 @@ html_theme_options = {
         }
     ],
     "show_toc_level": 3,  # Show the first 3 levels of the local TOC
+    "footer_start": ["footer_start"],
+    "footer_end": ["footer_end"],
 }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
 html_css_files = [
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
+    "css/custom.css",	
 ]
 
 # linkcheck will skip checking these URLs entirely
@@ -157,6 +163,11 @@ myst_url_schemes = {
     "ftp": None,
     "mailto": None,
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
+    "aeon-analysis-github": "https://github.com/SainsburyWellcomeCentre/aeon_analysis/{{path}}",
+    "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",
+    "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
+    "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
+    "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
     "semver": "https://semver.org/",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",

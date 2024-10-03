@@ -1,7 +1,7 @@
 (target-npx-recording)=
 # Neuropixels recordings
 
-:::{figure} ../../_static/images/getting-started-npx.png
+:::{figure} ../../_static/images/npx-main.png
 :height: 300px
 :alt: neuropixels-recording
 

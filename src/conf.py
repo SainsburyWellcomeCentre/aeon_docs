@@ -148,6 +148,7 @@ html_css_files = [
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
     r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
+    r"http://SubjectExpressionBuilder.Name",  # Broken URL
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

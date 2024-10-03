@@ -31,6 +31,14 @@ jobs:
           git submodule update --init aeon_acquisition
           git submodule update --init aeon_analysis
           git submodule update --init aeon_mecha
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Setup DocFX
+        run: dotnet tool restore
         
       - name: Setup Python
         uses: actions/setup-python@v5

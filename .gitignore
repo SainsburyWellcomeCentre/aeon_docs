@@ -1,5 +1,7 @@
 # Sphinx documentation
 docs/
 src/reference/api/
-src/reference/api.rst
 src/user/**/*_copy*
+
+# Python scripts
+__pycache__

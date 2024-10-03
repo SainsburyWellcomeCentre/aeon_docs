@@ -148,6 +148,7 @@ html_css_files = [
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
     r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
+    r"http://SubjectExpressionBuilder.Name",  # Broken URL
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI
@@ -155,6 +156,7 @@ linkcheck_ignore = [
 linkcheck_allowed_redirects = {
     r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+    r"https://learn.microsoft.com/dotnet/api/.*": r"https://learn.microsoft.com/en-us/dotnet/api/.*",
 }
 
 myst_url_schemes = {

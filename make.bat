@@ -19,7 +19,11 @@ if not "%1" == "clean" (
 
 	@echo Copying example notebooks into 'src'...
 	python copy_examples_to_src.py
-) 
+) else (
+	@echo Removing auto-generated files under 'docs' and 'src'...
+	rmdir /S /Q %BUILDDIR%
+    rmdir /S /Q %SOURCEDIR%\reference\api\
+)
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (

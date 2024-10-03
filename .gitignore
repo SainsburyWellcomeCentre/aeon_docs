@@ -2,4 +2,9 @@
 docs/
 src/reference/api/
 src/reference/api.rst
+src/reference/acquisition/
+src/reference/acquisition.rst
 src/user/**/*_copy*
+
+# Python scripts
+__pycache__

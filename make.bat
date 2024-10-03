@@ -15,6 +15,7 @@ if "%1" == "" goto help
 if not "%1" == "clean" (
 	@echo Building API docs...
 	python make_api_doctree.py
+	python make_acquisition_doctree.py
 
 	@echo Copying example notebooks into 'src'...
 	python copy_examples_to_src.py

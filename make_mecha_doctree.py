@@ -7,7 +7,7 @@ ignore_modules = [
 ]
 
 
-def make_api_doctree():
+def make_mecha_doctree():
     """
     Create a doctree of all modules in aeon_mecha/aeon.
     """
@@ -31,15 +31,18 @@ def make_api_doctree():
                     doctree += f"    {full}\n"
 
     # get the api doc header
-    with open("src/_templates/api_head.rst", "r") as f:
+    with open("src/_templates/api_mecha_head.rst", "r") as f:
         api_head = f.read()
 
     # write file for api doc with header + doctree
-    with open("./src/reference/api.rst", "w") as f:
+    output_dir = "./src/reference/api"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    with open(os.path.join(output_dir, "mecha.rst"), "w") as f:
         f.write("..\n  This file is auto-generated.\n\n")
         f.write(api_head)
         f.write(doctree)
 
 
 if __name__ == "__main__":
-    make_api_doctree()
+    make_mecha_doctree()

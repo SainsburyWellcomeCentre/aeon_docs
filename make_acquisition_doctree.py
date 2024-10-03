@@ -7,9 +7,9 @@ def make_acquisition_doctree():
     """
     Create a doctree of all namespaces in aeon_acquisition.
     """
-    src_path = Path("./src")
+    src_path = Path("src")
     subprocess.run(["dotnet", "docfx", "metadata", "--outputFormat", "markdown"], cwd=src_path)
-    metadata_path = src_path.joinpath("reference", "acquisition")
+    metadata_path = src_path.joinpath("reference", "api", "acquisition")
 
     # get the acquisition doc header
     with open(metadata_path.joinpath("toc.yml"), "r") as f:
@@ -19,7 +19,7 @@ def make_acquisition_doctree():
     with open(metadata_path.with_suffix(".rst"), "w") as f:
         f.write("..\n  This file is auto-generated.\n\n")
         f.write(".. _target-acquisition-reference:\n\n")
-        f.write("Acquisition Reference\n")
+        f.write("``aeon_acquisition``\n")
         f.write("=====================\n\n")
         f.write(".. toctree::\n")
         f.write("    :glob:\n\n")

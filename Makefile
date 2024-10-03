@@ -14,7 +14,8 @@ help:
 
 $(SOURCEDIR)/reference/api.rst:
 	@echo "Generating API documentation..."
-	@python make_api_doctree.py
+	@python make_mecha_doctree.py
+	@python make_acquisition_doctree.py
 
 copy-examples:
 	@echo "Copying example notebooks to 'src'..."
@@ -23,8 +24,7 @@ copy-examples:
 clean:
 	@echo "Removing auto-generated files under 'docs' and 'src'..."
 	@rm -rf $(BUILDDIR)
-	@rm -f $(SOURCEDIR)/reference/api.rst
-	@rm -rf $(SOURCEDIR)/reference/api
+	@rm -rf $(SOURCEDIR)/reference/api/
 
 .PHONY: help Makefile copy-examples
 

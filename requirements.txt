@@ -3,6 +3,7 @@ dotmap
 matplotlib
 opencv-python
 pandas 
+plotly
 
 linkify-it-py
 myst-nb

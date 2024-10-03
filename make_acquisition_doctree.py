@@ -2,6 +2,7 @@ import yaml
 import subprocess
 from pathlib import Path
 
+
 def make_acquisition_doctree():
     """
     Create a doctree of all namespaces in aeon_acquisition.
@@ -25,9 +26,9 @@ def make_acquisition_doctree():
 
         # all namespaces are children of the root element
         for namespace in acquisition_toc:
-            namespace_name = namespace['name']
-            namespace_href = namespace.get('href')
-            namespace_items = namespace.get('items')
+            namespace_name = namespace["name"]
+            namespace_href = namespace.get("href")
+            namespace_items = namespace.get("items")
             if namespace_href is None or namespace_items is None:
                 continue
 
@@ -36,17 +37,17 @@ def make_acquisition_doctree():
 
             # generate toctree for each namespace document
             namespace_path = metadata_path.joinpath(namespace_href)
-            with open(namespace_path, "r+", encoding='utf-8') as nsf:
+            with open(namespace_path, "r+", encoding="utf-8") as nsf:
                 content = nsf.read()
-                content += f"```{{toctree}}\n"
+                content += "```{toctree}\n"
 
                 # loop through all namespace items
                 for item in namespace_items:
-                    item_name = item['name']
-                    item_href = item.get('href')
-                    if item_href is None: # item is category, skip for now
+                    item_name = item["name"]
+                    item_href = item.get("href")
+                    if item_href is None:  # item is category, skip for now
                         continue
-                    
+
                     # item is type, add toctree entry
                     item_path = metadata_path.joinpath(item_href)
                     item_filename = item_path.with_suffix("").name
@@ -56,6 +57,7 @@ def make_acquisition_doctree():
                 nsf.seek(0)
                 nsf.write(content)
                 nsf.truncate()
+
 
 if __name__ == "__main__":
     make_acquisition_doctree()

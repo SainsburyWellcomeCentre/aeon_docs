@@ -1,4 +1,4 @@
-(target-api)=
+(target-api-reference)=
 # API Reference
 
 :::{toctree}

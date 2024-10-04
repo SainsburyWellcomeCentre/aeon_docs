@@ -50,7 +50,7 @@ Using the live position estimate from the overhead camera, we can control the ho
 
 Using the heading direction computed by the IMU sensor on the [Onix neuropixels headstage](https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html), the cable commutation is adapted in real time to avoid tangling.
 
-*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [bonsai-commutator](https://github.com/open-ephys/bonsai-commutator), [bonsai-onix1](https://github.com/open-ephys/onix-bonsai-onix1)*
+*Relevant repositories: [aeon_experiments](aeon-experiments-github:), [bonsai-commutator](https://github.com/open-ephys/bonsai-commutator), [bonsai-onix1](https://github.com/open-ephys/bonsai-onix1)*
 :::
 ::::
 
@@ -69,6 +69,6 @@ Using the heading direction computed by the IMU sensor on the [Onix neuropixels 
 
 All data are acquired using the [Onix recording system](https://open-ephys.github.io/onix-docs/index.html), which supports simultaneous recording with two [Neuropixels 2.0 probes](https://www.neuropixels.org/probe2-0). 
 
-*Relevant repositories: [bonsai-onix1](https://github.com/open-ephys/onix-bonsai-onix1)*
+*Relevant repositories: [bonsai-onix1](https://github.com/open-ephys/bonsai-onix1)*
 :::
 ::::

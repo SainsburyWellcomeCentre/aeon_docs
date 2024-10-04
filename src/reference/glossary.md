@@ -1,3 +1,4 @@
+(target-glossary)=
 # Glossary
 
 This glossary provides definitions for terms used throughout the project documentation.

@@ -79,6 +79,28 @@ linkcheck_allowed_redirects = {
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
 }
 ```
+## Deploying the documentation
+As mentioned above, the deployment job is triggered whenever a tag is pushed to the main branch. To deploy the documentation, follow these steps:
+
+Fetch all tags:
+```bash	
+git fetch --tags
+```
+
+Identify the latest tag:
+```bash
+git describe --tags
+```
+
+Create a new tag:
+```bash
+git tag <tag_name>
+```
+
+Push the tag to the main branch:
+```bash
+git push origin <tag_name>
+```
 
 ## Project Aeon Organization Overview
 

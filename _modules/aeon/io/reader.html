@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aeon.io.reader &#8212; Aeon v0.0.7 documentation</title>
+    <title>aeon.io.reader &#8212; Aeon v0.0.8 documentation</title>
   
   
   
@@ -32,14 +32,14 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=04c1e854" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=142bc327" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=401b779c"></script>
+    <script src="../../../_static/documentation_options.js?v=a801d45e"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -126,7 +126,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.7</p>
+    <p class="title logo__title">Aeon v0.0.8</p>
   
 </a></div>
     
@@ -775,20 +775,39 @@ document.write(`
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_root</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/ceph/aeon/aeon/data/processed&quot;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pose reader constructor.&quot;&quot;&quot;</span>
-        <span class="c1"># `pattern` for this reader should typically be &#39;&lt;hpcnode&gt;_&lt;jobid&gt;*&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pose reader constructor.</span>
+
+<span class="sd">        The pattern for this reader should typically be `&lt;device&gt;_&lt;hpcnode&gt;_&lt;jobid&gt;*`.</span>
+<span class="sd">        If a register prefix is required, the pattern should end with a trailing</span>
+<span class="sd">        underscore, e.g. `Camera_202_*`. Otherwise, the pattern should include a</span>
+<span class="sd">        common prefix for the pose model folder excluding the trailing underscore,</span>
+<span class="sd">        e.g. `Camera_model-dir*`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model_root</span> <span class="o">=</span> <span class="n">model_root</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pattern_offset</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
 <div class="viewcode-block" id="Pose.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.read">[docs]</a>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the Harp-binarized tracking file.&quot;&quot;&quot;</span>
         <span class="c1"># Get config file from `file`, then bodyparts from config file.</span>
-        <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">*</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
-        <span class="n">config_file_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_root</span><span class="p">)</span> <span class="o">/</span> <span class="n">model_dir</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_file_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find model dir </span><span class="si">{</span><span class="n">config_file_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_pattern_offset</span> <span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span>
+
+        <span class="c1"># Check if model directory exists in local or shared directories.</span>
+        <span class="c1"># Local directory is prioritized over shared directory.</span>
+        <span class="n">local_config_file_dir</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="n">model_dir</span>
+        <span class="n">shared_config_file_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_root</span><span class="p">)</span> <span class="o">/</span> <span class="n">model_dir</span>
+        <span class="k">if</span> <span class="n">local_config_file_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">config_file_dir</span> <span class="o">=</span> <span class="n">local_config_file_dir</span>
+        <span class="k">elif</span> <span class="n">shared_config_file_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">config_file_dir</span> <span class="o">=</span> <span class="n">shared_config_file_dir</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Cannot find model dir in either local (</span><span class="si">{</span><span class="n">local_config_file_dir</span><span class="si">}</span><span class="s2">) </span><span class="se">\</span>
+<span class="s2">                    or shared (</span><span class="si">{</span><span class="n">shared_config_file_dir</span><span class="si">}</span><span class="s2">) directories&quot;&quot;&quot;</span>
+            <span class="p">)</span>
+
         <span class="n">config_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_config_file</span><span class="p">(</span><span class="n">config_file_dir</span><span class="p">)</span>
         <span class="n">identities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_names</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
         <span class="n">parts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bodyparts</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
@@ -823,7 +842,7 @@ document.write(`
             <span class="n">parts</span> <span class="o">=</span> <span class="n">unique_parts</span>
 
         <span class="c1"># Set new columns, and reformat `data`.</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">config_file</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">identities</span><span class="p">)</span>
         <span class="n">n_parts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
         <span class="n">part_data_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()]</span> <span class="o">*</span> <span class="n">n_parts</span>
         <span class="n">new_columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;part&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;part_likelihood&quot;</span><span class="p">])</span>
@@ -889,18 +908,12 @@ document.write(`
 <div class="viewcode-block" id="Pose.class_int2str">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.class_int2str">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts a class integer in a tracking data dataframe to its associated string (subject id).&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">config_file</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;confmap_config&quot;</span><span class="p">:</span>  <span class="c1"># SLEAP</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">heads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">][</span><span class="s2">&quot;heads&quot;</span><span class="p">]</span>
-                <span class="n">classes</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;classes&quot;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find classes in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
-                <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subj</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">classes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Classes list cannot be None or empty.&quot;</span><span class="p">)</span>
+        <span class="n">identity_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">))</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">identity_mapping</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
 

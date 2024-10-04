@@ -1,0 +1,6 @@
+﻿aeon.metadata.social_02
+=======================
+
+.. automodule:: aeon.metadata.social_02
+   :members:
+   :undoc-members:

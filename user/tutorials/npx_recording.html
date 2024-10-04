@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Neuropixels recordings &#8212; Aeon v0.0.7 documentation</title>
+    <title>Neuropixels recordings &#8212; Aeon v0.0.8 documentation</title>
   
   
   
@@ -33,14 +33,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=04c1e854" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=142bc327" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=401b779c"></script>
+    <script src="../../_static/documentation_options.js?v=a801d45e"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/npx_recording';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Accessing Aeon Data on Ceph" href="../how_to/exp01_patchsummary.html" />
+    <link rel="next" title="Data access using the low-level API" href="../how_to/io_api_example_copy.html" />
     <link rel="prev" title="Multi-animal tracking" href="multianimal_tracking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -129,7 +129,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.7</p>
+    <p class="title logo__title">Aeon v0.0.8</p>
   
 </a></div>
     
@@ -365,14 +365,7 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how_to/exp01_patchsummary.html">Accessing Aeon Data on Ceph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/dj_example_notebook.html">Accessing Aeon Data from the Datajoint Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/diagram_copy.html">High level diagram</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../how_to/social_experiments_block_analysis_copy.html">Create VirtualModule to access <code class="docutils literal notranslate"><span class="pre">aeon_block_analysis</span></code> schema</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../how_to/io_api_example_copy.html">Data access using the low-level API</a></li>
 </ul>
 </div>
 </nav></div>
@@ -433,7 +426,7 @@ document.write(`
   <section id="neuropixels-recordings">
 <span id="target-npx-recording"></span><h1>Neuropixels recordings<a class="headerlink" href="#neuropixels-recordings" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../../_images/getting-started-npx.png"><img alt="neuropixels-recording" src="../../_images/getting-started-npx.png" style="height: 300px;" />
+<a class="reference internal image-reference" href="../../_images/npx-main.png"><img alt="neuropixels-recording" src="../../_images/npx-main.png" style="height: 300px;" />
 </a>
 <figcaption>
 <p><span class="caption-text">Week-long continuous neural recordings from a freely moving animal in a large environment.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
@@ -469,7 +462,7 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
 </div>
 <div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
 <p>Using the heading direction computed by the IMU sensor on the <a class="reference external" href="https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html">Onix neuropixels headstage</a>, the cable commutation is adapted in real time to avoid tangling.</p>
-<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/open-ephys/bonsai-commutator">bonsai-commutator</a>, <a class="reference external" href="https://github.com/open-ephys/onix-bonsai-onix1">bonsai-onix1</a></em></p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/open-ephys/bonsai-commutator">bonsai-commutator</a>, <a class="reference external" href="https://github.com/open-ephys/bonsai-onix1">bonsai-onix1</a></em></p>
 </div>
 </div>
 </div>
@@ -483,7 +476,7 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
 </div>
 <div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
 <p>All data are acquired using the <a class="reference external" href="https://open-ephys.github.io/onix-docs/index.html">Onix recording system</a>, which supports simultaneous recording with two <a class="reference external" href="https://www.neuropixels.org/probe2-0">Neuropixels 2.0 probes</a>.</p>
-<p><em>Relevant repositories: <a class="reference external" href="https://github.com/open-ephys/onix-bonsai-onix1">bonsai-onix1</a></em></p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/open-ephys/bonsai-onix1">bonsai-onix1</a></em></p>
 </div>
 </div>
 </div>
@@ -510,11 +503,11 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
       </div>
     </a>
     <a class="right-next"
-       href="../how_to/exp01_patchsummary.html"
+       href="../how_to/io_api_example_copy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Accessing Aeon Data on Ceph</p>
+        <p class="prev-next-title">Data access using the low-level API</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

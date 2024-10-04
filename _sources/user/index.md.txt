@@ -14,8 +14,5 @@ tutorials/npx_recording
 :maxdepth: 2
 :caption: How-to Guides
 
-how_to/exp01_patchsummary
-how_to/dj_example_notebook
-how_to/diagram_copy
-how_to/social_experiments_block_analysis_copy
+how_to/io_api_example_copy
 :::

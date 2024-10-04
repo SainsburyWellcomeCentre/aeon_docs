@@ -31,3 +31,4 @@
     aeon.schema.social_02
     aeon.schema.social_03
     aeon.schema.streams
+    aeon.metadata.social_02

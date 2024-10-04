@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hardware Overview &#8212; Aeon v0.0.7 documentation</title>
+    <title>Hardware Overview &#8212; Aeon v0.0.8 documentation</title>
   
   
   
@@ -33,14 +33,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=04c1e854" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=142bc327" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=401b779c"></script>
+    <script src="../_static/documentation_options.js?v=a801d45e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/hardware';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Feeder" href="hardware/feeder.html" />
+    <link rel="next" title="API Reference" href="api.html" />
     <link rel="prev" title="Reference" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -129,7 +129,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.7</p>
+    <p class="title logo__title">Aeon v0.0.8</p>
   
 </a></div>
     
@@ -359,10 +359,7 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Hardware Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="hardware/feeder.html">Feeder</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hardware Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/mecha.html"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.util.html">aeon.util</a></li>
@@ -383,6 +380,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.schema.social_02.html">aeon.schema.social_02</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.schema.social_03.html">aeon.schema.social_03</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.schema.streams.html">aeon.schema.streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.metadata.social_02.html">aeon.metadata.social_02</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/acquisition.html"><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -577,40 +575,99 @@ document.write(`
 </div>
 <section id="hardware-overview">
 <span id="target-hardware"></span><h1>Hardware Overview<a class="headerlink" href="#hardware-overview" title="Link to this heading">#</a></h1>
-<p>This section describes the hardware components available in Aeon.</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Feeder</div>
+<section id="main-modules">
+<h2>Main modules<a class="headerlink" href="#main-modules" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Files</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Arena</strong> <br><a class="reference internal" href="../_images/hardware-overview-arena.png"><img alt="arena" class="align-center" src="../_images/hardware-overview-arena.png" style="height: 15em;" /></a></p></td>
+<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/b73fc38515c62830b58a93f868aaefb9/Arena%20guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li><li><a class="reference download internal" download="" href="../_downloads/64fd84176f26e97c07b2588d42c5dac0/Arena%20BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Feeder</strong> <br><a class="reference internal" href="../_images/hardware-overview-feeder.png"><img alt="feeder" class="align-center" src="../_images/hardware-overview-feeder.png" style="height: 12em;" /></a></p></td>
+<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/96beff55ff01afb08900dd252ebfec98/Feeder%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li><li><a class="reference download internal" download="" href="../_downloads/162fe11062d859f91ff5fc8ef76963df/Feeder%20BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></li></ul></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nest</strong> <br><a class="reference internal" href="../_images/hardware-overview-nest.png"><img alt="nest" class="align-center" src="../_images/hardware-overview-nest.png" style="height: 15em;" /></a></p></td>
+<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/29a777c749b84affb00a0e9e9960a470/Nest%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Closed-loop translation-commutation system</strong> <br><a class="reference internal" href="../_images/hardware-overview-linear-rail.png"><img alt="linear-rail" class="align-center" src="../_images/hardware-overview-linear-rail.png" style="height: 15em;" /></a></p></td>
+<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/1757f52e6a1e011ab53a5894320ce95f/Linear%20commutator%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li></ul></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-feeder.png" />
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="hardware/feeder.html#target-feeder"><span class="std std-ref">Feeder</span></a></div>
+</section>
+<section id="harp-devices">
+<h2>Harp devices<a class="headerlink" href="#harp-devices" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Harp Device</p></th>
+<th class="head"><p>Associated Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Quantity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.OutputExpander.html#"><strong>Harp Output Expander</strong></a></p></td>
+<td><p>Foraging Patches (Feeders)</p></td>
+<td><p>Expander module to connect feeder to harp system. 1 per patch</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.CameraControllerGen2.html#"><strong>Harp CameraController Gen2</strong></a></p></td>
+<td><p>Cameras</p></td>
+<td><p>Controller to trigger all cameras in the arena</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.TimestampGeneratorGen3.html#"><strong>Harp Timestamp Generator Gen3</strong></a></p></td>
+<td><p>Arena (Synchronizes all devices)</p></td>
+<td><p>Synchronizes all harp devices in the arena</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/SainsburyWellcomeCentre/microharp"><strong>Micropython Harp device</strong></a></p></td>
+<td><p>Ephys linear rail drive</p></td>
+<td><p>Linear rail position controller and position sensor reciever</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.SoundCard.html#"><strong>Harp SoundCard</strong></a></p></td>
+<td><p>SP speaker</p></td>
+<td><p>Control and monitoring of audio speaker</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Arena</div>
-</div>
-<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-arena.png" />
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Nest</div>
-</div>
-<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-nest.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+</section>
+<section id="wiring-diagrams">
+<h2>Wiring diagrams<a class="headerlink" href="#wiring-diagrams" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/2c07e6800abe172b88f5206288161abd/Example%20wiring%20diagram.pdf"><span class="xref download myst">Wiring diagram</span></a></p></li>
+</ul>
+<!--
+:::{toctree}
+:maxdepth: 1
+:hidden:
+hardware/feeder
+
+::::{grid} 1 3 3 3 
+:::{grid-item-card} Feeder
+:img-top: ../_static/images/hardware-overview-feeder.png
+:link: target-feeder
+:link-type: ref
+:img-bottom: ../_static/images/hardware-overview-feeder.png
+:::
+
+:::{grid-item-card} Arena
+:img-bottom: ../_static/images/hardware-overview-arena.png
+:::
+
+:::{grid-item-card} Nest
+:img-bottom: ../_static/images/hardware-overview-nest.png
+:::
+::::
+--></section>
 </section>
 
 
@@ -633,11 +690,11 @@ Nest</div>
       </div>
     </a>
     <a class="right-next"
-       href="hardware/feeder.html"
+       href="api.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Feeder</p>
+        <p class="prev-next-title">API Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -650,6 +707,20 @@ Nest</div>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-modules">Main modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harp-devices">Harp devices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiring-diagrams">Wiring diagrams</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 

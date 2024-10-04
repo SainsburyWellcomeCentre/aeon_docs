@@ -1,0 +1,33 @@
+..
+  This file is auto-generated.
+
+.. _target-mecha-reference:
+
+``aeon_mecha``
+==============
+
+.. toctree::
+    :caption: aeon_mecha API
+    :maxdepth: 1
+
+.. autosummary::
+    :toctree: mecha
+
+    aeon.util
+    aeon.io.api
+    aeon.io.device
+    aeon.io.reader
+    aeon.io.video
+    aeon.analysis.block_plotting
+    aeon.analysis.movies
+    aeon.analysis.plotting
+    aeon.analysis.utils
+    aeon.schema.core
+    aeon.schema.dataset
+    aeon.schema.foraging
+    aeon.schema.octagon
+    aeon.schema.schemas
+    aeon.schema.social_01
+    aeon.schema.social_02
+    aeon.schema.social_03
+    aeon.schema.streams

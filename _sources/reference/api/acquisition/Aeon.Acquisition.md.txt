@@ -1,0 +1,84 @@
+# <a id="Aeon_Acquisition"></a> Namespace Aeon.Acquisition
+
+### Classes
+
+ [AeonAudio](Aeon.Acquisition.AeonAudio.md)
+
+ [AvailableDiskSpace](Aeon.Acquisition.AvailableDiskSpace.md)
+
+ [AvailableMemory](Aeon.Acquisition.AvailableMemory.md)
+
+ [CreateLogMessage](Aeon.Acquisition.CreateLogMessage.md)
+
+ [CreateRepository](Aeon.Acquisition.CreateRepository.md)
+
+ [FormatDate](Aeon.Acquisition.FormatDate.md)
+
+ [FormatJson](Aeon.Acquisition.FormatJson.md)
+
+ [FormatLogMessage](Aeon.Acquisition.FormatLogMessage.md)
+
+ [GetDataPath](Aeon.Acquisition.GetDataPath.md)
+
+ [GetDateTime](Aeon.Acquisition.GetDateTime.md)
+
+ [GroupByTime](Aeon.Acquisition.GroupByTime.md)
+
+ [IsRepositoryClean](Aeon.Acquisition.IsRepositoryClean.md)
+
+ [LoadConfigFile](Aeon.Acquisition.LoadConfigFile.md)
+
+ [LogMessage](Aeon.Acquisition.LogMessage.md)
+
+ [MetadataSource<TMetadata\>](Aeon.Acquisition.MetadataSource\-1.md)
+
+ [PrependOnce](Aeon.Acquisition.PrependOnce.md)
+
+ [RangeThreshold](Aeon.Acquisition.RangeThreshold.md)
+
+ [SendMessageCard](Aeon.Acquisition.SendMessageCard.md)
+
+ [ServiceAccountName](Aeon.Acquisition.ServiceAccountName.md)
+
+ [StateRecovery<TState\>](Aeon.Acquisition.StateRecovery\-1.md)
+
+ [StateRecoverySubject](Aeon.Acquisition.StateRecoverySubject.md)
+
+ [StateRecoverySubject<T\>](Aeon.Acquisition.StateRecoverySubject\-1.md)
+
+ [StripSubstring](Aeon.Acquisition.StripSubstring.md)
+
+ [ThrowException](Aeon.Acquisition.ThrowException.md)
+
+### Enums
+
+ [PriorityLevel](Aeon.Acquisition.PriorityLevel.md)
+
+```{toctree}
+
+AeonAudio <Aeon.Acquisition.AeonAudio>
+AvailableDiskSpace <Aeon.Acquisition.AvailableDiskSpace>
+AvailableMemory <Aeon.Acquisition.AvailableMemory>
+CreateLogMessage <Aeon.Acquisition.CreateLogMessage>
+CreateRepository <Aeon.Acquisition.CreateRepository>
+FormatDate <Aeon.Acquisition.FormatDate>
+FormatJson <Aeon.Acquisition.FormatJson>
+FormatLogMessage <Aeon.Acquisition.FormatLogMessage>
+GetDataPath <Aeon.Acquisition.GetDataPath>
+GetDateTime <Aeon.Acquisition.GetDateTime>
+GroupByTime <Aeon.Acquisition.GroupByTime>
+IsRepositoryClean <Aeon.Acquisition.IsRepositoryClean>
+LoadConfigFile <Aeon.Acquisition.LoadConfigFile>
+LogMessage <Aeon.Acquisition.LogMessage>
+MetadataSource<TMetadata> <Aeon.Acquisition.MetadataSource-1>
+PrependOnce <Aeon.Acquisition.PrependOnce>
+RangeThreshold <Aeon.Acquisition.RangeThreshold>
+SendMessageCard <Aeon.Acquisition.SendMessageCard>
+ServiceAccountName <Aeon.Acquisition.ServiceAccountName>
+StateRecovery<TState> <Aeon.Acquisition.StateRecovery-1>
+StateRecoverySubject <Aeon.Acquisition.StateRecoverySubject>
+StateRecoverySubject<T> <Aeon.Acquisition.StateRecoverySubject-1>
+StripSubstring <Aeon.Acquisition.StripSubstring>
+ThrowException <Aeon.Acquisition.ThrowException>
+PriorityLevel <Aeon.Acquisition.PriorityLevel>
+```

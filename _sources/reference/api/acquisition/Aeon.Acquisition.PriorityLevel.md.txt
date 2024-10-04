@@ -1,0 +1,15 @@
+# <a id="Aeon_Acquisition_PriorityLevel"></a> Enum PriorityLevel
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public enum PriorityLevel
+```
+
+## Fields
+
+`Alert = 1` 
+
+`Notification = 0` 
+

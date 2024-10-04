@@ -1,0 +1,124 @@
+# <a id="Aeon_Acquisition_CreateLogMessage"></a> Class CreateLogMessage
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public class CreateLogMessage : Source<LogMessage>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<LogMessage\> ← 
+[CreateLogMessage](Aeon.Acquisition.CreateLogMessage.md)
+
+#### Inherited Members
+
+Source<LogMessage\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Message"></a> Message
+
+```csharp
+public string Message { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Priority"></a> Priority
+
+```csharp
+public PriorityLevel Priority { get; set; }
+```
+
+#### Property Value
+
+ [PriorityLevel](Aeon.Acquisition.PriorityLevel.md)
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Type"></a> Type
+
+```csharp
+public string Type { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Generate"></a> Generate\(\)
+
+Generates an observable sequence of data elements.
+
+```csharp
+public override IObservable<LogMessage> Generate()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[LogMessage](Aeon.Acquisition.LogMessage.md)\>
+
+An observable sequence of data elements of type <xref href="Aeon.Acquisition.LogMessage" data-throw-if-not-resolved="false"></xref>.
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Generate__1_System_IObservable___0__"></a> Generate<TSource\>\(IObservable<TSource\>\)
+
+```csharp
+public IObservable<LogMessage> Generate<TSource>(IObservable<TSource> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[LogMessage](Aeon.Acquisition.LogMessage.md)\>
+
+#### Type Parameters
+
+`TSource` 
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Generate__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Generate<TSource\>\(IObservable<Timestamped<TSource\>\>\)
+
+```csharp
+public IObservable<Timestamped<LogMessage>> Generate<TSource>(IObservable<Timestamped<TSource>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TSource\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[LogMessage](Aeon.Acquisition.LogMessage.md)\>\>
+
+#### Type Parameters
+
+`TSource` 
+
+### <a id="Aeon_Acquisition_CreateLogMessage_Generate_System_IObservable_Bonsai_Harp_HarpMessage__"></a> Generate\(IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<Timestamped<LogMessage>> Generate(IObservable<HarpMessage> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[LogMessage](Aeon.Acquisition.LogMessage.md)\>\>
+

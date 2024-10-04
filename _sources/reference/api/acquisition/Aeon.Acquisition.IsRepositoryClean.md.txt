@@ -1,0 +1,42 @@
+# <a id="Aeon_Acquisition_IsRepositoryClean"></a> Class IsRepositoryClean
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class IsRepositoryClean
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[IsRepositoryClean](Aeon.Acquisition.IsRepositoryClean.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_IsRepositoryClean_Process_System_IObservable_LibGit2Sharp_IRepository__"></a> Process\(IObservable<IRepository\>\)
+
+```csharp
+public IObservable<bool> Process(IObservable<IRepository> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IRepository\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[bool](https://learn.microsoft.com/dotnet/api/system.boolean)\>
+

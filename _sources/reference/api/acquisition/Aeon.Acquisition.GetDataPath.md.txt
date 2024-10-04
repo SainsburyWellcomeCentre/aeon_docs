@@ -1,0 +1,64 @@
+# <a id="Aeon_Acquisition_GetDataPath"></a> Class GetDataPath
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class GetDataPath
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[GetDataPath](Aeon.Acquisition.GetDataPath.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Acquisition_GetDataPath_DataPath"></a> DataPath
+
+```csharp
+public string DataPath { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Aeon_Acquisition_GetDataPath_FallbackPath"></a> FallbackPath
+
+```csharp
+public string FallbackPath { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Acquisition_GetDataPath_Process_System_IObservable_LibGit2Sharp_IRepository__"></a> Process\(IObservable<IRepository\>\)
+
+```csharp
+public IObservable<string> Process(IObservable<IRepository> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IRepository\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[string](https://learn.microsoft.com/dotnet/api/system.string)\>
+

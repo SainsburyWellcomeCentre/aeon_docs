@@ -1,0 +1,29 @@
+# <a id="Aeon_Environment_TareWeight"></a> Class TareWeight
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[TypeVisualizer(typeof(TareWeightVisualizer))]
+public class TareWeight : MetadataSource<Unit>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+MetadataSource<Unit\> ← 
+[TareWeight](Aeon.Environment.TareWeight.md)
+
+#### Inherited Members
+
+MetadataSource<Unit\>.OnNext\(Unit\), 
+MetadataSource<Unit\>.Process\(\), 
+MetadataSource<Unit\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+

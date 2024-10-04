@@ -1,0 +1,17 @@
+# <a id="Aeon_Foraging_DispenserEventType"></a> Enum DispenserEventType
+
+Namespace: [Aeon.Foraging](Aeon.Foraging.md)  
+Assembly: Aeon.Foraging.dll  
+
+```csharp
+public enum DispenserEventType
+```
+
+## Fields
+
+`Discount = 0` 
+
+`Refill = 1` 
+
+`Reset = 2` 
+

@@ -1,0 +1,61 @@
+# <a id="Aeon_Database_ExecuteQuery"></a> Class ExecuteQuery
+
+Namespace: [Aeon.Database](Aeon.Database.md)  
+Assembly: Aeon.Database.dll  
+
+```csharp
+public class ExecuteQuery : Combinator<MySqlConnection, MySqlDataReader>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<MySqlConnection, MySqlDataReader\> ← 
+[ExecuteQuery](Aeon.Database.ExecuteQuery.md)
+
+#### Inherited Members
+
+Combinator<MySqlConnection, MySqlDataReader\>.Process\(IObservable<MySqlConnection\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Database_ExecuteQuery_QueryString"></a> QueryString
+
+```csharp
+public string QueryString { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Database_ExecuteQuery_Process_System_IObservable_MySqlConnector_MySqlConnection__"></a> Process\(IObservable<MySqlConnection\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<MySqlDataReader> Process(IObservable<MySqlConnection> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<MySqlConnection\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<MySqlDataReader\>
+
+An observable sequence with elements of type <xref href="MySqlConnector.MySqlDataReader" data-throw-if-not-resolved="false"></xref>.
+

@@ -1,0 +1,86 @@
+# <a id="Aeon_Environment_ActiveSubjectCollection"></a> Class ActiveSubjectCollection
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class ActiveSubjectCollection : KeyedCollection<string, EnvironmentSubjectStateEntry>, IList<EnvironmentSubjectStateEntry>, ICollection<EnvironmentSubjectStateEntry>, IList, ICollection, IReadOnlyList<EnvironmentSubjectStateEntry>, IReadOnlyCollection<EnvironmentSubjectStateEntry>, IEnumerable<EnvironmentSubjectStateEntry>, IEnumerable
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[Collection<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1) ← 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2) ← 
+[ActiveSubjectCollection](Aeon.Environment.ActiveSubjectCollection.md)
+
+#### Implements
+
+[IList<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist\-1), 
+[ICollection<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection\-1), 
+[IList](https://learn.microsoft.com/dotnet/api/system.collections.ilist), 
+[ICollection](https://learn.microsoft.com/dotnet/api/system.collections.icollection), 
+[IReadOnlyList<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist\-1), 
+[IReadOnlyCollection<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection\-1), 
+[IEnumerable<EnvironmentSubjectStateEntry\>](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable\-1), 
+[IEnumerable](https://learn.microsoft.com/dotnet/api/system.collections.ienumerable)
+
+#### Inherited Members
+
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.Contains\(string\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.contains), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.Remove\(string\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.remove), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.ChangeItemKey\(EnvironmentSubjectStateEntry, string\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.changeitemkey), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.ClearItems\(\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.clearitems), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.GetKeyForItem\(EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.getkeyforitem), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.InsertItem\(int, EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.insertitem), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.RemoveItem\(int\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.removeitem), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.SetItem\(int, EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.setitem), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.Comparer](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.comparer), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.this\[string\]](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.item), 
+[KeyedCollection<string, EnvironmentSubjectStateEntry\>.Dictionary](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.keyedcollection\-2.dictionary), 
+[Collection<EnvironmentSubjectStateEntry\>.Add\(EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.add), 
+[Collection<EnvironmentSubjectStateEntry\>.Clear\(\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.clear), 
+[Collection<EnvironmentSubjectStateEntry\>.CopyTo\(EnvironmentSubjectStateEntry\[\], int\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.copyto), 
+[Collection<EnvironmentSubjectStateEntry\>.Contains\(EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.contains), 
+[Collection<EnvironmentSubjectStateEntry\>.GetEnumerator\(\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.getenumerator), 
+[Collection<EnvironmentSubjectStateEntry\>.IndexOf\(EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.indexof), 
+[Collection<EnvironmentSubjectStateEntry\>.Insert\(int, EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.insert), 
+[Collection<EnvironmentSubjectStateEntry\>.Remove\(EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.remove), 
+[Collection<EnvironmentSubjectStateEntry\>.RemoveAt\(int\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.removeat), 
+[Collection<EnvironmentSubjectStateEntry\>.ClearItems\(\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.clearitems), 
+[Collection<EnvironmentSubjectStateEntry\>.InsertItem\(int, EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.insertitem), 
+[Collection<EnvironmentSubjectStateEntry\>.RemoveItem\(int\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.removeitem), 
+[Collection<EnvironmentSubjectStateEntry\>.SetItem\(int, EnvironmentSubjectStateEntry\)](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.setitem), 
+[Collection<EnvironmentSubjectStateEntry\>.Count](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.count), 
+[Collection<EnvironmentSubjectStateEntry\>.Items](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.items), 
+[Collection<EnvironmentSubjectStateEntry\>.this\[int\]](https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection\-1.item), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Environment_ActiveSubjectCollection_GetKeyForItem_Aeon_Environment_EnvironmentSubjectStateEntry_"></a> GetKeyForItem\(EnvironmentSubjectStateEntry\)
+
+When implemented in a derived class, extracts the key from the specified element.
+
+```csharp
+protected override string GetKeyForItem(EnvironmentSubjectStateEntry item)
+```
+
+#### Parameters
+
+`item` [EnvironmentSubjectStateEntry](Aeon.Environment.EnvironmentSubjectStateEntry.md)
+
+The element from which to extract the key.
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The key for the specified element.
+

@@ -1,0 +1,52 @@
+# <a id="Aeon_Video_PylonCapture"></a> Class PylonCapture
+
+Namespace: [Aeon.Video](Aeon.Video.md)  
+Assembly: Aeon.Video.dll  
+
+```csharp
+public class PylonCapture : PylonCapture
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<PylonDataFrame\> ← 
+PylonCapture ← 
+[PylonCapture](Aeon.Video.PylonCapture.md)
+
+#### Inherited Members
+
+PylonCapture.Configure\(Camera\), 
+PylonCapture.Generate\(\), 
+PylonCapture.SerialNumber, 
+PylonCapture.ParameterFile, 
+PylonCapture.GrabStrategy, 
+Source<PylonDataFrame\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Video_PylonCapture_Generate__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Generate<TPayload\>\(IObservable<Timestamped<TPayload\>\>\)
+
+```csharp
+public IObservable<Timestamped<VideoDataFrame>> Generate<TPayload>(IObservable<Timestamped<TPayload>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TPayload\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[VideoDataFrame](Aeon.Video.VideoDataFrame.md)\>\>
+
+#### Type Parameters
+
+`TPayload` 
+

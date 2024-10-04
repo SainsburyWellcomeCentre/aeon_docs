@@ -1,0 +1,72 @@
+# <a id="Aeon_Environment_SerializeToYaml"></a> Class SerializeToYaml
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+Serializes a sequence of data model objects into YAML strings.
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class SerializeToYaml
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[SerializeToYaml](Aeon.Environment.SerializeToYaml.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Environment_SerializeToYaml_Process_System_IObservable_Aeon_Environment_RoomFixtures__"></a> Process\(IObservable<RoomFixtures\>\)
+
+```csharp
+public IObservable<string> Process(IObservable<RoomFixtures> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[RoomFixtures](Aeon.Environment.RoomFixtures.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[string](https://learn.microsoft.com/dotnet/api/system.string)\>
+
+### <a id="Aeon_Environment_SerializeToYaml_Process_System_IObservable_Aeon_Environment_Fixture__"></a> Process\(IObservable<Fixture\>\)
+
+```csharp
+public IObservable<string> Process(IObservable<Fixture> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Fixture](Aeon.Environment.Fixture.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[string](https://learn.microsoft.com/dotnet/api/system.string)\>
+
+### <a id="Aeon_Environment_SerializeToYaml_Process_System_IObservable_Aeon_Environment_ChannelMap__"></a> Process\(IObservable<ChannelMap\>\)
+
+```csharp
+public IObservable<string> Process(IObservable<ChannelMap> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[ChannelMap](Aeon.Environment.ChannelMap.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[string](https://learn.microsoft.com/dotnet/api/system.string)\>
+

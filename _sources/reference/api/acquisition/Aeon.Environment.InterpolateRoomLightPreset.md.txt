@@ -1,0 +1,61 @@
+# <a id="Aeon_Environment_InterpolateRoomLightPreset"></a> Class InterpolateRoomLightPreset
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class InterpolateRoomLightPreset : Combinator<RoomLightPreset, RoomLightMessage>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<RoomLightPreset, RoomLightMessage\> ← 
+[InterpolateRoomLightPreset](Aeon.Environment.InterpolateRoomLightPreset.md)
+
+#### Inherited Members
+
+Combinator<RoomLightPreset, RoomLightMessage\>.Process\(IObservable<RoomLightPreset\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_InterpolateRoomLightPreset_Fixtures"></a> Fixtures
+
+```csharp
+public RoomFixtures Fixtures { get; set; }
+```
+
+#### Property Value
+
+ [RoomFixtures](Aeon.Environment.RoomFixtures.md)
+
+## Methods
+
+### <a id="Aeon_Environment_InterpolateRoomLightPreset_Process_System_IObservable_Aeon_Environment_RoomLightPreset__"></a> Process\(IObservable<RoomLightPreset\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<RoomLightMessage> Process(IObservable<RoomLightPreset> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[RoomLightPreset](Aeon.Environment.RoomLightPreset.md)\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[RoomLightMessage](Aeon.Environment.RoomLightMessage.md)\>
+
+An observable sequence with elements of type <xref href="Aeon.Environment.RoomLightMessage" data-throw-if-not-resolved="false"></xref>.
+

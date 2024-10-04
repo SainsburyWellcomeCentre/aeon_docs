@@ -1,0 +1,39 @@
+# <a id="Aeon_Foraging"></a> Namespace Aeon.Foraging
+
+### Classes
+
+ [CreateDispenserEvent](Aeon.Foraging.CreateDispenserEvent.md)
+
+ [DispenserAccumulate](Aeon.Foraging.DispenserAccumulate.md)
+
+ [DispenserController](Aeon.Foraging.DispenserController.md)
+
+ [DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)
+
+ [DispenserEventControl](Aeon.Foraging.DispenserEventControl.md)
+
+ [DispenserEventVisualizer](Aeon.Foraging.DispenserEventVisualizer.md)
+
+ [DispenserState](Aeon.Foraging.DispenserState.md)
+
+ [FormatDispenserState](Aeon.Foraging.FormatDispenserState.md)
+
+ [WheelDisplacement](Aeon.Foraging.WheelDisplacement.md)
+
+### Enums
+
+ [DispenserEventType](Aeon.Foraging.DispenserEventType.md)
+
+```{toctree}
+
+CreateDispenserEvent <Aeon.Foraging.CreateDispenserEvent>
+DispenserAccumulate <Aeon.Foraging.DispenserAccumulate>
+DispenserController <Aeon.Foraging.DispenserController>
+DispenserEventArgs <Aeon.Foraging.DispenserEventArgs>
+DispenserEventControl <Aeon.Foraging.DispenserEventControl>
+DispenserEventVisualizer <Aeon.Foraging.DispenserEventVisualizer>
+DispenserState <Aeon.Foraging.DispenserState>
+FormatDispenserState <Aeon.Foraging.FormatDispenserState>
+WheelDisplacement <Aeon.Foraging.WheelDisplacement>
+DispenserEventType <Aeon.Foraging.DispenserEventType>
+```

@@ -1,0 +1,82 @@
+# <a id="Aeon_Foraging_CreateDispenserEvent"></a> Class CreateDispenserEvent
+
+Namespace: [Aeon.Foraging](Aeon.Foraging.md)  
+Assembly: Aeon.Foraging.dll  
+
+```csharp
+public class CreateDispenserEvent : Source<DispenserEventArgs>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<DispenserEventArgs\> ← 
+[CreateDispenserEvent](Aeon.Foraging.CreateDispenserEvent.md)
+
+#### Inherited Members
+
+Source<DispenserEventArgs\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Foraging_CreateDispenserEvent_EventType"></a> EventType
+
+```csharp
+public DispenserEventType EventType { get; set; }
+```
+
+#### Property Value
+
+ [DispenserEventType](Aeon.Foraging.DispenserEventType.md)
+
+### <a id="Aeon_Foraging_CreateDispenserEvent_Value"></a> Value
+
+```csharp
+public int Value { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Methods
+
+### <a id="Aeon_Foraging_CreateDispenserEvent_Generate"></a> Generate\(\)
+
+Generates an observable sequence of data elements.
+
+```csharp
+public override IObservable<DispenserEventArgs> Generate()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>
+
+An observable sequence of data elements of type <xref href="Aeon.Foraging.DispenserEventArgs" data-throw-if-not-resolved="false"></xref>.
+
+### <a id="Aeon_Foraging_CreateDispenserEvent_Generate__1_System_IObservable___0__"></a> Generate<TSource\>\(IObservable<TSource\>\)
+
+```csharp
+public IObservable<DispenserEventArgs> Generate<TSource>(IObservable<TSource> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>
+
+#### Type Parameters
+
+`TSource` 
+

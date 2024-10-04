@@ -1,0 +1,54 @@
+# <a id="Aeon_Database_CreateConnection"></a> Class CreateConnection
+
+Namespace: [Aeon.Database](Aeon.Database.md)  
+Assembly: Aeon.Database.dll  
+
+```csharp
+public class CreateConnection : Source<MySqlConnection>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<MySqlConnection\> ← 
+[CreateConnection](Aeon.Database.CreateConnection.md)
+
+#### Inherited Members
+
+Source<MySqlConnection\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Database_CreateConnection_ConnectionString"></a> ConnectionString
+
+```csharp
+public string ConnectionString { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Database_CreateConnection_Generate"></a> Generate\(\)
+
+Generates an observable sequence of data elements.
+
+```csharp
+public override IObservable<MySqlConnection> Generate()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<MySqlConnection\>
+
+An observable sequence of data elements of type <xref href="MySqlConnector.MySqlConnection" data-throw-if-not-resolved="false"></xref>.
+

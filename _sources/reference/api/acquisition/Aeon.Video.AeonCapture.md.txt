@@ -1,0 +1,40 @@
+# <a id="Aeon_Video_AeonCapture"></a> Class AeonCapture
+
+Namespace: [Aeon.Video](Aeon.Video.md)  
+Assembly: Aeon.Video.dll  
+
+```csharp
+[Obsolete]
+public class AeonCapture : SpinnakerCapture
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<SpinnakerDataFrame\> ← 
+SpinnakerCapture ← 
+[SpinnakerCapture](Aeon.Video.SpinnakerCapture.md) ← 
+[AeonCapture](Aeon.Video.AeonCapture.md)
+
+#### Inherited Members
+
+[SpinnakerCapture.ExposureTime](Aeon.Video.SpinnakerCapture.md\#Aeon\_Video\_SpinnakerCapture\_ExposureTime), 
+[SpinnakerCapture.Gain](Aeon.Video.SpinnakerCapture.md\#Aeon\_Video\_SpinnakerCapture\_Gain), 
+[SpinnakerCapture.Binning](Aeon.Video.SpinnakerCapture.md\#Aeon\_Video\_SpinnakerCapture\_Binning), 
+[SpinnakerCapture.Configure\(IManagedCamera\)](Aeon.Video.SpinnakerCapture.md\#Aeon\_Video\_SpinnakerCapture\_Configure\_SpinnakerNET\_IManagedCamera\_), 
+[SpinnakerCapture.Generate<TPayload\>\(IObservable<Timestamped<TPayload\>\>\)](Aeon.Video.SpinnakerCapture.md\#Aeon\_Video\_SpinnakerCapture\_Generate\_\_1\_System\_IObservable\_Bonsai\_Harp\_Timestamped\_\_\_0\_\_\_), 
+SpinnakerCapture.Configure\(IManagedCamera\), 
+SpinnakerCapture.Generate\(\), 
+SpinnakerCapture.Generate<TSource\>\(IObservable<TSource\>\), 
+SpinnakerCapture.Index, 
+SpinnakerCapture.SerialNumber, 
+SpinnakerCapture.ColorProcessing, 
+Source<SpinnakerDataFrame\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+

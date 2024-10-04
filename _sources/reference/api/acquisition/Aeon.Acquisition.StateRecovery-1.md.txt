@@ -1,0 +1,56 @@
+# <a id="Aeon_Acquisition_StateRecovery_1"></a> Class StateRecovery<TState\>
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public static class StateRecovery<TState> where TState : new()
+```
+
+#### Type Parameters
+
+`TState` 
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[StateRecovery<TState\>](Aeon.Acquisition.StateRecovery\-1.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_StateRecovery_1_Deserialize_System_String_"></a> Deserialize\(string\)
+
+```csharp
+public static TState Deserialize(string name)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+#### Returns
+
+ TState
+
+### <a id="Aeon_Acquisition_StateRecovery_1_Serialize_System_String__0_"></a> Serialize\(string, TState\)
+
+```csharp
+public static void Serialize(string name, TState value)
+```
+
+#### Parameters
+
+`name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+`value` TState
+

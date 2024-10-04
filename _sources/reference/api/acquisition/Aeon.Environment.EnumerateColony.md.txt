@@ -1,0 +1,49 @@
+# <a id="Aeon_Environment_EnumerateColony"></a> Class EnumerateColony
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class EnumerateColony : Combinator<MySqlConnection, SubjectRecord>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<MySqlConnection, SubjectRecord\> ← 
+[EnumerateColony](Aeon.Environment.EnumerateColony.md)
+
+#### Inherited Members
+
+Combinator<MySqlConnection, SubjectRecord\>.Process\(IObservable<MySqlConnection\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Environment_EnumerateColony_Process_System_IObservable_MySqlConnector_MySqlConnection__"></a> Process\(IObservable<MySqlConnection\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<SubjectRecord> Process(IObservable<MySqlConnection> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<MySqlConnection\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[SubjectRecord](Aeon.Environment.SubjectRecord.md)\>
+
+An observable sequence with elements of type <xref href="Aeon.Environment.SubjectRecord" data-throw-if-not-resolved="false"></xref>.
+

@@ -1,0 +1,15 @@
+# <a id="Aeon_Video_VideoControllerType"></a> Enum VideoControllerType
+
+Namespace: [Aeon.Video](Aeon.Video.md)  
+Assembly: Aeon.Video.dll  
+
+```csharp
+public enum VideoControllerType
+```
+
+## Fields
+
+`Behavior = 1` 
+
+`OutputExpander = 0` 
+

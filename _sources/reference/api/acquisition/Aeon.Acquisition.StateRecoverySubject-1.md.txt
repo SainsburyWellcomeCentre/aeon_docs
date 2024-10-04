@@ -1,0 +1,70 @@
+# <a id="Aeon_Acquisition_StateRecoverySubject_1"></a> Class StateRecoverySubject<T\>
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public class StateRecoverySubject<T> : SubjectBuilder<T>, IExpressionBuilder, INamedElement where T : new()
+```
+
+#### Type Parameters
+
+`T` 
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+ExpressionBuilder ← 
+VariableArgumentExpressionBuilder ← 
+SubjectExpressionBuilder ← 
+SubjectBuilder<T\> ← 
+[StateRecoverySubject<T\>](Aeon.Acquisition.StateRecoverySubject\-1.md)
+
+#### Implements
+
+IExpressionBuilder, 
+INamedElement
+
+#### Inherited Members
+
+SubjectBuilder<T\>.CreateSubject\(\), 
+SubjectBuilder<T\>.Build\(IEnumerable<Expression\>\), 
+SubjectExpressionBuilder.Name, 
+VariableArgumentExpressionBuilder.SetArgumentRange\(int, int\), 
+VariableArgumentExpressionBuilder.ArgumentRange, 
+ExpressionBuilder.Build\(IEnumerable<Expression\>\), 
+ExpressionBuilder.ToString\(\), 
+ExpressionBuilder.Unwrap\(ExpressionBuilder\), 
+ExpressionBuilder.GetWorkflowElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerMappings\(ExpressionBuilder\), 
+ExpressionBuilder.FromWorkflowElement\(object, ElementCategory\), 
+ExpressionBuilder.GetElementDisplayName\(Type\), 
+ExpressionBuilder.GetElementDisplayName\(object\), 
+ExpressionBuilder.SelectMembers\(Expression, string\), 
+ExpressionBuilder.GetArgumentAccess\(IEnumerable<Expression\>, string\), 
+ExpressionBuilder.ArgumentRange, 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_StateRecoverySubject_1_CreateSubject"></a> CreateSubject\(\)
+
+When overridden in a derived class, creates the shared subject.
+
+```csharp
+protected override ISubject<T> CreateSubject()
+```
+
+#### Returns
+
+ ISubject<T\>
+
+A new instance of <xref href="System.Reactive.Subjects.ISubject%601" data-throw-if-not-resolved="false"></xref>.
+

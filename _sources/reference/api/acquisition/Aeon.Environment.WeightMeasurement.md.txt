@@ -1,0 +1,82 @@
+# <a id="Aeon_Environment_WeightMeasurement"></a> Struct WeightMeasurement
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public struct WeightMeasurement
+```
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype)
+
+## Constructors
+
+### <a id="Aeon_Environment_WeightMeasurement__ctor_System_Double_System_Single_System_Single_"></a> WeightMeasurement\(double, float, float\)
+
+```csharp
+public WeightMeasurement(double timestamp, float value, float confidence)
+```
+
+#### Parameters
+
+`timestamp` [double](https://learn.microsoft.com/dotnet/api/system.double)
+
+`value` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+`confidence` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Fields
+
+### <a id="Aeon_Environment_WeightMeasurement_Confidence"></a> Confidence
+
+```csharp
+public float Confidence
+```
+
+#### Field Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="Aeon_Environment_WeightMeasurement_Timestamp"></a> Timestamp
+
+```csharp
+public double Timestamp
+```
+
+#### Field Value
+
+ [double](https://learn.microsoft.com/dotnet/api/system.double)
+
+### <a id="Aeon_Environment_WeightMeasurement_Value"></a> Value
+
+```csharp
+public float Value
+```
+
+#### Field Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Methods
+
+### <a id="Aeon_Environment_WeightMeasurement_ToString"></a> ToString\(\)
+
+Returns the fully qualified type name of this instance.
+
+```csharp
+public override string ToString()
+```
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The fully qualified type name.
+

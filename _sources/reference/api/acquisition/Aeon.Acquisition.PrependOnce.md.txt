@@ -1,0 +1,48 @@
+# <a id="Aeon_Acquisition_PrependOnce"></a> Class PrependOnce
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Combinator)]
+public class PrependOnce
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[PrependOnce](Aeon.Acquisition.PrependOnce.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_PrependOnce_Process__1_System_IObservable___0__System_IObservable___0__"></a> Process<TSource\>\(IObservable<TSource\>, IObservable<TSource\>\)
+
+```csharp
+public IObservable<TSource> Process<TSource>(IObservable<TSource> source, IObservable<TSource> other)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+`other` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Type Parameters
+
+`TSource` 
+

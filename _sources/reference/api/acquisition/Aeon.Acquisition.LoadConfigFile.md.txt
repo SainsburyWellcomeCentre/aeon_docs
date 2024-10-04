@@ -1,0 +1,55 @@
+# <a id="Aeon_Acquisition_LoadConfigFile"></a> Class LoadConfigFile
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public class LoadConfigFile : Source<Dictionary<string, string>>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<Dictionary<string, string\>\> ← 
+[LoadConfigFile](Aeon.Acquisition.LoadConfigFile.md)
+
+#### Inherited Members
+
+Source<Dictionary<string, string\>\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Acquisition_LoadConfigFile_FileName"></a> FileName
+
+```csharp
+[FileNameFilter("Config file (*.config)|*.config|YAML file (*.yaml;*.yml)|*.yaml;*.yml|JSON file (*.json)|*.json|All Files|*.*")]
+public string FileName { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Acquisition_LoadConfigFile_Generate"></a> Generate\(\)
+
+Generates an observable sequence of data elements.
+
+```csharp
+public override IObservable<Dictionary<string, string>> Generate()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Dictionary](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary\-2)<[string](https://learn.microsoft.com/dotnet/api/system.string), [string](https://learn.microsoft.com/dotnet/api/system.string)\>\>
+
+An observable sequence of data elements of type <xref href="System.Collections.Generic.Dictionary%7bSystem.String%2cSystem.String%7d" data-throw-if-not-resolved="false"></xref>.
+

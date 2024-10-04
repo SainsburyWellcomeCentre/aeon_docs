@@ -1,0 +1,54 @@
+# <a id="Aeon_Acquisition_AeonAudio"></a> Class AeonAudio
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public class AeonAudio : AudioCapture
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Source<Mat\> ← 
+AudioCapture ← 
+[AeonAudio](Aeon.Acquisition.AeonAudio.md)
+
+#### Inherited Members
+
+AudioCapture.Generate\(\), 
+AudioCapture.DeviceName, 
+AudioCapture.SampleRate, 
+AudioCapture.Frequency, 
+AudioCapture.FrequencySpecified, 
+AudioCapture.SampleFormat, 
+AudioCapture.BufferLength, 
+Source<Mat\>.Generate\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_AeonAudio_Generate__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Generate<TPayload\>\(IObservable<Timestamped<TPayload\>\>\)
+
+```csharp
+public IObservable<Timestamped<Mat>> Generate<TPayload>(IObservable<Timestamped<TPayload>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TPayload\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<Mat\>\>
+
+#### Type Parameters
+
+`TPayload` 
+

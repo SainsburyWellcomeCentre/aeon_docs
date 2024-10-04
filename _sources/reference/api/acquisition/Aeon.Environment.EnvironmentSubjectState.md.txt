@@ -1,0 +1,88 @@
+# <a id="Aeon_Environment_EnvironmentSubjectState"></a> Class EnvironmentSubjectState
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[TypeVisualizer(typeof(EnvironmentSubjectStateVisualizer))]
+public class EnvironmentSubjectState : MetadataSource<EnvironmentSubjectStateMetadata>, INamedElement
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+MetadataSource<EnvironmentSubjectStateMetadata\> ← 
+[EnvironmentSubjectState](Aeon.Environment.EnvironmentSubjectState.md)
+
+#### Implements
+
+INamedElement
+
+#### Inherited Members
+
+MetadataSource<EnvironmentSubjectStateMetadata\>.OnNext\(EnvironmentSubjectStateMetadata\), 
+MetadataSource<EnvironmentSubjectStateMetadata\>.Process\(\), 
+MetadataSource<EnvironmentSubjectStateMetadata\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_EnvironmentSubjectState_DatabasePath"></a> DatabasePath
+
+```csharp
+[FileNameFilter("CSV (Comma delimited)|*.csv|All Files|*.*")]
+public string DatabasePath { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Aeon_Environment_EnvironmentSubjectState_EnvironmentState"></a> EnvironmentState
+
+```csharp
+public EnvironmentStateType? EnvironmentState { get; set; }
+```
+
+#### Property Value
+
+ [EnvironmentStateType](Aeon.Environment.EnvironmentStateType.md)?
+
+### <a id="Aeon_Environment_EnvironmentSubjectState_Name"></a> Name
+
+```csharp
+public string Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Environment_EnvironmentSubjectState_Process"></a> Process\(\)
+
+```csharp
+public override IObservable<EnvironmentSubjectStateMetadata> Process()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[EnvironmentSubjectStateMetadata](Aeon.Environment.EnvironmentSubjectStateMetadata.md)\>
+
+### <a id="Aeon_Environment_EnvironmentSubjectState_ShouldSerializeEnvironmentState"></a> ShouldSerializeEnvironmentState\(\)
+
+```csharp
+public bool ShouldSerializeEnvironmentState()
+```
+
+#### Returns
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+

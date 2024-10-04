@@ -1,0 +1,57 @@
+# <a id="Aeon_Environment_EnvironmentState"></a> Class EnvironmentState
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[TypeVisualizer(typeof(EnvironmentStateVisualizer))]
+public class EnvironmentState : MetadataSource<EnvironmentStateMetadata>, INamedElement
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+MetadataSource<EnvironmentStateMetadata\> ← 
+[EnvironmentState](Aeon.Environment.EnvironmentState.md)
+
+#### Implements
+
+INamedElement
+
+#### Inherited Members
+
+MetadataSource<EnvironmentStateMetadata\>.OnNext\(EnvironmentStateMetadata\), 
+MetadataSource<EnvironmentStateMetadata\>.Process\(\), 
+MetadataSource<EnvironmentStateMetadata\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_EnvironmentState_Name"></a> Name
+
+```csharp
+public string Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Environment_EnvironmentState_Process"></a> Process\(\)
+
+```csharp
+public override IObservable<EnvironmentStateMetadata> Process()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[EnvironmentStateMetadata](Aeon.Environment.EnvironmentStateMetadata.md)\>
+

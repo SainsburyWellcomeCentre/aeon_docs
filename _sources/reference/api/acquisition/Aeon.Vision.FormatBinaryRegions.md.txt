@@ -1,0 +1,56 @@
+# <a id="Aeon_Vision_FormatBinaryRegions"></a> Class FormatBinaryRegions
+
+Namespace: [Aeon.Vision](Aeon.Vision.md)  
+Assembly: Aeon.Vision.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class FormatBinaryRegions
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[FormatBinaryRegions](Aeon.Vision.FormatBinaryRegions.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Vision_FormatBinaryRegions_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Vision_ConnectedComponent___"></a> Process\(IObservable<Timestamped<ConnectedComponent\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<ConnectedComponent>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<ConnectedComponent\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+### <a id="Aeon_Vision_FormatBinaryRegions_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Vision_ConnectedComponentCollection___"></a> Process\(IObservable<Timestamped<ConnectedComponentCollection\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<ConnectedComponentCollection>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<ConnectedComponentCollection\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+

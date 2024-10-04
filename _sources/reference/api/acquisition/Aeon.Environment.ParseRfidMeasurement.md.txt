@@ -1,0 +1,61 @@
+# <a id="Aeon_Environment_ParseRfidMeasurement"></a> Class ParseRfidMeasurement
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class ParseRfidMeasurement : Combinator<HarpMessage, Timestamped<RfidMeasurement>>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<HarpMessage, Timestamped<RfidMeasurement\>\> ← 
+[ParseRfidMeasurement](Aeon.Environment.ParseRfidMeasurement.md)
+
+#### Inherited Members
+
+Combinator<HarpMessage, Timestamped<RfidMeasurement\>\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_ParseRfidMeasurement_Location"></a> Location
+
+```csharp
+public Point2f Location { get; set; }
+```
+
+#### Property Value
+
+ Point2f
+
+## Methods
+
+### <a id="Aeon_Environment_ParseRfidMeasurement_Process_System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<HarpMessage\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<Timestamped<RfidMeasurement>> Process(IObservable<HarpMessage> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[RfidMeasurement](Aeon.Environment.RfidMeasurement.md)\>\>
+
+An observable sequence with elements of type <xref href="Bonsai.Harp.Timestamped%7bAeon.Environment.RfidMeasurement%7d" data-throw-if-not-resolved="false"></xref>.
+

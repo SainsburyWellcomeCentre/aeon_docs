@@ -1,0 +1,68 @@
+# <a id="Aeon_Environment_ExternalizedPropertiesVisualizer"></a> Class ExternalizedPropertiesVisualizer
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public sealed class ExternalizedPropertiesVisualizer : DialogTypeVisualizer
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+DialogTypeVisualizer ← 
+[ExternalizedPropertiesVisualizer](Aeon.Environment.ExternalizedPropertiesVisualizer.md)
+
+#### Inherited Members
+
+DialogTypeVisualizer.Show\(object\), 
+DialogTypeVisualizer.Load\(IServiceProvider\), 
+DialogTypeVisualizer.Unload\(\), 
+DialogTypeVisualizer.Visualize\(IObservable<IObservable<object\>\>, IServiceProvider\), 
+DialogTypeVisualizer.SequenceCompleted\(\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype)
+
+## Methods
+
+### <a id="Aeon_Environment_ExternalizedPropertiesVisualizer_Load_System_IServiceProvider_"></a> Load\(IServiceProvider\)
+
+Loads type visualizer resources using the specified service provider.
+
+```csharp
+public override void Load(IServiceProvider provider)
+```
+
+#### Parameters
+
+`provider` [IServiceProvider](https://learn.microsoft.com/dotnet/api/system.iserviceprovider)
+
+A service provider object which can be used to obtain visualization,
+runtime inspection, or other editing services.
+
+### <a id="Aeon_Environment_ExternalizedPropertiesVisualizer_Show_System_Object_"></a> Show\(object\)
+
+Updates the type visualizer to display the specified value object.
+
+```csharp
+public override void Show(object value)
+```
+
+#### Parameters
+
+`value` [object](https://learn.microsoft.com/dotnet/api/system.object)
+
+The value to visualize.
+
+### <a id="Aeon_Environment_ExternalizedPropertiesVisualizer_Unload"></a> Unload\(\)
+
+Unloads all type visualizer resources.
+
+```csharp
+public override void Unload()
+```
+

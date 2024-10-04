@@ -1,0 +1,6 @@
+﻿aeon.analysis.block_plotting
+============================
+
+.. automodule:: aeon.analysis.block_plotting
+   :members:
+   :undoc-members:

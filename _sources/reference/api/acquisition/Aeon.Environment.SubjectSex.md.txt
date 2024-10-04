@@ -1,0 +1,17 @@
+# <a id="Aeon_Environment_SubjectSex"></a> Enum SubjectSex
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public enum SubjectSex
+```
+
+## Fields
+
+`Female = 70` 
+
+`Male = 77` 
+
+`Unspecified = 85` 
+

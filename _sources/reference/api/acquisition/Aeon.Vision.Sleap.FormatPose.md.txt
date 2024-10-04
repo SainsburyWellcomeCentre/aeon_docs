@@ -1,0 +1,106 @@
+# <a id="Aeon_Vision_Sleap_FormatPose"></a> Class FormatPose
+
+Namespace: [Aeon.Vision.Sleap](Aeon.Vision.Sleap.md)  
+Assembly: Aeon.Vision.Sleap.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class FormatPose
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[FormatPose](Aeon.Vision.Sleap.FormatPose.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Vision_Sleap_FormatPose_Address"></a> Address
+
+```csharp
+public int Address { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="Aeon_Vision_Sleap_FormatPose_IdentityIndex"></a> IdentityIndex
+
+```csharp
+public int? IdentityIndex { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)?
+
+## Methods
+
+### <a id="Aeon_Vision_Sleap_FormatPose_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Sleap_PoseIdentity___"></a> Process\(IObservable<Timestamped<PoseIdentity\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<PoseIdentity>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<PoseIdentity\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+### <a id="Aeon_Vision_Sleap_FormatPose_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Sleap_PoseIdentityCollection___"></a> Process\(IObservable<Timestamped<PoseIdentityCollection\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<PoseIdentityCollection>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<PoseIdentityCollection\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+### <a id="Aeon_Vision_Sleap_FormatPose_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Sleap_Pose___"></a> Process\(IObservable<Timestamped<Pose\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<Pose>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<Pose\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+### <a id="Aeon_Vision_Sleap_FormatPose_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Sleap_PoseCollection___"></a> Process\(IObservable<Timestamped<PoseCollection\>\>\)
+
+```csharp
+public IObservable<HarpMessage> Process(IObservable<Timestamped<PoseCollection>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<PoseCollection\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+

@@ -1,0 +1,18 @@
+..
+  This file is auto-generated.
+
+.. _target-acquisition-reference:
+
+``aeon_acquisition``
+=====================
+
+.. toctree::
+    :glob:
+
+    Aeon.Acquisition <acquisition/Aeon.Acquisition>
+    Aeon.Database <acquisition/Aeon.Database>
+    Aeon.Environment <acquisition/Aeon.Environment>
+    Aeon.Foraging <acquisition/Aeon.Foraging>
+    Aeon.Video <acquisition/Aeon.Video>
+    Aeon.Vision <acquisition/Aeon.Vision>
+    Aeon.Vision.Sleap <acquisition/Aeon.Vision.Sleap>

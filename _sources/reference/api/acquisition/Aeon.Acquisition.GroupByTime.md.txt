@@ -1,0 +1,175 @@
+# <a id="Aeon_Acquisition_GroupByTime"></a> Class GroupByTime
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Combinator)]
+public class GroupByTime
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[GroupByTime](Aeon.Acquisition.GroupByTime.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Constructors
+
+### <a id="Aeon_Acquisition_GroupByTime__ctor"></a> GroupByTime\(\)
+
+```csharp
+public GroupByTime()
+```
+
+## Properties
+
+### <a id="Aeon_Acquisition_GroupByTime_ChunkSize"></a> ChunkSize
+
+```csharp
+public int ChunkSize { get; set; }
+```
+
+#### Property Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="Aeon_Acquisition_GroupByTime_ClosingDuration"></a> ClosingDuration
+
+```csharp
+public TimeSpan? ClosingDuration { get; set; }
+```
+
+#### Property Value
+
+ [TimeSpan](https://learn.microsoft.com/dotnet/api/system.timespan)?
+
+### <a id="Aeon_Acquisition_GroupByTime_ClosingDurationXml"></a> ClosingDurationXml
+
+```csharp
+[Browsable(false)]
+public string ClosingDurationXml { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Acquisition_GroupByTime_Process__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Process<TSource\>\(IObservable<Timestamped<TSource\>\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, Timestamped<TSource>>> Process<TSource>(IObservable<Timestamped<TSource>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TSource\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), Timestamped<TSource\>\>\>
+
+#### Type Parameters
+
+`TSource` 
+
+### <a id="Aeon_Acquisition_GroupByTime_Process_System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, HarpMessage>> Process(IObservable<HarpMessage> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), HarpMessage\>\>
+
+### <a id="Aeon_Acquisition_GroupByTime_Process__1_System_IObservable_System_Tuple___0_System_Double___"></a> Process<TSource\>\(IObservable<Tuple<TSource, double\>\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, Timestamped<TSource>>> Process<TSource>(IObservable<Tuple<TSource, double>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Tuple](https://learn.microsoft.com/dotnet/api/system.tuple\-2)<TSource, [double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), Timestamped<TSource\>\>\>
+
+#### Type Parameters
+
+`TSource` 
+
+### <a id="Aeon_Acquisition_GroupByTime_Process__1_System_IObservable_Bonsai_Harp_Timestamped___0___System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process<TSource\>\(IObservable<Timestamped<TSource\>\>, IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, Timestamped<TSource>>> Process<TSource>(IObservable<Timestamped<TSource>> source, IObservable<HarpMessage> heartbeats)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TSource\>\>
+
+`heartbeats` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), Timestamped<TSource\>\>\>
+
+#### Type Parameters
+
+`TSource` 
+
+### <a id="Aeon_Acquisition_GroupByTime_Process_System_IObservable_Bonsai_Harp_HarpMessage__System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<HarpMessage\>, IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, HarpMessage>> Process(IObservable<HarpMessage> source, IObservable<HarpMessage> heartbeats)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+`heartbeats` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), HarpMessage\>\>
+
+### <a id="Aeon_Acquisition_GroupByTime_Process__1_System_IObservable_System_Tuple___0_System_Double___System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process<TSource\>\(IObservable<Tuple<TSource, double\>\>, IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<IGroupedObservable<DateTime, Timestamped<TSource>>> Process<TSource>(IObservable<Tuple<TSource, double>> source, IObservable<HarpMessage> heartbeats)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Tuple](https://learn.microsoft.com/dotnet/api/system.tuple\-2)<TSource, [double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+
+`heartbeats` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<IGroupedObservable<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime), Timestamped<TSource\>\>\>
+
+#### Type Parameters
+
+`TSource` 
+

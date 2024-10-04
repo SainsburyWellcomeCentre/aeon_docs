@@ -1,0 +1,54 @@
+# <a id="Aeon_Foraging_WheelDisplacement"></a> Class WheelDisplacement
+
+Namespace: [Aeon.Foraging](Aeon.Foraging.md)  
+Assembly: Aeon.Foraging.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class WheelDisplacement
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[WheelDisplacement](Aeon.Foraging.WheelDisplacement.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Foraging_WheelDisplacement_Radius"></a> Radius
+
+```csharp
+public double Radius { get; set; }
+```
+
+#### Property Value
+
+ [double](https://learn.microsoft.com/dotnet/api/system.double)
+
+## Methods
+
+### <a id="Aeon_Foraging_WheelDisplacement_Process_System_IObservable_System_UInt16__"></a> Process\(IObservable<ushort\>\)
+
+```csharp
+public IObservable<double> Process(IObservable<ushort> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[ushort](https://learn.microsoft.com/dotnet/api/system.uint16)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[double](https://learn.microsoft.com/dotnet/api/system.double)\>
+

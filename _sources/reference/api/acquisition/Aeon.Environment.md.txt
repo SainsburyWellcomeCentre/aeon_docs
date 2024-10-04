@@ -1,0 +1,168 @@
+# <a id="Aeon_Environment"></a> Namespace Aeon.Environment
+
+### Classes
+
+ [ActiveSubjectCollection](Aeon.Environment.ActiveSubjectCollection.md)
+
+ [AnnotationControl](Aeon.Environment.AnnotationControl.md)
+
+ [AnnotationSource](Aeon.Environment.AnnotationSource.md)
+
+ [AnnotationSourceVisualizer](Aeon.Environment.AnnotationSourceVisualizer.md)
+
+ [ButtonSource](Aeon.Environment.ButtonSource.md)
+
+ [ButtonSourceVisualizer](Aeon.Environment.ButtonSourceVisualizer.md)
+
+ [ChannelMap](Aeon.Environment.ChannelMap.md)
+
+Represents channel map configuration used by the light controller.
+
+ [CreateRoomLightMessage](Aeon.Environment.CreateRoomLightMessage.md)
+
+ [CreateRoomLightPreset](Aeon.Environment.CreateRoomLightPreset.md)
+
+ [DeserializeFromYaml](Aeon.Environment.DeserializeFromYaml.md)
+
+Deserializes a sequence of YAML strings into data model objects.
+
+ [EnumerateColony](Aeon.Environment.EnumerateColony.md)
+
+ [EnvironmentState](Aeon.Environment.EnvironmentState.md)
+
+ [EnvironmentStateControl](Aeon.Environment.EnvironmentStateControl.md)
+
+ [EnvironmentStateMetadata](Aeon.Environment.EnvironmentStateMetadata.md)
+
+ [EnvironmentStateRecovery](Aeon.Environment.EnvironmentStateRecovery.md)
+
+ [EnvironmentStateVisualizer](Aeon.Environment.EnvironmentStateVisualizer.md)
+
+ [EnvironmentSubjectState](Aeon.Environment.EnvironmentSubjectState.md)
+
+ [EnvironmentSubjectStateControl](Aeon.Environment.EnvironmentSubjectStateControl.md)
+
+ [EnvironmentSubjectStateEntry](Aeon.Environment.EnvironmentSubjectStateEntry.md)
+
+ [EnvironmentSubjectStateMetadata](Aeon.Environment.EnvironmentSubjectStateMetadata.md)
+
+ [EnvironmentSubjectStateVisualizer](Aeon.Environment.EnvironmentSubjectStateVisualizer.md)
+
+ [ExperimentProperties](Aeon.Environment.ExperimentProperties.md)
+
+ [ExternalizedPropertiesVisualizer](Aeon.Environment.ExternalizedPropertiesVisualizer.md)
+
+ [Fixture](Aeon.Environment.Fixture.md)
+
+ [FormatWeight](Aeon.Environment.FormatWeight.md)
+
+ [InterpolateRoomLightPreset](Aeon.Environment.InterpolateRoomLightPreset.md)
+
+ [LabelControl](Aeon.Environment.LabelControl.md)
+
+ [LabelVisualizer](Aeon.Environment.LabelVisualizer.md)
+
+ [ParseRfidMeasurement](Aeon.Environment.ParseRfidMeasurement.md)
+
+ [RoomFixtures](Aeon.Environment.RoomFixtures.md)
+
+Specifies the channel map for every light fixture in the room.
+
+ [RoomLightDevice](Aeon.Environment.RoomLightDevice.md)
+
+ [SerializeToYaml](Aeon.Environment.SerializeToYaml.md)
+
+Serializes a sequence of data model objects into YAML strings.
+
+ [SubjectLogBitmap](Aeon.Environment.SubjectLogBitmap.md)
+
+ [SubjectRecord](Aeon.Environment.SubjectRecord.md)
+
+ [SubjectStateRecovery](Aeon.Environment.SubjectStateRecovery.md)
+
+ [TareWeight](Aeon.Environment.TareWeight.md)
+
+ [TareWeightControl](Aeon.Environment.TareWeightControl.md)
+
+ [TareWeightVisualizer](Aeon.Environment.TareWeightVisualizer.md)
+
+ [WeightBaseline](Aeon.Environment.WeightBaseline.md)
+
+ [WeightFilter](Aeon.Environment.WeightFilter.md)
+
+ [WeightRaw](Aeon.Environment.WeightRaw.md)
+
+### Structs
+
+ [RfidMeasurement](Aeon.Environment.RfidMeasurement.md)
+
+ [RoomLightMessage](Aeon.Environment.RoomLightMessage.md)
+
+ [RoomLightPreset](Aeon.Environment.RoomLightPreset.md)
+
+ [WeightMeasurement](Aeon.Environment.WeightMeasurement.md)
+
+### Enums
+
+ [EnvironmentStateType](Aeon.Environment.EnvironmentStateType.md)
+
+ [EnvironmentSubjectChangeType](Aeon.Environment.EnvironmentSubjectChangeType.md)
+
+ [InterpolationMethod](Aeon.Environment.InterpolationMethod.md)
+
+Specifies the method used to interpolate light values for a fixture.
+
+ [SubjectSex](Aeon.Environment.SubjectSex.md)
+
+```{toctree}
+
+ActiveSubjectCollection <Aeon.Environment.ActiveSubjectCollection>
+AnnotationControl <Aeon.Environment.AnnotationControl>
+AnnotationSource <Aeon.Environment.AnnotationSource>
+AnnotationSourceVisualizer <Aeon.Environment.AnnotationSourceVisualizer>
+ButtonSource <Aeon.Environment.ButtonSource>
+ButtonSourceVisualizer <Aeon.Environment.ButtonSourceVisualizer>
+ChannelMap <Aeon.Environment.ChannelMap>
+CreateRoomLightMessage <Aeon.Environment.CreateRoomLightMessage>
+CreateRoomLightPreset <Aeon.Environment.CreateRoomLightPreset>
+DeserializeFromYaml <Aeon.Environment.DeserializeFromYaml>
+EnumerateColony <Aeon.Environment.EnumerateColony>
+EnvironmentState <Aeon.Environment.EnvironmentState>
+EnvironmentStateControl <Aeon.Environment.EnvironmentStateControl>
+EnvironmentStateMetadata <Aeon.Environment.EnvironmentStateMetadata>
+EnvironmentStateRecovery <Aeon.Environment.EnvironmentStateRecovery>
+EnvironmentStateVisualizer <Aeon.Environment.EnvironmentStateVisualizer>
+EnvironmentSubjectState <Aeon.Environment.EnvironmentSubjectState>
+EnvironmentSubjectStateControl <Aeon.Environment.EnvironmentSubjectStateControl>
+EnvironmentSubjectStateEntry <Aeon.Environment.EnvironmentSubjectStateEntry>
+EnvironmentSubjectStateMetadata <Aeon.Environment.EnvironmentSubjectStateMetadata>
+EnvironmentSubjectStateVisualizer <Aeon.Environment.EnvironmentSubjectStateVisualizer>
+ExperimentProperties <Aeon.Environment.ExperimentProperties>
+ExternalizedPropertiesVisualizer <Aeon.Environment.ExternalizedPropertiesVisualizer>
+Fixture <Aeon.Environment.Fixture>
+FormatWeight <Aeon.Environment.FormatWeight>
+InterpolateRoomLightPreset <Aeon.Environment.InterpolateRoomLightPreset>
+LabelControl <Aeon.Environment.LabelControl>
+LabelVisualizer <Aeon.Environment.LabelVisualizer>
+ParseRfidMeasurement <Aeon.Environment.ParseRfidMeasurement>
+RoomFixtures <Aeon.Environment.RoomFixtures>
+RoomLightDevice <Aeon.Environment.RoomLightDevice>
+SerializeToYaml <Aeon.Environment.SerializeToYaml>
+SubjectLogBitmap <Aeon.Environment.SubjectLogBitmap>
+SubjectRecord <Aeon.Environment.SubjectRecord>
+SubjectStateRecovery <Aeon.Environment.SubjectStateRecovery>
+TareWeight <Aeon.Environment.TareWeight>
+TareWeightControl <Aeon.Environment.TareWeightControl>
+TareWeightVisualizer <Aeon.Environment.TareWeightVisualizer>
+WeightBaseline <Aeon.Environment.WeightBaseline>
+WeightFilter <Aeon.Environment.WeightFilter>
+WeightRaw <Aeon.Environment.WeightRaw>
+RfidMeasurement <Aeon.Environment.RfidMeasurement>
+RoomLightMessage <Aeon.Environment.RoomLightMessage>
+RoomLightPreset <Aeon.Environment.RoomLightPreset>
+WeightMeasurement <Aeon.Environment.WeightMeasurement>
+EnvironmentStateType <Aeon.Environment.EnvironmentStateType>
+EnvironmentSubjectChangeType <Aeon.Environment.EnvironmentSubjectChangeType>
+InterpolationMethod <Aeon.Environment.InterpolationMethod>
+SubjectSex <Aeon.Environment.SubjectSex>
+```

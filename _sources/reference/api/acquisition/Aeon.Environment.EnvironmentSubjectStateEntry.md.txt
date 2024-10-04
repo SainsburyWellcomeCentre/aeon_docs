@@ -1,0 +1,68 @@
+# <a id="Aeon_Environment_EnvironmentSubjectStateEntry"></a> Class EnvironmentSubjectStateEntry
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class EnvironmentSubjectStateEntry
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[EnvironmentSubjectStateEntry](Aeon.Environment.EnvironmentSubjectStateEntry.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_EnvironmentSubjectStateEntry_Id"></a> Id
+
+```csharp
+[TypeConverter(typeof(EnvironmentSubjectStateEntry.EntryIdConverter))]
+public string Id { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Aeon_Environment_EnvironmentSubjectStateEntry_ReferenceWeight"></a> ReferenceWeight
+
+```csharp
+public float ReferenceWeight { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="Aeon_Environment_EnvironmentSubjectStateEntry_Type"></a> Type
+
+```csharp
+[Browsable(false)]
+public EnvironmentSubjectChangeType Type { get; set; }
+```
+
+#### Property Value
+
+ [EnvironmentSubjectChangeType](Aeon.Environment.EnvironmentSubjectChangeType.md)
+
+### <a id="Aeon_Environment_EnvironmentSubjectStateEntry_Weight"></a> Weight
+
+```csharp
+public float Weight { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+

@@ -1,0 +1,50 @@
+# <a id="Aeon_Environment_WeightRaw"></a> Class WeightRaw
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public class WeightRaw : Transform<WeightMeasurement, WeightMeasurement>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<WeightMeasurement, WeightMeasurement\> ← 
+Transform<WeightMeasurement, WeightMeasurement\> ← 
+[WeightRaw](Aeon.Environment.WeightRaw.md)
+
+#### Inherited Members
+
+Combinator<WeightMeasurement, WeightMeasurement\>.Process\(IObservable<WeightMeasurement\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Environment_WeightRaw_Process_System_IObservable_Aeon_Environment_WeightMeasurement__"></a> Process\(IObservable<WeightMeasurement\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<WeightMeasurement> Process(IObservable<WeightMeasurement> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[WeightMeasurement](Aeon.Environment.WeightMeasurement.md)\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[WeightMeasurement](Aeon.Environment.WeightMeasurement.md)\>
+
+An observable sequence with elements of type <xref href="Aeon.Environment.WeightMeasurement" data-throw-if-not-resolved="false"></xref>.
+

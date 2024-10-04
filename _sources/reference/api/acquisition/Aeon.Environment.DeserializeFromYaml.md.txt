@@ -1,0 +1,90 @@
+# <a id="Aeon_Environment_DeserializeFromYaml"></a> Class DeserializeFromYaml
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+Deserializes a sequence of YAML strings into data model objects.
+
+```csharp
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class DeserializeFromYaml : SingleArgumentExpressionBuilder, IExpressionBuilder
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+ExpressionBuilder ← 
+SingleArgumentExpressionBuilder ← 
+[DeserializeFromYaml](Aeon.Environment.DeserializeFromYaml.md)
+
+#### Implements
+
+IExpressionBuilder
+
+#### Inherited Members
+
+SingleArgumentExpressionBuilder.ArgumentRange, 
+ExpressionBuilder.Build\(IEnumerable<Expression\>\), 
+ExpressionBuilder.ToString\(\), 
+ExpressionBuilder.Unwrap\(ExpressionBuilder\), 
+ExpressionBuilder.GetWorkflowElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerMappings\(ExpressionBuilder\), 
+ExpressionBuilder.FromWorkflowElement\(object, ElementCategory\), 
+ExpressionBuilder.GetElementDisplayName\(Type\), 
+ExpressionBuilder.GetElementDisplayName\(object\), 
+ExpressionBuilder.SelectMembers\(Expression, string\), 
+ExpressionBuilder.GetArgumentAccess\(IEnumerable<Expression\>, string\), 
+ExpressionBuilder.ArgumentRange, 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Constructors
+
+### <a id="Aeon_Environment_DeserializeFromYaml__ctor"></a> DeserializeFromYaml\(\)
+
+```csharp
+public DeserializeFromYaml()
+```
+
+## Properties
+
+### <a id="Aeon_Environment_DeserializeFromYaml_Type"></a> Type
+
+```csharp
+public TypeMapping Type { get; set; }
+```
+
+#### Property Value
+
+ TypeMapping
+
+## Methods
+
+### <a id="Aeon_Environment_DeserializeFromYaml_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__"></a> Build\(IEnumerable<Expression\>\)
+
+Constructs an <xref href="System.Linq.Expressions.Expression" data-throw-if-not-resolved="false"></xref> node from a collection of input
+arguments. The result can be chained with other builders in a workflow.
+
+```csharp
+public override Expression Build(IEnumerable<Expression> arguments)
+```
+
+#### Parameters
+
+`arguments` [IEnumerable](https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable\-1)<[Expression](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression)\>
+
+A collection of <xref href="System.Linq.Expressions.Expression" data-throw-if-not-resolved="false"></xref> nodes representing the input
+arguments.
+
+#### Returns
+
+ [Expression](https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression)
+
+The constructed <xref href="System.Linq.Expressions.Expression" data-throw-if-not-resolved="false"></xref> node.
+

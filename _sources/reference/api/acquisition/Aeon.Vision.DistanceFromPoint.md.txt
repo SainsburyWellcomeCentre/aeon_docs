@@ -1,0 +1,81 @@
+# <a id="Aeon_Vision_DistanceFromPoint"></a> Class DistanceFromPoint
+
+Namespace: [Aeon.Vision](Aeon.Vision.md)  
+Assembly: Aeon.Vision.dll  
+
+```csharp
+[Combinator]
+public class DistanceFromPoint
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[DistanceFromPoint](Aeon.Vision.DistanceFromPoint.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Vision_DistanceFromPoint_Value"></a> Value
+
+```csharp
+public Point Value { get; set; }
+```
+
+#### Property Value
+
+ Point
+
+## Methods
+
+### <a id="Aeon_Vision_DistanceFromPoint_Process_System_IObservable_Bonsai_Harp_Timestamped_OpenCV_Net_Point2f___"></a> Process\(IObservable<Timestamped<Point2f\>\>\)
+
+```csharp
+public IObservable<Timestamped<double>> Process(IObservable<Timestamped<Point2f>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<Point2f\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+
+### <a id="Aeon_Vision_DistanceFromPoint_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Vision_ConnectedComponent___"></a> Process\(IObservable<Timestamped<ConnectedComponent\>\>\)
+
+```csharp
+public IObservable<Timestamped<double>> Process(IObservable<Timestamped<ConnectedComponent>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<ConnectedComponent\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+
+### <a id="Aeon_Vision_DistanceFromPoint_Process_System_IObservable_Bonsai_Harp_Timestamped_Bonsai_Vision_ConnectedComponentCollection___"></a> Process\(IObservable<Timestamped<ConnectedComponentCollection\>\>\)
+
+```csharp
+public IObservable<Timestamped<double>> Process(IObservable<Timestamped<ConnectedComponentCollection>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<ConnectedComponentCollection\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+

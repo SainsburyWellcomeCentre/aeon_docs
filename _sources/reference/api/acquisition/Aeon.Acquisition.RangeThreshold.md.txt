@@ -1,0 +1,86 @@
+# <a id="Aeon_Acquisition_RangeThreshold"></a> Class RangeThreshold
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+public class RangeThreshold : Transform<double, bool>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+Combinator<double, bool\> ← 
+Transform<double, bool\> ← 
+[RangeThreshold](Aeon.Acquisition.RangeThreshold.md)
+
+#### Inherited Members
+
+Combinator<double, bool\>.Process\(IObservable<double\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Acquisition_RangeThreshold_Lower"></a> Lower
+
+```csharp
+public double? Lower { get; set; }
+```
+
+#### Property Value
+
+ [double](https://learn.microsoft.com/dotnet/api/system.double)?
+
+### <a id="Aeon_Acquisition_RangeThreshold_Upper"></a> Upper
+
+```csharp
+public double? Upper { get; set; }
+```
+
+#### Property Value
+
+ [double](https://learn.microsoft.com/dotnet/api/system.double)?
+
+## Methods
+
+### <a id="Aeon_Acquisition_RangeThreshold_Process_System_IObservable_System_Double__"></a> Process\(IObservable<double\>\)
+
+Processes an observable sequence into a new sequence of the specified
+element type.
+
+```csharp
+public override IObservable<bool> Process(IObservable<double> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[double](https://learn.microsoft.com/dotnet/api/system.double)\>
+
+The source sequence to process.
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[bool](https://learn.microsoft.com/dotnet/api/system.boolean)\>
+
+An observable sequence with elements of type <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>.
+
+### <a id="Aeon_Acquisition_RangeThreshold_Process_System_IObservable_Bonsai_Harp_Timestamped_System_Double___"></a> Process\(IObservable<Timestamped<double\>\>\)
+
+```csharp
+public IObservable<Timestamped<bool>> Process(IObservable<Timestamped<double>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[double](https://learn.microsoft.com/dotnet/api/system.double)\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[bool](https://learn.microsoft.com/dotnet/api/system.boolean)\>\>
+

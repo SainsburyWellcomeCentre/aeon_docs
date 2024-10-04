@@ -1,0 +1,70 @@
+# <a id="Aeon_Environment_RfidMeasurement"></a> Struct RfidMeasurement
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public struct RfidMeasurement
+```
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype)
+
+## Constructors
+
+### <a id="Aeon_Environment_RfidMeasurement__ctor_OpenCV_Net_Point2f_System_UInt64_"></a> RfidMeasurement\(Point2f, ulong\)
+
+```csharp
+public RfidMeasurement(Point2f location, ulong tagId)
+```
+
+#### Parameters
+
+`location` Point2f
+
+`tagId` [ulong](https://learn.microsoft.com/dotnet/api/system.uint64)
+
+## Fields
+
+### <a id="Aeon_Environment_RfidMeasurement_Location"></a> Location
+
+```csharp
+public Point2f Location
+```
+
+#### Field Value
+
+ Point2f
+
+### <a id="Aeon_Environment_RfidMeasurement_TagId"></a> TagId
+
+```csharp
+public ulong TagId
+```
+
+#### Field Value
+
+ [ulong](https://learn.microsoft.com/dotnet/api/system.uint64)
+
+## Methods
+
+### <a id="Aeon_Environment_RfidMeasurement_ToString"></a> ToString\(\)
+
+Returns the fully qualified type name of this instance.
+
+```csharp
+public override readonly string ToString()
+```
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The fully qualified type name.
+

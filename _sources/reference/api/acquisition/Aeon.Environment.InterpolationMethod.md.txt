@@ -1,0 +1,19 @@
+# <a id="Aeon_Environment_InterpolationMethod"></a> Enum InterpolationMethod
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+Specifies the method used to interpolate light values for a fixture.
+
+```csharp
+public enum InterpolationMethod
+```
+
+## Fields
+
+`Linear = 2` 
+
+`None = 0` 
+
+`Zero = 1` 
+

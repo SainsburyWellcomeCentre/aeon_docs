@@ -1,0 +1,54 @@
+# <a id="Aeon_Environment_SubjectLogBitmap"></a> Class SubjectLogBitmap
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Sink)]
+public class SubjectLogBitmap
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[SubjectLogBitmap](Aeon.Environment.SubjectLogBitmap.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_SubjectLogBitmap_Path"></a> Path
+
+```csharp
+public string Path { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Environment_SubjectLogBitmap_Process_System_IObservable_Bonsai_Harp_Timestamped_Aeon_Environment_EnvironmentSubjectStateMetadata___"></a> Process\(IObservable<Timestamped<EnvironmentSubjectStateMetadata\>\>\)
+
+```csharp
+public IObservable<Timestamped<EnvironmentSubjectStateMetadata>> Process(IObservable<Timestamped<EnvironmentSubjectStateMetadata>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[EnvironmentSubjectStateMetadata](Aeon.Environment.EnvironmentSubjectStateMetadata.md)\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[EnvironmentSubjectStateMetadata](Aeon.Environment.EnvironmentSubjectStateMetadata.md)\>\>
+

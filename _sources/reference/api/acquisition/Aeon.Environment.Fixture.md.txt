@@ -1,0 +1,79 @@
+# <a id="Aeon_Environment_Fixture"></a> Class Fixture
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Source)]
+public class Fixture
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[Fixture](Aeon.Environment.Fixture.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_Fixture_CalibrationFile"></a> CalibrationFile
+
+Specifies the path to the calibration file for this fixture.
+
+```csharp
+[YamlMember(Alias = "calibrationFile")]
+public string CalibrationFile { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Aeon_Environment_Fixture_Channels"></a> Channels
+
+Specifies the collection of channels assigned to the fixture.
+
+```csharp
+[YamlMember(Alias = "channels")]
+public List<int> Channels { get; set; }
+```
+
+#### Property Value
+
+ [List](https://learn.microsoft.com/dotnet/api/system.collections.generic.list\-1)<[int](https://learn.microsoft.com/dotnet/api/system.int32)\>
+
+### <a id="Aeon_Environment_Fixture_InterpolationMethod"></a> InterpolationMethod
+
+Specifies the method used to interpolate light values for a fixture.
+
+```csharp
+[YamlMember(Alias = "interpolationMethod")]
+public InterpolationMethod InterpolationMethod { get; set; }
+```
+
+#### Property Value
+
+ [InterpolationMethod](Aeon.Environment.InterpolationMethod.md)
+
+## Methods
+
+### <a id="Aeon_Environment_Fixture_Process"></a> Process\(\)
+
+```csharp
+public IObservable<Fixture> Process()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Fixture](Aeon.Environment.Fixture.md)\>
+

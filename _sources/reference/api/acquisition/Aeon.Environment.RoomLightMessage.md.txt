@@ -1,0 +1,70 @@
+# <a id="Aeon_Environment_RoomLightMessage"></a> Struct RoomLightMessage
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public struct RoomLightMessage
+```
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype)
+
+## Constructors
+
+### <a id="Aeon_Environment_RoomLightMessage__ctor_System_Int32_System_Int32_"></a> RoomLightMessage\(int, int\)
+
+```csharp
+public RoomLightMessage(int channel, int value)
+```
+
+#### Parameters
+
+`channel` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+`value` [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Fields
+
+### <a id="Aeon_Environment_RoomLightMessage_Channel"></a> Channel
+
+```csharp
+public int Channel
+```
+
+#### Field Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+### <a id="Aeon_Environment_RoomLightMessage_Value"></a> Value
+
+```csharp
+public int Value
+```
+
+#### Field Value
+
+ [int](https://learn.microsoft.com/dotnet/api/system.int32)
+
+## Methods
+
+### <a id="Aeon_Environment_RoomLightMessage_ToString"></a> ToString\(\)
+
+Returns the fully qualified type name of this instance.
+
+```csharp
+public override string ToString()
+```
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The fully qualified type name.
+

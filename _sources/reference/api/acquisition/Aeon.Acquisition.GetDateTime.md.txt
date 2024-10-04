@@ -1,0 +1,88 @@
+# <a id="Aeon_Acquisition_GetDateTime"></a> Class GetDateTime
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Transform)]
+public class GetDateTime
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[GetDateTime](Aeon.Acquisition.GetDateTime.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_GetDateTime_FromSeconds_System_Double_"></a> FromSeconds\(double\)
+
+```csharp
+public static DateTime FromSeconds(double seconds)
+```
+
+#### Parameters
+
+`seconds` [double](https://learn.microsoft.com/dotnet/api/system.double)
+
+#### Returns
+
+ [DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)
+
+### <a id="Aeon_Acquisition_GetDateTime_Process_System_IObservable_System_Double__"></a> Process\(IObservable<double\>\)
+
+```csharp
+public IObservable<DateTime> Process(IObservable<double> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[double](https://learn.microsoft.com/dotnet/api/system.double)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)\>
+
+### <a id="Aeon_Acquisition_GetDateTime_Process_System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<DateTime> Process(IObservable<HarpMessage> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)\>
+
+### <a id="Aeon_Acquisition_GetDateTime_Process__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Process<T\>\(IObservable<Timestamped<T\>\>\)
+
+```csharp
+public IObservable<DateTime> Process<T>(IObservable<Timestamped<T>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<T\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DateTime](https://learn.microsoft.com/dotnet/api/system.datetime)\>
+
+#### Type Parameters
+
+`T` 
+

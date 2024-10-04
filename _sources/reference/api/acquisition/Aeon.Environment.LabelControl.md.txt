@@ -1,0 +1,66 @@
+# <a id="Aeon_Environment_LabelControl"></a> Class LabelControl
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[Combinator]
+[TypeVisualizer(typeof(LabelVisualizer))]
+public class LabelControl
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[LabelControl](Aeon.Environment.LabelControl.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Constructors
+
+### <a id="Aeon_Environment_LabelControl__ctor"></a> LabelControl\(\)
+
+```csharp
+public LabelControl()
+```
+
+## Properties
+
+### <a id="Aeon_Environment_LabelControl_FontSize"></a> FontSize
+
+```csharp
+public float FontSize { get; set; }
+```
+
+#### Property Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Methods
+
+### <a id="Aeon_Environment_LabelControl_Process__1_System_IObservable___0__"></a> Process<TSource\>\(IObservable<TSource\>\)
+
+```csharp
+public IObservable<TSource> Process<TSource>(IObservable<TSource> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TSource\>
+
+#### Type Parameters
+
+`TSource` 
+

@@ -1,0 +1,57 @@
+# <a id="Aeon_Foraging_DispenserAccumulate"></a> Class DispenserAccumulate
+
+Namespace: [Aeon.Foraging](Aeon.Foraging.md)  
+Assembly: Aeon.Foraging.dll  
+
+```csharp
+[Combinator]
+public class DispenserAccumulate
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[DispenserAccumulate](Aeon.Foraging.DispenserAccumulate.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Foraging_DispenserAccumulate_Process_System_IObservable_Aeon_Foraging_DispenserEventArgs__"></a> Process\(IObservable<DispenserEventArgs\>\)
+
+```csharp
+public IObservable<DispenserState> Process(IObservable<DispenserEventArgs> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserState](Aeon.Foraging.DispenserState.md)\>
+
+### <a id="Aeon_Foraging_DispenserAccumulate_Process_System_IObservable_Aeon_Foraging_DispenserEventArgs__System_IObservable_Aeon_Foraging_DispenserState__"></a> Process\(IObservable<DispenserEventArgs\>, IObservable<DispenserState\>\)
+
+```csharp
+public IObservable<DispenserState> Process(IObservable<DispenserEventArgs> source, IObservable<DispenserState> seed)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>
+
+`seed` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserState](Aeon.Foraging.DispenserState.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserState](Aeon.Foraging.DispenserState.md)\>
+

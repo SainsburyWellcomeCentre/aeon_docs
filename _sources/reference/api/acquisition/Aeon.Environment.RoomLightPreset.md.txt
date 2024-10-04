@@ -1,0 +1,82 @@
+# <a id="Aeon_Environment_RoomLightPreset"></a> Struct RoomLightPreset
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+public struct RoomLightPreset
+```
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype)
+
+## Constructors
+
+### <a id="Aeon_Environment_RoomLightPreset__ctor_System_Single_System_Single_System_Single_"></a> RoomLightPreset\(float, float, float\)
+
+```csharp
+public RoomLightPreset(float coldWhite, float warmWhite, float red)
+```
+
+#### Parameters
+
+`coldWhite` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+`warmWhite` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+`red` [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Fields
+
+### <a id="Aeon_Environment_RoomLightPreset_ColdWhite"></a> ColdWhite
+
+```csharp
+public float ColdWhite
+```
+
+#### Field Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="Aeon_Environment_RoomLightPreset_Red"></a> Red
+
+```csharp
+public float Red
+```
+
+#### Field Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+### <a id="Aeon_Environment_RoomLightPreset_WarmWhite"></a> WarmWhite
+
+```csharp
+public float WarmWhite
+```
+
+#### Field Value
+
+ [float](https://learn.microsoft.com/dotnet/api/system.single)
+
+## Methods
+
+### <a id="Aeon_Environment_RoomLightPreset_ToString"></a> ToString\(\)
+
+Returns the fully qualified type name of this instance.
+
+```csharp
+public override readonly string ToString()
+```
+
+#### Returns
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The fully qualified type name.
+

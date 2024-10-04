@@ -1,0 +1,55 @@
+# <a id="Aeon_Environment_ChannelMap"></a> Class ChannelMap
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+Represents channel map configuration used by the light controller.
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Source)]
+public class ChannelMap
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[ChannelMap](Aeon.Environment.ChannelMap.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_ChannelMap_Rooms"></a> Rooms
+
+Specifies the collection of light channel maps for all rooms.
+
+```csharp
+[YamlMember(Alias = "rooms")]
+public IDictionary<string, RoomFixtures> Rooms { get; set; }
+```
+
+#### Property Value
+
+ [IDictionary](https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary\-2)<[string](https://learn.microsoft.com/dotnet/api/system.string), [RoomFixtures](Aeon.Environment.RoomFixtures.md)\>
+
+## Methods
+
+### <a id="Aeon_Environment_ChannelMap_Process"></a> Process\(\)
+
+```csharp
+public IObservable<ChannelMap> Process()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[ChannelMap](Aeon.Environment.ChannelMap.md)\>
+

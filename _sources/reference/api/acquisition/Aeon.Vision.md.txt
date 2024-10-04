@@ -1,0 +1,23 @@
+# <a id="Aeon_Vision"></a> Namespace Aeon.Vision
+
+### Namespaces
+
+ [Aeon.Vision.Sleap](Aeon.Vision.Sleap.md)
+
+### Classes
+
+ [DistanceFromPoint](Aeon.Vision.DistanceFromPoint.md)
+
+ [FormatBinaryRegions](Aeon.Vision.FormatBinaryRegions.md)
+
+ [RegionContainsPoint](Aeon.Vision.RegionContainsPoint.md)
+
+ [TakeLargestRegions](Aeon.Vision.TakeLargestRegions.md)
+
+```{toctree}
+
+DistanceFromPoint <Aeon.Vision.DistanceFromPoint>
+FormatBinaryRegions <Aeon.Vision.FormatBinaryRegions>
+RegionContainsPoint <Aeon.Vision.RegionContainsPoint>
+TakeLargestRegions <Aeon.Vision.TakeLargestRegions>
+```

@@ -1,0 +1,66 @@
+# <a id="Aeon_Acquisition_MetadataSource_1"></a> Class MetadataSource<TMetadata\>
+
+Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)  
+Assembly: Aeon.Acquisition.dll  
+
+```csharp
+[Combinator]
+[WorkflowElementCategory(ElementCategory.Source)]
+public abstract class MetadataSource<TMetadata>
+```
+
+#### Type Parameters
+
+`TMetadata` 
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[MetadataSource<TMetadata\>](Aeon.Acquisition.MetadataSource\-1.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Acquisition_MetadataSource_1_OnNext__0_"></a> OnNext\(TMetadata\)
+
+```csharp
+public void OnNext(TMetadata value)
+```
+
+#### Parameters
+
+`value` TMetadata
+
+### <a id="Aeon_Acquisition_MetadataSource_1_Process"></a> Process\(\)
+
+```csharp
+public virtual IObservable<TMetadata> Process()
+```
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<TMetadata\>
+
+### <a id="Aeon_Acquisition_MetadataSource_1_Process_System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<HarpMessage\>\)
+
+```csharp
+public virtual IObservable<Timestamped<TMetadata>> Process(IObservable<HarpMessage> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<TMetadata\>\>
+

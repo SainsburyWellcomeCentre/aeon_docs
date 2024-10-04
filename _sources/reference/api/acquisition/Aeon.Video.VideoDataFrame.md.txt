@@ -1,0 +1,74 @@
+# <a id="Aeon_Video_VideoDataFrame"></a> Class VideoDataFrame
+
+Namespace: [Aeon.Video](Aeon.Video.md)  
+Assembly: Aeon.Video.dll  
+
+```csharp
+public class VideoDataFrame
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[VideoDataFrame](Aeon.Video.VideoDataFrame.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Constructors
+
+### <a id="Aeon_Video_VideoDataFrame__ctor_OpenCV_Net_IplImage_System_Int64_System_Int64_"></a> VideoDataFrame\(IplImage, long, long\)
+
+```csharp
+public VideoDataFrame(IplImage image, long frameID, long timestamp)
+```
+
+#### Parameters
+
+`image` IplImage
+
+`frameID` [long](https://learn.microsoft.com/dotnet/api/system.int64)
+
+`timestamp` [long](https://learn.microsoft.com/dotnet/api/system.int64)
+
+### <a id="Aeon_Video_VideoDataFrame__ctor_OpenCV_Net_IplImage_Aeon_Video_VideoChunkData_"></a> VideoDataFrame\(IplImage, VideoChunkData\)
+
+```csharp
+public VideoDataFrame(IplImage image, VideoChunkData chunkData)
+```
+
+#### Parameters
+
+`image` IplImage
+
+`chunkData` [VideoChunkData](Aeon.Video.VideoChunkData.md)
+
+## Properties
+
+### <a id="Aeon_Video_VideoDataFrame_ChunkData"></a> ChunkData
+
+```csharp
+public VideoChunkData ChunkData { get; }
+```
+
+#### Property Value
+
+ [VideoChunkData](Aeon.Video.VideoChunkData.md)
+
+### <a id="Aeon_Video_VideoDataFrame_Image"></a> Image
+
+```csharp
+public IplImage Image { get; }
+```
+
+#### Property Value
+
+ IplImage
+

@@ -1,0 +1,77 @@
+# <a id="Aeon_Foraging_DispenserController"></a> Class DispenserController
+
+Namespace: [Aeon.Foraging](Aeon.Foraging.md)  
+Assembly: Aeon.Foraging.dll  
+
+```csharp
+[TypeVisualizer(typeof(DispenserEventVisualizer))]
+public class DispenserController : MetadataSource<DispenserEventArgs>, INamedElement
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+MetadataSource<DispenserEventArgs\> ← 
+[DispenserController](Aeon.Foraging.DispenserController.md)
+
+#### Implements
+
+INamedElement
+
+#### Inherited Members
+
+MetadataSource<DispenserEventArgs\>.OnNext\(DispenserEventArgs\), 
+MetadataSource<DispenserEventArgs\>.Process\(\), 
+MetadataSource<DispenserEventArgs\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Foraging_DispenserController_Name"></a> Name
+
+```csharp
+public string Name { get; set; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+## Methods
+
+### <a id="Aeon_Foraging_DispenserController_Process_System_IObservable_Aeon_Foraging_DispenserState__"></a> Process\(IObservable<DispenserState\>\)
+
+```csharp
+public IObservable<DispenserEventArgs> Process(IObservable<DispenserState> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserState](Aeon.Foraging.DispenserState.md)\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>
+
+### <a id="Aeon_Foraging_DispenserController_Process_System_IObservable_Aeon_Foraging_DispenserState__System_IObservable_Bonsai_Harp_HarpMessage__"></a> Process\(IObservable<DispenserState\>, IObservable<HarpMessage\>\)
+
+```csharp
+public IObservable<Timestamped<DispenserEventArgs>> Process(IObservable<DispenserState> source, IObservable<HarpMessage> clockSource)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[DispenserState](Aeon.Foraging.DispenserState.md)\>
+
+`clockSource` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<HarpMessage\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<Timestamped<[DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)\>\>
+

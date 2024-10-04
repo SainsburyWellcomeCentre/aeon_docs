@@ -1,0 +1,29 @@
+# <a id="Aeon_Environment_AnnotationSource"></a> Class AnnotationSource
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[TypeVisualizer(typeof(AnnotationSourceVisualizer))]
+public class AnnotationSource : MetadataSource<LogMessage>
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+MetadataSource<LogMessage\> ← 
+[AnnotationSource](Aeon.Environment.AnnotationSource.md)
+
+#### Inherited Members
+
+MetadataSource<LogMessage\>.OnNext\(LogMessage\), 
+MetadataSource<LogMessage\>.Process\(\), 
+MetadataSource<LogMessage\>.Process\(IObservable<HarpMessage\>\), 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+

@@ -1,0 +1,67 @@
+# <a id="Aeon_Environment_ExperimentProperties"></a> Class ExperimentProperties
+
+Namespace: [Aeon.Environment](Aeon.Environment.md)  
+Assembly: Aeon.Environment.dll  
+
+```csharp
+[TypeVisualizer(typeof(ExternalizedPropertiesVisualizer))]
+public class ExperimentProperties : UnitBuilder, IExpressionBuilder
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+ExpressionBuilder ← 
+UnitBuilder ← 
+[ExperimentProperties](Aeon.Environment.ExperimentProperties.md)
+
+#### Implements
+
+IExpressionBuilder
+
+#### Inherited Members
+
+UnitBuilder.Build\(IEnumerable<Expression\>\), 
+UnitBuilder.ArgumentRange, 
+ExpressionBuilder.Build\(IEnumerable<Expression\>\), 
+ExpressionBuilder.ToString\(\), 
+ExpressionBuilder.Unwrap\(ExpressionBuilder\), 
+ExpressionBuilder.GetWorkflowElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerElement\(ExpressionBuilder\), 
+ExpressionBuilder.GetVisualizerMappings\(ExpressionBuilder\), 
+ExpressionBuilder.FromWorkflowElement\(object, ElementCategory\), 
+ExpressionBuilder.GetElementDisplayName\(Type\), 
+ExpressionBuilder.GetElementDisplayName\(object\), 
+ExpressionBuilder.SelectMembers\(Expression, string\), 
+ExpressionBuilder.GetArgumentAccess\(IEnumerable<Expression\>, string\), 
+ExpressionBuilder.ArgumentRange, 
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Properties
+
+### <a id="Aeon_Environment_ExperimentProperties_HelpVisible"></a> HelpVisible
+
+```csharp
+public bool HelpVisible { get; set; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="Aeon_Environment_ExperimentProperties_ToolbarVisible"></a> ToolbarVisible
+
+```csharp
+public bool ToolbarVisible { get; set; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+

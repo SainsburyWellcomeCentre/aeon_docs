@@ -1,7 +1,7 @@
 [submodule "aeon_mecha"]
 	path = aeon_mecha
 	url = https://github.com/SainsburyWellcomeCentre/aeon_mecha
-	branch = main
+	branch = data-preview
 [submodule "aeon_analysis"]
 	path = aeon_analysis
 	url = https://github.com/SainsburyWellcomeCentre/aeon_analysis

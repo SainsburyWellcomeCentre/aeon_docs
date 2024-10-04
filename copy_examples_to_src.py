@@ -29,6 +29,7 @@ def copy_ipynb_files(src_dirs: str | list[str], dst_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    src_dir = "./aeon_mecha/aeon/dj_pipeline/docs/notebooks/"
-    dst_dir = "./src/user/how_to/"
+    src_dir = os.path.join("aeon_mecha", "docs", "examples")
+    dst_dir = os.path.join("src", "user", "how_to")
+    print(src_dir, dst_dir)
     copy_ipynb_files(src_dir, dst_dir)

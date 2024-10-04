@@ -6,7 +6,7 @@ This glossary provides definitions for terms used throughout the project documen
 :::{glossary}
 
 Aeon
-    The source of all being. [^1]
+    A very long, indefinite period of time. [^1]
 
 Session
     For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.
@@ -34,4 +34,4 @@ Task Protocol
 
 :::
 
-[^1]: https://en.wikipedia.org/wiki/Aeon_(Gnosticism)
+[^1]: https://en.wikipedia.org/wiki/Aeon

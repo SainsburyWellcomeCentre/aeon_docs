@@ -6,28 +6,32 @@ This reference manual details all software and hardware components, and a glossa
 ::::{grid} 1 2 2 2
 :gutter: 3 
 
-:::{grid-item-card} {fas}`microchip;sd-text-primary` Hardware Overview
+:::{grid-item-card} Hardware Overview
 :link: target-hardware
 :link-type: ref
-<!-- :img-bottom: ../_static/images/getting-started-ma.png -->
+:img-bottom: ../_static/images/noun-hardware-setup-6046729.svg
+:class-img-bottom: .sd-img-bottom-small
 :::
 
-:::{grid-item-card} {fas}`code;sd-text-primary` API Reference
+:::{grid-item-card} API Reference
 :link: target-api-reference
 :link-type: ref
-<!-- :img-bottom: ../_static/images/getting-started-npx.png -->
+:img-bottom: ../_static/images/noun-code-6878936.svg
+:class-img-bottom: .sd-img-bottom-small 
 :::
 
-:::{grid-item-card} {fas}`folder-tree;sd-text-primary` Data Contract
+:::{grid-item-card} Data Contract
 :link: target-data-schema
 :link-type: ref
-<!-- :img-bottom: ../_static/images/getting-started-npx.png -->
+:img-bottom: ../_static/images/noun-data-modeling-6688047.svg
+:class-img-bottom: .sd-img-bottom-small 
 :::
 
-:::{grid-item-card} {fas}`book-bookmark;sd-text-primary` Glossary
+:::{grid-item-card} Glossary
 :link: target-glossary
 :link-type: ref
-<!-- :img-bottom: ../_static/images/getting-started-npx.png -->
+:img-bottom: ../_static/images/noun-lexicon-7107720.svg
+:class-img-bottom: .sd-img-bottom-small 
 :::
 ::::
 

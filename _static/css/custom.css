@@ -37,3 +37,7 @@ html[data-theme=light] {
 .sd-card-img-bottom {
   object-fit: contain;
 }
+
+.sd-img-bottom-small {
+  height: 8vw; 
+}

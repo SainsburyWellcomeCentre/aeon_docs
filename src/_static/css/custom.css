@@ -35,8 +35,5 @@ html[data-theme=light] {
 }
 
 .sd-card-img-bottom {
-  width: 100%;
-  height: 15vw;
   object-fit: contain;
-  margin: 0 auto 0.5em auto;
 }

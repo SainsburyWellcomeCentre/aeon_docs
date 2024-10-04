@@ -1,7 +1,7 @@
 (target-multianimal-tracking)=
 # Multi-animal tracking
 
-:::{figure} ../../_static/images/getting-started-ma.png
+:::{figure} ../../_static/images/ma-main.png
 :height: 300px
 :alt: multi-animal-tracking
 

@@ -5,21 +5,12 @@ This section is still under construction. Some information may be incomplete or 
 (target-hardware)=
 # Hardware Overview
 ## Main modules
-:::{table}
-:width: 100%
-:widths: 60 40
-:align: center
-
 | Module | Files |
 | --- | --- |
-| **Feeder** <br>![feeder](../_static/images/hardware-overview-feeder.png){height=10em} | <ul><li>[Assembly guide](https://www.google.com)</li><li>[Bill of materials](https://www.google.com)</li></ul> |
-| **Arena** <br>![arena](../_static/images/hardware-overview-arena.png){height=15em} | <ul><li>[Assembly guide](https://www.google.com)</li><li>[Bill of materials](https://www.google.com)</li></ul> |
-| **Nest** <br>![nest](../_static/images/hardware-overview-nest.png){height=15em} | <ul><li>[Assembly guide](https://www.google.com)</li><li>[Bill of materials](https://www.google.com)</li></ul> |
-:::
-
-## Wiring diagrams
-- [Wiring diagram 1](https://www.google.com)
-- [Wiring diagram 2](https://www.google.com)
+| **Arena** <br>![arena](../_static/images/hardware-overview-arena.png){height=15em align=center} | <ul><li>[Assembly guide](../_static/resources/Arena%20guideline%20Final%201.pdf)</li><li>[Bill of materials](../_static/resources/Arena%20BOM.xlsx)</li></ul> |
+| **Feeder** <br>![feeder](../_static/images/hardware-overview-feeder.png){height=12em align=center} | <ul><li>[Assembly guide](../_static/resources/Feeder%20Guideline%20Final%201.pdf)</li><li>[Bill of materials](../_static/resources/Feeder%20BOM.xlsx)</li></ul> |
+| **Nest** <br>![nest](../_static/images/hardware-overview-nest.png){height=15em align=center} | <ul><li>[Assembly guide](../_static/resources/Nest%20Guideline%20Final%201.pdf)</li></ul> |
+| **Closed-loop translation-commutation system** <br>![linear-rail](../_static/images/hardware-overview-linear-rail.png){height=15em align=center} | <ul><li>[Assembly guide](../_static/resources/Linear%20commutator%20Guideline%20Final%201.pdf)</li></ul> |
 
 ## Harp devices
 | Harp Device                       | Associated Component            | Description                                                   | Quantity | 
@@ -29,6 +20,9 @@ This section is still under construction. Some information may be incomplete or 
 | [**Harp Timestamp Generator Gen3**](harp-tech:api/Harp.TimestampGeneratorGen3.html) | Arena (Synchronizes all devices)| Synchronizes all harp devices in the arena                    | 1        |
 | [**Micropython Harp device**](https://github.com/SainsburyWellcomeCentre/microharp)       | Ephys linear rail drive         | Linear rail position controller and position sensor reciever  | 1        | 
 | [**Harp SoundCard**](harp-tech:api/Harp.SoundCard.html)                  | SP speaker                      | Control and monitoring of audio speaker                     | 1        | 
+
+## Wiring diagrams
+- [Wiring diagram](../_static/resources/Example%20wiring%20diagram.pdf)
 
 <!--
 :::{toctree}

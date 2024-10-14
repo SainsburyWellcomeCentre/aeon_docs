@@ -2,6 +2,7 @@
 docs/
 src/reference/api/
 src/user/**/*_copy*
+src/xml/
 
 # Python scripts
 __pycache__

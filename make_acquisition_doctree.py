@@ -1,62 +1,139 @@
-import yaml
 import subprocess
 from pathlib import Path
 
+from lxml import etree as ET
+
+
+def determine_namespace(name, namespaces):
+    """Determine the parent namespace of an element by its name."""
+    # Tokenise the name by "::"
+    tokens = name.split("::")
+    # Prioritise lower-level namespaces
+    sorted_namespaces = sorted(
+        namespaces, key=lambda ns: len(ns.split("::")), reverse=True
+    )
+    for ns in sorted_namespaces:
+        ns_tokens = ns.split("::")
+        if ns_tokens == tokens[: len(ns_tokens)]:
+            return ns
+    return None
+
 
 def make_acquisition_doctree():
-    """
-    Create a doctree of all namespaces in aeon_acquisition.
-    """
-    src_path = Path("src")
-    subprocess.run(["dotnet", "docfx", "metadata", "--outputFormat", "markdown"], cwd=src_path)
-    metadata_path = src_path.joinpath("reference", "api", "acquisition")
+    """Create a doctree of all namespaces in aeon_acquisition."""
 
-    # get the acquisition doc header
-    with open(metadata_path.joinpath("toc.yml"), "r") as f:
-        acquisition_toc = yaml.safe_load(f)
+    # Generate xml docs using doxygen
+    subprocess.run(["doxygen"])
+    src_path = Path("src") / "reference" / "api" / "acquisition"
+    # Create directory for acquisition docs
+    src_path.mkdir(parents=True, exist_ok=True)
+    # Write file for acquisition main page with header + toctree
+    with open(src_path.with_suffix(".rst"), "w") as f:
+        f.write("""..
+   This file is auto-generated.
 
-    # write file for acquisition doc with header + doctree
-    with open(metadata_path.with_suffix(".rst"), "w") as f:
-        f.write("..\n  This file is auto-generated.\n\n")
-        f.write(".. _target-acquisition-reference:\n\n")
-        f.write("``aeon_acquisition``\n")
-        f.write("=====================\n\n")
-        f.write(".. toctree::\n")
-        f.write("    :glob:\n\n")
+.. _target-acquisition-reference:
 
-        # all namespaces are children of the root element
-        for namespace in acquisition_toc:
-            namespace_name = namespace["name"]
-            namespace_href = namespace.get("href")
-            namespace_items = namespace.get("items")
-            if namespace_href is None or namespace_items is None:
+``aeon_acquisition``
+=====================
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   acquisition/*
+""")
+
+    # Parse the doxygen-generated index.xml file
+    index = ET.parse(Path("src") / "xml" / "index.xml")
+    root = index.getroot()
+    aeon_namespaces = root.xpath(
+        ".//compound[@kind='namespace' and starts-with(name, 'Aeon::') and not (starts-with(name, 'Aeon::Tests'))]"
+    )
+    ns_names = [ns.findtext("name") for ns in aeon_namespaces]
+    for ns in aeon_namespaces:
+        ns_name = ns.findtext("name")
+        ns_name_formatted = ns_name.replace("::", ".")
+        ns_kind = ns.get("kind")
+        ns_refid = ns.get("refid")
+        file_content = f"""..
+   This file is auto-generated.
+
+{ns_name_formatted}
+{'=' * len(ns_name_formatted)}
+
+.. doxygennamespace:: {ns_name}
+    :desc-only:
+"""
+        # Find all enums in the namespace
+        enums = ns.findall(".//member[@kind='enum']")
+        if enums:
+            file_content += """
+Enums
+-----
+"""
+        for enum in enums:
+            enum_name = enum.findtext("name")
+            file_content += f"""
+{enum_name}
+{'^' * len(enum_name)}
+
+.. doxygenenum:: {enum_name}
+"""
+        # Find all classes in the namespace
+        classes = root.xpath(
+            f".//compound[@kind='class' and contains(@refid, '{ns_refid.replace(ns_kind, '')}')]"
+        )
+        if classes:
+            file_content += """
+Classes
+-------
+"""
+        for class_ in classes:
+            class_name = class_.findtext("name")
+            if determine_namespace(class_name, ns_names) != ns_name:
                 continue
+            class_name_formatted = class_name.replace(f"{ns_name}::", "").replace(
+                "::", "."
+            )
+            file_content += f"""
 
-            # add namespace toctree entry
-            f.write(f"    {namespace_name} <acquisition/{namespace_name}>\n")
+{class_name_formatted}
+{'^' * len(class_name_formatted)}
 
-            # generate toctree for each namespace document
-            namespace_path = metadata_path.joinpath(namespace_href)
-            with open(namespace_path, "r+", encoding="utf-8") as nsf:
-                content = nsf.read()
-                content += "```{toctree}\n"
+.. doxygenclass:: {class_name}
+   :members: 
+   :undoc-members:
+   :protected-members:
+   :allow-dot-graphs:
+"""
+        # Find all structs in the namespace
+        structs = root.xpath(
+            f".//compound[@kind='struct' and contains(@refid, '{ns_refid.replace(ns_kind, '')}')]"
+        )
+        if structs:
+            file_content += """
+Structs
+-------
+"""
+        for struct in structs:
+            struct_name = struct.findtext("name")
+            struct_name_formatted = struct_name.replace(f"{ns_name}::", "").replace(
+                "::", "."
+            )
+            file_content += f"""
 
-                # loop through all namespace items
-                for item in namespace_items:
-                    item_name = item["name"]
-                    item_href = item.get("href")
-                    if item_href is None:  # item is category, skip for now
-                        continue
+{struct_name_formatted}
+{'^' * len(struct_name_formatted)}
 
-                    # item is type, add toctree entry
-                    item_path = metadata_path.joinpath(item_href)
-                    item_filename = item_path.with_suffix("").name
-                    content += f"\n{item_name} <{item_filename}>"
-
-                content += "\n```"
-                nsf.seek(0)
-                nsf.write(content)
-                nsf.truncate()
+.. doxygenstruct:: {struct_name}
+   :members: 
+   :undoc-members:
+   :protected-members:
+   :allow-dot-graphs:
+"""
+        with open(src_path / f"{ns_name_formatted}.rst", "w") as file:
+            file.write(file_content)
 
 
 if __name__ == "__main__":

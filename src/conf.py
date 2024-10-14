@@ -64,13 +64,32 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "sphinx.ext.graphviz",
     "sphinx_autodoc_typehints",
     "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
+    "breathe",
+    "sphinx_csharp",
 ]
 
-# Configure the myst parser to enable cool markdown features
+# Configure Breathe
+breathe_projects = {
+    "aeon_acquisition_xml": "xml",
+}
+breathe_projects_source = {
+    "aeon_acquisition": ("../aeon_acquisition/src/Aeon.Acquisition/", ["AeonAudio.cs"]),
+}
+breathe_default_project = "aeon_acquisition_xml"
+breathe_show_define_initializer = True
+breathe_show_enumvalue_initializer = True
+breathe_default_members = ("members", "undoc-members", "protected-members")
+
+# Configure C# domain
+sphinx_csharp_multi_language = True
+sphinx_csharp_test_links = False
+
+# Configure myst parser to enable cool markdown features
 # See https://sphinx-design.readthedocs.io
 myst_enable_extensions = [
     "colon_fence",
@@ -139,10 +158,10 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
-    "css/custom.css",	
+    "css/custom.css",
 ]
 
 # linkcheck will skip checking these URLs entirely

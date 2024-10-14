@@ -18,54 +18,27 @@ jobs:
   build_sphinx_docs:
     name: Build Sphinx Docs
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true # Enable automatic checkout of all submodules
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Set up conda
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          dotnet-version: 8.x
-
-      - name: Setup DocFX
-        run: dotnet tool restore
-        
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.11
-
-      - name: Upgrade pip
-        shell: bash
-        run: |
-          # install pip=>20.1 to use "pip cache dir"
-          python3 -m pip install --upgrade pip
-
-      - name: Get pip cache dir
-        shell: bash
-        id: pip-cache
-        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        shell: bash
-        run: python3 -m pip install -r ./requirements.txt
-
+          auto-update-conda: true
+          channels: conda-forge, nodefaults
+          activate-environment: aeon_docs
+          environment-file: environment.yml
+      
       - name: Check external links
-        shell: bash
         run: make linkcheck
 
       # needs to have sphinx.ext.githubpages in conf.py extensions list
       - name: Building documentation
-        shell: bash
         run: make html
 
       - name: Upload the content for deployment

@@ -8,19 +8,9 @@ The docs are built via [Sphinx](https://www.sphinx-doc.org/en/master/), and host
 ## Building the documentation locally
 Create a `conda` environment with the required dependencies and activate it:
 ```bash
-conda create -n aeon_docs python dotnet -c conda-forge
+conda env create -n aeon_docs -f environment.yml
 conda activate aeon_docs
 ```
-
-Make the `docfx` tool available in the environment:
-```bash
-dotnet tool restore
-```
-
-From the root of the repository, install the requirements for building the documentation:
-```bash
-pip install -r requirements.txt
-``` 
 
 Then, populate submodules:
 ```bash

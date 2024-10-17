@@ -75,50 +75,8 @@ extensions = [
     "sphinx_csharp",
 ]
 
-# Configure Breathe
-breathe_projects = {
-    "aeon_acquisition_xml": "xml",
-}
-breathe_projects_source = {
-    "aeon_acquisition": ("../aeon_acquisition/src/Aeon.Acquisition/", ["AeonAudio.cs"]),
-}
-breathe_default_project = "aeon_acquisition_xml"
-breathe_show_define_initializer = True
-breathe_show_enumvalue_initializer = True
-breathe_default_members = ("members", "undoc-members", "protected-members")
-
-# Configure C# domain
-sphinx_csharp_multi_language = True
-sphinx_csharp_test_links = False
-
-# Configure myst parser to enable cool markdown features
-# See https://sphinx-design.readthedocs.io
-myst_enable_extensions = [
-    "colon_fence",
-    "linkify",
-    "deflist",
-    "attrs_inline",
-]
-
-# Automatically add anchors to markdown headings
-myst_heading_anchors = 3
-
-# Set the Markdown format to myst
-myst_render_markdown_format = "myst"
-
-# Disable notebook execution
-nb_execution_mode = "off"
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
-
-autosummary_generate = True
-autodoc_default_options = {
-    "members": True,
-    "inherited-members": True,
-    "show-inheritance": True,
-    "undoc-members": True,
-}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -186,6 +144,133 @@ linkcheck_allowed_redirects = {
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
 }
 
+# -- Extensions configuration ---------------------------------------------------
+
+# Configure Breathe
+breathe_projects = {
+    "aeon_acquisition_xml": "xml",
+}
+breathe_default_project = "aeon_acquisition_xml"
+breathe_show_define_initializer = True
+breathe_show_enumvalue_initializer = True
+# breathe_default_members = ("members", "undoc-members", "protected-members")
+
+# Configure C# domain
+sphinx_csharp_multi_language = True
+sphinx_csharp_test_links = False  # This will be handled by linkcheck
+sphinx_csharp_ext_search_pages = {
+    "bonsai": ("https://bonsai-rx.org/docs/api/%s",),
+    "bonsai-sleap": ("https://bonsai-rx.org/sleap/api/Bonsai.Sleap.%s",),
+    "harp": ("https://harp-tech.org/api/%s",),
+    "mathdotnet": ("https://numerics.mathdotnet.com/api/%s.htm",),
+    "msdn": ("https://learn.microsoft.com/en-us/dotnet/api/%s",),
+    "mysqlconnector": ("https://mysqlconnector.net/api/%s",),
+    "opencv.net": ("https://horizongir.github.io/opencv.net/api/%s",),
+    "reactive": ("https://horizongir.github.io/reactive/api/%s",),
+}
+sphinx_csharp_ext_type_map = {
+    "bonsai": {
+        "Bonsai": ["Combinator", "INamedElement", "Source"],
+        "Bonsai.Audio": ["AudioCapture"],
+        "Bonsai.Design": ["DialogTypeVisualizer"],
+        "Bonsai.Expressions": [
+            "FormatBuilder",
+            "SingleArgumentExpressionBuilder",
+            "SubjectBuilder",
+            "TypeMapping",
+            "UnitBuilder",
+        ],
+        "Bonsai.Vision": ["ConnectedComponent", "ConnectedComponentCollection"],
+    },
+    "bonsai-sleap": {
+        "": ["Pose", "PoseCollection", "PoseIdentity", "PoseIdentityCollection"],
+    },
+    "harp": {
+        "Bonsai.Harp": ["HarpMessage", "Timestamped"],
+    },
+    "mathdotnet": {
+        "MathNet.Numerics": ["IInterpolation"],
+    },
+    "msdn": {
+        "System": [
+            "Attribute",
+            "DateTime",
+            "Exception",
+            "IObservable",
+            "IObserver",
+            "IServiceProvider",
+            "TimeSpan",
+            "Type",
+        ],
+        "System.Collections": ["IEnumerator"],
+        "System.Collections.Generic": ["IDictionary", "List"],
+        "System.Collections.ObjectModel": ["KeyedCollection"],
+        "System.ComponentModel": [
+            "CustomTypeDescriptor",
+            "ExpandableObjectConverter",
+            "IComponent",
+            "IContainer",
+            "ICustomTypeDescriptor",
+            "ISite",
+            "ITypeDescriptorContext",
+            "PropertyDescriptor",
+            "PropertyDescriptorCollection",
+            "StringConverter",
+            "TypeDescriptionProvider",
+        ],
+        "System.ComponentModel.TypeConverter": ["StandardValuesCollection"],
+        "System.Globalization": ["CultureInfo"],
+        "System.Linq.Expressions": ["Expression"],
+        "System.Windows.Forms": ["UserControl"],
+    },
+    "mysqlconnector": {
+        "": ["MySqlConnection", "MySqlDataReader"],
+    },
+    "opencv.net": {
+        "OpenCV.Net": ["IplImage", "Mat", "Point", "Point2f"],
+    },
+    "reactive": {
+        "System.Reactive": ["Unit"],
+        "System.Reactive.Subjects": ["ISubject"],
+    },
+}
+sphinx_csharp_external_type_rename = {
+    "IInterpolation": "Interpolation/IInterpolation",
+    "IDictionary": "IDictionary-2",
+    "IObservable": "IObservable-1",
+    "IObserver": "IObserver-1",
+    "ISubject": "ISubject-1",
+    "KeyedCollection": "KeyedCollection-2",
+    "List": "List-1",
+    "MySqlConnection": "mysqlconnector/mysqlconnectiontype",
+    "MySqlDataReader": "mysqlconnector/mysqldatareadertype",
+    "Source": "Source-1",
+}
+# Do not create cross references for these standard/build-in/undocumented types
+sphinx_csharp_ignore_xref = [
+    "Bonsai.Pylon.PylonCapture",
+    "Bonsai.Spinnaker.SpinnakerCapture",
+    "IGroupedObservable",
+    "IManagedCamera",
+    "IRepository",
+    "T",
+    "TMetadata",
+    "TRecord",
+    "TSource",
+    "TState",
+]
+
+# Configure myst parser to enable cool markdown features
+# See https://sphinx-design.readthedocs.io
+myst_enable_extensions = [
+    "colon_fence",
+    "linkify",
+    "deflist",
+    "attrs_inline",
+]
+# Automatically add anchors to markdown headings
+myst_heading_anchors = 3
+myst_render_markdown_format = "myst"
 myst_url_schemes = {
     "http": None,
     "https": None,
@@ -208,4 +293,16 @@ myst_url_schemes = {
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",
     "niu-howto": "https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#{{fragment}}",
+}
+
+# Disable notebook execution
+nb_execution_mode = "off"
+
+# Configure autosummary and autodoc
+autosummary_generate = True
+autodoc_default_options = {
+    "members": True,
+    "inherited-members": True,
+    "show-inheritance": True,
+    "undoc-members": True,
 }

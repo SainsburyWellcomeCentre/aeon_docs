@@ -65,7 +65,6 @@ def generate_section_content(elements, data_type, namespace_name):
         if data_type != "enum":
             content += """   :members:
    :undoc-members:
-   :protected-members:
    :allow-dot-graphs:
 """
     return content

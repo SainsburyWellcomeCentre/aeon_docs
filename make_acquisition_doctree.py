@@ -84,31 +84,31 @@ def make_acquisition_doctree():
     index = ET.parse(src_root / "xml" / "index.xml")
     root = index.getroot()
     # Get the main page header
-    with open(templates_path / "api_acquisition_head.rst", "r") as header_file:
-        acquisition_file_content = header_file.read()
+    api_head_path = templates_path / "api_acquisition_head.rst"
+    api_file_content = api_head_path.read_text()
     # Get the namespace template
     env = SandboxedEnvironment(loader=FileSystemLoader(templates_path))
     ns_template = env.get_template("api_acquisition_namespace.rst")
     # For each namespace, add a toc entry to the main page,
     # and create a page for the namespace
-    with open(acquisition_path.with_suffix(".rst"), "w") as acquisition_file:
+    with acquisition_path.with_suffix(".rst").open("w") as api_file:
         for ns in get_aeon_namespaces(root):
             ns_name = ns.findtext("name")
             ns_name_formatted = ns_name.replace("::", ".")
             # Add toc entry to table on main page to mimic aeon_mecha doc structure
-            acquisition_file_content += f"   * - :cs:namespace:`{ns_name_formatted}`\n"
-            with open(acquisition_path / f"{ns_name_formatted}.rst", "w") as ns_file:
+            api_file_content += f"   * - :cs:namespace:`{ns_name_formatted}`\n"
+            with (acquisition_path / f"{ns_name_formatted}.rst").open("w") as ns_file:
                 ns_file.write(
                     ns_template.render(
                         name_formatted=ns_name_formatted,
                         underline="=" * len(ns_name_formatted),
                         name=ns_name,
-                        enums_section=generate_section(root, ns, "enum"),
-                        classes_section=generate_section(root, ns, "class"),
-                        structs_section=generate_section(root, ns, "struct"),
+                        enums=generate_section(root, ns, "enum"),
+                        classes=generate_section(root, ns, "class"),
+                        structs=generate_section(root, ns, "struct"),
                     )
                 )
-        acquisition_file.write(acquisition_file_content)
+        api_file.write(api_file_content)
 
 
 if __name__ == "__main__":

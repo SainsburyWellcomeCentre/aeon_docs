@@ -7,23 +7,23 @@
 .. doxygennamespace:: {{ name }}
     :desc-only:
 
-{% if enums_section -%}
+{% if enums -%}
 Enums
 -----
 
-{{ enums_section }}
+{{ enums }}
 {% endif -%}
 
-{% if classes_section -%}
+{% if classes -%}
 Classes
 -------
 
-{{ classes_section }}
+{{ classes }}
 {% endif -%}
 
-{% if structs_section -%}
+{% if structs -%}
 Structs
 -------
 
-{{ structs_section }}
+{{ structs }}
 {% endif -%}

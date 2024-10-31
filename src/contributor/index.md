@@ -58,19 +58,20 @@ The build job is triggered by all the listed events to ensure the documentation 
 The deployment job is only triggered on manual dispatch or [when a tag is pushed](#deploying-the-documentation).
 
 ### Editing the documentation
-To edit the documentation, clone the [`aeon_docs` repository](aeon-docs-github:), and work on a new branch, following the same guidelines as for [code changes](#contributing-code). Make sure that the header levels in the `.md` or `.rst` files are incremented consistently (H1 > H2 > H3, etc.) without skipping any levels.
+To edit the documentation, clone the [`aeon_docs` repository](aeon-docs-github:), and work on a new branch, following the same guidelines as for [code changes](#contributing-code). 
+We recommend [building the documentation locally](#building-the-documentation-locally) to check that the changes are rendered correctly before pushing them to the repository.
 
 #### Adding a new page
 If you are adding a new documentation source file (e.g. `new_file.md` or `new_file.rst`), 
-you will need to add it to the [`toctree` directive](myst-parser:syntax/organising_content.html#using-toctree-to-include-other-documents-as-children) 
-in the parent file (i.e. the page that will contain the link to the new page) 
-for it to be included in the documentation website.
+you will need to place the file in the appropriate directory within `src/`. 
+In each directory, you will find a parent file (typically an `index.md` or `index.rst` file) that serves as the main page for the subpages in that directory.
+For the new file to be included in the documentation, you will need to add an entry for the new file in the [`toctree` directive](myst-parser:syntax/organising_content.html#using-toctree-to-include-other-documents-as-children) in the parent file.
 Depending on the file format of the parent file (`.md`or `.rst`), the `toctree` directive syntax will differ.
 
 ::::{tab-set}
 :::{tab-item} Markdown
-For example, to add `new_file.md` or `new_file.rst` under [Contributor Guide](aeon-docs:contributor), 
-you would add `new_file` to the `toctree` in `src/contributor/index.md` as follows:
+For example, to add `new_file.md` or `new_file.rst` as a subpage of the [Contributor Guide](aeon-docs:contributor), place the new file in `src/contributor/`. 
+As the parent file is `src/contributor/index.md`, add `new_file` to the `toctree` in the parent file as follows:
 ```markdown
 :::{toctree}
 :maxdepth: 1
@@ -78,11 +79,11 @@ you would add `new_file` to the `toctree` in `src/contributor/index.md` as follo
 
 new_file
 ```
-This new page will then be included as a section under [Contributor Guide](aeon-docs:contributor).
+This new page will then be included as a subpage of [Contributor Guide](aeon-docs:contributor).
 :::
 
 :::{tab-item} RestructuredText
-If the parent file is a `.rst` file, you would add `new_file` to the `toctree` in the parent file as follows:
+If the parent file is a `.rst` file, add `new_file` to the `toctree` in the parent file as follows:
 ```rst
 .. toctree::
    :maxdepth: 1
@@ -90,13 +91,13 @@ If the parent file is a `.rst` file, you would add `new_file` to the `toctree` i
 
    new_file
 ```
-This new page will then be included as a section under the parent page.
+This new page will then be included as a subpage of the parent page.
 :::
 ::::
 
 #### Cross-referencing pages
 ##### Internal references
-For ease of referencing, we use [explicit targets](myst-parser:syntax/cross-referencing#creating-explicit-targets) to refer to specific pages and sections within the documentation. 
+For ease of referencing, we use [explicit targets](myst-parser:syntax/cross-referencing.html#creating-explicit-targets) to refer to specific pages and sections within the documentation. 
 ::::{tab-set}
 :::{tab-item} Markdown
 To create an explicit target in a `.md` file, use the `(target-name)=` syntax and add the target name before the page/section header, e.g.:
@@ -143,10 +144,19 @@ If you are adding references to an external URL (e.g. `https://github.com/Sainsb
 [link text](aeon-docs-github:issues/1)
 ```
 
-If it is not yet defined and you have multiple external URLs pointing to the same base URL, you will need to [add the URL scheme](myst-parser:syntax/cross-referencing#customising-external-url-resolution) to `myst_url_schemes` in `src/conf.py`.
+If it is not yet defined and you have multiple external URLs pointing to the same base URL, you will need to [add the URL scheme](myst-parser:syntax/cross-referencing.html#customising-external-url-resolution) to `myst_url_schemes` in `src/conf.py`.
 
 #### Updating the API reference
-...
+The [API reference](target-api-reference) is auto-generated as part of the documentation build process.
+
+##### `aeon_mecha`
+For the `aeon_mecha` Python package, the `make_mecha_doctree.py` script generates the `src/reference/api/mecha.rst` file containing the list of modules to be included in the [API reference](target-mecha-reference). 
+The [sphinx-autodoc](sphinx-doc:extensions/autodoc.html) and [sphinx-autosummary](sphinx-doc:extensions/autosummary.html) extensions are then used to generate the API reference pages for each module listed in `mecha.rst`, based on the docstrings in the source code. 
+By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the `ignore_modules` list in the `make_mecha_doctree.py` script.
+
+##### `aeon_acquisition` 
+For the `aeon_acquisition` Bonsai package, the `make_acquisition_doctree.py` script first calls [`docfx`](https://dotnet.github.io/docfx/index.html) to generate the API reference pages for each module as Markdown files in `src/reference/api/acquisition/`, and the table of contents (TOC) in the `src/reference/api/acquisition/toc.yml` file. 
+This TOC is then used to generate the `src/reference/api/acquisition.rst` file containing the list of modules to be included in the [API reference](target-acquisition-reference).
 
 ### Building the documentation locally
 Create a `conda` environment with the required dependencies and activate it:
@@ -224,7 +234,16 @@ linkcheck_allowed_redirects = {
 ```
 
 ### Deploying the documentation
-As mentioned above, the deployment job is triggered whenever a tag is pushed to the main branch. To deploy the documentation, follow these steps:
+As mentioned above, the deployment job is triggered by the following events:
+- **Tag push**: for releasing a new version of the documentation
+- **Manual dispatch**: for testing purposes
+
+#### Manual dispatch
+To deploy the documentation manually on GitHub, go to the Actions tab of the repository, 
+select the `Docs` workflow, and click "Run workflow".
+
+#### Tag push
+To deploy the documentation with a new tag, follow these steps:
 
 Fetch all tags:
 ```bash	
@@ -236,12 +255,12 @@ Identify the latest tag:
 git describe --tags
 ```
 
-Create a new tag:
+Create a new tag by incrementing the [version](#versioning) number:
 ```bash
 git tag <tag_name>
 ```
 
-Push the tag to the main branch:
+Push the tag to the remote repository:
 ```bash
 git push origin <tag_name>
 ```

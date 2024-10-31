@@ -46,3 +46,7 @@ html[data-theme=light] {
 .acquisition-api-table code {
   color: var(--pst-color-inline-code-links);
 }
+
+img.img-hardware-steps {
+  max-height: 40vh;
+}

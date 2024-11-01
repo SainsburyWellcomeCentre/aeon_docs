@@ -1,17 +1,17 @@
 (target-nest)=
 # Nest
-```{image} ../../images/nest.svg
+:::{image} ../../images/nest.svg
 :alt: Nest
-:class: .img-hardware-steps
+:class: img-hardware-steps
 :align: center
-```
+:::
 Insert description of the Nest.
 
 ## Parts list
-```{image} ../../images/nest-partlist.svg
+:::{image} ../../images/nest-partlist.svg
 :alt: Parts1
 :align: center
-```
+:::
 
 ## Assembly guide
 ### Scale support
@@ -20,13 +20,13 @@ Insert description of the Nest.
 :alt: step1
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-1\. Create the scale support by bolting the acrylic platform (5mm) to the two aluminium extrusion (360mm). 
+1\. Create the scale support by bolting the acrylic platform (5mm) to the two aluminium extrusions (360mm). 
 :::
 :::{figure} ../../images/nest-step2.svg
 :alt: step2
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-2\. Remove the metal weighing pan from the scale and insert the 3D printed nest holder. This allows for direct attachment of the nest to the scale ensuring its stability.
+2\. Remove the metal weighing pan from the scale and insert the 3D printed nest holders. This allows for direct attachment of the nest to the scale ensuring its stability.
 :::
 :::{figure} ../../images/nest-step3.svg
 :alt: step3
@@ -42,7 +42,7 @@ Insert description of the Nest.
 :alt: step4
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-4\. Using chloroform, bond the 2 white  acrylic bottom pieces, one of which will slot into the 3D printed nest holders.
+4\. Using chloroform, bond the 2 white acrylic bottom pieces, one of which will slot into the 3D printed nest holders.
 :::
 :::{figure} ../../images/nest-step5.svg
 :alt: step5
@@ -60,7 +60,7 @@ Insert description of the Nest.
 :alt: step7
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-7\. The base of the nest will sit directly onto the scale by slotting onto the nest holders.  This area will be filled with nesting material and enrichment, like chew sticks, during the experiments.
+7\. The base of the nest will sit directly on the scale by slotting into the nest holders. This area will be filled with nesting material and enrichment, like chew sticks, during the experiments.
 :::
 ::::
 
@@ -70,19 +70,19 @@ Insert description of the Nest.
 :alt: step8
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-8\. Attach the back acrylic wall (white) to the wall sides (red). One of the side has an opening for the water bottle spout.
+8\. Attach the back acrylic wall (white) to the wall sides (red). One of the sides has an opening for the water bottle spout.
 :::
 :::{figure} ../../images/nest-step9.svg
 :alt: step9
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-9\. Attach the nest outer walls (red), this will be continuos with the arena outer walls.
+9\. Attach the nest outer walls (red). These will connect to the arena outer walls.
 :::
 :::{figure} ../../images/nest-step10.svg
 :alt: step10
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-10\. Position the best base and walls onto the arena, above the scale. The base of the nest will sit directly on the scale held by the 3d printed holders while the wall sit and connect to the arena walls.
+10\. Position the nest base and walls onto the arena, above the scale. The base of the nest will sit directly on the scale held by the 3D printed holders, while the walls will connect to the arena outer walls.
 :::
 ::::
 
@@ -98,12 +98,12 @@ Insert description of the Nest.
 :alt: step12
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-12\. Connect the 3D printed water holder bottle to the support.
+12\. Connect the 3D printed water bottle holder to the support.
 :::
 :::{figure} ../../images/nest-step13.svg
 :alt: step13
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-13\. Bolt the water bottle on the side of the nest using angle brackets. Adjust its inclination to fit the spout into the side wall opening.
+13\. Bolt the water bottle holder on the side of the nest using angle brackets. Adjust its inclination to fit the spout into the side wall opening.
 :::
 ::::

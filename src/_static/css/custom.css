@@ -36,7 +36,7 @@ html[data-theme=light] {
 
 .sd-card-img-bottom {
   object-fit: contain;
-  padding: 0 1rem 1rem !important
+  padding: 0 1rem 1rem !important;
 }
 
 .sd-img-bottom-small {
@@ -49,4 +49,8 @@ html[data-theme=light] {
 
 img.img-hardware-steps {
   max-height: 40vh;
+}
+
+figure.caption-hardware-steps figcaption p {
+  text-align: center;
 }

@@ -18,6 +18,7 @@
     aeon.io.device
     aeon.io.reader
     aeon.io.video
+    aeon.metadata.social_02
     aeon.analysis.block_plotting
     aeon.analysis.movies
     aeon.analysis.plotting
@@ -31,4 +32,3 @@
     aeon.schema.social_02
     aeon.schema.social_03
     aeon.schema.streams
-    aeon.metadata.social_02

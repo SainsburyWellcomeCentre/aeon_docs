@@ -159,6 +159,9 @@ For the `aeon_acquisition` Bonsai package, the `make_acquisition_doctree.py` scr
 This TOC is then used to generate the `src/reference/api/acquisition.rst` file containing the list of modules to be included in the [API reference](target-acquisition-reference).
 
 ### Building the documentation locally
+To build the documentation locally, first make sure you have cloned the [`aeon_docs` repository](aeon-docs-github:). 
+The following commands should be run from the root directory of the repository.
+
 Create a `conda` environment with the required dependencies and activate it:
 ```bash
 conda create -n aeon_docs python dotnet -c conda-forge

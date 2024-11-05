@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>ClockSynchronizer</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="PortName" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:ClockSynchronizer.bonsai">
+              <PortName>COM5</PortName>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>VideoController</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="PortName" />
+              <Property Name="GlobalTriggerFrequency" />
+              <Property Name="LocalTriggerFrequency" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:CameraController.bonsai">
+              <PortName>COM6</PortName>
+              <GlobalTriggerFrequency>50</GlobalTriggerFrequency>
+              <LocalTriggerFrequency>125</LocalTriggerFrequency>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CameraTop</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="SerialNumber" />
+              <Property Name="Gain" />
+              <Property Name="Binning" />
+              <Property Name="ExposureTime" />
+              <Property Name="TriggerSource" />
+              <Property Name="FrameEvents" />
+              <Property Name="TriggerFrequency" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:SpinnakerVideoSource.bonsai">
+              <TriggerSource>GlobalTrigger</TriggerSource>
+              <TriggerFrequency>GlobalTriggerFrequency</TriggerFrequency>
+              <ExposureTime>5000</ExposureTime>
+              <SerialNumber>23101736</SerialNumber>
+              <Gain>0</Gain>
+              <Binning>1</Binning>
+              <FrameEvents>CameraTop</FrameEvents>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Patch1</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="PortName" />
+              <Property Name="WheelDisplacement" />
+              <Property Name="PelletDelivered" />
+              <Property Name="DeliverPellet" />
+              <Property Name="PatchEvents" />
+              <Property Name="Radius" />
+              <Property Name="SampleRate" />
+              <Property Name="ResetFeeder" />
+              <Property Name="DueTime" />
+              <Property Name="Count" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:UndergroundFeeder.bonsai">
+              <PatchEvents>Patch1Events</PatchEvents>
+              <SampleRate>SampleRate500Hz</SampleRate>
+              <DeliverPellet>Patch1DeliverPellet</DeliverPellet>
+              <PelletDelivered>Patch1PelletDelivered</PelletDelivered>
+              <DueTime>PT1S</DueTime>
+              <Count>2</Count>
+              <ResetFeeder>Patch1ResetFeeder</ResetFeeder>
+              <PortName>COM3</PortName>
+              <Radius>-4</Radius>
+              <WheelDisplacement>Patch1WheelDisplacement</WheelDisplacement>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Nest</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="PortName" />
+              <Property Name="BaselineWeightTrigger" />
+              <Property Name="FilterWindow" />
+              <Property Name="WeightData" />
+              <Property Name="TareCommands" />
+              <Property Name="TareEvents" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Environment:WeightScale.bonsai">
+              <PortName>COM7</PortName>
+              <BaselineWeightTrigger>NestBaselineWeight</BaselineWeightTrigger>
+              <FilterWindow>40</FilterWindow>
+              <WeightData>NestWeightData</WeightData>
+              <TareCommands>NestTareCommands</TareCommands>
+              <TareEvents>NestTareEvents</TareEvents>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>NestRfid1</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="HardwareNotificationsState" />
+              <Property Name="PortName" />
+              <Property Name="RfidEvents" />
+              <Property Name="Location" />
+              <Property Name="InboundRfidDetected" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Environment:RfidReader.bonsai">
+              <HardwareNotificationsState>None</HardwareNotificationsState>
+              <PortName>COM14</PortName>
+              <RfidEvents>NestRfid1Events</RfidEvents>
+              <Location>
+                <X>1155</X>
+                <Y>664</Y>
+              </Location>
+              <InboundRfidDetected>NestRfid1InboundDetected</InboundRfidDetected>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+    </Nodes>
+    <Edges />
+  </Workflow>
+</WorkflowBuilder>

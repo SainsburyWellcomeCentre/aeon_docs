@@ -1,0 +1,95 @@
+# Spinnaker Camera
+
+Cameras on an AEON system are typically triggered using synchronised trigger events emitted by a harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2) device. Prior to adding cameras to the system, one would usually set this device up in the workflow first. The [VideoController guide](../CameraController/videoController.md) details how to set this up.
+
+This guide will walk through how a spinnaker camera is added and configured to an AEON Bonsai workflow; the outputs, control and logging workflows.
+
+## <u>Device configuration</u>
+
+### Placing a camera source:
+
+Create a `GroupWorkflow` with an appropriate name for this camera e.g. `"CameraTop"`. 
+Inside, place a `SpinnakerVideoSource (Aeon.Acquisition)` node, externalise all properties, and connect it to the `WorkflowOutput`:
+
+![Aeon.Acquisition.Camera](./Workflows/camera.svg)
+
+This node establishes a connection and configuration of a specific camera.
+
+## **Properties of the node:**
+### ***Camera settings:***
+- **Binning:** - Set the size of the binning area of the sensor.
+- **ExposureTime:** - Set the exposure time per frame. If the trigger frequency is too high to accomodate the exposure time here, it will be overidden.
+- **Gain:** - Gain on the sensor
+- **SerialNumber:** - Serial number of the camera to acquire frames from
+
+### ***Subject naming:***
+- **FrameEvents:** -  Set the output subject name. The output of the node will be published to this subject.
+- **TriggerFrequency:** - Set the subject storing frequency of the incoming trigger
+- **TriggerSource:** - Set the subject that will act as a source for trigger events to this camera
+
+## Device Events
+
+The device events is a stream of `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>`, with ideally one frame per trigger event. This stream is emitted directly by the node and published to the set 'FrameEvents' `Subject`.
+
+### Device Events Subject:
+- **FrameEvents:**  `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>`
+    All frame events emitted by the camera module
+
+## GUI
+
+TBC
+
+## Logging
+All events are logged using a `LogVideo` (`Aeon.Acquisition`) node, detailed further in [LogVideo.md](../../Logging/LogVideo.md)
+
+![Aeon.Acquisition.logVIdeo](../../Logging/Workflows/logVideo.svg)
+
+## State persistence
+Not required for state recovery
+## Alerts
+Camera streams are monitored for stream timeouts and dropped frames, usually resulting from power outages or connection issues. Dedicated extensions detect these failure events and their outputs formatted and sent to the `EnvironmentAlerts` and `AlertLogs` `Subjects` to send and log an alert respectively.
+
+The [Environment alerts guide](../../Alerts/environmentAlerts.md) details the implementation and configuration of these alerts and logs.
+
+### <u>Dropped Frames Monitor</u>:
+
+The `DroppedFrames (Extensions)` node monitors a sequence of FrameEvents from a specified `Subject` e.g. `CameraTop`. Specifically, it monitors the frameID to ensure frames arrive consecutively. In the event that a frame is dropped the node outputs the `Timestamp`, `Name` of the camera and the `frameID` of the dropped frame.
+
+![DroppedFrames](./Workflows/droppedFrames.svg)
+
+#### **Properties of the node:**
+- **FrameEvents:** - Set the name of the events `Subject` output from the camera stream to be monitored 
+
+From the output of this node, an alert string can be configured and formatted, and sent to the `EnvironmentAlertMessages` and `AlertLogs` `Subjects` to send and log an alert respectively. 
+
+### <u>StreamTimeout Monitor</u>:
+
+The `StreamTimeout (Extensions)` node similarly monitors a sequence of FrameEvents from a specified `Subject` e.g. `CameraTop`. Specifically, it monitors the actual time between receiving frames to ensure frames arrive within a given `DueTime` property. In the event that no new frames arrive in time, the node outputs the Timestamp, name of the camera and the frameID of the dropped frame.
+
+![StreamTimeout](./Workflows/streamTimeout.svg)
+
+To avoid false alarms when cameras are not active, subscription to the `StreamTimeout` workflow is controlled using the same triggers that activate and stop the cameras through the `VideoController` as detailed in the [videoController guide](..//CameraController/videoController.md)
+
+#### **Properties of the node:**
+- **StreamEvents:** - Set the name of the events `Subject` output from the camera stream to be monitored 
+- **DueTime:** - Set the maximum time between values to trigger a timeout event
+
+### Sending Alerts
+From the output of both of these nodes, alert strings can be configured and formatted, and sent to the `EnvironmentAlertMessages` and `AlertLogs` `Subjects` for reporting. 
+
+![CameraAlerts](./Workflows/cameraAlerts.svg)
+
+### Merging mutliple monitored streams
+Multiple instances of the `DroppedFrames` and `StreamTimeout` nodes can be merged before passing to the Alert `Subjects` to monitor multiple camera streams simultaneously. Place these together in a `GroupWorkflow` and `Merge` the results, outputting to the `WorkflowOutput` to propogate the message for formatting and sending.
+
+<u>Dropped Frames Monitor `GroupWorkflow`:</u>
+
+![mergeDroppedFrames](./Workflows/mergeDroppedFrames.svg)
+
+<u>Stream Timeout Monitor `GroupWorkflow`:</u>
+
+![mergeStreamTimeout](./Workflows/mergeStreamTimeout.svg)
+
+<u>All Camera Alerts:</u>
+
+![mergeCameraAlerts](./Workflows/mergeCameraAlerts.svg)

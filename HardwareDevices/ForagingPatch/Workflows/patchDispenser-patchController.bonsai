@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:aeon-frg="clr-namespace:Aeon.Foraging;assembly=Aeon.Foraging"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1PelletDelivered</Name>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>RisingEdge</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:PatchDispenser.bonsai">
+        <ControllerEvents>Patch1Controller</ControllerEvents>
+        <DispenserState>Patch1Dispenser</DispenserState>
+        <Name>Patch1</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1Controller</Name>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>Reset</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>EventType</Selector>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-frg:DispenserEventType">
+                <Value>Reset</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>Patch1ResetFeeder</Name>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>Discount</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>EventType</Selector>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-frg:DispenserEventType">
+                <Value>Discount</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:TriggerPellet.bonsai">
+        <PatchEvents>Patch1Events</PatchEvents>
+        <DeliverPellet>Patch1DeliverPellet</DeliverPellet>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>Patch1ManualPellet</Name>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="3" To="6" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

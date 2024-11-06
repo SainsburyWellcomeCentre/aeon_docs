@@ -14,3 +14,7 @@ updates:
       actions:
         patterns:
           - "actions/*"
+  - package-ecosystem: gitsubmodule
+    schedule:
+        interval: "weekly"
+    directory: "/"

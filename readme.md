@@ -2,25 +2,24 @@
 
 This repo contains the source for the currently WIP version of Project Aeon's online docs. 
 
-The docs are built via [Sphinx](https://www.sphinx-doc.org/en/master/), and hosted via GitHub Pages at [sainsburywellcomecentre.github.io/aeon_docs/](https://sainsburywellcomecentre.github.io/aeon_docs/). `src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`). The build job is triggered on each PR, ensuring that the documentation build is not broken by new changes. The deployment job is only triggered whenever a tag is pushed to the main branch.
+The docs are built via [Sphinx](https://www.sphinx-doc.org/en/master/), and hosted via GitHub Pages at [sainsburywellcomecentre.github.io/aeon_docs/](https://sainsburywellcomecentre.github.io/aeon_docs/). 
+`src/` is the Sphinx source directory, and the site is built and deployed from the `gh-pages` branch. 
+This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`), triggered by the following events:
+- **Push to the main branch**
+- **Tag push**
+- **Pull request**
+- **Manual dispatch** via the "Run workflow" button in the Actions tab.
 
+The workflow comprises two jobs: `build_sphinx_docs` and `deploy_sphinx_docs`. 
+The build job is triggered by all the listed events to ensure the documentation build remains intact with new changes. 
+The deployment job is only triggered on manual dispatch or [when a tag is pushed](#deploying-the-documentation).
 
 ## Building the documentation locally
 Create a `conda` environment with the required dependencies and activate it:
 ```bash
-conda create -n aeon_docs python dotnet -c conda-forge
+conda env create -n aeon_docs -f environment.yml
 conda activate aeon_docs
 ```
-
-Make the `docfx` tool available in the environment:
-```bash
-dotnet tool restore
-```
-
-From the root of the repository, install the requirements for building the documentation:
-```bash
-pip install -r requirements.txt
-``` 
 
 Then, populate submodules:
 ```bash
@@ -80,7 +79,7 @@ linkcheck_allowed_redirects = {
 }
 ```
 ## Deploying the documentation
-As mentioned above, the deployment job is triggered whenever a tag is pushed to the main branch. To deploy the documentation, follow these steps:
+As mentioned above, the deployment job can either be triggered manually or by a tag push. To deploy with a tag push, follow the steps below:
 
 Fetch all tags:
 ```bash	

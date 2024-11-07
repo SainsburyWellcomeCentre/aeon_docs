@@ -83,6 +83,6 @@ For the full register and bitmask schema for the `CameraControllerGen2` see the 
 ## State persistence
 Not required for state recovery
 ## Alerts
-In Project AEON, The `VideoEvents` subject is useful for several environment monitoring workflows, such as regular logging of a summary of the current state of the experiment each hour. See the [environment alerts guide](../Alerts/environmentAlerts.md) to configure these alerts.
+In Project AEON, The `VideoEvents` subject is useful for several environment monitoring workflows, such as regular logging of a summary of the current state of the experiment each hour. See the [alerts guide](../../Alerts/Alerts.md) to configure these alerts.
 
-As with other harp devices in the system, this stream should be added to the `HeartbeatSources`, which are monitored to ensure continuous synchronization with all other synchronised devices on the system. See [synchronizer monitor guide](../Alerts/synchronizerMonitor.md) to configure these alerts.
+As with other harp devices in the system, this stream should be added to the `HeartbeatSources`, which are monitored to ensure continuous synchronization with all other synchronised devices on the system. See [synchronizer monitor guide](../../Alerts/) to configure these alerts.

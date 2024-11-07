@@ -2,7 +2,7 @@
 
 A harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2) device is utilised to configure and synchronously trigger two sets of cameras which can operate at different framerates. [Camera.md](../Camera/camera.md) details how to add a camera controlled by this VideoController.
 
-This guide will walk through how the camera controller device is added and configured; the outputs, control and logging workflows.
+This guide documents how the camera controller device is added and configured; the outputs, control and logging and alert workflows.
 
 ## <u>Device configuration</u>
 

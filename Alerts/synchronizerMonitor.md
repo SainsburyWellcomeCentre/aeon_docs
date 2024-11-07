@@ -54,3 +54,5 @@ An observable sequence of custom `DynamicClass` with the following attributes.
 We then use an `ExpressionCondition` node to define conditions under which an alert should be sent, given the above values. For example if the number of expected devices does not match the number of devices sending heartbeats, or if one or more devices are sending de-synchronised heartbeats. 
 
 This is then passed to an [`AlertGate (Aeon.acquisition)`](Alerts.md#alertgate) node before being split and formatted for [`EnvironmentAlerts`](Alerts.md#alerts) and [`AlertLogs`](Alerts.md#alert-logs)
+
+![SynchMonitorLogs](./Workflows/synchMonitorLogs.svg)

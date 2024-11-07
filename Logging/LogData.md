@@ -23,9 +23,14 @@ Any `Harp.TimeStamped<>` data stream whose member values can be written to .csv
 **Outputs**
 Returns inputs unchanged.
 ## **Properties of the node:**
-### ***GroupClosing:***
-- **ClosingDuration:** - description missing
-- **Heartbeats:** - The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with.
+| **Property Name**   | **Description**                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------|
+| **ClosingDuration** | *Description missing*                                                                              |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronized with. |
+
 ### ***Misc:***
-- **LogName:** - The name of this log. This will determine the dedicated folder and name of data files. 
-- **Selector** - Member selector property to select specific members of the incoming data stream.
+
+| **Property Name**   | **Description**                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------|
+| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files.         | 
+| **Selector**        | Member selector property to select specific members of the incoming data stream.                   |

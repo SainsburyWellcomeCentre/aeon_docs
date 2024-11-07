@@ -35,29 +35,28 @@ These properties are critical parameters for the operation of the device.
 #### ***Retry Function:***
 If a pellet is due to be delivered, an IR beam break module in the feeder detects whether pellet delivery is successful. In the event that a pellet is not delivered (no beam break detected), then the feeder can be configured to try again. These properties configure the options around this functionality.
 
-| Property Name | Description                                                                                                                   |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Property Name | Description                                                                                                  |
+|---------------|--------------------------------------------------------------------------------------------------------------|
 | **DueTime**   | The time following a pellet delivery command that the device will wait for a successful beam break signal before assuming the pellet delivery has failed. |
-| **Count**     | The number of retry attempts the feeder will perform.                                                                         |
-
+| **Count**     | The number of retry attempts the feeder will perform. |
 
 ### ***Subject names:***
-Events and commands from the feeder are collected, in some cases processed, and published to `Subjects`. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. Each of these subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events and commands from the feeder are collected from, and published to `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. Each of these subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ## <u>Subjects</u>
 ### **Device Event Subjects**:
-| Subject Name          | Type                    | Description                                                                                                  |
-|----------------------|--------------------------|--------------------------------------------------------------------------------------------------------------|
+| Subject Name          | Type                    | Description                                                         |
+|----------------------|--------------------------|---------------------------------------------------------------------|
 | **PatchEvents**      | `Harp.HarpMessage`       | Contains all events, consisting of timestamped Harp messages reporting the state of each register of the output expander. Also output directly by the `UndergroundFeeder` node.|
-| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample to sample displacement of the foraging wheel.                                                    |
-| **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register.                                     |
+| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample to sample displacement of the foraging wheel.           |
+| **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register. |
 
 
 ### **Device Command Subjects**:
-| Subject Name          | Type                     | Description                                                                                                 |
-|----------------------|--------------------------|--------------------------------------------------------------------------------------------------------------|
-| **DeliverPellet**    | `object`                  | Trigger pellet delivery. Any event passed to this `Subject` will trigger a pellet delivery                  |
-| **ResetFeeder**      | `object`                  | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset                        |
+| Subject Name          | Type      | Description                                                                                     |
+|----------------------|------------|-------------------------------------------------------------------------------------------------|
+| **DeliverPellet**    | `object`   | Trigger pellet delivery. Any event passed to this `Subject` will trigger a pellet delivery      |
+| **ResetFeeder**      | `object`                  | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset |
 
 # <u>Auxiliary Modules</u>
 
@@ -126,7 +125,7 @@ In the  case of a feeder, outputs from auxiliary modules are combined to form a 
 
 ![logPatchEvents](./Workflows/logPatchEvents.svg")
 
-Register address 203 is not shown in this workflow, but is generated as events marking a delivery command as a retry attempt, and passed to the `PathEvents` ` Subject` within the by the `UndergroundFeeder` node.
+Register address 203 is not shown in this workflow, but is generated as events marking as a retry following an unsuccessful delivery attempt. This is passed to the `PatchEvents` ` Subject` within the `UndergroundFeeder` node.
 
 *Data Schema*:
 | Register Name             | Access | Address | Type   | Mask Type / Attributes        | Description                                     |

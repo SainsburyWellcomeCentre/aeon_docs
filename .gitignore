@@ -5,3 +5,13 @@ src/user/**/*_copy*
 
 # Python scripts
 __pycache__
+
+# Bonsai folder except installation files
+.bonsai
+!.bonsai/Bonsai.config
+!.bonsai/NuGet.config
+!.bonsai/setup.cmd
+!.bonsai/setup.ps1
+
+# Bonsai .layout files
+*.layout

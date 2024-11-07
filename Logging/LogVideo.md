@@ -25,7 +25,14 @@ Stream of `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>`, originating from 
 Stream of raw video images of type `OpenCV.Net.IPlImage`. 
 ## **Properties of the node:**
 ### ***GroupClosing:***
-- **ClosingDuration:** - description missing
-- **Heartbeats:** - The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with.
+
+| **Property Name**   | **Description**                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------|
+| **ClosingDuration** | *Description missing*                                                                              |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronized with. |
+
 ### ***Misc:***
-- **LogName:** - The name of this log. This is usually the name of the camera from which the stream originated, and will determine the name of the dedicated folder and data files for this log. 
+
+| **Property Name**   | **Description**                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------|
+|**LogName**          | The name of this log. This will determine the naming of a dedicated folder and data files.         | 

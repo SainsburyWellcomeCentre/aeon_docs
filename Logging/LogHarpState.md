@@ -20,10 +20,17 @@ It is generally the terminal node, with the typical pattern being to subscribe t
 Stream of `Harp.HarpMessages`, usually originating from a harp device.
 
 - **Outputs**:
-The byte array containing the contents of each harp message. This is generally not used downstream of this node. 
+The `byte[]` array containing the contents of each harp message. This is generally not used downstream of this node. 
 ## **Properties of the node:**
 ### ***GroupClosing:***
-- **ClosingDuration:** - description missing
-- **Heartbeats:** - The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with.
+
+| **Setting**         | **Description**                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------|
+| **ClosingDuration** | *Description missing*                                                                              |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronized with. |
+
 ### ***Misc:***
-- **LogName:** - The name of this log. This is usually the name of the harp device the harp stream originated from, and will determine the dedicated folder and naming of data files.
+
+| **Setting** | **Description**                                                                                            |
+|-------------|------------------------------------------------------------------------------------------------------------|
+| **LogName** | The name of this log. This is usually the name of the harp device the harp stream originated from, and will determine the naming of dedicated folder and data files. |

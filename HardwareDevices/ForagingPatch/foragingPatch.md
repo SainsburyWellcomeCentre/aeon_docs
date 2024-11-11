@@ -16,9 +16,9 @@ This node establishes a connection to the feeder hardware module assembly throug
 
 ### Inputs and Outputs:
 
-**Inputs** - None
+***Inputs*** - None
 
-**Outputs** - Stream of all `Harp.HarpMessages` emitted by this harp device.
+***Outputs*** - Stream of all `Harp.HarpMessages` emitted by this harp device.
 
 --------
 ### **Properties of the Node:**

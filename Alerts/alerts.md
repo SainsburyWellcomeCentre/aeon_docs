@@ -7,7 +7,7 @@ In order to capture as full a repertoire of natural behaviours as possible, the 
 The node `SendAlert (Aeon.Acquisition)` accepts any string and sends it via an incoming webhook to post messages to a Microsoft Teams channel using an O365 connector. Full information on configuring these webhooks and generating a webhook url can be found in the [Microsoft documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet).
 
 > ### ⚠️ Note
-> O365 connectors will be deprecated in the coming months. This is a known [issue](https://github.com/SainsburyWellcomeCentre/ aeon_experiments/issues/591) and so an alternative will be developed and workflows updated on the public github repositories in time.
+> O365 connectors will be deprecated in the coming months. This is a known [issue](https://github.com/SainsburyWellcomeCentre/aeon_experiments/issues/591) and so an alternative will be developed and workflows updated on the public github repositories in time.
 
 ![SendAlertBase](./Workflows/EnvironmentAlertsBase.svg)
 
@@ -72,6 +72,3 @@ This node simply accepts any input stream, but only returns elements that arrive
 ![AlertGate](./Workflows/alertGateDetail.svg)
 
  Specific use cases for formatting and sending alerts is detailed in [individual module](../HardwareDevices/) documentation
-
-# Subject Alerts
-TBC

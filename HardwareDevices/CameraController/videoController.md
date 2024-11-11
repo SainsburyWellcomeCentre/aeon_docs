@@ -29,8 +29,6 @@ This node establishes a connection to the Camera Controller, allowing direct con
 | **GlobalTriggerFrequency** | Set the frequency of the first (global) set of camera frame triggers. |
 | **LocalTriggerFrequency**  | Set the frequency of the second (local) set of camera frame triggers. |
 
-## <u>Device Events</u>
-
 ## **Subjects:**
 Events and commands from the feeder are collected, in some cases processed, and passed to published subjects. Here you set the names used for these subjects to identify these events, commands or datastreams for this specific feeder. Each of these subjects is published and become accessible in the bonsai editor's toolbox anywhere in the workflow using this name.
 
@@ -63,6 +61,7 @@ None
 All events are logged using a [`LogHarpState (Aeon.Acquisition)`](../../Logging/LogHarpState.md) node.
 
 ![Aeon.Acquisition.LogHarpState](./Workflows/logVideoEvents.svg)
+
 This will log the state of all relevant harp registers in a dedicated folder. Logs can be identified by their register address, summarised here.
 
 *Data Schema*:

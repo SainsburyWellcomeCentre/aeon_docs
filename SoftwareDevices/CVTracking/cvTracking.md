@@ -52,6 +52,11 @@ Events from this node are published to a `Subject` to make it available anywhere
 |-------------------|----------|--------------------------------------------------|
 | **FrameEvents**   | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | The `Subject` to subscribe to that carries frame events from a chosen camera | 
 
+## Area activity tracking
+
+In Project Aeon, it is often beneficial to define speccific regions or areas of the arena that are of behavioural significance and record times that a subject occupied these areas. or exampl, the time that a subject spends sheltering in the [nest](../../HardwareDevices/Nest/nest.md) vs in an open area or near to a [foraging patch](../../HardwareDevices/ForagingPatch/foragingPatch.md). While this may be done in post-processing and analysis, at times this can also be a useful marker to trigger events during the experiment, or simply to provide a coarse readout of the general activity of the animal.  
+
+
 ## Logging
 
 Logging this soft device is done using a `logHarpState` node detailed in the [guide](../../Logging/LogHarpState.md). This node writes `Harp.HarpMessages` to binary files named according to the `LogName` property. `TrackingEvents` can be formatted using the custom `FormatBinaryRegions (Aeon.Acquisition)` to convert the events to `HarpMessages` and configure writing to register **200**. This is an unassigned register on all harp devices. For Project AEON, we store this tracking data along with the camera from which `FrameEvents` originated. So for `CameraTop` e.g.:

@@ -52,6 +52,16 @@ All events are logged using a `LogVideo` (`Aeon.Acquisition`) node, detailed fur
 
 ![Aeon.Acquisition.logVideo](../../Logging/Workflows/logVideo.svg)
 
+This node saves the video itself in dedicated `.avi` files encoded with the **FMP4 codec**. Harp and hardware timestamps and the frame counter recorded at the camera are logged in corresponding `.csv` files with the following columns:
+
+*Data Schema*:
+| Column name             | Type | Description                                          |
+|-------------------------|------|------------------------------------------------------|
+| time                    | F64  | Harp timestamp for this frame                        | 
+| hw_counter              | I64  | Camera hardware frame counter. Should be consecutive |
+| hw_time                 | I64  | Hardware (camera) timestamp for this frame           |
+
+The `.csv` data files are matched to the `.avi` movies, i.e. the first row of the data file correspond to the first frame of the movie.
 
 ## State persistence
 Not required for state recovery
@@ -60,7 +70,7 @@ Camera streams are monitored for stream timeouts and dropped frames, usually res
 
 The [Environment alerts guide](../../Alerts/environmentAlerts.md) details the implementation and configuration of these alerts and logs.
 
-### <u>Dropped Frames Monitor</u>:
+### Dropped Frames Monitor:
 
 The `DroppedFrames (Extensions)` node monitors a sequence of FrameEvents from a specified `Subject` e.g. `CameraTop`. Specifically, it monitors the frameID to ensure frames arrive consecutively. In the event that a frame is dropped the node outputs the `Timestamp`, `Name` of the camera and the `frameID` of the dropped frame.
 
@@ -73,7 +83,7 @@ The `DroppedFrames (Extensions)` node monitors a sequence of FrameEvents from a 
 
 From the output of this node, an alert string can be configured and formatted, and sent to the `EnvironmentAlertMessages` and `AlertLogs` `Subjects` to send and log an alert respectively. 
 
-### <u>StreamTimeout Monitor</u>:
+### StreamTimeout Monitor:
 
 The `StreamTimeout (Extensions)` node similarly monitors a sequence of FrameEvents from a specified `Subject` e.g. `CameraTop`. Specifically, it monitors the actual time between receiving frames to ensure frames arrive within a given `DueTime` property. In the event that no new frames arrive in time, the node outputs the Timestamp, name of the camera and the frameID of the dropped frame.
 
@@ -83,26 +93,30 @@ To avoid false alarms when cameras are not active, subscription to the `StreamTi
 
 #### **Properties of the node:**
 
-| **Property Name** | **Type** | **Description** |
-- **StreamEvents:** - Set the name of the events `Subject` output from the camera stream to be monitored 
-- **DueTime:** - Set the maximum time between values to trigger a timeout event
+#### ***Device Events***:
+| **Property Name** | **Description** |
+|--|--|
+| **StreamEvents:** | Set the name of the events `Subject` output from the camera stream to be monitored 
+| **DueTime:** | Set the maximum time between values to trigger a timeout event |
 
-### Sending Alerts
+---
+
+### </u>Sending Alerts</u>:
 From the output of both of these nodes, alert strings can be configured and formatted, and sent to the `EnvironmentAlertMessages` and `AlertLogs` `Subjects` for reporting. 
 
 ![CameraAlerts](./Workflows/cameraAlerts.svg)
 
-### Merging mutliple monitored streams
+### </u>Merging mutliple monitored streams</u>:
 Multiple instances of the `DroppedFrames` and `StreamTimeout` nodes can be merged before passing to the Alert `Subjects` to monitor multiple camera streams simultaneously. Place these together in a `GroupWorkflow` and `Merge` the results, outputting to the `WorkflowOutput` to propogate the message for formatting and sending.
 
-<u>Dropped Frames Monitor `GroupWorkflow`:</u>
+#### Dropped Frames Monitor `GroupWorkflow`:
 
 ![mergeDroppedFrames](./Workflows/mergeDroppedFrames.svg)
 
-<u>Stream Timeout Monitor `GroupWorkflow`:</u>
+#### Stream Timeout Monitor `GroupWorkflow`:
 
 ![mergeStreamTimeout](./Workflows/mergeStreamTimeout.svg)
 
-<u>All Camera Alerts:</u>
+#### All Camera Alerts:
 
 ![mergeCameraAlerts](./Workflows/mergeCameraAlerts.svg)

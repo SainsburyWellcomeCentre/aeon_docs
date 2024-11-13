@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>CameraTop</Name>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:ActivityTracking.bonsai">
+        <Regions>
+          <ArrayOfPoint>
+            <Point>
+              <X>76</X>
+              <Y>431</Y>
+            </Point>
+            <Point>
+              <X>404</X>
+              <Y>431</Y>
+            </Point>
+            <Point>
+              <X>404</X>
+              <Y>665</Y>
+            </Point>
+            <Point>
+              <X>76</X>
+              <Y>665</Y>
+            </Point>
+          </ArrayOfPoint>
+        </Regions>
+        <ThresholdValue>10</ThresholdValue>
+        <TrackingEvents>ActivityCenter</TrackingEvents>
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

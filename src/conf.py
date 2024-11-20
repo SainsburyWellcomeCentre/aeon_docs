@@ -143,6 +143,9 @@ html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
     "css/custom.css",
 ]
+html_js_files = [
+    'js/workflow.js', # javascript for embedded workflows
+]
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [

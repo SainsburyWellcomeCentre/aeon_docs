@@ -1,8 +1,8 @@
 # **Foraging Patch Module**
 
-The foraging patch module provides a means for the subjects in the arena to obtain food with a configurable wheel the subject can turn, simulating a naturalistic digging motion. The device design, schematic and assembly instructions can be found here [link]()
+The foraging patch module is core to foraging and long term experiments. It provides a means for the subjects in the arena to obtain food with a configurable wheel the subject can turn, simulating a naturalistic digging action. The device design, schematic and assembly instructions can be found here [link]()
 
-This guide will walk through how a feeder device and associated modules are added and configured; the outputs, control and logging workflows, as well as modules that are important to make long-term 24/7 experiments possible with limited human intervention. 
+This guide will walk through how a feeder device and associated modules are added and configured to a Bonsai workflow; the outputs, control, logging and visualisation, as well as monitoring and automated alert modules that are important to make long-term 24/7 experiments possible with limited human intervention. 
 
 ## <u>UndergroundFeeder node:</u>
 ### **Device configuration**
@@ -41,14 +41,14 @@ If a pellet is due to be delivered, an IR beam break module in the feeder detect
 | **Count**     | The number of retry attempts the feeder will perform. |
 
 ### ***Subject names:***
-Events and commands from the feeder are collected from, and published to `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. Each of these subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. Each of these subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ## <u>Subjects</u>
 ### **Device Event Subjects**:
 | Subject Name          | Type                    | Description                                                         |
 |----------------------|--------------------------|---------------------------------------------------------------------|
 | **PatchEvents**      | `Harp.HarpMessage`       | Contains all events, consisting of timestamped Harp messages reporting the state of each register of the output expander. Also output directly by the `UndergroundFeeder` node.|
-| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample to sample displacement of the foraging wheel.           |
+| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample-to-sample displacement of the foraging wheel in mm.           |
 | **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register. |
 
 
@@ -56,8 +56,9 @@ Events and commands from the feeder are collected from, and published to `Subjec
 | Subject Name          | Type      | Description                                                                                     |
 |----------------------|------------|-------------------------------------------------------------------------------------------------|
 | **DeliverPellet**    | `object`   | Trigger pellet delivery. Any event passed to this `Subject` will trigger a pellet delivery      |
-| **ResetFeeder**      | `object`                  | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset |
+| **ResetFeeder**      | `object`   | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset |
 
+---
 # <u>Auxiliary Modules</u>
 
 Many measures are crucial to keep track of, both to display in visualisers as the experiment progresses and for logging events, experimental parameters and behavioral quantifications of interest. So far, the hardware is configured, but some processing of the sensor data and events from the device is required to extract useful measures in real time. Auxiliary modules are used in Bonsai to extend the functionality of this device and create a full foraging assembly, which we call a "Patch". For each patch, we track:
@@ -70,40 +71,22 @@ Many measures are crucial to keep track of, both to display in visualisers as th
 - ManualPellets
 - TotalPelletsDelivered
 
-## <u>**Patch Dispenser:**</u>
-![Aeon.Foraging.PatchDispenser](./Workflows/patchDispenser.svg)
+To make a complete patch then, we need the following auxiliary modules:
 
-This module keeps track of the number of pellets available to the feeder. It accepts pellet discount notifications triggered by the IR beam break following successful pellet delivery, and discounts these from the total number of pellets, which is itself set manually when loading the feeder hopper.
+[PatchDispenser](./patchDispenser.md)
 
-## Inputs and Outputs:
+[PelletMonitor](./pelletMonitor.md)
 
-**Inputs** - `Harp.Timestamped<bool>`. Events emitted by the `UndergroundFeederModule` indicating pellet delivery. 
+[TimeSpentOnWheel](./TimeSpentOnWheel.md)
 
-**Outputs** - Stream of custom class `Aeon.Foraging.DispenserEventArgs`. Each item emitted consists of a Value (`int`) corresponding to the pellet count following an event, and an Event type (`Aeon.Foraging.DispenserEventType`). 
+[TimeSinceLastEvent](./TimeSinceLastEvent.md)
 
-## **Properties of the node:**
+Each of these auxiliary modules accepts events carried by shared `Subjects` from a specific feeder.
 
-### ***General:***
+---
 
-| Property Name | Description                                           |
-|---------------|-------------------------------------------------------|
-| **Name**      | Set the name of this dispenser module.                |
 
-### ***Subject names:***
-Set the names used for these subjects to identify these events, commands or datastreams for this specific feeder. Each of these subjects is published and become accessible in the bonsai editor's toolbox anywhere in the workflow using this name.
 
-## <u>Subjects</u>:
-
-| Property Name         | Description                                              |
-|----------------------|-----------------------------------------------------------|
-| **ControllerEvents** | Controller events shared `Subject`.   |
-| **DispenserState**   | Declared `StateRecoverySubject` to store the dispenser state. |
-
-### <u>**Workflows**</u>
-- [ ] **PelletMonitor**
-
-![Aeon.Foraging.PelletMonitor](./Workflows/pelletMonitor.svg)
-- [ ] **TimeSpentOnWHeel**
 - [ ] **RepeatEveryBlock**
 - [ ] **TimeSinceLastEvent**
 
@@ -125,7 +108,7 @@ In the  case of a feeder, outputs from auxiliary modules are combined to form a 
 
 ![logPatchEvents](./Workflows/logPatchEvents.svg")
 
-Register address 203 is not shown in this workflow, but is generated as events marking as a retry following an unsuccessful delivery attempt. This is passed to the `PatchEvents` ` Subject` within the `UndergroundFeeder` node.
+Register address 203 is not shown in this workflow, but is generated as events marking as a retry following an unsuccessful delivery attempt. This is passed to the `PatchEvents` `Subject` within the `UndergroundFeeder` node.
 
 *Data Schema*:
 | Register Name             | Access | Address | Type   | Mask Type / Attributes        | Description                                     |
@@ -146,7 +129,7 @@ Register address 203 is not shown in this workflow, but is generated as events m
 
 In order to be robust and enable recovery from system crashes or other errors in long term experiments, the state of the experiment can be stored in a `StateRecoverySubject` that persists over multiple executions of the same workflow.
 
-Two of these subjects are initially declared per patch, at the highest level of the workflow. These store the state of the patch itself `Patch1State`, for instance, which carries the current wheel displacement, threshold and and of the associated dispenser module `Patch1Dispenser`
+Two of these subjects are initially declared per patch, at the highest level of the workflow. These store the state of the patch itself `Patch1State`, for instance, which carries the current wheel displacement and foraging threshold of the associated dispenser module `Patch1Dispenser`
 
 The state of the Patch module includes the distance the wheel has been turned, the current threshold set for pellet delivery, the total number of pellets delivered and still present in the feeder.
 

@@ -6,8 +6,6 @@ This guide documents how the camera controller device is added and configured; t
 
 ## <u>Device configuration</u>
 
-### CameraController node:
-
 Create a `GroupWorkflow` with an appropriate name e.g. `"VideoController"`. 
 Inside, place a `CameraController (Aeon.Acquisition)` node, externalise all properties, and connect it to the `WorkflowOutput`:
 

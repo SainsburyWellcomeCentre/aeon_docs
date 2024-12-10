@@ -1,9 +1,9 @@
-# Pipeline Deployment (On-Premises)
+(target-dj-pipeline-deployment)=
+# Pipeline deployment (on-premises)
 
 This page describes the processes and required resources to deploy the Project Aeon data pipeline on-premises.
 
 ## Prerequisites
-
 On the most basic level, in order to deploy and operate a DataJoint pipeline, you will need:
 
 1. A MySQL database server (version 8.0) with configured to be DataJoint compatible
@@ -38,18 +38,14 @@ On the most basic level, in order to deploy and operate a DataJoint pipeline, yo
    - you need some form of a compute environment with the right software installed to run the pipeline (this could be a laptop, local work station or an HPC cluster)
 
 ## Download the data
-
 The released data for Project Aeon can be downloaded from the data repository [here](https://zenodo.org/records/13881885)
 
 
-## Pipeline Installation & Configuration
+## Pipeline installation and configuration
+### Installation
+In order to run the pipeline, follow the instruction to install this codebase in the [installation](../../getting_started/installation.md#aeon_mecha) section
 
-### Installation Instructions
-
-In order to run the pipeline, follow the instruction to install this codebase in the [installation](../getting_started/installation.md#aeon_mecha) section
-
-### Configuration Instructions
-
+### Configuration
 DataJoint requires a configuration file named `dj_local_conf.json`. This file should be located in the root directory of the codebase.
 
 1. Generate the `dj_local_conf.json` file:
@@ -61,8 +57,5 @@ DataJoint requires a configuration file named `dj_local_conf.json`. This file sh
 For example, if you download the data to `D:/data/project-aeon/aeon/data/raw/AEON3/...`, then update `ceph_aeon` to `D:/data/project-aeon/aeon/data`.
 
 
-## Data Ingestion & Processing
-
-Now that the pipeline is installed and configured, you can start ingesting and processing the downloaded data.
-
-Follow the instructions in the [Data Ingestion & Processing](./Data_Ingestion_and_Processing.ipynb) guide to learn how to ingest and process the downloaded data.
+## Data ingestion and processing
+Now that the pipeline is installed and configured, you can begin with [ingesting and processing](target-dj-data-ingestion-processing) the downloaded data.

@@ -14,6 +14,7 @@ To demonstrate Aeon's various features and capabilities, we also provide the fol
 
 tutorials/multianimal_tracking
 tutorials/npx_recording
+../datajoint_pipeline/index
 :::
 
 :::{toctree}
@@ -21,4 +22,5 @@ tutorials/npx_recording
 :caption: How-to Guides
 
 how_to/io_api_example_copy
+../datajoint_pipeline/pipeline_local_deployment
 :::

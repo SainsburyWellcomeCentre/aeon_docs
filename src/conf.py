@@ -168,8 +168,12 @@ myst_url_schemes = {
     "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
+    "datajoint": "https://datajoint.com/{{path}}",
     "semver": "https://semver.org/",
+    "sleap": "https://sleap.ai/",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "niu-howto": "https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#{{fragment}}",
 }
+
+#autodoc_mock_imports = ["aeon"]

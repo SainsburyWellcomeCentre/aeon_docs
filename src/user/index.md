@@ -22,6 +22,6 @@ tutorials/aeon_dj_pipeline
 :caption: How-to Guides
 
 how_to/io_api_example_copy
-how_to/pipeline_local_deployment
-how_to/Data_Ingestion_and_Processing
+how_to/dj_pipeline_local_deployment
+how_to/dj_data_ingestion_and_processing
 :::

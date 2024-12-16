@@ -18,7 +18,6 @@ from datetime import date
 sys.path.extend(
     [
         os.path.abspath("../aeon_mecha/"),
-        os.path.abspath("../aeon_analysis/aeon_analysis"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -139,10 +138,10 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
-    "css/custom.css",	
+    "css/custom.css",
 ]
 
 # linkcheck will skip checking these URLs entirely
@@ -165,7 +164,6 @@ myst_url_schemes = {
     "ftp": None,
     "mailto": None,
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
-    "aeon-analysis-github": "https://github.com/SainsburyWellcomeCentre/aeon_analysis/{{path}}",
     "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",
     "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",

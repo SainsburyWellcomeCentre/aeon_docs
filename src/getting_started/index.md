@@ -60,12 +60,6 @@ Source code for the `aeon_acquisition` Bonsai package used in
 Aeon experiment workflows
 :::
 
-:::{grid-item-card} {fas}`chart-line;sd-text-primary` aeon_analysis
-:link: https://github.com/SainsburyWellcomeCentre/aeon_analysis
-:link-type: url
-Python modules for analysis of Aeon experiment data
-:::
-
 :::{grid-item-card} {fas}`gear;sd-text-primary` aeon_lineardrive
 :link: https://github.com/SainsburyWellcomeCentre/aeon_lineardrive
 :link-type: url

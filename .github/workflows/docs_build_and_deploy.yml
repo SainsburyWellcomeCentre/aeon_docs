@@ -21,16 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: false # Disable automatic checkout of all submodules
-      - name: Fetch tags
-        run: |
-          git fetch --prune --prune-tags --force --depth=1 --no-recurse-submodules
-      - name: Checkout public submodules # Skip aeon_experiments
-        run: |
-          git submodule sync
-          git submodule update --init aeon_acquisition
-          git submodule update --init aeon_analysis
-          git submodule update --init aeon_mecha
+          submodules: true # Enable automatic checkout of all submodules
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4

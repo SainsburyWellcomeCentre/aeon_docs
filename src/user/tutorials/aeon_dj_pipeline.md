@@ -102,3 +102,7 @@ The auto-ingestion and processing/computation routines are defined in `aeon.dj_p
   + `aeon_ingest analysis_worker`
 
 Since DataJoint operations are idempotent, the aforementioned routine or commands can safely be rerun if needed.
+
+:::{seealso}
+The guides on [](target-dj-pipeline-deployment) and [](target-dj-data-ingestion-processing).
+:::

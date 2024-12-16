@@ -1,61 +1,51 @@
 (target-dj-pipeline-deployment)=
-# Pipeline deployment (on-premises)
+# DataJoint pipeline deployment (on-premises)
 
-This page describes the processes and required resources to deploy the Project Aeon data pipeline on-premises.
+This page describes the processes and resources required to deploy the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) on-premises.
 
 ## Prerequisites
-On the most basic level, in order to deploy and operate a DataJoint pipeline, you will need:
+To deploy and operate a DataJoint pipeline, you will need the following:
 
-1. A MySQL database server (version 8.0) with configured to be DataJoint compatible
-   - see [here](https://github.com/datajoint/mysql-docker/blob/master/config/my.cnf) for configuration of the MySQL server to be DataJoint compatible
-2. If you want to use a preconfigured Docker container ([install Docker](https://docs.docker.com/engine/install/)), run the following command:
+1. MySQL database server (version 8.0) [configured to be DataJoint-compatible](https://github.com/datajoint/mysql-docker/blob/master/config/my.cnf)
+2. Docker container (optional)
+   - If you prefer using a preconfigured Docker container, [install Docker](https://docs.docker.com/engine/install/) and run:
       ```bash
-         docker run -d \
-           --name db \
-           -p 3306:3306 \
-           -e MYSQL_ROOT_PASSWORD=simple \
-           -v ./mysql/data:/var/lib/mysql \
-           datajoint/mysql:8.0 \
-           mysqld --default-authentication-plugin=mysql_native_password
+      docker run -d \
+         --name db \
+         -p 3306:3306 \
+         -e MYSQL_ROOT_PASSWORD=simple \
+         -v ./mysql/data:/var/lib/mysql \
+         datajoint/mysql:8.0 \
+         mysqld --default-authentication-plugin=mysql_native_password
       ```
-   
-    A new MySQL server will be launched in a Docker Container with the following credentials: 
-    - host: `localhost`
-    - username: `root`
-    - password: `simple`
-    
-   To stop the container, run the following command:
-   
-    ```bash
-       docker stop db
-    ```
-   
-3. a GitHub repository with the [codebase](https://github.com/SainsburyWellcomeCentre/aeon_mecha) of the DataJoint pipeline
-   - this repository is the codebase, no additional modifications are needed to deploy this codebase locally
-4. file storage
-   - the pipeline requires a location to access/store the data files (this can be a local directory or mounted network storage)
-5. compute
-   - you need some form of a compute environment with the right software installed to run the pipeline (this could be a laptop, local work station or an HPC cluster)
+   - The above command launches a new MySQL server in a Docker container with the following credentials: 
+      - Host: `localhost`
+      - Username: `root`
+      - Password: `simple`
+   - To stop the container, run:
+      ```bash
+      docker stop db
+      ```
+3. GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline
+   - [Install the codebase](target-install-aeon-mecha). No additional modifications are needed to deploy the pipeline locally.
+4. File storage
+   - Provide a location for the pipeline to access/store the data files (e.g. a local directory or mounted network storage).
+5. Compute environment
+   - Ensure you have a compute environment with the necessary software installed to run the pipeline (e.g. a laptop, local workstation, or an HPC cluster).
+6. Data to be ingested and processed
+   - You may use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline.
 
-## Download the data
-The released data for Project Aeon can be downloaded from the data repository [here](https://zenodo.org/records/13881885)
-
-
-## Pipeline installation and configuration
-### Installation
-In order to run the pipeline, follow the instruction to install this codebase in the [installation](../../getting_started/installation.md#aeon_mecha) section
-
-### Configuration
+## Pipeline configuration
 DataJoint requires a configuration file named `dj_local_conf.json`. This file should be located in the root directory of the codebase.
 
-1. Generate the `dj_local_conf.json` file:
-   - Make a copy of the `sample_dj_local_conf.json` file with the exact name `dj_local_conf.json`.
+1. Create the `dj_local_conf.json` file
+   - Copy the `sample_dj_local_conf.json` file and rename it to `dj_local_conf.json`.
    - Update the file with your database credentials (username, password, and database host).
-   - Ensure the file is kept secure and not accidentally shared publically.
-2. In the `custom` section, specify the `database.prefix` - you can keep the default `aeon_`.
-3. In the `custom` section, update the value of `ceph_aeon` (under `repository_config`) to the root directory of the downloaded data.
-For example, if you download the data to `D:/data/project-aeon/aeon/data/raw/AEON3/...`, then update `ceph_aeon` to `D:/data/project-aeon/aeon/data`.
+   - Ensure the file is kept secure and not shared publicly.
+2. Set `database.prefix`
+   - In the `custom` section, set `database.prefix` to your desired value, or keep the default `aeon_`.
+3. Set the data directory (`ceph_aeon`)
+   - In the `custom` section, set the `ceph_aeon` value (under `repository_config`) to the root directory of your data.
+   - For example, if your data is located at `D:/data/project-aeon/aeon/data/raw/AEON3/...`, set the `ceph_aeon` value to `D:/data/project-aeon/aeon/data`.
 
-
-## Data ingestion and processing
-Now that the pipeline is installed and configured, you can begin with [ingesting and processing](target-dj-data-ingestion-processing) the downloaded data.
+Now that the pipeline is installed and configured, you can start [ingesting and processing](target-dj-data-ingestion-processing) your data.

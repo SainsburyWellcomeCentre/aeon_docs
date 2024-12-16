@@ -176,6 +176,7 @@ myst_url_schemes = {
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
     "datajoint": "https://datajoint.com/{{path}}",
+    "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
     "semver": "https://semver.org/",
     "sleap": "https://sleap.ai/",

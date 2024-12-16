@@ -1,7 +1,9 @@
+(target-installation)=
 # Installation
 
 This guide will walk you through the installation of the `aeon_mecha` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage (currently only applicable to SWC members).
 
+(target-install-aeon-mecha)=
 ## `aeon_mecha`
 
 :::{note}

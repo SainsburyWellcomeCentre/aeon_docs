@@ -45,7 +45,7 @@ DataJoint requires a configuration file named `dj_local_conf.json`. This file sh
 2. Set `database.prefix`
    - In the `custom` section, set `database.prefix` to your desired value, or keep the default `aeon_`.
 3. Set the data directory (`ceph_aeon`)
-   - In the `custom` section, set the `ceph_aeon` value (under `repository_config`) to the root directory of your data.
-   - For example, if your data is located at `D:/data/project-aeon/aeon/data/raw/AEON3/...`, set the `ceph_aeon` value to `D:/data/project-aeon/aeon/data`.
+   - In the `custom` section, set the `ceph_aeon` value (under `repository_config`) to the root directory of your data (i.e. the directory that is one level above the `raw` directory).
+   - For example, if the `raw` directory is located at `D:/data/project-aeon/aeon/data/raw/`, set the `ceph_aeon` value to `D:/data/project-aeon/aeon/data`.
 
 Now that the pipeline is installed and configured, you can start [ingesting and processing](target-dj-data-ingestion-processing) your data.

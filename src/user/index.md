@@ -24,4 +24,5 @@ tutorials/aeon_dj_pipeline
 how_to/io_api_example_copy
 how_to/dj_pipeline_local_deployment
 how_to/dj_data_ingestion_and_processing
+how_to/dj_querying_data
 :::

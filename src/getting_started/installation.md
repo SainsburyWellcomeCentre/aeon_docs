@@ -110,4 +110,4 @@ The next step is to configure your IDE to connect to the `swc-gateway` node via 
 ::::
 :::::
 
-Within the `aeon` conda environment, Aeon data can be accessed directly from Ceph or the DataJoint database using the [`aeon_mecha` API](target-mecha-reference). Examples for retrieving and visualizing the data can be found in the [User Guide](target-user-guide).
+Within the `aeon` conda environment, Aeon data can be accessed from Ceph using the [`aeon_mecha` API](target-mecha-reference) or queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline). Examples for retrieving and visualizing the data can be found in the [User Guide](target-user-guide).

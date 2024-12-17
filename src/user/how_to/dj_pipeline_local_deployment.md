@@ -1,5 +1,5 @@
 (target-dj-pipeline-deployment)=
-# DataJoint pipeline deployment (on-premises)
+# DataJoint pipeline: On-premises deployment
 
 This page describes the processes and resources required to deploy the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) on-premises.
 

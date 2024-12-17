@@ -7,12 +7,14 @@ The Aeon DataJoint pipeline consists of a set of [tables](datajoint:docs/core/da
 ## Pipeline architecture
 The following diagrams provide a high-level overview of the pipeline's components and processes.
 
+(target-aeon-dj-pipeline-acquisition)=
 :::{figure} ../../_images/datajoint_overview_acquisition_related_diagram.svg
 :alt: dj-overview-acquisition
 :target: ../../_images/datajoint_overview_acquisition_related_diagram.svg
 Data acquisition-related tables.
 :::
 
+(target-aeon-dj-pipeline-data-streams)=
 :::{figure} ../../_images/datajoint_overview_data_stream_diagram.svg
 :alt: dj-overview-streams
 :target: ../../_images/datajoint_overview_data_stream_diagram.svg
@@ -25,6 +27,7 @@ Data flow for various data streams.
 Pyrat synchronisation process.
 :::
 
+(target-aeon-dj-pipeline-analysis)=
 :::{figure} ../../_images/datajoint_analysis_diagram.svg
 :alt: dj-analysis
 :target: ../../_images/datajoint_analysis_diagram.svg
@@ -104,5 +107,5 @@ The auto-ingestion and processing/computation routines are defined in `aeon.dj_p
 Since DataJoint operations are idempotent, the aforementioned routine or commands can safely be rerun if needed.
 
 :::{seealso}
-The guides on [](target-dj-pipeline-deployment) and [](target-dj-data-ingestion-processing).
+The guides on [deploying the Aeon DataJoint pipeline on-premises](target-dj-pipeline-deployment), [data ingestion and processing](target-dj-data-ingestion-processing), and [data querying](target-dj-querying-data).
 :::

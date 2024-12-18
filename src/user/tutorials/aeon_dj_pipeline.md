@@ -8,29 +8,29 @@ The Aeon DataJoint pipeline consists of a set of [tables](datajoint:docs/core/da
 The following diagrams provide a high-level overview of the pipeline's components and processes.
 
 (target-aeon-dj-pipeline-acquisition)=
-:::{figure} ../../_images/datajoint_overview_acquisition_related_diagram.svg
+:::{figure} ../../images/datajoint_overview_acquisition_related_diagram.svg
 :alt: dj-overview-acquisition
-:target: ../../_images/datajoint_overview_acquisition_related_diagram.svg
+:target: ../../images/datajoint_overview_acquisition_related_diagram.svg
 Data acquisition-related tables.
 :::
 
 (target-aeon-dj-pipeline-data-streams)=
-:::{figure} ../../_images/datajoint_overview_data_stream_diagram.svg
+:::{figure} ../../images/datajoint_overview_data_stream_diagram.svg
 :alt: dj-overview-streams
-:target: ../../_images/datajoint_overview_data_stream_diagram.svg
+:target: ../../images/datajoint_overview_data_stream_diagram.svg
 Data flow for various data streams.
 :::
 
-:::{figure} ../../_images/datajoint_overview_pyrat_related_diagram.svg
+:::{figure} ../../images/datajoint_overview_pyrat_related_diagram.svg
 :alt: dj-overview-pyrat
-:target: ../../_images/datajoint_overview_pyrat_related_diagram.svg
+:target: ../../images/datajoint_overview_pyrat_related_diagram.svg
 Pyrat synchronisation process.
 :::
 
 (target-aeon-dj-pipeline-analysis)=
-:::{figure} ../../_images/datajoint_analysis_diagram.svg
+:::{figure} ../../images/datajoint_analysis_diagram.svg
 :alt: dj-analysis
-:target: ../../_images/datajoint_analysis_diagram.svg
+:target: ../../images/datajoint_analysis_diagram.svg
 Analysis tables.
 :::
 

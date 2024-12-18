@@ -18,7 +18,7 @@ Further information about the project can be found in the
 :::{grid-item-card} {fas}`location-crosshairs;sd-text-primary` Multi-animal tracking
 :link: target-multianimal-tracking
 :link-type: ref
-:img-bottom: ../_static/images/getting-started-ma.png
+:img-bottom: ../images/getting-started-ma.png
 :img-alt:
 
 Online tracking of multiple animals in the Aeon arena.
@@ -27,7 +27,7 @@ Online tracking of multiple animals in the Aeon arena.
 :::{grid-item-card} {fas}`brain;sd-text-primary` Neuropixels recordings
 :link: target-npx-recording
 :link-type: ref
-:img-bottom: ../_static/images/getting-started-npx.png
+:img-bottom: ../images/getting-started-npx.png
 :img-alt:
 
 Week-long recording and analysis of Neuropixels data.
@@ -58,12 +58,6 @@ Aeon experiment workflows written in the Bonsai visual programming language
 :link-type: url
 Source code for the `aeon_acquisition` Bonsai package used in 
 Aeon experiment workflows
-:::
-
-:::{grid-item-card} {fas}`chart-line;sd-text-primary` aeon_analysis
-:link: https://github.com/SainsburyWellcomeCentre/aeon_analysis
-:link-type: url
-Python modules for analysis of Aeon experiment data
 :::
 
 :::{grid-item-card} {fas}`gear;sd-text-primary` aeon_lineardrive

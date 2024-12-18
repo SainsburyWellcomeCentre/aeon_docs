@@ -9,28 +9,28 @@ This reference manual details all software and hardware components, and a glossa
 :::{grid-item-card} Hardware Overview
 :link: target-hardware
 :link-type: ref
-:img-bottom: ../_static/images/noun-hardware-setup-6046729.svg
+:img-bottom: ../images/noun-hardware-setup-6046729.svg
 :class-img-bottom: .sd-img-bottom-small
 :::
 
 :::{grid-item-card} API Reference
 :link: target-api-reference
 :link-type: ref
-:img-bottom: ../_static/images/noun-code-6878936.svg
+:img-bottom: ../images/noun-code-6878936.svg
 :class-img-bottom: .sd-img-bottom-small 
 :::
 
 :::{grid-item-card} Data Contract
 :link: target-data-schema
 :link-type: ref
-:img-bottom: ../_static/images/noun-data-modeling-6688047.svg
+:img-bottom: ../images/noun-data-modeling-6688047.svg
 :class-img-bottom: .sd-img-bottom-small 
 :::
 
 :::{grid-item-card} Glossary
 :link: target-glossary
 :link-type: ref
-:img-bottom: ../_static/images/noun-lexicon-7107720.svg
+:img-bottom: ../images/noun-lexicon-7107720.svg
 :class-img-bottom: .sd-img-bottom-small 
 :::
 ::::

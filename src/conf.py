@@ -17,6 +17,7 @@ from datetime import date
 
 sys.path.extend(
     [
+        os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
         os.path.abspath("../aeon_analysis/aeon_analysis"),
         os.path.abspath("../aeon_acquisition"),
@@ -68,6 +69,7 @@ extensions = [
     "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
+    "convertworkflow"
 ]
 
 # Configure the myst parser to enable cool markdown features

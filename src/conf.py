@@ -18,7 +18,6 @@ from datetime import date
 sys.path.extend(
     [
         os.path.abspath("../aeon_mecha/"),
-        os.path.abspath("../aeon_analysis/aeon_analysis"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -165,7 +164,6 @@ myst_url_schemes = {
     "ftp": None,
     "mailto": None,
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
-    "aeon-analysis-github": "https://github.com/SainsburyWellcomeCentre/aeon_analysis/{{path}}",
     "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",
     "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",

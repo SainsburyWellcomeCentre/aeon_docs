@@ -144,10 +144,6 @@ Contains experiment workflows written in the Bonsai visual programming language.
 
 Contains the source code for the 'aeon_acquisition' Bonsai package, which is heavily used in workflows in 'aeon_experiments'.
 
-### [aeon_analysis](https://github.com/SainsburyWellcomeCentre/aeon_analysis)
-
-Contains Python modules for analysis of Aeon experiment data.
-
 ### [aeon_lineardrive](https://github.com/SainsburyWellcomeCentre/aeon_lineardrive)
 
 Contains source code for actuating a linear drive motor used in Aeon experiments (designed primarily for moving electrophysiology cabling during freely-moving experiments).

@@ -1,6 +1,6 @@
 (target-home)=
 
-![Banner](_static/images/landing-banner.png){align=center}
+![Banner](images/landing-banner.png){align=center}
 # Aeon
 
 An open-source platform to study the neural basis of ethological behaviours over naturalistic timescales.
@@ -11,7 +11,7 @@ An open-source platform to study the neural basis of ethological behaviours over
 :::{grid-item}
 :columns: 4
 :child-align: center
-![247Experiment](_static/images/landing-247.png){align=left}
+![247Experiment](images/landing-247.png){align=left}
 :::
 :::{grid-item}
 :columns: 8
@@ -45,13 +45,13 @@ To the Reference Guide
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Feeder](_static/images/landing-feeder.png){align=right} 
+![Feeder](images/landing-feeder.png){align=right} 
 :::
 
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Sleeping](_static/images/landing-sleeping.png){align=left}
+![Sleeping](images/landing-sleeping.png){align=left}
 :::
 :::{grid-item}
 :columns: 8
@@ -83,7 +83,7 @@ To the Contributor Guide
 :::{grid-item}
 :columns: 4
 :child-align: center
-![Hexslot](_static/images/landing-hexslot.png){align=right}
+![Hexslot](images/landing-hexslot.png){align=right}
 :::
 ::::
 

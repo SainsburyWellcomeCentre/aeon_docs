@@ -1,7 +1,7 @@
 (target-npx-recording)=
 # Neuropixels recordings
 
-:::{figure} ../../_static/images/npx-main.png
+:::{figure} ../../images/npx-main.png
 :height: 300px
 :alt: neuropixels-recording
 
@@ -23,7 +23,7 @@ To address these challenges, we developed a closed-loop control system capable o
 :::{grid-item}
 :columns: 4
 :child-align: center
-![commutator-location-control](../../_static/images/npx-commutator-location.png)
+![commutator-location-control](../../images/npx-commutator-location.png)
 :::
 :::{grid-item}
 :columns: 8
@@ -42,7 +42,7 @@ Using the live position estimate from the overhead camera, we can control the ho
 :::{grid-item}
 :columns: 4
 :child-align: center
-![commutator-rotation-control](../../_static/images/npx-commutator-rotation.png)
+![commutator-rotation-control](../../images/npx-commutator-rotation.png)
 :::
 :::{grid-item}
 :columns: 8
@@ -61,7 +61,7 @@ Using the heading direction computed by the IMU sensor on the [Onix neuropixels 
 :::{grid-item}
 :columns: 4
 :child-align: center
-![npx-20-recordings](../../_static/images/npx-recording-sites.png)
+![npx-20-recordings](../../images/npx-recording-sites.png)
 :::
 :::{grid-item}
 :columns: 8

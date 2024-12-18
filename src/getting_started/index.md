@@ -18,7 +18,7 @@ Further information about the project can be found in the
 :::{grid-item-card} {fas}`location-crosshairs;sd-text-primary` Multi-animal tracking
 :link: target-multianimal-tracking
 :link-type: ref
-:img-bottom: ../_static/images/getting-started-ma.png
+:img-bottom: ../images/getting-started-ma.png
 :img-alt:
 
 Online tracking of multiple animals in the Aeon arena.
@@ -27,7 +27,7 @@ Online tracking of multiple animals in the Aeon arena.
 :::{grid-item-card} {fas}`brain;sd-text-primary` Neuropixels recordings
 :link: target-npx-recording
 :link-type: ref
-:img-bottom: ../_static/images/getting-started-npx.png
+:img-bottom: ../images/getting-started-npx.png
 :img-alt:
 
 Week-long recording and analysis of Neuropixels data.

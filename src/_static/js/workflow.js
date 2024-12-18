@@ -45,9 +45,10 @@ class WorkflowContainer {
         element.classList.add("highlight-bonsai");
         const img = element.querySelector("img");
 
-        // assumes workflow references with $ are hosted in _static/
-        const workflowPath = img.src.replace("$", "_static/");
-        img.src = workflowPath.replace(/\.[^.]+$/, ".svg");
+        // assumes all workflow references are hosted in _workflows/
+        const workflowPath = img.src
+            .replace("_images/", "_workflows/")
+            .replace(/\.[^.]+$/, ".bonsai");
 
         const wrap = WorkflowContainer.createWorkflowCell(img, workflowPath);
         const parent = element.parentElement;

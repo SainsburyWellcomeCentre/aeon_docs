@@ -17,6 +17,7 @@ from datetime import date
 
 sys.path.extend(
     [
+        os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
@@ -67,6 +68,7 @@ extensions = [
     "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
+    "convertworkflow"
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -142,6 +144,9 @@ html_static_path = ["_static"]
 html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
     "css/custom.css",
+]
+html_js_files = [
+    'js/workflow.js', # javascript for embedded workflows
 ]
 
 # linkcheck will skip checking these URLs entirely

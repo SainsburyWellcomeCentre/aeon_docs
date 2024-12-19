@@ -1,0 +1,23 @@
+name: aeon_docs
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - doxygen
+  - graphviz
+  - pip
+  - pip:
+    - linkify-it-py 
+    - myst-nb
+    - pydata-sphinx-theme
+    - sphinx-autodoc-typehints
+    - sphinx-copybutton
+    - sphinx-design 
+    - dotmap # dependencies for aeon_mecha docs
+    - matplotlib
+    - opencv-python
+    - pandas
+    - plotly
+    - breathe # dependencies for aeon_acquisition docs
+    - git+https://github.com/rogerbarton/sphinx-csharp.git
+    - lxml

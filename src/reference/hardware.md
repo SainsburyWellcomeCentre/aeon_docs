@@ -3,7 +3,7 @@ This section is still under construction. Some information may be incomplete or 
 :::
 
 (target-hardware)=
-# Hardware Overview
+# Hardware Assembly
 ## Main modules
 | Module | Files |
 | --- | --- |

@@ -6,7 +6,7 @@ This reference manual details all software and hardware components, and a glossa
 ::::{grid} 1 2 2 2
 :gutter: 3 
 
-:::{grid-item-card} Hardware Overview
+:::{grid-item-card} Hardware Assembly
 :link: target-hardware
 :link-type: ref
 :img-bottom: ../images/noun-hardware-setup-6046729.svg

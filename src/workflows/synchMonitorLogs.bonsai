@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>HeartbeatSources</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:HeartbeatMonitor.bonsai">
+              <Name>Patch1Events</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:HeartbeatMonitor.bonsai">
+              <Name>Patch2Events</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:HeartbeatMonitor.bonsai">
+              <Name>Patch3Events</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:HeartbeatMonitor.bonsai">
+              <Name>VideoEvents</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:HeartbeatMonitor.bonsai">
+              <Name>SynchronizerEvents</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Merge" />
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="5" Label="Source1" />
+            <Edge From="1" To="5" Label="Source2" />
+            <Edge From="2" To="5" Label="Source3" />
+            <Edge From="3" To="5" Label="Source4" />
+            <Edge From="4" To="5" Label="Source5" />
+            <Edge From="5" To="6" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:SynchronizerMonitor.bonsai" />
+      <Expression xsi:type="scr:ExpressionCondition">
+        <scr:Expression>DeviceCount != ExpectedDeviceCount || MaxDifference &gt; 0 || Math.Abs((MeanUtcTimestamp - DateTime.UtcNow).TotalMinutes) &gt; 30
+</scr:Expression>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Extensions\AlertGate.bonsai">
+        <AlertRefractoryPeriod>PT1M</AlertRefractoryPeriod>
+      </Expression>
+      <Expression xsi:type="Format">
+        <Format>## **Harp Synch**
+**Synchronizer Stats**: {0}</Format>
+        <Selector>it</Selector>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>EnvironmentAlertMessages</Name>
+      </Expression>
+      <Expression xsi:type="aeon:FormatLogMessage">
+        <Format>{0}	{1}	{2}	{3}	{4}</Format>
+        <Selector>MeanTimestamp,MeanUtcTimestamp,ExpectedDeviceCount,DeviceCount,MaxDifference</Selector>
+        <aeon:Priority>Alert</aeon:Priority>
+        <aeon:Type>HarpSynch</aeon:Type>
+        <aeon:Timestamp>MeanTimestamp</aeon:Timestamp>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>AlertLogs</Name>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="3" To="6" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

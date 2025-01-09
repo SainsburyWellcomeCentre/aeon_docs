@@ -14,7 +14,7 @@ O365 connectors will be deprecated in the coming months. This is a known [issue]
 :::
 
 #### Properties
-| Property Name      | Description                                                 |
+| Property name      | Description                                                 |
 |--------------------|-------------------------------------------------------------|
 | **ConfigFile**     | The full or relative path of the configuration file         |
 
@@ -44,20 +44,20 @@ This node will accept any input but these must contain the information required 
 The members of the input used to configure the message are set in the [properties](#properties-1).
 
 #### Outputs
-Sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following attributes: 
-| Attribute | Type                         | Description                                              |
-|---------------|----------------------------------|--------------------------------------------------------------|
-| **Priority**  | `Aeon.Acquisition.PriorityLevel` | Specifies the priority level of the alert log.               |
-| **Type**      | `string`                         | Specifies the type of alert under which this log is stored.  |
-| **Message**   | `string`                         | Contains the actual message content to be logged.            |
+A sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following attributes. 
+| Attribute name     | Type                             | Description                                                  |
+|--------------------|----------------------------------|--------------------------------------------------------------|
+| **Priority**       | `Aeon.Acquisition.PriorityLevel` | Specifies the priority level of the alert log.               |
+| **Type**           | `string`                         | Specifies the type of alert under which this log is stored.  |
+| **Message**        | `string`                         | Contains the actual message content to be logged.            |
 
 #### Properties
-| Property Name    | Type        | Description                                                                                         |
+| Property name        | Type            | Description                                                                                             |
 |----------------------|-----------------|---------------------------------------------------------------------------------------------------------|
 | **Format**           | `string`        | The composite format string used to specify the output message                                          |
 | **Selector**         | `string`        | Specifies the inner properties from the input that will be included in the formatted log message        |
-| **Priority**         | `enum`          | Sets the priority level of the log message, `Alert` or `Notification`                              |
-| **Type**             | `string`        | Defines the type of the log entry. Can be any `string` entry                                                  |
+| **Priority**         | `enum`          | Sets the priority level of the log message, `Alert` or `Notification`                                   |
+| **Type**             | `string`        | Defines the type of the log entry. Can be any `string` entry                                            |
 | **Timestamp**        | `string`        | The inner property selected for use as the timestamp for each element in the sequence                   |
 
 #### Usage

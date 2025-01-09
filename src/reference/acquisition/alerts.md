@@ -5,18 +5,15 @@ In order to capture as full a repertoire of natural behaviours as possible, the 
 This presents unique challenges from a perspective of data acquisition and experimental control, since the system must be robust to, and ideally be able to recover from, system and hardware failures without constant human intervention. 
 The Alerts module facilitates this using a system of webhooks and logs to record the state of the experiment, and to alert team members to hardware or system failures, as well as inconsistencies in data acquisition. 
 
-## SendAlert
+## Nodes
+### SendAlert
 The node `SendAlert (Aeon.Acquisition)` accepts any string and sends it via an incoming webhook to post messages to a Microsoft Teams channel using an O365 connector. Full information on configuring these webhooks and generating a webhook url can be found in the [Microsoft documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet).
-
-![SendAlertBase](../../workflows/EnvironmentAlertsBase.svg)
-<!-- Not immediately clear which is which, as PublishSubject is EnvironmentAlertMessages in the svg, and EnvironmentAlerts is presumably something that comes before PublishSubject? What is "This" in the 2nd sentence? is `MultiCast` an example of "sending custom alert"? is `MultiCast` `MultiCastSubject`? "this `Subject`? -->
-We use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
 
 :::{note}
 O365 connectors will be deprecated in the coming months. This is a known [issue](aeon-experiments-github:issues/591) and an alternative will be developed and workflows updated on the public github repositories in time.
 :::
 
-### Properties
+#### Properties
 | Property Name      | Description                                                 |
 |--------------------|-------------------------------------------------------------|
 | **ConfigFile**     | The full or relative path of the configuration file         |
@@ -32,17 +29,15 @@ AEON: https://liveuclac.webhook.office.com/webhookb2/4a6da9d9-7456-4fe8-83a7-597
 Note that the system name should match the name of the computer, which can be set in Windows System Settings. 
 In Aeon, this file is stored in a "config" folder in the root of the repository. <!-- is this important? -->
 
-## FormatLogMessage
+#### Usage
+<!-- Not immediately clear which is which, as PublishSubject is EnvironmentAlertMessages in the svg, and EnvironmentAlerts is presumably something that comes before PublishSubject? What is "This" in the 2nd sentence? is `MultiCast` an example of "sending custom alert"? is `MultiCast` `MultiCastSubject`? "this `Subject`? -->
+We use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
+
+![SendAlertBase](../../workflows/EnvironmentAlertsBase.svg)
+
+### FormatLogMessage
 All alert messages can also be logged to file, along with other lower priority 'notifications' that should be logged but is not urgent enough to warrant an alert. 
 The `FormatLogMessage (Aeon.acquisition)` node formats the incoming data stream to enable the logging of alerts. 
-Once formatted, these timestamped messages can be `Multicast` to a shared "AlertLogs" `Subject`, allowing for the logging of both notifications and alerts.
-
-![FormatLogMessage](../../workflows/formatLogMessage.svg)
-
-<!-- TODO: Resolve broken logdata link-->
-The shared "AlertLogs" `Subject` is then provided as an input to the [`logData`](../Logging/LogData.md) node, which writes the log data to the specified file. 
-
-![AlertLogs](../../workflows/alertLogs.svg)
 
 #### Inputs
 This node will accept any input but these must contain the information required for the alert message and timestamp. 

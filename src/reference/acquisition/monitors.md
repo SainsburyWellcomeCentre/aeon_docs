@@ -4,42 +4,43 @@
 All devices in the Aeon system are synchronised using a Harp [ClockSynchronizer](https://github.com/harp-tech/device.clocksynchronizer) device. 
 Sychronisation is constantly monitored across devices using a combination of `HeartbeatMonitor (Aeon.Acquisition)` and `SynchronizerMonitor (Aeon.Acquisition)` nodes.
 
-## HeartbeatMonitor
+## Nodes
+### HeartbeatMonitor
 <!-- missing heartbeat monitor description -->
 _missing description_
 
-### Inputs
+#### Inputs
 None
 
-### Outputs
+#### Outputs
 An observable sequence of `Harp.Timestamped<string>` 
 
-### Properties
+#### Properties
 This node takes no direct inputs but subscribes to and monitors the event stream `Subject` named in the node properties for heartbeat events every second (harp register address 8 on all devices). 
 
 | Property Name  | Description                                                                           |
 |--------------------|-------------------------------------------------------------------------------------------|
 | **Name**           | Set the name of the events `Subject` to monitor                                           |
 
-### Usage
-#### Monitoring a single device
+#### Usage
+##### Monitoring a single device
 This example monitors the heartbeats from the ClockSynchronizer device itself.
 
 ![Aeon.Acquisition.HeartbeatMonitor](../../workflows/heartbeatMonitor.svg)
 
-#### Monitoring multiple devices
+##### Monitoring multiple devices
 To monitor multiple devices at once, a `HeartbeatMonitor` node for each device should be added to a `GroupWorkflow` called, for example, "HeartbeatSources", and the results merged to the `WorkflowOutput` of the group.
 
 ![Aeon.Acquisition.HeartbeatSources merge](../../workflows/heartbeatSourcesInt.svg)
 
-## SynchronizerMonitor
+### SynchronizerMonitor
 The `SynchronizerMonitor (Aeon.Acquisition)` node is used to monitor the synchronisation status of acquisition devices, ensuring that all monitored devices are properly aligned and functioning in unison. 
 It counts the number of devices in the ["HeartbeatSources" `GroupWorkflow`](#monitoring-multiple-devices) and compares heatbeats acquired from each device to the heartbeats of the ClockSynchronizer device. 
 
-### Inputs
+#### Inputs
 Sequence of `Harp.Timestamped<string>`
 
-### Outputs
+#### Outputs
 An observable sequence of custom `DynamicClass` with the following attributes. 
 
 | Name                | Type           | Description                                                   |
@@ -51,7 +52,7 @@ An observable sequence of custom `DynamicClass` with the following attributes.
 | **MaxDifference**       | `double`           | The largest difference between timestamps from all devices       |
 | **Elements**            | `string`           | The names of the input device streams                            |
 
-### Usage
+#### Usage
 Pass the output from the ["HeartbeatSources" `GroupWorkflow`](#monitoring-multiple-devices) to a `SynchronizerMonitor (Aeon.Acquisition)` node. 
 
 ![Aeon.Acquisition.HeartbeatSources](../../workflows/heartbeatSources.svg)

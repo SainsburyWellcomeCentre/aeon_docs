@@ -16,11 +16,11 @@ None
 An observable sequence of `Harp.Timestamped<string>` 
 
 #### Properties
-This node takes no direct inputs but subscribes to and monitors the event stream `Subject` named in the node properties for heartbeat events every second (harp register address 8 on all devices). 
+This node takes no direct inputs but subscribes to and monitors the event stream `Subject` named in the node properties for heartbeat events every second (Harp register address 8 on all devices). 
 
-| Property Name  | Description                                                                           |
-|--------------------|-------------------------------------------------------------------------------------------|
-| **Name**           | Set the name of the events `Subject` to monitor                                           |
+| Property name      | Description                                                                         |
+|--------------------|-------------------------------------------------------------------------------------|
+| **Name**           | Set the name of the events `Subject` to monitor                                     |
 
 #### Usage
 ##### Monitoring a single device
@@ -43,7 +43,7 @@ Sequence of `Harp.Timestamped<string>`
 #### Outputs
 An observable sequence of custom `DynamicClass` with the following attributes. 
 
-| Name                | Type           | Description                                                   |
+| Attribute name          | Type               | Description                                                      |
 |-------------------------|--------------------|------------------------------------------------------------------|
 | **MeanTimestamp**       | `double`           | The mean raw timestamp across all input streams                  |
 | **MeanUtcTimestamp**    | `System.DateTime`  | The mean UTC timestamp across all input streams                  |

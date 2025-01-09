@@ -81,7 +81,7 @@ myst_enable_extensions = [
 ]
 
 # Automatically add anchors to markdown headings
-myst_heading_anchors = 4
+myst_heading_anchors = 6
 
 # Set the Markdown format to myst
 myst_render_markdown_format = "myst"

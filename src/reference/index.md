@@ -20,6 +20,13 @@ This reference manual details all software and hardware components, and a glossa
 :class-img-bottom: .sd-img-bottom-small 
 :::
 
+:::{grid-item-card} Acquisition Modules
+:link: target-acquisition-modules
+:link-type: ref
+:img-bottom: ../images/noun-timeline-5147845.svg
+:class-img-bottom: .sd-img-bottom-small
+:::
+
 :::{grid-item-card} Data Contract
 :link: target-data-schema
 :link-type: ref
@@ -40,6 +47,7 @@ This reference manual details all software and hardware components, and a glossa
 :hidden:
 
 hardware
+acquisition
 api
 data_contract
 glossary

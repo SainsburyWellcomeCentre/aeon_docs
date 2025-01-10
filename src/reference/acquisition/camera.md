@@ -90,7 +90,7 @@ TBC
 ## Logging
 All events are logged using a [`LogVideo` (`Aeon.Video`)](./logging.md#logvideo) node.
 
-![Aeon.Acquisition.logVideo](../../workflows/logVideo.svg)
+![Aeon.Video.LogVideo](../../workflows/logVideo.svg)
 
 This node saves the video itself in dedicated `.avi` files encoded with the **FMP4 codec**. 
 Harp and hardware timestamps and the frame counter recorded at the camera are logged in corresponding `.csv` files with the following columns:

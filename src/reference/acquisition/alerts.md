@@ -30,8 +30,15 @@ Note that the system name should match the name of the computer, which can be se
 In Aeon, this file is stored in a "config" folder in the root of the repository. <!-- is this important? -->
 
 #### Usage
-<!-- Not immediately clear which is which, as PublishSubject is EnvironmentAlertMessages in the svg, and EnvironmentAlerts is presumably something that comes before PublishSubject? What is "This" in the 2nd sentence? is `MultiCast` an example of "sending custom alert"? is `MultiCast` `MultiCastSubject`? "this `Subject`? -->
-We use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
+<!-- Not immediately clear which is which, is  "EnvironmentAlertMessages" the `PublishSubject`? 
+what is the EnvironmentAlerts subject?  
+which one is the subscribed observer of `PublishSubject`? -->
+<!-- What is "This" referring to? 
+is `MultiCast` equivalent to `MultiCastSubject`? 
+"this `Subject` presumably refers to the "EnvironmentAlerts" `Subject`? 
+May be clearer if illustrated with a sample workflow? -->
+Use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. 
+This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
 
 ![SendAlertBase](../../workflows/EnvironmentAlertsBase.svg)
 
@@ -83,4 +90,4 @@ This node simply accepts any input stream, but only returns elements that arrive
 ![AlertGate](../../workflows/alertGateDetail.svg)
 
 <!-- TODO: Resolve broken logdata link-->
-Specific use cases for formatting and sending alerts is detailed in [individual module](../HardwareDevices/) documentation
+Specific use cases for formatting and sending alerts are detailed in [individual module](../HardwareDevices/) documentation.

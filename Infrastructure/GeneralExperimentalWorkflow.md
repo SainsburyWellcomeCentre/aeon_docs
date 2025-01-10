@@ -23,7 +23,7 @@ Many of the outputs from these devices, for example a camera, are useful to obse
 
 ## Challenges in long-term multidimensional data acquisition.
 
-Acquiring data over long time scales requires that specific considerations must be given to being robust to rare system failures,losing as little time and data as possible. In logging and data management, bottlenecks and blocks in storage space and data transfer to long term storage must be considered. It is also required to have semi-automated monitoring for the animal subects and experiment status, where constant 24hr human surveillance is impractical.   
+Acquiring data over long time scales requires that specific considerations must be given to being robust to rare system failures, losing as little time and data as possible. In logging and data management, bottlenecks and blocks in storage space and data transfer to long term storage must be considered. It is also required to have semi-automated monitoring for the animal subjects and experiment status, where constant 24hr human surveillance is impractical.   
 
 ## State persistence
 One challenge of long term experiments is the potential for rare events of system instability, like a power-cut, interupting acquisition. In order for the workflow to be robust to these events, the `StateRecoverySubject` is a special kind of `Subject` that persists across multiple executions of the same workflow. This feature can be used to automatically restore the state of the system following a system crash and continue acquisition and control seamlessly. 

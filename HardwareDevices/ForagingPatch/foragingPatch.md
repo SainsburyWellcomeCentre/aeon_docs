@@ -40,11 +40,9 @@ If a pellet is due to be delivered, an IR beam break module in the feeder detect
 | **DueTime**   | The time following a pellet delivery command that the device will wait for a successful beam break signal before assuming the pellet delivery has failed. |
 | **Count**     | The number of retry attempts the feeder will perform. |
 
-### ***Subject names:***
+#### ***Subjects:***
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. Each of these subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
-
-## <u>Subjects</u>
-### **Device Event Subjects**:
+#### **Device Event Subjects**:
 | Subject Name          | Type                    | Description                                                         |
 |----------------------|--------------------------|---------------------------------------------------------------------|
 | **PatchEvents**      | `Harp.HarpMessage`       | Contains all events, consisting of timestamped Harp messages reporting the state of each register of the output expander. Also output directly by the `UndergroundFeeder` node.|
@@ -52,7 +50,7 @@ Events and commands from the feeder are collected from, and published to shared 
 | **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register. |
 
 
-### **Device Command Subjects**:
+#### **Device Command Subjects**:
 | Subject Name          | Type      | Description                                                                                     |
 |----------------------|------------|-------------------------------------------------------------------------------------------------|
 | **DeliverPellet**    | `object`   | Trigger pellet delivery. Any event passed to this `Subject` will trigger a pellet delivery      |
@@ -106,7 +104,7 @@ Each of these auxiliary modules accepts events carried by shared `Subjects` from
 
 In the  case of a feeder, outputs from auxiliary modules are combined to form a "Patch" assembly, utilising available registers of the output expander. Note the use of the `Format` node to configure the register addresses for software generated data logs. Logging of this harp device is performed using the  [`LogHarpState (Aeon.Acquisition)`](../../Logging/LogHarpState.md) node.  
 
-![logPatchEvents](./Workflows/logPatchEvents.svg")
+![logPatchEvents](./Workflows/logPatchEvents.svg)
 
 Register address 203 is not shown in this workflow, but is generated as events marking as a retry following an unsuccessful delivery attempt. This is passed to the `PatchEvents` `Subject` within the `UndergroundFeeder` node.
 

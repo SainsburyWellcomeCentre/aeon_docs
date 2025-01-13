@@ -70,14 +70,14 @@ Logs can be identified by their register address, summarised here.
 **Data schema**
 | Register name         | Access | Address | Type  | Mask Type          | Description                                   |
 |-----------------------|--------|---------|-------|--------------------|-----------------------------------------------|
-| TimestampSeconds      | Event  | 8       | U32   | -                  | Heartbeat                                     |
-| Cam0Event             | Event  | 32      | U8    | CameraEvents       | Signals a frame was triggered on camera 0     |
-| Cam1Event             | Event  | 33      | U8    | CameraEvents       | Signals a frame was triggered on camera 1     |
-| ConfigureCam0Event    | Write  | 34      | U8    | EventConfiguration | Configures the event on camera 0              |
-| ConfigureCam1Event    | Write  | 35      | U8    | EventConfiguration | Configures the event on camera 1              |
-| StartAndStop          | Write  | 36      | U8    | CameraFlags        | Starts and stops the cameras immediately      |
-| TriggerFrequencyCam0  | Write  | 45      | U16   | -                  | Specifies the trigger frequency for camera 0  |
-| TriggerFrequencyCam1  | Write  | 52      | U16   | -                  | Specifies the trigger frequency for camera 1  |
+| **TimestampSeconds**      | Event  | 8       | U32   | -                  | Heartbeat                                     |
+| **Cam0Event**             | Event  | 32      | U8    | CameraEvents       | Signals a frame was triggered on camera 0     |
+| **Cam1Event**             | Event  | 33      | U8    | CameraEvents       | Signals a frame was triggered on camera 1     |
+| **ConfigureCam0Event**    | Write  | 34      | U8    | EventConfiguration | Configures the event on camera 0              |
+| **ConfigureCam1Event**    | Write  | 35      | U8    | EventConfiguration | Configures the event on camera 1              |
+| **StartAndStop**          | Write  | 36      | U8    | CameraFlags        | Starts and stops the cameras immediately      |
+| **TriggerFrequencyCam0**  | Write  | 45      | U16   | -                  | Specifies the trigger frequency for camera 0  |
+| **TriggerFrequencyCam1**  | Write  | 52      | U16   | -                  | Specifies the trigger frequency for camera 1  |
 
 For the full register and bitmask schema for the `CameraControllerGen2` device, see the corresponding [device.yml](https://github.com/harp-tech/device.cameracontrollergen2/blob/main/device.yml). 
 

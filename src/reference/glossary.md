@@ -30,7 +30,7 @@ Acquisition Slice
     The event (i.e. all data) over a particular {term}`acquisition slice duration`.
 
 Task Protocol
-    An integer number and associated string describing a unique behavioral task run in Project Aeon. For experiment 0.1, there were 8 unique behavioral tasks run.
+    An integer number and associated string describing a unique behavioural task run in Project Aeon. For experiment 0.1, there were 8 unique behavioural tasks run.
 
 :::
 

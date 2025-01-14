@@ -30,7 +30,7 @@ If you have any questions or need further information, feel free to reach out to
 
 ## Code of Conduct
 
-Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behavior, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
+Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behaviour, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
 
 :::{toctree}
 :maxdepth: 1

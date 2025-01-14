@@ -24,7 +24,7 @@ This enables direct control to start and stop connected cameras, and configurati
 
 ##### Subjects
 Events and commands from the device are collected, in some cases processed, and passed to published subjects. 
-Here you set the names used for these subjects to identify these events, commands or datastreams for this specific device. 
+Here you set the names used for these subjects to identify these events, commands or data streams for this specific device. 
 Each of these subjects is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device events subjects

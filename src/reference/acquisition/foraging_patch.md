@@ -55,7 +55,7 @@ These properties configure the options around this functionality.
 
 ##### Subjects
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events, commands or datastreams for this specific feeder. 
+Here you set the names used for these `Subjects` to identify events, commands or data streams for this specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device events subjects

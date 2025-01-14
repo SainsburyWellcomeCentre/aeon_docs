@@ -9,7 +9,7 @@ Acquisition Chunk
     The event (i.e. all data) over a particular {term}`acquisition chunk duration`.
 
 Acquisition Chunk Duration
-    The time duration over which datastream files are written out. For experiment 0.1, datastreams were written out in files of 1 hour chunk durations.
+    The time duration over which datastream files are written out. For experiment 0.1, data streams were written out in files of 1 hour chunk durations.
 
 Acquisition Epoch
     The event over the time period when the acquistion computer is on and acquiring data until it is stopped. For experiment 0.1 there are multiple acquisition runs due to Bonsai/Windows being restarted.

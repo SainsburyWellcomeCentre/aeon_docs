@@ -88,8 +88,7 @@ Each of these subjects is published and becomes accessible in the bonsai editor'
 TBC
 
 ## Logging
-<!-- TODO: Fix link -->
-All events are logged using a [`LogVideo` (`Aeon.Video`)](../../Logging/LogVideo.md) node.
+All events are logged using a [`LogVideo` (`Aeon.Video`)](./logging.md#logvideo) node.
 
 ![Aeon.Acquisition.logVideo](../../workflows/logVideo.svg)
 
@@ -106,7 +105,7 @@ Harp and hardware timestamps and the frame counter recorded at the camera are lo
 The `.csv` data files are matched to the `.avi` movies, i.e. the first row of the data file correspond to the first frame of the movie.
 
 ## State persistence
-Not required for state recovery
+Not required for state recovery.
 
 ## Alerts
 Camera streams are monitored for stream timeouts and dropped frames, which usually result from power outages or connection issues. 

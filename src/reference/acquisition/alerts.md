@@ -65,7 +65,17 @@ Sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following a
 | **Type**             | `string`        | Defines the type of the log entry. Can be any `string` entry                                                  |
 | **Timestamp**        | `string`        | The inner property selected for use as the timestamp for each element in the sequence                   |
 
-## AlertGate
+#### Usage
+Prior to logging alerts, format the incoming message strings using a `FormatLogMessage (Aeon.acquisition)` node.
+Once formatted, these timestamped messages can be `Multicast` to a shared "AlertLogs" `Subject`, allowing for the logging of both notifications and alerts.
+
+![FormatLogMessage](../../workflows/formatLogMessage.svg)
+
+The shared "AlertLogs" `Subject` is then provided as an input to the [`LogData (Aeon.Acquisition)`](./logging.md#logdata) node, which writes the log data to the specified file. 
+
+![AlertLogs](../../workflows/alertLogs.svg)
+
+### AlertGate
 Many alerts may be triggered by events that occur at high frequency when in a faulty state. 
 For example, if a device is desynchronised, then an alert will be generated every second until this condition is no longer true. 
 In order to avoid unneccessary, repetitive alerts and overinflated alert logs, an `AlertGate (Aeon.acquisition)` node can be used to throttle specific alerts.
@@ -76,5 +86,5 @@ This node simply accepts any input stream, but only returns elements that arrive
 
 ![AlertGate](../../workflows/alertGateDetail.svg)
 
-<!-- TODO: Resolve broken logdata link-->
-Specific use cases for formatting and sending alerts is detailed in [individual module](../HardwareDevices/) documentation
+<!-- TODO: Resolve broken module link-->
+Specific use cases for formatting and sending alerts are detailed in [individual module](../HardwareDevices/) documentation.

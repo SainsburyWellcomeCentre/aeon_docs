@@ -35,7 +35,7 @@ This node establishes a serial connection to the weighing scale, allowing direct
 | **FilterWindow**           | Defines the size of the sliding window for linear regression filtering of weight measurements |
 
 ### ***Subject names:***
-Events and commands from the scale are collected from, and published to `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or datastreams for this device. Device events subects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events and commands from the scale are collected from, and published to `Subjects`, in some cases after some processing. Here you set the names used for these `Subjects` to identify events, commands or data streams for this device. Device events subects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ## **Subjects:**
 ### Device Events Subjects

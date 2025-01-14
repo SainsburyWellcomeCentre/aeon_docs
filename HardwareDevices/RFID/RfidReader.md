@@ -27,7 +27,7 @@ Create a `GroupWorkflow` node and name it appropriately, e.g. 'Patch1Rfid'. Plac
 | **PortName** | The COM port the physical RFID reader is connected to |
 
 ### ***Subject names:***
-Events from the RFID reader are and published to shared `Subjects`. Here you set the names used for these `Subjects` to identify events, commands or datastreams. These subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set in their properties.
+Events from the RFID reader are and published to shared `Subjects`. Here you set the names used for these `Subjects` to identify events, commands or data streams. These subjects become accessible in the bonsai editor's toolbox anywhere in the workflow using the name set in their properties.
 
 --------
 

@@ -13,7 +13,7 @@ For example:
 
 ![workflowImage](./Workflows/logData.svg)
 
-Incoming datastreams can be combined into dynamic classes (using `Zip` or `CombineLatest` for example), and passed directly to the `LogData` node. In this case, the `Selector` property can be used to select specific members of the incoming data stream to save. These define column titles and order in the resulting .csv file.
+Incoming data streams can be combined into dynamic classes (using `Zip` or `CombineLatest` for example), and passed directly to the `LogData` node. In this case, the `Selector` property can be used to select specific members of the incoming data stream to save. These define column titles and order in the resulting .csv file.
 
 ### Inputs and Outputs:
 

@@ -73,8 +73,7 @@ Once formatted, these timestamped messages can be `Multicast` to a shared "Alert
 
 ![FormatLogMessage](../../workflows/formatLogMessage.svg)
 
-<!-- TODO: Resolve broken logdata link-->
-The shared "AlertLogs" `Subject` is then provided as an input to the [`logData`](../Logging/LogData.md) node, which writes the log data to the specified file. 
+The shared "AlertLogs" `Subject` is then provided as an input to the [`LogData (Aeon.Acquisition)`](./logging.md#logdata) node, which writes the log data to the specified file. 
 
 ![AlertLogs](../../workflows/alertLogs.svg)
 
@@ -89,5 +88,5 @@ This node simply accepts any input stream, but only returns elements that arrive
 
 ![AlertGate](../../workflows/alertGateDetail.svg)
 
-<!-- TODO: Resolve broken logdata link-->
+<!-- TODO: Resolve broken module link-->
 Specific use cases for formatting and sending alerts are detailed in [individual module](../HardwareDevices/) documentation.

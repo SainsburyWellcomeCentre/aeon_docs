@@ -59,8 +59,7 @@ Inside, place a `CameraController (Aeon.Video)` node, externalise all properties
 None
 
 ## Logging
-<!-- TODO: Fix link-->
-All events can be logged using a [`LogHarpState (Aeon.Acquisition)`](../../Logging/LogHarpState.md) node.
+All events can be logged using a [`LogHarpState (Aeon.Acquisition)`](./logging.md#logharpstate) node.
 The example below logs the state of all relevant Harp registers in a dedicated folder. 
 
 ![Aeon.Acquisition.LogHarpState](../../workflows/logVideoEvents.svg)

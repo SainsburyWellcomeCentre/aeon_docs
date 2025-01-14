@@ -73,9 +73,8 @@ Inside, place a `WeightScale (Aeon.Environment)` node, externalise it's properti
 No specific GUI components are defined for this module.
 
 ## Logging
-<!-- TODO: Fix link to LogHarpState node -->
 Outputs from the nest module are collected and formatted into Harp messages using the `Harp.Format` and custom `FormatWeight` nodes to configure the register addresses for each data stream on a virtual Harp device, utilising commonly available registers. 
-Logging of this virtual Harp device can then be performed as with any Harp device using the [`LogHarpState (Aeon.Acquisition)`](../../Logging/LogHarpState.md) node.  
+Logging of this virtual Harp device can then be performed as with any Harp device using the [`LogHarpState (Aeon.Acquisition)`](./logging.md#logharpstate) node.  
 
 ![logPatchEvents](../../workflows/logWeight.svg)
 

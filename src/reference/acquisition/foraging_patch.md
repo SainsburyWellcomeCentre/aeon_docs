@@ -248,9 +248,8 @@ Each of these subjects becomes accessible in the bonsai editor's toolbox anywher
 <!-- To be completed -->
 
 ## Logging
-<!-- TODO: Fix link to `LogHarpState` -->
 Outputs from auxiliary nodes are first formatted using the `Format` node, within which the register addresses are configured for software generated data logs.
-Utilising available registers of the output expander, the formatted outputs are then combined to form a "Patch" assembly, before being passed to the[`LogHarpState (Aeon.Acquisition)`](../../Logging/LogHarpState.md) node to be written to a log file.
+Utilising available registers of the output expander, the formatted outputs are then combined to form a "Patch" assembly, before being passed to the[`LogHarpState (Aeon.Acquisition)`](./logging.md#logharpstate) node to be written to a log file.
 
 ![logPatchEvents](../../workflows/logPatchEvents.svg)
 

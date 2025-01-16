@@ -33,6 +33,7 @@ To monitor multiple devices at once, a `HeartbeatMonitor` node for each device s
 
 ![Aeon.Acquisition.HeartbeatSources merge](../../workflows/heartbeatSourcesInt.svg)
 
+(target-node-synchronizermonitor)=
 ### SynchronizerMonitor
 The `SynchronizerMonitor (Aeon.Acquisition)` node is used to monitor the synchronisation status of acquisition devices, ensuring that all monitored devices are properly aligned and functioning in unison. 
 It counts the number of devices in the ["HeartbeatSources" `GroupWorkflow`](#monitoring-multiple-devices) and compares heatbeats acquired from each device to the heartbeats of the ClockSynchronizer device. 
@@ -61,6 +62,6 @@ Pass the output from the ["HeartbeatSources" `GroupWorkflow`](#monitoring-multip
 Alerts can be set up using an `ExpressionCondition` node to define conditions under which an alert should be sent.
 Conditions can be based on the [outputs from the `SynchronizerMonitor` node](#synchronizermonitor).
 For example, alerts can be triggered if the number of expected devices does not match the number of devices sending heartbeats, or if one or more devices are sending desynchronised heartbeats.
-The `ExpressionCondition` node then evaluates these conditions and passes the results to an [`AlertGate (Aeon.Acquisition)` node](./alerts.md#alertgate), after which the alert is [sent](./alerts.md#sendalert) and [logged to file](./alerts.md#formatlogmessage).
+The `ExpressionCondition` node then evaluates these conditions and passes the results to an [`AlertGate (Aeon.Acquisition)` node](target-node-alertgate), after which the alert is [sent](target-node-sendalert) and [logged to file](target-node-formatlogmessage).
 
 ![SynchMonitorLogs](../../workflows/synchMonitorLogs.svg)

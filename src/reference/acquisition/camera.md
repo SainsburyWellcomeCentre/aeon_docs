@@ -5,6 +5,7 @@ Cameras on Aeon are typically triggered using synchronised trigger events emitte
 Prior to adding cameras to the system, one would usually [set this device up](target-module-camera-controller) in the workflow first. 
 
 ## Nodes
+(target-node-spinnakervideosource)=
 ### SpinnakerVideoSource
 The `SpinnakerVideoSource (Aeon.Video)` node establishes a connection and configuration of a specific Spinnaker camera.
 
@@ -89,7 +90,7 @@ Each of these `Subjects` is published and becomes accessible in the bonsai edito
 TBC
 
 ## Logging
-All events are logged using a [`LogVideo` (`Aeon.Video`)](./logging.md#logvideo) node.
+All events are logged using a [`LogVideo` (`Aeon.Video`)](target-node-logvideo) node.
 
 ![Aeon.Video.LogVideo](../../workflows/logVideo.svg)
 
@@ -110,7 +111,7 @@ Not required for state recovery.
 
 ## Alerts
 Camera streams are monitored for stream timeouts and dropped frames, which usually result from power outages or connection issues. 
-The [`StreamTimeout`](#streamtimeout) and [`DroppedFrames`](#droppedframes) nodes detect these failure events and their outputs can be formatted as alert strings, which are then sent to the "EnvironmentAlertMessages" and "AlertLogs" `Subjects` to [send](./alerts.md#sendalert) and [log](./alerts.md#formatlogmessage) alerts, respectively.
+The [`StreamTimeout`](#streamtimeout) and [`DroppedFrames`](#droppedframes) nodes detect these failure events and their outputs can be formatted as alert strings, which are then sent to the "EnvironmentAlertMessages" and "AlertLogs" `Subjects` to [send](target-node-sendalert) and [log](target-node-formatlogmessage) alerts, respectively.
 
 ![CameraAlerts](../../workflows/cameraAlerts.svg)
 

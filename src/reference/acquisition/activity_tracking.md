@@ -39,7 +39,7 @@ Using a `SubscribeSubject`, e.g. "CameraTop", subscribe to the target [camera's]
 
 ![ActivityTracking](../../workflows/activityTracking.svg)
 
-As with [`InRange (Aeon.Acquisition)`](./cv_tracking.md#inrange), more than one region of interest can be defined using multiple `GroupWorkflows`, each containing a separate instance of `ActivityTracking (Aeon.Vision)`.
+As with [`InRange (Aeon.Acquisition)`](target-node-inrange), more than one region of interest can be defined using multiple `GroupWorkflows`, each containing a separate instance of `ActivityTracking (Aeon.Vision)`.
 
 <!-- To be completed 
 ## GUI

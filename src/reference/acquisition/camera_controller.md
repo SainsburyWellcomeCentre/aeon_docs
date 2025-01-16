@@ -23,9 +23,9 @@ This enables direct control to start and stop connected cameras, and configurati
 | **LocalTriggerFrequency**  | Set the frequency of the second (local) set of camera frame triggers. |
 
 ##### Subjects
-Events and commands from the device are collected, in some cases processed, and passed to published subjects. 
-Here you set the names used for these subjects to identify these events, commands or data streams for this specific device. 
-Each of these subjects is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
+Events and commands from the device are collected, in some cases processed, and passed to published `Subjects`. 
+Here you set the names used for these `Subjects` to identify these events, commands or data streams for this specific device. 
+Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device events subjects
 
@@ -50,7 +50,7 @@ Each of these subjects is published and becomes accessible in the bonsai editor'
 | **StopCameras**   | `object`    | Any item sent to this `BehaviorSubject` immediately stops camera acquisition.      |
 
 #### Usage
-Create a `GroupWorkflow` with an appropriate name, e.g. `"VideoController"`. 
+Create a `GroupWorkflow` and give it an appropriate name, e.g. "VideoController". 
 Inside, place a `CameraController (Aeon.Video)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
 ![Aeon.Acquisition.CameraController](../../workflows/videoController.svg)

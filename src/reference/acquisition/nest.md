@@ -64,8 +64,8 @@ Each of these subjects becomes accessible in the bonsai editor's toolbox anywher
 | **BaselineWeightTrigger**| `object`             | Specifies the trigger for resetting the baseline weight                                        |
 
 #### Usage
-Create a `Groupworkflow` called "Nest". 
-Inside, place a `WeightScale (Aeon.Environment)` node, externalise it's properties and connect to the `WorkflowOutput`:
+Create a `Groupworkflow` and give it an appropriate name, e.g. "Nest". 
+Inside, place a `WeightScale (Aeon.Environment)` node, externalise all properties, and connect to the `WorkflowOutput`.
 
 ![WeightScale](../../workflows/weightScale.svg)
 

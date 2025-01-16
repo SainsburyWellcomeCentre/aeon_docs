@@ -44,7 +44,7 @@ Each of these subjects becomes accessible in the bonsai editor's toolbox anywher
 | **Command2**      | `Type`        | Description of Command2                                                                         |
 -->
 #### Usage
-Create a `GroupWorkflow` node and name it appropriately, e.g. "Patch1Rfid". 
+Create a `GroupWorkflow` node and give it an appropriate name, e.g. "Patch1Rfid". 
 Inside, place an `RFIDReader (Aeon.Environment)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
 ![RfidReader](../../workflows/RfidReader.svg)

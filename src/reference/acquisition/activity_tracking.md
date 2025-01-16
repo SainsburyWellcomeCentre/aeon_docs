@@ -24,8 +24,8 @@ A timestamped `double` describing the raw, frame-by-frame pixel intensity change
 
 ##### Subjects
 Events from the node are published to `Subjects`. 
-Here you set the names used for these `Subjects` to identify events, commands or data streams for this node for a specific region of interest.
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Here you set the names used for these `Subjects` to identify events for this node for a specific region of interest.
+Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device events subjects
 | Subject name      | Type        | Description                   |
@@ -33,13 +33,13 @@ Each of these subjects becomes accessible in the bonsai editor's toolbox anywher
 | **TrackingEvents**   | `Harp.Timestamped<double>` | The `Subject` to which the result describing absolute changes in pixel intensities will be published to |
 
 #### Usage
-Create a `GroupWorkflow` node.
+Create a `GroupWorkflow`.
 Inside, place an `ActivityTracking (Aeon.Vision)` node and connect it to the `WorkflowOutput`. 
 Using a `SubscribeSubject`, e.g. "CameraTop", subscribe to the target [camera's](target-module-camera) "FrameEvents" `Subject` and connect it to the `ActivityTracking` node.
 
 ![ActivityTracking](../../workflows/activityTracking.svg)
 
-As with [`InRange` (Aeon.Acquisition)](./cv_tracking.md#inrange), more than one region of interest can be defined using multiple `GroupWorkflows`, each containing a separate instance of `ActivityTracking (Aeon.Vision)`.
+As with [`InRange (Aeon.Acquisition)`](./cv_tracking.md#inrange), more than one region of interest can be defined using multiple `GroupWorkflows`, each containing a separate instance of `ActivityTracking (Aeon.Vision)`.
 
 <!-- To be completed 
 ## GUI

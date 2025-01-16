@@ -72,7 +72,7 @@ Each of these subjects becomes accessible in the bonsai editor's toolbox anywher
 | **ResetFeeder**      | `object`   | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset |
 
 #### Usage
-Create a `GroupWorkflow` and give it an appropriate name e.g. `"Patch1"`. 
+Create a `GroupWorkflow` and give it an appropriate name, e.g. "Patch1". 
 Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all properties, and connect it to the `WorkflowOutput`:
 
 ![Aeon.Foraging.UndergroundFeeder](../../workflows/base-feeder.svg)

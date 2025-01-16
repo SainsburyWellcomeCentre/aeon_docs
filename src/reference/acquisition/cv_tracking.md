@@ -138,6 +138,7 @@ Next, add a `SubscribeSubject` node to subscribe to the common "TrackingEvents" 
 The output of the `DistanceFromPoint (Aeon.Vision)` node can then be used with other nodes 
 like the [`InRange (Aeon.Acquisition)`](#inrange) node to trigger events or commands based on the proximity of an animal to a specific point in the camera image.
 
+(target-node-inrange)=
 ### InRange 
 The `InRange (Aeon.Acquisition)` node is used to determine whether a [tracked object](#positiontracking) is within a specified [range](target-node-inrange-properties) in a single dimension.
 <!-- To be completed
@@ -182,7 +183,7 @@ For instance, to further determine if the animal is in the corridor, add another
 Description of any user interface components and visualisers.
 -->
 ## Logging
-"TrackingEvents" from a `PositionTracking (Aeon.Vision)` node can be logged along with the camera from which the "FrameEvents" originated using a [`LogHarpState (Aeon.Acquisition)`](./logging.md#logharpstate) node. 
+"TrackingEvents" from a `PositionTracking (Aeon.Vision)` node can be logged along with the camera from which the "FrameEvents" originated using a [`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node. 
 First, add a `SubscribeSubject` to subscribe to the "TrackingEvents" `Subject` (e.g. "TrackingTop").
 The events can then be formatted as `HarpMessages` and configured to write to register **200** (an unassigned register on all Harp devices) using the custom `FormatBinaryRegions (Aeon.Vision)` node.
 

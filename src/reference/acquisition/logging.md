@@ -5,6 +5,7 @@ These nodes enable the continuous logging of data into structured formats, ensur
 Data is grouped into 1-hour long chunks for efficient logging and retrieval.
 
 ## Nodes
+(target-node-logdata)=
 ### LogData 
 The `LogData (Aeon.Acquisition)` node saves arbitrary data to a `.csv` file. 
 Data is saved in hourly chunks using the following naming convention: 
@@ -44,6 +45,7 @@ Incoming data streams can also be combined into dynamic classes using operators 
 These combined streams can then be passed directly to a `LogData (Aeon.Acquisition)` node. 
 The `Selector` property can be used to specify which members of the incoming data stream to be included for defining the column names and order in the resulting `.csv` log file.
 
+(target-node-logharpstate)=
 ### LogHarpState 
 The `LogHarpState (Aeon.Acquisition)` node logs all events from any individual Harp device. 
 Data is saved in hourly chunks using the following naming convention: 
@@ -80,6 +82,7 @@ The `LogHarpState (Aeon.Acquisition)` node is generally the terminal node, to wh
 
 ![Aeon.Acquisition.LogHarpState](../../workflows/logHarpState.svg)
 
+(target-node-logvideo)=
 ### LogVideo 
 The `LogVideo (Aeon.Video)` node saves two files.
 The first file contains Harp timestamped video frames stored in `.avi` format.
@@ -98,7 +101,7 @@ TODO: Fix clock synchronizer link -->
 This function is dependent on signals from the [`ClockSynchronizer`](../HardwareDevices/ClockSynchronizer/clocksynchronizer.md).
 
 #### Inputs
-Stream of `Harp.Timestamped<Aeon.Video.VideoDataFrame>`, originating from a [`SpinnakerVideoSource (Aeon.Video)`](./camera.md#spinnakervideosource) node.
+Stream of `Harp.Timestamped<Aeon.Video.VideoDataFrame>`, originating from a [`SpinnakerVideoSource (Aeon.Video)`](target-node-spinnakervideosource) node.
 
 #### Outputs
 Stream of raw video images of type `OpenCV.Net.IPlImage`. 

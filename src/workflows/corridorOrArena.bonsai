@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TrackingTop</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="ArenaCenter" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aeon:DistanceFromPoint">
+          <aeon:Value>
+            <aeon:X>680</aeon:X>
+            <aeon:Y>565</aeon:Y>
+          </aeon:Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="InnerRadius" DisplayName="ArenaInnerRadius" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>InArena</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Upper" DisplayName="InnerRadius" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:InRange.bonsai">
+              <Lower xsi:nil="true" />
+              <Upper>487</Upper>
+              <RangeEvents>InArena</RangeEvents>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="OuterRadius" DisplayName="ArenaOuterRadius" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>InCorridor</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Lower" DisplayName="InnerRadius" />
+              <Property Name="Upper" DisplayName="OuterRadius" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:InRange.bonsai">
+              <Lower>487</Lower>
+              <Upper>515</Upper>
+              <RangeEvents>InCorridor</RangeEvents>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="2" Label="Source1" />
+      <Edge From="1" To="2" Label="Source2" />
+      <Edge From="2" To="4" Label="Source1" />
+      <Edge From="2" To="6" Label="Source1" />
+      <Edge From="3" To="4" Label="Source2" />
+      <Edge From="3" To="6" Label="Source2" />
+      <Edge From="5" To="6" Label="Source3" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

@@ -25,7 +25,7 @@ A timestamped `double` describing the raw, frame-by-frame pixel intensity change
 ##### Subjects
 Events from the node are published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node for a specific region of interest.
-Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |

@@ -56,7 +56,7 @@ These properties configure the options around this functionality.
 ##### Subjects
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events, commands or data streams for this specific feeder. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -98,7 +98,7 @@ Each item emitted consists of a "Value" (`int`) corresponding to the pellet coun
 ##### Subjects <!-- Description copied from previous section -->
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events and commands for this node for a specific feeder. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 | Subject name      | Type        | Description                   |
@@ -135,7 +135,7 @@ This "Value" is `True` if when a delivery command has been received, and `False`
 ##### Subjects <!-- Description copied from previous section -->
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 <!-- Type column is empty -->
@@ -173,7 +173,7 @@ None <!-- This was originally "-". Check if this is correct. -->
 ##### Subjects <!-- Description copied from previous section -->
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 <!-- To be completed 
 ###### Device event subjects 
 `HarpMessage` events emitted to a `Subject`
@@ -222,7 +222,7 @@ This "Value" is `True` if when a delivery command has been received, and `False`
 ##### Subjects <!-- Description copied from previous section -->
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 <!-- Type column is empty -->

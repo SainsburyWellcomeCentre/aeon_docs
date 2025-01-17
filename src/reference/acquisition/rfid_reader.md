@@ -23,7 +23,7 @@ Stream of all events emitted by the [Harp RFID reader device](https://github.com
 ##### Subjects
 Events from the RFID reader are published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events, commands or data streams for this node for a specific RFID reader.
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 <!-- To be completed 
 ###### Device event subjects

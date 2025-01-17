@@ -4,6 +4,7 @@
 A Harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2) device is utilised together with a `CameraController (Aeon.Video)` node to configure and synchronously trigger two sets of cameras which can operate at different framerates. 
 
 ## Nodes
+(target-node-cameracontroller)=
 ### CameraController
 The `CameraController (Aeon.Video)` node establishes a connection to the Harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2) device, which will generate two timestamped camera trigger event streams to synchronously trigger two sets of one or many cameras. 
 This enables direct control to start and stop connected cameras, and configuration of the frequency of the camera triggers. 
@@ -23,7 +24,7 @@ This enables direct control to start and stop connected cameras, and configurati
 ##### Subjects
 Events and commands from the device are collected, in some cases processed, and passed to published `Subjects`. 
 Here you set the names used for these `Subjects` to identify these events, commands or data streams for this specific device. 
-Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
+Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device event subjects
 | Subject name      | Type                           | Description                           |

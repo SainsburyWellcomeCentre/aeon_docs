@@ -47,7 +47,7 @@ Is `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` the output?
 ##### Subjects
 Events from this node are published to shared `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -90,7 +90,7 @@ boolean?
 ##### Subjects
 Both generated and input events of this node are published to shared `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -157,7 +157,7 @@ A `boolean` describing whether each value of a sequence falls within a specific 
 ##### Subjects
 Events from this node are published to shared `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 `HarpMessage` events emitted to a `Subject`

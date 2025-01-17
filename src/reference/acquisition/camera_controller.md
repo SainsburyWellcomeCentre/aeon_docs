@@ -49,7 +49,9 @@ Each of these `Subjects` is published and becomes accessible in the Bonsai edito
 Create a `GroupWorkflow` and give it an appropriate name, e.g. "VideoController". 
 Inside, place a `CameraController (Aeon.Video)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
-![Aeon.Acquisition.CameraController](../../workflows/videoController.svg)
+:::workflow
+![Aeon.Acquisition.CameraController](../../workflows/videoController.bonsai)
+:::
 
 ## GUI
 None
@@ -58,7 +60,9 @@ None
 All events can be logged using a [`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node.
 The example below logs the state of all relevant Harp registers in a dedicated folder. 
 
-![Aeon.Acquisition.LogHarpState](../../workflows/logVideoEvents.svg)
+:::workflow
+![Aeon.Acquisition.LogHarpState](../../workflows/logVideoEvents.bonsai)
+::: 
 
 Logs can be identified by their register address, summarised here.
 

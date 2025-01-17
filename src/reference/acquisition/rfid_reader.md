@@ -47,8 +47,9 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 Create a `GroupWorkflow` node and give it an appropriate name, e.g. "Patch1Rfid". 
 Inside, place an `RFIDReader (Aeon.Environment)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
-![RfidReader](../../workflows/RfidReader.svg)
-
+:::workflow
+![RfidReader](../../workflows/RfidReader.bonsai)
+:::
 <!-- To be completed 
 ## GUI
 Description of any user interface components and visualisers.

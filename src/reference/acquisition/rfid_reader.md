@@ -26,7 +26,7 @@ Here you set the names used for these `Subjects` to identify events, commands or
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 <!-- To be completed 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
 | **Event1**        | `Type`      | Description of Event1         |

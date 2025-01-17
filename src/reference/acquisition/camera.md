@@ -21,7 +21,7 @@ The `SpinnakerVideoSource (Aeon.Video)` node establishes a connection and config
 ##### Subjects
 Events and commands from the camera are collected from and published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
+Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device event subjects
 | Subject name    | Type     | Description                                                          |
@@ -42,7 +42,7 @@ Inside, place a `SpinnakerVideoSource (Aeon.Video)` node, externalise all proper
 
 ### DroppedFrames
 The `DroppedFrames (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. "CameraTop". 
-Specifically, it monitors the `FrameID` to ensure frames arrive consecutively. 
+Specifically, it monitors the "FrameID" to ensure frames arrive consecutively. 
 
 <!-- should this go under Outputs or Usage? -->
 In the event that a frame is dropped, the node outputs the "Timestamp", "Name" of the camera and the "FrameID" of the dropped frame.
@@ -53,7 +53,7 @@ In the event that a frame is dropped, the node outputs the "Timestamp", "Name" o
 ##### Subjects
 Events and commands from the camera are collected from and published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
+Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device event subjects <!-- This was missing - is this correct? -->
 | Subject name         | Description                                                                         |
@@ -76,7 +76,7 @@ To avoid false alarms when cameras are not active, subscription to the `StreamTi
 ##### Subjects
 Events and commands from the camera are collected from and published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
+Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device event subjects
 | Subject name | Description |
@@ -88,7 +88,7 @@ Each of these `Subjects` is published and becomes accessible in the bonsai edito
 TBC
 
 ## Logging
-All events are logged using a [`LogVideo` (`Aeon.Video`)](target-node-logvideo) node.
+All frame events of a [`SpinnakerVideoSource (Aeon.Video)`](#spinnakervideosource) node are logged using a [`LogVideo` (`Aeon.Video`)](target-node-logvideo) node.
 
 ![Aeon.Video.LogVideo](../../workflows/logVideo.svg)
 

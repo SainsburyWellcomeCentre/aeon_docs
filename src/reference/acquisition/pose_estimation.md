@@ -29,7 +29,7 @@ A sequence of `<type>` with the following attributes.
 ##### Subjects
 Both generated and input events of this node are collected and passed to published `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |

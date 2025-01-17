@@ -40,7 +40,7 @@ Stream of `DynamicClass` with the following attributes:
 ##### Subjects
 Events and commands from the weighing scale are collected from, and published to `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events, commands or data streams for this node for a specific nest. 
-Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
+Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 <!-- Do we need to specify the type for tare events, i.e. `Harp.Timestamped<type>`? -->

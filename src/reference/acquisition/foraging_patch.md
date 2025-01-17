@@ -39,9 +39,9 @@ These properties are critical parameters for the operation of the device.
 
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
-| **PortName**  | The COM port the output expander attached to your feeder is connected to.                                                     |
-| **Radius**    | The radius of the foraging wheel in centimeters. This is used to compute the distance the wheel has been turned. Our foraging patch wheel has a radius of 4cm |
-| **SampleRate**| The sampling rate of the magnetic encoder monitoring the wheel, selected from options available. For aeon experiments, this is set to 500Hz. |
+| **PortName**  | The COM port the output expander attached to your feeder is connected to |
+| **Radius**    | The radius of the foraging wheel in centimeters. This is used to compute the distance the wheel has been turned. The Aeon [foraging patch](target-feeder) wheel has a radius of 4cm |
+| **SampleRate**| The sampling rate of the magnetic encoder monitoring the wheel, selected from options available. For Aeon experiments, this is set to 500Hz |
 
 ##### Retry function
 If a pellet is due to be delivered, an IR beam break module in the feeder detects whether the pellet delivery is successful. 
@@ -50,20 +50,20 @@ These properties configure the options around this functionality.
 
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **DueTime**   | The time following a pellet delivery command that the device will wait for a successful beam break signal before assuming the pellet delivery has failed. |
-| **Count**     | The number of retry attempts the feeder will perform. |
+| **DueTime**   | The time following a pellet delivery command that the device will wait for a successful beam break signal before assuming the pellet delivery has failed |
+| **Count**     | The number of retry attempts the feeder will perform |
 
 ##### Subjects
 Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
 Here you set the names used for these `Subjects` to identify events, commands or data streams for this specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **PatchEvents**      | `Harp.HarpMessage`       | Contains all events, consisting of timestamped Harp messages reporting the state of each register of the output expander. Also output directly by the `UndergroundFeeder` node.|
-| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample-to-sample displacement of the foraging wheel in mm.           |
-| **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register. |
+| **PatchEvents**      | `Harp.HarpMessage`       | Contains all events, consisting of timestamped Harp messages reporting the state of each register of the output expander. Also output directly by the `UndergroundFeeder` node |
+| **WheelDisplacement**| `Harp.Timestamped<double>`| The sample-to-sample displacement of the foraging wheel in mm           |
+| **PelletDelivered**  | `Harp.Timestamped<bool>`  | Reports `True` when a pellet is detected by the IR beam break register |
 
 ###### Device command subjects
 | Subject name      | Type          | Description                                                                                     |
@@ -100,11 +100,11 @@ Events and commands from the feeder are collected from, and published to shared 
 Here you set the names used for these `Subjects` to identify events and commands for this node for a specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects <!-- Missing category header, check if this is the correct category -->
+###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **ControllerEvents** | `Aeon.Foraging.DispenserEventArgs` | Controller events shared `Subject`, carrying the number of pellets remaining (`int`) and the `EventType`. Also output directly by the node. |
-| **DispenserState** |   | Declared `StateRecoverySubject` to store the current number of pellets. |
+| **ControllerEvents** | `Aeon.Foraging.DispenserEventArgs` | Controller events shared `Subject`, carrying the number of pellets remaining (`int`) and the `EventType`. Also output directly by the node |
+| **DispenserState** |   | Declared `StateRecoverySubject` to store the current number of pellets |
 
 #### Usage
 Place a `SubscribeSubject` and point it to the "PelletDelivered" `Subject` for a patch (e.g. "Patch1PelletDelivered"). 
@@ -137,12 +137,12 @@ Events and commands from the feeder are collected from, and published to shared 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects <!-- Missing category header, check if this is the correct category -->
+###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 <!-- Type column is empty -->
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events". |
-| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder). |
+| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
+| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder) |
 
 #### Usage
 To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure its properties. 
@@ -175,7 +175,7 @@ Events and commands from the feeder are collected from, and published to shared 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 <!-- To be completed 
-###### Device events subjects 
+###### Device event subjects 
 `HarpMessage` events emitted to a `Subject`
 
 | Subject name      | Type        | Description                   |
@@ -224,12 +224,12 @@ Events and commands from the feeder are collected from, and published to shared 
 Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects <!-- Missing category header, check if this is the correct category -->
+###### Device event subjects <!-- Missing category header, check if this is the correct category -->
 <!-- Type column is empty -->
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events". |
-| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder). |
+| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
+| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder) |
 
 #### Usage
 <!-- To be completed -->

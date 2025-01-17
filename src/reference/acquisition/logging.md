@@ -28,13 +28,13 @@ Inputs are returned unchanged.
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
 | **ClosingDuration** | <!-- Description missing -->                                                                              |
-| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with. |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files.         | 
-| **Selector**        | Member selector property to select specific members of the incoming data stream.                   |
+| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files         | 
+| **Selector**        | Member selector property to select specific members of the incoming data stream                   |
 
 #### Usage
 The `LogData (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the data stream it is subscribed to for logging. 
@@ -70,12 +70,12 @@ This is generally not used downstream of this node.
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
 | **ClosingDuration** | <!-- Description missing -->                                                                              |
-| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with. |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName** | The name of this log. This is usually the name of the Harp device the Harp stream originated from, and will determine the naming of dedicated folder and data files. |
+| **LogName** | The name of this log. This is usually the name of the Harp device the Harp stream originated from, and will determine the naming of dedicated folder and data files |
 
 #### Usage
 The `LogHarpState (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the Harp device events `Subject` it is subscribed to for logging.
@@ -111,12 +111,12 @@ Stream of raw video images of type `OpenCV.Net.IPlImage`.
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
 | **ClosingDuration** | *Description missing*                                                                              |
-| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with. |
+| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files.         | 
+| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files         | 
 
 #### Usage
 The `LogVideo (Aeon.Video)` node is generally the terminal node, to which a `SubscribeSubject` passes the frame events `Subject` it is subscribed to for logging.

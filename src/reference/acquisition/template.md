@@ -31,7 +31,7 @@ A sequence of `<type>` with the following attributes.
 ##### Subjects
 An overview of the events and commands available or published to `Subject`s
 
-###### Device events subjects
+###### Device event subjects
 `HarpMessage` events emitted to a `Subject`
 
 | Subject name      | Type        | Description                   |

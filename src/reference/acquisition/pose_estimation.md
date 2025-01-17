@@ -31,7 +31,7 @@ Both generated and input events of this node are collected and passed to publish
 Here you set the names used for these `Subjects` to identify events for this node.
 Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
 | **TrackingEvents** | `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` | The `Subject` to which tracking data will be published. This stream is also output directly by the node | 

@@ -19,7 +19,6 @@ O365 connectors will be deprecated in the coming months. This is a known [issue]
 |--------------------|-------------------------------------------------------------|
 | **ConfigFile**     | The full or relative path of the configuration file         |
 
-
 This configuration file is a simple text file that specifies the name of the system and the corresponding webhook URL. 
 For example:
 
@@ -27,8 +26,10 @@ For example:
 AEON: https://liveuclac.webhook.office.com/webhookb2/4a6da9d9-7456-4fe8-83a7-597dc94effa9@1faf88fe-a1234-5b6c-78d9-210a11d9a5c2/IncomingWebhook/523addf421e64fbcafadc1fc358c8ccf/ec5a3255-f2d6-47ca-ab3d-a81a0c34bc60
 ```
 
-Note that the system name should match the name of the computer, which can be set in Windows System Settings. 
+:::{important}
+The system name in the configuration file must match the name of the computer, which can be set in Windows System Settings.
 In Aeon, this file is stored in a "config" folder in the root of the repository. <!-- is this important? -->
+::: 
 
 #### Usage
 <!-- Not immediately clear which is which, is  "EnvironmentAlertMessages" the `PublishSubject`? 
@@ -54,6 +55,7 @@ The members of the input used to configure the message are set in the [propertie
 
 #### Outputs
 A sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following attributes. 
+
 | Attribute name     | Type                             | Description                                                  |
 |--------------------|----------------------------------|--------------------------------------------------------------|
 | **Priority**       | `Aeon.Acquisition.PriorityLevel` | Specifies the priority level of the alert log.               |

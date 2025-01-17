@@ -10,44 +10,39 @@ This enables direct control to start and stop connected cameras, and configurati
 
 #### Properties
 ##### General
-
 | Property name | Description                                               |
 |---------------|---------------------------------------------------------------|
-| **PortName**  | The COM port the physical CameraController is connected to.   |
+| **PortName**  | The COM port the physical CameraController is connected to   |
 
 ##### Camera trigger configuration
-
 | Property name             | Description                                                |
 |---------------------------|----------------------------------------------------------------|
-| **GlobalTriggerFrequency** | Set the frequency of the first (global) set of camera frame triggers. |
-| **LocalTriggerFrequency**  | Set the frequency of the second (local) set of camera frame triggers. |
+| **GlobalTriggerFrequency** | Set the frequency of the first (global) set of camera frame triggers |
+| **LocalTriggerFrequency**  | Set the frequency of the second (local) set of camera frame triggers |
 
 ##### Subjects
 Events and commands from the device are collected, in some cases processed, and passed to published `Subjects`. 
 Here you set the names used for these `Subjects` to identify these events, commands or data streams for this specific device. 
 Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
-###### Device events subjects
-
+###### Device event subjects
 | Subject name      | Type                           | Description                           |
 |-------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **VideoEvents**   | `Harp.HarpMessage`  | A stream of all events emitted by the Harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2). Also directly output by the node. |
+| **VideoEvents**   | `Harp.HarpMessage`  | A stream of all events emitted by the Harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2). Also directly output by the node |
 
 ###### Other output subjects
-
 | Subject name            | Type                                     | Description                                                                                   |
 |-------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|
-| **GlobalTrigger**       | `Harp.CameraControllerGen2.CameraEvent`      | A stream of timestamped camera trigger events generated at the `GlobalTriggerFrequency`.          |
-| **LocalTrigger**        | `Harp.CameraControllerGen2.CameraEvent`      | A stream of timestamped camera trigger events generated at the `LocalTriggerFrequency`.           |
-| **GlobalTriggerFrequency** | `double`                                 | `BehaviorSubject` to store the value of `GlobalTriggerFrequency`.                                 |
-| **LocalTriggerFrequency**  | `double`                                 | `BehaviorSubject` to store the value of `LocalTriggerFrequency`.                                  |
+| **GlobalTrigger**       | `Harp.CameraControllerGen2.CameraEvent`      | A stream of timestamped camera trigger events generated at the `GlobalTriggerFrequency`          |
+| **LocalTrigger**        | `Harp.CameraControllerGen2.CameraEvent`      | A stream of timestamped camera trigger events generated at the `LocalTriggerFrequency`           |
+| **GlobalTriggerFrequency** | `double`                                 | `BehaviorSubject` to store the value of `GlobalTriggerFrequency`                                 |
+| **LocalTriggerFrequency**  | `double`                                 | `BehaviorSubject` to store the value of `LocalTriggerFrequency`                                  |
 
 ###### Device command subjects
-
 | Subject name      | Type    | Description                                                                     |
 |-------------------|-------------|------------------------------------------------------------------------------------|
-| **StartCameras**  | `object`    | Any item sent to this `BehaviorSubject` immediately begins camera  acquisition.    |
-| **StopCameras**   | `object`    | Any item sent to this `BehaviorSubject` immediately stops camera acquisition.      |
+| **StartCameras**  | `object`    | Any item sent to this `BehaviorSubject` immediately begins camera  acquisition    |
+| **StopCameras**   | `object`    | Any item sent to this `BehaviorSubject` immediately stops camera acquisition      |
 
 #### Usage
 Create a `GroupWorkflow` and give it an appropriate name, e.g. "VideoController". 

@@ -42,7 +42,9 @@ May be clearer if illustrated with a sample workflow? -->
 Use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. 
 This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
 
-![SendAlertBase](../../workflows/EnvironmentAlertsBase.svg)
+:::workflow
+![SendAlertBase](../../workflows/EnvironmentAlertsBase.bonsai)
+:::
 
 (target-node-formatlogmessage)=
 ### FormatLogMessage
@@ -76,11 +78,15 @@ A sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following
 Prior to logging alerts, format the incoming message strings using a `FormatLogMessage (Aeon.acquisition)` node.
 Once formatted, these timestamped messages can be `Multicast` to a shared "AlertLogs" `Subject`, allowing for the logging of both notifications and alerts.
 
-![FormatLogMessage](../../workflows/formatLogMessage.svg)
+:::workflow
+![FormatLogMessage](../../workflows/formatLogMessage.bonsai)
+::: 
 
 The shared "AlertLogs" `Subject` is then provided as an input to the [`LogData (Aeon.Acquisition)`](target-node-logdata) node, which writes the log data to the specified file. 
 
-![AlertLogs](../../workflows/alertLogs.svg)
+:::workflow
+![AlertLogs](../../workflows/alertLogs.bonsai)
+::: 
 
 (target-node-alertgate)=
 ### AlertGate
@@ -88,10 +94,14 @@ Many alerts may be triggered by events that occur at high frequency when in a fa
 For example, if a device is desynchronised, then an alert will be generated every second until this condition is no longer true. 
 In order to avoid unneccessary, repetitive alerts and overinflated alert logs, an `AlertGate (Aeon.acquisition)` node can be used to throttle specific alerts.
 
-![AlertGate](../../workflows/alertGate.svg)
+:::workflow
+![AlertGate](../../workflows/alertGate.bonsai)
+::: 
 
 This node simply accepts any input stream, but only returns elements that arrive within the `AlertRefractoryPeriod`  property:
 
-![AlertGate](../../workflows/alertGateDetail.svg)
+:::workflow
+![AlertGate](../../workflows/alertGateDetail.bonsai)
+:::
 
 Specific use cases for formatting and sending alerts are detailed in individual module references.

@@ -26,12 +26,16 @@ This node takes no direct inputs but subscribes to and monitors the event stream
 ##### Monitoring a single device
 This example monitors the heartbeats from the ClockSynchronizer device itself.
 
-![Aeon.Acquisition.HeartbeatMonitor](../../workflows/heartbeatMonitor.svg)
+:::workflow
+![Aeon.Acquisition.HeartbeatMonitor](../../workflows/heartbeatMonitor.bonsai)
+:::
 
 ##### Monitoring multiple devices
 To monitor multiple devices at once, a `HeartbeatMonitor` node for each device should be added to a `GroupWorkflow` called, for example, "HeartbeatSources", and the results merged to the `WorkflowOutput` of the group.
 
-![Aeon.Acquisition.HeartbeatSources merge](../../workflows/heartbeatSourcesInt.svg)
+:::workflow
+![Aeon.Acquisition.HeartbeatSources merge](../../workflows/heartbeatSourcesInt.bonsai)
+:::
 
 (target-node-synchronizermonitor)=
 ### SynchronizerMonitor
@@ -56,7 +60,9 @@ An observable sequence of custom `DynamicClass` with the following attributes.
 #### Usage
 Pass the output from the ["HeartbeatSources" `GroupWorkflow`](#monitoring-multiple-devices) to a `SynchronizerMonitor (Aeon.Acquisition)` node. 
 
-![Aeon.Acquisition.HeartbeatSources](../../workflows/heartbeatSources.svg)
+:::workflow
+![Aeon.Acquisition.HeartbeatSources](../../workflows/heartbeatSources.bonsai)
+:::
 
 ## Alerts
 Alerts can be set up using an `ExpressionCondition` node to define conditions under which an alert should be sent.
@@ -64,4 +70,6 @@ Conditions can be based on the [outputs from the `SynchronizerMonitor` node](#sy
 For example, alerts can be triggered if the number of expected devices does not match the number of devices sending heartbeats, or if one or more devices are sending desynchronised heartbeats.
 The `ExpressionCondition` node then evaluates these conditions and passes the results to an [`AlertGate (Aeon.Acquisition)` node](target-node-alertgate), after which the alert is [sent](target-node-sendalert) and [logged to file](target-node-formatlogmessage).
 
-![SynchMonitorLogs](../../workflows/synchMonitorLogs.svg)
+:::workflow
+![SynchMonitorLogs](../../workflows/synchMonitorLogs.bonsai)
+:::

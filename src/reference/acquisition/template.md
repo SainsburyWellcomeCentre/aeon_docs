@@ -58,7 +58,9 @@ Existing subjects published outside of the node, but used for input / trigger
 #### Usage
 Instructions for creating and configuring the main device node. Add necessary sub-components and configurations.
 
-![InsertWorkflow](path/to/workflow.svg)
+::workflow
+![InsertWorkflow](path/to/workflow.bonsai)
+:::
 
 ## GUI
 Description of any user interface components and visualisers.

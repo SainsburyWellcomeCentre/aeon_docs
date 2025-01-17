@@ -65,13 +65,17 @@ Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywh
 Create a `GroupWorkflow` and give it an appropriate name, e.g. "TrackingTop". 
 Inside, place a `PositionTracking (Aeon.Vision)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 <!-- Is there a use case for the basic workflow without a camera supplying the videodataframes? If none, perhaps we can remove this example and just provide the full example with camera connected. -->
-![Aeon.Vision.PositionTracking](../../workflows/positionTrackingBase.svg)
+:::workflow
+![Aeon.Vision.PositionTracking](../../workflows/positionTrackingBase.bonsai)
+:::
 
 Next, add a `SubscribeSubject` node, connect it to the `PositionTracking` node as an input, and externalise the `Name` property. 
 This name will be set to the `Subject` that carries the `CameraEvents` from the [camera](target-node-spinnakervideosource) on which tracking is to be performed (e.g. "CameraTop"). <!-- Clarify `CameraEvents`: is this "FrameEvents" or `Harp.CameraControllerGen2.CameraEvents`? -->
 To avoid confusion<!-- with what? -->, change the display name of the externalised `Name` property to "FrameEvents".
 
-![Aeon.Vision.PositionTracking](../../workflows/positionTracking.svg)
+:::workflow
+![Aeon.Vision.PositionTracking](../../workflows/positionTracking.bonsai)
+:::
 
 ### PoseTracking
 The `PoseTracking (Aeon.Vision.Sleap)` node utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) package, to simultaneously track and identify different animals within the arena.
@@ -115,7 +119,9 @@ The trained model must first be exported to [Protocol buffer (.pb) format](https
 Next, create a `GroupWorkflow` and give it an appropriate name, e.g. "PoseTracking". 
 Inside, place a `PoseTracking (Aeon.Vision.Sleap)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
-![poseTracking](../../workflows/poseTracking.svg)
+:::workflow
+![poseTracking](../../workflows/poseTracking.bonsai)
+:::
 
 ### RegionTracking 
 <!-- I assume this node can be used with either PositionTracking or PoseTracking. If incorrect, we should remove the PoseTracking bit. -->
@@ -153,7 +159,9 @@ Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywh
 Place a `RegionTracking (Aeon.Vision)` node, externalise the `Region` property, and rename it to indicate the region this node is responsible for monitoring (e.g. "NestRegion").
 Next, add a `SubscribeSubject` node to subscribe to the common "TrackingEvents" `Subject` (e.g. "TrackingTop") and connect it to the `RegionTracking (Aeon.Vision)` node.
 
-![RegionTracking](../../workflows/regionTracking.svg)
+:::workflow
+![RegionTracking](../../workflows/regionTracking.bonsai)
+:::
 
 ### DistanceFromPoint 
 <!-- I assume this node can be used with either PositionTracking or PoseTracking. If incorrect, we should remove the PoseTracking bit. -->
@@ -181,7 +189,9 @@ This node does not output to a published `Subject`.
 Place a `DistanceFromPoint (Aeon.Vision)` node, externalise the `Value` property, and rename it to indicate the point of interest for this node (e.g. "ArenaCenter").
 Next, add a `SubscribeSubject` node to subscribe to the common "TrackingEvents" `Subject` (e.g. "TrackingTop") and connect it to the `DistanceFromPoint (Aeon.Vision)` node.
 
-![DistanceFromPoint](../../workflows/distFromPoint.svg)
+:::workflow
+![DistanceFromPoint](../../workflows/distFromPoint.bonsai)
+:::
 
 The output of the `DistanceFromPoint (Aeon.Vision)` node can then be used with other nodes 
 like the [`InRange (Aeon.Acquisition)`](#inrange) node to trigger events or commands based on the proximity of an animal to a specific point in the camera image.
@@ -220,13 +230,17 @@ The example here is based on a circular arena with a corridor around the outside
 To determine if a given source is within the inner radius of the arena, first create a `GroupWorkflow` and give it an appropriate name, e.g. "InArena".  
 Inside, place an `InRange (Aeon.Acquisition)` node, externalise all relevant properties (i.e. the upper bound that is the inner radius of the arena), and connect it to the `WorkflowInput` (e.g. "Source1") and `WorkflowOutput`.
 
-![InArena](../../workflows/inRange.svg)
+:::workflow
+![InArena](../../workflows/inRange.bonsai)
+:::
 
 The input can, for instance, be a [`DistanceFromPoint (Aeon.Vision)`](#distancefrompoint) node, which computes the distance of a tracked animal from the centre of the arena, allowing one to determine if the animal is in the open arena.
 Multiple of these `GroupWorkflows` each containing a separate `InRange (Aeon.Acquisition)` node can be used together to determine if a tracked animal position falls within different regions of interest.
 For instance, to further determine if the animal is in the corridor, add another `GroupWorkflow`, e.g. "InCorridor", with an `InRange (Aeon.Acquisition)` node with the lower bound set to the inner radius of the arena and the upper bound set to the outer radius of the arena.
 
-![ArenaOrCorridor](../../workflows/corridorOrArena.svg)
+:::workflow
+![ArenaOrCorridor](../../workflows/corridorOrArena.bonsai)
+:::
 <!-- To be completed
 ## GUI
 Description of any user interface components and visualisers.
@@ -239,7 +253,9 @@ First, add a `SubscribeSubject` to subscribe to the "TrackingEvents" `Subject` (
 The events can then be formatted as `HarpMessages` and configured to write to register **200** (an unassigned register on all Harp devices) using the custom `FormatBinaryRegions (Aeon.Vision)` node.
 Here is an example for logging a `PositionTracking` node.
 
-![logPositionTracking](../../workflows/logPositionTracking.svg)
+:::workflow
+![logPositionTracking](../../workflows/logPositionTracking.bonsai)
+:::
 
 Multiple `PositionTracking` or `PoseTracking` nodes can be used to track objects in different camera streams simultaneously. 
 To do this, select a different "FrameEvents" `Subject` for each node and save the results to the corresponding camera folders.

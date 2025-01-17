@@ -20,14 +20,14 @@ A timestamped `double` describing the raw, frame-by-frame pixel intensity change
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
 | **Region**         | An array of four `OpenCV.NET.Points`. These define the corners (anti-clockwise from top left) of the region of interest     |
-| **ThresholdValue** | The lower threshold for pixel intensity differences to be included in the sum activity. Should be set to the pixel noise. |
+| **ThresholdValue** | The lower threshold for pixel intensity differences to be included in the sum activity. Should be set to the pixel noise |
 
 ##### Subjects
 Events from the node are published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events for this node for a specific region of interest.
 Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
 | **TrackingEvents**   | `Harp.Timestamped<double>` | The `Subject` to which the result describing absolute changes in pixel intensities will be published to |

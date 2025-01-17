@@ -49,10 +49,10 @@ Events from this node are published to shared `Subjects`.
 Here you set the names used for these `Subjects` to identify events for this node.
 Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **TrackingEvents** | `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` | The `Subject` to which tracking data will be published. This stream is also output directly by the node. | 
+| **TrackingEvents** | `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` | The `Subject` to which tracking data will be published. This stream is also output directly by the node | 
 
 ###### Device input subjects
 | Subject name      | Type          | Description                                                                                     |
@@ -92,15 +92,15 @@ Both generated and input events of this node are published to shared `Subjects`.
 Here you set the names used for these `Subjects` to identify events for this node.
 Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **RegionEvents** | `Harp.Timestamped<bool>` | The `Subject` to which region events will be published. This stream is also output directly by the node. | 
+| **RegionEvents** | `Harp.Timestamped<bool>` | The `Subject` to which region events will be published. This stream is also output directly by the node | 
 
 ###### Device input subjects
 | Subject name      | Type          | Description                                                                                     |
 |-------------------|---------------|-------------------------------------------------------------------------------------------------|
-| **FrameEvents**   | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | The `Subject` to subscribe to that carries frame events from a chosen camera. | 
+| **FrameEvents**   | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | The `Subject` to subscribe to that carries frame events from a chosen camera | 
 
 #### Usage
 Place a `RegionTracking (Aeon.Vision)` node, externalise the `Region` property, and rename it to indicate the region this node is responsible for monitoring (e.g. "NestRegion").
@@ -159,7 +159,7 @@ Events from this node are published to shared `Subjects`.
 Here you set the names used for these `Subjects` to identify events for this node.
 Each of these `Subjects` becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 `HarpMessage` events emitted to a `Subject`
 
 | Subject name      | Type        | Description                   |

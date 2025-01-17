@@ -13,17 +13,17 @@ The `SpinnakerVideoSource (Aeon.Video)` node establishes a connection and config
 ##### Camera settings
 | Property name      | Description                                                                                           |
 |--------------------|-------------------------------------------------------------------------------------------------------|
-| **Binning**        | Set the size of the binning area of the sensor.                                                       |
-| **ExposureTime**   | Set the exposure time per frame. If the trigger frequency is too high to accommodate the exposure time here, it will be overridden. |
-| **Gain**           | Gain on the sensor.                                                                                   |
-| **SerialNumber**   | Serial number of the camera to acquire frames from.                                                   |
+| **Binning**        | Set the size of the binning area of the sensor                                                       |
+| **ExposureTime**   | Set the exposure time per frame. If the trigger frequency is too high to accommodate the exposure time here, it will be overridden |
+| **Gain**           | Gain on the sensor                                                                                   |
+| **SerialNumber**   | Serial number of the camera to acquire frames from                                                   |
 
 ##### Subjects
 Events and commands from the camera are collected from and published to `Subjects`. 
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
 Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name    | Type     | Description                                                          |
 |-----------------|----------|----------------------------------------------------------------------|
 | **FrameEvents** | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | Stream of camera frame events, ideally with one frame per trigger event. This stream is also output directly from the node |
@@ -55,12 +55,10 @@ Events and commands from the camera are collected from and published to `Subject
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
 Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
-###### Device events subjects <!-- This was missing - is this correct? -->
+###### Device event subjects <!-- This was missing - is this correct? -->
 | Subject name         | Description                                                                         |
 |----------------------|-------------------------------------------------------------------------------------|
 | **StreamEvents**     | Set the name of the events `Subject` output from a camera stream to be monitored    |
-
-From the output of this node, an alert string can be configured and formatted, and sent to the `EnvironmentAlertMessages` and `AlertLogs` `Subjects` to send and log an alert respectively. 
 
 ### StreamTimeout
 The `StreamTimeout (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. `CameraTop`. 
@@ -80,7 +78,7 @@ Events and commands from the camera are collected from and published to `Subject
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
 Each of these `Subjects` is published and becomes accessible in the bonsai editor's toolbox anywhere in the workflow using its name.
 
-###### Device events subjects
+###### Device event subjects
 | Subject name | Description |
 |--|--|
 | **StreamEvents** | Set the name of the events `Subject` output from the camera stream to be monitored 

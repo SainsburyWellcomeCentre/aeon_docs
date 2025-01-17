@@ -42,7 +42,7 @@ Events and commands from the weighing scale are collected from, and published to
 Here you set the names used for these `Subjects` to identify events, commands or data streams for this node for a specific nest. 
 Each of these subjects becomes accessible in the bonsai editor's toolbox anywhere in the workflow using the name set here.
 
-###### Device events subjects
+###### Device event subjects
 <!-- Do we need to specify the type for tare events, i.e. `Harp.Timestamped<type>`? -->
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|

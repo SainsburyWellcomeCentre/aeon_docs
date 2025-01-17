@@ -75,7 +75,9 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 Create a `GroupWorkflow` and give it an appropriate name, e.g. "Patch1". 
 Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all properties, and connect it to the `WorkflowOutput`:
 
-![Aeon.Foraging.UndergroundFeeder](../../workflows/base-feeder.svg)
+:::workflow
+![Aeon.Foraging.UndergroundFeeder](../../workflows/base-feeder.bonsai)
+:::
 
 ### PatchDispenser 
 The `PatchDispenser (Aeon.Foraging)` node keeps track of the number of pellets available to the feeder. 
@@ -112,7 +114,9 @@ Connect this to a `Condition` node that checks the `Value` of the incoming `Subj
 This is a `Boolean` that reports `True` on pellet delivery, and ensures only the rising edge of this signal is counted as a delivery. 
 Finally, connect this to a `PatchDispenser (Aeon.Foraging)` node.
 
-![Aeon.Foraging.PatchDispenser](../../workflows/patchDispenser.svg)
+:::workflow
+![Aeon.Foraging.PatchDispenser](../../workflows/patchDispenser.bonsai)
+:::
 
 ### PelletMonitor 
 The `PelletMonitor (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break. 
@@ -122,7 +126,9 @@ Are users expected to copy and paste this? -->
 Within this node, pellet delivery commands received by the Harp output expander are filtered from the "PatchEvents" `Subject` and successful deliveries monitored through the "PelletDelivered" `Subject` (e.g. "Patch1PelletDelivered"). 
 The `RepeatEverySubject` node ensures this node is only running while an animal is present in the arena. <!-- This is not that clear to me; it seems to only run when a subject has entered, but if you had two subjects and removed one this would it not also stop, despite there being another subject stil present? -->
 
-![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.svg)
+:::workflow
+![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.bonsai)
+:::
 
 #### Inputs
 None
@@ -147,7 +153,9 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 #### Usage
 To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure its properties. 
 
-![Aeon.Foraging.PelletMonitor](../../workflows/pelletMonitor.svg)
+:::workflow
+![Aeon.Foraging.PelletMonitor](../../workflows/pelletMonitor.bonsai)
+:::
 
 ### TimeSpentOnWheel 
 The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel. 
@@ -156,7 +164,9 @@ Alternatively, this would fit better under Usage in the WheelMoving node, as it 
 <!-- TODO: Fix link to wheelmoving.md -->
 Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the feeder while the wheel is in motion.
 
-![timeSpentOnWheelWorkflow](../../workflows/timeSpentOnWheelWorkflow.svg)
+:::workflow
+![timeSpentOnWheelWorkflow](../../workflows/timeSpentOnWheelWorkflow.bonsai)
+:::
 
 #### Inputs
 None
@@ -203,13 +213,16 @@ Existing subjects published outside of the node, but used for input / trigger
 <!-- TODO: Fix link to RepeatEveryBlock -->
 To reset a `TimeSpentOnWheel (Aeon.Foraging)` monitor after a block transition, use a [`RepeatEveryBlock (Aeon.Acquisition)`](./RepeatEveryBlock.md) node and pass the result to an appropriately named `BehaviorSubject`, e.g. "Patch1TimeSpent".
 
-![timeSpentOnWheel](../../workflows/timeSpentOnWheel.svg) <!-- remove these and replace with bonsai workflow from PR https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/80 -->
+:::workflow
+![timeSpentOnWheel](../../workflows/timeSpentOnWheel.bonsai)
+:::
 
 ### TimeSinceLastEvent 
 The `TimeSinceLastEvent (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
-
 <!-- Is this the correct workflow? -->
-![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.svg)
+:::workflow
+![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.bonsai)
+:::
 
 #### Inputs
 None
@@ -251,7 +264,9 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 Outputs from auxiliary nodes are first formatted using the `Format` node, within which the register addresses are configured for software generated data logs.
 Utilising available registers of the output expander, the formatted outputs are then combined to form a "Patch" assembly, before being passed to the[`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node to be written to a log file.
 
-![logPatchEvents](../../workflows/logPatchEvents.svg)
+:::workflow
+![logPatchEvents](../../workflows/logPatchEvents.bonsai)
+:::
 
 :::{note}
 Register address 203 is not shown in this workflow, but is generated as events marked as a retry following an unsuccessful delivery attempt. 

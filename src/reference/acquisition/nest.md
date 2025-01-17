@@ -67,7 +67,9 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 Create a `Groupworkflow` and give it an appropriate name, e.g. "Nest". 
 Inside, place a `WeightScale (Aeon.Environment)` node, externalise all properties, and connect to the `WorkflowOutput`.
 
-![WeightScale](../../workflows/weightScale.svg)
+:::workflow
+![WeightScale](../../workflows/weightScale.bonsai)
+:::
 
 ## GUI
 No specific GUI components are defined for this module.
@@ -76,7 +78,9 @@ No specific GUI components are defined for this module.
 Outputs from the nest module are collected and formatted into Harp messages using the `Harp.Format` and custom `FormatWeight` nodes to configure the register addresses for each data stream on a virtual Harp device, utilising commonly available registers. 
 Logging of this virtual Harp device can then be performed as with any Harp device using the [`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node.  
 
-![logPatchEvents](../../workflows/logWeight.svg)
+:::workflow
+![logPatchEvents](../../workflows/logWeight.bonsai)
+:::
 
 **Data schema**
 

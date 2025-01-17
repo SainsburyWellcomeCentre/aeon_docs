@@ -37,7 +37,9 @@ Create a `GroupWorkflow`.
 Inside, place an `ActivityTracking (Aeon.Vision)` node and connect it to the `WorkflowOutput`. 
 Using a `SubscribeSubject`, e.g. "CameraTop", subscribe to the target [camera's](target-module-camera) "FrameEvents" `Subject` and connect it to the `ActivityTracking` node.
 
-![ActivityTracking](../../workflows/activityTracking.svg)
+:::workflow
+![ActivityTracking](../../workflows/activityTracking.bonsai)
+:::
 
 As with [`InRange (Aeon.Acquisition)`](target-node-inrange), more than one region of interest can be defined using multiple `GroupWorkflows`, each containing a separate instance of `ActivityTracking (Aeon.Vision)`.
 

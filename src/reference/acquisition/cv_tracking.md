@@ -28,7 +28,7 @@ Arena mask.
 :::
 ::::
 
-Contours are found and located using the `FindContours` and `BinaryRegionAnalysis` functions from openCV.NET (available in `Bonsai.Vision` package) and a custom `TakeLargestRegions (Aeon.Vision)` to take the *n* largest regions as defined by the property [`TrackingCount`](#properties). 
+Contours are found and located using the `FindContours` and `BinaryRegionAnalysis` functions from `OpenCV.NET` (available in `Bonsai.Vision` package) and a custom `TakeLargestRegions (Aeon.Vision)` to take the *n* largest regions as defined by the property [`TrackingCount`](#properties). 
 
 <!-- #### Inputs
 Is `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` the input? 

@@ -39,7 +39,9 @@ Inputs are returned unchanged.
 #### Usage
 The `LogData (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the data stream it is subscribed to for logging. 
 
-![Aeon.Acquisition.LogData](../../workflows/logData.svg)
+:::workflow
+![Aeon.Acquisition.LogData](../../workflows/logData.bonsai)
+:::
 
 Incoming data streams can also be combined into dynamic classes using operators like `Zip` or `CombineLatest`. 
 These combined streams can then be passed directly to a `LogData (Aeon.Acquisition)` node. 
@@ -80,7 +82,9 @@ This is generally not used downstream of this node.
 #### Usage
 The `LogHarpState (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the Harp device events `Subject` it is subscribed to for logging.
 
-![Aeon.Acquisition.LogHarpState](../../workflows/logHarpState.svg)
+:::workflow
+![Aeon.Acquisition.LogHarpState](../../workflows/logHarpState.bonsai)
+:::
 
 (target-node-logvideo)=
 ### LogVideo 
@@ -121,8 +125,9 @@ Stream of raw video images of type `OpenCV.Net.IPlImage`.
 #### Usage
 The `LogVideo (Aeon.Video)` node is generally the terminal node, to which a `SubscribeSubject` passes the frame events `Subject` it is subscribed to for logging.
 
-![Aeon.Video.LogVideo](../../workflows/logVideo.svg)
-
+:::workflow
+![Aeon.Video.LogVideo](../../workflows/logVideo.bonsai)
+:::
 <!-- To be completed
 ## GUI
 Description of any user interface components and visualisers.

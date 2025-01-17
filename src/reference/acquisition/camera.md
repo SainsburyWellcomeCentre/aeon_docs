@@ -38,7 +38,9 @@ Each of these `Subjects` is published and becomes accessible in the Bonsai edito
 To place a camera source, first create a `GroupWorkflow` with an appropriate name for the camera, e.g. "CameraTop". 
 Inside, place a `SpinnakerVideoSource (Aeon.Video)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
-![Aeon.Acquisition.Camera](../../workflows/camera.svg)
+:::workflow
+![Aeon.Acquisition.Camera](../../workflows/camera.bonsai)
+:::
 
 ### DroppedFrames
 The `DroppedFrames (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. "CameraTop". 
@@ -47,7 +49,9 @@ Specifically, it monitors the "FrameID" to ensure frames arrive consecutively.
 <!-- should this go under Outputs or Usage? -->
 In the event that a frame is dropped, the node outputs the "Timestamp", "Name" of the camera and the "FrameID" of the dropped frame.
 
-![DroppedFrames](../../workflows/droppedFrames.svg)
+:::workflow
+![DroppedFrames](../../workflows/droppedFrames.bonsai)
+:::
 
 #### Properties
 ##### Subjects
@@ -68,7 +72,9 @@ Specifically, it monitors the actual time between receiving frames to ensure fra
 Check if these are indeed the correct outputs as they seem to be copied from DroppedFrames -->
 In the event that no new frames arrive in time, the node outputs the "Timestamp", "Name" of the camera and the "FrameID" of the dropped frame.
 
-![StreamTimeout](../../workflows/streamTimeout.svg)
+:::workflow
+![StreamTimeout](../../workflows/streamTimeout.bonsai)
+:::
 
 To avoid false alarms when cameras are not active, subscription to the `StreamTimeout` workflow is controlled using the same triggers that activate and stop the cameras through the [`CameraController`](target-module-camera-controller).
 
@@ -90,7 +96,9 @@ TBC
 ## Logging
 All frame events of a [`SpinnakerVideoSource (Aeon.Video)`](#spinnakervideosource) node are logged using a [`LogVideo` (`Aeon.Video`)](target-node-logvideo) node.
 
-![Aeon.Video.LogVideo](../../workflows/logVideo.svg)
+:::workflow
+![Aeon.Video.LogVideo](../../workflows/logVideo.bonsai)
+:::
 
 This node saves the video itself in dedicated `.avi` files encoded with the **FMP4 codec**. 
 Harp and hardware timestamps and the frame counter recorded at the camera are logged in corresponding `.csv` files with the following columns:
@@ -111,18 +119,26 @@ Not required for state recovery.
 Camera streams are monitored for stream timeouts and dropped frames, which usually result from power outages or connection issues. 
 The [`StreamTimeout`](#streamtimeout) and [`DroppedFrames`](#droppedframes) nodes detect these failure events and their outputs can be formatted as alert strings, which are then sent to the "EnvironmentAlertMessages" and "AlertLogs" `Subjects` to [send](target-node-sendalert) and [log](target-node-formatlogmessage) alerts, respectively.
 
-![CameraAlerts](../../workflows/cameraAlerts.svg)
+:::workflow
+![CameraAlerts](../../workflows/cameraAlerts.bonsai)
+:::
 
 In order to monitor multiple camera streams simultaneously, multiple instances of the `DroppedFrames` and `StreamTimeout` nodes can be merged before they are passed to the Alert `Subjects`. 
 This can be achieved by placing the nodes together in a `GroupWorkflow` and using `Merge` on the results before outputting them to the `WorkflowOutput`.
 Below is an example of how multiple `DroppedFrames` nodes are combined in a `GroupWorkflow` named "Dropped Frames Monitor".
 
-![mergeDroppedFrames](../../workflows/mergeDroppedFrames.svg)
+:::workflow
+![mergeDroppedFrames](../../workflows/mergeDroppedFrames.bonsai)
+:::
 
 Similarly, multiple `StreamTimeout` nodes can be combined in another `GroupWorkflow` named "Stream Timeout Monitor".
 
-![mergeStreamTimeout](../../workflows/mergeStreamTimeout.svg)
+:::workflow
+![mergeStreamTimeout](../../workflows/mergeStreamTimeout.bonsai)
+:::
 
 Both "Dropped Frames Monitor" and "Stream Timeout Monitor" can then be used to monitor all camera streams simultaneously by configuring the [alerts](target-module-alerts).
 
-![mergeCameraAlerts](../../workflows/mergeCameraAlerts.svg)
+:::workflow
+![mergeCameraAlerts](../../workflows/mergeCameraAlerts.bonsai)
+:::

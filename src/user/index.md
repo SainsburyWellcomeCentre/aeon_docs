@@ -9,15 +9,15 @@ To demonstrate Aeon's various features and capabilities, we also provide the fol
 - [**Single mouse in a foraging assay**](https://doi.org/10.5281/zenodo.13881884): A two-hour snippet of a single mouse in a foraging assay consisting of three food patches.
 
 :::{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Tutorials
+:glob:
 
-tutorials/multianimal_tracking
-tutorials/npx_recording
+tutorials/*
 :::
 
 :::{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: How-to Guides
 
 how_to/io_api_example_copy

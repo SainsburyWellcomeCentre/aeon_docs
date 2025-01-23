@@ -1,7 +1,9 @@
-(target-module-cv-tracking)=
-# Computer Vision Tracking
-The computer vision tracking module facilitates tracking and analysing the positions of animals within specific regions or areas in the arena that are of behavioural significance (e.g. [nest](target-module-nest), [foraging patch](target-module-foraging-patch)) based on video data from [camera](target-node-spinnakervideosource) devices.
-It includes nodes such as `PositionTracking` for detecting and tracking objects, `RegionTracking` for determining if an object is within a specific region, `DistanceFromPoint` for calculating the distance between an object and a point, and `InRange` for checking if an object is within a specified range. 
+(target-module-subject-tracking)=
+# Subject Tracking
+The subject tracking module processes [camera](target-node-spinnakervideosource) frame events to facilitate comprehensive tracking and analysis of animal positions and movements in the arena or within specific regions or areas in the arena that are of behavioural significance (e.g. [nest](target-module-nest), [foraging patch](target-module-foraging-patch)). 
+It includes nodes such as `PositionTracking` for detecting and tracking blobs (of objects, e.g. animals);
+`PoseTracking`, which leverages [SLEAP's](https://sleap.ai/) multi-animal tracking capabilities, to simultaneously track and identify different animals; and
+`RegionTracking` for determining if a tracked object is within a specific region.
 These enable real-time tracking, event triggering, and data logging, making it easier to monitor and analyse animal behaviour in various experimental setups.
 
 ## Nodes
@@ -71,8 +73,53 @@ To avoid confusion<!-- with what? -->, change the display name of the externalis
 
 ![Aeon.Vision.PositionTracking](../../workflows/positionTracking.svg)
 
+### PoseTracking
+The `PoseTracking (Aeon.Vision.Sleap)` node utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) package, to simultaneously track and identify different animals within the arena.
+It loads a trained SLEAP model, and runs inference on frame events from a [camera](target-node-spinnakervideosource) device, returning timestamped data containing the position of each animal, their identity and confidence measures. 
+<!-- To be completed
+#### Inputs
+#### Outputs
+A sequence of `<type>` with the following attributes. 
+| Attribute name     | Type                           | Description                      |
+|--------------------|--------------------------------|----------------------------------|
+| **Attr1**          | `Type`                         | Description of Attr1             |
+| **Attr2**          | `Type`                         | Description of Attr2             |
+-->
+#### Properties
+##### General
+| Property name | Description                                               |
+|---------------|-----------------------------------------------------------|
+| **IdentityMinConfidence** |  Set the minimum confidence score applied to computation of an object (animal) instance's centroid |
+| **FrameStep**           | Frame by frame inference and pose estimation is computationally expensive. It may be helpful to downsample the incoming stream to run inference in real time. Here you can set the number of frames to skip between incoming frames  |
+| **IdentityMinConfidence** | Set the minimum confidence required to label an instance's identity |
+| **ModelPath** | Set the partial path to the saved `frozen_graph.pb` |
+| **PartMinConfidence** | Set the minimum confidence required to assign a label to an instance's keypoint |
+
+##### Subjects
+Both generated and input events of this node are collected and passed to published `Subjects`. 
+Here you set the names used for these `Subjects` to identify events for this node.
+Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+
+###### Device event subjects
+| Subject name      | Type        | Description                   |
+|-------------------|-------------|-------------------------------|
+| **TrackingEvents** | `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` | The `Subject` to which tracking data will be published. This stream is also output directly by the node | 
+
+###### Device input subjects
+| Subject name      | Type          | Description                                                                                     |
+|-------------------|---------------|-------------------------------------------------------------------------------------------------|
+| **FrameEvents**   | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | The `Subject` to subscribe to that carries frame events from a chosen camera | 
+
+#### Usage
+The trained model must first be exported to [Protocol buffer (.pb) format](https://protobuf.dev/) using the [`sleap-export`](https://sleap.ai/guides/cli.html#sleap-export) command line interface. 
+Next, create a `GroupWorkflow` and give it an appropriate name, e.g. "PoseTracking". 
+Inside, place a `PoseTracking (Aeon.Vision.Sleap)` node, externalise all properties, and connect it to the `WorkflowOutput`.
+
+![poseTracking](../../workflows/poseTracking.svg)
+
 ### RegionTracking 
-The `RegionTracking (Aeon.Vision)` node computes and returns a `boolean` describing whether the [tracking position](#positiontracking) of an animal falls within a defined [region](target-node-regiontracking-properties) of the camera image.
+<!-- I assume this node can be used with either PositionTracking or PoseTracking. If incorrect, we should remove the PoseTracking bit. -->
+The `RegionTracking (Aeon.Vision)` node computes and returns a `boolean` describing whether the tracked position (from a [`PositionTracking (Aeon.Vision)`](#positiontracking) or [`PoseTracking (Aeon.Vision.Sleap)`](#posetracking) node) of an animal falls within a defined [region](target-node-regiontracking-properties) of the camera image.
 <!-- To be completed
 #### Inputs
 Tracking events in the format `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` generated by a [`PositionTracking (Aeon.Vision)`](#positiontracking) node?
@@ -109,7 +156,8 @@ Next, add a `SubscribeSubject` node to subscribe to the common "TrackingEvents" 
 ![RegionTracking](../../workflows/regionTracking.svg)
 
 ### DistanceFromPoint 
-The `DistanceFromPoint (Aeon.Vision)` node computes the distance (in pixels) between the [tracking position](#positiontracking) of an animal and a defined [point](target-node-distancefrompoint-properties) in the camera image. 
+<!-- I assume this node can be used with either PositionTracking or PoseTracking. If incorrect, we should remove the PoseTracking bit. -->
+The `DistanceFromPoint (Aeon.Vision)` node computes the distance (in pixels) between the tracked position (from a [`PositionTracking (Aeon.Vision)`](#positiontracking) or [`PoseTracking (Aeon.Vision.Sleap)`](#posetracking) node) of an animal and a defined [point](target-node-distancefrompoint-properties) in the camera image. 
 <!-- To be completed
 #### Inputs
 Tracking events in the format `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` generated by a [`PositionTracking (Aeon.Vision)`](#positiontracking) node?
@@ -139,8 +187,9 @@ The output of the `DistanceFromPoint (Aeon.Vision)` node can then be used with o
 like the [`InRange (Aeon.Acquisition)`](#inrange) node to trigger events or commands based on the proximity of an animal to a specific point in the camera image.
 
 (target-node-inrange)=
-### InRange 
-The `InRange (Aeon.Acquisition)` node is used to determine whether a [tracked object](#positiontracking) is within a specified [range](target-node-inrange-properties) in a single dimension.
+### InRange
+<!-- I assume this node can be used with either PositionTracking or PoseTracking. If incorrect, we should remove the PoseTracking bit. -->
+The `InRange (Aeon.Acquisition)` node is used to determine whether the tracked position (from a [`PositionTracking (Aeon.Vision)`](#positiontracking) or [`PoseTracking (Aeon.Vision.Sleap)`](#posetracking) node) of an animal is within a specified [range](target-node-inrange-properties) in a single dimension.
 <!-- To be completed
 #### Inputs
 #### Outputs
@@ -182,14 +231,17 @@ For instance, to further determine if the animal is in the corridor, add another
 ## GUI
 Description of any user interface components and visualisers.
 -->
+
 ## Logging
-"TrackingEvents" from a `PositionTracking (Aeon.Vision)` node can be logged along with the camera from which the "FrameEvents" originated using a [`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node. 
+<!-- The original "Logging" for the PoseTracking node was copied over from PositionTracking. So here I'm assuming the examples for PositionTracking are applicable to PoseTracking. Check if correct. -->
+"TrackingEvents" from a `PositionTracking (Aeon.Vision)` or a `PoseTracking (Aeon.Vision.Sleap)` node can be logged along with the camera from which the "FrameEvents" originated using a [`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node. 
 First, add a `SubscribeSubject` to subscribe to the "TrackingEvents" `Subject` (e.g. "TrackingTop").
 The events can then be formatted as `HarpMessages` and configured to write to register **200** (an unassigned register on all Harp devices) using the custom `FormatBinaryRegions (Aeon.Vision)` node.
+Here is an example for logging a `PositionTracking` node.
 
 ![logPositionTracking](../../workflows/logPositionTracking.svg)
 
-Multiple `PositionTracking` nodes can be used to track objects in different camera streams simultaneously. 
+Multiple `PositionTracking` or `PoseTracking` nodes can be used to track objects in different camera streams simultaneously. 
 To do this, select a different "FrameEvents" `Subject` for each node and save the results to the corresponding camera folders.
 <!-- To be coompleted 
 ## State persistence
@@ -198,3 +250,6 @@ Information on state recovery or persistence requirements, if applicable.
 ## Alerts
 Explanation of any alert configurations and links to guides or further configuration steps.
 -->
+:::{seealso}
+The [SLEAP](https://sleap.ai/) and [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) documentation for more information on training models to be used with the `PoseTracking (Aeon.Vision.Sleap)` node.
+:::

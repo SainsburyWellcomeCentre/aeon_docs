@@ -1,13 +1,16 @@
 (target-installation)=
 # Installation
 
-This guide will walk you through the installation of the `aeon_mecha` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage (currently only applicable to SWC members).
+This guide will walk you through the installation of the `aeon_api` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage (currently only applicable to SWC members).
 
 (target-install-aeon-mecha)=
 ## `aeon_mecha`
 
+(target-install-aeon-api)=
+## `aeon_api`
+
 :::{note}
-We always recommend installing `aeon_mecha` inside a 
+We always recommend installing `aeon_api` inside a 
 [conda](https://docs.conda.io/en/latest/)
 or [mamba](https://mamba.readthedocs.io/en/latest/) environment, 
 to avoid dependency conflicts with other packages.
@@ -42,12 +45,12 @@ export PATH=$PATH:/ceph/aeon/aeon/code/dotnet
 ```
 :::
 
-Clone the `aeon_mecha` repository into the `~/ProjectAeon/aeon_mecha` directory. 
+Clone the `aeon_api` repository into the `~/ProjectAeon/aeon_api` directory. 
 ```sh
 mkdir ~/ProjectAeon 
 cd ~/ProjectAeon
-git clone https://github.com/SainsburyWellcomeCentre/aeon_mecha
-cd aeon_mecha
+git clone https://github.com/SainsburyWellcomeCentre/aeon_api
+cd aeon_api
 ```
 
 Create the `aeon` conda environment and activate it.
@@ -56,7 +59,7 @@ conda create -n aeon -c conda-forge python>=3.11
 conda activate aeon
 ```
 
-Install the `aeon_mecha` package in editable mode.
+Install the `aeon_api` package in editable mode.
 ::::{tab-set}
 :::{tab-item} Users
 ```sh
@@ -110,4 +113,5 @@ The next step is to configure your IDE to connect to the `swc-gateway` node via 
 ::::
 :::::
 
-Within the `aeon` conda environment, Aeon data can be accessed from Ceph using the [`aeon_mecha` API](target-mecha-reference) or queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline). Examples for retrieving and visualizing the data can be found in the [User Guide](target-user-guide).
+Within the `aeon` conda environment, raw Aeon data can be accessed from Ceph using [`aeon_api`](target-aeon-api-reference), whereas processed data can be queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) using [`aeon_mecha`]. 
+Examples for retrieving and visualising the data can be found in the [User Guide](target-user-guide).

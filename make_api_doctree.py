@@ -1,20 +1,16 @@
 import os
 from pathlib import Path
 
-
 # modules to ignore in the api doc
-ignore_modules = [
-    "aeon.dj_pipeline",
-    "aeon.qc.video",
-]
+ignore_modules = []
 
 
-def make_mecha_doctree():
+def make_api_doctree():
     """
     Create a doctree of all modules in aeon_mecha/aeon.
     """
     doctree = ""
-    api_path = Path("aeon_mecha") / "aeon"
+    api_path = Path("aeon_api") / "aeon"
     for path in sorted(api_path.rglob("*.py")):
         if path.name.startswith("_"):
             continue
@@ -36,4 +32,4 @@ def make_mecha_doctree():
 
 
 if __name__ == "__main__":
-    make_mecha_doctree()
+    make_api_doctree()

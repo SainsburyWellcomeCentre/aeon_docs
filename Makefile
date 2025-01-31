@@ -14,7 +14,7 @@ help:
 
 $(SOURCEDIR)/reference/api.rst:
 	@echo "Generating API documentation..."
-	@python make_mecha_doctree.py
+	@python make_api_doctree.py
 	@python make_acquisition_doctree.py
 
 copy-examples:

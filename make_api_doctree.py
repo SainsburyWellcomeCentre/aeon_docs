@@ -10,7 +10,7 @@ def make_api_doctree():
     Create a doctree of all modules in aeon_mecha/aeon.
     """
     doctree = ""
-    api_path = Path("aeon_api") / "aeon"
+    api_path = Path("aeon_api") / "swc" / "aeon"
     for path in sorted(api_path.rglob("*.py")):
         if path.name.startswith("_"):
             continue

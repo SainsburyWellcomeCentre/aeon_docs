@@ -20,7 +20,11 @@ class WorkflowContainer {
         wrap.appendChild(workflowCell);
         const imgParent = img.parentElement;
         workflowCell.appendChild(img);
-        imgParent.remove();
+
+        // remove the parent p element from custom .md containers
+        if (imgParent.nodeName.toLowerCase() === "p") {
+            imgParent.remove();
+        }
 
         // set button SVG from sphinx-copybutton
         const id = "workflowcell" + WorkflowContainer.cellCounter++;

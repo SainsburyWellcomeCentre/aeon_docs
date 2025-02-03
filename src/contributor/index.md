@@ -95,6 +95,30 @@ This new page will then be included as a subpage of the parent page.
 :::
 ::::
 
+#### Adding Bonsai workflow code
+Bonsai workflows can be inserted using a custom `workflow` container that displays the workflow image and allows the workflow code to be copied. 
+The `.bonsai` workflow file and its corresponding `.svg` file should be placed in the `src/workflows/` directory.
+In order for the workflow to be displayed correctly, the `.bonsai` file and its corresponding `.svg` file must have the same name, e.g. `alertLogs.bonsai` and `alertLogs.svg`.
+
+:::::{tab-set}
+::::{tab-item} Markdown
+```markdown
+:::workflow
+![Alt text](src/workflows/alertLogs.bonsai)
+:::
+```
+::::
+
+::::{tab-item} RestructuredText
+```rst
+.. container:: workflow
+
+    .. image:: src/workflows/alertLogs.bonsai
+        :alt: Alt text
+```
+::::
+:::::
+
 #### Cross-referencing pages
 ##### Internal references
 For ease of referencing, we use [explicit targets](myst-parser:syntax/cross-referencing.html#creating-explicit-targets) to refer to specific pages and sections within the documentation. 

@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -49,6 +49,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/analysis/movies';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -381,18 +382,18 @@
                 <article class="bd-article">
                   
   <h1>Source code for aeon.analysis.movies</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">aeon.io</span> <span class="kn">import</span> <span class="n">video</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">video</span>
 
 
 <div class="viewcode-block" id="gridframes">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.gridframes">[docs]</a>
-<span class="k">def</span> <span class="nf">gridframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gridframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Arranges a set of frames into a grid layout with the specified pixel dimensions and shape.</span>
 
 <span class="sd">    :param list frames: A list of frames to include in the grid layout.</span>
@@ -429,7 +430,7 @@
 
 <div class="viewcode-block" id="averageframes">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.averageframes">[docs]</a>
-<span class="k">def</span> <span class="nf">averageframes</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">averageframes</span><span class="p">(</span><span class="n">frames</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the average of the specified collection of frames.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convertScaleAbs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">frames</span><span class="p">)))</span></div>
 
@@ -437,7 +438,7 @@
 
 <div class="viewcode-block" id="groupframes">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.groupframes">[docs]</a>
-<span class="k">def</span> <span class="nf">groupframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">groupframes</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Applies the specified function to each group of n-frames.</span>
 
 <span class="sd">    :param iterable frames: A sequence of frames to process.</span>
@@ -458,7 +459,7 @@
 
 <div class="viewcode-block" id="triggerclip">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.triggerclip">[docs]</a>
-<span class="k">def</span> <span class="nf">triggerclip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">triggerclip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Split video data around the specified sequence of event timestamps.</span>
 
 <span class="sd">    :param DataFrame data:</span>
@@ -494,7 +495,7 @@
 
 <div class="viewcode-block" id="collatemovie">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.collatemovie">[docs]</a>
-<span class="k">def</span> <span class="nf">collatemovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">collatemovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a single movie using the specified aggregation function.</span>
 
 <span class="sd">    :param DataFrame clipdata:</span>
@@ -511,7 +512,7 @@
 
 <div class="viewcode-block" id="gridmovie">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.movies.html#aeon.analysis.movies.gridmovie">[docs]</a>
-<span class="k">def</span> <span class="nf">gridmovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gridmovie</span><span class="p">(</span><span class="n">clipdata</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Collates a set of video clips into a grid movie with the specified pixel dimensions and grid layout.</span>
 
 <span class="sd">    :param DataFrame clipdata:</span>

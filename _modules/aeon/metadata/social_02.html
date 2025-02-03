@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -49,6 +49,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/metadata/social_02';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -381,18 +382,18 @@
                 <article class="bd-article">
                   
   <h1>Source code for aeon.metadata.social_02</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">dotmap</span> <span class="kn">import</span> <span class="n">DotMap</span>
-<span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">NDArray</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotmap</span><span class="w"> </span><span class="kn">import</span> <span class="n">DotMap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
 
 
 <div class="viewcode-block" id="ArenaMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.ArenaMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ArenaMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ArenaMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents information about the physical arena.&quot;&quot;&quot;</span>
 
     <span class="n">radius_cm</span><span class="p">:</span> <span class="nb">float</span>
@@ -400,7 +401,7 @@
     <span class="n">center_px</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span>
     <span class="n">pixel_to_cm</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">,</span> <span class="n">radius_cm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">,</span> <span class="n">radius_cm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius_cm</span> <span class="o">=</span> <span class="n">radius_cm</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius_px</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">ArenaOuterRadius</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center_px</span> <span class="o">=</span> <span class="n">_parse_point</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">ArenaCenter</span><span class="p">)</span>
@@ -408,7 +409,7 @@
 
 <div class="viewcode-block" id="ArenaMetadata.point_to_cm">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.ArenaMetadata.point_to_cm">[docs]</a>
-    <span class="k">def</span> <span class="nf">point_to_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataFrame</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">point_to_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataFrame</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts the coordinates of a point or series of points from pixels to centimeters.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">point</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_px</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_to_cm</span></div>
 </div>
@@ -418,13 +419,13 @@
 <div class="viewcode-block" id="PatchMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.PatchMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">PatchMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PatchMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents information about the feeder patch location and size.&quot;&quot;&quot;</span>
 
     <span class="n">radius_cm</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">roi_px</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patch_device</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">,</span> <span class="n">patch_region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patch_device</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">,</span> <span class="n">patch_region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius_cm</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">patch_device</span><span class="o">.</span><span class="n">Radius</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">roi_px</span> <span class="o">=</span> <span class="n">_parse_roi</span><span class="p">(</span><span class="n">patch_region</span><span class="p">)</span></div>
 
@@ -433,12 +434,12 @@
 <div class="viewcode-block" id="NestMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.NestMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">NestMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NestMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents information about the nest location.&quot;&quot;&quot;</span>
 
     <span class="n">roi_px</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nest_region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nest_region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">roi_px</span> <span class="o">=</span> <span class="n">_parse_roi</span><span class="p">(</span><span class="n">nest_region</span><span class="p">)</span></div>
 
 
@@ -446,12 +447,12 @@
 <div class="viewcode-block" id="RfidMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.RfidMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">RfidMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RfidMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents information about a single RFID antenna.&quot;&quot;&quot;</span>
 
     <span class="n">location_px</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfid_device</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfid_device</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">location_px</span> <span class="o">=</span> <span class="n">_parse_point</span><span class="p">(</span><span class="n">rfid_device</span><span class="o">.</span><span class="n">Location</span><span class="p">)</span></div>
 
 
@@ -459,13 +460,13 @@
 <div class="viewcode-block" id="VideoControllerMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.VideoControllerMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">VideoControllerMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VideoControllerMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents information about the sampling frequency of video streams.&quot;&quot;&quot;</span>
 
     <span class="n">global_fps</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">local_fps</span><span class="p">:</span> <span class="nb">float</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">video_controller</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">video_controller</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">global_fps</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">video_controller</span><span class="o">.</span><span class="n">GlobalTriggerFrequency</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">local_fps</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">video_controller</span><span class="o">.</span><span class="n">LocalTriggerFrequency</span><span class="p">)</span></div>
 
@@ -474,7 +475,7 @@
 <div class="viewcode-block" id="ExperimentMetadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.metadata.social_02.html#aeon.metadata.social_02.ExperimentMetadata">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">ExperimentMetadata</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ExperimentMetadata</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Aggregates all metadata information about the experimental environment.&quot;&quot;&quot;</span>
 
     <span class="n">arena</span><span class="p">:</span> <span class="n">ArenaMetadata</span>
@@ -490,7 +491,7 @@
     <span class="n">nest_rfid2</span><span class="p">:</span> <span class="n">RfidMetadata</span>
     <span class="n">gate_rfid</span><span class="p">:</span> <span class="n">RfidMetadata</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># read arena metadata</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arena</span> <span class="o">=</span> <span class="n">ArenaMetadata</span><span class="p">(</span><span class="n">metadata</span><span class="o">.</span><span class="n">ActiveRegion</span><span class="p">)</span>
 
@@ -515,11 +516,11 @@
 
 
 
-<span class="k">def</span> <span class="nf">_parse_point</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_parse_point</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">X</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">Y</span><span class="p">)))</span>
 
 
-<span class="k">def</span> <span class="nf">_parse_roi</span><span class="p">(</span><span class="n">region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_parse_roi</span><span class="p">(</span><span class="n">region</span><span class="p">:</span> <span class="n">DotMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">X</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">Y</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">region</span><span class="o">.</span><span class="n">ArrayOfPoint</span><span class="p">])</span>
 </pre></div>
 

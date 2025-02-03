@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -49,6 +49,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/schema/social_02';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -381,23 +382,23 @@
                 <article class="bd-article">
                   
   <h1>Source code for aeon.schema.social_02</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">aeon.io.reader</span> <span class="k">as</span> <span class="nn">_reader</span>
-<span class="kn">from</span> <span class="nn">aeon.schema</span> <span class="kn">import</span> <span class="n">core</span><span class="p">,</span> <span class="n">foraging</span>
-<span class="kn">from</span> <span class="nn">aeon.schema.streams</span> <span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamGroup</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">aeon.io.reader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_reader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span><span class="p">,</span> <span class="n">foraging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.schema.streams</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamGroup</span>
 
 
 <div class="viewcode-block" id="Environment">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Environment">[docs]</a>
-<span class="k">class</span> <span class="nc">Environment</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
     <span class="n">EnvironmentState</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">EnvironmentState</span>
 
 <div class="viewcode-block" id="Environment.BlockState">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Environment.BlockState">[docs]</a>
-    <span class="k">class</span> <span class="nc">BlockState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">BlockState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
                 <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_BlockState_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pellet_ct&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_ct_thresh&quot;</span><span class="p">,</span> <span class="s2">&quot;due_time&quot;</span><span class="p">])</span>
             <span class="p">)</span></div>
@@ -405,8 +406,8 @@
 
 <div class="viewcode-block" id="Environment.LightEvents">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Environment.LightEvents">[docs]</a>
-    <span class="k">class</span> <span class="nc">LightEvents</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">LightEvents</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_LightEvents_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">]))</span></div>
 
 
@@ -416,28 +417,28 @@
 
 <div class="viewcode-block" id="SubjectData">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData">[docs]</a>
-<span class="k">class</span> <span class="nc">SubjectData</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubjectData</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SubjectData.SubjectState">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectState">[docs]</a>
-    <span class="k">class</span> <span class="nc">SubjectState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">SubjectState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_SubjectState_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]))</span></div>
 
 
 <div class="viewcode-block" id="SubjectData.SubjectVisits">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectVisits">[docs]</a>
-    <span class="k">class</span> <span class="nc">SubjectVisits</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">SubjectVisits</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_SubjectVisits_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">]))</span></div>
 
 
 <div class="viewcode-block" id="SubjectData.SubjectWeight">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.SubjectData.SubjectWeight">[docs]</a>
-    <span class="k">class</span> <span class="nc">SubjectWeight</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">SubjectWeight</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
                 <span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_SubjectWeight_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">]</span>
@@ -449,38 +450,38 @@
 
 <div class="viewcode-block" id="Pose">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Pose">[docs]</a>
-<span class="k">class</span> <span class="nc">Pose</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pose</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_test-node1*&quot;</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="WeightRaw">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.WeightRaw">[docs]</a>
-<span class="k">class</span> <span class="nc">WeightRaw</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WeightRaw</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;weight(g)&quot;</span><span class="p">,</span> <span class="s2">&quot;stability&quot;</span><span class="p">]))</span></div>
 
 
 
 <div class="viewcode-block" id="WeightFiltered">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.WeightFiltered">[docs]</a>
-<span class="k">class</span> <span class="nc">WeightFiltered</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WeightFiltered</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_202_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;weight(g)&quot;</span><span class="p">,</span> <span class="s2">&quot;stability&quot;</span><span class="p">]))</span></div>
 
 
 
 <div class="viewcode-block" id="Patch">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Patch">[docs]</a>
-<span class="k">class</span> <span class="nc">Patch</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Patch</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Patch.DepletionState">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Patch.DepletionState">[docs]</a>
-    <span class="k">class</span> <span class="nc">DepletionState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">DepletionState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_State_*&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">]))</span></div>
 
 
@@ -490,22 +491,22 @@
 
 <div class="viewcode-block" id="Patch.ManualDelivery">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Patch.ManualDelivery">[docs]</a>
-    <span class="k">class</span> <span class="nc">ManualDelivery</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">ManualDelivery</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_201_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;manual_delivery&quot;</span><span class="p">]))</span></div>
 
 
 <div class="viewcode-block" id="Patch.MissedPellet">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Patch.MissedPellet">[docs]</a>
-    <span class="k">class</span> <span class="nc">MissedPellet</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">MissedPellet</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_202_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;missed_pellet&quot;</span><span class="p">]))</span></div>
 
 
 <div class="viewcode-block" id="Patch.RetriedDelivery">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.Patch.RetriedDelivery">[docs]</a>
-    <span class="k">class</span> <span class="nc">RetriedDelivery</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">RetriedDelivery</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_203_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;retried_delivery&quot;</span><span class="p">]))</span></div>
 </div>
 
@@ -513,8 +514,8 @@
 
 <div class="viewcode-block" id="RfidEvents">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.schema.social_02.html#aeon.schema.social_02.RfidEvents">[docs]</a>
-<span class="k">class</span> <span class="nc">RfidEvents</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RfidEvents</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">_32*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]))</span></div>
 
 </pre></div>

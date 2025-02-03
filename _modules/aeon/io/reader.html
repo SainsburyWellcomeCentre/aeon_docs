@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -49,6 +49,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/io/reader';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -381,21 +382,21 @@
                 <article class="bd-article">
                   
   <h1>Source code for aeon.io.reader</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">dotmap</span> <span class="kn">import</span> <span class="n">DotMap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotmap</span><span class="w"> </span><span class="kn">import</span> <span class="n">DotMap</span>
 
-<span class="kn">from</span> <span class="nn">aeon</span> <span class="kn">import</span> <span class="n">util</span>
-<span class="kn">from</span> <span class="nn">aeon.io.api</span> <span class="kn">import</span> <span class="n">aeon</span> <span class="k">as</span> <span class="n">aeon_time</span>
-<span class="kn">from</span> <span class="nn">aeon.io.api</span> <span class="kn">import</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">chunk_key</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon</span><span class="w"> </span><span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.io.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">aeon</span> <span class="k">as</span> <span class="n">aeon_time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.io.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">chunk_key</span>
 
 <span class="n">_SECONDS_PER_TICK</span> <span class="o">=</span> <span class="mf">32e-6</span>
 <span class="n">_payloadtypes</span> <span class="o">=</span> <span class="p">{</span>
@@ -413,7 +414,7 @@
 
 <div class="viewcode-block" id="Reader">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Reader">[docs]</a>
-<span class="k">class</span> <span class="nc">Reader</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Reader</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts data from raw files in an Aeon dataset.</span>
 
 <span class="sd">    Attributes:</span>
@@ -423,14 +424,14 @@
 <span class="sd">        extension (str): Extension of data file pathnames.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">pattern</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extension</span> <span class="o">=</span> <span class="n">extension</span>
 
 <div class="viewcode-block" id="Reader.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Reader.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the specified file.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([]))</span></div>
 </div>
@@ -439,15 +440,15 @@
 
 <div class="viewcode-block" id="Harp">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Harp">[docs]</a>
-<span class="k">class</span> <span class="nc">Harp</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Harp</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts data from raw binary files encoded using the Harp protocol.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;bin&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;bin&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Harp.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Harp.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the specified Harp binary file.&quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -478,10 +479,10 @@
 
 <div class="viewcode-block" id="Chunk">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Chunk">[docs]</a>
-<span class="k">class</span> <span class="nc">Chunk</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Chunk</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts path and epoch information from chunk files in the dataset.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">Reader</span><span class="p">):</span>
             <span class="n">pattern</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">pattern</span>
             <span class="n">extension</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">extension</span>
@@ -489,7 +490,7 @@
 
 <div class="viewcode-block" id="Chunk.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Chunk.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns path and epoch information for the specified chunk.&quot;&quot;&quot;</span>
         <span class="n">epoch</span><span class="p">,</span> <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk_key</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="n">epoch</span><span class="p">}</span>
@@ -500,15 +501,15 @@
 
 <div class="viewcode-block" id="Metadata">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Metadata">[docs]</a>
-<span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Metadata</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts metadata information from all epochs in the dataset.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Metadata&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Metadata&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;workflow&quot;</span><span class="p">,</span> <span class="s2">&quot;commit&quot;</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">],</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;yml&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Metadata.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Metadata.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns metadata for the specified epoch.&quot;&quot;&quot;</span>
         <span class="n">epoch_str</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">date_str</span><span class="p">,</span> <span class="n">time_str</span> <span class="o">=</span> <span class="n">epoch_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
@@ -525,19 +526,19 @@
 
 <div class="viewcode-block" id="Csv">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Csv">[docs]</a>
-<span class="k">class</span> <span class="nc">Csv</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Csv</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts data from comma-separated (CSV) text files.</span>
 
 <span class="sd">    The first column stores the Aeon timestamp, in seconds.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
 
 <div class="viewcode-block" id="Csv.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Csv.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the specified CSV text file.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
             <span class="n">file</span><span class="p">,</span>
@@ -552,7 +553,7 @@
 
 <div class="viewcode-block" id="Subject">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Subject">[docs]</a>
-<span class="k">class</span> <span class="nc">Subject</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Subject</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts metadata for subjects entering and exiting the environment.</span>
 
 <span class="sd">    Columns:</span>
@@ -562,14 +563,14 @@
 <span class="sd">        event (str): Event type. Can be one of `Enter`, `Exit` or `Remain`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">])</span></div>
 
 
 
 <div class="viewcode-block" id="Log">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Log">[docs]</a>
-<span class="k">class</span> <span class="nc">Log</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Log</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts message log data.</span>
 
 <span class="sd">    Columns:</span>
@@ -579,28 +580,28 @@
 <span class="sd">            separated values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">])</span></div>
 
 
 
 <div class="viewcode-block" id="Heartbeat">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Heartbeat">[docs]</a>
-<span class="k">class</span> <span class="nc">Heartbeat</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Heartbeat</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract periodic heartbeat event data.</span>
 
 <span class="sd">    Columns:</span>
 <span class="sd">        second (int): The whole second corresponding to the heartbeat, in seconds.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">])</span></div>
 
 
 
 <div class="viewcode-block" id="Encoder">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Encoder">[docs]</a>
-<span class="k">class</span> <span class="nc">Encoder</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Encoder</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract magnetic encoder data.</span>
 
 <span class="sd">    Columns:</span>
@@ -608,12 +609,12 @@
 <span class="sd">        intensity (float): Intensity of the magnetic field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;angle&quot;</span><span class="p">,</span> <span class="s2">&quot;intensity&quot;</span><span class="p">])</span>
 
 <div class="viewcode-block" id="Encoder.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Encoder.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">downsample</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">downsample</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads encoder data from the specified Harp binary file.</span>
 
 <span class="sd">        By default the encoder data is downsampled to 50Hz. Setting downsample to</span>
@@ -636,7 +637,7 @@
 
 <div class="viewcode-block" id="Position">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Position">[docs]</a>
-<span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract 2D position tracking data for a specific camera.</span>
 
 <span class="sd">    Columns:</span>
@@ -651,28 +652,28 @@
 <span class="sd">        id (float): unique tracking ID of the object in a frame.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;angle&quot;</span><span class="p">,</span> <span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">])</span></div>
 
 
 
 <div class="viewcode-block" id="BitmaskEvent">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.BitmaskEvent">[docs]</a>
-<span class="k">class</span> <span class="nc">BitmaskEvent</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BitmaskEvent</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts event data matching a specific digital I/O bitmask.</span>
 
 <span class="sd">    Columns:</span>
 <span class="sd">        event (str): Unique identifier for the event code.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span>
 
 <div class="viewcode-block" id="BitmaskEvent.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.BitmaskEvent.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data.</span>
 
 <span class="sd">        Each data value is matched against the unique event identifier.</span>
@@ -687,20 +688,20 @@
 
 <div class="viewcode-block" id="DigitalBitmask">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.DigitalBitmask">[docs]</a>
-<span class="k">class</span> <span class="nc">DigitalBitmask</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DigitalBitmask</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts event data matching a specific digital I/O bitmask.</span>
 
 <span class="sd">    Columns:</span>
 <span class="sd">        event (str): Unique identifier for the event code.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
 
 <div class="viewcode-block" id="DigitalBitmask.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.DigitalBitmask.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads a specific event code from digital data.</span>
 
 <span class="sd">        Each data value is checked against the specified bitmask.</span>
@@ -714,7 +715,7 @@
 
 <div class="viewcode-block" id="Video">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Video">[docs]</a>
-<span class="k">class</span> <span class="nc">Video</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Video</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts video frame metadata.</span>
 
 <span class="sd">    Columns:</span>
@@ -722,13 +723,13 @@
 <span class="sd">        hw_timestamp (int): Internal camera timestamp for the current frame.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hw_counter&quot;</span><span class="p">,</span> <span class="s2">&quot;hw_timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;_frame&quot;</span><span class="p">,</span> <span class="s2">&quot;_path&quot;</span><span class="p">,</span> <span class="s2">&quot;_epoch&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rawcolumns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Video.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Video.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads video metadata from the specified file.&quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_rawcolumns</span><span class="p">)</span>
         <span class="n">data</span><span class="p">[</span><span class="s2">&quot;_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span>
@@ -742,7 +743,7 @@
 
 <div class="viewcode-block" id="Pose">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose">[docs]</a>
-<span class="k">class</span> <span class="nc">Pose</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pose</span><span class="p">(</span><span class="n">Harp</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Reader for Harp-binarized tracking data given a model that outputs id, parts, and likelihoods.</span>
 
 <span class="sd">    Columns:</span>
@@ -754,7 +755,7 @@
 <span class="sd">        y (float): Y-coordinate of the bodypart.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_root</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/ceph/aeon/aeon/data/processed&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_root</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/ceph/aeon/aeon/data/processed&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Pose reader constructor.</span>
 
 <span class="sd">        The pattern for this reader should typically be `&lt;device&gt;_&lt;hpcnode&gt;_&lt;jobid&gt;*`.</span>
@@ -769,7 +770,7 @@
 
 <div class="viewcode-block" id="Pose.read">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reads data from the Harp-binarized tracking file.&quot;&quot;&quot;</span>
         <span class="c1"># Get config file from `file`, then bodyparts from config file.</span>
         <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_pattern_offset</span> <span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span>
@@ -852,7 +853,7 @@
 <div class="viewcode-block" id="Pose.get_class_names">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.get_class_names">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_class_names</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_class_names</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of classes from a model&#39;s config file.&quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -863,13 +864,13 @@
             <span class="n">heads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">][</span><span class="s2">&quot;heads&quot;</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;class_vectors&quot;</span><span class="p">)[</span><span class="s2">&quot;classes&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find class_vectors in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span></div>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find class_vectors in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span></div>
 
 
 <div class="viewcode-block" id="Pose.get_bodyparts">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.get_bodyparts">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_bodyparts</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_bodyparts</span><span class="p">(</span><span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of bodyparts from a model&#39;s config file.&quot;&quot;&quot;</span>
         <span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -881,14 +882,14 @@
                 <span class="n">parts</span> <span class="o">+=</span> <span class="n">util</span><span class="o">.</span><span class="n">find_nested_key</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="s2">&quot;part_names&quot;</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">parts</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find bodyparts in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+                    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find bodyparts in </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
         <span class="k">return</span> <span class="n">parts</span></div>
 
 
 <div class="viewcode-block" id="Pose.class_int2str">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.class_int2str">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">class_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts a class integer in a tracking data dataframe to its associated string (subject id).&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">classes</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Classes list cannot be None or empty.&quot;</span><span class="p">)</span>
@@ -900,7 +901,7 @@
 <div class="viewcode-block" id="Pose.get_config_file">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.Pose.get_config_file">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_config_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_file_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">config_file_names</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_config_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_file_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">config_file_names</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the config file from a model&#39;s config directory.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">config_file_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">config_file_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;confmap_config.json&quot;</span><span class="p">]</span>  <span class="c1"># SLEAP (add for other trackers to this list)</span>
@@ -918,7 +919,7 @@
 
 <div class="viewcode-block" id="from_dict">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.from_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a dictionary to a DotMap object.&quot;&quot;&quot;</span>
     <span class="n">reader_type</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">reader_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -933,7 +934,7 @@
 
 <div class="viewcode-block" id="to_dict">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.io.reader.html#aeon.io.reader.to_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="n">dotmap</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="n">dotmap</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a DotMap object to a dictionary.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dotmap</span><span class="p">,</span> <span class="n">Reader</span><span class="p">):</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">dotmap</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pattern&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>

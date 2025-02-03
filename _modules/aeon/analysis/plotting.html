@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -49,6 +49,7 @@
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/aeon/analysis/plotting';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -381,20 +382,20 @@
                 <article class="bd-article">
                   
   <h1>Source code for aeon.analysis.plotting</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
-<span class="kn">from</span> <span class="nn">matplotlib.collections</span> <span class="kn">import</span> <span class="n">LineCollection</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LineCollection</span>
 
-<span class="kn">from</span> <span class="nn">aeon.analysis.utils</span> <span class="kn">import</span> <span class="n">rate</span><span class="p">,</span> <span class="n">sessiontime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.analysis.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">rate</span><span class="p">,</span> <span class="n">sessiontime</span>
 
 
 <div class="viewcode-block" id="heatmap">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.plotting.html#aeon.analysis.plotting.heatmap">[docs]</a>
-<span class="k">def</span> <span class="nf">heatmap</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">heatmap</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Draw a heatmap of time spent in each location from specified position data and sampling frequency.</span>
 
 <span class="sd">    :param Series position: A series of position data containing x and y coordinates.</span>
@@ -419,7 +420,7 @@
 
 <div class="viewcode-block" id="circle">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.plotting.html#aeon.analysis.plotting.circle">[docs]</a>
-<span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a circle centered at the given x, y position with the specified radius.</span>
 
 <span class="sd">    :param number x: The x-component of the circle center.</span>
@@ -438,7 +439,7 @@
 
 <div class="viewcode-block" id="rateplot">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.plotting.html#aeon.analysis.plotting.rateplot">[docs]</a>
-<span class="k">def</span> <span class="nf">rateplot</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rateplot</span><span class="p">(</span>
     <span class="n">events</span><span class="p">,</span>
     <span class="n">window</span><span class="p">,</span>
     <span class="n">frequency</span><span class="p">,</span>
@@ -482,7 +483,7 @@
 
 <div class="viewcode-block" id="set_ymargin">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.plotting.html#aeon.analysis.plotting.set_ymargin">[docs]</a>
-<span class="k">def</span> <span class="nf">set_ymargin</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_ymargin</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the vertical margins of the specified Axes.</span>
 
 <span class="sd">    :param Axes ax: The Axes for which to specify the vertical margin.</span>
@@ -501,7 +502,7 @@
 
 <div class="viewcode-block" id="colorline">
 <a class="viewcode-back" href="../../../reference/api/mecha/aeon.analysis.plotting.html#aeon.analysis.plotting.colorline">[docs]</a>
-<span class="k">def</span> <span class="nf">colorline</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">colorline</span><span class="p">(</span>
     <span class="n">x</span><span class="p">,</span>
     <span class="n">y</span><span class="p">,</span>
     <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>

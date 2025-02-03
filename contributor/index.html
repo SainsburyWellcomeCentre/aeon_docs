@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -50,6 +50,7 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributor/index';</script>
+    <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Style and Documentation Guidelines" href="style_and_doc_guidelines.html" />
@@ -395,7 +396,7 @@
                 <article class="bd-article">
                   
   <section id="contributor-guide">
-<h1>Contributor Guide<a class="headerlink" href="#contributor-guide" title="Link to this heading">#</a></h1>
+<span id="target-contributor-guide"></span><h1>Contributor Guide<a class="headerlink" href="#contributor-guide" title="Link to this heading">#</a></h1>
 <section id="software-development-life-cycle-sdlc">
 <h2>Software Development Life Cycle (SDLC)<a class="headerlink" href="#software-development-life-cycle-sdlc" title="Link to this heading">#</a></h2>
 <p>Our SDLC roughly follows the <a class="reference external" href="https://www.tutorialspoint.com/sdlc/sdlc_iterative_model.htm">iterative model</a>.</p>
@@ -421,15 +422,15 @@ acquisition computer, etc.)</p></li>
 </ul>
 </section>
 <section id="issue-tracking">
-<h2>Issue Tracking<a class="headerlink" href="#issue-tracking" title="Link to this heading">#</a></h2>
+<h2>Issue tracking<a class="headerlink" href="#issue-tracking" title="Link to this heading">#</a></h2>
 <p>We prioritize and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in ‘aeon_experiments’.</p>
 </section>
 <section id="continuous-integration-ci">
-<h2>Continuous Integration (CI)<a class="headerlink" href="#continuous-integration-ci" title="Link to this heading">#</a></h2>
+<h2>Continuous integration (CI)<a class="headerlink" href="#continuous-integration-ci" title="Link to this heading">#</a></h2>
 <p>We use Github Actions to run CI. We run unit tests on Github Virtual Machines on Windows, MacOS, and Ubuntu. We run integration tests on the SWC HPC. Workflows of the CI jobs we run can be found in each repo’s respective <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code> directory.</p>
 </section>
-<section id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
+<section id="contributing-code">
+<h2>Contributing code<a class="headerlink" href="#contributing-code" title="Link to this heading">#</a></h2>
 <p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">github flow</a> (which is adapted from the more general
 <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">gitflow</a>).</p>
 <p>In brief, each of our repos has ‘main’ and ‘prod’ branches. Feature and bug fix branches are branched off of ‘main’, with Pull Requests sent back into ‘main’. ‘main’ contains the full commit history of the project, up to the latest stable commit. Upon merges into ‘main’, a squash merge is performed into ‘prod’, such that ‘prod’ contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges. ‘prod’ thus serves as a “production” branch to allow for easier readability of project history and easier reversion of uncaught bug commits. At certain agreed upon timepoints we create “stable releases” (available in the “releases” section of the repository) which serve as a snapshot of the code at the time, version numbered according to <a class="reference external" href="https://semver.org/">SemVer</a>.</p>
@@ -440,8 +441,265 @@ acquisition computer, etc.)</p></li>
 <li><p>As necessary, ensure <code class="docutils literal notranslate"><span class="pre">changelog</span></code>, <code class="docutils literal notranslate"><span class="pre">readme</span></code>, config and doc files are updated.</p></li>
 <li><p>When a branch is ready to be merged back into ‘main’, always make sure to first pull ‘main’ locally, then rebase the feature branch onto ‘main’ (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into ‘prod’ can be handled via CI. E.g., see <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_mecha/blob/main/.github/workflows/squash_merge_to_prod.yml">here</a></p></li>
 </ol>
+</section>
+<section id="contributing-documentation">
+<h2>Contributing documentation<a class="headerlink" href="#contributing-documentation" title="Link to this heading">#</a></h2>
+<p>The documentation is built via <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>,
+and hosted via GitHub Pages at <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/">sainsburywellcomecentre.github.io/aeon_docs/</a>.
+<code class="docutils literal notranslate"><span class="pre">src/</span></code> is the Sphinx source directory, where you can find the Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>) and RestructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>) files that make up the documentation.
+The site is built and deployed from the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch.
+This is handled by a GitHub actions workflow (<code class="docutils literal notranslate"><span class="pre">.github/workflows/docs_build_and_deploy.yml</span></code>), triggered by the following events:</p>
+<ul class="simple">
+<li><p><strong>Push to the main branch</strong></p></li>
+<li><p><strong>Tag push</strong></p></li>
+<li><p><strong>Pull request</strong></p></li>
+<li><p><strong>Manual dispatch</strong> via the “Run workflow” button in the Actions tab.</p></li>
+</ul>
+<p>The workflow comprises two jobs: <code class="docutils literal notranslate"><span class="pre">build_sphinx_docs</span></code> and <code class="docutils literal notranslate"><span class="pre">deploy_sphinx_docs</span></code>.
+The build job is triggered by all the listed events to ensure the documentation build remains intact with new changes.
+The deployment job is only triggered on manual dispatch or <a class="reference internal" href="#deploying-the-documentation">when a tag is pushed</a>.</p>
+<section id="editing-the-documentation">
+<h3>Editing the documentation<a class="headerlink" href="#editing-the-documentation" title="Link to this heading">#</a></h3>
+<p>To edit the documentation, clone the <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_docs/"><code class="docutils literal notranslate"><span class="pre">aeon_docs</span></code> repository</a>, and work on a new branch, following the same guidelines as for <a class="reference internal" href="#contributing-code">code changes</a>.
+We recommend <a class="reference internal" href="#building-the-documentation-locally">building the documentation locally</a> to check that the changes are rendered correctly before pushing them to the repository.</p>
+<section id="adding-a-new-page">
+<h4>Adding a new page<a class="headerlink" href="#adding-a-new-page" title="Link to this heading">#</a></h4>
+<p>If you are adding a new documentation source file (e.g. <code class="docutils literal notranslate"><span class="pre">new_file.md</span></code> or <code class="docutils literal notranslate"><span class="pre">new_file.rst</span></code>),
+you will need to place the file in the appropriate directory within <code class="docutils literal notranslate"><span class="pre">src/</span></code>.
+In each directory, you will find a parent file (typically an <code class="docutils literal notranslate"><span class="pre">index.md</span></code> or <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file) that serves as the main page for the subpages in that directory.
+For the new file to be included in the documentation, you will need to add an entry for the new file in the <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/syntax/organising_content.html#using-toctree-to-include-other-documents-as-children"><code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive</a> in the parent file.
+Depending on the file format of the parent file (<code class="docutils literal notranslate"><span class="pre">.md</span></code>or <code class="docutils literal notranslate"><span class="pre">.rst</span></code>), the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive syntax will differ.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Markdown</label><div class="sd-tab-content docutils">
+<p>For example, to add <code class="docutils literal notranslate"><span class="pre">new_file.md</span></code> or <code class="docutils literal notranslate"><span class="pre">new_file.rst</span></code> as a subpage of the <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/contributor">Contributor Guide</a>, place the new file in <code class="docutils literal notranslate"><span class="pre">src/contributor/</span></code>.
+As the parent file is <code class="docutils literal notranslate"><span class="pre">src/contributor/index.md</span></code>, add <code class="docutils literal notranslate"><span class="pre">new_file</span></code> to the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> in the parent file as follows:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>:::{toctree}
+:maxdepth: 1
+:hidden:
+
+new_file
+</pre></div>
+</div>
+<p>This new page will then be included as a subpage of <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/contributor">Contributor Guide</a>.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+RestructuredText</label><div class="sd-tab-content docutils">
+<p>If the parent file is a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, add <code class="docutils literal notranslate"><span class="pre">new_file</span></code> to the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> in the parent file as follows:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 1
+   <span class="nc">:hidden:</span>
+
+   new_file
+</pre></div>
+</div>
+<p>This new page will then be included as a subpage of the parent page.</p>
+</div>
+</div>
+</section>
+<section id="adding-bonsai-workflow-code">
+<h4>Adding Bonsai workflow code<a class="headerlink" href="#adding-bonsai-workflow-code" title="Link to this heading">#</a></h4>
+<p>Bonsai workflows can be inserted using a custom <code class="docutils literal notranslate"><span class="pre">workflow</span></code> container that displays the workflow image and allows the workflow code to be copied.
+The <code class="docutils literal notranslate"><span class="pre">.bonsai</span></code> workflow file and its corresponding <code class="docutils literal notranslate"><span class="pre">.svg</span></code> file should be placed in the <code class="docutils literal notranslate"><span class="pre">src/workflows/</span></code> directory.
+In order for the workflow to be displayed correctly, the <code class="docutils literal notranslate"><span class="pre">.bonsai</span></code> file and its corresponding <code class="docutils literal notranslate"><span class="pre">.svg</span></code> file must have the same name, e.g. <code class="docutils literal notranslate"><span class="pre">alertLogs.bonsai</span></code> and <code class="docutils literal notranslate"><span class="pre">alertLogs.svg</span></code>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Markdown</label><div class="sd-tab-content docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>:::workflow
+![<span class="nt">Alt text</span>](<span class="na">src/workflows/alertLogs.bonsai</span>)
+:::
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+RestructuredText</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">container</span><span class="p">::</span> workflow
+
+<span class="p">    ..</span> <span class="ow">image</span><span class="p">::</span> src/workflows/alertLogs.bonsai
+        <span class="nc">:alt:</span> Alt text
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-referencing-pages">
+<h4>Cross-referencing pages<a class="headerlink" href="#cross-referencing-pages" title="Link to this heading">#</a></h4>
+<section id="internal-references">
+<h5>Internal references<a class="headerlink" href="#internal-references" title="Link to this heading">#</a></h5>
+<p>For ease of referencing, we use <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html#creating-explicit-targets">explicit targets</a> to refer to specific pages and sections within the documentation.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Markdown</label><div class="sd-tab-content docutils">
+<p>To create an explicit target in a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file, use the <code class="docutils literal notranslate"><span class="pre">(target-name)=</span></code> syntax and add the target name before the page/section header, e.g.:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>(target-hardware)=
+<span class="gh"># Hardware Overview</span>
+</pre></div>
+</div>
+<p>To reference the <a class="reference internal" href="../reference/hardware.html#target-hardware"><span class="std std-ref">Hardware Overview</span></a> section, use the <code class="docutils literal notranslate"><span class="pre">[](target-name)</span></code> syntax:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[](target-hardware)
+</pre></div>
+</div>
+<p>The link text will be displayed as the title of the referenced section.</p>
+<p>To display a custom link text (e.g. <a class="reference internal" href="../reference/hardware.html#target-hardware"><span class="std std-ref">custom text</span></a>), use the <code class="docutils literal notranslate"><span class="pre">[link</span> <span class="pre">text](target-name)</span></code> syntax:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">custom text</span>](<span class="na">target-hardware</span>)
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+RestructuredText</label><div class="sd-tab-content docutils">
+<p>To create an explicit target in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, use the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_target-name:</span></code> syntax and add the target name before the page/section header, e.g.:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_target-hardware:</span>
+
+<span class="gh">Hardware Overview</span>
+<span class="gh">=================</span>
+</pre></div>
+</div>
+<p>To reference the <a class="reference internal" href="../reference/hardware.html#target-hardware"><span class="std std-ref">Hardware Overview</span></a> section, use the <code class="docutils literal notranslate"><span class="pre">:ref:`target-name`</span></code> syntax, e.g.:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:ref:</span><span class="nv">`target-hardware`</span>
+</pre></div>
+</div>
+<p>The link text will be displayed as the title of the referenced section.</p>
+<p>To display a custom link text (e.g. <a class="reference internal" href="../reference/hardware.html#target-hardware"><span class="std std-ref">custom text</span></a>), use the <code class="docutils literal notranslate"><span class="pre">:ref:`link</span> <span class="pre">text&lt;target-name&gt;`</span></code> syntax, e.g.:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>:ref:custom text&lt;target-hardware&gt;`
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="external-references">
+<h5>External references<a class="headerlink" href="#external-references" title="Link to this heading">#</a></h5>
+<p>If you are adding references to an external URL (e.g. <code class="docutils literal notranslate"><span class="pre">https://github.com/SainsburyWellcomeCentre/aeon_docs/issues</span></code>) in a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file, you will need to check if a matching URL scheme (e.g. <code class="docutils literal notranslate"><span class="pre">https://github.com/SainsburyWellcomeCentre/aeon_docs/</span></code>) is defined in <code class="docutils literal notranslate"><span class="pre">myst_url_schemes</span></code> in <code class="docutils literal notranslate"><span class="pre">src/conf.py</span></code>. If it is, the following <code class="docutils literal notranslate"><span class="pre">[](scheme:loc)</span></code> syntax will be converted to the <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/1">full URL</a> during the build process:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">link text</span>](<span class="na">aeon-docs-github:issues/1</span>)
+</pre></div>
+</div>
+<p>If it is not yet defined and you have multiple external URLs pointing to the same base URL, you will need to <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html#customising-external-url-resolution">add the URL scheme</a> to <code class="docutils literal notranslate"><span class="pre">myst_url_schemes</span></code> in <code class="docutils literal notranslate"><span class="pre">src/conf.py</span></code>.</p>
+</section>
+</section>
+<section id="updating-the-api-reference">
+<h4>Updating the API reference<a class="headerlink" href="#updating-the-api-reference" title="Link to this heading">#</a></h4>
+<p>The <a class="reference internal" href="../reference/api.html#target-api-reference"><span class="std std-ref">API reference</span></a> is auto-generated as part of the documentation build process.</p>
+<section id="aeon-mecha">
+<h5><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code><a class="headerlink" href="#aeon-mecha" title="Link to this heading">#</a></h5>
+<p>For the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> Python package, the <code class="docutils literal notranslate"><span class="pre">make_mecha_doctree.py</span></code> script generates the <code class="docutils literal notranslate"><span class="pre">src/reference/api/mecha.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/mecha.html#target-mecha-reference"><span class="std std-ref">API reference</span></a>.
+The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#">sphinx-autodoc</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#">sphinx-autosummary</a> extensions are then used to generate the API reference pages for each module listed in <code class="docutils literal notranslate"><span class="pre">mecha.rst</span></code>, based on the docstrings in the source code.
+By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the <code class="docutils literal notranslate"><span class="pre">ignore_modules</span></code> list in the <code class="docutils literal notranslate"><span class="pre">make_mecha_doctree.py</span></code> script.</p>
+</section>
+<section id="aeon-acquisition">
+<h5><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code><a class="headerlink" href="#aeon-acquisition" title="Link to this heading">#</a></h5>
+<p>For the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> Bonsai package, the <code class="docutils literal notranslate"><span class="pre">make_acquisition_doctree.py</span></code> script first calls <a class="reference external" href="https://dotnet.github.io/docfx/index.html"><code class="docutils literal notranslate"><span class="pre">docfx</span></code></a> to generate the API reference pages for each module as Markdown files in <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition/</span></code>, and the table of contents (TOC) in the <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition/toc.yml</span></code> file.
+This TOC is then used to generate the <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/acquisition.html#target-acquisition-reference"><span class="std std-ref">API reference</span></a>.</p>
+</section>
+</section>
+</section>
+<section id="building-the-documentation-locally">
+<h3>Building the documentation locally<a class="headerlink" href="#building-the-documentation-locally" title="Link to this heading">#</a></h3>
+<p>To build the documentation locally, first make sure you have cloned the <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_docs/"><code class="docutils literal notranslate"><span class="pre">aeon_docs</span></code> repository</a>.
+The following commands should be run from the root directory of the repository.</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment with the required dependencies and activate it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>aeon_docs<span class="w"> </span>python<span class="w"> </span>dotnet<span class="w"> </span>-c<span class="w"> </span>conda-forge
+conda<span class="w"> </span>activate<span class="w"> </span>aeon_docs
+</pre></div>
+</div>
+<p>Make the <code class="docutils literal notranslate"><span class="pre">docfx</span></code> tool available in the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dotnet<span class="w"> </span>tool<span class="w"> </span>restore
+</pre></div>
+</div>
+<p>From the root of the repository, install the requirements for building the documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Then, populate submodules:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>submodule<span class="w"> </span>init
+git<span class="w"> </span>submodule<span class="w"> </span>update
+</pre></div>
+</div>
+<p>(Optional) Update submodules and point to the latest commits:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>submodule<span class="w"> </span>sync
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote
+</pre></div>
+</div>
+<p>Finally, build the documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>You can view the local build by opening <code class="docutils literal notranslate"><span class="pre">docs/html/index.html</span></code> in a browser.</p>
+<p>To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>To check that external URLs are correctly resolved, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>linkcheck
+</pre></div>
+</div>
+<p>If the linkcheck step incorrectly marks URLs with valid anchors as broken,
+you can skip checking the anchors in specific URLs by adding them to
+<code class="docutils literal notranslate"><span class="pre">linkcheck_anchors_ignore_for_url</span></code> in <code class="docutils literal notranslate"><span class="pre">src/conf.py</span></code>, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># linkcheck will skip verifying that anchors exist when checking</span>
+<span class="c1"># these URLs</span>
+<span class="n">linkcheck_anchors_ignore_for_url</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>To skip linkcheck for specific URLs, add them to
+<code class="docutils literal notranslate"><span class="pre">linkcheck_ignore</span></code> in <code class="docutils literal notranslate"><span class="pre">src/conf.py</span></code>, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># linkcheck will skip checking these URLs entirely</span>
+<span class="n">linkcheck_ignore</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://github.com/org/private_repository&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>To suppress warnings for expected redirects, add them to
+<code class="docutils literal notranslate"><span class="pre">linkcheck_allowed_redirects</span></code> in <code class="docutils literal notranslate"><span class="pre">src/conf.py</span></code>, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># linkcheck will treat redirections from these source URI:canonical URI</span>
+<span class="c1"># mappings as &quot;working&quot;.</span>
+<span class="n">linkcheck_allowed_redirects</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sa">r</span><span class="s2">&quot;https://zenodo\.org/doi/.*&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;https://zenodo\.org/records/.*&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="deploying-the-documentation">
+<h3>Deploying the documentation<a class="headerlink" href="#deploying-the-documentation" title="Link to this heading">#</a></h3>
+<p>As mentioned above, the deployment job is triggered by the following events:</p>
+<ul class="simple">
+<li><p><strong>Tag push</strong>: for releasing a new version of the documentation</p></li>
+<li><p><strong>Manual dispatch</strong>: for testing purposes</p></li>
+</ul>
+<section id="manual-dispatch">
+<h4>Manual dispatch<a class="headerlink" href="#manual-dispatch" title="Link to this heading">#</a></h4>
+<p>To deploy the documentation manually on GitHub, go to the Actions tab of the repository,
+select the <code class="docutils literal notranslate"><span class="pre">Docs</span></code> workflow, and click “Run workflow”.</p>
+</section>
+<section id="tag-push">
+<h4>Tag push<a class="headerlink" href="#tag-push" title="Link to this heading">#</a></h4>
+<p>To deploy the documentation with a new tag, follow these steps:</p>
+<p>Fetch all tags:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--tags
+</pre></div>
+</div>
+<p>Identify the latest tag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>describe<span class="w"> </span>--tags
+</pre></div>
+</div>
+<p>Create a new tag by incrementing the <a class="reference internal" href="#versioning">version</a> number:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>&lt;tag_name&gt;
+</pre></div>
+</div>
+<p>Push the tag to the remote repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;tag_name&gt;
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
+</section>
 </section>
 </section>
 
@@ -494,9 +752,33 @@ acquisition computer, etc.)</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">Versioning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-tracking">Issue Tracking</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration-ci">Continuous Integration (CI)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-tracking">Issue tracking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration-ci">Continuous integration (CI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-code">Contributing code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-documentation">Contributing documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-the-documentation">Editing the documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-page">Adding a new page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-bonsai-workflow-code">Adding Bonsai workflow code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-referencing-pages">Cross-referencing pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-references">Internal references</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#external-references">External references</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-api-reference">Updating the API reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-acquisition"><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation-locally">Building the documentation locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying-the-documentation">Deploying the documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-dispatch">Manual dispatch</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-push">Tag push</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

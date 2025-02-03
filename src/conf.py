@@ -19,6 +19,7 @@ sys.path.extend(
     [
         os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
+        os.path.abspath("../aeon_api/"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -173,6 +174,7 @@ myst_url_schemes = {
     "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
+    "aeon-api-github": "https://github.com/SainsburyWellcomeCentre/aeon_api/{{path}}",
     "semver": "https://semver.org/",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",

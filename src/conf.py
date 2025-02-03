@@ -68,7 +68,7 @@ extensions = [
     "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
-    "convertworkflow"
+    "convertworkflow",
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -146,13 +146,14 @@ html_css_files = [
     "css/custom.css",
 ]
 html_js_files = [
-    'js/workflow.js', # javascript for embedded workflows
+    "js/workflow.js",  # javascript for embedded workflows
 ]
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
     r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
     r"http://SubjectExpressionBuilder.Name",  # Broken URL
+    r"https://learn.microsoft.com/dotnet/api/.*",  # 429 Client Error: Too Many Requests for url
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI
@@ -160,7 +161,6 @@ linkcheck_ignore = [
 linkcheck_allowed_redirects = {
     r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
-    r"https://learn.microsoft.com/dotnet/api/.*": r"https://learn.microsoft.com/en-us/dotnet/api/.*",
 }
 
 myst_url_schemes = {

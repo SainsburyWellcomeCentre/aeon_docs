@@ -9,6 +9,12 @@ Prior to adding cameras to the system, one would usually [set this device up](ta
 ### SpinnakerVideoSource
 The `SpinnakerVideoSource (Aeon.Video)` node establishes a connection and configuration of a specific Spinnaker camera.
 
+#### Inputs
+None
+
+#### Outputs
+Stream of `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` carrying video data from the specified camera.
+
 #### Properties
 ##### Camera settings
 | Property name      | Description                                                                                           |
@@ -37,6 +43,7 @@ Each of these `Subjects` is published and becomes accessible in the Bonsai edito
 #### Usage
 To place a camera source, first create a `GroupWorkflow` with an appropriate name for the camera, e.g. "CameraTop". 
 Inside, place a `SpinnakerVideoSource (Aeon.Video)` node, externalise all properties, and connect it to the `WorkflowOutput`.
+Configure the properties and subject names according to your requirements.
 
 :::workflow
 ![Aeon.Acquisition.Camera](../../workflows/camera.bonsai)
@@ -46,8 +53,11 @@ Inside, place a `SpinnakerVideoSource (Aeon.Video)` node, externalise all proper
 The `DroppedFrames (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. "CameraTop". 
 Specifically, it monitors the "FrameID" to ensure frames arrive consecutively. 
 
-<!-- should this go under Outputs or Usage? -->
-In the event that a frame is dropped, the node outputs the "Timestamp", "Name" of the camera and the "FrameID" of the dropped frame.
+#### Inputs
+None
+
+#### Outputs
+In the event that a frame is dropped, the node outputs a `DynamicClass` containing the "Name" of the camera and the "Timestamp" and "FrameID" of the dropped frame.
 
 :::workflow
 ![DroppedFrames](../../workflows/droppedFrames.bonsai)
@@ -68,9 +78,11 @@ Each of these `Subjects` is published and becomes accessible in the Bonsai edito
 The `StreamTimeout (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. `CameraTop`. 
 Specifically, it monitors the actual time between receiving frames to ensure frames arrive within a given `DueTime` property. 
 
-<!-- should this go under Outputs or Usage? 
-Check if these are indeed the correct outputs as they seem to be copied from DroppedFrames -->
-In the event that no new frames arrive in time, the node outputs the "Timestamp", "Name" of the camera and the "FrameID" of the dropped frame.
+#### Inputs
+None
+
+#### Outputs
+In the event that no new frames arrive in time, the node outputs a `DynamicClass` containing the "Name" of the camera and the "Timestamp" and "FrameID" of the dropped frame.
 
 :::workflow
 ![StreamTimeout](../../workflows/streamTimeout.bonsai)

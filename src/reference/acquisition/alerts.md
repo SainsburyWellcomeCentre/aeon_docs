@@ -43,7 +43,7 @@ Use a `PublishSubject` source node to publish and subscribe to the "EnvironmentA
 This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
 
 :::workflow
-![SendAlertBase](../../workflows/EnvironmentAlertsBase.bonsai)
+![SendAlertBase](../../workflows/environmentAlertsBase.bonsai)
 :::
 
 (target-node-formatlogmessage)=

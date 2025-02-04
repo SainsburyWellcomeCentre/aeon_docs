@@ -47,9 +47,9 @@ Sequence of `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` descr
 | **TrackingCount** | The expected number of animals to track simultaneously |
 
 ##### Subjects
-Events from this node are published to shared `Subjects`. 
-Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events from this node are published to shared `Subject`s. 
+Here you set the names used for these `Subject`s to identify events for this node.
+Each of these `Subject`s becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -101,9 +101,9 @@ A sequence of `<type>` with the following attributes.
 | **PartMinConfidence** | Set the minimum confidence required to assign a label to an instance's keypoint |
 
 ##### Subjects
-Both generated and input events of this node are collected and passed to published `Subjects`. 
-Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Both generated and input events of this node are collected and passed to published `Subject`s. 
+Here you set the names used for these `Subject`s to identify events for this node.
+Each of these `Subject`s becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -142,9 +142,9 @@ boolean?
 | **Region**         | An array of four `OpenCV.NET.Points`. These define the corners (anticlockwise from top left) of the region of interest     |
 
 ##### Subjects
-Both generated and input events of this node are published to shared `Subjects`. 
-Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Both generated and input events of this node are published to shared `Subject`s. 
+Here you set the names used for these `Subject`s to identify events for this node.
+Each of these `Subject`s becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -215,9 +215,9 @@ A `boolean` describing whether each value of a sequence falls within a specific 
 | **Upper**          | The upper end of the range to check the input value against |
 
 ##### Subjects
-Events from this node are published to shared `Subjects`. 
-Here you set the names used for these `Subjects` to identify events for this node.
-Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events from this node are published to shared `Subject`s. 
+Here you set the names used for these `Subject`s to identify events for this node.
+Each of these `Subject`s becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects
 `HarpMessage` events emitted to a `Subject`

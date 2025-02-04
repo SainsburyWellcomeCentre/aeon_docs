@@ -12,8 +12,7 @@ Specifically, background subtraction is performed on the input camera frames bas
 None
 
 #### Outputs 
-<!-- Moved into this section from description, check if correct -->
-A timestamped `double` describing the raw, frame-by-frame pixel intensity changes within the region of interest.
+A stream of `Harp.Timestamped<double>` describing the raw absolute differences in pixel intensity of consecutive frames within the region of interest.
 
 #### Properties
 ##### General
@@ -23,9 +22,7 @@ A timestamped `double` describing the raw, frame-by-frame pixel intensity change
 | **ThresholdValue** | The lower threshold for pixel intensity differences to be included in the sum activity. Should be set to the pixel noise |
 
 ##### Subjects
-Events from the node are published to `Subjects`. 
-Here you set the names used for these `Subjects` to identify events for this node for a specific region of interest.
-Each of these `Subjects` becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events from the node are published to a `Subject`, the name of which is configured in the properties of the node. This `Subject` then becomes accessible in the Bonsai editor's toolbox and is useable elsewhere in the workflow using the same name.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |

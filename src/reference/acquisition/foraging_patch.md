@@ -7,19 +7,19 @@ It is utilised with a [feeder](target-feeder) hardware module assembly to provid
 The primary [`UndergroundFeeder (Aeon.Foraging)`](#undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](https://github.com/harp-tech/device.outputexpander) and defines the basic functions of the feeder.
 
 To extend the functionality of the feeder, the following auxiliary nodes are provided:
-- [`PatchDispenser (Aeon.Foraging)`](#patchdispenser),
-- [`PelletMonitor (Aeon.Foraging)`](#pelletmonitor),
-- [`TimeSpentOnWheel (Aeon.Foraging)`](#timespentonwheel), and
-- [`TimeSinceLastEvent (Aeon.Foraging)`](#timesincelastevent).
+- [`PatchDispenser (Aeon.Foraging)`](#patchdispenser)
+- [`PelletMonitor (Aeon.Foraging)`](#pelletmonitor)
+- [`TimeSpentOnWheel (Aeon.Foraging)`](#timespentonwheel)
+- [`TimeSinceLastEvent (Aeon.Foraging)`](#timesincelastevent)
 
 Each of these auxiliary nodes accept events carried by shared `Subjects` from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of various measures extracted from processing sensor data and events from the feeder device, including:
-- PelletCount,
-- TimeSpentOnPatches,
-- TimeSinceLastVisit,
-- TotalDistanceTravelled,
-- MissedPellets,
-- ManualPellets, and
-- TotalPelletsDelivered.
+- PelletCount
+- TimeSpentOnPatches
+- TimeSinceLastVisit
+- TotalDistanceTravelled
+- MissedPellets
+- ManualPellets
+- TotalPelletsDelivered
 
 ## Nodes
 ### UndergroundFeeder
@@ -54,9 +54,8 @@ These properties configure the options around this functionality.
 | **Count**     | The number of retry attempts the feeder will perform |
 
 ##### Subjects
-Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events, commands or data streams for this specific feeder. 
-Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+Events (outputs) from and commands (inputs) to the feeder node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+The output `Subject`s are then accessible in the Bonsai editor's toolbox and are useable elsewhere in the workflow using the same names.
 
 ###### Device event subjects
 | Subject name      | Type        | Description                   |
@@ -97,16 +96,15 @@ Each item emitted consists of a "Value" (`int`) corresponding to the pellet coun
 |---------------|-----------------------------------------------------------|
 | **Name**      | Set the name to identify this specific dispenser module. e.g. "Patch1" |
 
-##### Subjects <!-- Description copied from previous section -->
-Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events and commands for this node for a specific feeder. 
-Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+##### Subjects
+Events (outputs) from the `PatchDispenser` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+These subjects then become accessible in the Bonsai editor's toolbox for use elsewhere under the same name
 
-###### Device event subjects <!-- Missing category header, check if this is the correct category -->
+###### Device event subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
 | **ControllerEvents** | `Aeon.Foraging.DispenserEventArgs` | Controller events shared `Subject`, carrying the number of pellets remaining (`int`) and the `EventType`. Also output directly by the node |
-| **DispenserState** |   | Declared `StateRecoverySubject` to store the current number of pellets |
+| **DispenserState** | `Tuple<double,double,double>`  | Declared `StateRecoverySubject` to store the current Threshold, D1, and Delta parameters of the pellet dispenser |
 
 #### Usage
 Place a `SubscribeSubject` and point it to the "PelletDelivered" `Subject` for a patch (e.g. "Patch1PelletDelivered"). 
@@ -119,10 +117,7 @@ Finally, connect this to a `PatchDispenser (Aeon.Foraging)` node.
 :::
 
 ### PelletMonitor 
-The `PelletMonitor (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break. 
-<!-- Initially placed this under Usage, but maybe it belongs under the node description, as it seems to be explaining what's going on under the hood. 
-Why do we "expand" and show the workflow here and not for others? 
-Are users expected to copy and paste this? -->
+The `PelletMonitor (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
 Within this node, pellet delivery commands received by the Harp output expander are filtered from the "PatchEvents" `Subject` and successful deliveries monitored through the "PelletDelivered" `Subject` (e.g. "Patch1PelletDelivered"). 
 The `RepeatEverySubject` node ensures this node is only running while an animal is present in the arena. <!-- This is not that clear to me; it seems to only run when a subject has entered, but if you had two subjects and removed one this would it not also stop, despite there being another subject stil present? -->
 
@@ -138,17 +133,14 @@ Sequence of dynamic class events triggered by deliver pellet commands and beam b
 This "Value" is `True` if when a delivery command has been received, and `False` when a successful beam break is detected. 
 
 #### Properties
-##### Subjects <!-- Description copied from previous section -->
-Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+##### Subjects
+Commands (inputs) to the `PelletMonitor` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
 
-###### Device event subjects <!-- Missing category header, check if this is the correct category -->
-<!-- Type column is empty -->
+###### Device command subjects
 | Subject name      | Type        | Description                   |
 |-------------------|-------------|-------------------------------|
-| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
-| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder) |
+| **PelletCommand** | `Harp.HarpMessage`  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
+| **PelletDelivered**| `Harp.Timestamped<bool>` | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published by [`UndergroundFeeder`](#undergroundfeeder) |
 
 #### Usage
 To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure its properties. 
@@ -158,9 +150,7 @@ To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure it
 :::
 
 ### TimeSpentOnWheel 
-The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel. 
-<!-- Initially placed this under Usage, but maybe it belongs under the node description, as it seems to be explaining what's going on under the hood. 
-Alternatively, this would fit better under Usage in the WheelMoving node, as it shows how it is used. And there we can link back to TimeSpentOnWheel -->
+The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel.
 <!-- TODO: Fix link to wheelmoving.md -->
 Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the feeder while the wheel is in motion.
 
@@ -172,7 +162,7 @@ Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) n
 None
 
 #### Outputs
-None <!-- This was originally "-". Check if this is correct. -->
+Sequence of `double` values carrying the number of seconds the wheel has been in motion, accumulated from the data timestamps.
 
 #### Properties
 ##### General
@@ -180,10 +170,8 @@ None <!-- This was originally "-". Check if this is correct. -->
 |---------------|-----------------------------------------------------------|
 | **Name**      | Set the name to identify this specific dispenser module, e.g. "Patch1" |
 
-##### Subjects <!-- Description copied from previous section -->
-Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
+##### Subjects
+Commands (inputs) to the `TimeSpentOnWheel ` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
 <!-- To be completed 
 ###### Device event subjects 
 `HarpMessage` events emitted to a `Subject`
@@ -228,21 +216,11 @@ The `TimeSinceLastEvent (Aeon.Foraging)` node monitors the current state of pell
 None
 
 #### Outputs
-Sequence of dynamic class events triggered by deliver pellet commands and beam break events, consisting of a "Timestamp" (`double`) and a "Value" (`boolean`) that reports the current state. 
-This "Value" is `True` if when a delivery command has been received, and `False` when a successful beam break is detected.
+Sequence of `double` values carrying the number of seconds since the wheel was last turned, accumulated from the data timestamps
 
 #### Properties
-##### Subjects <!-- Description copied from previous section -->
-Events and commands from the feeder are collected from, and published to shared `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events for this node for a specific feeder. 
-Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
-
-###### Device event subjects <!-- Missing category header, check if this is the correct category -->
-<!-- Type column is empty -->
-| Subject name      | Type        | Description                   |
-|-------------------|-------------|-------------------------------|
-| **PelletCommand** |  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
-| **PelletDelivered**|  | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published in [`UndergroundFeeder`](#undergroundfeeder) |
+This node does not have any properties. 
+However, it assumes that a "VideoEvents" `Subject` from a [`CameraController`](target-node-cameracontroller) node exists to monitor timestamps.
 
 #### Usage
 <!-- To be completed -->

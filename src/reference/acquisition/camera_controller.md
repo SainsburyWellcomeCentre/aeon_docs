@@ -84,8 +84,8 @@ For the full register and bitmask schema for the `CameraControllerGen2` device, 
 Not required for state recovery
 
 ## Alerts
-<!-- example mentions logging, not alerts -->
-In Aeon, the `VideoEvents` subject is useful for several environment monitoring workflows, such as regular logging of a summary of the current state of the experiment each hour. See [](target-module-alerts) for details on configuring these alerts.
+In Aeon, the `VideoEvents` subject is useful as a timer for environment monitoring workflows, such as regular notification of a summary of the current state of the experiment each hour. 
+See [](target-module-alerts) for details on configuring these alerts.
 
 As with other Harp devices in the system, this stream should be added to the `HeartbeatSources` to be monitored using the [`SynchronizerMonitor (Aeon.Acquisition)`](target-node-synchronizermonitor) node to ensure continuous synchronisation with all other synchronised devices on the system. 
 

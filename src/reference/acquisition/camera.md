@@ -64,9 +64,9 @@ In the event that a frame is dropped, the node outputs a `DynamicClass` containi
 
 #### Properties
 ##### Subjects
-Events and commands from the camera are collected from and published to `Subjects`. 
-Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
+Events and commands from the camera are collected from and published to `Subject`s. 
+Here you set the names used for these `Subject`s to identify events and triggers for this specific camera.
+Each of these `Subject`s is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
 ###### Device input subjects
 | Subject name         | Description                                                                         |
@@ -127,13 +127,13 @@ Not required for state recovery.
 
 ## Alerts
 Camera streams are monitored for stream timeouts and dropped frames, which usually result from power outages or connection issues. 
-The [`StreamTimeout`](#streamtimeout) and [`DroppedFrames`](#droppedframes) nodes detect these failure events and their outputs can be formatted as alert strings, which are then sent to the "EnvironmentAlertMessages" and "AlertLogs" `Subjects` to [send](target-node-sendalert) and [log](target-node-formatlogmessage) alerts, respectively.
+The [`StreamTimeout`](#streamtimeout) and [`DroppedFrames`](#droppedframes) nodes detect these failure events and their outputs can be formatted as alert strings, which are then sent to the "EnvironmentAlertMessages" and "AlertLogs" `Subject`s to [send](target-node-sendalert) and [log](target-node-formatlogmessage) alerts, respectively.
 
 :::workflow
 ![CameraAlerts](../../workflows/cameraAlerts.bonsai)
 :::
 
-In order to monitor multiple camera streams simultaneously, multiple instances of the `DroppedFrames` and `StreamTimeout` nodes can be merged before they are passed to the Alert `Subjects`. 
+In order to monitor multiple camera streams simultaneously, multiple instances of the `DroppedFrames` and `StreamTimeout` nodes can be merged before they are passed to the Alert `Subject`s. 
 This can be achieved by placing the nodes together in a `GroupWorkflow` and using `Merge` on the results before outputting them to the `WorkflowOutput`.
 Below is an example of how multiple `DroppedFrames` nodes are combined in a `GroupWorkflow` named "Dropped Frames Monitor".
 

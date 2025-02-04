@@ -6,14 +6,14 @@ Sychronisation is constantly monitored across devices using a combination of `He
 
 ## Nodes
 ### HeartbeatMonitor
-<!-- missing heartbeat monitor description -->
-_missing description_
+The `HeartbeatMonitor (Aeon.Acquisition)` node extracts the "heartbeats" from a specific Harp device.
+"Heartbeats" are emitted by all Harp devices at 1Hz and should be synchronised.
 
 #### Inputs
 None
 
 #### Outputs
-An observable sequence of `Harp.Timestamped<string>` 
+A sequence of `Harp.Timestamped<string>`
 
 #### Properties
 This node takes no direct inputs but subscribes to and monitors the event stream `Subject` named in the node properties for heartbeat events every second (Harp register address 8 on all devices). 

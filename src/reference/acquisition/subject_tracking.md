@@ -32,12 +32,12 @@ Arena mask.
 
 Contours are found and located using the `FindContours` and `BinaryRegionAnalysis` functions from `OpenCV.NET` (available in `Bonsai.Vision` package) and a custom `TakeLargestRegions (Aeon.Vision)` to take the *n* largest regions as defined by the property [`TrackingCount`](#properties). 
 
-<!-- #### Inputs
-Is `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` the input? 
+#### Inputs
+Sequence of `Harp.Timestamped<Aeon.Video.VideoDataFrame>`s from a specific camera published by a [`SpinnakerVideoSource (Aeon.Video)`](target-node-spinnakervideosource) node.
 
 #### Outputs
-Is `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` the output? 
--->
+Sequence of `Harp.Timestamped<Bonsai.Vision.ConnectedComponentCollection>` describing the features of a detected subject. Also published to a `Subject`.
+
 #### Properties
 ##### Tracking parameters
 | Property name | Description                                               |
@@ -70,16 +70,17 @@ Inside, place a `PositionTracking (Aeon.Vision)` node, externalise all propertie
 :::
 
 Next, add a `SubscribeSubject` node, connect it to the `PositionTracking` node as an input, and externalise the `Name` property. 
-This name will be set to the `Subject` that carries the `CameraEvents` from the [camera](target-node-spinnakervideosource) on which tracking is to be performed (e.g. "CameraTop"). <!-- Clarify `CameraEvents`: is this "FrameEvents" or `Harp.CameraControllerGen2.CameraEvents`? -->
-To avoid confusion<!-- with what? -->, change the display name of the externalised `Name` property to "FrameEvents".
+This name will be set to the `Subject` that carries the `FrameEvents` from the [camera](target-node-spinnakervideosource) on which tracking is to be performed (e.g. "CameraTop"). 
 
 :::workflow
 ![Aeon.Vision.PositionTracking](../../workflows/positionTracking.bonsai)
 :::
 
 ### PoseTracking
-The `PoseTracking (Aeon.Vision.Sleap)` node utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) package, to simultaneously track and identify different animals within the arena.
-It loads a trained SLEAP model, and runs inference on frame events from a [camera](target-node-spinnakervideosource) device, returning timestamped data containing the position of each animal, their identity and confidence measures. 
+Pose tracking utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) package, to simultaneously track and identify different animals within the arena.
+
+In Aeon experimental workflows, two linked `IncludeWorkflow`s are provided to give this functionality. 
+The `PoseTracking (Extensions)` node contains the complete data flow and processing workflow for identity and tracking of subjects from video frames captured by the cameras, whereas the `PoseTracking (Aeon.Vision.Sleap)` node is used within this workflow to perform the model inference step of processing. 
 <!-- To be completed
 #### Inputs
 #### Outputs

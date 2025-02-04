@@ -25,9 +25,8 @@ Stream of `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` carrying video dat
 | **SerialNumber**   | Serial number of the camera to acquire frames from                                                   |
 
 ##### Subjects
-Events and commands from the camera are collected from and published to `Subjects`. 
-Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
+Events (outputs) and commands (inputs) from the node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+The output `Subject`s are then accessible in the Bonsai editor's toolbox and are useable elsewhere in the workflow using the same names.
 
 ###### Device event subjects
 | Subject name    | Type     | Description                                                          |
@@ -50,7 +49,7 @@ Configure the properties and subject names according to your requirements.
 :::
 
 ### DroppedFrames
-The `DroppedFrames (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. "CameraTop". 
+The `DroppedFrames (Extensions)` node monitors a sequence of [FrameEvents](#device-event-subjects) from a specified `Subject`, e.g. "CameraTop". 
 Specifically, it monitors the "FrameID" to ensure frames arrive consecutively. 
 
 #### Inputs
@@ -69,13 +68,13 @@ Events and commands from the camera are collected from and published to `Subject
 Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
 Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
 
-###### Device event subjects <!-- This was missing - is this correct? -->
+###### Device input subjects
 | Subject name         | Description                                                                         |
 |----------------------|-------------------------------------------------------------------------------------|
 | **StreamEvents**     | Set the name of the events `Subject` output from a camera stream to be monitored    |
 
 ### StreamTimeout
-The `StreamTimeout (Extensions)` node monitors a sequence of [FrameEvents](#device-events-subjects) from a specified `Subject`, e.g. `CameraTop`. 
+The `StreamTimeout (Extensions)` node monitors a sequence of [FrameEvents](#device-event-subjects) from a specified `Subject`, e.g. `CameraTop`. 
 Specifically, it monitors the actual time between receiving frames to ensure frames arrive within a given `DueTime` property. 
 
 #### Inputs
@@ -92,9 +91,8 @@ To avoid false alarms when cameras are not active, subscription to the `StreamTi
 
 #### Properties
 ##### Subjects
-Events and commands from the camera are collected from and published to `Subjects`. 
-Here you set the names used for these `Subjects` to identify events and triggers for this specific camera.
-Each of these `Subjects` is published and becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using its name.
+Events and commands from the node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+These `Subject`s then become accessible in the Bonsai editor's toolbox and are useable elsewhere in the workflow using the same names.
 
 ###### Device event subjects
 | Subject name | Description |

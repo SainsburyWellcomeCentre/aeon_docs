@@ -28,19 +28,12 @@ AEON: https://liveuclac.webhook.office.com/webhookb2/4a6da9d9-7456-4fe8-83a7-597
 
 :::{important}
 The system name in the configuration file must match the name of the computer, which can be set in Windows System Settings.
-In Aeon, this file is stored in a "config" folder in the root of the repository. <!-- is this important? -->
+In Aeon, for instance, this file is stored in a "config" folder in the root of the repository. 
 ::: 
 
 #### Usage
-<!-- Not immediately clear which is which, is  "EnvironmentAlertMessages" the `PublishSubject`? 
-what is the EnvironmentAlerts subject?  
-which one is the subscribed observer of `PublishSubject`? -->
-<!-- What is "This" referring to? 
-is `MultiCast` equivalent to `MultiCastSubject`? 
-"this `Subject` presumably refers to the "EnvironmentAlerts" `Subject`? 
-May be clearer if illustrated with a sample workflow? -->
-Use a `PublishSubject` source node to publish and subscribe to the "EnvironmentAlerts" `Subject`. 
-This can then be used anywhere in the workflow to send any custom alert, by using a `MultiCast` node to send formatted strings to this `Subject`. 
+A `PublishSubject` source node is used to both declare and subscribe to a shared `Subject`, in this case named "EnvironmentAlerts". 
+Messages in the form of a `string` can now be sent to this `Subject` using a `MulticastSubject` node to send custom alerts on specific configured events.  
 
 :::workflow
 ![SendAlertBase](../../workflows/environmentAlertsBase.bonsai)

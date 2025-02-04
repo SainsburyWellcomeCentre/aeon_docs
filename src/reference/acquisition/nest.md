@@ -9,26 +9,24 @@ The node also processes the weight data from the scale to calculate a baseline w
 It also filters the weight signal with a linear regression filter over a sliding window defined in its [properties](#properties). 
 Finally, a measure of confidence for each of these readings is calculated. 
 <!-- TODO: link to API Reference -->
-<!-- Check if the "Timestamp" type is correct (double or DateTime?) -->
 These measures are packaged into `Aeon.Environment.WeightMeasurement` class, each composed of the "Timestamp" (`double`), "Value" (`float`) and the "Confidence" index (`float`) of the weight measure. 
 
 #### Inputs
 None
 
 #### Outputs
-<!-- Check if the "Timestamp" type is correct (double or DateTime?) -->
 Stream of `DynamicClass` with the following attributes:
 | Attribute name     | Type                           | Description                      |
 |--------------------|--------------------------------|----------------------------------|
 | **RawWeight.Value**           | `float`        | Raw weight measurement value from the scale                  |
 | **RawWeight.Confidence**      | `float`        | Confidence score for the raw weight measurement              |
-| **RawWeight.Timestamp**       | `DateTime`     | Timestamp when the raw weight measurement was recorded       |
+| **RawWeight.Timestamp**       | `double`     | Timestamp when the raw weight measurement was recorded       |
 | **FilteredWeight.Value**      | `float`        | Filtered weight measurement after smoothing/filtering        |
 | **FilteredWeight.Confidence** | `float`        | Confidence score for the filtered weight                     |
-| **FilteredWeight.Timestamp**  | `DateTime`     | Timestamp when the filtered weight measurement was recorded  |
+| **FilteredWeight.Timestamp**  | `double`     | Timestamp when the filtered weight measurement was recorded  |
 | **BaselinedWeight.Value**     | `float`        | Baseline-adjusted weight measurement                         |
 | **BaselinedWeight.Confidence**| `float`        | Confidence score for the baselined weight                    |
-| **BaselinedWeight.Timestamp** | `DateTime`     | Timestamp for the baselined weight measurement               |
+| **BaselinedWeight.Timestamp** | `double`     | Timestamp for the baselined weight measurement               |
 
 #### Properties
 ##### General

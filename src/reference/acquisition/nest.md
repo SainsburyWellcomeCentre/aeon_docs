@@ -36,8 +36,8 @@ Stream of `DynamicClass` with the following attributes:
 | **FilterWindow**           | Defines the size of the sliding window for linear regression filtering of weight measurements |
 
 ##### Subjects
-Events and commands from the weighing scale are collected from, and published to `Subjects`, in some cases after some processing. 
-Here you set the names used for these `Subjects` to identify events, commands or data streams for this node for a specific nest. 
+Events and commands from the weighing scale are collected from, and published to `Subject`s, in some cases after some processing. 
+Here you set the names used for these `Subject`s to identify events, commands or data streams for this node for a specific nest. 
 Each of these subjects becomes accessible in the Bonsai editor's toolbox anywhere in the workflow using the name set here.
 
 ###### Device event subjects

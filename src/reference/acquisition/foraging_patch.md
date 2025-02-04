@@ -12,7 +12,7 @@ To extend the functionality of the feeder, the following auxiliary nodes are pro
 - [`TimeSpentOnWheel (Aeon.Foraging)`](#timespentonwheel)
 - [`TimeSinceLastEvent (Aeon.Foraging)`](#timesincelastevent)
 
-Each of these auxiliary nodes accept events carried by shared `Subjects` from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of various measures extracted from processing sensor data and events from the feeder device, including:
+Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of various measures extracted from processing sensor data and events from the feeder device, including:
 - PelletCount
 - TimeSpentOnPatches
 - TimeSinceLastVisit

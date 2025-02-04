@@ -64,5 +64,5 @@ This ensures that data stored in the standardised format can be efficiently acce
 
 ### Data streams
 - **Harp devices**: Logs for each individual Harp device are stored in `.bin` files
-- **Camera video streams**: Video frames on a Harp `CameraController` trigger are stored as `.avi` files, along with `.csv` files containing the "FrameID" and Harp "Timestamp" for each frame <!-- Doesn't the LogVideo node (used with the SpinnakerVideoSource) handle the writing to .avi and .csv files? Are we referring to "VideoEvents" (of CameraController) or "FrameEvents" (of SpinnakerVideoSource)? -->
+- **Camera video streams**: Video frames are triggered in synchrony by a Harp `CameraController` and are logged as `.avi` files, along with `.csv` files containing the "FrameID" and Harp "Timestamp" for each frame
 - **Data streams**: Any `Harp.Timestamped` stream of data whose members can be stored in `.csv` format.

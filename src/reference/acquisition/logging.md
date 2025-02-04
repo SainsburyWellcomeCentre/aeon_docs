@@ -27,14 +27,14 @@ Inputs are returned unchanged.
 ##### General
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
-| **ClosingDuration** | <!-- Description missing -->                                                                              |
+| **ClosingDuration** |  Time delay, in seconds to ensure complete closure of consecutive files |                                                                           
 | **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files         | 
-| **Selector**        | Member selector property to select specific members of the incoming data stream                   |
+| **LogName**   | The name of this log. This will determine the naming of a dedicated folder and data files | 
+| **Selector**  | Member selector property to select specific members of the incoming data stream           |
 
 #### Usage
 The `LogData (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the data stream it is subscribed to for logging. 
@@ -64,20 +64,19 @@ Stream of `Harp.HarpMessages`, usually originating from a Harp device.
 
 #### Outputs
 The `byte[]` array containing the contents of each Harp message. 
-<!-- Suggestion: This is generally not passed to any operators downstream of this node. -->
-This is generally not used downstream of this node. 
+This is generally not passed to any operators downstream of this node.
 
 #### Properties
 ##### GroupClosing
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
-| **ClosingDuration** | <!-- Description missing -->                                                                              |
+| **ClosingDuration** |  Time delay, in seconds, to ensure complete closure of consecutive files  |                                                                           
 | **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName** | The name of this log. This is usually the name of the Harp device the Harp stream originated from, and will determine the naming of dedicated folder and data files |
+| **LogName**   | The name of this log. This is usually the name of the Harp device the Harp stream originated from, and will determine the naming of dedicated folder and data files |
 
 #### Usage
 The `LogHarpState (Aeon.Acquisition)` node is generally the terminal node, to which a `SubscribeSubject` passes the Harp device events `Subject` it is subscribed to for logging.
@@ -100,9 +99,6 @@ For example:
 "CameraTop_2024-06-27T10-00-00.avi"
 "CameraTop_2024-06-27T10-00-00.csv"
 ```
-<!-- Clarify what function and why? 
-TODO: Fix clock synchronizer link -->
-This function is dependent on signals from the [`ClockSynchronizer`](../HardwareDevices/ClockSynchronizer/clocksynchronizer.md).
 
 #### Inputs
 Stream of `Harp.Timestamped<Aeon.Video.VideoDataFrame>`, originating from a [`SpinnakerVideoSource (Aeon.Video)`](target-node-spinnakervideosource) node.
@@ -114,13 +110,12 @@ Stream of raw video images of type `OpenCV.Net.IPlImage`.
 ##### GroupClosing
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
-| **ClosingDuration** | *Description missing*                                                                              |
-| **Heartbeats**      | The name of the subject carrying the `TimestampSeconds` events from the `ClockSynchronizer` that the system is synchronised with |
+| **ClosingDuration** |  Time delay, in seconds, to ensure complete closure of consecutive files |                                                                           
 
 ##### Miscellaneous
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
-| **LogName**         | The name of this log. This will determine the naming of a dedicated folder and data files         | 
+| **LogName**   | The name of this log. This will determine the naming of a dedicated folder and data files | 
 
 #### Usage
 The `LogVideo (Aeon.Video)` node is generally the terminal node, to which a `SubscribeSubject` passes the frame events `Subject` it is subscribed to for logging.
@@ -128,25 +123,3 @@ The `LogVideo (Aeon.Video)` node is generally the terminal node, to which a `Sub
 :::workflow
 ![Aeon.Video.LogVideo](../../workflows/logVideo.bonsai)
 :::
-<!-- To be completed
-## GUI
-Description of any user interface components and visualisers.
-
-## Logging
-Information on logging functionalities, nodes involved, and schemas for recorded data.
-
-**Data schema**
-
-| Register name         | Access | Address | Type    | Mask type          | Description                                   |
-|-----------------------|--------|---------|---------|--------------------|-----------------------------------------------|
-| **Register1**         | Access | Address | `Type`  | Mask               | Description of Register1                      |
-| **Register2**         | Access | Address | `Type`  | Mask               | Description of Register2                      |
-
-(For not virtual harp devices) a full list of the available registers for the `device name` see the corresponding [device.yml](link-to-harprepo-device.yml)
-
-## State persistence
-Information on state recovery or persistence requirements, if applicable.
-
-## Alerts
-Explanation of any alert configurations and links to guides or further configuration steps.
- -->

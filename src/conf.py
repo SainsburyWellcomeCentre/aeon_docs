@@ -105,6 +105,9 @@ autodoc_default_options = {
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_templates"]
 
+# Suppress warnings for non-consecutive header level
+suppress_warnings = ["myst.header"]
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

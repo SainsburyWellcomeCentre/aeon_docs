@@ -6,6 +6,10 @@ This presents unique challenges from a perspective of data acquisition and exper
 The Alerts module facilitates this using a system of webhooks and logs to record the state of the experiment, and to alert team members to hardware or system failures, as well as inconsistencies in data acquisition. 
 
 ## Nodes
+[`SendAlert (Aeon.Acquisition)`](#sendalert)
+[`FormatLogMessage`](#formatlogmessage)
+[`AlertGate`](#alertgate)
+
 (target-node-sendalert)=
 ### SendAlert
 The node `SendAlert (Aeon.Acquisition)` accepts any string and sends it via an incoming webhook to post messages to a Microsoft Teams channel using an O365 connector. Full information on configuring these webhooks and generating a webhook url can be found in the [Microsoft documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet).
@@ -86,7 +90,7 @@ The shared "AlertLogs" `Subject` is then provided as an input to the [`LogData (
 Many alerts may be triggered by events that occur at high frequency when in a faulty state. 
 For example, if a device is desynchronised, then an alert will be generated every second until this condition is no longer true. 
 In order to avoid unneccessary, repetitive alerts and overinflated alert logs, an `AlertGate (Aeon.acquisition)` node can be used to throttle specific alerts.
-
+s
 :::workflow
 ![AlertGate](../../workflows/alertGate.bonsai)
 ::: 

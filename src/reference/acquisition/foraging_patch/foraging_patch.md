@@ -6,13 +6,8 @@ It is utilised with a [feeder](target-feeder) hardware module assembly to provid
 
 The primary [`UndergroundFeeder (Aeon.Foraging)`](#undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](https://github.com/harp-tech/device.outputexpander) and defines the basic functions of the feeder.
 
-To extend the functionality of the feeder, the following auxiliary nodes are provided:
-- [`PatchDispenser (Aeon.Foraging)`](#patchdispenser)
-- [`PelletMonitor (Aeon.Foraging)`](#pelletmonitor)
-- [`TimeSpentOnWheel (Aeon.Foraging)`](#timespentonwheel)
-- [`TimeSinceLastEvent (Aeon.Foraging)`](#timesincelastevent)
+Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. These are passed to shared `Subject`s:
 
-Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of various measures extracted from processing sensor data and events from the feeder device, including:
 - PelletCount
 - TimeSpentOnPatches
 - TimeSinceLastVisit
@@ -21,10 +16,12 @@ Each of these auxiliary nodes accept events carried by shared `Subject`s from th
 - ManualPellets
 - TotalPelletsDelivered
 
-## Nodes
+These `Subject`s can then be utilised for processing, task logic, logging and visualisation of the experimental procedure.
+
+
 ### UndergroundFeeder
 The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [feeder](target-feeder) hardware module assembly through a [Harp output expander](https://github.com/harp-tech/device.outputexpander). 
-It also defines the basic functions of the feeder and a workflow to configure the relevant device operation properties. 
+It also defines the basic functions of the feeder and a workflow to configure the device operation properties. 
 The device uses the standardised Harp communication protocol, producing timestamped Harp messages when device events occur.
 
 #### Inputs
@@ -78,156 +75,8 @@ Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all prope
 ![Aeon.Foraging.UndergroundFeeder](../../workflows/base-feeder.bonsai)
 :::
 
-### PatchDispenser 
-The `PatchDispenser (Aeon.Foraging)` node keeps track of the number of pellets available to the feeder. 
-It accepts pellet discount notifications triggered by the IR beam break following successful pellet delivery, and discounts these from the total number of pellets, which is itself set manually when loading the feeder hopper.
-
-#### Inputs
-`Harp.Timestamped<bool>` events emitted by the `UndergroundFeeder` node indicating pellet delivery. 
-
-#### Outputs
-Stream of custom class `Aeon.Foraging.DispenserEventArgs`. 
-<!-- TODO: Fix link to controlpanel -->
-Each item emitted consists of a "Value" (`int`) corresponding to the pellet count following an event, and an "EventType" (`Aeon.Foraging.DispenserEventType`) describing the reason for the new pellet count, i.e. due to a triggered "Discount", or "Reset" or "Refill" command from the [control panel](../../GUI/controlPanel.md).
-
-#### Properties
-##### General
-| Property name | Description                                               |
-|---------------|-----------------------------------------------------------|
-| **Name**      | Set the name to identify this specific dispenser module. e.g. "Patch1" |
-
-##### Subjects
-Events (outputs) from the `PatchDispenser` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
-These subjects then become accessible in the Bonsai editor's toolbox for use elsewhere under the same name
-
-###### Device event subjects
-| Subject name      | Type        | Description                   |
-|-------------------|-------------|-------------------------------|
-| **ControllerEvents** | `Aeon.Foraging.DispenserEventArgs` | Controller events shared `Subject`, carrying the number of pellets remaining (`int`) and the `EventType`. Also output directly by the node |
-| **DispenserState** | `Tuple<double,double,double>`  | Declared `StateRecoverySubject` to store the current Threshold, D1, and Delta parameters of the pellet dispenser |
-
-#### Usage
-Place a `SubscribeSubject` and point it to the "PelletDelivered" `Subject` for a patch (e.g. "Patch1PelletDelivered"). 
-Connect this to a `Condition` node that checks the `Value` of the incoming `Subject`. 
-This is a `Boolean` that reports `True` on pellet delivery, and ensures only the rising edge of this signal is counted as a delivery. 
-Finally, connect this to a `PatchDispenser (Aeon.Foraging)` node.
-
-:::workflow
-![Aeon.Foraging.PatchDispenser](../../workflows/patchDispenser.bonsai)
-:::
-
-### PelletMonitor 
-The `PelletMonitor (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
-Within this node, pellet delivery commands received by the Harp output expander are filtered from the "PatchEvents" `Subject` and successful deliveries monitored through the "PelletDelivered" `Subject` (e.g. "Patch1PelletDelivered"). 
-The `RepeatEverySubject` node ensures this node is only running while an animal is present in the arena. <!-- This is not that clear to me; it seems to only run when a subject has entered, but if you had two subjects and removed one this would it not also stop, despite there being another subject stil present? -->
-
-:::workflow
-![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.bonsai)
-:::
-
-#### Inputs
-None
-
-#### Outputs
-Sequence of dynamic class events triggered by deliver pellet commands and beam break events, consisting of a "Timestamp" (`double`) and a "Value" (`boolean`) that reports the current state. 
-This "Value" is `True` if when a delivery command has been received, and `False` when a successful beam break is detected. 
-
-#### Properties
-##### Subjects
-Commands (inputs) to the `PelletMonitor` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
-
-###### Device command subjects
-| Subject name      | Type        | Description                   |
-|-------------------|-------------|-------------------------------|
-| **PelletCommand** | `Harp.HarpMessage`  | The name of the shared `Subject` carrying all events published by the [output expander](https://github.com/harp-tech/device.outputexpander) connected to an [`UndergroundFeeder`](#undergroundfeeder), e.g. "Patch1Events" |
-| **PelletDelivered**| `Harp.Timestamped<bool>` | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published by [`UndergroundFeeder`](#undergroundfeeder) |
-
-#### Usage
-To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure its properties. 
-
-:::workflow
-![Aeon.Foraging.PelletMonitor](../../workflows/pelletMonitor.bonsai)
-:::
-
-### TimeSpentOnWheel 
-The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel.
-<!-- TODO: Fix link to wheelmoving.md -->
-Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the feeder while the wheel is in motion.
-
-:::workflow
-![timeSpentOnWheelWorkflow](../../workflows/timeSpentOnWheelWorkflow.bonsai)
-:::
-
-#### Inputs
-None
-
-#### Outputs
-Sequence of `double` values carrying the number of seconds the wheel has been in motion, accumulated from the data timestamps.
-
-#### Properties
-##### General
-| Property name | Description                                               |
-|---------------|-----------------------------------------------------------|
-| **Name**      | Set the name to identify this specific dispenser module, e.g. "Patch1" |
-
-##### Subjects
-Commands (inputs) to the `TimeSpentOnWheel ` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
-<!-- To be completed 
-###### Device event subjects 
-`HarpMessage` events emitted to a `Subject`
-
-| Subject name      | Type        | Description                   |
-|-------------------|-------------|-------------------------------|
-| **Event1**        | `Type`      | Description of Event1         |
-| **Event2**        | `Type`      | Description of Event2         |
-
-###### Other output subjects
-Other subjects published or updated by the node, usually ater some processing
-
-| Subject name      | Type          | Description                                                                                     |
-|-------------------|---------------|-------------------------------------------------------------------------------------------------|
-| **Output1**       | `Type`        | Description of Output1                                                                          |
-| **Output2**       | `Type`        | Description of Output2                                                                          |
-
-###### Device command subjects 
-Existing subjects published outside of the node, but used for input / trigger
-
-| Subject name      | Type          | Description                                                                                     |
-|-------------------|---------------|-------------------------------------------------------------------------------------------------|
-| **Command1**      | `Type`        | Description of Command1                                                                         |
-| **Command2**      | `Type`        | Description of Command2                                                                         |
--->
-#### Usage 
-<!-- TODO: Fix link to RepeatEveryBlock -->
-To reset a `TimeSpentOnWheel (Aeon.Foraging)` monitor after a block transition, use a [`RepeatEveryBlock (Aeon.Acquisition)`](./RepeatEveryBlock.md) node and pass the result to an appropriately named `BehaviorSubject`, e.g. "Patch1TimeSpent".
-
-:::workflow
-![timeSpentOnWheel](../../workflows/timeSpentOnWheel.bonsai)
-:::
-
-### TimeSinceLastEvent 
-The `TimeSinceLastEvent (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
-<!-- Is this the correct workflow? -->
-:::workflow
-![Aeon.Foraging.PelletMonitorWorkflow](../../workflows/pelletMonitorWorkflow.bonsai)
-:::
-
-#### Inputs
-None
-
-#### Outputs
-Sequence of `double` values carrying the number of seconds since the wheel was last turned, accumulated from the data timestamps
-
-#### Properties
-This node does not have any properties. 
-However, it assumes that a "VideoEvents" `Subject` from a [`CameraController`](target-node-cameracontroller) node exists to monitor timestamps.
-
-#### Usage
-<!-- To be completed -->
-
-### Additional nodes to be added
+### Additional nodes / subjects to be considered
 - [ ] `RepeatEveryBlock`
-- [ ] `TimeSinceLastEvent`
 - [ ] `PatchDistanceState`
 - [ ] `PatchState`
 - [ ] `PathDeliveryCount`
@@ -237,9 +86,19 @@ However, it assumes that a "VideoEvents" `Subject` from a [`CameraController`](t
 
 ## GUI
 <!-- To be completed -->
+### Nodes
+To extend the functionality of the feeder, the following auxiliary nodes are provided:
+- [`PatchDispenser (Aeon.Foraging)`](./auxiliary_nodes/patch_dispenser.md)
+- [`PelletMonitor (Aeon.Foraging)`](./auxiliary_nodes/pellet_monitor.md)
+- [`TimeSpentOnWheel (Aeon.Foraging)`](./auxiliary_nodes/time_spent_on_wheel.md)
+- [`TimeSinceLastEvent (Aeon.Foraging)`](./auxiliary_nodes/time_since_last_event.md)
+
+These nodes process events from the `UndergroundFeeder` and retrieve or compute informative metrics for visualisation, logging, and task control. 
+
+The `PatchDispenser` ... <!--TODO-->
 
 ## Logging
-Outputs from auxiliary nodes are first formatted using the `Format` node, within which the register addresses are configured for software generated data logs.
+Outputs from the feeder nodes are first formatted using the `Format` node, within which the register addresses are configured for software generated data logs.
 Utilising available registers of the output expander, the formatted outputs are then combined to form a "Patch" assembly, before being passed to the[`LogHarpState (Aeon.Acquisition)`](target-node-logharpstate) node to be written to a log file.
 
 :::workflow

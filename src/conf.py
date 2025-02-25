@@ -179,11 +179,9 @@ myst_url_schemes = {
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
     "semver": "https://semver.org/",
-    "sleap": "https://sleap.ai/",
+    "sleap": "https://sleap.ai/{{path}}#{{fragment}}",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",
     "niu-howto": "https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#{{fragment}}",
 }
-
-#autodoc_mock_imports = ["aeon"]

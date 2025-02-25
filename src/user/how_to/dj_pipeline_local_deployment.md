@@ -1,7 +1,7 @@
 (target-dj-pipeline-deployment)=
 # DataJoint pipeline: On-premises deployment
 
-This page describes the processes and resources required to deploy the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) on-premises.
+This guide describes the processes and resources required to deploy the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) on-premises.
 
 ## Prerequisites
 To deploy and operate a DataJoint pipeline, you will need the following:
@@ -25,6 +25,10 @@ To deploy and operate a DataJoint pipeline, you will need the following:
    - To stop the container, run:
       ```bash
       docker stop db
+      ```
+   - To restart the container after stopping it, run:
+      ```bash
+      docker start db
       ```
 3. GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline
    - [Install the codebase](target-install-aeon-mecha). No additional modifications are needed to deploy the pipeline locally.

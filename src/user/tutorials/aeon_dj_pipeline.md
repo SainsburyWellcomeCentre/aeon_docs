@@ -7,14 +7,14 @@ The Aeon DataJoint pipeline consists of a set of [tables](datajoint:docs/core/da
 ## Pipeline architecture
 The following diagrams provide a high-level overview of the pipeline's components and processes.
 
-(target-aeon-dj-pipeline-acquisition)=
+(target-aeon-dj-pipeline-acquisition-fig)=
 :::{figure} ../../images/datajoint_overview_acquisition_related_diagram.svg
 :alt: dj-overview-acquisition
 :target: ../../images/datajoint_overview_acquisition_related_diagram.svg
 Data acquisition-related tables.
 :::
 
-(target-aeon-dj-pipeline-data-streams)=
+(target-aeon-dj-pipeline-streams-fig)=
 :::{figure} ../../images/datajoint_overview_data_stream_diagram.svg
 :alt: dj-overview-streams
 :target: ../../images/datajoint_overview_data_stream_diagram.svg
@@ -27,7 +27,7 @@ Data flow for various data streams.
 Pyrat synchronisation process.
 :::
 
-(target-aeon-dj-pipeline-analysis)=
+(target-aeon-dj-pipeline-analysis-fig)=
 :::{figure} ../../images/datajoint_analysis_diagram.svg
 :alt: dj-analysis
 :target: ../../images/datajoint_analysis_diagram.svg
@@ -46,6 +46,7 @@ Data flows through the pipeline in a top-down manner, driven by a combination of
 ## Core tables
 This section provides an overview of the core tables in the Aeon DataJoint pipeline, categorised by their primary function and the type of data they manage.
 
+(target-aeon-dj-pipeline-acquisition-tables)=
 ### Experiment and data acquisition
 + `aquisition.Experiment` - This table stores meta information about Aeon experiments, including details such as the lab/room where the experiment is conducted, the participating subjects, and the directory storing the raw data.
 
@@ -54,26 +55,28 @@ This section provides an overview of the core tables in the Aeon DataJoint pipel
 + `aquisition.Chunk` - The raw data acquired through the [acquisition system](target-acquisition-reference) is stored as a collection of files at hourly intervals, referred to as a {term}`chunk <Acquisition Chunk>`. 
 This table records all time chunks and their associated raw data files for any particular experiment in the `aquisition.Experiment` table. Each chunk must only belong to a single {term}`epoch <Acquisition Epoch>`.
 
+(target-aeon-dj-pipeline-tracking-tables)=
 ### Video data and position tracking
 + `qc.CameraQC` - This table records the quality control procedures applied to each `streams.SpinnakerVideoSource` (camera) in the experiment, such as identifying dropped frames in the video data.
 
-+ `tracking.SLEAPTracking` - This table records the [SLEAP](sleap:) position tracking of object(s) for each chunk of video recorded from a particular `streams.SpinnakerVideoSource` (camera). 
++ `tracking.SLEAPTracking` - This table records the [SLEAP](sleap:) position tracking of object(s) for each chunk of video recorded from a particular `streams.SpinnakerVideoSource` ([camera device](target-module-camera)). 
 Key [part tables](datajoint:docs/core/datajoint-python/0.14/design/tables/master-part/) include:
     - `PoseIdentity` - This table records the procedure that identifies the object being tracked (i.e. assigns an identity) and stores the name of the body part (`anchor_part`) used as the anchor point.
     - `Part` - This table records the x, y positions of all body parts tracked using SLEAP.
 
+(target-aeon-dj-pipeline-analysis-tables)=
 ### Standard analyses
-+ `analysis.visit.Visit` and `analysis.visit.VisitEnd` - A _visit_ is defined as a period of time during which a `acquisition.Experiment.Subject` remains at a `analysis.visit.Place`. These tables record the start and end times of each visit, along with the associated `Place` and `Subject`.
++ `analysis.visit.Visit` and `analysis.visit.VisitEnd` - These tables record the start and end times of each {term}`visit`, along with the associated {term}`place` and `Subject`.
 
-+ `analysis.block_analysis.Block` - A _block_ refers to a specific period of time, typically lasting around 3 hours, during which the reward rate for each `streams.UndergroundFeeder` (food patch) is manipulated to encourage different behaviours in the `Subject`(s).
-This table records the start and end times of each block, along with the associated `acquisition.Experiment`.
++ `analysis.block_analysis.Block` - This table records the start and end times of each {term}`block`, along with the associated `acquisition.Experiment`.
 
-+ `analysis.block_analysis.BlockAnalysis` - This table contains a higher-level aggregation of events and metrics occurring within a _block_. Here, patch-related and subject-related metrics are computed separately, providing a detailed view of how different `streams.UndergroundFeeder`(s) and individual `Subject`(s) contribute to the overall experimental outcomes.
++ `analysis.block_analysis.BlockAnalysis` - This table contains a higher-level aggregation of events and metrics occurring within a {term}`block`. Here, patch-related and subject-related metrics are computed separately, providing a detailed view of how different `streams.UndergroundFeeder`(s) and individual `Subject`(s) contribute to the overall experimental outcomes.
 
-+ `analysis.block_analysis.BlockSubjectAnalysis` - This table focuses on the detailed analysis of individual `Subject`(s) within a block, and considers each `Subject`'s interactions with each `streams.UndergroundFeeder` (food patch). Metrics such as total interaction time and overall time spent at the patch are computed. Key part tables include:
++ `analysis.block_analysis.BlockSubjectAnalysis` - This table focuses on the detailed analysis of individual `Subject`(s) within a {term}`block`, and considers each `Subject`'s interactions with each `streams.UndergroundFeeder` (food patch). Metrics such as total interaction time and overall time spent at the patch are computed. Key part tables include:
     - `Patch`: This table records the subject's interactions with a particular food patch, detailing the time spent at the patch, the distance spun on the patch wheel, the number of pellets received, and the timing of pellet deliveries.
     - `Preference`: This table records the subject's preference for each food patch by computing cumulative preference metrics based on time spent at the patch and wheel distance spun.
 
+(target-aeon-dj-pipeline-streams-tables)=
 ### Data streams
 + `streams.SpinnakerVideoSource` - This table records the placement and operation of a Spinnaker video source in an `aquisition.Experiment`, as well as metadata such as the installation time of the device. It facilitates the collection of video data, including frame counts and timestamps.
 

@@ -93,7 +93,6 @@ The process begins by entering the meta-information about the experiment, such a
 This information can either be input manually or automatically parsed from configuration YAML files. 
 To facilitate this, the following scripts handle both manual input and automated parsing for different types of experiments:
 
-  + `aeon.dj_pipeline.create_experiments.create_socialexperiment_0.py`
   + `aeon.dj_pipeline.create_experiments.create_experiment_02.py`
   + `aeon.dj_pipeline.create_experiments.create_socialexperiment.py`
 

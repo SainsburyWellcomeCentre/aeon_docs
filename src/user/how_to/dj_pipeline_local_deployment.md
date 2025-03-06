@@ -6,9 +6,10 @@ This guide describes the processes and resources required to deploy the [Aeon Da
 ## Prerequisites
 To deploy and operate a DataJoint pipeline, you will need the following:
 
-1. MySQL database server (version 8.0) [configured to be DataJoint-compatible](https://github.com/datajoint/mysql-docker/blob/master/config/my.cnf)
-2. Docker container (optional)
-   - If you prefer using a preconfigured Docker container, [install Docker](https://docs.docker.com/engine/install/) and run:
+1. MySQL database server (version 8.0) [configured to be DataJoint-compatible](https://github.com/datajoint/mysql-docker/blob/master/config/my.cnf). 
+   To simplify the setup, we recommend using DataJoint's pre-configured MySQL Docker image
+   following the instructions below.
+   - [Install Docker](https://docs.docker.com/engine/install/) and run:
       ```bash
       docker run -d \
          --name db \
@@ -18,7 +19,7 @@ To deploy and operate a DataJoint pipeline, you will need the following:
          datajoint/mysql:8.0 \
          mysqld --default-authentication-plugin=mysql_native_password
       ```
-   - The above command launches a new MySQL server in a Docker container with the following credentials: 
+      The above command launches a new MySQL server in a Docker container with the following credentials:
       - Host: `localhost`
       - Username: `root`
       - Password: `simple`
@@ -30,13 +31,13 @@ To deploy and operate a DataJoint pipeline, you will need the following:
       ```bash
       docker start db
       ```
-3. GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline
+2. GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline
    - [Install the codebase](target-install-aeon-mecha). No additional modifications are needed to deploy the pipeline locally.
-4. File storage
+3. File storage
    - Provide a location for the pipeline to access/store the data files (e.g. a local directory or mounted network storage).
-5. Compute environment
+4. Compute environment
    - Ensure you have a compute environment with the necessary software installed to run the pipeline (e.g. a laptop, local workstation, or an HPC cluster).
-6. Data to be ingested and processed
+5. Data to be ingested and processed
    - You may use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline.
 
 ## Pipeline configuration

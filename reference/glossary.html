@@ -554,23 +554,29 @@
 <span id="target-glossary"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">#</a></h1>
 <p>This glossary provides definitions for terms used throughout the project documentation.</p>
 <dl class="simple glossary">
-<dt id="term-Aeon">Aeon<a class="headerlink" href="#term-Aeon" title="Link to this term">#</a></dt><dd><p>A very long, indefinite period of time. <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
-</dd>
-<dt id="term-Session">Session<a class="headerlink" href="#term-Session" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.</p>
-</dd>
-<dt id="term-Trial">Trial<a class="headerlink" href="#term-Trial" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal starts moving the wheel on a patch until the time a pellet is delivered. Every experiment 0.1 <a class="reference internal" href="#term-Session"><span class="xref std std-term">session</span></a> ends on incompleted trials.</p>
-</dd>
-<dt id="term-Acquisition-Epoch">Acquisition Epoch<a class="headerlink" href="#term-Acquisition-Epoch" title="Link to this term">#</a></dt><dd><p>The event over the time period when the acquistion computer is on and acquiring data until it is stopped. For experiment 0.1 there are multiple acquisition runs due to Bonsai/Windows being restarted.</p>
+<dt id="term-Acquisition-Chunk">Acquisition Chunk<a class="headerlink" href="#term-Acquisition-Chunk" title="Link to this term">#</a></dt><dd><p>The event (i.e. all data) over a particular <a class="reference internal" href="#term-Acquisition-Chunk-Duration"><span class="xref std std-term">acquisition chunk duration</span></a>.</p>
 </dd>
 <dt id="term-Acquisition-Chunk-Duration">Acquisition Chunk Duration<a class="headerlink" href="#term-Acquisition-Chunk-Duration" title="Link to this term">#</a></dt><dd><p>The time duration over which datastream files are written out. For experiment 0.1, datastreams were written out in files of 1 hour chunk durations.</p>
 </dd>
-<dt id="term-Acquisition-Chunk">Acquisition Chunk<a class="headerlink" href="#term-Acquisition-Chunk" title="Link to this term">#</a></dt><dd><p>The event (i.e. all data) over a particular <a class="reference internal" href="#term-Acquisition-Chunk-Duration"><span class="xref std std-term">acquisition chunk duration</span></a>.</p>
-</dd>
-<dt id="term-Acquisition-Slice-Duration">Acquisition Slice Duration<a class="headerlink" href="#term-Acquisition-Slice-Duration" title="Link to this term">#</a></dt><dd><p>The minimum time resolution a user can get from an initial query of a Datajoint table (the timebin size of BLOB and QC data stored in Datajoint tables). For experiment 0.1 this was 10 minutes.</p>
+<dt id="term-Acquisition-Epoch">Acquisition Epoch<a class="headerlink" href="#term-Acquisition-Epoch" title="Link to this term">#</a></dt><dd><p>The event over the time period when the acquistion computer is on and acquiring data until it is stopped. For experiment 0.1 there are multiple acquisition runs due to Bonsai/Windows being restarted.</p>
 </dd>
 <dt id="term-Acquisition-Slice">Acquisition Slice<a class="headerlink" href="#term-Acquisition-Slice" title="Link to this term">#</a></dt><dd><p>The event (i.e. all data) over a particular <a class="reference internal" href="#term-Acquisition-Slice-Duration"><span class="xref std std-term">acquisition slice duration</span></a>.</p>
 </dd>
+<dt id="term-Acquisition-Slice-Duration">Acquisition Slice Duration<a class="headerlink" href="#term-Acquisition-Slice-Duration" title="Link to this term">#</a></dt><dd><p>The minimum time resolution a user can get from an initial query of a Datajoint table (the timebin size of BLOB and QC data stored in Datajoint tables). For experiment 0.1 this was 10 minutes.</p>
+</dd>
+<dt id="term-Aeon">Aeon<a class="headerlink" href="#term-Aeon" title="Link to this term">#</a></dt><dd><p>A very long, indefinite period of time. <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</dd>
+<dt id="term-Block">Block<a class="headerlink" href="#term-Block" title="Link to this term">#</a></dt><dd><p>A specific period of time, typically lasting around 3 hours, during which the reward rate for each <code class="docutils literal notranslate"><span class="pre">streams.UndergroundFeeder</span></code> (food patch) is manipulated to encourage different behaviours in the subjects.</p>
+</dd>
+<dt id="term-Place">Place<a class="headerlink" href="#term-Place" title="Link to this term">#</a></dt><dd><p>A specific location subjects can visit within the Aeon habitat, e.g. environment, nest, arena, food patch.</p>
+</dd>
+<dt id="term-Session">Session<a class="headerlink" href="#term-Session" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.</p>
+</dd>
 <dt id="term-Task-Protocol">Task Protocol<a class="headerlink" href="#term-Task-Protocol" title="Link to this term">#</a></dt><dd><p>An integer number and associated string describing a unique behavioral task run in Project Aeon. For experiment 0.1, there were 8 unique behavioral tasks run.</p>
+</dd>
+<dt id="term-Trial">Trial<a class="headerlink" href="#term-Trial" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal starts moving the wheel on a patch until the time a pellet is delivered. Every experiment 0.1 <a class="reference internal" href="#term-Session"><span class="xref std std-term">session</span></a> ends on incompleted trials.</p>
+</dd>
+<dt id="term-Visit">Visit<a class="headerlink" href="#term-Visit" title="Link to this term">#</a></dt><dd><p>A period of time during which a subject remains at a <a class="reference internal" href="#term-Place"><span class="xref std std-term">place</span></a>.</p>
 </dd>
 </dl>
 </section>
@@ -652,7 +658,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="sphinx-version"></p>
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
     </p>
     <p class="theme-version">

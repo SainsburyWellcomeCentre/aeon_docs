@@ -44,7 +44,7 @@ continuously estimates the animals' x, y positions, body length, and orientation
 :child-align: center
 
 When there are multiple animals in the arena, identity of each animal can be
-determined using computer vision ([SLEAP](https://sleap.ai/)) from the overhead camera using the individual tail tattoos (one
+determined using computer vision ([SLEAP](sleap:)) from the overhead camera using the individual tail tattoos (one
 band, two bands, or none) as features. Furthermore, animals are implanted with RFID tags that
 allow us to quantify their visits to important sites (nest, foraging patches, gates) which are equipped with RFID antennae. 
 

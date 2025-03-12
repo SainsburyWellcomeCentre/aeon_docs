@@ -6,7 +6,14 @@ It is utilised with a [feeder](target-feeder) hardware module assembly to provid
 
 The primary [`UndergroundFeeder (Aeon.Foraging)`](#undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](https://github.com/harp-tech/device.outputexpander) and defines the basic functions of the feeder.
 
-Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. These together create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. These are passed to shared `Subject`s:
+### Nodes
+To extend the functionality of the feeder, the following auxiliary nodes are provided:
+- [`PatchDispenser (Aeon.Foraging)`](./auxiliary_nodes/patch_dispenser.md)
+- [`PelletMonitor (Aeon.Foraging)`](./auxiliary_nodes/pellet_monitor.md)
+- [`TimeSpentOnWheel (Aeon.Foraging)`](./auxiliary_nodes/time_spent_on_wheel.md)
+- [`TimeSinceLastEvent (Aeon.Foraging)`](./auxiliary_nodes/time_since_last_event.md)
+
+These nodes process events from the `UndergroundFeeder` and retrieve or compute informative metrics for visualisation, logging, and task control. Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. Together, these create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. These are passed to shared `Subject`s:
 
 - PelletCount
 - TimeSpentOnPatches
@@ -16,8 +23,9 @@ Each of these auxiliary nodes accept events carried by shared `Subject`s from th
 - ManualPellets
 - TotalPelletsDelivered
 
-These `Subject`s can then be utilised for processing, task logic, logging and visualisation of the experimental procedure.
+These `Subject`s can then be utilised for processing, task logic, logging and visualisation of the experimental procedure. 
 
+The [`PatchDispenser`](./auxiliary_nodes/patch_dispenser.md) and [`PelletMonitor`](./auxiliary_nodes/pellet_monitor.md) nodes work together to monitor delivery commands and beam break events to keep track of the number of pellets available to be delivered and the reason each pellet was delivered (a retry, automatic or manual delivery). It also monitors the current configuration of the patch assembly, including the threshold and current position of the foraging wheel, in order to recover from any unexpected interuption or crash of the workflow. [`TimeSpentOnWheel`](./auxiliary_nodes/time_spent_on_wheel.md) and [`TimeSinceLastEvent`](./auxiliary_nodes/time_since_last_event.md) are used here to compute these relevant measures for logging, visualisation and experiment monitoring.
 
 ### UndergroundFeeder
 The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [feeder](target-feeder) hardware module assembly through a [Harp output expander](https://github.com/harp-tech/device.outputexpander). 
@@ -79,23 +87,29 @@ Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all prope
 - [ ] `RepeatEveryBlock`
 - [ ] `PatchDistanceState`
 - [ ] `PatchState`
-- [ ] `PathDeliveryCount`
+- [ ] `PatchDeliveryCount`
 - [ ] `PatchTimeSpent`
 - [ ] `PatchTimeSinceLastVisit`
 - [ ] `PatchWheelDisplacement`
 
 ## GUI
-<!-- To be completed -->
-### Nodes
-To extend the functionality of the feeder, the following auxiliary nodes are provided:
-- [`PatchDispenser (Aeon.Foraging)`](./auxiliary_nodes/patch_dispenser.md)
-- [`PelletMonitor (Aeon.Foraging)`](./auxiliary_nodes/pellet_monitor.md)
-- [`TimeSpentOnWheel (Aeon.Foraging)`](./auxiliary_nodes/time_spent_on_wheel.md)
-- [`TimeSinceLastEvent (Aeon.Foraging)`](./auxiliary_nodes/time_since_last_event.md)
+The feeder hardware has several commands that may be initiated by the user, actuated through clickable buttons in a customizable control panel, built by the [PatchDispenser](../foraging_patch/auxiliary_nodes/patch_dispenser.md)
+  
+### Environment Metadata
 
-These nodes process events from the `UndergroundFeeder` and retrieve or compute informative metrics for visualisation, logging, and task control. 
+#### Patch Dispenser control panel
+In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](./auxiliary_nodes/patch_dispenser.md) node also comes with its own GUI interface with which to control the feeder hardware during an experiment.
 
-The `PatchDispenser` ... <!--TODO-->
+![patchDispenserVisualiser](../../../images/patchDispenserVisualiser.svg)
+
+1. The user's given name of the patch
+2. The current estimated number of pellets available in the feeder hopper
+3. Value selector, to add pellets on a manual refill
+4. Deliver button: manually force pellet delivery
+5. Refill button: add the number of pellets defined in 3. during maintenance mode
+6. Reset button: in the event that a feeder became blocked, or entered any fail state due to power or connection issues, this button will reinitialise the feeder, usually after human intervention. 
+
+### Patch threshold and wheel monitoring
 
 ## Logging
 Outputs from the feeder nodes are first formatted using the `Format` node, within which the register addresses are configured for software generated data logs.
@@ -121,7 +135,7 @@ This is passed to the "PatchEvents" `Subject` within the [`UndergroundFeeder (Ae
 | **ExpansionBoard**            | Event  | 87      | U8     | ExpansionBoardType            | Should always be 1 (MagneticEncoder)            |
 | **MagneticEncoder**           | Event  | 90      | U16    | [Angle, Magnitude]            | Reported angle and magnitude of magnetic encoder|
 | **MagneticEncoderSampleRate** | Event  | 91      | U8     | MagneticEncoderSampleRateMode | Should always be 4 (500Hz)                      |
-| **(dispenser_state)**        | -      | 200     | F32    | -                             | The current state of the pellet dispenser       | TODO
+| **(dispenser_state)**        | -      | 200     | F32    | -                             | The current state of the pellet dispenser       |
 | **(delivery_manual)**         | -      | 201     | U8     | -                             | Manual pellet delivery events log               |
 | **(missed_pellet)**           | -      | 202     | U8     | -                             | Missed pellet events log                        |
 | **(delivery_retry)**          | -      | 203     | U8     | -                             | Missed pellet events log                        |
@@ -134,7 +148,7 @@ For instance, `Patch1State` stores the state of the patch itself, including the 
 
 The state of a patch includes: 
 - The distance the wheel has been turned, 
-- the current threshold set for pellet delivery, 
+- the current threshold set for pellest delivery, 
 - the total number of pellets delivered, and 
 - the number of pellets still present in the feeder.
 

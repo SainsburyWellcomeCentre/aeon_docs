@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:p1="clr-namespace:;assembly=Extensions"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>CameraPatch1</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:SampleInterval">
+          <rx:Interval>PT0.02S</rx:Interval>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Value.Image</Selector>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>PatchState</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:SelectChannels">
+          <dsp:Channels>
+            <dsp:int>0</dsp:int>
+            <dsp:int>4</dsp:int>
+          </dsp:Channels>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1CurrentThreshold</Name>
+      </Expression>
+      <Expression xsi:type="viz:RollingGraphBuilder">
+        <viz:IndexSelector>PelletCount</viz:IndexSelector>
+        <viz:ValueSelector>Threshold</viz:ValueSelector>
+        <viz:SymbolType>None</viz:SymbolType>
+        <viz:LineWidth>1</viz:LineWidth>
+        <viz:Capacity xsi:nil="true" />
+        <viz:Min xsi:nil="true" />
+        <viz:Max xsi:nil="true" />
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1PelletMonitorValue</Name>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:Name>PatchActivity</viz:Name>
+        <viz:ColumnCount>3</viz:ColumnCount>
+        <viz:RowCount>4</viz:RowCount>
+        <viz:ColumnStyles />
+        <viz:RowStyles />
+        <viz:CellSpans>
+          <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+          <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+          <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+          <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+        </viz:CellSpans>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>RfidMeasurements</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:RfidVisualizerBuilder">
+          <p1:Capacity>200</p1:Capacity>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>PatchState</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:SelectChannels">
+          <dsp:Channels>
+            <dsp:int>3</dsp:int>
+            <dsp:int>7</dsp:int>
+          </dsp:Channels>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TimeSinceLastVisit</Name>
+      </Expression>
+      <Expression xsi:type="viz:BarGraphBuilder">
+        <viz:IndexSelector>Id</viz:IndexSelector>
+        <viz:ValueSelector>Patch1</viz:ValueSelector>
+        <viz:BaseAxis>X</viz:BaseAxis>
+        <viz:BarType>Cluster</viz:BarType>
+        <viz:Capacity xsi:nil="true" />
+        <viz:Min xsi:nil="true" />
+        <viz:Max xsi:nil="true" />
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TotalDistanceTravelled</Name>
+      </Expression>
+      <Expression xsi:type="viz:BarGraphBuilder">
+        <viz:IndexSelector>Id</viz:IndexSelector>
+        <viz:ValueSelector>Patch1</viz:ValueSelector>
+        <viz:BaseAxis>X</viz:BaseAxis>
+        <viz:BarType>Cluster</viz:BarType>
+        <viz:Capacity xsi:nil="true" />
+        <viz:Min xsi:nil="true" />
+        <viz:Max xsi:nil="true" />
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:Name>PatchStatistics</viz:Name>
+        <viz:ColumnCount>1</viz:ColumnCount>
+        <viz:RowCount>4</viz:RowCount>
+        <viz:ColumnStyles />
+        <viz:RowStyles />
+        <viz:CellSpans />
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:Name>PatchActivity</viz:Name>
+        <viz:ColumnCount>2</viz:ColumnCount>
+        <viz:RowCount>1</viz:RowCount>
+        <viz:ColumnStyles>
+          <viz:ColumnStyle>
+            <viz:SizeType>Percent</viz:SizeType>
+            <viz:Width>70</viz:Width>
+          </viz:ColumnStyle>
+          <viz:ColumnStyle>
+            <viz:SizeType>Percent</viz:SizeType>
+            <viz:Width>30</viz:Width>
+          </viz:ColumnStyle>
+        </viz:ColumnStyles>
+        <viz:RowStyles />
+        <viz:CellSpans />
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="12" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="12" Label="Source2" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="9" To="12" Label="Source3" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source4" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="28" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="26" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="26" Label="Source2" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="26" Label="Source3" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="25" To="26" Label="Source4" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source2" />
+      <Edge From="28" To="29" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

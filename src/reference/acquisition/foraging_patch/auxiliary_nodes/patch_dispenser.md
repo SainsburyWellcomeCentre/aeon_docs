@@ -1,14 +1,13 @@
 ### PatchDispenser 
-The `PatchDispenser (Aeon.Foraging)` node keeps track of the number of pellets available to the feeder. 
-It accepts pellet discount notifications triggered by the IR beam break following successful pellet delivery, and discounts these from the total number of pellets remaining, which is itself set manually when loading the feeder hopper (see guide on [control panel](../../GUI/controlPanel.md)). The state of the dispenser is stored in a `StateRecoverySubject` to retain the feeder's status in the event of a breakdown that requires restarting the workflow.
+The `PatchDispenser (Aeon.Foraging)` node keeps track of the number of pellets available to the feeder, generating events for each dispensed pellet detailing the number of pellets remining and the reason a pellet was dispensed. Additionally, it constructs a visualiser and control panel for controlling the basic and manual functions of the feeder, explained in more detail [here](../../control&Visualisation/auxiliary_nodes/patch_dispenser_GUI.md)
+The node accepts pellet discount notifications triggered by the IR beam break following successful pellet delivery, and discounts these from the total number of pellets remaining, which is itself set manually when loading the feeder hopper (see guide on [control panel](../../Control&Visualisation/ControlPanel.md)). The state of the dispenser is stored in a `StateRecoverySubject` to retain the feeder's status in the event of a breakdown that requires restarting the workflow.
 
 #### Inputs
 `Harp.Timestamped<bool>` events emitted by the `UndergroundFeeder` node indicating pellet delivery. 
 
 #### Outputs
 Stream of custom class `Aeon.Foraging.DispenserEventArgs`. 
-<!-- TODO: Fix link to controlpanel -->
-Each item emitted consists of a "Value" (`int`) corresponding to the pellet count following an event, and an "EventType" (`Aeon.Foraging.DispenserEventType`) describing the reason for the new pellet count, i.e. due to a triggered "Discount", or "Reset" or "Refill" command from the [control panel](../../GUI/controlPanel.md).
+Each item emitted consists of a "Value" (`int`) corresponding to the pellet count following an event, and an "EventType" (`Aeon.Foraging.DispenserEventType`) describing the reason for the new pellet count, i.e. due to a triggered "Discount", or "Reset" or "Refill" command from the [control panel](../../control&Visualisation/control_panel.md).
 
 #### Properties
 ##### General

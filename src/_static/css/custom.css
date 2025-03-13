@@ -42,3 +42,7 @@ html[data-theme=light] {
 .sd-img-bottom-small {
   height: 8vw; 
 }
+
+.acquisition-api-table code {
+  color: var(--pst-color-inline-code-links);
+}

@@ -11,5 +11,5 @@
    :maxdepth: 1
 
 .. autosummary::
-   :toctree: api
+   :toctree: aeon_api
 

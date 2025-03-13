@@ -7,7 +7,7 @@ ignore_modules = []
 
 def make_api_doctree():
     """
-    Create a doctree of all modules in aeon_mecha/aeon.
+    Create a doctree of all modules in aeon_api/swc/aeon.
     """
     doctree = ""
     api_path = Path("aeon_api") / "swc" / "aeon"
@@ -20,12 +20,12 @@ def make_api_doctree():
         if not any(full.startswith(ignore_module) for ignore_module in ignore_modules):
             doctree += f"   {full}\n"
     # Get the main page header
-    api_head_path = Path("src") / "_templates" / "api_mecha_head.rst"
+    api_head_path = Path("src") / "_templates" / "api_aeon_api_head.rst"
     api_head = api_head_path.read_text()
     # Write main page with header and doc tree
     output_dir = Path("src") / "reference" / "api"
     output_dir.mkdir(parents=True, exist_ok=True)
-    output_file = output_dir / "mecha.rst"
+    output_file = output_dir / "aeon_api.rst"
     with output_file.open("w") as f:
         f.write(api_head)
         f.write(doctree)

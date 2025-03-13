@@ -173,14 +173,14 @@ If it is not yet defined and you have multiple external URLs pointing to the sam
 #### Updating the API reference
 The [API reference](target-api-reference) is auto-generated as part of the documentation build process.
 
-##### `aeon_mecha`
-For the `aeon_mecha` Python package, the `make_mecha_doctree.py` script generates the `src/reference/api/mecha.rst` file containing the list of modules to be included in the [API reference](target-mecha-reference). 
-The [sphinx-autodoc](sphinx-doc:extensions/autodoc.html) and [sphinx-autosummary](sphinx-doc:extensions/autosummary.html) extensions are then used to generate the API reference pages for each module listed in `mecha.rst`, based on the docstrings in the source code. 
-By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the `ignore_modules` list in the `make_mecha_doctree.py` script.
+##### `aeon_api`
+For the `aeon_api` Python package, the `make_api_doctree.py` script generates the `src/reference/api/aeon_api.rst` file containing the list of modules to be included in the [API reference](target-aeon-api-reference). 
+The [sphinx-autodoc](sphinx-doc:extensions/autodoc.html) and [sphinx-autosummary](sphinx-doc:extensions/autosummary.html) extensions are then used to generate the API reference pages for each module listed in `aeon_api.rst`, based on the docstrings in the source code. 
+By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the `ignore_modules` list in the `make_api_doctree.py` script.
 
 ##### `aeon_acquisition` 
 For the `aeon_acquisition` Bonsai package, the `make_acquisition_doctree.py` script first calls [`docfx`](https://dotnet.github.io/docfx/index.html) to generate the API reference pages for each module as Markdown files in `src/reference/api/acquisition/`, and the table of contents (TOC) in the `src/reference/api/acquisition/toc.yml` file. 
-This TOC is then used to generate the `src/reference/api/acquisition.rst` file containing the list of modules to be included in the [API reference](target-acquisition-reference).
+This TOC is then used to generate the `src/reference/api/acquisition.rst` file containing the list of modules to be included in the [API reference](target-aeon-acquisition-reference).
 
 ### Building the documentation locally
 To build the documentation locally, first make sure you have cloned the [`aeon_docs` repository](aeon-docs-github:). 

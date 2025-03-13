@@ -69,9 +69,9 @@ def process_namespace(namespace: dict, metadata_path: Path):
     if namespace_href is None or namespace_items is None:
         return None, None
     # Generate entry to table on main page that mimics aeon_mecha doc structure
-    table_row = f"*   - [``{namespace_name}``](acquisition/{namespace_name})\n"
+    table_row = f"*   - [``{namespace_name}``](aeon_acquisition/{namespace_name})\n"
     # Generate toctree entry
-    toctree_entry = f"    {namespace_name} <acquisition/{namespace_name}>\n"
+    toctree_entry = f"    {namespace_name} <aeon_acquisition/{namespace_name}>\n"
     # Generate toctree for namespace document
     namespace_path = metadata_path.joinpath(namespace_href)
     with open(namespace_path, "r+", encoding="utf-8") as nsf:
@@ -105,12 +105,12 @@ def make_acquisition_doctree():
     # Generate .md API files from source code
     src_path = Path("src")
     run_docfx_metadata(src_path)
-    # Path to main page (src/reference/api/acquisition.md)
-    metadata_path = src_path.joinpath("reference", "api", "acquisition")
+    # Path to main page (src/reference/api/aeon_acquisition.md)
+    metadata_path = src_path.joinpath("reference", "api", "aeon_acquisition")
     # Get acquisition toc
     acquisition_toc = yaml.safe_load(metadata_path.joinpath("toc.yml").read_text())
     # Get the main page header
-    api_head_path = Path("src") / "_templates" / "api_acquisition_head.md"
+    api_head_path = Path("src") / "_templates" / "api_aeon_acquisition_head.md"
     api_head = api_head_path.read_text()
     # Initialise sections
     table_rows = ":::{list-table}\n:class: acquisition-api-table\n\n"

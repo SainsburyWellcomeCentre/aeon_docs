@@ -1,30 +1,33 @@
 # <a id="Aeon_Foraging"></a> Namespace Aeon.Foraging
 
-### Classes
+:::{rubric} Classes
+:::
 
- [CreateDispenserEvent](Aeon.Foraging.CreateDispenserEvent.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [DispenserAccumulate](Aeon.Foraging.DispenserAccumulate.md)
+*   - [`CreateDispenserEvent`](Aeon.Foraging.CreateDispenserEvent.md)
+*   - [`DispenserAccumulate`](Aeon.Foraging.DispenserAccumulate.md)
+*   - [`DispenserController`](Aeon.Foraging.DispenserController.md)
+*   - [`DispenserEventArgs`](Aeon.Foraging.DispenserEventArgs.md)
+*   - [`DispenserEventControl`](Aeon.Foraging.DispenserEventControl.md)
+*   - [`DispenserEventVisualizer`](Aeon.Foraging.DispenserEventVisualizer.md)
+*   - [`DispenserState`](Aeon.Foraging.DispenserState.md)
+*   - [`FormatDispenserState`](Aeon.Foraging.FormatDispenserState.md)
+*   - [`WheelDisplacement`](Aeon.Foraging.WheelDisplacement.md)
+:::
 
- [DispenserController](Aeon.Foraging.DispenserController.md)
+:::{rubric} Enums
+:::
 
- [DispenserEventArgs](Aeon.Foraging.DispenserEventArgs.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [DispenserEventControl](Aeon.Foraging.DispenserEventControl.md)
+*   - [`DispenserEventType`](Aeon.Foraging.DispenserEventType.md)
+:::
 
- [DispenserEventVisualizer](Aeon.Foraging.DispenserEventVisualizer.md)
-
- [DispenserState](Aeon.Foraging.DispenserState.md)
-
- [FormatDispenserState](Aeon.Foraging.FormatDispenserState.md)
-
- [WheelDisplacement](Aeon.Foraging.WheelDisplacement.md)
-
-### Enums
-
- [DispenserEventType](Aeon.Foraging.DispenserEventType.md)
-
-```{toctree}
+:::{toctree}
+   :hidden:
 
 CreateDispenserEvent <Aeon.Foraging.CreateDispenserEvent>
 DispenserAccumulate <Aeon.Foraging.DispenserAccumulate>
@@ -36,4 +39,4 @@ DispenserState <Aeon.Foraging.DispenserState>
 FormatDispenserState <Aeon.Foraging.FormatDispenserState>
 WheelDisplacement <Aeon.Foraging.WheelDisplacement>
 DispenserEventType <Aeon.Foraging.DispenserEventType>
-```
+:::

@@ -1,26 +1,38 @@
 # <a id="Aeon_Video"></a> Namespace Aeon.Video
 
-### Classes
+:::{rubric} Classes
+:::
 
- [AeonCapture](Aeon.Video.AeonCapture.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [PylonCapture](Aeon.Video.PylonCapture.md)
+*   - [`AeonCapture`](Aeon.Video.AeonCapture.md)
+*   - [`PylonCapture`](Aeon.Video.PylonCapture.md)
+*   - [`SpinnakerCapture`](Aeon.Video.SpinnakerCapture.md)
+*   - [`VideoDataFrame`](Aeon.Video.VideoDataFrame.md)
+*   - [`VideoFileCapture`](Aeon.Video.VideoFileCapture.md)
+:::
 
- [SpinnakerCapture](Aeon.Video.SpinnakerCapture.md)
+:::{rubric} Structs
+:::
 
- [VideoDataFrame](Aeon.Video.VideoDataFrame.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [VideoFileCapture](Aeon.Video.VideoFileCapture.md)
+*   - [`VideoChunkData`](Aeon.Video.VideoChunkData.md)
+:::
 
-### Structs
+:::{rubric} Enums
+:::
 
- [VideoChunkData](Aeon.Video.VideoChunkData.md)
+::: {list-table}
+:class: acquisition-api-table
 
-### Enums
+*   - [`VideoControllerType`](Aeon.Video.VideoControllerType.md)
+:::
 
- [VideoControllerType](Aeon.Video.VideoControllerType.md)
-
-```{toctree}
+:::{toctree}
+   :hidden:
 
 AeonCapture <Aeon.Video.AeonCapture>
 PylonCapture <Aeon.Video.PylonCapture>
@@ -29,4 +41,4 @@ VideoDataFrame <Aeon.Video.VideoDataFrame>
 VideoFileCapture <Aeon.Video.VideoFileCapture>
 VideoChunkData <Aeon.Video.VideoChunkData>
 VideoControllerType <Aeon.Video.VideoControllerType>
-```
+:::

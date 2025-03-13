@@ -1,23 +1,31 @@
 # <a id="Aeon_Vision"></a> Namespace Aeon.Vision
 
-### Namespaces
+:::{rubric} Namespaces
+:::
 
- [Aeon.Vision.Sleap](Aeon.Vision.Sleap.md)
+::: {list-table}
+:class: acquisition-api-table
 
-### Classes
+*   - [`Aeon.Vision.Sleap`](Aeon.Vision.Sleap.md)
+:::
 
- [DistanceFromPoint](Aeon.Vision.DistanceFromPoint.md)
+:::{rubric} Classes
+:::
 
- [FormatBinaryRegions](Aeon.Vision.FormatBinaryRegions.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [RegionContainsPoint](Aeon.Vision.RegionContainsPoint.md)
+*   - [`DistanceFromPoint`](Aeon.Vision.DistanceFromPoint.md)
+*   - [`FormatBinaryRegions`](Aeon.Vision.FormatBinaryRegions.md)
+*   - [`RegionContainsPoint`](Aeon.Vision.RegionContainsPoint.md)
+*   - [`TakeLargestRegions`](Aeon.Vision.TakeLargestRegions.md)
+:::
 
- [TakeLargestRegions](Aeon.Vision.TakeLargestRegions.md)
-
-```{toctree}
+:::{toctree}
+   :hidden:
 
 DistanceFromPoint <Aeon.Vision.DistanceFromPoint>
 FormatBinaryRegions <Aeon.Vision.FormatBinaryRegions>
 RegionContainsPoint <Aeon.Vision.RegionContainsPoint>
 TakeLargestRegions <Aeon.Vision.TakeLargestRegions>
-```
+:::

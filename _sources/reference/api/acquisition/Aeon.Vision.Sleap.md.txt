@@ -1,16 +1,20 @@
 # <a id="Aeon_Vision_Sleap"></a> Namespace Aeon.Vision.Sleap
 
-### Classes
+:::{rubric} Classes
+:::
 
- [CreatePoseTrackingMetadata](Aeon.Vision.Sleap.CreatePoseTrackingMetadata.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [FormatPose](Aeon.Vision.Sleap.FormatPose.md)
+*   - [`CreatePoseTrackingMetadata`](Aeon.Vision.Sleap.CreatePoseTrackingMetadata.md)
+*   - [`FormatPose`](Aeon.Vision.Sleap.FormatPose.md)
+*   - [`PoseTrackingMetadata`](Aeon.Vision.Sleap.PoseTrackingMetadata.md)
+:::
 
- [PoseTrackingMetadata](Aeon.Vision.Sleap.PoseTrackingMetadata.md)
-
-```{toctree}
+:::{toctree}
+   :hidden:
 
 CreatePoseTrackingMetadata <Aeon.Vision.Sleap.CreatePoseTrackingMetadata>
 FormatPose <Aeon.Vision.Sleap.FormatPose>
 PoseTrackingMetadata <Aeon.Vision.Sleap.PoseTrackingMetadata>
-```
+:::

@@ -1,16 +1,20 @@
 # <a id="Aeon_Database"></a> Namespace Aeon.Database
 
-### Classes
+:::{rubric} Classes
+:::
 
- [CreateConnection](Aeon.Database.CreateConnection.md)
+::: {list-table}
+:class: acquisition-api-table
 
- [ExecuteQuery](Aeon.Database.ExecuteQuery.md)
+*   - [`CreateConnection`](Aeon.Database.CreateConnection.md)
+*   - [`ExecuteQuery`](Aeon.Database.ExecuteQuery.md)
+*   - [`ObservableDatabase`](Aeon.Database.ObservableDatabase.md)
+:::
 
- [ObservableDatabase](Aeon.Database.ObservableDatabase.md)
-
-```{toctree}
+:::{toctree}
+   :hidden:
 
 CreateConnection <Aeon.Database.CreateConnection>
 ExecuteQuery <Aeon.Database.ExecuteQuery>
 ObservableDatabase <Aeon.Database.ObservableDatabase>
-```
+:::

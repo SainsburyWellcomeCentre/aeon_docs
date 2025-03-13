@@ -28,12 +28,20 @@ Below are the required sets of credentials for Aeon members:
 To be granted these credentials, please send a single email to [all contact parties](mailto:jai.bhagat.21@ucl.ac.uk,g.lopes@neurogears.org,d.campagner@ucl.ac.uk,helpdesk@swc.ucl.ac.uk,thinh@vathes.com?subject=Request%20for%20Aeon%20credentials) requesting this access.
 
 ## Repositories
+
+### [aeon_api](https://github.com/SainsburyWellcomeCentre/aeon_api)
+
+![aeon_api_env_build_and_tests](https://github.com/SainsburyWellcomeCentre/aeon_api/actions/workflows/build_env_run_tests.yml/badge.svg?branch=main)
+[![aeon_api_tests_code_coverage](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_api/branch/main/graph/badge.svg?token=973EC1CG03)](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_api)
+
+Aeon's low-level library for interfacing with acquired data. Contains Python modules for raw data file io, data querying, and data processing.
+
 ### [aeon_mecha](https://github.com/SainsburyWellcomeCentre/aeon_mecha)
 
 ![aeon_mecha_env_build_and_tests](https://github.com/SainsburyWellcomeCentre/aeon_mecha/actions/workflows/build_env_run_tests.yml/badge.svg?branch=main)
 [![aeon_mecha_tests_code_coverage](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_mecha/branch/main/graph/badge.svg?token=973EC1CG03)](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_mecha)
 
-Aeon's main library for interfacing with acquired data. Contains Python modules for raw data file io, data querying, data processing, data qc, database ingestion, and building computational data pipelines. This is the main user repository.
+Aeon's library for the Aeon DataJoint pipeline. Contains Python modules for Aeon experiment schema definitions, data quality control, data processing, and data ingestion into a DataJoint MySQL database.
 
 ### [aeon_experiments](https://github.com/SainsburyWellcomeCentre/aeon_experiments)
 

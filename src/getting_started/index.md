@@ -41,8 +41,8 @@ As each of these different components is built using different languages, spanni
 ::::{grid} 1 2 2 2
 :gutter: 3 
 
-:::{grid-item-card} {fas}`database;sd-text-primary` aeon_mecha
-:link: https://github.com/SainsburyWellcomeCentre/aeon_mecha
+:::{grid-item-card} {fas}`database;sd-text-primary` aeon_api
+:link: https://github.com/SainsburyWellcomeCentre/aeon_api
 :link-type: url
 Aeon's main library for interfacing with acquired data
 :::
@@ -76,7 +76,7 @@ Source code for pellet delivery via feeders used in Aeon experiments
 :::{note}
 All experiment data is acquired and/or triggered and/or synced by 
 [Harp devices](https://www.cf-hw.org/harp). 
-Code in the `aeon_acquisition` and `aeon_mecha` repositories makes use of 
+Code in the `aeon_acquisition` and `aeon_api` repositories makes use of 
 the [Harp protocol](harp-tech:articles/about) during data acquisition, 
 raw data file writing, and raw data file reading. 
 See also the documentation on 

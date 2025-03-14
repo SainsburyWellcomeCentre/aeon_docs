@@ -12,8 +12,6 @@ To demonstrate Aeon's various features and capabilities, we also provide the fol
 :maxdepth: 1
 :caption: Tutorials
 
-tutorials/multianimal_tracking
-tutorials/npx_recording
 tutorials/aeon_dj_pipeline
 :::
 

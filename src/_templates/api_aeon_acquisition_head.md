@@ -1,5 +1,5 @@
 <!-- This file is auto-generated. -->
 
-(target-acquisition-reference)=
+(target-aeon-acquisition-reference)=
 # ``aeon_acquisition``
 

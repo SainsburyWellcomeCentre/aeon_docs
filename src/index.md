@@ -25,7 +25,7 @@ continuously over multiple weeks.
 
 ```{button-ref} getting_started/index
 :color: primary
-To the Introduction
+Get started
 ```
 :::
 
@@ -39,7 +39,7 @@ Gain insights into the software and hardware components that make up Aeon.
 
 ```{button-ref} reference/index
 :color: primary
-To the Reference Guide
+To the reference manual
 ```
 :::
 :::{grid-item}
@@ -63,7 +63,7 @@ Learn more about how Aeon data is acquired, stored and processed through the sam
 
 ```{button-ref} user/index
 :color: primary
-To the User Guide
+Learn by example
 ```
 :::
 
@@ -77,7 +77,7 @@ Want to contribute to Aeon? The contributing guidelines are a good place to star
 
 ```{button-ref} contributor/index
 :color: primary
-To the Contributor Guide
+Read our contributor's guide
 ```
 :::
 :::{grid-item}

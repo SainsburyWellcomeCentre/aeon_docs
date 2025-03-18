@@ -1,26 +1,27 @@
-### TimeSpentOnWheel 
+(target-node-timespentonwheel)=
+# TimeSpentOnWheel 
 The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel.
 <!-- TODO: Fix link to wheelmoving.md -->
 Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the feeder while the wheel is in motion.
 
 :::workflow
-![timeSpentOnWheelWorkflow](../../workflows/timeSpentOnWheelWorkflow.bonsai)
+![timeSpentOnWheelWorkflow](../../../workflows/timeSpentOnWheelWorkflow.bonsai)
 :::
 
-#### Inputs
+## Inputs
 None
 
-#### Outputs
+## Outputs
 Sequence of `double` values carrying the number of seconds the wheel has been in motion, accumulated from the data timestamps.
 
-#### Properties
-##### General
+## Properties
+### General
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
 | **Name**      | Set the name to identify this specific dispenser module, e.g. "Patch1" |
 
-##### Subjects
-Commands (inputs) to the `TimeSpentOnWheel ` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+### Subjects
+Commands (inputs) to the `TimeSpentOnWheel` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
 <!-- To be completed 
 ###### Device event subjects 
 `HarpMessage` events emitted to a `Subject`
@@ -46,10 +47,10 @@ Existing subjects published outside of the node, but used for input / trigger
 | **Command1**      | `Type`        | Description of Command1                                                                         |
 | **Command2**      | `Type`        | Description of Command2                                                                         |
 -->
-#### Usage 
+## Usage 
 <!-- TODO: Fix link to RepeatEveryBlock -->
 To reset a `TimeSpentOnWheel (Aeon.Foraging)` monitor after a block transition, use a [`RepeatEveryBlock (Aeon.Acquisition)`](./RepeatEveryBlock.md) node and pass the result to an appropriately named `BehaviorSubject`, e.g. "Patch1TimeSpent".
 
 :::workflow
-![timeSpentOnWheel](../../workflows/timeSpentOnWheel.bonsai)
+![timeSpentOnWheel](../../../workflows/timeSpentOnWheel.bonsai)
 :::

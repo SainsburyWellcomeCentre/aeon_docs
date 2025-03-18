@@ -4,16 +4,19 @@
 The foraging patch module is core to foraging and long-term 24/7 experiments. 
 It is utilised with a [feeder](target-feeder) hardware module assembly to provide a means for animals in the arena to obtain food by turning a configurable wheel, simulating a naturalistic digging action. 
 
-The primary [`UndergroundFeeder (Aeon.Foraging)`](#undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](https://github.com/harp-tech/device.outputexpander) and defines the basic functions of the feeder.
+The primary [`UndergroundFeeder (Aeon.Foraging)`](target-node-undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](harp-tech:api/Harp.OutputExpander) and defines the basic functions of the feeder.
 
-### Nodes
+## Nodes
 To extend the functionality of the feeder, the following auxiliary nodes are provided:
-- [`PatchDispenser (Aeon.Foraging)`](./auxiliary_nodes/patch_dispenser.md)
-- [`PelletMonitor (Aeon.Foraging)`](./auxiliary_nodes/pellet_monitor.md)
-- [`TimeSpentOnWheel (Aeon.Foraging)`](./auxiliary_nodes/time_spent_on_wheel.md)
-- [`TimeSinceLastEvent (Aeon.Foraging)`](./auxiliary_nodes/time_since_last_event.md)
+- [`PatchDispenser (Aeon.Foraging)`](target-node-patchdispenser)
+- [`PelletMonitor (Aeon.Foraging)`](target-node-pelletmonitor)
+- [`TimeSpentOnWheel (Aeon.Foraging)`](target-node-timespentonwheel)
+- [`TimeSinceLastEvent (Aeon.Foraging)`](target-node-timesincelastevent)
 
-These nodes process events from the `UndergroundFeeder` and retrieve or compute informative metrics for visualisation, logging, and task control. Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. Together, these create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. These are passed to shared `Subject`s:
+These nodes process events from the [`UndergroundFeeder`](target-node-undergroundfeeder) node and retrieve or compute informative metrics for visualisation, logging, and task control. 
+Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. 
+Together, these create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. 
+These are passed to shared `Subject`s:
 
 - PelletCount
 - TimeSpentOnPatches
@@ -25,10 +28,13 @@ These nodes process events from the `UndergroundFeeder` and retrieve or compute 
 
 These `Subject`s can then be utilised for processing, task logic, logging and visualisation of the experimental procedure. 
 
-The [`PatchDispenser`](./auxiliary_nodes/patch_dispenser.md) and [`PelletMonitor`](./auxiliary_nodes/pellet_monitor.md) nodes work together to monitor delivery commands and beam break events to keep track of the number of pellets available to be delivered and the reason each pellet was delivered (a retry, automatic or manual delivery). It also monitors the current configuration of the patch assembly, including the threshold and current position of the foraging wheel, in order to recover from any unexpected interuption or crash of the workflow. [`TimeSpentOnWheel`](./auxiliary_nodes/time_spent_on_wheel.md) and [`TimeSinceLastEvent`](./auxiliary_nodes/time_since_last_event.md) are used here to compute these relevant measures for logging, visualisation and experiment monitoring.
+The [`PatchDispenser`](target-node-patchdispenser) and [`PelletMonitor`](target-node-pelletmonitor) nodes work together to monitor delivery commands and beam break events to keep track of the number of pellets available to be delivered and the reason each pellet was delivered (a retry, automatic or manual delivery). 
+It also monitors the current configuration of the patch assembly, including the threshold and current position of the foraging wheel, to facilitate recovery from unexpected interruptions or workflow crashes.
+The [`TimeSpentOnWheel`](target-node-timespentonwheel) and [`TimeSinceLastEvent`](target-node-timesincelastevent) nodes are used to compute these relevant measures for logging, visualisation and experiment monitoring.
 
+(target-node-undergroundfeeder)=
 ### UndergroundFeeder
-The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [feeder](target-feeder) hardware module assembly through a [Harp output expander](https://github.com/harp-tech/device.outputexpander). 
+The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [feeder](target-feeder) hardware module assembly through a [Harp output expander](harp-tech:api/Harp.OutputExpander). 
 It also defines the basic functions of the feeder and a workflow to configure the device operation properties. 
 The device uses the standardised Harp communication protocol, producing timestamped Harp messages when device events occur.
 
@@ -93,14 +99,14 @@ Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all prope
 - [ ] `PatchWheelDisplacement`
 
 ## GUI
-The feeder hardware has several commands that may be initiated by the user, actuated through clickable buttons in a customizable control panel, built by the [PatchDispenser](../foraging_patch/auxiliary_nodes/patch_dispenser.md)
+The feeder hardware has several commands that may be initiated by the user, actuated through clickable buttons in a customisable control panel built by the [PatchDispenser](target-node-patchdispenser) node.
   
-### Environment Metadata
+### Environment metadata
 
-#### Patch Dispenser control panel
-In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](./auxiliary_nodes/patch_dispenser.md) node also comes with its own GUI interface with which to control the feeder hardware during an experiment.
+### PatchDispenser control panel
+In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](target-node-patchdispenser) node also comes with its own GUI interface for controlling the feeder hardware during an experiment.
 
-![patchDispenserVisualiser](../../../images/patchDispenserVisualiser.svg)
+![patchDispenserVisualiser](../../images/patchDispenserVisualiser.svg)
 
 1. The user's given name of the patch
 2. The current estimated number of pellets available in the feeder hopper
@@ -154,3 +160,10 @@ The state of a patch includes:
 
 ## Alerts
 <!-- To be completed -->
+
+:::{toctree}
+:maxdepth: 1
+:hidden:
+:glob:
+
+foraging_patch/*

@@ -106,7 +106,7 @@ The feeder hardware has several commands that may be initiated by the user, actu
 ### PatchDispenser control panel
 In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](target-node-patchdispenser) node also comes with its own GUI interface for controlling the feeder hardware during an experiment.
 
-![patchDispenserVisualiser](../../images/patchDispenserVisualiser.svg)
+![patchDispenserVisualiser](../../images/patch_dispenser_visualiser.svg)
 
 1. The user's given name of the patch
 2. The current estimated number of pellets available in the feeder hopper

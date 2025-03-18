@@ -1,11 +1,11 @@
 (target-node-timesincelastevent)=
 # TimeSinceLastEvent 
 The `TimeSinceLastEvent (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
-
+<!-- Workflow file is missing
 :::workflow
 ![Aeon.Foraging.TimeSinceLastEventWorkflow](../../../workflows/timesincelastevent.bonsai)
 :::
-
+-->
 ## Inputs
 None
 

@@ -46,7 +46,7 @@ Messages in the form of a `string` can now be sent to this `Subject` using a `Mu
 (target-node-formatlogmessage)=
 ### FormatLogMessage
 All alert messages can also be logged to file, along with other lower priority 'notifications' that should be logged but is not urgent enough to warrant an alert. 
-The `FormatLogMessage (Aeon.acquisition)` node formats the incoming data stream to enable the logging of alerts. 
+The `FormatLogMessage (Aeon.Acquisition)` node formats the incoming data stream to enable the logging of alerts. 
 
 #### Inputs
 This node will accept any input but these must contain the information required for the alert message and timestamp. 
@@ -72,7 +72,7 @@ A sequence of `Harp.Timestamped<Aeon.acquisition.LogMessage>` with the following
 | **Timestamp**        | `string`        | The inner property selected for use as the timestamp for each element in the sequence                   |
 
 #### Usage
-Prior to logging alerts, format the incoming message strings using a `FormatLogMessage (Aeon.acquisition)` node.
+Prior to logging alerts, format the incoming message strings using a `FormatLogMessage (Aeon.Acquisition)` node.
 Once formatted, these timestamped messages can be `Multicast` to a shared "AlertLogs" `Subject`, allowing for the logging of both notifications and alerts.
 
 :::workflow
@@ -89,8 +89,8 @@ The shared "AlertLogs" `Subject` is then provided as an input to the [`LogData (
 ### AlertGate
 Many alerts may be triggered by events that occur at high frequency when in a faulty state. 
 For example, if a device is desynchronised, then an alert will be generated every second until this condition is no longer true. 
-In order to avoid unneccessary, repetitive alerts and overinflated alert logs, an `AlertGate (Aeon.acquisition)` node can be used to throttle specific alerts.
-s
+In order to avoid unneccessary, repetitive alerts and overinflated alert logs, an `AlertGate (Aeon.Acquisition)` node can be used to throttle specific alerts.
+
 :::workflow
 ![AlertGate](../../workflows/alertGate.bonsai)
 ::: 

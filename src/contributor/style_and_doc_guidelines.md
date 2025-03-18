@@ -1,16 +1,18 @@
 (target-style-doc-guidelines)=
 # Style and Documentation Guidelines
 
-The purpose of this document is to establish Project Aeon code style and documentation guidelines.
+The purpose of this document is to establish Aeon's code style and documentation guidelines.
 
-We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`. We also believe in the [readme manifesto](https://www.thinkinghard.com/blog/TheREADMEManifesto), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
+We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [google's style guide](https://google.github.io/styleguide/pyguide.html) for code and docstring style guidelines. 
+We run ruff and pyright to format our Python code, the config settings for which can be found in a repository's `pyproject.toml`. 
+We also believe in the [readme manifesto](https://www.thinkinghard.com/blog/TheREADMEManifesto), which says that `readme` files should provide at least a general description that covers _all_ of a project's files, and that one `readme` per subdirectory is generally good practice.
 
-## General Guidelines
+## General guidelines
 
 * All files contain a header that briefly describes the contents within a few sentences.
 * In general, more lines for the sake of clarity is preferred over brevity.
 
-## Function and Class Docstrings
+## Function and class docstrings
 
 * Function names should describe the action they perform. Functions have the following sections in the given order:
   - One-line summary description, typically as a verb phrase
@@ -47,14 +49,14 @@ We generally adhere to [pep8](python-pep:0008), [pep257](python-pep:0257), and [
 * Code referenced in comments are surrounded by back ticks for readability.
 * Comments are used to describe variables where they are declared.
 
-## Additional Conventions
+## Additional conventions
 
 * Naming conventions:
   - Variable and function names are in lower snake_case (e.g. `exp_ref`, `infer_parameters` with a `_` in between each individual word representation).
   - Classes are in upper Snake_Case (e.g. `Alyx_Panel`).
   - Prefix 'n' is used for integer values e.g. `n_items`.
   - Suffix 'num' is used for referring to a particular instance e.g. `item_num`.
-  - Suffices that indicate unit measurement are used when using multiple units e.g. `wheel_deg` and `wheel_mm`.
+  - Suffixes that indicate unit measurement are used when using multiple units e.g. `wheel_deg` and `wheel_mm`.
   - Reuse of variable names (i.e. mutation) is generally avoided.
   - Variables across related files which share names should share meanings.
 * Comments are for explaining _what_ a particular chunk of code does when it may be unintuitive, not for explaining exactly _how_ the code does what it does.

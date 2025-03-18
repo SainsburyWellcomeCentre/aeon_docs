@@ -8,7 +8,7 @@
           "exclude": [ "**/*.Tests/**" ]
         }
       ],
-      "dest": "reference/api/acquisition"
+      "dest": "reference/api/aeon_acquisition"
     }
   ],
   "build": {

@@ -1,83 +1,60 @@
 (target-installation)=
 # Installation
 
-This guide will walk you through the installation of the `aeon_mecha` package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC's Ceph storage (currently only applicable to SWC members).
+This guide will walk you through the installation of the Aeon's [Python packages](target-repositories), `aeon_api` and `aeon_mecha`, using [uv](https://docs.astral.sh/uv/getting-started/installation/). 
+It also includes instructions for setting up data access to the Aeon data hosted on Sainbury Wellcome Centre's (SWC) Ceph storage (currently only applicable to SWC members).
 
-(target-install-aeon-mecha)=
-## `aeon_mecha`
-
-:::{note}
-We always recommend installing `aeon_mecha` inside a 
-[conda](https://docs.conda.io/en/latest/)
-or [mamba](https://mamba.readthedocs.io/en/latest/) environment, 
-to avoid dependency conflicts with other packages.
-In the following we assume you have `conda` installed,
-but the same commands will also work with `mamba`/`micromamba`.
-
-All commands below should be run in a bash shell 
-(Windows users can use the 'mingw64' terminal that is included when 
-installing git).
-:::
-
-:::{dropdown} Setting up on SWC's HPC
-:color: primary
-:icon: server
-If setting up on SWC's remote HPC system, you will have to first connect to the HPC using SSH and add miniconda to your system path.
-```sh
-ssh <your_SWC_username>@ssh.swc.ucl.ac.uk
-ssh hpc-gw1
-module load miniconda
-```
-**Optional**: Add the following commands to the `.profile` file to add miniconda as an environment module and Bonsai and its dependencies to your system path on startup (this will be initialized each time you SSH into the HPC). This file should be located in the home directory, i.e. `~/.profile`. If it does not exist, create it with `touch ~/.profile`.
-
-```{code-block} sh
-:caption: .profile
-# Set env modules
-module load miniconda
-
-# Save Bonsai and deps to path
-export PATH=$PATH:/ceph/aeon/aeon/code/bonsai/Bonsai.Player/bin/Debug/net5.0
-export DOTNET_ROOT=/ceph/aeon/aeon/code/dotnet
-export PATH=$PATH:/ceph/aeon/aeon/code/dotnet
-```
-:::
-
-Clone the `aeon_mecha` repository into the `~/ProjectAeon/aeon_mecha` directory. 
-```sh
-mkdir ~/ProjectAeon 
-cd ~/ProjectAeon
-git clone https://github.com/SainsburyWellcomeCentre/aeon_mecha
-cd aeon_mecha
-```
-
-Create the `aeon` conda environment and activate it.
-```sh
-conda create -n aeon -c conda-forge python>=3.11
-conda activate aeon
-```
-
-Install the `aeon_mecha` package in editable mode.
+(target-install-aeon-api)=
+## `aeon_api`
 ::::{tab-set}
-:::{tab-item} Users
+:::{tab-item} PyPI
+To install `aeon_api` from [PyPI](https://pypi.org/project/swc-aeon/):
 ```sh
-pip install -e .
+uv pip install swc-aeon
 ```
 :::
 
-:::{tab-item} Developers
+:::{tab-item} Source
+To install `aeon_api` from source, first clone the repository and switch to the `aeon_api` directory:
 ```sh
-pip install -e .[dev]  # works on most shells
+git clone https://github.com/SainsburyWellcomeCentre/aeon_api
+cd aeon_api
 ```
-or 
+(Optional) To select a specific branch, replace `branch_name` with the desired branch name:
 ```sh
-pip install -e '.[dev]'  # works on zsh (the default shell on macOS)
+git checkout branch_name
 ```
-This will install the package alongside all `dev` dependencies.
+To install the package alongside all optional dependencies:
+```sh
+uv sync --all-extras
+```
+If you wish to install only the core dependencies, simply drop the `--all-extras` flag from the command above.
 :::
 ::::
 
-## Setting up SWC Ceph data access
+(target-install-aeon-mecha)=
+## `aeon_mecha`
+As `aeon_mecha` depends on `aeon_api`, installing `aeon_mecha` will also install `aeon_api` and its dependencies. 
+In other words, you only need to install `aeon_mecha` to access both packages.
 
+To install `aeon_mecha`, first clone the repository and switch to the `aeon_mecha` directory:
+```sh
+git clone https://github.com/SainsburyWellcomeCentre/aeon_mecha
+cd aeon_mecha
+```
+(Optional) To select a specific branch, replace `branch_name` with the desired branch name:
+```sh
+git checkout branch_name
+```
+To install the package alongside all optional dependencies:
+```sh
+uv sync --all-extras
+```
+If you wish to install only the core dependencies, simply drop the `--all-extras` flag from the command above.
+:::
+::::
+
+## SWC Ceph data access
 :::{important}
 You must be an SWC `aeon` project member to access Aeon data hosted on 
 SWC's Ceph storage. The required sets of credentials are as follows: 
@@ -110,4 +87,5 @@ The next step is to configure your IDE to connect to the `swc-gateway` node via 
 ::::
 :::::
 
-Within the `aeon` conda environment, Aeon data can be accessed from Ceph using the [`aeon_mecha` API](target-mecha-reference) or queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline). Examples for retrieving and visualizing the data can be found in the [User Guide](target-user-guide).
+Raw Aeon data can be accessed using [`aeon_api`](#aeon_api), whereas processed data can be queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) using [`aeon_mecha`](#aeon_mecha). 
+Examples for retrieving and visualising the data can be found in the [User Guide](target-user-guide).

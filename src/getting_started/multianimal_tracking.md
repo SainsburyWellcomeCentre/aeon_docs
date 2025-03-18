@@ -1,7 +1,7 @@
 (target-multianimal-tracking)=
-# Multi-animal tracking
+# Multi-Animal Tracking
 
-:::{figure} ../../images/ma-main.png
+:::{figure} ../images/ma-main.png
 :height: 300px
 :alt: multi-animal-tracking
 
@@ -17,7 +17,7 @@ This is possible through the multipronged approach using multiple cameras as wel
 :::{grid-item}
 :columns: 4
 :child-align: center
-![live-position-tracking](../../images/ma-live-position-tracking.png)
+![live-position-tracking](../images/ma-live-position-tracking.png)
 :::
 :::{grid-item}
 :columns: 8
@@ -37,7 +37,7 @@ continuously estimates the animals' x, y positions, body length, and orientation
 :::{grid-item}
 :columns: 4
 :child-align: center
-![identifying-animals](../../images/ma-identifying-animals.png)
+![identifying-animals](../images/ma-identifying-animals.png)
 :::
 :::{grid-item}
 :columns: 8
@@ -59,7 +59,7 @@ allow us to quantify their visits to important sites (nest, foraging patches, ga
 :::{grid-item}
 :columns: 4
 :child-align: center
-![pose-estimation](../../images/ma-pose-estimation.png)
+![pose-estimation](../images/ma-pose-estimation.png)
 :::
 :::{grid-item}
 :columns: 8

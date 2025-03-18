@@ -38,7 +38,7 @@ To deploy and operate a DataJoint pipeline, you will need the following:
 4. Compute environment
    - Ensure you have a compute environment with the necessary software installed to run the pipeline (e.g. a laptop, local workstation, or an HPC cluster).
 5. Data to be ingested and processed
-   - You may use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline.
+   - You can use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline. If you choose to use this sample dataset, ensure that you [switch to the `sfn2024` branch of the codebase](target-install-aeon-mecha).
 
 ## Pipeline configuration
 DataJoint requires a configuration file named `dj_local_conf.json`. This file should be located in the root directory of the codebase.

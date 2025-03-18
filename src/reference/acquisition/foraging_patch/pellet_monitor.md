@@ -22,8 +22,8 @@ Inputs to the `PelletMonitor` node are subscribed to from shared `Subject`s, the
 #### Device input subjects
 | Subject name      | Property Type        | Expected Data Type | Description                   |
 |-------------------|----------------------|--------------------|------------------------------|
-| **PelletCommand** | `string` | `Harp.HarpMessage`  | The name of the shared `Subject` carrying all events published by the [output expander](harp-tech:api/Harp.OutputExpander) connected to an [`UndergroundFeeder`](./../foraging_patch.md#undergroundfeeder), e.g. "Patch1Events" |
-| **PelletDelivered**| `string` | `Harp.Timestamped<bool>` | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published by [`UndergroundFeeder`](#undergroundfeeder) |
+| **PelletCommand** | `string` | `Harp.HarpMessage`  | The name of the shared `Subject` carrying all events published by the [output expander](harp-tech:api/Harp.OutputExpander) connected to an [`UndergroundFeeder`](target-node-undergroundfeeder), e.g. "Patch1Events" |
+| **PelletDelivered**| `string` | `Harp.Timestamped<bool>` | The name of the shared `Subject` carrying beam break events indicating successful pellet deliveries, e.g. "Patch1PelletDelivered". Also published by [`UndergroundFeeder`](target-node-undergroundfeeder) |
 
 ## Usage
 To use a `PelletMonitor (Aeon.Foraging)` node, simply place one and configure its properties. 

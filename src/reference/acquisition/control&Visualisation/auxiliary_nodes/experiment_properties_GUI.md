@@ -1,5 +1,8 @@
-The `ExperimentProperties (Aeon.Environment)` node constructs a custom visualiser for Aeon enabling direct access through the control panel to any properties exposed at the highest level of the workflow. This allows the user to change these properties during the course of an experiment. The `Category` and `DisplayName` of the property nodes will be reflected in this visualiser, facilitating the construction of a custom set of experimental properties for their purposes. 
+(target-node-experimentproperties)=
+# ExperimentProperties
+The `ExperimentProperties (Aeon.Environment)` node creates a custom visualiser that provides direct access to any properties exposed at the highest level of the workflow through the control panel, allowing users to modify these properties during an experiment. 
+The `Category` and `DisplayName` of the property nodes are displayed in this visualiser, enabling users to customise experimental properties as required.
 
-![ExperimentProperties](../../../../images/Experiment_properties.svg)
+In Aeon, this node is used to provide a drop down selector for specifying the "SelectedStream" property of the ["CameraSelector" `GroupWorkflow`](target-groupworkflow-cameraselector).
 
-In Aeon for example, this is used to construct a drop down selector to select a source for the `SelectedStream` property of the ['CameraSelector' `GroupWorkflow`](../auxiliary_nodes/CameraSelector.md), which is exposed at the highest level of the workflow.
+![ExperimentProperties](../../../images/Experiment_properties.svg)

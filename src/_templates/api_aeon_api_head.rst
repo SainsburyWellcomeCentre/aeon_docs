@@ -1,15 +1,15 @@
 ..
   This file is auto-generated.
 
-.. _target-mecha-reference:
+.. _target-aeon-api-reference:
 
-``aeon_mecha``
+``aeon_api``
 ==============
 
 .. toctree::
-   :caption: aeon_mecha API
+   :caption: aeon API
    :maxdepth: 1
 
 .. autosummary::
-   :toctree: mecha
+   :toctree: aeon_api
 

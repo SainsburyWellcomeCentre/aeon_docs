@@ -103,17 +103,18 @@ The feeder hardware has several commands that may be initiated by the user, actu
   
 ### Environment metadata
 
+(target-node-patchdispenser-control-panel)=
 ### PatchDispenser control panel
 In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](target-node-patchdispenser) node also comes with its own GUI interface for controlling the feeder hardware during an experiment.
 
 ![patchDispenserVisualiser](../../images/patch_dispenser_visualiser.svg)
 
-1. The user's given name of the patch
-2. The current estimated number of pellets available in the feeder hopper
-3. Value selector, to add pellets on a manual refill
-4. Deliver button: manually force pellet delivery
-5. Refill button: add the number of pellets defined in 3. during maintenance mode
-6. Reset button: in the event that a feeder became blocked, or entered any fail state due to power or connection issues, this button will reinitialise the feeder, usually after human intervention. 
+1. **Patch name**: The name assigned to this patch, e.g. "Patch1".
+2. **Current pellet count**: The current estimated number of pellets in the feeder hopper.
+3. **Pellet count entry**: Dialog box to enter a new pellet count, e.g. during a manual refill of the feeder.
+4. **Deliver**: Button to trigger a manual pellet delivery, regardless of the activity of the wheel.
+5. **Refill**: Button to update the current pellet count with the count specified in the pellet count entry dialog box. Typically used during maintenance mode.
+6. **Reset**: Button to reinitialise the feeder, typically after human intervention, e.g. following a refill or in case the feeder or associated hardware has entered an erroneous state.
 
 ### Patch threshold and wheel monitoring
 

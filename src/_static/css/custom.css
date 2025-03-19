@@ -54,3 +54,7 @@ img.img-hardware-steps {
 figure.caption-hardware-steps figcaption p {
   text-align: center;
 }
+
+img.img-hardware-main {
+  max-height: 45vh;
+}

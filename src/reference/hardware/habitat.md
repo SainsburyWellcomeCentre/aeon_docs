@@ -169,3 +169,7 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 21\. Anchor an ultrasound speaker to the top frame.
 :::
 ::::
+
+## Downloads
+- [Assembly guide](../../downloads/Habitat-Guideline-Final-1.pdf)
+- [Bill of materials](../../downloads/Habitat-BOM.xlsx)

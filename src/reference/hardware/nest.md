@@ -111,3 +111,7 @@ The nest is typically equipped with bedding materials and enrichment.
 13\. Bolt the water bottle holder on the side of the nest using angle brackets. Adjust its inclination to fit the spout into the side wall opening.
 :::
 ::::
+
+## Downloads
+- [Assembly guide](../../downloads/Nest-Guideline-Final-1.pdf)
+- [Bill of materials](../../downloads/Nest-BOM.xlsx)

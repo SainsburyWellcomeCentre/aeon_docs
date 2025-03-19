@@ -169,3 +169,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 21\.To complete the foraging patch, add the foraging patch tile orienting the tile engraving with the foraging patch. Metal tile and foraging patch tile should be flushed and only the wheel exposed.
 :::
 ::::
+
+## Downloads
+- [Assembly guide](../../downloads/Foraging-Patch-Guideline-Final-1.pdf)
+- [Bill of materials](../../downloads/Foraging-Patch-BOM.xlsx)

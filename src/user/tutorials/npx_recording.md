@@ -11,7 +11,7 @@ Week-long continuous neural recordings from a freely moving animal in a large en
 Conducting continuous neural recordings over multiple days in a large environment presents several technical challenges. 
 It is crucial to ensure that the animal's movement is unrestricted and that the recording quality remains stable over time. To achieve this, it is essential to:
 
-1. Maintain a constant slack in the recording tether, regardless of the mouse's location in the arena.
+1. Maintain a constant slack in the recording tether, regardless of the mouse's location in the habitat.
 2. Prevent the tether from tangling when the mouse turns.
 
 To address these challenges, we developed a closed-loop control system capable of untwisting the cable using the [Onix torque-free commutator](https://open-ephys.org/commutator-info) and translating it based on the mouse's position.
@@ -29,7 +29,7 @@ To address these challenges, we developed a closed-loop control system capable o
 :columns: 8
 :child-align: center
 
-Using the live position estimate from the overhead camera, we can control the horizontal position of the commutator on a linear rail to follow the animal as it moves through the arena. 
+Using the live position estimate from the overhead camera, we can control the horizontal position of the commutator on a linear rail to follow the animal as it moves through the habitat. 
 
 *Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_lineardrive](aeon-lineardrive-github:)*
 :::

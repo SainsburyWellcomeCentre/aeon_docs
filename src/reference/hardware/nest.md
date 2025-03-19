@@ -32,7 +32,7 @@ Insert description of the Nest.
 :alt: step3
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-3\. Using 4 acrylic spacers, bolt the scale to the side of the arena.
+3\. Using 4 acrylic spacers, bolt the scale to the side of the habitat.
 :::
 ::::
 
@@ -76,13 +76,13 @@ Insert description of the Nest.
 :alt: step9
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-9\. Attach the nest outer walls (red). These will connect to the arena outer walls.
+9\. Attach the nest outer walls (red). These will connect to the habitat outer walls.
 :::
 :::{figure} ../../images/nest-step10.svg
 :alt: step10
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-10\. Position the nest base and walls onto the arena, above the scale. The base of the nest will sit directly on the scale held by the 3D printed holders, while the walls will connect to the arena outer walls.
+10\. Position the nest base and walls onto the habitat, above the scale. The base of the nest will sit directly on the scale held by the 3D printed holders, while the walls will connect to the habitat outer walls.
 :::
 ::::
 

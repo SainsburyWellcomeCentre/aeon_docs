@@ -2,13 +2,13 @@
 # Nest
 :::{image} ../../images/nest.svg
 :alt: Nest
-:class: img-hardware-steps
+:class: img-hardware-main
 :align: center
 :::
-The nest module is designed to provide a dedicated nesting site and access to water, while continuously monitoring the weight of the animals. 
+The nest is designed to provide a dedicated nesting site and access to water, while continuously monitoring the weight of the animals. 
 A nesting box is attached to a scale for precise weight measurement, and it is surrounded by modified habitat outer walls. 
-A water bottle can be suspended on the side of the nesting box, with its spout protruding into the nest module through a wall opening. 
-The nest module is typically equipped with bedding materials and enrichment. 
+A water bottle can be suspended on the side of the nesting box, with its spout protruding into the nest through a wall opening. 
+The nest is typically equipped with bedding materials and enrichment. 
 
 ## Parts list
 :::{image} ../../images/nest-partlist.svg

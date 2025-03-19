@@ -14,7 +14,7 @@ It is crucial to ensure that the animal's movement is unrestricted and that the 
 1. Maintain a constant slack in the recording tether, regardless of the mouse's location in the habitat.
 2. Prevent the tether from tangling when the mouse turns.
 
-To address these challenges, we developed a closed-loop control system capable of untwisting the cable using the [Onix torque-free commutator](https://open-ephys.org/commutator-info) and translating it based on the mouse's position.
+To address these challenges, we developed a [closed-loop control system](target-linear-commutator) capable of untwisting the cable using the [ONIX torque-free commutator](https://open-ephys.org/commutator-info) and translating it based on the mouse's position.
 
 ## Closed-loop control of commutator location
 ::::{grid} 2
@@ -48,7 +48,7 @@ Using the live position estimate from the overhead camera, we can control the ho
 :columns: 8
 :child-align: center
 
-Using the heading direction computed by the IMU sensor on the [Onix neuropixels headstage](https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html), the cable commutation is adapted in real time to avoid tangling.
+Using the heading direction computed by the IMU sensor on the [ONIX neuropixels headstage](https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html), the cable commutation is adapted in real time to avoid tangling.
 
 *Relevant repositories: [aeon_experiments](aeon-experiments-github:), [bonsai-commutator](https://github.com/open-ephys/bonsai-commutator), [bonsai-onix1](https://github.com/open-ephys/bonsai-onix1)*
 :::
@@ -67,7 +67,7 @@ Using the heading direction computed by the IMU sensor on the [Onix neuropixels 
 :columns: 8
 :child-align: center
 
-All data are acquired using the [Onix recording system](https://open-ephys.github.io/onix-docs/index.html), which supports simultaneous recording with two [Neuropixels 2.0 probes](https://www.neuropixels.org/probe2-0). 
+All data are acquired using the [ONIX recording system](https://open-ephys.github.io/onix-docs/index.html), which supports simultaneous recording with two [Neuropixels 2.0 probes](https://www.neuropixels.org/probe2-0). 
 
 *Relevant repositories: [bonsai-onix1](https://github.com/open-ephys/bonsai-onix1)*
 :::

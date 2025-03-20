@@ -14,7 +14,7 @@ It is crucial to ensure that the animal's movement is unrestricted and that the 
 1. Maintain a constant slack in the recording tether, regardless of the mouse's location in the habitat.
 2. Prevent the tether from tangling when the mouse turns.
 
-To address these challenges, we developed a [closed-loop control system](target-linear-commutator) capable of untwisting the cable using the [ONIX torque-free commutator](https://open-ephys.org/commutator-info) and translating it based on the mouse's position.
+To address these challenges, we developed a [closed-loop control system](target-commutation-translation) capable of untwisting the cable using the [ONIX torque-free commutator](https://open-ephys.org/commutator-info) and translating it based on the mouse's position.
 
 ## Closed-loop control of commutator location
 ::::{grid} 2

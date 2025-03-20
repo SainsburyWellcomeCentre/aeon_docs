@@ -11,6 +11,13 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 ::::{grid} 1 3 3 3
 :gutter: 1
 
+:::{grid-item-card} Commutation-translation system
+:link: target-commutation-translation
+:link-type: ref
+:img-bottom: ../images/hardware-overview-linear-commutator.png
+:class-card: module-card
+:::
+
 :::{grid-item-card} Foraging Patch
 :link: target-foraging-patch
 :link-type: ref
@@ -29,13 +36,6 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 :link: target-nest
 :link-type: ref
 :img-bottom: ../images/hardware-overview-nest.png
-:class-card: module-card
-:::
-
-:::{grid-item-card} Commutation-translation system
-:link: target-linear-commutator
-:link-type: ref
-:img-bottom: ../images/hardware-overview-linear-commutator.png
 :class-card: module-card
 :::
 ::::

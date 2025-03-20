@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:aeon-env="clr-namespace:Aeon.Environment;assembly=Aeon.Environment"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:p1="clr-namespace:;assembly=Extensions"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
+                 xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
+                 xmlns:aeon-frg="clr-namespace:Aeon.Foraging;assembly=Aeon.Foraging"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SubjectState</Name>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>Start</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Type</Selector>
+            </Expression>
+            <Expression xsi:type="NotEqual">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-env:EnvironmentSubjectChangeType">
+                <Value>Exit</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>SubjectStart</Name>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>End</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Type</Selector>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-env:EnvironmentSubjectChangeType">
+                <Value>Exit</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>SubjectStop</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>ShiftKey Space D0 P NumPad0 F1 Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>StartCameras</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>LButton ShiftKey ControlKey Space Prior PageUp D0 D1 A P Q NumPad0 NumPad1 F1 F2 Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>StopCameras</Name>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>PatchActivity</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch1</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SampleInterval">
+                <rx:Interval>PT0.02S</rx:Interval>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch2</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SampleInterval">
+                <rx:Interval>PT0.02S</rx:Interval>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch3</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SampleInterval">
+                <rx:Interval>PT0.02S</rx:Interval>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PatchState</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:SelectChannels">
+                <dsp:Channels>
+                  <dsp:int>0</dsp:int>
+                  <dsp:int>4</dsp:int>
+                </dsp:Channels>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PatchState</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:SelectChannels">
+                <dsp:Channels>
+                  <dsp:int>1</dsp:int>
+                  <dsp:int>5</dsp:int>
+                </dsp:Channels>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PatchState</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:SelectChannels">
+                <dsp:Channels>
+                  <dsp:int>2</dsp:int>
+                  <dsp:int>6</dsp:int>
+                </dsp:Channels>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch1CurrentThreshold</Name>
+            </Expression>
+            <Expression xsi:type="viz:RollingGraphBuilder">
+              <viz:IndexSelector>PelletCount</viz:IndexSelector>
+              <viz:ValueSelector>Threshold</viz:ValueSelector>
+              <viz:SymbolType>None</viz:SymbolType>
+              <viz:LineWidth>1</viz:LineWidth>
+              <viz:Capacity xsi:nil="true" />
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>ThresholdPatch1</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch2CurrentThreshold</Name>
+            </Expression>
+            <Expression xsi:type="viz:RollingGraphBuilder">
+              <viz:IndexSelector>PelletCount</viz:IndexSelector>
+              <viz:ValueSelector>Threshold</viz:ValueSelector>
+              <viz:SymbolType>None</viz:SymbolType>
+              <viz:LineWidth>1</viz:LineWidth>
+              <viz:Capacity xsi:nil="true" />
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>ThresholdPatch2</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch3CurrentThreshold</Name>
+            </Expression>
+            <Expression xsi:type="viz:RollingGraphBuilder">
+              <viz:IndexSelector>PelletCount</viz:IndexSelector>
+              <viz:ValueSelector>Threshold</viz:ValueSelector>
+              <viz:SymbolType>None</viz:SymbolType>
+              <viz:LineWidth>1</viz:LineWidth>
+              <viz:Capacity xsi:nil="true" />
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>ThresholdPatch3</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch1PelletMonitorValue</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch2PelletMonitorValue</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch3PelletMonitorValue</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>PatchActivity</viz:Name>
+              <viz:ColumnCount>3</viz:ColumnCount>
+              <viz:RowCount>4</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles />
+              <viz:CellSpans>
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+              </viz:CellSpans>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RfidMeasurements</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:RfidVisualizerBuilder">
+                <p1:Capacity>200</p1:Capacity>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>RfidRaster</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PatchState</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:SelectChannels">
+                <dsp:Channels>
+                  <dsp:int>3</dsp:int>
+                  <dsp:int>7</dsp:int>
+                </dsp:Channels>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimeSinceLastVisit</Name>
+            </Expression>
+            <Expression xsi:type="viz:BarGraphBuilder">
+              <viz:IndexSelector>Id</viz:IndexSelector>
+              <viz:ValueSelector>Patch1,Patch2,Patch3</viz:ValueSelector>
+              <viz:BaseAxis>X</viz:BaseAxis>
+              <viz:BarType>Cluster</viz:BarType>
+              <viz:Capacity xsi:nil="true" />
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TimeSinceLastVisit</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TotalDistanceTravelled</Name>
+            </Expression>
+            <Expression xsi:type="viz:BarGraphBuilder">
+              <viz:IndexSelector>Id</viz:IndexSelector>
+              <viz:ValueSelector>Patch1,Patch2,Patch3</viz:ValueSelector>
+              <viz:BaseAxis>X</viz:BaseAxis>
+              <viz:BarType>Cluster</viz:BarType>
+              <viz:Capacity xsi:nil="true" />
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>TotalDistanceTravelled</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>PatchStatistics</viz:Name>
+              <viz:ColumnCount>1</viz:ColumnCount>
+              <viz:RowCount>4</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles />
+              <viz:CellSpans />
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>PatchActivity</viz:Name>
+              <viz:ColumnCount>2</viz:ColumnCount>
+              <viz:RowCount>1</viz:RowCount>
+              <viz:ColumnStyles>
+                <viz:ColumnStyle>
+                  <viz:SizeType>Percent</viz:SizeType>
+                  <viz:Width>70</viz:Width>
+                </viz:ColumnStyle>
+                <viz:ColumnStyle>
+                  <viz:SizeType>Percent</viz:SizeType>
+                  <viz:Width>30</viz:Width>
+                </viz:ColumnStyle>
+              </viz:ColumnStyles>
+              <viz:RowStyles />
+              <viz:CellSpans />
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="39" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="39" Label="Source2" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="39" Label="Source3" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="39" Label="Source4" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="39" Label="Source5" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="39" Label="Source6" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="39" Label="Source7" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="39" Label="Source8" />
+            <Edge From="29" To="30" Label="Source1" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="39" Label="Source9" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="39" Label="Source10" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="36" To="39" Label="Source11" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="38" To="39" Label="Source12" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="58" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="56" Label="Source1" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="56" Label="Source2" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="56" Label="Source3" />
+            <Edge From="52" To="53" Label="Source1" />
+            <Edge From="53" To="54" Label="Source1" />
+            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="55" To="56" Label="Source4" />
+            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="58" Label="Source2" />
+            <Edge From="58" To="59" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>SubjectActivity</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="aeon-env:ExperimentProperties">
+              <aeon-env:HelpVisible>false</aeon-env:HelpVisible>
+              <aeon-env:ToolbarVisible>false</aeon-env:ToolbarVisible>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>VideoEvents</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="aeon-env:ButtonSource">
+                <aeon-env:Text>Reload Environment</aeon-env:Text>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>ReloadEnvironment</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>Environment</viz:Name>
+              <viz:ColumnCount>1</viz:ColumnCount>
+              <viz:RowCount>2</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles />
+              <viz:CellSpans />
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SubjectPoses</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraLightMonitor</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>SubjectActivity</viz:Name>
+              <viz:ColumnCount>3</viz:ColumnCount>
+              <viz:RowCount>1</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles />
+              <viz:CellSpans />
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="6" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source2" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="14" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="14" Label="Source2" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="14" Label="Source3" />
+            <Edge From="14" To="15" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>ExperimentMetadata</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch1PelletDelivered</Name>
+            </Expression>
+            <Expression xsi:type="rx:Condition">
+              <Name>RisingEdge</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Value</Selector>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:PatchDispenser.bonsai">
+              <ControllerEvents>Patch1Controller</ControllerEvents>
+              <DispenserState>Patch1Dispenser</DispenserState>
+              <Name>Patch1</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>VideoEvents</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="aeon-env:AnnotationSource" />
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>Annotations</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>VideoEvents</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="aeon-env:EnvironmentState" />
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>EnvironmentState</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch1State</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+Item1 as Threshold,
+Item2 as D0,
+Item3 as Rate)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>BlockState</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Heartbeats</Name>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Register xsi:type="harp:ParseMessagePayload">
+                <harp:PayloadType>Timestamp</harp:PayloadType>
+                <harp:IsArray>false</harp:IsArray>
+              </harp:Register>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>BlockTransition</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:Scan">
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>Value &lt; 0 ? 0 : Accumulation + 1</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Take">
+                <rx:Count>1</rx:Count>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="aeon:PrependOnce" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+Item1.PelletCount as BlockPelletCount,
+Item1.MaxPellets as BlockThreshold,
+(Item1.DueTime == 0
+  ? TimeSpan.Zero
+  : TimeSpan.FromSeconds(Item1.DueTime - Item2))
+.TotalMinutes as BlockDueTime,
+Item3 as BlockCount)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>EnvironmentConfiguration</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>string.IsNullOrEmpty(Name) ? "NO ENVIRONMENT LOADED" : Name</scr:Expression>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{13}
+Block ({9}, plt: {10}, thr: {11}, timeout: {12:0.##})
+P1 (rate: {2}, d0: {1}, thr: {0:0.##})
+P2 (rate: {5}, d0: {4}, thr: {3:0.##})
+P3 (rate: {8}, d0: {7}, thr: {6:0.##})</Format>
+              <Selector>Item1.Threshold,Item1.D0,Item1.Rate,Item2.Threshold,Item2.D0,Item2.Rate,Item3.Threshold,Item3.D0,Item3.Rate,Item4.BlockCount,Item4.BlockPelletCount,Item4.BlockThreshold,Item4.BlockDueTime,Item5</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="aeon-env:LabelControl">
+                <aeon-env:FontSize>14</aeon-env:FontSize>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:Name>ExperimentMetadata</viz:Name>
+              <viz:ColumnCount>3</viz:ColumnCount>
+              <viz:RowCount>2</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles>
+                <viz:RowStyle>
+                  <viz:SizeType>Percent</viz:SizeType>
+                  <viz:Height>57.5</viz:Height>
+                </viz:RowStyle>
+                <viz:RowStyle>
+                  <viz:SizeType>Percent</viz:SizeType>
+                  <viz:Height>42.5</viz:Height>
+                </viz:RowStyle>
+              </viz:RowStyles>
+              <viz:CellSpans />
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Patch1Controller</Name>
+            </Expression>
+            <Expression xsi:type="rx:Condition">
+              <Name>Reset</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>EventType</Selector>
+                  </Expression>
+                  <Expression xsi:type="Equal">
+                    <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-frg:DispenserEventType">
+                      <Value>Reset</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>Patch1ResetFeeder</Name>
+            </Expression>
+            <Expression xsi:type="rx:Condition">
+              <Name>Discount</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>EventType</Selector>
+                  </Expression>
+                  <Expression xsi:type="Equal">
+                    <Operand xsi:type="WorkflowProperty" TypeArguments="aeon-frg:DispenserEventType">
+                      <Value>Discount</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:TriggerPellet.bonsai">
+              <PatchEvents>Patch1Events</PatchEvents>
+              <DeliverPellet>Patch1DeliverPellet</DeliverPellet>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>Patch1ManualPellet</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="31" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="31" Label="Source2" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="31" Label="Source3" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="27" Label="Source1" />
+            <Edge From="14" To="23" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="23" Label="Source2" />
+            <Edge From="17" To="19" Label="Source1" />
+            <Edge From="18" To="19" Label="Source2" />
+            <Edge From="19" To="22" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source2" />
+            <Edge From="22" To="23" Label="Source3" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="27" Label="Source2" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source3" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="30" Label="Source1" />
+            <Edge From="30" To="31" Label="Source4" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="33" To="36" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="GroupWorkflow">
+        <Name>EnvironmentSubjectState</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>VideoEvents</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\SubjectDatabase.bonsai">
+              <DatabaseConfig>Z:\aeon\config\database.config</DatabaseConfig>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>SubjectState</Name>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>AverageWeights</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:LabeledSeriesVisualizerBuilder">
+                <p1:Capacity>120</p1:Capacity>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>NestWeightData</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new(
+RawWeight.Value as Raw,
+FilteredWeight.Confidence == 1
+  ? FilteredWeight.Value
+  : single.NaN as Stable,
+FilteredWeight.Value - BaselinedWeight.Value as Baseline)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="viz:RollingGraphBuilder">
+              <viz:ValueSelector>Raw,Stable,Baseline</viz:ValueSelector>
+              <viz:SymbolType>None</viz:SymbolType>
+              <viz:LineWidth>1</viz:LineWidth>
+              <viz:Capacity>640</viz:Capacity>
+              <viz:Min xsi:nil="true" />
+              <viz:Max xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="VisualizerMapping" />
+            <Expression xsi:type="viz:TableLayoutPanelBuilder">
+              <viz:ColumnCount>2</viz:ColumnCount>
+              <viz:RowCount>2</viz:RowCount>
+              <viz:ColumnStyles />
+              <viz:RowStyles />
+              <viz:CellSpans>
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="2" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+                <viz:CellSpan ColumnSpan="1" RowSpan="1" />
+              </viz:CellSpans>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="11" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="11" Label="Source2" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source3" />
+            <Edge From="11" To="12" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:Name>EnvironmentState</viz:Name>
+        <viz:ColumnCount>1</viz:ColumnCount>
+        <viz:RowCount>2</viz:RowCount>
+        <viz:ColumnStyles />
+        <viz:RowStyles>
+          <viz:RowStyle>
+            <viz:SizeType>Percent</viz:SizeType>
+            <viz:Height>40</viz:Height>
+          </viz:RowStyle>
+          <viz:RowStyle>
+            <viz:SizeType>Percent</viz:SizeType>
+            <viz:Height>60</viz:Height>
+          </viz:RowStyle>
+        </viz:RowStyles>
+        <viz:CellSpans />
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="SelectedStream" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CameraSelector</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraTop</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraWest</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraEast</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraNorth</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraSouth</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraNest</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch2</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraPatch3</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.Image</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Heatmap</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="SelectedStream" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:StreamSelector">
+                <p1:SelectedStream>CameraTop</p1:SelectedStream>
+                <p1:StreamNames>
+                  <p1:string>CameraTop</p1:string>
+                  <p1:string>CameraWest</p1:string>
+                  <p1:string>CameraEast</p1:string>
+                  <p1:string>CameraNorth</p1:string>
+                  <p1:string>CameraSouth</p1:string>
+                  <p1:string>CameraNest</p1:string>
+                  <p1:string>CameraPatch1</p1:string>
+                  <p1:string>CameraPatch2</p1:string>
+                  <p1:string>CameraPatch3</p1:string>
+                  <p1:string>HeatMap</p1:string>
+                </p1:StreamNames>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="20" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="20" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="20" Label="Source3" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="20" Label="Source4" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="20" Label="Source5" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="20" Label="Source6" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="20" Label="Source7" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="20" Label="Source8" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="20" Label="Source9" />
+            <Edge From="18" To="20" Label="Source10" />
+            <Edge From="19" To="20" Label="Source11" />
+            <Edge From="20" To="21" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="0" To="3" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="15" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source2" />
+      <Edge From="16" To="17" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

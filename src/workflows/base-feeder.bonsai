@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="PortName" />
+        <Property Name="WheelDisplacement" />
+        <Property Name="PelletDelivered" />
+        <Property Name="DeliverPellet" />
+        <Property Name="PatchEvents" />
+        <Property Name="Radius" />
+        <Property Name="SampleRate" />
+        <Property Name="ResetFeeder" />
+        <Property Name="DueTime" />
+        <Property Name="Count" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Foraging:UndergroundFeeder.bonsai">
+        <PatchEvents>Patch1Events</PatchEvents>
+        <SampleRate>SampleRate500Hz</SampleRate>
+        <DeliverPellet>Patch1DeliverPellet</DeliverPellet>
+        <PelletDelivered>Patch1PelletDelivered</PelletDelivered>
+        <DueTime>PT1S</DueTime>
+        <Count>2</Count>
+        <ResetFeeder>Patch1ResetFeeder</ResetFeeder>
+        <PortName>COM3</PortName>
+        <Radius>-4</Radius>
+        <WheelDisplacement>Patch1WheelDisplacement</WheelDisplacement>
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

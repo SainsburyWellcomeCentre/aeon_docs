@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TrackingTop</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Regions" DisplayName="NestRegion" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:RegionTracking.bonsai">
+        <FrameEvents>CameraTop</FrameEvents>
+        <Regions>
+          <ArrayOfPoint>
+            <Point>
+              <X>1273</X>
+              <Y>518</Y>
+            </Point>
+            <Point>
+              <X>1183</X>
+              <Y>517</Y>
+            </Point>
+            <Point>
+              <X>1183</X>
+              <Y>623</Y>
+            </Point>
+            <Point>
+              <X>1275</X>
+              <Y>615</Y>
+            </Point>
+          </ArrayOfPoint>
+        </Regions>
+        <RegionEvents>InNest</RegionEvents>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="2" Label="Source1" />
+      <Edge From="1" To="2" Label="Source2" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

@@ -6,7 +6,7 @@
 :align: center
 :::
 The Aeon habitat consists of a modular floor made of matte white acrylic hexagonal tiles supported by a metal framework. 
-Each tile fits into a hexagonal slot within an underlying acrylic honeycomb grid, which is designed to accommodate various Aeon hexagonal functional modules like the [nest](target-nest) and [feeder](target-foraging-patch). 
+Each tile fits into a hexagonal slot within an underlying acrylic honeycomb grid, which is designed to accommodate various Aeon hexagonal functional modules like the [nest](target-nest) and [foraging patch](target-foraging-patch). 
 The habitat is enclosed by several wall modules (tile with a pair of red tinted acrylic walls) that are connected to create a corridor.
 The corridor allows for direct access to the nest and to the centre of the habitat through openings in some of the walls. 
 

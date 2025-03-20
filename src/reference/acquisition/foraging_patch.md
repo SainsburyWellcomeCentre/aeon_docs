@@ -2,12 +2,12 @@
 # Foraging Patch
 
 The foraging patch module is core to foraging and long-term 24/7 experiments. 
-It is utilised with a [feeder](target-feeder) hardware module assembly to provide a means for animals in the arena to obtain food by turning a configurable wheel, simulating a naturalistic digging action. 
+It is utilised with a [foraging patch](target-foraging-patch) hardware module assembly to provide a means for animals in the arena to obtain food by turning a configurable wheel, simulating a naturalistic digging action. 
 
-The primary [`UndergroundFeeder (Aeon.Foraging)`](target-node-undergroundfeeder) node handles the connection to the feeder hardware through a [Harp output expander](harp-tech:api/Harp.OutputExpander) and defines the basic functions of the feeder.
+The primary [`UndergroundFeeder (Aeon.Foraging)`](target-node-undergroundfeeder) node handles the connection to the foraging patch hardware through a [Harp output expander](harp-tech:api/Harp.OutputExpander) and defines the basic functions of the foraging patch.
 
 ## Nodes
-To extend the functionality of the feeder, the following auxiliary nodes are provided:
+To extend the functionality of the foraging patch, the following auxiliary nodes are provided:
 - [`PatchDispenser (Aeon.Foraging)`](target-node-patchdispenser)
 - [`PelletMonitor (Aeon.Foraging)`](target-node-pelletmonitor)
 - [`TimeSpentOnWheel (Aeon.Foraging)`](target-node-timespentonwheel)
@@ -15,7 +15,7 @@ To extend the functionality of the feeder, the following auxiliary nodes are pro
 
 These nodes process events from the [`UndergroundFeeder`](target-node-undergroundfeeder) node and retrieve or compute informative metrics for visualisation, logging, and task control. 
 Each of these auxiliary nodes accept events carried by shared `Subject`s from the `UndergroundFeeder` node. 
-Together, these create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the feeder device. 
+Together, these create a comprehensive foraging assembly known as a "Patch" that allows for real-time tracking of multiple measures extracted from processing sensor data and events from the foraging patch device. 
 These are passed to shared `Subject`s:
 
 - PelletCount
@@ -34,8 +34,8 @@ The [`TimeSpentOnWheel`](target-node-timespentonwheel) and [`TimeSinceLastEvent`
 
 (target-node-undergroundfeeder)=
 ### UndergroundFeeder
-The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [feeder](target-feeder) hardware module assembly through a [Harp output expander](harp-tech:api/Harp.OutputExpander). 
-It also defines the basic functions of the feeder and a workflow to configure the device operation properties. 
+The `UndergroundFeeder (Aeon.Foraging)` node establishes a connection to the [foraging patch](target-foraging-patch) hardware module assembly through a [Harp output expander](harp-tech:api/Harp.OutputExpander). 
+It also defines the basic functions of the foraging patch and a workflow to configure the device operation properties. 
 The device uses the standardised Harp communication protocol, producing timestamped Harp messages when device events occur.
 
 #### Inputs
@@ -50,22 +50,22 @@ These properties are critical parameters for the operation of the device.
 
 | Property name | Description                                               |
 |---------------|-----------------------------------------------------------|
-| **PortName**  | The COM port the output expander attached to your feeder is connected to |
-| **Radius**    | The radius of the foraging wheel in centimeters. This is used to compute the distance the wheel has been turned. The Aeon [foraging patch](target-feeder) wheel has a radius of 4cm |
+| **PortName**  | The COM port the output expander attached to your foraging patch is connected to |
+| **Radius**    | The radius of the foraging wheel in centimeters. This is used to compute the distance the wheel has been turned. The Aeon [foraging patch](target-foraging-patch) wheel has a radius of 4cm |
 | **SampleRate**| The sampling rate of the magnetic encoder monitoring the wheel, selected from options available. For Aeon experiments, this is set to 500Hz |
 
 ##### Retry function
-If a pellet is due to be delivered, an IR beam break module in the feeder detects whether the pellet delivery is successful. 
-In the event that a pellet is not delivered (no beam break detected), then the feeder can be configured to try again. 
+If a pellet is due to be delivered, an IR beam break module in the foraging patch detects whether the pellet delivery is successful. 
+In the event that a pellet is not delivered (no beam break detected), then the foraging patch can be configured to try again. 
 These properties configure the options around this functionality.
 
 | Property name | Description                                   |
 |---------------|-----------------------------------------------|
 | **DueTime**   | The time following a pellet delivery command that the device will wait for a successful beam break signal before assuming the pellet delivery has failed |
-| **Count**     | The number of retry attempts the feeder will perform |
+| **Count**     | The number of retry attempts the foraging patch will perform |
 
 ##### Subjects
-Events (outputs) from and commands (inputs) to the feeder node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
+Events (outputs) from and commands (inputs) to the `UndergroundFeeder` node are published to shared `Subject`s, the names of which are configured in the properties of the node. 
 The output `Subject`s are then accessible in the Bonsai editor's toolbox and are useable elsewhere in the workflow using the same names.
 
 ###### Device event subjects
@@ -79,7 +79,7 @@ The output `Subject`s are then accessible in the Bonsai editor's toolbox and are
 | Subject name      | Type          | Description                                                                                     |
 |-------------------|---------------|-------------------------------------------------------------------------------------------------|
 | **DeliverPellet**    | `object`   | Trigger pellet delivery. Any event passed to this `Subject` will trigger a pellet delivery      |
-| **ResetFeeder**      | `object`   | Trigger feeder reset. Any event passed to this `Subject` will trigger a feeder reset |
+| **ResetFeeder**      | `object`   | Trigger foraging patch reset. Any event passed to this `Subject` will trigger a foraging patch reset |
 
 #### Usage
 Create a `GroupWorkflow` and give it an appropriate name, e.g. "Patch1". 
@@ -99,22 +99,22 @@ Inside, place an `UndergroundFeeder (Aeon.Foraging)` node, externalise all prope
 - [ ] `PatchWheelDisplacement`
 
 ## GUI
-The feeder hardware has several commands that may be initiated by the user, actuated through clickable buttons in a customisable control panel built by the [PatchDispenser](target-node-patchdispenser) node.
+The foraging patch hardware has several commands that may be initiated by the user, actuated through clickable buttons in a customisable control panel built by the [PatchDispenser](target-node-patchdispenser) node.
   
 ### Environment metadata
 
 (target-node-patchdispenser-control-panel)=
 ### PatchDispenser control panel
-In addition to the monitoring of pellet counts and the current state of the feeder, the [`PatchDispenser`](target-node-patchdispenser) node also comes with its own GUI interface for controlling the feeder hardware during an experiment.
+In addition to the monitoring of pellet counts and the current state of the foraging patch, the [`PatchDispenser`](target-node-patchdispenser) node also comes with its own GUI interface for controlling the foraging patch hardware during an experiment.
 
 ![patchDispenserVisualiser](../../images/patch_dispenser_visualiser.svg)
 
 1. **Patch name**: The name assigned to this patch, e.g. "Patch1".
-2. **Current pellet count**: The current estimated number of pellets in the feeder hopper.
-3. **Pellet count entry**: Dialog box to enter a new pellet count, e.g. during a manual refill of the feeder.
+2. **Current pellet count**: The current estimated number of pellets in the foraging patch hopper.
+3. **Pellet count entry**: Dialog box to enter a new pellet count, e.g. during a manual refill of the foraging patch.
 4. **Deliver**: Button to trigger a manual pellet delivery, regardless of the activity of the wheel.
 5. **Refill**: Button to update the current pellet count with the count specified in the pellet count entry dialog box. Typically used during maintenance mode.
-6. **Reset**: Button to reinitialise the feeder, typically after human intervention, e.g. following a refill or in case the feeder or associated hardware has entered an erroneous state.
+6. **Reset**: Button to reinitialise the foraging patch, typically after human intervention, e.g. following a refill or in case the foraging patch or associated hardware has entered an erroneous state.
 
 ### Patch threshold and wheel monitoring
 
@@ -128,7 +128,7 @@ Utilising available registers of the output expander, the formatted outputs are 
 
 :::{note}
 Register address 203 is not shown in this workflow, but is generated as events marked as a retry following an unsuccessful delivery attempt. 
-This is passed to the "PatchEvents" `Subject` within the [`UndergroundFeeder (Aeon.Foraging)`](#undergroundfeeder) node.
+This is passed to the "PatchEvents" `Subject` within the [`UndergroundFeeder`](target-node-undergroundfeeder) node.
 :::
 
 **Data schema**
@@ -157,7 +157,7 @@ The state of a patch includes:
 - The distance the wheel has been turned, 
 - the current threshold set for pellest delivery, 
 - the total number of pellets delivered, and 
-- the number of pellets still present in the feeder.
+- the number of pellets still present in the foraging patch.
 
 ## Alerts
 <!-- To be completed -->

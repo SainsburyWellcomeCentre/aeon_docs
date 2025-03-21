@@ -23,9 +23,9 @@ As discussed above, however, Project Aeon experiments are set up in a way that n
 
 ### Primary Schemas
 
-That said, we do have primary schemas, which will constrain how the raw data is stored in the first place. These schemas will be organized mostly around the measurement and control devices in the Project Aeon arena, which due to the specific characteristics of our data acquisition systems, allow every measurement to be uniquely timestamped in a common temporal reference frame with microsecond precision.
+That said, we do have primary schemas, which will constrain how the raw data is stored in the first place. These schemas will be organised mostly around the measurement and control devices in the Aeon habitat, which due to the specific characteristics of our data acquisition systems, allow every measurement to be uniquely timestamped in a common temporal reference frame with microsecond precision.
 
-The spatial location of each measuring sensor will also be precisely determined, either by mechanical constraint, or by precise spatial calibration procedures. Taken together, this means every raw data point can be assigned a spatial and temporal stamp which can be related to the spatial and temporal stamps of every other measurement in the arena.
+The spatial location of each measuring sensor will also be precisely determined, either by mechanical constraint, or by precise spatial calibration procedures. Taken together, this means every raw data point can be assigned a spatial and temporal stamp which can be related to the spatial and temporal stamps of every other measurement in the habitat.
 
 All data in Project Aeon will be recorded according to this common spatiotemporal schema, which will form the backbone of a unified framework for exploring and discovering behaviour relationships across space and time.
 
@@ -35,9 +35,9 @@ Several features of interest which will be used to model behavioural relationshi
 
 #### Trajectory Data
 
-Spatio-temporal trajectory data for individual animals needs to be extracted from raw video recorded across different imaging devices installed around the arena. Individual frames will be triggered simultaneously, so identified spatial locations can be assigned a unique timestamp across all devices. However, computer vision preprocessing will be required to correctly identify and track animal identities across the video. Tracking data may have to be combined with other sensor data such as RFID readings to ensure the correct animal identity is assigned throughout the entire experiment.
+Spatio-temporal trajectory data for individual animals needs to be extracted from raw video recorded across different imaging devices installed around the habitat. Individual frames will be triggered simultaneously, so identified spatial locations can be assigned a unique timestamp across all devices. However, computer vision preprocessing will be required to correctly identify and track animal identities across the video. Tracking data may have to be combined with other sensor data such as RFID readings to ensure the correct animal identity is assigned throughout the entire experiment.
 
-Individual cameras will be calibrated so that their field-of-view, position, and orientation relative to the arena reference frame is known. The goal is to allow triangulation of a tracked animal position in 3D space. Conversely, once the 3D position of an object of interest is known accurately, its projection on any other calibrated image sensor can be determined, allowing us to choose different viewpoints or close-ups into a behaviour.
+Individual cameras will be calibrated so that their field-of-view, position, and orientation relative to the habitat reference frame is known. The goal is to allow triangulation of a tracked animal position in 3D space. Conversely, once the 3D position of an object of interest is known accurately, its projection on any other calibrated image sensor can be determined, allowing us to choose different viewpoints or close-ups into a behaviour.
 
 Computer vision preprocessing is a compute-heavy task, especially across multiple video devices, so there is a clear advantage to caching the results of such preprocessing for subsequent queries. Depending on algorithmic complexity, it might even be desirable to compute certain processing steps online during the acquisition stage, such as unlabeled trajectory data.
 
@@ -45,7 +45,7 @@ Computer vision preprocessing is a compute-heavy task, especially across multipl
 
 ### Data Ingestion
 
-How high is high-volume data in Project Aeon? For our first behavioural arena we anticipate anywhere between 3 to 5 behavioural imaging devices, around 10 behaviour patches and  acquisition sensors
+How high is high-volume data in Project Aeon? For our first behavioural habitat we anticipate anywhere between 3 to 5 behavioural imaging devices, around 10 behaviour patches and  acquisition sensors
 
 ## Cluster Computing
 
@@ -65,7 +65,7 @@ Once [Geohashing](https://en.wikipedia.org/wiki/Geohash)
 
 ## Data Provenance
 
-To effectively enable and organize massive parallel exploration and discovery in Project Aeon datasets, we adopt a strict policy to data generation and storage. Specifically, every data element in Project Aeon belongs to only one of two classes: *raw data* or *derived data*.
+To effectively enable and organise massive parallel exploration and discovery in Project Aeon datasets, we adopt a strict policy to data generation and storage. Specifically, every data element in Project Aeon belongs to only one of two classes: *raw data* or *derived data*.
 
 Raw data are the result of experiments or manual input, and never change from the moment they are generated. Derived data are artifacts computed deterministically from the raw data. They are defined entirely by computational procedures working on the raw data.
 

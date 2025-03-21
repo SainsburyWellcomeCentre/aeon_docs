@@ -27,7 +27,7 @@ Block
     A specific period of time, typically lasting around 3 hours, during which the reward rate for each `streams.UndergroundFeeder` (food patch) is manipulated to encourage different behaviours in the subjects.
 
 Place
-    A specific location subjects can visit within the Aeon habitat, e.g. environment, nest, arena, food patch.
+    A specific location subjects can visit within the Aeon habitat, e.g. environment, nest, habitat, food patch.
 
 Session
     For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.

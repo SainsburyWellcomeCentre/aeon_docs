@@ -9,7 +9,7 @@ Our SDLC roughly follows the [iterative model](https://www.tutorialspoint.com/sd
 
 We version all the following, according to [SemVer](semver:) numbering: 
 
-- Experiments, by name, including full hardware specs (arena, I/O devices, 
+- Experiments, by name, including full hardware specs (habitat, I/O devices, 
   acquisition computer, etc.)
 - Repositories, including code related to:
   - Bonsai experiment workflows
@@ -20,7 +20,7 @@ We version all the following, according to [SemVer](semver:) numbering:
 
 ## Issue tracking
 
-We prioritize and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in 'aeon_experiments'.
+We prioritise and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in 'aeon_experiments'.
 
 ## Continuous integration (CI)
 

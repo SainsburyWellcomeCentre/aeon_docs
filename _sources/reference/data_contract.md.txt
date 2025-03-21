@@ -46,7 +46,7 @@
     | none     | 0    |
     | nest     | 1    |
     | corridor | 2    |
-    | arena    | 3    |
+    | habitat    | 3    |
     | patch1   | 4    |
     | patch2   | 5    |
 

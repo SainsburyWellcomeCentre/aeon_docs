@@ -23,7 +23,7 @@ This is possible through the multipronged approach using multiple cameras as wel
 :columns: 8
 :child-align: center
 
-An overhead camera with a view of the entire arena feeds into a Bonsai workflow and
+An overhead camera with a view of the entire habitat feeds into a Bonsai workflow and
 continuously estimates the animals' x, y positions, body length, and orientation.
 
 *Relevant repositories: [aeon_experiments](aeon-experiments-github:), [aeon_acquisition](aeon-acquisition-github:)*
@@ -43,7 +43,7 @@ continuously estimates the animals' x, y positions, body length, and orientation
 :columns: 8
 :child-align: center
 
-When there are multiple animals in the arena, identity of each animal can be
+When there are multiple animals in the habitat, identity of each animal can be
 determined using computer vision ([SLEAP](sleap:)) from the overhead camera using the individual tail tattoos (one
 band, two bands, or none) as features. Furthermore, animals are implanted with RFID tags that
 allow us to quantify their visits to important sites (nest, foraging patches, gates) which are equipped with RFID antennae. 

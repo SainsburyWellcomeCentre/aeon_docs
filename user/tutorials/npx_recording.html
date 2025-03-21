@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=b93e1581" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4386463d" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -420,10 +420,10 @@
 <p>Conducting continuous neural recordings over multiple days in a large environment presents several technical challenges.
 It is crucial to ensure that the animal’s movement is unrestricted and that the recording quality remains stable over time. To achieve this, it is essential to:</p>
 <ol class="arabic simple">
-<li><p>Maintain a constant slack in the recording tether, regardless of the mouse’s location in the arena.</p></li>
+<li><p>Maintain a constant slack in the recording tether, regardless of the mouse’s location in the habitat.</p></li>
 <li><p>Prevent the tether from tangling when the mouse turns.</p></li>
 </ol>
-<p>To address these challenges, we developed a closed-loop control system capable of untwisting the cable using the <a class="reference external" href="https://open-ephys.org/commutator-info">Onix torque-free commutator</a> and translating it based on the mouse’s position.</p>
+<p>To address these challenges, we developed a <a class="reference internal" href="../../reference/hardware/commutation_translation.html#target-commutation-translation"><span class="std std-ref">closed-loop control system</span></a> capable of untwisting the cable using the <a class="reference external" href="https://open-ephys.org/commutator-info">ONIX torque-free commutator</a> and translating it based on the mouse’s position.</p>
 <section id="closed-loop-control-of-commutator-location">
 <h2>Closed-loop control of commutator location<a class="headerlink" href="#closed-loop-control-of-commutator-location" title="Link to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-m-0 docutils">
@@ -432,7 +432,7 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
 <p><img alt="commutator-location-control" src="../../_images/npx-commutator-location.png" /></p>
 </div>
 <div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>Using the live position estimate from the overhead camera, we can control the horizontal position of the commutator on a linear rail to follow the animal as it moves through the arena.</p>
+<p>Using the live position estimate from the overhead camera, we can control the horizontal position of the commutator on a linear rail to follow the animal as it moves through the habitat.</p>
 <p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/">aeon_lineardrive</a></em></p>
 </div>
 </div>
@@ -446,7 +446,7 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
 <p><img alt="commutator-rotation-control" src="../../_images/npx-commutator-rotation.png" /></p>
 </div>
 <div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>Using the heading direction computed by the IMU sensor on the <a class="reference external" href="https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html">Onix neuropixels headstage</a>, the cable commutation is adapted in real time to avoid tangling.</p>
+<p>Using the heading direction computed by the IMU sensor on the <a class="reference external" href="https://open-ephys.github.io/onix-docs/Hardware%20Guide/Headstages/headstage-neuropix-2e-beta.html">ONIX neuropixels headstage</a>, the cable commutation is adapted in real time to avoid tangling.</p>
 <p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/open-ephys/bonsai-commutator">bonsai-commutator</a>, <a class="reference external" href="https://github.com/open-ephys/bonsai-onix1">bonsai-onix1</a></em></p>
 </div>
 </div>
@@ -460,7 +460,7 @@ It is crucial to ensure that the animal’s movement is unrestricted and that th
 <p><img alt="npx-20-recordings" src="../../_images/npx-recording-sites.png" /></p>
 </div>
 <div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>All data are acquired using the <a class="reference external" href="https://open-ephys.github.io/onix-docs/index.html">Onix recording system</a>, which supports simultaneous recording with two <a class="reference external" href="https://www.neuropixels.org/probe2-0">Neuropixels 2.0 probes</a>.</p>
+<p>All data are acquired using the <a class="reference external" href="https://open-ephys.github.io/onix-docs/index.html">ONIX recording system</a>, which supports simultaneous recording with two <a class="reference external" href="https://www.neuropixels.org/probe2-0">Neuropixels 2.0 probes</a>.</p>
 <p><em>Relevant repositories: <a class="reference external" href="https://github.com/open-ephys/bonsai-onix1">bonsai-onix1</a></em></p>
 </div>
 </div>

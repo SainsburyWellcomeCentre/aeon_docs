@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b93e1581" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4386463d" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,7 +53,7 @@
     <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="next" title="Commutation-Translation System" href="hardware/commutation_translation.html" />
     <link rel="prev" title="Reference" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -337,7 +337,13 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hardware Overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Hardware Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/nest.html">Nest</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/mecha.html"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.analysis.block_plotting.html">aeon.analysis.block_plotting</a></li>
@@ -556,29 +562,49 @@
 </div>
 <section id="hardware-overview">
 <span id="target-hardware"></span><h1>Hardware Overview<a class="headerlink" href="#hardware-overview" title="Link to this heading">#</a></h1>
+<p>The Aeon system consists of a modular, scalable, and programmable habitat equipped with various interactive and non-interactive modules, such as <a class="reference internal" href="hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patches</span></a> and <a class="reference internal" href="hardware/nest.html#target-nest"><span class="std std-ref">nests</span></a>.
+Here, you will find comprehensive guidelines and parts lists to help you replicate the main modules or inspire you to create your own.</p>
 <section id="main-modules">
 <h2>Main modules<a class="headerlink" href="#main-modules" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Module</p></th>
-<th class="head"><p>Files</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Arena</strong> <br><a class="reference internal" href="../_images/hardware-overview-arena.png"><img alt="arena" class="align-center" src="../_images/hardware-overview-arena.png" style="height: 15em;" /></a></p></td>
-<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/314f1681dd38b9bde71f4f4a733e956a/Arena%20guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li><li><a class="reference download internal" download="" href="../_downloads/d19a7acf7487ebd4a8c371981ecc6c0f/Arena%20BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></li></ul></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Feeder</strong> <br><a class="reference internal" href="../_images/hardware-overview-feeder.png"><img alt="feeder" class="align-center" src="../_images/hardware-overview-feeder.png" style="height: 12em;" /></a></p></td>
-<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/dcfa9e588e8604e644a6bc848c1660c9/Feeder%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li><li><a class="reference download internal" download="" href="../_downloads/7681a75dc8ed00041e8c959c550ed49b/Feeder%20BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></li></ul></p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Nest</strong> <br><a class="reference internal" href="../_images/hardware-overview-nest.png"><img alt="nest" class="align-center" src="../_images/hardware-overview-nest.png" style="height: 15em;" /></a></p></td>
-<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/cfafdf26236932db3bd449ec06479ab7/Nest%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li></ul></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Closed-loop translation-commutation system</strong> <br><a class="reference internal" href="../_images/hardware-overview-linear-rail.png"><img alt="linear-rail" class="align-center" src="../_images/hardware-overview-linear-rail.png" style="height: 15em;" /></a></p></td>
-<td><p><ul><li><a class="reference download internal" download="" href="../_downloads/a534e1f5a4cd8f553c490f9405c5e222/Linear%20commutator%20Guideline%20Final%201.pdf"><span class="xref download myst">Assembly guide</span></a></li></ul></p></td>
-</tr>
-</tbody>
-</table>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover module-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Commutation-translation system</div>
+</div>
+<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-linear-commutator.png" />
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="hardware/commutation_translation.html#target-commutation-translation"><span class="std std-ref">Commutation-Translation System</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover module-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Foraging Patch</div>
+</div>
+<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-foraging-patch.png" />
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">Foraging Patch</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover module-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Habitat</div>
+</div>
+<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-habitat.png" />
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="hardware/habitat.html#target-habitat"><span class="std std-ref">Habitat</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover module-card docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Nest</div>
+</div>
+<img alt="" class="sd-card-img-bottom" src="../_images/hardware-overview-nest.png" />
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="hardware/nest.html#target-nest"><span class="std std-ref">Nest</span></a></div>
+</div>
+</div>
 </div>
 </section>
 <section id="harp-devices">
@@ -594,17 +620,17 @@
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.OutputExpander.html#"><strong>Harp Output Expander</strong></a></p></td>
 <td><p>Foraging Patches (Feeders)</p></td>
-<td><p>Expander module to connect feeder to harp system. 1 per patch</p></td>
+<td><p>Expander module to connect foraging patch to Harp system. 1 per patch</p></td>
 <td><p>4</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.CameraControllerGen2.html#"><strong>Harp CameraController Gen2</strong></a></p></td>
 <td><p>Cameras</p></td>
-<td><p>Controller to trigger all cameras in the arena</p></td>
+<td><p>Controller to trigger all cameras in the habitat</p></td>
 <td><p>1</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://harp-tech.org/api/Harp.TimestampGeneratorGen3.html#"><strong>Harp Timestamp Generator Gen3</strong></a></p></td>
-<td><p>Arena (Synchronizes all devices)</p></td>
-<td><p>Synchronizes all harp devices in the arena</p></td>
+<td><p>Habitat (Synchronises all devices)</p></td>
+<td><p>Synchronises all Harp devices in the habitat</p></td>
 <td><p>1</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/SainsburyWellcomeCentre/microharp"><strong>Micropython Harp device</strong></a></p></td>
@@ -624,31 +650,11 @@
 <section id="wiring-diagrams">
 <h2>Wiring diagrams<a class="headerlink" href="#wiring-diagrams" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/c4200e9613369b2d90ef56943dc89238/Example%20wiring%20diagram.pdf"><span class="xref download myst">Wiring diagram</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/461d89d29f7d34d2d1fbb93764b1cb15/Example-Wiring-Diagram.pdf"><span class="xref download myst">Wiring diagram</span></a></p></li>
 </ul>
-<!--
-:::{toctree}
-:maxdepth: 1
-:hidden:
-hardware/feeder
-
-::::{grid} 1 3 3 3 
-:::{grid-item-card} Feeder
-:img-top: ../images/hardware-overview-feeder.png
-:link: target-feeder
-:link-type: ref
-:img-bottom: ../images/hardware-overview-feeder.png
-:::
-
-:::{grid-item-card} Arena
-:img-bottom: ../images/hardware-overview-arena.png
-:::
-
-:::{grid-item-card} Nest
-:img-bottom: ../images/hardware-overview-nest.png
-:::
-::::
---></section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
 </section>
 
 
@@ -671,11 +677,11 @@ hardware/feeder
       </div>
     </a>
     <a class="right-next"
-       href="api.html"
+       href="hardware/commutation_translation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
+        <p class="prev-next-title">Commutation-Translation System</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

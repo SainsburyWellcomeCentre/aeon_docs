@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b93e1581" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4386463d" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -337,7 +337,13 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hardware.html">Hardware Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/nest.html">Nest</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/mecha.html"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/mecha/aeon.analysis.block_plotting.html">aeon.analysis.block_plotting</a></li>
@@ -568,7 +574,7 @@
 </dd>
 <dt id="term-Block">Block<a class="headerlink" href="#term-Block" title="Link to this term">#</a></dt><dd><p>A specific period of time, typically lasting around 3 hours, during which the reward rate for each <code class="docutils literal notranslate"><span class="pre">streams.UndergroundFeeder</span></code> (food patch) is manipulated to encourage different behaviours in the subjects.</p>
 </dd>
-<dt id="term-Place">Place<a class="headerlink" href="#term-Place" title="Link to this term">#</a></dt><dd><p>A specific location subjects can visit within the Aeon habitat, e.g. environment, nest, arena, food patch.</p>
+<dt id="term-Place">Place<a class="headerlink" href="#term-Place" title="Link to this term">#</a></dt><dd><p>A specific location subjects can visit within the Aeon habitat, e.g. environment, nest, habitat, food patch.</p>
 </dd>
 <dt id="term-Session">Session<a class="headerlink" href="#term-Session" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.</p>
 </dd>

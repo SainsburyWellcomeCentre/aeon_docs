@@ -19,6 +19,7 @@ sys.path.extend(
     [
         os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
+        os.path.abspath("../aeon_api/"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -178,6 +179,7 @@ myst_url_schemes = {
     "aeon-experiments-github": "https://github.com/SainsburyWellcomeCentre/aeon_experiments/{{path}}",
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
+    "aeon-api-github": "https://github.com/SainsburyWellcomeCentre/aeon_api/{{path}}",
     "datajoint": "https://datajoint.com/{{path}}",
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",

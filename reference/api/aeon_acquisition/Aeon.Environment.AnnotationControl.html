@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class AnnotationControl &#8212; Aeon  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=4386463d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/api/aeon_acquisition/Aeon.Environment.AnnotationControl';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Class AnnotationSource" href="Aeon.Environment.AnnotationSource.html" />
+    <link rel="prev" title="Class ActiveSubjectCollection" href="Aeon.Environment.ActiveSubjectCollection.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is currently under active development. Please report any issues on <a href='https://github.com/SainsburyWellcomeCentre/aeon_docs/issues'>GitHub</a>.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Aeon </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributor/index.html">
+    Contributor Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributor/index.html">
+    Contributor Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hardware.html">Hardware Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/nest.html">Nest</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../api.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_api.html"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.analysis.movies.html">swc.aeon.analysis.movies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.analysis.plotting.html">swc.aeon.analysis.plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.analysis.utils.html">swc.aeon.analysis.utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.io.api.html">swc.aeon.io.api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.io.video.html">swc.aeon.io.video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_api/swc.aeon.schema.streams.html">swc.aeon.schema.streams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../aeon_acquisition.html"><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Acquisition.html">    Aeon.Acquisition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.AeonAudio.html">AeonAudio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.AvailableDiskSpace.html">AvailableDiskSpace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.AvailableMemory.html">AvailableMemory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.CreateLogMessage.html">CreateLogMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.CreateRepository.html">CreateRepository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.FormatDate.html">FormatDate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.FormatJson.html">FormatJson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.FormatLogMessage.html">FormatLogMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.GetDataPath.html">GetDataPath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.GetDateTime.html">GetDateTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.GroupByTime.html">GroupByTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.IsRepositoryClean.html">IsRepositoryClean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.LoadConfigFile.html">LoadConfigFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.LogMessage.html">LogMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.MetadataSource-1.html">MetadataSource&lt;TMetadata&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.PrependOnce.html">PrependOnce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.RangeThreshold.html">RangeThreshold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.SendMessageCard.html">SendMessageCard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.ServiceAccountName.html">ServiceAccountName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.StateRecovery-1.html">StateRecovery&lt;TState&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.StateRecoverySubject.html">StateRecoverySubject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.StateRecoverySubject-1.html">StateRecoverySubject&lt;T&gt;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.StripSubstring.html">StripSubstring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.ThrowException.html">ThrowException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Acquisition.PriorityLevel.html">PriorityLevel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Database.html">    Aeon.Database</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Database.CreateConnection.html">CreateConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Database.ExecuteQuery.html">ExecuteQuery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Database.ObservableDatabase.html">ObservableDatabase</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="Aeon.Environment.html">    Aeon.Environment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ActiveSubjectCollection.html">ActiveSubjectCollection</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">AnnotationControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.AnnotationSource.html">AnnotationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.AnnotationSourceVisualizer.html">AnnotationSourceVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ButtonSource.html">ButtonSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ButtonSourceVisualizer.html">ButtonSourceVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ChannelMap.html">ChannelMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.CreateRoomLightMessage.html">CreateRoomLightMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.CreateRoomLightPreset.html">CreateRoomLightPreset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.DeserializeFromYaml.html">DeserializeFromYaml</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnumerateColony.html">EnumerateColony</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentState.html">EnvironmentState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentStateControl.html">EnvironmentStateControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentStateMetadata.html">EnvironmentStateMetadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentStateRecovery.html">EnvironmentStateRecovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentStateVisualizer.html">EnvironmentStateVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectState.html">EnvironmentSubjectState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectStateControl.html">EnvironmentSubjectStateControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectStateEntry.html">EnvironmentSubjectStateEntry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectStateMetadata.html">EnvironmentSubjectStateMetadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectStateVisualizer.html">EnvironmentSubjectStateVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ExperimentProperties.html">ExperimentProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ExternalizedPropertiesVisualizer.html">ExternalizedPropertiesVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.Fixture.html">Fixture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.FormatWeight.html">FormatWeight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.InterpolateRoomLightPreset.html">InterpolateRoomLightPreset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.LabelControl.html">LabelControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.LabelVisualizer.html">LabelVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.ParseRfidMeasurement.html">ParseRfidMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.RoomFixtures.html">RoomFixtures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.RoomLightDevice.html">RoomLightDevice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.SerializeToYaml.html">SerializeToYaml</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.SubjectLogBitmap.html">SubjectLogBitmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.SubjectRecord.html">SubjectRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.SubjectStateRecovery.html">SubjectStateRecovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.TareWeight.html">TareWeight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.TareWeightControl.html">TareWeightControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.TareWeightVisualizer.html">TareWeightVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.WeightBaseline.html">WeightBaseline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.WeightFilter.html">WeightFilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.WeightRaw.html">WeightRaw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.RfidMeasurement.html">RfidMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.RoomLightMessage.html">RoomLightMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.RoomLightPreset.html">RoomLightPreset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.WeightMeasurement.html">WeightMeasurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentStateType.html">EnvironmentStateType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.EnvironmentSubjectChangeType.html">EnvironmentSubjectChangeType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.InterpolationMethod.html">InterpolationMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Environment.SubjectSex.html">SubjectSex</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Foraging.html">    Aeon.Foraging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.CreateDispenserEvent.html">CreateDispenserEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserAccumulate.html">DispenserAccumulate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserController.html">DispenserController</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserEventArgs.html">DispenserEventArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserEventControl.html">DispenserEventControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserEventVisualizer.html">DispenserEventVisualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserState.html">DispenserState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.FormatDispenserState.html">FormatDispenserState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.WheelDisplacement.html">WheelDisplacement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Foraging.DispenserEventType.html">DispenserEventType</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Video.html">    Aeon.Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.AeonCapture.html">AeonCapture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.PylonCapture.html">PylonCapture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.SpinnakerCapture.html">SpinnakerCapture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.VideoDataFrame.html">VideoDataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.VideoFileCapture.html">VideoFileCapture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.VideoChunkData.html">VideoChunkData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Video.VideoControllerType.html">VideoControllerType</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Vision.html">    Aeon.Vision</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.DistanceFromPoint.html">DistanceFromPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.FormatBinaryRegions.html">FormatBinaryRegions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.RegionContainsPoint.html">RegionContainsPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.TakeLargestRegions.html">TakeLargestRegions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Aeon.Vision.Sleap.html">    Aeon.Vision.Sleap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.Sleap.CreatePoseTrackingMetadata.html">CreatePoseTrackingMetadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.Sleap.FormatPose.html">FormatPose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Aeon.Vision.Sleap.PoseTrackingMetadata.html">PoseTrackingMetadata</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_contract.html">Data Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../api.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../aeon_acquisition.html" class="nav-link"><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code></a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="Aeon.Environment.html" class="nav-link"><a id="Aeon_Environment"></a> Namespace Aeon.Environment</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><a id="Aeon_Environment_AnnotationControl"></a> Class AnnotationControl</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="class-annotationcontrol">
+<h1><a id="Aeon_Environment_AnnotationControl"></a> Class AnnotationControl<a class="headerlink" href="#class-annotationcontrol" title="Link to this heading">#</a></h1>
+<p>Namespace: <a class="reference internal" href="Aeon.Environment.html"><span class="std std-doc">Aeon.Environment</span></a><br />
+Assembly: Aeon.Environment.dll</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnnotationControl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">UserControl</span><span class="p">,</span><span class="w"> </span><span class="n">IDropTarget</span><span class="p">,</span><span class="w"> </span><span class="n">ISynchronizeInvoke</span><span class="p">,</span><span class="w"> </span><span class="n">IWin32Window</span><span class="p">,</span><span class="w"> </span><span class="n">IBindableComponent</span><span class="p">,</span><span class="w"> </span><span class="n">IComponent</span><span class="p">,</span><span class="w"> </span><span class="n">IDisposable</span><span class="p">,</span><span class="w"> </span><span class="n">IContainerControl</span>
+</pre></div>
+</div>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject">MarshalByRefObject</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component">Component</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control">Control</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol">ScrollableControl</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol">ContainerControl</a> ←
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol">UserControl</a> ←
+<a class="reference internal" href="#"><span class="std std-doc">AnnotationControl</span></a></p>
+</section>
+<section id="implements">
+<h2>Implements<a class="headerlink" href="#implements" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.idroptarget">IDropTarget</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isynchronizeinvoke">ISynchronizeInvoke</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.iwin32window">IWin32Window</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.ibindablecomponent">IBindableComponent</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.icomponent">IComponent</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.icontainercontrol">IContainerControl</a></p>
+</section>
+<section id="inherited-members">
+<h2>Inherited Members<a class="headerlink" href="#inherited-members" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.validatechildren#system-windows-forms-usercontrol-validatechildren">UserControl.ValidateChildren()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.validatechildren#system-windows-forms-usercontrol-validatechildren(system-windows-forms-validationconstraints)">UserControl.ValidateChildren(ValidationConstraints)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.oncreatecontrol">UserControl.OnCreateControl()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.onload">UserControl.OnLoad(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.onresize">UserControl.OnResize(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.onmousedown">UserControl.OnMouseDown(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.wndproc">UserControl.WndProc(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.autosize">UserControl.AutoSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.autosizemode">UserControl.AutoSizeMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.autovalidate">UserControl.AutoValidate</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.borderstyle">UserControl.BorderStyle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.createparams">UserControl.CreateParams</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.defaultsize">UserControl.DefaultSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.autosizechanged">UserControl.AutoSizeChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.autovalidatechanged">UserControl.AutoValidateChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.usercontrol.load">UserControl.Load</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.adjustformscrollbars">ContainerControl.AdjustFormScrollbars(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.dispose">ContainerControl.Dispose(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.onautovalidatechanged">ContainerControl.OnAutoValidateChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.oncreatecontrol">ContainerControl.OnCreateControl()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.onfontchanged">ContainerControl.OnFontChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.onlayout">ContainerControl.OnLayout(LayoutEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.onparentchanged">ContainerControl.OnParentChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.performautoscale">ContainerControl.PerformAutoScale()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.processdialogchar">ContainerControl.ProcessDialogChar(char)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.processdialogkey">ContainerControl.ProcessDialogKey(Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.processcmdkey">ContainerControl.ProcessCmdKey(ref Message, Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.processmnemonic">ContainerControl.ProcessMnemonic(char)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.processtabkey">ContainerControl.ProcessTabKey(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.select">ContainerControl.Select(bool, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.updatedefaultbutton">ContainerControl.UpdateDefaultButton()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.validate#system-windows-forms-containercontrol-validate">ContainerControl.Validate()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.validate#system-windows-forms-containercontrol-validate(system-boolean)">ContainerControl.Validate(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.wndproc">ContainerControl.WndProc(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.autoscaledimensions">ContainerControl.AutoScaleDimensions</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.autoscalefactor">ContainerControl.AutoScaleFactor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.autoscalemode">ContainerControl.AutoScaleMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.bindingcontext">ContainerControl.BindingContext</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.canenableime">ContainerControl.CanEnableIme</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.activecontrol">ContainerControl.ActiveControl</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.createparams">ContainerControl.CreateParams</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.currentautoscaledimensions">ContainerControl.CurrentAutoScaleDimensions</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.containercontrol.parentform">ContainerControl.ParentForm</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollstateautoscrolling">ScrollableControl.ScrollStateAutoScrolling</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollstatehscrollvisible">ScrollableControl.ScrollStateHScrollVisible</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollstatevscrollvisible">ScrollableControl.ScrollStateVScrollVisible</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollstateuserhasscrolled">ScrollableControl.ScrollStateUserHasScrolled</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollstatefulldrag">ScrollableControl.ScrollStateFullDrag</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.adjustformscrollbars">ScrollableControl.AdjustFormScrollbars(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.getscrollstate">ScrollableControl.GetScrollState(int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onlayout">ScrollableControl.OnLayout(LayoutEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onmousewheel">ScrollableControl.OnMouseWheel(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onrighttoleftchanged">ScrollableControl.OnRightToLeftChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onpaintbackground">ScrollableControl.OnPaintBackground(PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onpaddingchanged">ScrollableControl.OnPaddingChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onvisiblechanged">ScrollableControl.OnVisibleChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scalecontrol">ScrollableControl.ScaleControl(SizeF, BoundsSpecified)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.setdisplayrectlocation">ScrollableControl.SetDisplayRectLocation(int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrollcontrolintoview">ScrollableControl.ScrollControlIntoView(Control)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scrolltocontrol">ScrollableControl.ScrollToControl(Control)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.onscroll">ScrollableControl.OnScroll(ScrollEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.setautoscrollmargin">ScrollableControl.SetAutoScrollMargin(int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.setscrollstate">ScrollableControl.SetScrollState(int, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.wndproc">ScrollableControl.WndProc(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.autoscroll">ScrollableControl.AutoScroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.autoscrollmargin">ScrollableControl.AutoScrollMargin</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.autoscrollposition">ScrollableControl.AutoScrollPosition</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.autoscrollminsize">ScrollableControl.AutoScrollMinSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.createparams">ScrollableControl.CreateParams</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.displayrectangle">ScrollableControl.DisplayRectangle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.hscroll">ScrollableControl.HScroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.horizontalscroll">ScrollableControl.HorizontalScroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.vscroll">ScrollableControl.VScroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.verticalscroll">ScrollableControl.VerticalScroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.scrollablecontrol.scroll">ScrollableControl.Scroll</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getaccessibilityobjectbyid">Control.GetAccessibilityObjectById(int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setautosizemode">Control.SetAutoSizeMode(AutoSizeMode)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getautosizemode">Control.GetAutoSizeMode()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getpreferredsize">Control.GetPreferredSize(Size)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessibilitynotifyclients#system-windows-forms-control-accessibilitynotifyclients(system-windows-forms-accessibleevents-system-int32)">Control.AccessibilityNotifyClients(AccessibleEvents, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessibilitynotifyclients#system-windows-forms-control-accessibilitynotifyclients(system-windows-forms-accessibleevents-system-int32-system-int32)">Control.AccessibilityNotifyClients(AccessibleEvents, int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.begininvoke#system-windows-forms-control-begininvoke(system-delegate)">Control.BeginInvoke(Delegate)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.begininvoke#system-windows-forms-control-begininvoke(system-delegate-system-object())">Control.BeginInvoke(Delegate, params object[])</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.bringtofront">Control.BringToFront()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.contains">Control.Contains(Control)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.createaccessibilityinstance">Control.CreateAccessibilityInstance()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.createcontrolsinstance">Control.CreateControlsInstance()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.creategraphics">Control.CreateGraphics()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.createhandle">Control.CreateHandle()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.createcontrol">Control.CreateControl()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defwndproc">Control.DefWndProc(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.destroyhandle">Control.DestroyHandle()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dispose">Control.Dispose(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dodragdrop">Control.DoDragDrop(object, DragDropEffects)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.drawtobitmap">Control.DrawToBitmap(Bitmap, Rectangle)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.endinvoke">Control.EndInvoke(IAsyncResult)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.findform">Control.FindForm()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.gettoplevel">Control.GetTopLevel()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.raisekeyevent">Control.RaiseKeyEvent(object, KeyEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.raisemouseevent">Control.RaiseMouseEvent(object, MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.focus">Control.Focus()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.fromchildhandle">Control.FromChildHandle(IntPtr)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.fromhandle">Control.FromHandle(IntPtr)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getchildatpoint#system-windows-forms-control-getchildatpoint(system-drawing-point-system-windows-forms-getchildatpointskip)">Control.GetChildAtPoint(Point, GetChildAtPointSkip)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getchildatpoint#system-windows-forms-control-getchildatpoint(system-drawing-point)">Control.GetChildAtPoint(Point)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getcontainercontrol">Control.GetContainerControl()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getscaledbounds">Control.GetScaledBounds(Rectangle, SizeF, BoundsSpecified)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getnextcontrol">Control.GetNextControl(Control, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.getstyle">Control.GetStyle(ControlStyles)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.hide">Control.Hide()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.initlayout">Control.InitLayout()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate(system-drawing-region)">Control.Invalidate(Region)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate(system-drawing-region-system-boolean)">Control.Invalidate(Region, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate">Control.Invalidate()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate(system-boolean)">Control.Invalidate(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate(system-drawing-rectangle)">Control.Invalidate(Rectangle)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidate#system-windows-forms-control-invalidate(system-drawing-rectangle-system-boolean)">Control.Invalidate(Rectangle, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invoke#system-windows-forms-control-invoke(system-delegate)">Control.Invoke(Delegate)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invoke#system-windows-forms-control-invoke(system-delegate-system-object())">Control.Invoke(Delegate, params object[])</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokepaint">Control.InvokePaint(Control, PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokepaintbackground">Control.InvokePaintBackground(Control, PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.iskeylocked">Control.IsKeyLocked(Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.isinputchar">Control.IsInputChar(char)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.isinputkey">Control.IsInputKey(Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ismnemonic">Control.IsMnemonic(char, string)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.logicaltodeviceunits">Control.LogicalToDeviceUnits(int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.scalebitmaplogicaltodevice">Control.ScaleBitmapLogicalToDevice(ref Bitmap)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.notifyinvalidate">Control.NotifyInvalidate(Rectangle)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokeonclick">Control.InvokeOnClick(Control, EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onautosizechanged">Control.OnAutoSizeChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onbackcolorchanged">Control.OnBackColorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onbackgroundimagechanged">Control.OnBackgroundImageChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onbackgroundimagelayoutchanged">Control.OnBackgroundImageLayoutChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onbindingcontextchanged">Control.OnBindingContextChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncausesvalidationchanged">Control.OnCausesValidationChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncontextmenuchanged">Control.OnContextMenuChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncontextmenustripchanged">Control.OnContextMenuStripChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncursorchanged">Control.OnCursorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondockchanged">Control.OnDockChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onenabledchanged">Control.OnEnabledChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onfontchanged">Control.OnFontChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onforecolorchanged">Control.OnForeColorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onrighttoleftchanged">Control.OnRightToLeftChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onnotifymessage">Control.OnNotifyMessage(Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentbackcolorchanged">Control.OnParentBackColorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentbackgroundimagechanged">Control.OnParentBackgroundImageChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentbindingcontextchanged">Control.OnParentBindingContextChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentcursorchanged">Control.OnParentCursorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentenabledchanged">Control.OnParentEnabledChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentfontchanged">Control.OnParentFontChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentforecolorchanged">Control.OnParentForeColorChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentrighttoleftchanged">Control.OnParentRightToLeftChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentvisiblechanged">Control.OnParentVisibleChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onprint">Control.OnPrint(PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ontabindexchanged">Control.OnTabIndexChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ontabstopchanged">Control.OnTabStopChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ontextchanged">Control.OnTextChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onvisiblechanged">Control.OnVisibleChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onparentchanged">Control.OnParentChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onclick">Control.OnClick(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onclientsizechanged">Control.OnClientSizeChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncontroladded">Control.OnControlAdded(ControlEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncontrolremoved">Control.OnControlRemoved(ControlEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oncreatecontrol">Control.OnCreateControl()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onhandlecreated">Control.OnHandleCreated(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onlocationchanged">Control.OnLocationChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onhandledestroyed">Control.OnHandleDestroyed(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondoubleclick">Control.OnDoubleClick(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondragenter">Control.OnDragEnter(DragEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondragover">Control.OnDragOver(DragEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondragleave">Control.OnDragLeave(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondragdrop">Control.OnDragDrop(DragEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ongivefeedback">Control.OnGiveFeedback(GiveFeedbackEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onenter">Control.OnEnter(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokegotfocus">Control.InvokeGotFocus(Control, EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ongotfocus">Control.OnGotFocus(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onhelprequested">Control.OnHelpRequested(HelpEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.oninvalidated">Control.OnInvalidated(InvalidateEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onkeydown">Control.OnKeyDown(KeyEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onkeypress">Control.OnKeyPress(KeyPressEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onkeyup">Control.OnKeyUp(KeyEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onlayout">Control.OnLayout(LayoutEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onleave">Control.OnLeave(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokelostfocus">Control.InvokeLostFocus(Control, EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onlostfocus">Control.OnLostFocus(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmarginchanged">Control.OnMarginChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousedoubleclick">Control.OnMouseDoubleClick(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmouseclick">Control.OnMouseClick(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousecapturechanged">Control.OnMouseCaptureChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousedown">Control.OnMouseDown(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmouseenter">Control.OnMouseEnter(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmouseleave">Control.OnMouseLeave(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondpichangedbeforeparent">Control.OnDpiChangedBeforeParent(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ondpichangedafterparent">Control.OnDpiChangedAfterParent(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousehover">Control.OnMouseHover(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousemove">Control.OnMouseMove(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmouseup">Control.OnMouseUp(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmousewheel">Control.OnMouseWheel(MouseEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onmove">Control.OnMove(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onpaint">Control.OnPaint(PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onpaddingchanged">Control.OnPaddingChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onpaintbackground">Control.OnPaintBackground(PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onquerycontinuedrag">Control.OnQueryContinueDrag(QueryContinueDragEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onregionchanged">Control.OnRegionChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onresize">Control.OnResize(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onpreviewkeydown">Control.OnPreviewKeyDown(PreviewKeyDownEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onsizechanged">Control.OnSizeChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onchangeuicues">Control.OnChangeUICues(UICuesEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onstylechanged">Control.OnStyleChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onsystemcolorschanged">Control.OnSystemColorsChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onvalidating">Control.OnValidating(CancelEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onvalidated">Control.OnValidated(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rescaleconstantsfordpi">Control.RescaleConstantsForDpi(int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.performlayout#system-windows-forms-control-performlayout">Control.PerformLayout()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.performlayout#system-windows-forms-control-performlayout(system-windows-forms-control-system-string)">Control.PerformLayout(Control, string)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.pointtoclient">Control.PointToClient(Point)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.pointtoscreen">Control.PointToScreen(Point)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.preprocessmessage">Control.PreProcessMessage(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.preprocesscontrolmessage">Control.PreProcessControlMessage(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processcmdkey">Control.ProcessCmdKey(ref Message, Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processdialogchar">Control.ProcessDialogChar(char)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processdialogkey">Control.ProcessDialogKey(Keys)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processkeyeventargs">Control.ProcessKeyEventArgs(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processkeymessage">Control.ProcessKeyMessage(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processkeypreview">Control.ProcessKeyPreview(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.processmnemonic">Control.ProcessMnemonic(char)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.raisedragevent">Control.RaiseDragEvent(object, DragEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.raisepaintevent">Control.RaisePaintEvent(object, PaintEventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.recreatehandle">Control.RecreateHandle()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rectangletoclient">Control.RectangleToClient(Rectangle)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rectangletoscreen">Control.RectangleToScreen(Rectangle)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.reflectmessage">Control.ReflectMessage(IntPtr, ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.refresh">Control.Refresh()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resetmouseeventargs">Control.ResetMouseEventArgs()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resettext">Control.ResetText()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resumelayout#system-windows-forms-control-resumelayout">Control.ResumeLayout()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resumelayout#system-windows-forms-control-resumelayout(system-boolean)">Control.ResumeLayout(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.scale#system-windows-forms-control-scale(system-drawing-sizef)">Control.Scale(SizeF)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.scalecontrol">Control.ScaleControl(SizeF, BoundsSpecified)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.select#system-windows-forms-control-select">Control.Select()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.select#system-windows-forms-control-select(system-boolean-system-boolean)">Control.Select(bool, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.selectnextcontrol">Control.SelectNextControl(Control, bool, bool, bool, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.sendtoback">Control.SendToBack()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setbounds#system-windows-forms-control-setbounds(system-int32-system-int32-system-int32-system-int32)">Control.SetBounds(int, int, int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setbounds#system-windows-forms-control-setbounds(system-int32-system-int32-system-int32-system-int32-system-windows-forms-boundsspecified)">Control.SetBounds(int, int, int, int, BoundsSpecified)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setboundscore">Control.SetBoundsCore(int, int, int, int, BoundsSpecified)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setclientsizecore">Control.SetClientSizeCore(int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.sizefromclientsize">Control.SizeFromClientSize(Size)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setstyle">Control.SetStyle(ControlStyles, bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.settoplevel">Control.SetTopLevel(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.setvisiblecore">Control.SetVisibleCore(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslatealignment#system-windows-forms-control-rtltranslatealignment(system-windows-forms-horizontalalignment)">Control.RtlTranslateAlignment(HorizontalAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslatealignment#system-windows-forms-control-rtltranslatealignment(system-windows-forms-leftrightalignment)">Control.RtlTranslateAlignment(LeftRightAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslatealignment#system-windows-forms-control-rtltranslatealignment(system-drawing-contentalignment)">Control.RtlTranslateAlignment(ContentAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslatehorizontal">Control.RtlTranslateHorizontal(HorizontalAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslateleftright">Control.RtlTranslateLeftRight(LeftRightAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.rtltranslatecontent">Control.RtlTranslateContent(ContentAlignment)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.show">Control.Show()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.suspendlayout">Control.SuspendLayout()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.update">Control.Update()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.updatebounds#system-windows-forms-control-updatebounds">Control.UpdateBounds()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.updatebounds#system-windows-forms-control-updatebounds(system-int32-system-int32-system-int32-system-int32)">Control.UpdateBounds(int, int, int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.updatebounds#system-windows-forms-control-updatebounds(system-int32-system-int32-system-int32-system-int32-system-int32-system-int32)">Control.UpdateBounds(int, int, int, int, int, int)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.updatezorder">Control.UpdateZOrder()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.updatestyles">Control.UpdateStyles()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.wndproc">Control.WndProc(ref Message)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.onimemodechanged">Control.OnImeModeChanged(EventArgs)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessibilityobject">Control.AccessibilityObject</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessibledefaultactiondescription">Control.AccessibleDefaultActionDescription</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessibledescription">Control.AccessibleDescription</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessiblename">Control.AccessibleName</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.accessiblerole">Control.AccessibleRole</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.allowdrop">Control.AllowDrop</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.anchor">Control.Anchor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.autoscrolloffset">Control.AutoScrollOffset</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.layoutengine">Control.LayoutEngine</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backcolor">Control.BackColor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backgroundimage">Control.BackgroundImage</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backgroundimagelayout">Control.BackgroundImageLayout</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.bindingcontext">Control.BindingContext</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.bottom">Control.Bottom</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.bounds">Control.Bounds</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.canfocus">Control.CanFocus</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.canraiseevents">Control.CanRaiseEvents</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.canselect">Control.CanSelect</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.capture">Control.Capture</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.causesvalidation">Control.CausesValidation</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.checkforillegalcrossthreadcalls">Control.CheckForIllegalCrossThreadCalls</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.clientrectangle">Control.ClientRectangle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.clientsize">Control.ClientSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.companyname">Control.CompanyName</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.containsfocus">Control.ContainsFocus</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.contextmenu">Control.ContextMenu</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.contextmenustrip">Control.ContextMenuStrip</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.controls">Control.Controls</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.created">Control.Created</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.createparams">Control.CreateParams</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.cursor">Control.Cursor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.databindings">Control.DataBindings</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultbackcolor">Control.DefaultBackColor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultcursor">Control.DefaultCursor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultfont">Control.DefaultFont</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultforecolor">Control.DefaultForeColor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultmargin">Control.DefaultMargin</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultmaximumsize">Control.DefaultMaximumSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultminimumsize">Control.DefaultMinimumSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultpadding">Control.DefaultPadding</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultsize">Control.DefaultSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.devicedpi">Control.DeviceDpi</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.displayrectangle">Control.DisplayRectangle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.isdisposed">Control.IsDisposed</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.disposing">Control.Disposing</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dock">Control.Dock</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.doublebuffered">Control.DoubleBuffered</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.enabled">Control.Enabled</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.focused">Control.Focused</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.font">Control.Font</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.fontheight">Control.FontHeight</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.forecolor">Control.ForeColor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.handle">Control.Handle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.haschildren">Control.HasChildren</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.height">Control.Height</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ishandlecreated">Control.IsHandleCreated</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invokerequired">Control.InvokeRequired</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.isaccessible">Control.IsAccessible</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.ismirrored">Control.IsMirrored</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.left">Control.Left</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.location">Control.Location</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.margin">Control.Margin</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.maximumsize">Control.MaximumSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.minimumsize">Control.MinimumSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.modifierkeys">Control.ModifierKeys</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousebuttons">Control.MouseButtons</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mouseposition">Control.MousePosition</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.name">Control.Name</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.parent">Control.Parent</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.productname">Control.ProductName</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.productversion">Control.ProductVersion</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.recreatinghandle">Control.RecreatingHandle</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.region">Control.Region</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.renderrighttoleft">Control.RenderRightToLeft</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resizeredraw">Control.ResizeRedraw</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.right">Control.Right</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.righttoleft">Control.RightToLeft</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.scalechildren">Control.ScaleChildren</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.site">Control.Site</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.size">Control.Size</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.tabindex">Control.TabIndex</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.tabstop">Control.TabStop</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.tag">Control.Tag</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.text">Control.Text</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.top">Control.Top</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.toplevelcontrol">Control.TopLevelControl</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.showkeyboardcues">Control.ShowKeyboardCues</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.showfocuscues">Control.ShowFocusCues</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.usewaitcursor">Control.UseWaitCursor</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.visible">Control.Visible</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.width">Control.Width</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.preferredsize">Control.PreferredSize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.padding">Control.Padding</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.canenableime">Control.CanEnableIme</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.defaultimemode">Control.DefaultImeMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.imemode">Control.ImeMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.imemodebase">Control.ImeModeBase</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.propagatingimemode">Control.PropagatingImeMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backcolorchanged">Control.BackColorChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backgroundimagechanged">Control.BackgroundImageChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.backgroundimagelayoutchanged">Control.BackgroundImageLayoutChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.bindingcontextchanged">Control.BindingContextChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.causesvalidationchanged">Control.CausesValidationChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.clientsizechanged">Control.ClientSizeChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.contextmenuchanged">Control.ContextMenuChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.contextmenustripchanged">Control.ContextMenuStripChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.cursorchanged">Control.CursorChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dockchanged">Control.DockChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.enabledchanged">Control.EnabledChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.fontchanged">Control.FontChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.forecolorchanged">Control.ForeColorChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.locationchanged">Control.LocationChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.marginchanged">Control.MarginChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.regionchanged">Control.RegionChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.righttoleftchanged">Control.RightToLeftChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.sizechanged">Control.SizeChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.tabindexchanged">Control.TabIndexChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.tabstopchanged">Control.TabStopChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.textchanged">Control.TextChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.visiblechanged">Control.VisibleChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.click">Control.Click</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.controladded">Control.ControlAdded</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.controlremoved">Control.ControlRemoved</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dragdrop">Control.DragDrop</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dragenter">Control.DragEnter</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dragover">Control.DragOver</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dragleave">Control.DragLeave</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.givefeedback">Control.GiveFeedback</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.handlecreated">Control.HandleCreated</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.handledestroyed">Control.HandleDestroyed</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.helprequested">Control.HelpRequested</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.invalidated">Control.Invalidated</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.paddingchanged">Control.PaddingChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.paint">Control.Paint</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.querycontinuedrag">Control.QueryContinueDrag</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.queryaccessibilityhelp">Control.QueryAccessibilityHelp</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.doubleclick">Control.DoubleClick</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.enter">Control.Enter</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.gotfocus">Control.GotFocus</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.keydown">Control.KeyDown</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.keypress">Control.KeyPress</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.keyup">Control.KeyUp</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.layout">Control.Layout</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.leave">Control.Leave</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.lostfocus">Control.LostFocus</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mouseclick">Control.MouseClick</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousedoubleclick">Control.MouseDoubleClick</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousecapturechanged">Control.MouseCaptureChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousedown">Control.MouseDown</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mouseenter">Control.MouseEnter</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mouseleave">Control.MouseLeave</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dpichangedbeforeparent">Control.DpiChangedBeforeParent</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.dpichangedafterparent">Control.DpiChangedAfterParent</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousehover">Control.MouseHover</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousemove">Control.MouseMove</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mouseup">Control.MouseUp</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.mousewheel">Control.MouseWheel</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.move">Control.Move</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.previewkeydown">Control.PreviewKeyDown</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.resize">Control.Resize</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.changeuicues">Control.ChangeUICues</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.stylechanged">Control.StyleChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.systemcolorschanged">Control.SystemColorsChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.validating">Control.Validating</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.validated">Control.Validated</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.parentchanged">Control.ParentChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.control.imemodechanged">Control.ImeModeChanged</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.dispose#system-componentmodel-component-dispose">Component.Dispose()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.dispose#system-componentmodel-component-dispose(system-boolean)">Component.Dispose(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.getservice">Component.GetService(Type)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.tostring">Component.ToString()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.canraiseevents">Component.CanRaiseEvents</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.events">Component.Events</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.site">Component.Site</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.container">Component.Container</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.designmode">Component.DesignMode</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.component.disposed">Component.Disposed</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.memberwiseclone">MarshalByRefObject.MemberwiseClone(bool)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.getlifetimeservice">MarshalByRefObject.GetLifetimeService()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.initializelifetimeservice">MarshalByRefObject.InitializeLifetimeService()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.marshalbyrefobject.createobjref">MarshalByRefObject.CreateObjRef(Type)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>,
+<a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a></p>
+</section>
+<section id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link to this heading">#</a></h2>
+<section id="annotationcontrol-annotationsource">
+<h3><a id="Aeon_Environment_AnnotationControl__ctor_Aeon_Environment_AnnotationSource_"></a> AnnotationControl(AnnotationSource)<a class="headerlink" href="#annotationcontrol-annotationsource" title="Link to this heading">#</a></h3>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="nf">AnnotationControl</span><span class="p">(</span><span class="n">AnnotationSource</span><span class="w"> </span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">source</span></code> <a class="reference internal" href="Aeon.Environment.AnnotationSource.html"><span class="std std-doc">AnnotationSource</span></a></p>
+</section>
+</section>
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
+<section id="source">
+<h3><a id="Aeon_Environment_AnnotationControl_Source"></a> Source<a class="headerlink" href="#source" title="Link to this heading">#</a></h3>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="n">AnnotationSource</span><span class="w"> </span><span class="n">Source</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<section id="property-value">
+<h4>Property Value<a class="headerlink" href="#property-value" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="Aeon.Environment.AnnotationSource.html"><span class="std std-doc">AnnotationSource</span></a></p>
+</section>
+</section>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="dispose-bool">
+<h3><a id="Aeon_Environment_AnnotationControl_Dispose_System_Boolean_"></a> Dispose(bool)<a class="headerlink" href="#dispose-bool" title="Link to this heading">#</a></h3>
+<p>Clean up any resources being used.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Dispose</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">disposing</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">disposing</span></code> <a class="reference external" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></p>
+<p>true if managed resources should be disposed; otherwise, false.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Aeon.Environment.ActiveSubjectCollection.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><a id="Aeon_Environment_ActiveSubjectCollection"></a> Class ActiveSubjectCollection</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Aeon.Environment.AnnotationSource.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><a id="Aeon_Environment_AnnotationSource"></a> Class AnnotationSource</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implements">Implements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inherited-members">Inherited Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">Constructors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotationcontrol-annotationsource"><a id="Aeon_Environment_AnnotationControl__ctor_Aeon_Environment_AnnotationSource_"></a> AnnotationControl(AnnotationSource)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source"><a id="Aeon_Environment_AnnotationControl_Source"></a> Source</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#property-value">Property Value</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dispose-bool"><a id="Aeon_Environment_AnnotationControl_Dispose_System_Boolean_"></a> Dispose(bool)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/reference/api/aeon_acquisition/Aeon.Environment.AnnotationControl.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><p class="sphinx-version"></p>
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+    </p>
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
+    0.16.1.
+    </p></div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><div class="things-in-a-row">
+    <a href="https://neurogears.org/">
+        <img src="../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.datajoint.com/">
+        <img src="../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://wellcome.org/">
+        <img src="../../../_static/images/light-logo-wellcome.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-wellcome.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.sainsburywellcome.org/web/">
+        <img src="../../../_static/images/light-logo-swc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-swc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/">
+        <img src="../../../_static/images/light-logo-ucl.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-ucl.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit">
+        <img src="../../../_static/images/light-logo-gatsby.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-gatsby.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ukri.org/councils/bbsrc/">
+        <img src="../../../_static/images/light-logo-bbsrc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-bbsrc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.simonsfoundation.org/">
+        <img src="../../../_static/images/light-logo-simons.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-simons.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+</div></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

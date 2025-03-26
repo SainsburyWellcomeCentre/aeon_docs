@@ -1,0 +1,1892 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14479pt" height="256pt" viewBox="0.00 0.00 14479.00 256.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 252)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-252 14475,-252 14475,4 -4,4"/>
+<!-- streams.ExperimentPhotodiode.RemovalTime -->
+<g id="node1" class="node">
+<title>streams.ExperimentPhotodiode.RemovalTime</title>
+<g id="a_node1"><a xlink:title="→ streams.ExperimentPhotodiode
+------------------------------
+photodiode_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="217,-27 0,-27 0,-8 217,-8 217,-27"/>
+<text text-anchor="middle" x="108.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentPhotodiode.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentFoodPatch.RemovalTime -->
+<g id="node2" class="node">
+<title>streams.ExperimentFoodPatch.RemovalTime</title>
+<g id="a_node2"><a xlink:title="→ streams.ExperimentFoodPatch
+------------------------------
+food_patch_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="13005,-27 12790,-27 12790,-8 13005,-8 13005,-27"/>
+<text text-anchor="middle" x="12897.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentFoodPatch.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.CameraVideo -->
+<g id="node3" class="node">
+<title>streams.CameraVideo</title>
+<g id="a_node3"><a xlink:title="→ streams.ExperimentCamera
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+hw_counter           
+hw_timestamp         
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="5007.5" cy="-17.5" rx="84.25" ry="17.5"/>
+<text text-anchor="middle" x="5007.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.CameraVideo</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentPhotodiode -->
+<g id="node4" class="node">
+<title>streams.ExperimentPhotodiode</title>
+<g id="a_node4"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+photodiode_install_time 
+------------------------------
+photodiode_name      
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="423.5,-106 239.5,-106 239.5,-71 423.5,-71 423.5,-106"/>
+<text text-anchor="start" x="247.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentPhotodiode</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentPhotodiode&#45;&gt;streams.ExperimentPhotodiode.RemovalTime -->
+<g id="edge1" class="edge">
+<title>streams.ExperimentPhotodiode-&gt;streams.ExperimentPhotodiode.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M278.09,-70.97C233.37,-57.14 171.37,-37.95 136.05,-27.03"/>
+</g>
+<!-- streams.PhotodiodePhotodiode -->
+<g id="node5" class="node">
+<title>streams.PhotodiodePhotodiode</title>
+<g id="a_node5"><a xlink:title="→ streams.ExperimentPhotodiode
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+adc                  
+encoder              
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="561.5" cy="-17.5" rx="115.75" ry="17.5"/>
+<text text-anchor="middle" x="561.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.PhotodiodePhotodiode</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentPhotodiode&#45;&gt;streams.PhotodiodePhotodiode -->
+<g id="edge2" class="edge">
+<title>streams.ExperimentPhotodiode-&gt;streams.PhotodiodePhotodiode</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M386.59,-70.97C424.73,-59.53 475.07,-44.43 511.95,-33.36"/>
+</g>
+<!-- streams.ExperimentPhotodiode.Attribute -->
+<g id="node65" class="node">
+<title>streams.ExperimentPhotodiode.Attribute</title>
+<g id="a_node65"><a xlink:title="→ streams.ExperimentPhotodiode
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="428,-27 235,-27 235,-8 428,-8 428,-27"/>
+<text text-anchor="start" x="243" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentPhotodiode.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentPhotodiode&#45;&gt;streams.ExperimentPhotodiode.Attribute -->
+<g id="edge3" class="edge">
+<title>streams.ExperimentPhotodiode-&gt;streams.ExperimentPhotodiode.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M331.5,-70.8C331.5,-57.08 331.5,-38.19 331.5,-27.27"/>
+</g>
+<!-- streams.ExperimentExperimentalMetadata.RemovalTime -->
+<g id="node6" class="node">
+<title>streams.ExperimentExperimentalMetadata.RemovalTime</title>
+<g id="a_node6"><a xlink:title="→ streams.ExperimentExperimentalMetadata
+------------------------------
+experimental_metadata_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="3201.5,-27 2935.5,-27 2935.5,-8 3201.5,-8 3201.5,-27"/>
+<text text-anchor="middle" x="3068.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentExperimentalMetadata.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.FoodPatchEncoder -->
+<g id="node7" class="node">
+<title>streams.FoodPatchEncoder</title>
+<g id="a_node7"><a xlink:title="→ streams.ExperimentFoodPatch
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+angle                
+intensity            
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="7949.5" cy="-17.5" rx="103.25" ry="17.5"/>
+<text text-anchor="middle" x="7949.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.FoodPatchEncoder</text>
+</a>
+</g>
+</g>
+<!-- streams.TaskLogicDrawBackground -->
+<g id="node8" class="node">
+<title>streams.TaskLogicDrawBackground</title>
+<g id="a_node8"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="1262.5" cy="-17.5" rx="130.75" ry="17.5"/>
+<text text-anchor="middle" x="1262.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicDrawBackground</text>
+</a>
+</g>
+</g>
+<!-- streams.OSCStartNewSession -->
+<g id="node9" class="node">
+<title>streams.OSCStartNewSession</title>
+<g id="a_node9"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+path                 
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="6014.5" cy="-17.5" rx="113.25" ry="17.5"/>
+<text text-anchor="middle" x="6014.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCStartNewSession</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic.RemovalTime -->
+<g id="node10" class="node">
+<title>streams.ExperimentTaskLogic.RemovalTime</title>
+<g id="a_node10"><a xlink:title="→ streams.ExperimentTaskLogic
+------------------------------
+task_logic_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="907.5,-27 695.5,-27 695.5,-8 907.5,-8 907.5,-27"/>
+<text text-anchor="middle" x="801.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentTaskLogic.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.FoodPatchBeamBreak -->
+<g id="node11" class="node">
+<title>streams.FoodPatchBeamBreak</title>
+<g id="a_node11"><a xlink:title="→ streams.ExperimentFoodPatch
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="8184.5" cy="-17.5" rx="114.25" ry="17.5"/>
+<text text-anchor="middle" x="8184.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.FoodPatchBeamBreak</text>
+</a>
+</g>
+</g>
+<!-- streams.TaskLogicTrialInitiation -->
+<g id="node12" class="node">
+<title>streams.TaskLogicTrialInitiation</title>
+<g id="a_node12"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+trial_type           
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="1526.5" cy="-17.5" rx="115" ry="17.5"/>
+<text text-anchor="middle" x="1526.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicTrialInitiation</text>
+</a>
+</g>
+</g>
+<!-- streams.CameraPosition -->
+<g id="node13" class="node">
+<title>streams.CameraPosition</title>
+<g id="a_node13"><a xlink:title="→ streams.ExperimentCamera
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+x                    
+y                    
+angle                
+major                
+minor                
+area                 
+id                   
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="5202.5" cy="-17.5" rx="92.5" ry="17.5"/>
+<text text-anchor="middle" x="5202.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.CameraPosition</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC.RemovalTime -->
+<g id="node14" class="node">
+<title>streams.ExperimentOSC.RemovalTime</title>
+<g id="a_node14"><a xlink:title="→ streams.ExperimentOSC
+------------------------------
+o_s_c_remove_time    
+">
+<polygon fill="transparent" stroke="transparent" points="5699.5,-27 5509.5,-27 5509.5,-8 5699.5,-8 5699.5,-27"/>
+<text text-anchor="middle" x="5604.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentOSC.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentalMetadataSubjectState -->
+<g id="node15" class="node">
+<title>streams.ExperimentalMetadataSubjectState</title>
+<g id="a_node15"><a xlink:title="→ streams.ExperimentExperimentalMetadata
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+id                   
+weight               
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="3635.5" cy="-17.5" rx="156" ry="17.5"/>
+<text text-anchor="middle" x="3635.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.ExperimentalMetadataSubjectState</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic -->
+<g id="node16" class="node">
+<title>streams.ExperimentTaskLogic</title>
+<g id="a_node16"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+task_logic_install_time 
+------------------------------
+task_logic_name      
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="1614.5,-106 1438.5,-106 1438.5,-71 1614.5,-71 1614.5,-106"/>
+<text text-anchor="start" x="1446.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentTaskLogic</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicDrawBackground -->
+<g id="edge4" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicDrawBackground</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1463.27,-70.97C1419.49,-59.53 1361.7,-44.43 1319.37,-33.36"/>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.ExperimentTaskLogic.RemovalTime -->
+<g id="edge5" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.ExperimentTaskLogic.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M1438.46,-81.5C1319.74,-73.04 1101.83,-56.25 916.5,-35 896.86,-32.75 875.41,-29.8 856.4,-27.02"/>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicTrialInitiation -->
+<g id="edge6" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicTrialInitiation</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1526.5,-70.8C1526.5,-59.95 1526.5,-45.87 1526.5,-35.05"/>
+</g>
+<!-- streams.TaskLogicGratingsSliceOnset -->
+<g id="node25" class="node">
+<title>streams.TaskLogicGratingsSliceOnset</title>
+<g id="a_node25"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+wall_id              
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="1796.5" cy="-17.5" rx="136.75" ry="17.5"/>
+<text text-anchor="middle" x="1796.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicGratingsSliceOnset</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicGratingsSliceOnset -->
+<g id="edge7" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicGratingsSliceOnset</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1591.17,-70.97C1635.95,-59.53 1695.04,-44.43 1738.33,-33.36"/>
+</g>
+<!-- streams.TaskLogicResponse -->
+<g id="node41" class="node">
+<title>streams.TaskLogicResponse</title>
+<g id="a_node41"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wall_id              
+poke_id              
+response_time        
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="2057.5" cy="-17.5" rx="106" ry="17.5"/>
+<text text-anchor="middle" x="2057.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicResponse</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicResponse -->
+<g id="edge8" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicResponse</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1614.61,-76.82C1698.85,-66.51 1829.42,-50.25 1942.5,-35 1954.89,-33.33 1968.03,-31.5 1980.82,-29.69"/>
+</g>
+<!-- streams.TaskLogicPreTrialState -->
+<g id="node43" class="node">
+<title>streams.TaskLogicPreTrialState</title>
+<g id="a_node43"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="2297.5" cy="-17.5" rx="115.75" ry="17.5"/>
+<text text-anchor="middle" x="2297.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicPreTrialState</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicPreTrialState -->
+<g id="edge9" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicPreTrialState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1614.66,-81.74C1739.15,-73.29 1973.48,-56.21 2172.5,-35 2186.43,-33.52 2201.21,-31.74 2215.54,-29.92"/>
+</g>
+<!-- streams.ExperimentTaskLogic.Attribute -->
+<g id="node52" class="node">
+<title>streams.ExperimentTaskLogic.Attribute</title>
+<g id="a_node52"><a xlink:title="→ streams.ExperimentTaskLogic
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="1113.5,-27 925.5,-27 925.5,-8 1113.5,-8 1113.5,-27"/>
+<text text-anchor="start" x="933.5" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentTaskLogic.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.ExperimentTaskLogic.Attribute -->
+<g id="edge10" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.ExperimentTaskLogic.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1438.13,-76.78C1356.21,-66.66 1230.99,-50.74 1122.5,-35 1105.65,-32.56 1087.29,-29.68 1070.8,-27.02"/>
+</g>
+<!-- streams.TaskLogicInterTrialInterval -->
+<g id="node71" class="node">
+<title>streams.TaskLogicInterTrialInterval</title>
+<g id="a_node71"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="2556.5" cy="-17.5" rx="125.75" ry="17.5"/>
+<text text-anchor="middle" x="2556.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicInterTrialInterval</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicInterTrialInterval -->
+<g id="edge11" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicInterTrialInterval</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1614.71,-84.21C1775.53,-77.78 2127.07,-61.82 2422.5,-35 2437.56,-33.63 2453.53,-31.91 2469.01,-30.09"/>
+</g>
+<!-- streams.TaskLogicSliceOnset -->
+<g id="node79" class="node">
+<title>streams.TaskLogicSliceOnset</title>
+<g id="a_node79"><a xlink:title="→ streams.ExperimentTaskLogic
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+wall_id              
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="2808.5" cy="-17.5" rx="109" ry="17.5"/>
+<text text-anchor="middle" x="2808.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.TaskLogicSliceOnset</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentTaskLogic&#45;&gt;streams.TaskLogicSliceOnset -->
+<g id="edge12" class="edge">
+<title>streams.ExperimentTaskLogic-&gt;streams.TaskLogicSliceOnset</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M1614.75,-86.38C1809.49,-83.29 2290.58,-72.22 2691.5,-35 2705.08,-33.74 2719.5,-32.02 2733.41,-30.17"/>
+</g>
+<!-- acquisition.Experiment -->
+<g id="node17" class="node">
+<title>acquisition.Experiment</title>
+<g id="a_node17"><a xlink:title="experiment_name      
+------------------------------
+experiment_start_time 
+experiment_description 
+→ acquisition.lab.Arena
+→ acquisition.lab.Location
+→ acquisition.ExperimentType
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="7635.5,-248 7497.5,-248 7497.5,-213 7635.5,-213 7635.5,-248"/>
+<text text-anchor="start" x="7505.5" y="-228.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">acquisition.Experiment</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentPhotodiode -->
+<g id="edge13" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentPhotodiode</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.46,-228.99C7105.35,-226.02 5118.83,-209.89 3496.5,-177 2280.91,-152.36 803.16,-104.98 423.73,-92.55"/>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentTaskLogic -->
+<g id="edge14" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentTaskLogic</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.29,-228.31C7190.56,-223.01 5923,-200.74 4882.5,-177 3583.11,-147.35 2000.95,-102.96 1614.65,-92.01"/>
+</g>
+<!-- streams.ExperimentExperimentalMetadata -->
+<g id="node21" class="node">
+<title>streams.ExperimentExperimentalMetadata</title>
+<g id="a_node21"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+experimental_metadata_install_time 
+------------------------------
+experimental_metadata_name 
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="3461.5,-106 3219.5,-106 3219.5,-71 3461.5,-71 3461.5,-106"/>
+<text text-anchor="start" x="3227.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentExperimentalMetadata</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentExperimentalMetadata -->
+<g id="edge15" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentExperimentalMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.11,-227.48C7264.56,-220.68 6491.49,-197.91 5852.5,-177 4933.06,-146.91 3824.45,-107.04 3461.73,-93.9"/>
+</g>
+<!-- streams.ExperimentCamera -->
+<g id="node31" class="node">
+<title>streams.ExperimentCamera</title>
+<g id="a_node31"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+camera_install_time  
+------------------------------
+camera_name          
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="4886,-106 4721,-106 4721,-71 4886,-71 4886,-106"/>
+<text text-anchor="start" x="4729" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentCamera</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentCamera -->
+<g id="edge16" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentCamera</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.17,-225.99C7117.97,-206.77 5297.23,-114.52 4886.11,-93.69"/>
+</g>
+<!-- streams.ExperimentOSC -->
+<g id="node32" class="node">
+<title>streams.ExperimentOSC</title>
+<g id="a_node32"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+o_s_c_install_time   
+------------------------------
+o_s_c_name           
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="6556,-106 6407,-106 6407,-71 6556,-71 6556,-106"/>
+<text text-anchor="start" x="6415" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentOSC</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentOSC -->
+<g id="edge17" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentOSC</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.39,-220.58C7303.68,-195.59 6756.57,-124.99 6556.21,-99.14"/>
+</g>
+<!-- acquisition.Chunk -->
+<g id="node35" class="node">
+<title>acquisition.Chunk</title>
+<g id="a_node35"><a xlink:title="→ acquisition.Experiment
+chunk_start          
+------------------------------
+chunk_end            
+→ acquisition.Experiment.Directory
+→ acquisition.Epoch
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="7699,-106 7586,-106 7586,-71 7699,-71 7699,-106"/>
+<text text-anchor="start" x="7594" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">acquisition.Chunk</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;acquisition.Chunk -->
+<g id="edge18" class="edge">
+<title>acquisition.Experiment-&gt;acquisition.Chunk</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7497.36,-213.75C7449.24,-199.49 7398.07,-175.55 7424.5,-142 7444.25,-116.92 7528.17,-102.43 7585.93,-95.25"/>
+</g>
+<!-- streams.ExperimentFoodPatch -->
+<g id="node40" class="node">
+<title>streams.ExperimentFoodPatch</title>
+<g id="a_node40"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+food_patch_install_time 
+------------------------------
+food_patch_name      
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="9696,-106 9515,-106 9515,-71 9696,-71 9696,-106"/>
+<text text-anchor="start" x="9523" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentFoodPatch</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentFoodPatch -->
+<g id="edge19" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentFoodPatch</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7635.71,-225.23C7691.59,-219.63 7771.07,-206.73 7834.5,-177 7856.81,-166.54 7854.41,-150.61 7877.5,-142 7954.66,-113.24 9169.88,-95.2 9514.84,-90.64"/>
+</g>
+<!-- streams.ExperimentNestScale -->
+<g id="node45" class="node">
+<title>streams.ExperimentNestScale</title>
+<g id="a_node45"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+nest_scale_install_time 
+------------------------------
+nest_scale_name      
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="13802.5,-106 13624.5,-106 13624.5,-71 13802.5,-71 13802.5,-106"/>
+<text text-anchor="start" x="13632.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentNestScale</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentNestScale -->
+<g id="edge20" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentNestScale</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7635.57,-228.52C7706.19,-225.34 7817.8,-214.15 7906.5,-177 7930.52,-166.94 7928.82,-150.31 7953.5,-142 8023.71,-118.38 12901.93,-93.49 13624.47,-89.93"/>
+</g>
+<!-- acquisition.Epoch -->
+<g id="node60" class="node">
+<title>acquisition.Epoch</title>
+<g id="a_node60"><a xlink:title="→ acquisition.Experiment
+epoch_start          
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="7545.5,-177 7433.5,-177 7433.5,-142 7545.5,-142 7545.5,-177"/>
+<text text-anchor="middle" x="7489.5" y="-156.4" font-family="arial" font-size="12.00" fill="darkgreen">acquisition.Epoch</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;acquisition.Epoch -->
+<g id="edge21" class="edge">
+<title>acquisition.Experiment-&gt;acquisition.Epoch</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7547.86,-212.8C7535.75,-201.95 7520.04,-187.87 7507.97,-177.05"/>
+</g>
+<!-- streams.ExperimentWall -->
+<g id="node64" class="node">
+<title>streams.ExperimentWall</title>
+<g id="a_node64"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+wall_install_time    
+------------------------------
+wall_name            
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="10764.5,-106 10618.5,-106 10618.5,-71 10764.5,-71 10764.5,-106"/>
+<text text-anchor="start" x="10626.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentWall</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentWall -->
+<g id="edge22" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentWall</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7635.66,-226.85C7698.87,-222.29 7793.76,-210.01 7869.5,-177 7893.05,-166.74 7891.24,-150.44 7915.5,-142 7931.94,-136.28 10181.43,-98.1 10618.43,-90.73"/>
+</g>
+<!-- streams.ExperimentMetadata -->
+<g id="node75" class="node">
+<title>streams.ExperimentMetadata</title>
+<g id="a_node75"><a xlink:title="→ acquisition.Experiment
+→ streams.Device
+metadata_install_time 
+------------------------------
+metadata_name        
+">
+<polygon fill="#00ff00" fill-opacity="0.188235" stroke="#00ff00" stroke-opacity="0.188235" points="14249.5,-106 14077.5,-106 14077.5,-71 14249.5,-71 14249.5,-106"/>
+<text text-anchor="start" x="14085.5" y="-86.4" font-family="arial" text-decoration="underline" font-size="12.00" fill="darkgreen">streams.ExperimentMetadata</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;streams.ExperimentMetadata -->
+<g id="edge23" class="edge">
+<title>acquisition.Experiment-&gt;streams.ExperimentMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7635.51,-224.27C7728.75,-216.46 7889.52,-200.15 7943.5,-177 7966.46,-167.15 7963.93,-150.31 7987.5,-142 8063.78,-115.09 13730.64,-108.14 13811.5,-106 13902.32,-103.59 14006.22,-98.43 14077.46,-94.51"/>
+</g>
+<!-- acquisition.Experiment.Directory -->
+<g id="node81" class="node">
+<title>acquisition.Experiment.Directory</title>
+<g id="a_node81"><a xlink:title="→ acquisition.Experiment
+→ acquisition.DirectoryType
+------------------------------
+→ acquisition.PipelineRepository
+directory_path       
+">
+<polygon fill="transparent" stroke="transparent" points="7721.5,-169 7563.5,-169 7563.5,-150 7721.5,-150 7721.5,-169"/>
+<text text-anchor="middle" x="7642.5" y="-157" font-family="arial" font-size="10.00">acquisition.Experiment.Directory</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Experiment&#45;&gt;acquisition.Experiment.Directory -->
+<g id="edge24" class="edge">
+<title>acquisition.Experiment-&gt;acquisition.Experiment.Directory</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7584.9,-212.8C7600.01,-199.08 7620.82,-180.19 7632.85,-169.27"/>
+</g>
+<!-- streams.ExperimentCamera.Attribute -->
+<g id="node18" class="node">
+<title>streams.ExperimentCamera.Attribute</title>
+<g id="a_node18"><a xlink:title="→ streams.ExperimentCamera
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="4684,-27 4505,-27 4505,-8 4684,-8 4684,-27"/>
+<text text-anchor="start" x="4513" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentCamera.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.OSCRunPreTrialNoPoke -->
+<g id="node19" class="node">
+<title>streams.OSCRunPreTrialNoPoke</title>
+<g id="a_node19"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wait_for_poke        
+reward_iti           
+timeout_iti          
+pre_trial_duration   
+activity_reset_flag  
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="6268.5" cy="-17.5" rx="122.5" ry="17.5"/>
+<text text-anchor="middle" x="6268.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCRunPreTrialNoPoke</text>
+</a>
+</g>
+</g>
+<!-- streams.StreamType -->
+<g id="node20" class="node">
+<title>streams.StreamType</title>
+<g id="a_node20"><a xlink:title="stream_type          
+------------------------------
+stream_reader        
+stream_reader_kwargs 
+stream_description=&quot;&quot; 
+stream_hash          
+UNIQUE INDEX (stream_hash)
+">
+<polygon fill="#000000" fill-opacity="0.125490" stroke="transparent" points="8245,-248 8138,-248 8138,-213 8245,-213 8245,-248"/>
+<text text-anchor="start" x="8146" y="-229" font-family="arial" text-decoration="underline" font-size="10.00">streams.StreamType</text>
+</a>
+</g>
+</g>
+<!-- streams.DeviceType.Stream -->
+<g id="node74" class="node">
+<title>streams.DeviceType.Stream</title>
+<g id="a_node74"><a xlink:title="→ streams.DeviceType
+→ streams.StreamType
+">
+<polygon fill="transparent" stroke="transparent" points="8137,-169 7996,-169 7996,-150 8137,-150 8137,-169"/>
+<text text-anchor="middle" x="8066.5" y="-157" font-family="arial" font-size="10.00">streams.DeviceType.Stream</text>
+</a>
+</g>
+</g>
+<!-- streams.StreamType&#45;&gt;streams.DeviceType.Stream -->
+<g id="edge25" class="edge">
+<title>streams.StreamType-&gt;streams.DeviceType.Stream</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M8161.56,-212.97C8136.57,-199.18 8101.94,-180.06 8082.12,-169.12"/>
+</g>
+<!-- streams.ExperimentExperimentalMetadata&#45;&gt;streams.ExperimentExperimentalMetadata.RemovalTime -->
+<g id="edge26" class="edge">
+<title>streams.ExperimentExperimentalMetadata-&gt;streams.ExperimentExperimentalMetadata.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M3275.35,-70.97C3220.81,-57.14 3145.19,-37.95 3102.11,-27.03"/>
+</g>
+<!-- streams.ExperimentExperimentalMetadata&#45;&gt;streams.ExperimentalMetadataSubjectState -->
+<g id="edge27" class="edge">
+<title>streams.ExperimentExperimentalMetadata-&gt;streams.ExperimentalMetadataSubjectState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M3411.16,-70.97C3459.91,-59.57 3524.2,-44.53 3571.45,-33.48"/>
+</g>
+<!-- streams.ExperimentalMetadataEnvironmentState -->
+<g id="node24" class="node">
+<title>streams.ExperimentalMetadataEnvironmentState</title>
+<g id="a_node24"><a xlink:title="→ streams.ExperimentExperimentalMetadata
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="3982.5" cy="-17.5" rx="173.25" ry="17.5"/>
+<text text-anchor="middle" x="3982.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.ExperimentalMetadataEnvironmentState</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentExperimentalMetadata&#45;&gt;streams.ExperimentalMetadataEnvironmentState -->
+<g id="edge28" class="edge">
+<title>streams.ExperimentExperimentalMetadata-&gt;streams.ExperimentalMetadataEnvironmentState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M3461.63,-74.48C3578.64,-61.91 3754.49,-43.01 3868.89,-30.71"/>
+</g>
+<!-- streams.ExperimentalMetadataMessageLog -->
+<g id="node48" class="node">
+<title>streams.ExperimentalMetadataMessageLog</title>
+<g id="a_node48"><a xlink:title="→ streams.ExperimentExperimentalMetadata
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+priority             
+type                 
+message              
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="4330.5" cy="-17.5" rx="156.75" ry="17.5"/>
+<text text-anchor="middle" x="4330.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.ExperimentalMetadataMessageLog</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentExperimentalMetadata&#45;&gt;streams.ExperimentalMetadataMessageLog -->
+<g id="edge29" class="edge">
+<title>streams.ExperimentExperimentalMetadata-&gt;streams.ExperimentalMetadataMessageLog</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M3461.72,-81.12C3622.48,-72.36 3915.01,-55.34 4164.5,-35 4182.54,-33.53 4201.67,-31.79 4220.27,-30.01"/>
+</g>
+<!-- streams.ExperimentExperimentalMetadata.Attribute -->
+<g id="node61" class="node">
+<title>streams.ExperimentExperimentalMetadata.Attribute</title>
+<g id="a_node61"><a xlink:title="→ streams.ExperimentExperimentalMetadata
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="3461.5,-27 3219.5,-27 3219.5,-8 3461.5,-8 3461.5,-27"/>
+<text text-anchor="start" x="3227.5" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentExperimentalMetadata.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentExperimentalMetadata&#45;&gt;streams.ExperimentExperimentalMetadata.Attribute -->
+<g id="edge30" class="edge">
+<title>streams.ExperimentExperimentalMetadata-&gt;streams.ExperimentExperimentalMetadata.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M3340.5,-70.8C3340.5,-57.08 3340.5,-38.19 3340.5,-27.27"/>
+</g>
+<!-- streams.WallBeamBreak1 -->
+<g id="node22" class="node">
+<title>streams.WallBeamBreak1</title>
+<g id="a_node22"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="8935.5" cy="-17.5" rx="96.75" ry="17.5"/>
+<text text-anchor="middle" x="8935.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallBeamBreak1</text>
+</a>
+</g>
+</g>
+<!-- streams.OSCPoke -->
+<g id="node23" class="node">
+<title>streams.OSCPoke</title>
+<g id="a_node23"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wall_id              
+poke_id              
+reward               
+reward_interval      
+delay                
+led_delay            
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="6481.5" cy="-17.5" rx="72.5" ry="17.5"/>
+<text text-anchor="middle" x="6481.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCPoke</text>
+</a>
+</g>
+</g>
+<!-- streams.WallClearLed1 -->
+<g id="node26" class="node">
+<title>streams.WallClearLed1</title>
+<g id="a_node26"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="9139.5" cy="-17.5" rx="88.5" ry="17.5"/>
+<text text-anchor="middle" x="9139.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearLed1</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentNestScale.Attribute -->
+<g id="node27" class="node">
+<title>streams.ExperimentNestScale.Attribute</title>
+<g id="a_node27"><a xlink:title="→ streams.ExperimentNestScale
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="13808.5,-27 13618.5,-27 13618.5,-8 13808.5,-8 13808.5,-27"/>
+<text text-anchor="start" x="13626.5" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentNestScale.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.NestScaleWeightRaw -->
+<g id="node28" class="node">
+<title>streams.NestScaleWeightRaw</title>
+<g id="a_node28"><a xlink:title="→ streams.ExperimentNestScale
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+value                
+stable               
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="11916.5" cy="-17.5" rx="111.75" ry="17.5"/>
+<text text-anchor="middle" x="11916.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.NestScaleWeightRaw</text>
+</a>
+</g>
+</g>
+<!-- streams.WallSetValve1 -->
+<g id="node29" class="node">
+<title>streams.WallSetValve1</title>
+<g id="a_node29"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="9333.5" cy="-17.5" rx="87.5" ry="17.5"/>
+<text text-anchor="middle" x="9333.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetValve1</text>
+</a>
+</g>
+</g>
+<!-- streams.WallClearLed0 -->
+<g id="node30" class="node">
+<title>streams.WallClearLed0</title>
+<g id="a_node30"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="9527.5" cy="-17.5" rx="88.5" ry="17.5"/>
+<text text-anchor="middle" x="9527.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearLed0</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentCamera&#45;&gt;streams.CameraVideo -->
+<g id="edge31" class="edge">
+<title>streams.ExperimentCamera-&gt;streams.CameraVideo</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M4852.36,-70.97C4886.78,-59.33 4932.4,-43.9 4965.25,-32.79"/>
+</g>
+<!-- streams.ExperimentCamera&#45;&gt;streams.CameraPosition -->
+<g id="edge32" class="edge">
+<title>streams.ExperimentCamera-&gt;streams.CameraPosition</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M4886.17,-73.2C4960.47,-60.35 5068.15,-41.73 5136.74,-29.87"/>
+</g>
+<!-- streams.ExperimentCamera&#45;&gt;streams.ExperimentCamera.Attribute -->
+<g id="edge33" class="edge">
+<title>streams.ExperimentCamera-&gt;streams.ExperimentCamera.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M4753.44,-70.97C4711.53,-57.14 4653.43,-37.95 4620.32,-27.03"/>
+</g>
+<!-- streams.CameraRegion -->
+<g id="node47" class="node">
+<title>streams.CameraRegion</title>
+<g id="a_node47"><a xlink:title="→ streams.ExperimentCamera
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+region               
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="5402.5" cy="-17.5" rx="89.25" ry="17.5"/>
+<text text-anchor="middle" x="5402.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.CameraRegion</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentCamera&#45;&gt;streams.CameraRegion -->
+<g id="edge34" class="edge">
+<title>streams.ExperimentCamera-&gt;streams.CameraRegion</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M4886.41,-80.34C4985.74,-71.41 5157.12,-54.87 5303.5,-35 5314.81,-33.47 5326.81,-31.64 5338.41,-29.76"/>
+</g>
+<!-- streams.ExperimentCamera.RemovalTime -->
+<g id="node70" class="node">
+<title>streams.ExperimentCamera.RemovalTime</title>
+<g id="a_node70"><a xlink:title="→ streams.ExperimentCamera
+------------------------------
+camera_remove_time   
+">
+<polygon fill="transparent" stroke="transparent" points="4905,-27 4702,-27 4702,-8 4905,-8 4905,-27"/>
+<text text-anchor="middle" x="4803.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentCamera.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentCamera&#45;&gt;streams.ExperimentCamera.RemovalTime -->
+<g id="edge35" class="edge">
+<title>streams.ExperimentCamera-&gt;streams.ExperimentCamera.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M4803.5,-70.8C4803.5,-57.08 4803.5,-38.19 4803.5,-27.27"/>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCStartNewSession -->
+<g id="edge36" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCStartNewSession</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6406.99,-76.49C6321.11,-63.8 6180.58,-43.04 6093.04,-30.1"/>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.ExperimentOSC.RemovalTime -->
+<g id="edge37" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.ExperimentOSC.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M6406.95,-84.66C6268.83,-78.9 5963.96,-63.88 5708.5,-35 5690.15,-32.93 5670.09,-29.92 5652.53,-27.04"/>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCRunPreTrialNoPoke -->
+<g id="edge38" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCRunPreTrialNoPoke</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6430.48,-70.97C6395.53,-59.65 6349.51,-44.74 6315.46,-33.71"/>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCPoke -->
+<g id="edge39" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCPoke</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6481.5,-70.8C6481.5,-59.95 6481.5,-45.87 6481.5,-35.05"/>
+</g>
+<!-- streams.OSCGratingsSlice -->
+<g id="node33" class="node">
+<title>streams.OSCGratingsSlice</title>
+<g id="a_node33"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wall_id              
+contrast             
+opacity              
+spatial_frequency    
+temporal_frequency   
+angle                
+delay                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="6672.5" cy="-17.5" rx="100" ry="17.5"/>
+<text text-anchor="middle" x="6672.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCGratingsSlice</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCGratingsSlice -->
+<g id="edge40" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCGratingsSlice</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6527.25,-70.97C6558.81,-59.57 6600.44,-44.53 6631.03,-33.48"/>
+</g>
+<!-- streams.ExperimentOSC.Attribute -->
+<g id="node57" class="node">
+<title>streams.ExperimentOSC.Attribute</title>
+<g id="a_node57"><a xlink:title="→ streams.ExperimentOSC
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="5883.5,-27 5717.5,-27 5717.5,-8 5883.5,-8 5883.5,-27"/>
+<text text-anchor="start" x="5725.5" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentOSC.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.ExperimentOSC.Attribute -->
+<g id="edge41" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.ExperimentOSC.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6406.88,-82.98C6294.85,-75.7 6076.67,-59.67 5892.5,-35 5876.42,-32.85 5858.86,-29.86 5843.44,-27.01"/>
+</g>
+<!-- streams.OSCSlice -->
+<g id="node62" class="node">
+<title>streams.OSCSlice</title>
+<g id="a_node62"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wall_id              
+r                    
+g                    
+b                    
+a                    
+delay                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="6862.5" cy="-17.5" rx="71.75" ry="17.5"/>
+<text text-anchor="middle" x="6862.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCSlice</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCSlice -->
+<g id="edge42" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCSlice</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6556.19,-75.02C6616.95,-64.73 6704.87,-49.51 6781.5,-35 6790.67,-33.26 6800.4,-31.35 6809.82,-29.45"/>
+</g>
+<!-- streams.OSCChangeSubjectState -->
+<g id="node63" class="node">
+<title>streams.OSCChangeSubjectState</title>
+<g id="a_node63"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+id                   
+weight               
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="7076.5" cy="-17.5" rx="124.25" ry="17.5"/>
+<text text-anchor="middle" x="7076.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCChangeSubjectState</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCChangeSubjectState -->
+<g id="edge43" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCChangeSubjectState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6556.35,-79.23C6647.74,-69.09 6807.03,-51.22 6943.5,-35 6957.59,-33.33 6972.52,-31.51 6987.09,-29.72"/>
+</g>
+<!-- streams.OSCBackgroundColor -->
+<g id="node72" class="node">
+<title>streams.OSCBackgroundColor</title>
+<g id="a_node72"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+r                    
+g                    
+b                    
+a                    
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="7332.5" cy="-17.5" rx="114" ry="17.5"/>
+<text text-anchor="middle" x="7332.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCBackgroundColor</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCBackgroundColor -->
+<g id="edge44" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCBackgroundColor</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6556.04,-83.64C6688,-76.46 6971.27,-59.55 7209.5,-35 7223.43,-33.56 7238.22,-31.79 7252.53,-29.95"/>
+</g>
+<!-- streams.OSCEndTrial -->
+<g id="node77" class="node">
+<title>streams.OSCEndTrial</title>
+<g id="a_node77"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+value                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="7547.5" cy="-17.5" rx="83.25" ry="17.5"/>
+<text text-anchor="middle" x="7547.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCEndTrial</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCEndTrial -->
+<g id="edge45" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCEndTrial</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6556.3,-86.61C6719.91,-83.99 7121.6,-73.79 7455.5,-35 7466.46,-33.73 7478.09,-31.97 7489.26,-30.07"/>
+</g>
+<!-- streams.OSCResponse -->
+<g id="node80" class="node">
+<title>streams.OSCResponse</title>
+<g id="a_node80"><a xlink:title="→ streams.ExperimentOSC
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+typetag              
+wall_id              
+poke_id              
+response_time        
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="7738.5" cy="-17.5" rx="89.25" ry="17.5"/>
+<text text-anchor="middle" x="7738.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.OSCResponse</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentOSC&#45;&gt;streams.OSCResponse -->
+<g id="edge46" class="edge">
+<title>streams.ExperimentOSC-&gt;streams.OSCResponse</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M6556.24,-87.21C6740.71,-85.82 7232.23,-78.02 7639.5,-35 7651.37,-33.75 7663.98,-31.98 7676.07,-30.07"/>
+</g>
+<!-- streams.ExperimentNestScale.RemovalTime -->
+<g id="node34" class="node">
+<title>streams.ExperimentNestScale.RemovalTime</title>
+<g id="a_node34"><a xlink:title="→ streams.ExperimentNestScale
+------------------------------
+nest_scale_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="14040.5,-27 13826.5,-27 13826.5,-8 14040.5,-8 14040.5,-27"/>
+<text text-anchor="middle" x="13933.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentNestScale.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.CameraVideo -->
+<g id="edge47" class="edge">
+<title>acquisition.Chunk-&gt;streams.CameraVideo</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.99,-86.58C7222.81,-80.65 5228.24,-47.57 5100.5,-35 5089.24,-33.89 5077.29,-32.18 5065.85,-30.28"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.PhotodiodePhotodiode -->
+<g id="edge48" class="edge">
+<title>acquisition.Chunk-&gt;streams.PhotodiodePhotodiode</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.82,-86.45C7425.51,-83.52 6955.2,-75.19 6564.5,-71 5911.41,-64 1338.08,-79.82 686.5,-35 671.43,-33.96 655.41,-32.29 640.03,-30.39"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.FoodPatchEncoder -->
+<g id="edge49" class="edge">
+<title>acquisition.Chunk-&gt;streams.FoodPatchEncoder</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.17,-74.76C7753.39,-62.58 7834.88,-44.26 7890.02,-31.87"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicDrawBackground -->
+<g id="edge50" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicDrawBackground</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.82,-86.47C7425.51,-83.58 6955.2,-75.35 6564.5,-71 5990.97,-64.61 1974.96,-70.62 1402.5,-35 1385.77,-33.96 1367.97,-32.29 1350.87,-30.41"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCStartNewSession -->
+<g id="edge51" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCStartNewSession</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.97,-87.56C7386.98,-87.32 6700.55,-82.85 6136.5,-35 6122.23,-33.79 6107.07,-32.08 6092.47,-30.22"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.FoodPatchBeamBreak -->
+<g id="edge52" class="edge">
+<title>acquisition.Chunk-&gt;streams.FoodPatchBeamBreak</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.11,-80.57C7779.64,-70.66 7931.91,-51.81 8061.5,-35 8074.64,-33.3 8088.57,-31.46 8102.14,-29.65"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicTrialInitiation -->
+<g id="edge53" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicTrialInitiation</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.82,-86.47C7425.51,-83.6 6955.2,-75.42 6564.5,-71 6018.52,-64.82 2195.18,-73.08 1650.5,-35 1635.55,-33.95 1619.65,-32.27 1604.4,-30.38"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.CameraPosition -->
+<g id="edge54" class="edge">
+<title>acquisition.Chunk-&gt;streams.CameraPosition</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.83,-86.7C7250.98,-81.89 5537.8,-56.39 5304.5,-35 5292.08,-33.86 5278.89,-32.13 5266.26,-30.2"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.ExperimentalMetadataSubjectState -->
+<g id="edge55" class="edge">
+<title>acquisition.Chunk-&gt;streams.ExperimentalMetadataSubjectState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.81,-86.59C7425.51,-84.01 6955.19,-76.53 6564.5,-71 5950.29,-62.3 4413.8,-69.59 3800.5,-35 3781.24,-33.91 3760.76,-32.27 3741.02,-30.42"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCRunPreTrialNoPoke -->
+<g id="edge56" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCRunPreTrialNoPoke</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.71,-86.78C7409.44,-84.18 6856.06,-73.33 6399.5,-35 6384.42,-33.73 6368.41,-32.02 6352.95,-30.18"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallBeamBreak1 -->
+<g id="edge57" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallBeamBreak1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.19,-87.21C7870.24,-85.85 8396.14,-78.18 8829.5,-35 8842.01,-33.75 8855.29,-32.02 8868.07,-30.14"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCPoke -->
+<g id="edge58" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCPoke</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.79,-87.73C7424.94,-87.73 6952.25,-83.29 6563.5,-35 6553.41,-33.75 6542.71,-31.95 6532.48,-29.99"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.ExperimentalMetadataEnvironmentState -->
+<g id="edge59" class="edge">
+<title>acquisition.Chunk-&gt;streams.ExperimentalMetadataEnvironmentState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.81,-86.63C7425.51,-84.16 6955.18,-76.92 6564.5,-71 5497.84,-54.84 5229.81,-91.2 4164.5,-35 4143.43,-33.89 4121.03,-32.24 4099.4,-30.41"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicGratingsSliceOnset -->
+<g id="edge60" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicGratingsSliceOnset</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.82,-86.48C7425.51,-83.64 6955.2,-75.51 6564.5,-71 6050.96,-65.07 2455.14,-65.88 1942.5,-35 1925.19,-33.96 1906.77,-32.3 1889.06,-30.44"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearLed1 -->
+<g id="edge61" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearLed1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.32,-88C7889.69,-89.1 8522.27,-88.23 9041.5,-35 9053.26,-33.79 9065.74,-32.05 9077.72,-30.15"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.NestScaleWeightRaw -->
+<g id="edge62" class="edge">
+<title>acquisition.Chunk-&gt;streams.NestScaleWeightRaw</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.17,-86.98C8181.26,-82.56 11581.74,-50.87 11795.5,-35 11809.98,-33.93 11825.38,-32.24 11840.16,-30.36"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetValve1 -->
+<g id="edge63" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetValve1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.03,-86.68C7945.77,-82.95 8929.83,-66.35 9237.5,-35 9249.02,-33.83 9261.25,-32.1 9272.99,-30.2"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearLed0 -->
+<g id="edge64" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearLed0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.07,-86.9C7963.87,-83.93 9082.65,-69.52 9430.5,-35 9442.14,-33.84 9454.5,-32.13 9466.36,-30.23"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCGratingsSlice -->
+<g id="edge65" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCGratingsSlice</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.94,-85.8C7448.07,-81.28 7083.81,-67.03 6781.5,-35 6768.84,-33.66 6755.41,-31.9 6742.45,-30.03"/>
+</g>
+<!-- streams.WallSetValve2 -->
+<g id="node36" class="node">
+<title>streams.WallSetValve2</title>
+<g id="a_node36"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="9721.5" cy="-17.5" rx="87.5" ry="17.5"/>
+<text text-anchor="middle" x="9721.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetValve2</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetValve2 -->
+<g id="edge66" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetValve2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.03,-87.1C7980.97,-84.95 9236.93,-73.34 9625.5,-35 9637.11,-33.85 9649.44,-32.13 9661.25,-30.22"/>
+</g>
+<!-- streams.WallSetValve0 -->
+<g id="node38" class="node">
+<title>streams.WallSetValve0</title>
+<g id="a_node38"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="9914.5" cy="-17.5" rx="87.5" ry="17.5"/>
+<text text-anchor="middle" x="9914.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetValve0</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetValve0 -->
+<g id="edge67" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetValve0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.02,-87.26C7997.15,-85.8 9389.5,-76.82 9818.5,-35 9830.11,-33.87 9842.44,-32.15 9854.25,-30.24"/>
+</g>
+<!-- streams.WallSetLed1 -->
+<g id="node39" class="node">
+<title>streams.WallSetLed1</title>
+<g id="a_node39"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="10101.5" cy="-17.5" rx="81.75" ry="17.5"/>
+<text text-anchor="middle" x="10101.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetLed1</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetLed1 -->
+<g id="edge68" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetLed1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.07,-87.47C8012.85,-87.11 9542.26,-82.91 10011.5,-35 10022.4,-33.89 10033.97,-32.17 10045.05,-30.27"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicResponse -->
+<g id="edge69" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicResponse</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.82,-86.49C7425.51,-83.67 6955.2,-75.59 6564.5,-71 6076.52,-65.27 2659.13,-71.74 2172.5,-35 2158.62,-33.95 2143.87,-32.27 2129.73,-30.37"/>
+</g>
+<!-- streams.WallClearLed2 -->
+<g id="node42" class="node">
+<title>streams.WallClearLed2</title>
+<g id="a_node42"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="10290.5" cy="-17.5" rx="88.5" ry="17.5"/>
+<text text-anchor="middle" x="10290.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearLed2</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearLed2 -->
+<g id="edge70" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearLed2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.04,-87.46C8026.69,-87.07 9684.82,-82.71 10192.5,-35 10204.44,-33.88 10217.12,-32.15 10229.26,-30.23"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicPreTrialState -->
+<g id="edge71" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicPreTrialState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.81,-86.5C7425.51,-83.7 6955.2,-75.69 6564.5,-71 6104.18,-65.48 2880.71,-67.42 2421.5,-35 2406.66,-33.95 2390.88,-32.28 2375.74,-30.4"/>
+</g>
+<!-- streams.FoodPatchDepletionState -->
+<g id="node44" class="node">
+<title>streams.FoodPatchDepletionState</title>
+<g id="a_node44"><a xlink:title="→ streams.ExperimentFoodPatch
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+threshold            
+d1                   
+delta                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="8441.5" cy="-17.5" rx="125" ry="17.5"/>
+<text text-anchor="middle" x="8441.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.FoodPatchDepletionState</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.FoodPatchDepletionState -->
+<g id="edge72" class="edge">
+<title>acquisition.Chunk-&gt;streams.FoodPatchDepletionState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.06,-83.87C7813.89,-76.32 8082.52,-57.72 8307.5,-35 8322.31,-33.5 8338.02,-31.74 8353.26,-29.92"/>
+</g>
+<!-- streams.WallBeamBreak0 -->
+<g id="node46" class="node">
+<title>streams.WallBeamBreak0</title>
+<g id="a_node46"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="10494.5" cy="-17.5" rx="96.75" ry="17.5"/>
+<text text-anchor="middle" x="10494.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallBeamBreak0</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallBeamBreak0 -->
+<g id="edge73" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallBeamBreak0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.14,-87.46C8041.59,-87.08 9839.25,-82.78 10388.5,-35 10401.3,-33.89 10414.9,-32.17 10427.94,-30.27"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.CameraRegion -->
+<g id="edge74" class="edge">
+<title>acquisition.Chunk-&gt;streams.CameraRegion</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.74,-86.59C7267.67,-81.44 5713.07,-55.4 5500.5,-35 5488.65,-33.86 5476.07,-32.14 5464.01,-30.23"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.ExperimentalMetadataMessageLog -->
+<g id="edge75" class="edge">
+<title>acquisition.Chunk-&gt;streams.ExperimentalMetadataMessageLog</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.74,-86.62C7167.4,-80.11 4575.73,-39.67 4495.5,-35 4476.39,-33.89 4456.07,-32.24 4436.47,-30.41"/>
+</g>
+<!-- streams.WallSetLed0 -->
+<g id="node49" class="node">
+<title>streams.WallSetLed0</title>
+<g id="a_node49"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="10691.5" cy="-17.5" rx="81.75" ry="17.5"/>
+<text text-anchor="middle" x="10691.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetLed0</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetLed0 -->
+<g id="edge76" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetLed0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.19,-87.05C8083.6,-83.89 10301.89,-64.53 10600.5,-35 10611.68,-33.89 10623.56,-32.16 10634.9,-30.22"/>
+</g>
+<!-- streams.NestScaleWeightSubject -->
+<g id="node53" class="node">
+<title>streams.NestScaleWeightSubject</title>
+<g id="a_node53"><a xlink:title="→ streams.ExperimentNestScale
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+value                
+stable               
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="12168.5" cy="-17.5" rx="121.75" ry="17.5"/>
+<text text-anchor="middle" x="12168.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.NestScaleWeightSubject</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.NestScaleWeightSubject -->
+<g id="edge77" class="edge">
+<title>acquisition.Chunk-&gt;streams.NestScaleWeightSubject</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.29,-87.01C8197.5,-82.65 11810.72,-50.59 12037.5,-35 12053.05,-33.93 12069.58,-32.27 12085.48,-30.4"/>
+</g>
+<!-- streams.WallClearValve2 -->
+<g id="node54" class="node">
+<title>streams.WallClearValve2</title>
+<g id="a_node54"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="10885.5" cy="-17.5" rx="94.25" ry="17.5"/>
+<text text-anchor="middle" x="10885.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearValve2</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearValve2 -->
+<g id="edge78" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearValve2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.12,-87.04C8096.82,-83.74 10464.27,-63.01 10782.5,-35 10794.95,-33.9 10808.17,-32.2 10820.84,-30.3"/>
+</g>
+<!-- streams.MetadataMetadata -->
+<g id="node55" class="node">
+<title>streams.MetadataMetadata</title>
+<g id="a_node55"><a xlink:title="→ streams.ExperimentMetadata
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+workflow             
+commit               
+metadata             
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="12671.5" cy="-17.5" rx="100.75" ry="17.5"/>
+<text text-anchor="middle" x="12671.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.MetadataMetadata</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.MetadataMetadata -->
+<g id="edge79" class="edge">
+<title>acquisition.Chunk-&gt;streams.MetadataMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.16,-87C8237.54,-82.28 12434.03,-45.19 12561.5,-35 12574.88,-33.93 12589.1,-32.23 12602.72,-30.31"/>
+</g>
+<!-- streams.WallClearValve0 -->
+<g id="node56" class="node">
+<title>streams.WallClearValve0</title>
+<g id="a_node56"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="11092.5" cy="-17.5" rx="94.25" ry="17.5"/>
+<text text-anchor="middle" x="11092.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearValve0</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearValve0 -->
+<g id="edge80" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearValve0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.16,-87.1C8111.8,-84.09 10648.36,-64.5 10988.5,-35 11001.16,-33.9 11014.61,-32.18 11027.49,-30.26"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCSlice -->
+<g id="edge81" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCSlice</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.61,-85.66C7466.16,-81.25 7180.66,-67.93 6943.5,-35 6933.83,-33.66 6923.59,-31.86 6913.75,-29.95"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCChangeSubjectState -->
+<g id="edge82" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCChangeSubjectState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.75,-80.67C7503.01,-70.7 7344.41,-51.55 7209.5,-35 7195.53,-33.29 7180.73,-31.46 7166.28,-29.67"/>
+</g>
+<!-- streams.NestScaleWeightFiltered -->
+<g id="node68" class="node">
+<title>streams.NestScaleWeightFiltered</title>
+<g id="a_node68"><a xlink:title="→ streams.ExperimentNestScale
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+value                
+stable               
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="12430.5" cy="-17.5" rx="121.75" ry="17.5"/>
+<text text-anchor="middle" x="12430.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.NestScaleWeightFiltered</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.NestScaleWeightFiltered -->
+<g id="edge83" class="edge">
+<title>acquisition.Chunk-&gt;streams.NestScaleWeightFiltered</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.38,-86.95C8222.4,-81.87 12178.97,-43.24 12299.5,-35 12315.17,-33.93 12331.83,-32.25 12347.83,-30.36"/>
+</g>
+<!-- streams.FoodPatchDeliverPellet -->
+<g id="node69" class="node">
+<title>streams.FoodPatchDeliverPellet</title>
+<g id="a_node69"><a xlink:title="→ streams.ExperimentFoodPatch
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="8702.5" cy="-17.5" rx="118.25" ry="17.5"/>
+<text text-anchor="middle" x="8702.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.FoodPatchDeliverPellet</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.FoodPatchDeliverPellet -->
+<g id="edge84" class="edge">
+<title>acquisition.Chunk-&gt;streams.FoodPatchDeliverPellet</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.14,-85.75C7844.78,-80.95 8244.14,-65.81 8575.5,-35 8590,-33.65 8605.4,-31.91 8620.28,-30.07"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicInterTrialInterval -->
+<g id="edge85" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicInterTrialInterval</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.81,-86.51C7425.51,-83.75 6955.2,-75.81 6564.5,-71 5703.64,-60.41 3549.56,-91.7 2690.5,-35 2674.6,-33.95 2657.69,-32.29 2641.43,-30.43"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCBackgroundColor -->
+<g id="edge86" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCBackgroundColor</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.64,-74.84C7531.46,-62.78 7450.09,-44.67 7394.31,-32.26"/>
+</g>
+<!-- streams.WallBeamBreak2 -->
+<g id="node73" class="node">
+<title>streams.WallBeamBreak2</title>
+<g id="a_node73"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+state                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="11301.5" cy="-17.5" rx="96.75" ry="17.5"/>
+<text text-anchor="middle" x="11301.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallBeamBreak2</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallBeamBreak2 -->
+<g id="edge87" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallBeamBreak2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.09,-86.89C8140.04,-82.1 11013.92,-50.4 11195.5,-35 11208.4,-33.91 11222.1,-32.19 11235.23,-30.27"/>
+</g>
+<!-- streams.WallSetLed2 -->
+<g id="node76" class="node">
+<title>streams.WallSetLed2</title>
+<g id="a_node76"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="11498.5" cy="-17.5" rx="81.75" ry="17.5"/>
+<text text-anchor="middle" x="11498.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallSetLed2</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallSetLed2 -->
+<g id="edge88" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallSetLed2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.17,-86.98C8155.25,-82.74 11214.84,-53.68 11407.5,-35 11418.69,-33.92 11430.56,-32.19 11441.91,-30.26"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCEndTrial -->
+<g id="edge89" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCEndTrial</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7619.5,-70.8C7604.35,-59.79 7584.61,-45.45 7569.63,-34.57"/>
+</g>
+<!-- streams.WallClearValve1 -->
+<g id="node78" class="node">
+<title>streams.WallClearValve1</title>
+<g id="a_node78"><a xlink:title="→ streams.ExperimentWall
+→ acquisition.Chunk
+------------------------------
+sample_count         
+timestamps           
+event                
+">
+<ellipse fill="#00007f" fill-opacity="0.250980" stroke="#00007f" stroke-opacity="0.250980" cx="11692.5" cy="-17.5" rx="94.25" ry="17.5"/>
+<text text-anchor="middle" x="11692.5" y="-14.4" font-family="arial" font-size="12.00" fill="#00007f" fill-opacity="0.627451">streams.WallClearValve1</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.WallClearValve1 -->
+<g id="edge90" class="edge">
+<title>acquisition.Chunk-&gt;streams.WallClearValve1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7699.29,-86.98C8168.14,-82.67 11386.96,-52.48 11589.5,-35 11601.95,-33.93 11615.17,-32.23 11627.84,-30.33"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.TaskLogicSliceOnset -->
+<g id="edge91" class="edge">
+<title>acquisition.Chunk-&gt;streams.TaskLogicSliceOnset</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7585.81,-86.52C7425.51,-83.79 6955.2,-75.92 6564.5,-71 6160.29,-65.91 3329.62,-65.05 2926.5,-35 2912.27,-33.94 2897.13,-32.25 2882.62,-30.35"/>
+</g>
+<!-- acquisition.Chunk&#45;&gt;streams.OSCResponse -->
+<g id="edge92" class="edge">
+<title>acquisition.Chunk-&gt;streams.OSCResponse</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7665.74,-70.8C7681.05,-59.79 7701,-45.45 7716.14,-34.57"/>
+</g>
+<!-- streams.DeviceType -->
+<g id="node37" class="node">
+<title>streams.DeviceType</title>
+<g id="a_node37"><a xlink:title="device_type          
+------------------------------
+device_description=&quot;&quot; 
+">
+<polygon fill="#000000" fill-opacity="0.125490" stroke="transparent" points="8120,-248 8013,-248 8013,-213 8120,-213 8120,-248"/>
+<text text-anchor="start" x="8021" y="-229" font-family="arial" text-decoration="underline" font-size="10.00">streams.DeviceType</text>
+</a>
+</g>
+</g>
+<!-- streams.Device -->
+<g id="node58" class="node">
+<title>streams.Device</title>
+<g id="a_node58"><a xlink:title="device_serial_number 
+------------------------------
+→ streams.DeviceType
+">
+<polygon fill="#000000" fill-opacity="0.125490" stroke="transparent" points="7825.5,-177 7739.5,-177 7739.5,-142 7825.5,-142 7825.5,-177"/>
+<text text-anchor="start" x="7747.5" y="-158" font-family="arial" text-decoration="underline" font-size="10.00">streams.Device</text>
+</a>
+</g>
+</g>
+<!-- streams.DeviceType&#45;&gt;streams.Device -->
+<g id="edge93" class="edge">
+<title>streams.DeviceType-&gt;streams.Device</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-dasharray="5,2" stroke-opacity="0.250980" d="M8012.75,-216.44C7958.56,-203.27 7875.95,-183.2 7825.82,-171.02"/>
+</g>
+<!-- streams.DeviceType&#45;&gt;streams.DeviceType.Stream -->
+<g id="edge94" class="edge">
+<title>streams.DeviceType-&gt;streams.DeviceType.Stream</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M8066.5,-212.8C8066.5,-199.08 8066.5,-180.19 8066.5,-169.27"/>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.ExperimentFoodPatch.RemovalTime -->
+<g id="edge95" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.ExperimentFoodPatch.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M9696.13,-86.01C10214.08,-77.5 12776.56,-35.39 12781.5,-35 12803.2,-33.28 12827.02,-30.12 12847.41,-27.02"/>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.FoodPatchEncoder -->
+<g id="edge96" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.FoodPatchEncoder</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M9514.78,-87.97C9276.22,-88.42 8611.77,-84.73 8061.5,-35 8048.29,-33.81 8034.26,-32.09 8020.76,-30.22"/>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.FoodPatchBeamBreak -->
+<g id="edge97" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.FoodPatchBeamBreak</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M9514.83,-86.73C9303.08,-84.29 8759.67,-74.39 8307.5,-35 8293.23,-33.76 8278.07,-32.05 8263.45,-30.19"/>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.FoodPatchDepletionState -->
+<g id="edge98" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.FoodPatchDepletionState</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M9514.76,-85.06C9335.16,-79.74 8921.78,-65.11 8575.5,-35 8560.2,-33.67 8543.96,-31.94 8528.26,-30.1"/>
+</g>
+<!-- streams.ExperimentFoodPatch.Attribute -->
+<g id="node67" class="node">
+<title>streams.ExperimentFoodPatch.Attribute</title>
+<g id="a_node67"><a xlink:title="→ streams.ExperimentFoodPatch
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="13214,-27 13023,-27 13023,-8 13214,-8 13214,-27"/>
+<text text-anchor="start" x="13031" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentFoodPatch.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.ExperimentFoodPatch.Attribute -->
+<g id="edge99" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.ExperimentFoodPatch.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M9696.18,-85.97C9872.24,-83 10272.65,-76.29 10609.5,-71 11143.94,-62.61 12481.98,-80.99 13014.5,-35 13034.08,-33.31 13055.55,-30.13 13073.88,-27.01"/>
+</g>
+<!-- streams.ExperimentFoodPatch&#45;&gt;streams.FoodPatchDeliverPellet -->
+<g id="edge100" class="edge">
+<title>streams.ExperimentFoodPatch-&gt;streams.FoodPatchDeliverPellet</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M9514.85,-83.18C9369.86,-75.87 9076.92,-59.42 8829.5,-35 8815.23,-33.59 8800.09,-31.85 8785.42,-30.02"/>
+</g>
+<!-- streams.ExperimentNestScale&#45;&gt;streams.ExperimentNestScale.Attribute -->
+<g id="edge101" class="edge">
+<title>streams.ExperimentNestScale-&gt;streams.ExperimentNestScale.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M13713.5,-70.8C13713.5,-57.08 13713.5,-38.19 13713.5,-27.27"/>
+</g>
+<!-- streams.ExperimentNestScale&#45;&gt;streams.NestScaleWeightRaw -->
+<g id="edge102" class="edge">
+<title>streams.ExperimentNestScale-&gt;streams.NestScaleWeightRaw</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M13624.28,-87.97C13373.71,-88.59 12642.36,-85.58 12037.5,-35 12023.24,-33.81 12008.09,-32.1 11993.5,-30.22"/>
+</g>
+<!-- streams.ExperimentNestScale&#45;&gt;streams.ExperimentNestScale.RemovalTime -->
+<g id="edge103" class="edge">
+<title>streams.ExperimentNestScale-&gt;streams.ExperimentNestScale.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M13766.2,-70.97C13810.31,-57.14 13871.47,-37.95 13906.32,-27.03"/>
+</g>
+<!-- streams.ExperimentNestScale&#45;&gt;streams.NestScaleWeightSubject -->
+<g id="edge104" class="edge">
+<title>streams.ExperimentNestScale-&gt;streams.NestScaleWeightSubject</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M13624.41,-86.92C13401.06,-84.86 12799.29,-75.67 12299.5,-35 12284.31,-33.76 12268.17,-32.06 12252.6,-30.21"/>
+</g>
+<!-- streams.ExperimentNestScale&#45;&gt;streams.NestScaleWeightFiltered -->
+<g id="edge105" class="edge">
+<title>streams.ExperimentNestScale-&gt;streams.NestScaleWeightFiltered</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M13624.45,-85.86C13430.8,-81.76 12956.96,-68.86 12561.5,-35 12546.43,-33.71 12530.42,-31.99 12514.96,-30.14"/>
+</g>
+<!-- streams.ExperimentWall.Attribute -->
+<g id="node50" class="node">
+<title>streams.ExperimentWall.Attribute</title>
+<g id="a_node50"><a xlink:title="→ streams.ExperimentWall
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="13395,-27 13232,-27 13232,-8 13395,-8 13395,-27"/>
+<text text-anchor="start" x="13240" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentWall.Attribute</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentMetadata.RemovalTime -->
+<g id="node51" class="node">
+<title>streams.ExperimentMetadata.RemovalTime</title>
+<g id="a_node51"><a xlink:title="→ streams.ExperimentMetadata
+------------------------------
+metadata_remove_time 
+">
+<polygon fill="transparent" stroke="transparent" points="14268,-27 14059,-27 14059,-8 14268,-8 14268,-27"/>
+<text text-anchor="middle" x="14163.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentMetadata.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentPhotodiode -->
+<g id="edge106" class="edge">
+<title>streams.Device-&gt;streams.ExperimentPhotodiode</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7739.32,-143.73C7736.36,-143.05 7733.4,-142.46 7730.5,-142 7557.61,-114.72 1604.52,-107.81 1429.5,-106 1056.57,-102.13 612.43,-94.54 423.68,-91.18"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentTaskLogic -->
+<g id="edge107" class="edge">
+<title>streams.Device-&gt;streams.ExperimentTaskLogic</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7739.32,-143.74C7736.36,-143.05 7733.4,-142.46 7730.5,-142 7482.49,-102.58 3461.61,-108.23 3210.5,-106 2599.83,-100.58 1864.6,-93.02 1614.6,-90.42"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentExperimentalMetadata -->
+<g id="edge108" class="edge">
+<title>streams.Device-&gt;streams.ExperimentExperimentalMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7739.32,-143.75C7736.36,-143.06 7733.4,-142.47 7730.5,-142 7564.9,-115.34 4879.22,-108.01 4711.5,-106 4249.74,-100.47 3700.5,-93.84 3461.54,-90.96"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentCamera -->
+<g id="edge109" class="edge">
+<title>streams.Device-&gt;streams.ExperimentCamera</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7739.32,-143.77C7736.36,-143.08 7733.4,-142.48 7730.5,-142 7586.58,-118.39 5347.11,-94.91 4886.1,-90.31"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentOSC -->
+<g id="edge110" class="edge">
+<title>streams.Device-&gt;streams.ExperimentOSC</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7739.3,-143.85C7736.35,-143.14 7733.39,-142.51 7730.5,-142 7502.88,-101.84 6789.38,-92.16 6556.11,-90.05"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentFoodPatch -->
+<g id="edge111" class="edge">
+<title>streams.Device-&gt;streams.ExperimentFoodPatch</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7825.5,-144.82C7830.19,-143.7 7834.92,-142.72 7839.5,-142 8167.24,-90.54 9202,-88.56 9514.96,-89.18"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentNestScale -->
+<g id="edge112" class="edge">
+<title>streams.Device-&gt;streams.ExperimentNestScale</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7825.51,-151.9C7851.49,-148.23 7885.32,-144 7915.5,-142 8212.63,-122.29 12915.3,-94.16 13624.28,-90.02"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentWall -->
+<g id="edge113" class="edge">
+<title>streams.Device-&gt;streams.ExperimentWall</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7825.82,-149.54C7841.97,-146.57 7860.5,-143.62 7877.5,-142 7947.73,-135.29 10182.44,-97.94 10618.24,-90.71"/>
+</g>
+<!-- streams.Device&#45;&gt;streams.ExperimentMetadata -->
+<g id="edge114" class="edge">
+<title>streams.Device-&gt;streams.ExperimentMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M7825.64,-153.25C7860.17,-149.32 7909.86,-144.23 7953.5,-142 9253.6,-75.42 12510.15,-140.48 13811.5,-106 13902.32,-103.59 14006.22,-98.43 14077.46,-94.51"/>
+</g>
+<!-- streams.ExperimentMetadata.Attribute -->
+<g id="node59" class="node">
+<title>streams.ExperimentMetadata.Attribute</title>
+<g id="a_node59"><a xlink:title="→ streams.ExperimentMetadata
+attribute_name       
+------------------------------
+attribute_value=&quot;&quot;   
+">
+<polygon fill="transparent" stroke="transparent" points="14471,-27 14286,-27 14286,-8 14471,-8 14471,-27"/>
+<text text-anchor="start" x="14294" y="-16" font-family="arial" text-decoration="underline" font-size="10.00">streams.ExperimentMetadata.Attribute</text>
+</a>
+</g>
+</g>
+<!-- acquisition.Epoch&#45;&gt;acquisition.Chunk -->
+<g id="edge115" class="edge">
+<title>acquisition.Epoch-&gt;acquisition.Chunk</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-dasharray="5,2" stroke-opacity="0.250980" d="M7526.15,-141.97C7550.28,-131.09 7581.76,-116.89 7605.89,-106.01"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallBeamBreak1 -->
+<g id="edge116" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallBeamBreak1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.12,-86.36C10340.46,-81.88 9354.15,-64.2 9041.5,-35 9028.8,-33.81 9015.3,-32.08 9002.35,-30.18"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearLed1 -->
+<g id="edge117" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearLed1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.21,-86.12C10362.35,-81.12 9509.69,-62.71 9237.5,-35 9225.66,-33.79 9213.08,-32.04 9201.02,-30.12"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetValve1 -->
+<g id="edge118" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetValve1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.35,-87.74C10424.12,-87.66 9879.52,-82.83 9429.5,-35 9418.06,-33.78 9405.93,-32.05 9394.28,-30.16"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearLed0 -->
+<g id="edge119" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearLed0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.24,-86.86C10445.09,-84.69 9997.15,-75.3 9625.5,-35 9613.84,-33.74 9601.45,-31.98 9589.56,-30.08"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetValve2 -->
+<g id="edge120" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetValve2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.26,-85.78C10467.92,-81.65 10113.78,-68.89 9818.5,-35 9806.96,-33.68 9794.71,-31.89 9782.93,-29.98"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetValve0 -->
+<g id="edge121" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetValve0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.46,-84.11C10493.54,-77.81 10230.99,-62.39 10010.5,-35 9999.34,-33.61 9987.5,-31.83 9976.09,-29.96"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetLed1 -->
+<g id="edge122" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetLed1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.15,-81.51C10520.67,-73.15 10343.19,-56.56 10192.5,-35 10182.01,-33.5 10170.88,-31.68 10160.14,-29.8"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearLed2 -->
+<g id="edge123" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearLed2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10618.42,-74.92C10543.08,-61.96 10426.76,-41.95 10354.81,-29.57"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallBeamBreak0 -->
+<g id="edge124" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallBeamBreak0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10644.31,-70.97C10611.64,-59.53 10568.53,-44.43 10536.94,-33.36"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetLed0 -->
+<g id="edge125" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetLed0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10691.5,-70.8C10691.5,-59.95 10691.5,-45.87 10691.5,-35.05"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.ExperimentWall.Attribute -->
+<g id="edge126" class="edge">
+<title>streams.ExperimentWall-&gt;streams.ExperimentWall.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10764.58,-87.57C11126.37,-87.67 12727.97,-85.23 13223.5,-35 13240.41,-33.29 13258.91,-30.12 13274.71,-27.02"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearValve2 -->
+<g id="edge127" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearValve2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10737.97,-70.97C10770.25,-59.49 10812.9,-44.32 10844.03,-33.25"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearValve0 -->
+<g id="edge128" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearValve0</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10764.58,-74.92C10839.13,-62.1 10953.81,-42.37 11025.91,-29.96"/>
+</g>
+<!-- streams.ExperimentWall.RemovalTime -->
+<g id="node66" class="node">
+<title>streams.ExperimentWall.RemovalTime</title>
+<g id="a_node66"><a xlink:title="→ streams.ExperimentWall
+------------------------------
+wall_remove_time     
+">
+<polygon fill="transparent" stroke="transparent" points="13600,-27 13413,-27 13413,-8 13600,-8 13600,-27"/>
+<text text-anchor="middle" x="13506.5" y="-15" font-family="arial" font-size="10.00">streams.ExperimentWall.RemovalTime</text>
+</a>
+</g>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.ExperimentWall.RemovalTime -->
+<g id="edge129" class="edge">
+<title>streams.ExperimentWall-&gt;streams.ExperimentWall.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M10764.73,-87.48C11142.16,-87.17 12870.64,-83.1 13404.5,-35 13423.62,-33.28 13444.57,-30.11 13462.49,-27.01"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallBeamBreak2 -->
+<g id="edge130" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallBeamBreak2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10764.67,-81.05C10862.85,-72.13 11042.61,-54.85 11195.5,-35 11207.41,-33.45 11220.05,-31.64 11232.29,-29.79"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallSetLed2 -->
+<g id="edge131" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallSetLed2</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10764.68,-84.7C10894.55,-79.16 11173.65,-64.69 11407.5,-35 11418.17,-33.65 11429.49,-31.87 11440.39,-29.99"/>
+</g>
+<!-- streams.ExperimentWall&#45;&gt;streams.WallClearValve1 -->
+<g id="edge132" class="edge">
+<title>streams.ExperimentWall-&gt;streams.WallClearValve1</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M10764.75,-85.71C10918.15,-81.41 11284.24,-68.29 11589.5,-35 11601.56,-33.68 11614.37,-31.93 11626.7,-30.05"/>
+</g>
+<!-- streams.ExperimentMetadata&#45;&gt;streams.ExperimentMetadata.RemovalTime -->
+<g id="edge133" class="edge">
+<title>streams.ExperimentMetadata-&gt;streams.ExperimentMetadata.RemovalTime</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.250980" d="M14163.5,-70.8C14163.5,-57.08 14163.5,-38.19 14163.5,-27.27"/>
+</g>
+<!-- streams.ExperimentMetadata&#45;&gt;streams.MetadataMetadata -->
+<g id="edge134" class="edge">
+<title>streams.ExperimentMetadata-&gt;streams.MetadataMetadata</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M14077.44,-83.18C14006.18,-79.67 13902.27,-74.71 13811.5,-71 13353.83,-52.28 13237.62,-77.04 12781.5,-35 12768.42,-33.79 12754.53,-32.07 12741.18,-30.18"/>
+</g>
+<!-- streams.ExperimentMetadata&#45;&gt;streams.ExperimentMetadata.Attribute -->
+<g id="edge135" class="edge">
+<title>streams.ExperimentMetadata-&gt;streams.ExperimentMetadata.Attribute</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-opacity="0.250980" d="M14215,-70.97C14258.11,-57.14 14317.88,-37.95 14351.93,-27.03"/>
+</g>
+<!-- acquisition.Experiment.Directory&#45;&gt;acquisition.Chunk -->
+<g id="edge136" class="edge">
+<title>acquisition.Experiment.Directory-&gt;acquisition.Chunk</title>
+<path fill="none" stroke="#000000" stroke-width="0.75" stroke-dasharray="5,2" stroke-opacity="0.250980" d="M7642.5,-149.76C7642.5,-138.81 7642.5,-119.81 7642.5,-106.07"/>
+</g>
+</g>
+</svg>

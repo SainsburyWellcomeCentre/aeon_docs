@@ -1,6 +1,0 @@
-﻿aeon.schema.streams
-===================
-
-.. automodule:: aeon.schema.streams
-   :members:
-   :undoc-members:

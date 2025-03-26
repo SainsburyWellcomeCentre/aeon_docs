@@ -1,0 +1,30 @@
+<!-- This file is auto-generated. -->
+
+(target-aeon-acquisition-reference)=
+# ``aeon_acquisition``
+
+:::{list-table}
+:class: acquisition-api-table
+
+*   - [``Aeon.Acquisition``](aeon_acquisition/Aeon.Acquisition)
+*   - [``Aeon.Database``](aeon_acquisition/Aeon.Database)
+*   - [``Aeon.Environment``](aeon_acquisition/Aeon.Environment)
+*   - [``Aeon.Foraging``](aeon_acquisition/Aeon.Foraging)
+*   - [``Aeon.Video``](aeon_acquisition/Aeon.Video)
+*   - [``Aeon.Vision``](aeon_acquisition/Aeon.Vision)
+*   - [``Aeon.Vision.Sleap``](aeon_acquisition/Aeon.Vision.Sleap)
+:::
+
+:::{toctree}
+    :glob:
+    :hidden:
+
+    Aeon.Acquisition <aeon_acquisition/Aeon.Acquisition>
+    Aeon.Database <aeon_acquisition/Aeon.Database>
+    Aeon.Environment <aeon_acquisition/Aeon.Environment>
+    Aeon.Foraging <aeon_acquisition/Aeon.Foraging>
+    Aeon.Video <aeon_acquisition/Aeon.Video>
+    Aeon.Vision <aeon_acquisition/Aeon.Vision>
+    Aeon.Vision.Sleap <aeon_acquisition/Aeon.Vision.Sleap>
+
+:::

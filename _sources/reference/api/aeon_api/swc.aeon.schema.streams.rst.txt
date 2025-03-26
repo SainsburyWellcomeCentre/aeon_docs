@@ -1,0 +1,6 @@
+﻿swc.aeon.schema.streams
+=======================
+
+.. automodule:: swc.aeon.schema.streams
+   :members:
+   :undoc-members:

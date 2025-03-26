@@ -1,0 +1,6 @@
+﻿swc.aeon.analysis.movies
+========================
+
+.. automodule:: swc.aeon.analysis.movies
+   :members:
+   :undoc-members:

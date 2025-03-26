@@ -400,81 +400,62 @@
                   
   <section id="installation">
 <span id="target-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
-<p>This guide will walk you through the installation of the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> package, the main package for interacting with raw Aeon data. It also includes instructions for setting up data access to the Aeon data hosted on SWC’s Ceph storage (currently only applicable to SWC members).</p>
-<section id="aeon-mecha">
-<span id="target-install-aeon-mecha"></span><h2><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code><a class="headerlink" href="#aeon-mecha" title="Link to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We always recommend installing <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> inside a
-<a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>
-or <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">mamba</a> environment,
-to avoid dependency conflicts with other packages.
-In the following we assume you have <code class="docutils literal notranslate"><span class="pre">conda</span></code> installed,
-but the same commands will also work with <code class="docutils literal notranslate"><span class="pre">mamba</span></code>/<code class="docutils literal notranslate"><span class="pre">micromamba</span></code>.</p>
-<p>All commands below should be run in a bash shell
-(Windows users can use the ‘mingw64’ terminal that is included when
-installing git).</p>
-</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header sd-bg-primary sd-bg-text-primary">
-<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-server" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg></span><span class="sd-summary-text">Setting up on SWC’s HPC</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">If setting up on SWC’s remote HPC system, you will have to first connect to the HPC using SSH and add miniconda to your system path.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;your_SWC_username&gt;@ssh.swc.ucl.ac.uk
-ssh<span class="w"> </span>hpc-gw1
-module<span class="w"> </span>load<span class="w"> </span>miniconda
-</pre></div>
-</div>
-<p class="sd-card-text"><strong>Optional</strong>: Add the following commands to the <code class="docutils literal notranslate"><span class="pre">.profile</span></code> file to add miniconda as an environment module and Bonsai and its dependencies to your system path on startup (this will be initialized each time you SSH into the HPC). This file should be located in the home directory, i.e. <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>. If it does not exist, create it with <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">~/.profile</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">.profile</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set env modules</span>
-module<span class="w"> </span>load<span class="w"> </span>miniconda
-
-<span class="c1"># Save Bonsai and deps to path</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/ceph/aeon/aeon/code/bonsai/Bonsai.Player/bin/Debug/net5.0
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOTNET_ROOT</span><span class="o">=</span>/ceph/aeon/aeon/code/dotnet
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/ceph/aeon/aeon/code/dotnet
-</pre></div>
-</div>
-</div>
-</div>
-</details><p>Clone the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> repository into the <code class="docutils literal notranslate"><span class="pre">~/ProjectAeon/aeon_mecha</span></code> directory.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/ProjectAeon<span class="w"> </span>
-<span class="nb">cd</span><span class="w"> </span>~/ProjectAeon
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SainsburyWellcomeCentre/aeon_mecha
-<span class="nb">cd</span><span class="w"> </span>aeon_mecha
-</pre></div>
-</div>
-<p>Create the <code class="docutils literal notranslate"><span class="pre">aeon</span></code> conda environment and activate it.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>aeon<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>python&gt;<span class="o">=</span><span class="m">3</span>.11
-conda<span class="w"> </span>activate<span class="w"> </span>aeon
-</pre></div>
-</div>
-<p>Install the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> package in editable mode.</p>
+<p>This guide will walk you through the installation of the Aeon’s <a class="reference internal" href="index.html#target-repositories"><span class="std std-ref">Python packages</span></a>, <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> and <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code>, using <a class="reference external" href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.
+It also includes instructions for setting up data access to the Aeon data hosted on Sainbury Wellcome Centre’s (SWC) Ceph storage (currently only applicable to SWC members).</p>
+<section id="aeon-api">
+<span id="target-install-aeon-api"></span><h2><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code><a class="headerlink" href="#aeon-api" title="Link to this heading">#</a></h2>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
-Users</label><div class="sd-tab-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+PyPI</label><div class="sd-tab-content docutils">
+<p>To install <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> from <a class="reference external" href="https://pypi.org/project/swc-aeon/">PyPI</a>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>swc-aeon
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
-Developers</label><div class="sd-tab-content docutils">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span><span class="w">  </span><span class="c1"># works on most shells</span>
+Source</label><div class="sd-tab-content docutils">
+<p>To install <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> from source, first clone the repository and switch to the <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> directory:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SainsburyWellcomeCentre/aeon_api
+<span class="nb">cd</span><span class="w"> </span>aeon_api
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[dev]&#39;</span><span class="w">  </span><span class="c1"># works on zsh (the default shell on macOS)</span>
+<p>(Optional) To select a specific branch, replace <code class="docutils literal notranslate"><span class="pre">branch_name</span></code> with the desired branch name:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>branch_name
 </pre></div>
 </div>
-<p>This will install the package alongside all <code class="docutils literal notranslate"><span class="pre">dev</span></code> dependencies.</p>
+<p>To install the package alongside all optional dependencies:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--all-extras
+</pre></div>
+</div>
+<p>If you wish to install only the core dependencies, simply drop the <code class="docutils literal notranslate"><span class="pre">--all-extras</span></code> flag from the command above.</p>
 </div>
 </div>
 </section>
-<section id="setting-up-swc-ceph-data-access">
-<h2>Setting up SWC Ceph data access<a class="headerlink" href="#setting-up-swc-ceph-data-access" title="Link to this heading">#</a></h2>
+<section id="aeon-mecha">
+<span id="target-install-aeon-mecha"></span><h2><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code><a class="headerlink" href="#aeon-mecha" title="Link to this heading">#</a></h2>
+<p>As <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> depends on <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code>, installing <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> will also install <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> and its dependencies.
+In other words, you only need to install <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> to access both packages.</p>
+<p>To install <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code>, first clone the repository and switch to the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> directory:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SainsburyWellcomeCentre/aeon_mecha
+<span class="nb">cd</span><span class="w"> </span>aeon_mecha
+</pre></div>
+</div>
+<p>(Optional) To select a specific branch, replace <code class="docutils literal notranslate"><span class="pre">branch_name</span></code> with the desired branch name:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>branch_name
+</pre></div>
+</div>
+<p>To install the package alongside all optional dependencies:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--all-extras
+</pre></div>
+</div>
+<p>If you wish to install only the core dependencies, simply drop the <code class="docutils literal notranslate"><span class="pre">--all-extras</span></code> flag from the command above.</p>
+<div class="docutils">
+</div>
+</section>
+<section id="swc-ceph-data-access">
+<h2>SWC Ceph data access<a class="headerlink" href="#swc-ceph-data-access" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You must be an SWC <code class="docutils literal notranslate"><span class="pre">aeon</span></code> project member to access Aeon data hosted on
@@ -510,7 +491,8 @@ In order to avoid typing the SSH commands each time you log into the HPC, we rec
 The next step is to configure your IDE to connect to the <code class="docutils literal notranslate"><span class="pre">swc-gateway</span></code> node via SSH. These instructions can typically be found in your IDE’s online documentation. Here are the instructions for <a class="reference external" href="https://code.visualstudio.com/docs/remote/ssh">VS Code</a>, and for <a class="reference external" href="https://www.jetbrains.com/help/pycharm/remote-development-overview.html#client_to_server">PyCharm Professional</a>.</p>
 </div>
 </div>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">aeon</span></code> conda environment, Aeon data can be accessed from Ceph using the <a class="reference internal" href="../reference/api/mecha.html#target-mecha-reference"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> API</span></a> or queried from the <a class="reference internal" href="../user/tutorials/aeon_dj_pipeline.html#target-aeon-dj-pipeline"><span class="std std-ref">Aeon DataJoint pipeline</span></a>. Examples for retrieving and visualizing the data can be found in the <a class="reference internal" href="../user/index.html#target-user-guide"><span class="std std-ref">User Guide</span></a>.</p>
+<p>Raw Aeon data can be accessed using <a class="reference internal" href="#aeon-api"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a>, whereas processed data can be queried from the <a class="reference internal" href="../user/tutorials/aeon_dj_pipeline.html#target-aeon-dj-pipeline"><span class="std std-ref">Aeon DataJoint pipeline</span></a> using <a class="reference internal" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a>.
+Examples for retrieving and visualising the data can be found in the <a class="reference internal" href="../user/index.html#target-user-guide"><span class="std std-ref">User Guide</span></a>.</p>
 </section>
 </section>
 
@@ -561,8 +543,9 @@ The next step is to configure your IDE to connect to the <code class="docutils l
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-api"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-swc-ceph-data-access">Setting up SWC Ceph data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swc-ceph-data-access">SWC Ceph data access</a></li>
 </ul>
   </nav></div>
 

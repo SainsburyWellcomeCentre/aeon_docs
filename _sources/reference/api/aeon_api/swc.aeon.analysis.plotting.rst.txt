@@ -1,0 +1,6 @@
+﻿swc.aeon.analysis.plotting
+==========================
+
+.. automodule:: swc.aeon.analysis.plotting
+   :members:
+   :undoc-members:

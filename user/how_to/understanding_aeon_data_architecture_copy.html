@@ -1,0 +1,3602 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Aeon data file structure on Ceph &#8212; Aeon  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4386463d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how_to/understanding_aeon_data_architecture_copy';</script>
+    <script src="../../_static/js/workflow.js?v=1800024c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is currently under active development. Please report any issues on <a href='https://github.com/SainsburyWellcomeCentre/aeon_docs/issues'>GitHub</a>.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Aeon </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Aeon data file structure on Ceph</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="aeon-data-file-structure-on-ceph">
+<h1>Aeon data file structure on Ceph<a class="headerlink" href="#aeon-data-file-structure-on-ceph" title="Link to this heading">#</a></h1>
+<p><strong>Raw data</strong>: <code class="docutils literal notranslate"><span class="pre">/ceph/aeon/aeon/data/raw/&lt;acquisition_pc&gt;/&lt;experiment_name&gt;/&lt;acquisition_epoch&gt;/&lt;device&gt;/&lt;stream&gt;</span></code></p>
+<p>e.g. <code class="docutils literal notranslate"><span class="pre">/ceph/aeon/aeon/data/raw/AEON3/social0.1/2023-12-01T14-30-34/Patch1/Patch1_90_2023-12-02T12-00-00.bin</span></code></p>
+<p><strong>Processed data (e.g. trained and exported SLEAP model)</strong>: <code class="docutils literal notranslate"><span class="pre">/ceph/aeon/aeon/data/processed/&lt;processed_pc&gt;/&lt;job_id&gt;/&lt;job_time&gt;/&lt;model_name&gt;/frozen_graph.pb</span></code></p>
+<p>e.g. <code class="docutils literal notranslate"><span class="pre">/ceph/aeon/aeon/data/processed/test-node1/0000005/2023-11-30T01-29-00/topdown_multianimal_id/frozen_graph.pb</span></code></p>
+</section>
+<section id="reading-aeon-data-in-python">
+<h1>Reading Aeon data in Python<a class="headerlink" href="#reading-aeon-data-in-python" title="Link to this heading">#</a></h1>
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h2>
+<p><strong><em>Chunk Duration</em></strong>: The time duration over which experiment data files are written out. Currently, all Aeon experiments write out acquired data to files every hour (1-hour chunks).</p>
+<p><strong><em>Acquisition Epoch</em></strong>: One run of an experiment workflow. When an experiment workflow restarts, a new epoch starts.</p>
+<p>E.g. <code class="docutils literal notranslate"><span class="pre">ceph/aeon/aeon/data/raw/AEON3/social0.1/2023-12-03T13-05-15</span></code> is an acquisition epoch in the Social0.1 experiment. Because the next epoch directory is <code class="docutils literal notranslate"><span class="pre">ceph/aeon/aeon/data/raw/AEON3/social0.1/2023-12-03T13-30-30</span></code>, we know this first epoch lasted only ~25 minutes.</p>
+<p><strong><em>Stream</em></strong>: Data that comes from a single source.</p>
+<p>A single data file is associated with each stream, so often ‘stream’ and ‘file’ can be interchanged. If the stream comes from a harp device, the stream-file contains information about the register of the harp device which generated the stream, as well as the associated chunk datetime.</p>
+<p>For a harp stream, the filename format is as follows:<br>
+<code class="docutils literal notranslate"><span class="pre">&lt;device&gt;&lt;id&gt;_&lt;harp_register&gt;_&lt;datetime&gt;</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">Patch1_90_2023-12-02T12-00-00.bin</span></code><br>
+By convention, harp streams which are acquired in software start with register number ‘200’; e.g. the largest-blob-centroid-tracking stream filename is: <code class="docutils literal notranslate"><span class="pre">CameraTop_200*.bin</span></code></p>
+<p>Each stream can contain single or multi-dimensional data (e.g. a patch wheel magnetic encoder stream contains information about both the magnetic field strength and angle: however, each dimension is associated with a unique bitmask, and thus can be isolated by applying this bitmask to the stream).</p>
+<p><strong><em>Reader</em></strong>: A Python class whose instantiated objects each read one particular stream. Simple working principle: each <code class="docutils literal notranslate"><span class="pre">Reader</span></code> has a <code class="docutils literal notranslate"><span class="pre">read</span></code> method which takes in a single stream-file and reads the data in that file into a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (see <code class="docutils literal notranslate"><span class="pre">aeon/io/reader.py</span></code> and <code class="docutils literal notranslate"><span class="pre">aeon/schema/*.py</span></code>).</p>
+<p>e.g. <code class="docutils literal notranslate"><span class="pre">Encoder</span></code> readers read values from <code class="docutils literal notranslate"><span class="pre">Patch&lt;patch_id&gt;_&lt;encoder_register&gt;_&lt;datetime&gt;</span></code> files (these contain a patch wheel’s magnetic encoder readings, to determine how much the wheel has been spun).</p>
+<p>Whenever a new device is implemented in an Aeon experiment, a new <code class="docutils literal notranslate"><span class="pre">Reader</span></code> should be created for the acquired data, such that the data can be read and returned in the form of a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p><strong><em>Device</em></strong>: A collection of streams grouped together for convenience, often for related streams.</p>
+<p>On ceph, we organize streams into device folders:<br> e.g. <code class="docutils literal notranslate"><span class="pre">ceph/aeon/aeon/data/raw/AEON3/social0.1/2023-12-01T14-30-34/Patch1</span></code> contains the patch-heartbeat stream (<code class="docutils literal notranslate"><span class="pre">Patch1_8</span></code>), the patch-beambreak stream (<code class="docutils literal notranslate"><span class="pre">Patch1_32</span></code>), the patch-pellet delivery-pin-set stream (<code class="docutils literal notranslate"><span class="pre">Patch1_35</span></code>), the patch-pellet-delivery-pin-cleared stream (<code class="docutils literal notranslate"><span class="pre">Patch1_36</span></code>), the patch-wheel-magnetic-encoder stream (<code class="docutils literal notranslate"><span class="pre">Patch1_90</span></code>), the patch-wheel-magnetic-encoder-mode stream (<code class="docutils literal notranslate"><span class="pre">Patch1_91</span></code>), the patch-feeder-dispenser-state stream (<code class="docutils literal notranslate"><span class="pre">Patch1_200</span></code>), the patch-pellet-manual-delivery stream (<code class="docutils literal notranslate"><span class="pre">Patch1_201</span></code>), the patch-missed-pellet-stream (<code class="docutils literal notranslate"><span class="pre">Patch1_202</span></code>), the patch-pellet-delivery-retry stream (<code class="docutils literal notranslate"><span class="pre">Patch1_203</span></code>), and the patch-state stream (<code class="docutils literal notranslate"><span class="pre">Patch1_State</span></code>).</p>
+<p>In code, we create logical devices via the <code class="docutils literal notranslate"><span class="pre">Device</span></code> class (see <code class="docutils literal notranslate"><span class="pre">aeon/io/device.py</span></code>)<br>
+e.g. We often define ‘Patch’ devices that contain <code class="docutils literal notranslate"><span class="pre">Reader</span></code> objects (in the <em><code class="docutils literal notranslate"><span class="pre">register</span></code></em> attribute) that are associated with specific streams (as experimenters may not care about analyzing all streams in a <code class="docutils literal notranslate"><span class="pre">Patch</span></code> device folder on ceph), e.g. wheel-magnetic-encoder, state, pellet-delivery-pin-set, and beambreak.</p>
+<p>One last important aspect of <code class="docutils literal notranslate"><span class="pre">Device</span></code> objects are <em>binder functions</em>: on instantiation, <code class="docutils literal notranslate"><span class="pre">Device</span></code> requires at least one argument that is a function that returns a dict of <code class="docutils literal notranslate"><span class="pre">Reader</span></code> objects (these get set into the <code class="docutils literal notranslate"><span class="pre">Device</span></code> object’s <code class="docutils literal notranslate"><span class="pre">registry</span></code>). We’ll explain this more in detail and show examples below.</p>
+<p><strong><em>Schema</em></strong>: A list of devices grouped within a <code class="docutils literal notranslate"><span class="pre">DotMap</span></code> object (see <code class="docutils literal notranslate"><span class="pre">aeon/docs/examples/schemas.py</span></code>). Each experiment is associated with a schema. If a schema changes, then the experiment neccesarily must be different (either in name or version number), as the acquired data is now different.</p>
+<p><strong><em>Dataset</em></strong>: All data belonging to a particular experiment.</p>
+<p>e.g. All data in <code class="docutils literal notranslate"><span class="pre">ceph/aeon/aeon/data/raw/AEON3/social0.1</span></code></p>
+</section>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Link to this heading">#</a></h2>
+<p>With this terminology in mind, let’s get to the code!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Notebook settings and imports.&quot;&quot;&quot;</span>
+
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># %flow mode reactive</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotmap</span><span class="w"> </span><span class="kn">import</span> <span class="n">DotMap</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">aeon</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">reader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.io.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">Device</span><span class="p">,</span> <span class="n">register</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span><span class="p">,</span> <span class="n">foraging</span><span class="p">,</span> <span class="n">social</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.schema.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp02</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Set experiment root path and time range / set to load data&quot;&quot;&quot;</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/ceph/aeon/aeon/data/raw/AEON3/social0.1&quot;</span><span class="p">)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-12-02 10:30:00&quot;</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-12-02 12:30:00&quot;</span><span class="p">)</span>
+<span class="n">time_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">)),</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">end_time</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">)),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Creating a new `Reader` class&quot;&quot;&quot;</span>
+
+<span class="c1"># All readers are subclassed from the base `Reader` class. They thus all contain a `read` method,</span>
+<span class="c1"># for returning data from a file in the form of a pandas DataFrame, and the following attributes,</span>
+<span class="c1"># which must be specified on object construction:</span>
+<span class="c1"># `pattern`: a prefix in the filename used by `aeon.io.api.load` to find matching files to load</span>
+<span class="c1"># `columns`: a list of column names for the returned DataFrame</span>
+<span class="c1"># `extension`: the file extension of the files to be read</span>
+
+<span class="c1"># Using these principles, we can recreate a simple reader for reading subject weight data from the</span>
+<span class="c1"># social0.1 experiments, which are saved in .csv format.</span>
+
+
+<span class="c1"># First, we&#39;ll create a general Csv reader, subclassed from `Reader`.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Csv</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">Reader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads data from csv text files, where the first column stores the Aeon timestamp, in seconds.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1"># Next, we&#39;ll create a reader for the subject weight data, subclassed from `Csv`.</span>
+
+<span class="c1"># We know from our data that the files of interest start with &#39;Environment_SubjectWeight&#39; and columns are:</span>
+<span class="c1"># 1) Aeon timestamp in seconds from 1904/01/01 (1904 date system)</span>
+<span class="c1"># 2) Weight in grams</span>
+<span class="c1"># 3) Weight stability confidence (0-1)</span>
+<span class="c1"># 4) Subject ID (string)</span>
+<span class="c1"># 5) Subject ID (integer)</span>
+<span class="c1"># Since the first column (Aeon timestamp) will be set as the index, we&#39;ll use the rest as DataFrame columns.</span>
+<span class="c1"># And we don&#39;t need to define `read`, as it will use the `Csv` class&#39;s `read` method.</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Subject_Weight</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads subject weight data from csv text files.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Environment_SubjectWeight*&quot;</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">],</span>
+        <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Loading data via a `Reader` object&quot;&quot;&quot;</span>
+
+<span class="c1"># We can now load data by specifying a file</span>
+<span class="n">subject_weight_reader</span> <span class="o">=</span> <span class="n">Subject_Weight</span><span class="p">()</span>
+<span class="n">acq_epoch</span> <span class="o">=</span> <span class="s2">&quot;2023-12-01T14-30-34&quot;</span>
+<span class="n">weight_file</span> <span class="o">=</span> <span class="n">root</span> <span class="o">/</span> <span class="n">acq_epoch</span> <span class="o">/</span> <span class="s2">&quot;Environment/Environment_SubjectWeight_2023-12-02T12-00-00.csv&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read from a single file:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">subject_weight_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">weight_file</span><span class="p">))</span>
+
+<span class="c1"># And we can use `load` to load data across many same-stream files given a time range or time set.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read from a contiguous time range:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subject_weight_reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read from a set of times:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subject_weight_reader</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time_set</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Read from a single file:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4382 rows × 4 columns</p>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Read from a contiguous time range:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-02 10:31:12.840000153</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:12.940000057</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.039999962</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.099999905</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.199999809</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.460000038</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.559999943</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.619999886</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.719999790</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.820000172</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>10525 rows × 4 columns</p>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Read from a set of times:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-02 10:30:00</th>
+      <td>30.000000</td>
+      <td>1.0</td>
+      <td>CAA-1120747</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:30:01</th>
+      <td>30.000000</td>
+      <td>1.0</td>
+      <td>CAA-1120747</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:30:02</th>
+      <td>30.000000</td>
+      <td>1.0</td>
+      <td>CAA-1120747</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:30:03</th>
+      <td>30.000000</td>
+      <td>1.0</td>
+      <td>CAA-1120747</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:30:04</th>
+      <td>30.000000</td>
+      <td>1.0</td>
+      <td>CAA-1120747</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 13:18:25</th>
+      <td>29.799999</td>
+      <td>1.0</td>
+      <td>CAA-1120746</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 13:18:26</th>
+      <td>29.799999</td>
+      <td>1.0</td>
+      <td>CAA-1120746</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 13:22:05</th>
+      <td>29.900000</td>
+      <td>1.0</td>
+      <td>CAA-1120746</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 13:22:14</th>
+      <td>29.799999</td>
+      <td>1.0</td>
+      <td>CAA-1120746</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 13:22:18</th>
+      <td>29.799999</td>
+      <td>1.0</td>
+      <td>CAA-1120746</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3691 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Updating a `Reader` object&quot;&quot;&quot;</span>
+
+<span class="c1"># Occasionally, we may want to tweak the output from a `Reader` object&#39;s `read` method, or some tweaks to</span>
+<span class="c1"># streams on the acquisition side may require us to make corresponding tweaks to a `Reader` object to</span>
+<span class="c1"># ensure it works properly. We&#39;ll cover some of these cases here.</span>
+
+<span class="c1"># 1. Column changes</span>
+
+<span class="c1"># First, if we want to simply change the output from `read`, we can change the columns of an instantiated</span>
+<span class="c1"># `Reader` object. Let&#39;s change `subject_id` to `id`, and after reading, drop the `confidence` and `int_id`</span>
+<span class="c1"># columns.</span>
+<span class="n">subject_weight_reader</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">subject_weight_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">weight_file</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="c1"># 2. Pattern changes</span>
+
+<span class="c1"># Next, occasionally a stream&#39;s filename may change, in which case we&#39;ll need to update the `Reader`</span>
+<span class="c1"># object&#39;s `pattern` to find the new files using `load`:</span>
+
+
+<span class="c1"># Let&#39;s simulate a case where the old SubjectWeight stream was called Weight, and create a `Reader` class.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Subject_Weight</span><span class="p">(</span><span class="n">Csv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads subject weight data from csv text files.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Environment_Weight*&quot;</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">],</span>
+        <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+
+
+<span class="c1"># We&#39;ll see that we can&#39;t find any files with this pattern.</span>
+<span class="n">subject_weight_reader</span> <span class="o">=</span> <span class="n">Subject_Weight</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subject_weight_reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># empty dataframe</span>
+
+<span class="c1"># But if we just update the pattern, `load` will find the files.</span>
+<span class="n">subject_weight_reader</span><span class="o">.</span><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Environment_SubjectWeight*&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subject_weight_reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="c1"># 3. Bitmask changes for Harp streams</span>
+
+<span class="c1"># Lastly, some Harp streams use bitmasks to distinguish writing out different events to the same file.</span>
+<span class="c1"># e.g. The beambreak stream `Patch&lt;id&gt;_32*` writes out events both for when the beam is broken and when</span>
+<span class="c1"># it gets reset. Given a Harp stream, we can find all bitmasks associated with it, and choose which one</span>
+<span class="c1"># to use to filter the data:</span>
+
+<span class="c1"># Given a stream, we can create a `Harp` reader object to find all bitmasks associated with it.</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Patch1_32*&quot;</span>
+<span class="n">event_name</span> <span class="o">=</span> <span class="s2">&quot;beambreak&quot;</span>
+<span class="n">harp_reader</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">event_name</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">harp_reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">)</span>
+<span class="n">bitmasks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">event_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bitmasks: </span><span class="si">{</span><span class="n">bitmasks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s set the bitmask to &#39;34&#39;, and create a new `Reader` object to use this.</span>
+<span class="n">bitmask</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="n">beambreak_reader</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">bitmask</span><span class="p">,</span> <span class="n">event_name</span><span class="p">)</span>
+<span class="n">bitmasked_data</span> <span class="o">=</span> <span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">beambreak_reader</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;raw data:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bitmasked data:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">bitmasked_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>CAA-1120746</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>CAA-1120746</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>CAA-1120746</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>CAA-1120746</td>
+    </tr>
+    <tr>
+      <th>3.784363e+09</th>
+      <td>29.799999</td>
+      <td>CAA-1120746</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>3.784367e+09</th>
+      <td>31.200001</td>
+      <td>CAA-1120747</td>
+    </tr>
+  </tbody>
+</table>
+<p>4382 rows × 2 columns</p>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-02 10:31:12.840000153</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:12.940000057</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.039999962</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.099999905</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 10:31:13.199999809</th>
+      <td>29.5</td>
+      <td>1</td>
+      <td>CAA-1120746</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.460000038</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.559999943</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.619999886</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.719999790</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-02 12:27:29.820000172</th>
+      <td>31.1</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>10525 rows × 4 columns</p>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bitmasks: [32 34]
+raw data:
+                                beambreak
+time                                    
+2023-12-02 11:33:03.942463875         34
+2023-12-02 11:33:03.951744080         32
+2023-12-02 11:33:18.500351906         34
+2023-12-02 11:33:18.503456115         32
+2023-12-02 11:33:18.509632111         34
+
+
+bitmasked data:
+                                    event
+time                                    
+2023-12-02 11:33:03.942463875  beambreak
+2023-12-02 11:33:18.500351906  beambreak
+2023-12-02 11:33:18.509632111  beambreak
+2023-12-02 11:33:18.515808104  beambreak
+2023-12-02 11:33:43.750751972  beambreak
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Instantiating a `Device` object&quot;&quot;&quot;</span>
+
+<span class="c1"># A `Device` object is instantiated from a name, followed by one or more &#39;binder functions&#39;, which</span>
+<span class="c1"># return a dictionary of a name paired with a `Reader` object. We call such a dictionary of `&lt;name&gt;:Reader`</span>
+<span class="c1"># key-value pairs a &#39;registry&#39;. Each binder function requires a  `pattern` argument, which can be used to</span>
+<span class="c1"># set the pattern of the `Reader` object it returns. This requirement for binder functions is for allowing</span>
+<span class="c1"># the `Device` to optionally pass its name to appropriately set the pattern of `Reader` objects it contains.</span>
+
+
+<span class="c1"># Below are examples of &quot;empty pattern&quot; binder functions, where the pattern doesn&#39;t get used.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">subject_weight_binder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>  <span class="c1"># an example subject weight binder function</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;subject_weight&quot;</span><span class="p">:</span> <span class="n">subject_weight_reader</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">subject_state_binder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>  <span class="c1"># an example subject state binder function</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;subject_state&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Environment_SubjectState*&quot;</span><span class="p">)}</span>
+
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;SubjectMetadata&quot;</span><span class="p">,</span> <span class="n">subject_weight_binder</span><span class="p">,</span> <span class="n">subject_state_binder</span><span class="p">)</span>
+
+<span class="c1"># On creation, the `Device` object puts all registries into a single registry, which is  accessible via the</span>
+<span class="c1"># `registry` attribute.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">registry</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># This is done so that we can create a &#39;schema&#39; (a DotMap of a list of `Device` objects), where a `Device`</span>
+<span class="c1"># object name is a key for the schema, and the corresponding values of the `registry` names (which are keys</span>
+<span class="c1"># for the `Device` object) are the `Reader` objects associated with that `Device` object.</span>
+
+<span class="c1"># This works because, when a list of `Device` objects are passed into the `DotMap` constructor, the</span>
+<span class="c1"># `__iter__` method of the `Device` object returns a tuple of the object&#39;s name with its `stream`</span>
+<span class="c1"># attribute, which is passed in directly to the DotMap constructor to create a nested DotMap:</span>
+<span class="c1"># device_name -&gt; stream_name -&gt; stream `Reader` object. This is shown below:</span>
+
+<span class="n">d2</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Metadata&quot;</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># instantiate Device from a defined binder function</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">d2</span><span class="p">])</span>  <span class="c1"># create schema as DotMap of list of Device objects</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">schema</span><span class="o">.</span><span class="n">SubjectMetadata</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Device object name as key to schema</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">schema</span><span class="o">.</span><span class="n">SubjectMetadata</span><span class="o">.</span><span class="n">subject_weight</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># binder function name yields the Reader object</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">schema</span><span class="o">.</span><span class="n">Metadata</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># for a singleton Device object, Device name alone yields the Reader object</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d.registry={&#39;subject_weight&#39;: &lt;__main__.Subject_Weight object at 0x7fa4433d5f50&gt;, &#39;subject_state&#39;: &lt;aeon.io.reader.Subject object at 0x7fa43d94bcd0&gt;}
+schema.SubjectMetadata=DotMap(subject_weight=&lt;__main__.Subject_Weight object at 0x7fa4433d5f50&gt;, subject_state=&lt;aeon.io.reader.Subject object at 0x7fa43d94bcd0&gt;)
+schema.SubjectMetadata.subject_weight=&lt;__main__.Subject_Weight object at 0x7fa4433d5f50&gt;
+schema.Metadata=&lt;aeon.io.reader.Metadata object at 0x7fa43d949350&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Nested binder functions&quot;&quot;&quot;</span>
+
+<span class="c1"># Binder functions can return a dict whose value is actually composed of multiple, rather than a single,</span>
+<span class="c1"># `Reader` objects. This is done by creating nested binder functions, via `register`.</span>
+
+
+<span class="c1"># First let&#39;s define two standard binder functions, for pellet delivery trigger and beambreak events.</span>
+<span class="c1"># In all examples below we&#39;ll define &quot;device-name passed&quot; binder functions, since the `Device` object which</span>
+<span class="c1"># will be instantiated from these functions will pass its name to set the pattern of the corresponding</span>
+<span class="c1"># Reader objects.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pellet_trigger</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pellet delivery trigger events.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;pellet_trigger&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_35_*&quot;</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span> <span class="s2">&quot;PelletTriggered&quot;</span><span class="p">)}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pellet_beambreak</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pellet beambreak events.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;pellet_beambreak&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_32_*&quot;</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="s2">&quot;PelletDetected&quot;</span><span class="p">)}</span>
+
+
+<span class="c1"># Next, we&#39;ll define a nested binder function for a &quot;feeder&quot;, which returns the two binder functions above.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">feeder</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Feeder commands and events.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">register</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">pellet_trigger</span><span class="p">,</span> <span class="n">pellet_beambreak</span><span class="p">)</span>
+
+
+<span class="c1"># And further, we can define a higher-level nested binder function for a &quot;patch&quot;, which includes the</span>
+<span class="c1"># magnetic encoder values for a patch&#39;s wheel in addition to `feeder`.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">patch</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Data streams for a patch.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">register</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">feeder</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">encoder</span><span class="p">)</span>
+
+
+<span class="c1"># We can now instantiate a `Device` object as done previously, from combinations of binder functions, but</span>
+<span class="c1"># also from nested binder functions.</span>
+<span class="n">feeder_device</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Patch1&quot;</span><span class="p">,</span> <span class="n">pellet_trigger</span><span class="p">,</span> <span class="n">pellet_beambreak</span><span class="p">)</span>
+<span class="n">feeder_device_nested</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Patch1&quot;</span><span class="p">,</span> <span class="n">feeder</span><span class="p">)</span>
+<span class="n">patch_device</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Patch1&quot;</span><span class="p">,</span> <span class="n">patch</span><span class="p">)</span>
+
+<span class="c1"># And we can see that `feeder_device` and `feeder_device_nested` are equivalent.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feeder_device</span><span class="o">.</span><span class="n">registry</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feeder_device_nested</span><span class="o">.</span><span class="n">registry</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># And `patch_device` contains the same Reader objects as these plus an `Encoder` Reader.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">patch_device</span><span class="o">.</span><span class="n">registry</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>feeder_device.registry={&#39;pellet_trigger&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa4430a4d90&gt;, &#39;pellet_beambreak&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa4430a63d0&gt;}
+feeder_device_nested.registry={&#39;pellet_trigger&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa4430a6910&gt;, &#39;pellet_beambreak&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa4430a5d90&gt;}
+patch_device.registry={&#39;pellet_trigger&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa4430a6050&gt;, &#39;pellet_beambreak&#39;: &lt;aeon.io.reader.BitmaskEvent object at 0x7fa443218c90&gt;, &#39;Encoder&#39;: &lt;aeon.io.reader.Encoder object at 0x7fa44321b750&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="social0-1-data-streams">
+<h2>Social0.1 Data Streams<a class="headerlink" href="#social0-1-data-streams" title="Link to this heading">#</a></h2>
+<p>Now that we’ve covered streams, readers, binder functions, devices, and schemas, let’s build a schema for the Social0.1 Experiment!</p>
+<p>First we’ll need to know all the streams we recorded during the Social0.1 experiment: these can be found via
+looking through all devices in an acqusition epoch
+(e.g. <code class="docutils literal notranslate"><span class="pre">ceph/aeon/aeon/data/raw/AEON3/social0.1/2023-12-01T14-30-34</span></code>)</p>
+<p>And here they are: (<em>note: register 8 is always the harp heartbeat for any device that has this stream.</em>)</p>
+<ul class="simple">
+<li><p>Metadata.yml</p></li>
+<li><p>AudioAmbient (.wav)</p>
+<ul>
+<li><p>.wav: raw audio</p></li>
+</ul>
+</li>
+<li><p>Environment</p>
+<ul>
+<li><p>BlockState</p></li>
+<li><p>EnvironmentState</p></li>
+<li><p>LightEvents</p></li>
+<li><p>MessageLog</p></li>
+<li><p>SubjectState</p></li>
+<li><p>SubjectVisits</p></li>
+<li><p>SubjectWeight</p></li>
+</ul>
+</li>
+<li><p>CameraTop (200, 201, .avi, .csv, &lt;model_path&gt;)</p>
+<ul>
+<li><p>200: position</p></li>
+<li><p>201: region</p></li>
+</ul>
+</li>
+<li><p>CameraNorth (avi, csv)</p></li>
+<li><p>CameraEast (avi, csv)</p></li>
+<li><p>CameraSouth (avi, csv)</p></li>
+<li><p>CameraWest (avi, csv)</p></li>
+<li><p>CameraPatch1 (avi, csv)</p></li>
+<li><p>CameraPatch2 (avi, csv)</p></li>
+<li><p>CameraPatch3 (avi, csv)</p></li>
+<li><p>CameraNest (avi, csv)</p></li>
+<li><p>ClockSynchronizer (8, 36)</p>
+<ul>
+<li><p>36: hearbeat out</p></li>
+</ul>
+</li>
+<li><p>Nest (200, 201, 202, 203)</p>
+<ul>
+<li><p>200: raw weight</p></li>
+<li><p>201: tare weight</p></li>
+<li><p>202: filtered weight</p></li>
+<li><p>203: baseline weight</p></li>
+<li><p>204: subject weight</p></li>
+</ul>
+</li>
+<li><p>Patch1 (8, 32, 35, 36, 87, 90, 91, 200, 201, 202, 203, State)</p>
+<ul>
+<li><p>32: beambreak</p></li>
+<li><p>35: set delivery</p></li>
+<li><p>36: clear delivery</p></li>
+<li><p>87: expansion board state</p></li>
+<li><p>90: encoder read</p></li>
+<li><p>91: encoder mode</p></li>
+<li><p>200: dispenser state</p></li>
+<li><p>201: manual delivery</p></li>
+<li><p>202: missed pellet</p></li>
+<li><p>203: retry delivery</p></li>
+</ul>
+</li>
+<li><p>Patch2 (8, 32, 35, 36, 87, 90, 91, State)</p></li>
+<li><p>Patch3 (8, 32, 35, 36, 87, 90, 91, 200, 203, State)</p></li>
+<li><p>RfidEventsGate (8, 32, 35)</p>
+<ul>
+<li><p>32: entry id</p></li>
+<li><p>35: hardware notifications</p></li>
+</ul>
+</li>
+<li><p>RfidEventsNest1 (8, 32, 35)</p></li>
+<li><p>RfidEventsNest2 (8, 32, 35)</p></li>
+<li><p>RfidEventsPatch1 (8, 32, 35)</p></li>
+<li><p>RfidEventsPatch2 (8, 32, 35)</p></li>
+<li><p>RfidEventsPatch3 (8, 32, 35)</p></li>
+<li><p>System</p>
+<ul>
+<li><p>AvailableMemory</p></li>
+</ul>
+</li>
+<li><p>VideoController (8, 32, 33, 34, 35, 36, 45, 52)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Creating the Social 0.1 schema&quot;&quot;&quot;</span>
+
+<span class="c1"># Above we&#39;ve listed out all the streams we recorded from during Social0.1, but we won&#39;t care to analyze all</span>
+<span class="c1"># of them. Instead, we&#39;ll create a DotMap schema from Device objects that only contains Readers for the</span>
+<span class="c1"># streams we want to analyze.</span>
+
+<span class="c1"># We&#39;ll see both examples of binder functions we saw previously: 1. &quot;empty pattern&quot;, and</span>
+<span class="c1"># 2. &quot;device-name passed&quot;.</span>
+
+<span class="c1"># And we&#39;ll see both examples of instantiating Device objects we saw previously: 1. from singleton binder</span>
+<span class="c1"># functions; 2. from multiple and/or nested binder functions.</span>
+
+<span class="c1"># (Note, in the simplest case, a schema can always be created from / reduced to  &quot;empty pattern&quot; binder</span>
+<span class="c1"># functions as singletons in Device objects.)</span>
+
+<span class="c1"># Metadata.yml (will be a singleton binder function Device object)</span>
+<span class="c1"># ---</span>
+
+<span class="n">core</span><span class="o">.</span><span class="n">metadata</span>  <span class="c1"># binder function: &quot;device-name passed&quot;: returns a `reader.Metadata` Reader object</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Metadata&quot;</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+<span class="c1"># ---</span>
+
+<span class="c1"># Environment (will be a nested, multiple binder function Device object)</span>
+<span class="c1"># ---</span>
+
+<span class="c1"># BlockState</span>
+<span class="c1"># binder function: &quot;device-name passed&quot;; `pattern` will be set by `Device` object name: &quot;Environment&quot;</span>
+<span class="n">block_state_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;BlockState&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_BlockState*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pellet_ct&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_ct_thresh&quot;</span><span class="p">,</span> <span class="s2">&quot;due_time&quot;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="c1"># EnvironmentState</span>
+<span class="n">core</span><span class="o">.</span><span class="n">environment_state</span>  <span class="c1"># binder function: &quot;device-name passed&quot;</span>
+
+<span class="c1"># Combine EnvironmentState and BlockState</span>
+<span class="n">env_block_state_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="n">register</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">environment_state</span><span class="p">,</span> <span class="n">block_state_b</span><span class="p">)</span>
+
+<span class="c1"># LightEvents</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">]</span>
+<span class="n">light_events_r</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="s2">&quot;Environment_LightEvents*&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">light_events_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;LightEvents&quot;</span><span class="p">:</span> <span class="n">light_events_r</span><span class="p">}</span>  <span class="c1"># binder function: &quot;empty pattern&quot;</span>
+
+<span class="c1"># MessageLog</span>
+<span class="n">core</span><span class="o">.</span><span class="n">message_log</span>  <span class="c1"># binder function: &quot;device-name passed&quot;</span>
+
+<span class="c1"># SubjectState</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]</span>
+<span class="n">subject_state_r</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="s2">&quot;Environment_SubjectState*&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">subject_state_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;SubjectState&quot;</span><span class="p">:</span> <span class="n">subject_state_r</span><span class="p">}</span>  <span class="c1"># binder function: &quot;empty pattern&quot;</span>
+
+<span class="c1"># SubjectVisits</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">]</span>
+<span class="n">subject_visits_r</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="s2">&quot;Environment_SubjectVisits*&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">subject_visits_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;SubjectVisits&quot;</span><span class="p">:</span> <span class="n">subject_visits_r</span><span class="p">}</span>  <span class="c1"># binder function: &quot;empty pattern&quot;</span>
+
+<span class="c1"># SubjectWeight</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;confidence&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;int_id&quot;</span><span class="p">]</span>
+<span class="n">subject_weight_r</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="s2">&quot;Environment_SubjectWeight*&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">subject_weight_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;SubjectWeight&quot;</span><span class="p">:</span> <span class="n">subject_weight_r</span><span class="p">}</span>  <span class="c1"># binder function: &quot;empty pattern&quot;</span>
+
+<span class="c1"># Nested binder fn Device object.</span>
+<span class="n">environment</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Environment&quot;</span><span class="p">,</span> <span class="n">env_block_state_b</span><span class="p">,</span> <span class="n">light_events_b</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">message_log</span><span class="p">)</span>  <span class="c1"># device name</span>
+
+<span class="c1"># Separate Device object for subject-specific streams.</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Subject&quot;</span><span class="p">,</span> <span class="n">subject_state_b</span><span class="p">,</span> <span class="n">subject_visits_b</span><span class="p">,</span> <span class="n">subject_weight_b</span><span class="p">)</span>
+
+<span class="c1"># ---</span>
+
+<span class="c1"># Camera</span>
+<span class="c1"># ---</span>
+
+<span class="n">camera_top_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;CameraTop&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="s2">&quot;CameraTop*&quot;</span><span class="p">)}</span>
+<span class="n">camera_top_pos_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;CameraTopPos&quot;</span><span class="p">:</span> <span class="n">social</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="s2">&quot;CameraTop_test-node1*&quot;</span><span class="p">)}</span>
+
+<span class="n">cam_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;North&quot;</span><span class="p">,</span> <span class="s2">&quot;South&quot;</span><span class="p">,</span> <span class="s2">&quot;East&quot;</span><span class="p">,</span> <span class="s2">&quot;West&quot;</span><span class="p">,</span> <span class="s2">&quot;Patch1&quot;</span><span class="p">,</span> <span class="s2">&quot;Patch2&quot;</span><span class="p">,</span> <span class="s2">&quot;Patch3&quot;</span><span class="p">,</span> <span class="s2">&quot;Nest&quot;</span><span class="p">]</span>
+<span class="n">cam_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Camera&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cam_names</span><span class="p">]</span>
+<span class="n">camera_b</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)}</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cam_names</span><span class="p">]</span>
+
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Camera&quot;</span><span class="p">,</span> <span class="n">camera_top_b</span><span class="p">,</span> <span class="n">camera_top_pos_b</span><span class="p">,</span> <span class="o">*</span><span class="n">camera_b</span><span class="p">)</span>
+
+<span class="c1"># ---</span>
+
+<span class="c1"># Nest</span>
+<span class="c1"># ---</span>
+
+<span class="n">weight_raw_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;WeightRaw&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="s2">&quot;Nest_200*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;weight(g)&quot;</span><span class="p">,</span> <span class="s2">&quot;stability&quot;</span><span class="p">])}</span>
+<span class="n">weight_filtered_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;WeightFiltered&quot;</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="s2">&quot;Nest_202*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;weight(g)&quot;</span><span class="p">,</span> <span class="s2">&quot;stability&quot;</span><span class="p">])}</span>
+
+<span class="n">nest</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span>
+    <span class="s2">&quot;Nest&quot;</span><span class="p">,</span>
+    <span class="n">weight_raw_b</span><span class="p">,</span>
+    <span class="n">weight_filtered_b</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># ---</span>
+
+<span class="c1"># Patch</span>
+<span class="c1"># ---</span>
+
+<span class="n">patches</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">]</span>
+<span class="n">patch_streams</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;32&quot;</span><span class="p">,</span> <span class="s2">&quot;35&quot;</span><span class="p">,</span> <span class="s2">&quot;90&quot;</span><span class="p">,</span> <span class="s2">&quot;201&quot;</span><span class="p">,</span> <span class="s2">&quot;202&quot;</span><span class="p">,</span> <span class="s2">&quot;203&quot;</span><span class="p">,</span> <span class="s2">&quot;State&quot;</span><span class="p">]</span>
+<span class="n">patch_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Patch&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">stream</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">patches</span> <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">patch_streams</span><span class="p">]</span>
+<span class="n">patch_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">patch_names</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;32&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;beambreak&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="s2">&quot;35&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">BitmaskEvent</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;delivery&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="k">elif</span> <span class="s2">&quot;90&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span><span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)}</span>
+    <span class="k">elif</span> <span class="s2">&quot;201&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span><span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;manual_delivery&quot;</span><span class="p">])}</span>
+    <span class="k">elif</span> <span class="s2">&quot;202&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span><span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;missed_pellet&quot;</span><span class="p">])}</span>
+    <span class="k">elif</span> <span class="s2">&quot;203&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span><span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;retried_delivery&quot;</span><span class="p">])}</span>
+    <span class="k">elif</span> <span class="s2">&quot;State&quot;</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">stream</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="n">stream</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">,</span> <span class="s2">&quot;rate&quot;</span><span class="p">])</span>
+        <span class="p">}</span>
+    <span class="n">patch_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+
+<span class="n">patch</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Patch&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">patch_b</span><span class="p">)</span>
+<span class="c1"># ---</span>
+
+<span class="c1"># Rfid</span>
+<span class="c1"># ---</span>
+
+<span class="n">rfid_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;EventsGate&quot;</span><span class="p">,</span> <span class="s2">&quot;EventsNest1&quot;</span><span class="p">,</span> <span class="s2">&quot;EventsNest2&quot;</span><span class="p">,</span> <span class="s2">&quot;EventsPatch1&quot;</span><span class="p">,</span> <span class="s2">&quot;EventsPatch2&quot;</span><span class="p">,</span> <span class="s2">&quot;EventsPatch3&quot;</span><span class="p">]</span>
+<span class="n">rfid_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Rfid&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">rfid_names</span><span class="p">]</span>
+<span class="n">rfid_b</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">reader</span><span class="o">.</span><span class="n">Harp</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">])}</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">rfid_names</span><span class="p">]</span>
+
+<span class="n">rfid</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Rfid&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">rfid_b</span><span class="p">)</span>
+
+<span class="c1"># ---</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">social01</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">([</span><span class="n">metadata</span><span class="p">,</span> <span class="n">environment</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span> <span class="n">patch</span><span class="p">,</span> <span class="n">rfid</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cols = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]</span>
+<span class="c1"># r = reader.Harp(&quot;RfidEventsGate_32*&quot;, cols)</span>
+<span class="c1"># start_time = pd.Timestamp(&quot;2023-12-02 10:30:00&quot;)</span>
+<span class="c1"># end_time = pd.Timestamp(&quot;2023-12-02 12:30:00&quot;)</span>
+<span class="c1"># aeon.load(root, r, start=start_time, end=end_time)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Test all readers in schema.&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_obj</span><span class="p">(</span><span class="n">dotmap</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list of objects of type `obj` found in a DotMap.&quot;&quot;&quot;</span>
+    <span class="n">objs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dotmap</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+            <span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">DotMap</span><span class="p">):</span>
+            <span class="n">objs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">find_obj</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">obj</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">objs</span>
+
+
+<span class="n">readers</span> <span class="o">=</span> <span class="n">find_obj</span><span class="p">(</span><span class="n">social01</span><span class="p">,</span> <span class="n">reader</span><span class="o">.</span><span class="n">Reader</span><span class="p">)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-12-05 15:00:00&quot;</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2023-12-07 11:00:00&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">readers</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">aeon</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_time</span><span class="p">)</span>
+    <span class="c1"># assert not data.empty, f&quot;No data found with {r}.&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Metadata:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>workflow</th>
+      <th>commit</th>
+      <th>metadata</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_EnvironmentState_*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:28:04.552000046</th>
+      <td>Maintenance</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:30:23.199999809</th>
+      <td>Experiment</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_BlockState*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pellet_ct</th>
+      <th>pellet_ct_thresh</th>
+      <th>due_time</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:21.032000065</th>
+      <td>33</td>
+      <td>39</td>
+      <td>0001-01-01T00:00:00.0000000</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:45.599999905</th>
+      <td>34</td>
+      <td>39</td>
+      <td>0001-01-01T00:00:00.0000000</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:56.763999939</th>
+      <td>35</td>
+      <td>39</td>
+      <td>0001-01-01T00:00:00.0000000</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:38.004000186</th>
+      <td>36</td>
+      <td>39</td>
+      <td>0001-01-01T00:00:00.0000000</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:59.627999783</th>
+      <td>37</td>
+      <td>39</td>
+      <td>0001-01-01T00:00:00.0000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_LightEvents*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>channel</th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00</th>
+      <td>3</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00</th>
+      <td>7</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00</th>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00</th>
+      <td>18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00</th>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_MessageLog_*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>priority</th>
+      <th>type</th>
+      <th>message</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:03:02.760000229</th>
+      <td>Alert</td>
+      <td>TrackingFailure</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:32.019999981</th>
+      <td>Alert</td>
+      <td>TrackingFailure</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:11:06.400000095</th>
+      <td>Alert</td>
+      <td>TrackingFailure</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:14:37.320000172</th>
+      <td>Alert</td>
+      <td>TrackingFailure</td>
+      <td>CAA-1120747</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:19:46.980000019</th>
+      <td>Alert</td>
+      <td>TrackingFailure</td>
+      <td>CAA-1120747</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_SubjectState*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>weight</th>
+      <th>type</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_SubjectVisits*:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/nfs/nhome/live/jbhagat/ProjectAeon/aeon_mecha/aeon/io/api.py:149: UserWarning: data index for Environment_SubjectVisits* contains duplicate keys!
+  warnings.warn(f&quot;data index for {reader.pattern} contains duplicate keys!&quot;)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>type</th>
+      <th>region</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:09.440000057</th>
+      <td>CAA-1120747</td>
+      <td>Enter</td>
+      <td>Patch2</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:09.519999981</th>
+      <td>CAA-1120747</td>
+      <td>Exit</td>
+      <td>Patch2</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:14.900000095</th>
+      <td>CAA-1120747</td>
+      <td>Enter</td>
+      <td>Patch3</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:15.000000000</th>
+      <td>CAA-1120747</td>
+      <td>Exit</td>
+      <td>Patch3</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:15.380000114</th>
+      <td>CAA-1120747</td>
+      <td>Enter</td>
+      <td>Patch3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Environment_SubjectWeight*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+      <th>confidence</th>
+      <th>subject_id</th>
+      <th>int_id</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:06:48.539999962</th>
+      <td>29.0</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:48.639999866</th>
+      <td>29.0</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:48.699999809</th>
+      <td>29.0</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:48.800000191</th>
+      <td>29.0</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:48.900000095</th>
+      <td>29.0</td>
+      <td>1</td>
+      <td>CAA-1120747</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nest_200*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight(g)</th>
+      <th>stability</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.159999847</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.260000229</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.340000153</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.420000076</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nest_202*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight(g)</th>
+      <th>stability</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.159999847</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.260000229</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.340000153</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.420000076</th>
+      <td>-1.2</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_32*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:21.213376045</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:45.747712135</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:56.878367901</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:38.138751984</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:59.770847797</th>
+      <td>beambreak</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_35*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:21.035488129</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:45.601503849</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:56.767488003</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:38.005504131</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:59.629504204</th>
+      <td>delivery</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_90*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>angle</th>
+      <th>intensity</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>14056</td>
+      <td>2894</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.001984119</th>
+      <td>14055</td>
+      <td>2902</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.004000186</th>
+      <td>14057</td>
+      <td>2896</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.005983829</th>
+      <td>14053</td>
+      <td>2898</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.007999897</th>
+      <td>14057</td>
+      <td>2897</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_201*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>manual_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_202*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>missed_pellet</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-06 13:06:33.941696167</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 21:19:29.878848076</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-07 09:53:59.871263981</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-07 10:08:04.876768112</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-07 10:16:46.124447823</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_203*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>retried_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 16:04:15.703487873</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 16:17:31.972479820</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 17:30:23.181503773</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 17:30:24.197504044</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 17:30:41.369503975</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch1_State*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>threshold</th>
+      <th>offset</th>
+      <th>rate</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:21.032000065</th>
+      <td>255.501030</td>
+      <td>75</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:45.599999905</th>
+      <td>100.117430</td>
+      <td>75</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:56.763999939</th>
+      <td>355.328025</td>
+      <td>75</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:38.004000186</th>
+      <td>307.886556</td>
+      <td>75</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:09:59.627999783</th>
+      <td>86.638658</td>
+      <td>75</td>
+      <td>0.01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_32*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 21:57:40.172095776</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:58:17.694560051</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:58:17.703807831</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:58:39.021152020</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:59:02.698304176</th>
+      <td>beambreak</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_35*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 21:57:40.035488129</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:58:17.564479828</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:58:38.883488178</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:59:00.546495914</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:59:01.559487820</th>
+      <td>delivery</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_90*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>angle</th>
+      <th>intensity</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>3908</td>
+      <td>3164</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.001984119</th>
+      <td>3903</td>
+      <td>3172</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.004000186</th>
+      <td>3900</td>
+      <td>3167</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.005983829</th>
+      <td>3899</td>
+      <td>3166</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.007999897</th>
+      <td>3902</td>
+      <td>3170</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_201*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>manual_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_202*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>missed_pellet</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_203*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>retried_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 21:59:01.560480118</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 21:59:02.569503784</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 03:47:32.918496132</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 05:24:27.801504135</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 05:31:37.337503910</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch2_State*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>threshold</th>
+      <th>offset</th>
+      <th>rate</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:10:27.000000000</th>
+      <td>NaN</td>
+      <td>75</td>
+      <td>0.0033</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:10:27.001984119</th>
+      <td>316.702028</td>
+      <td>75</td>
+      <td>0.0033</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:10:27.007999897</th>
+      <td>316.702028</td>
+      <td>75</td>
+      <td>0.0033</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 16:28:21.000000000</th>
+      <td>NaN</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 16:28:21.001984119</th>
+      <td>219.666377</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_32*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:44:45.612192154</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 06:07:05.146624088</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 07:04:29.012159824</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 08:34:13.545279980</th>
+      <td>beambreak</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 08:34:35.653376102</th>
+      <td>beambreak</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_35*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:44:45.477503777</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 06:07:04.042496204</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 06:07:05.049503803</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 07:04:28.900479794</th>
+      <td>delivery</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 08:34:13.445504189</th>
+      <td>delivery</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_90*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>angle</th>
+      <th>intensity</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>10639</td>
+      <td>4119</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.001984119</th>
+      <td>10639</td>
+      <td>4120</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.004000186</th>
+      <td>10641</td>
+      <td>4121</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.005983829</th>
+      <td>10640</td>
+      <td>4118</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.007999897</th>
+      <td>10638</td>
+      <td>4118</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_201*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>manual_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_202*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>missed_pellet</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_203*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>retried_delivery</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-06 06:07:05.050496101</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2023-12-06 08:51:15.842495918</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patch3_State*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>threshold</th>
+      <th>offset</th>
+      <th>rate</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:10:27.001984119</th>
+      <td>NaN</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:10:27.004000186</th>
+      <td>545.555314</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:10:27.009984016</th>
+      <td>545.555314</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:44:45.475999832</th>
+      <td>1024.856116</td>
+      <td>75</td>
+      <td>0.0020</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 16:28:21.000000000</th>
+      <td>NaN</td>
+      <td>75</td>
+      <td>0.0033</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsGate*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:03:03.993120193</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:03:30.682623863</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:03:31.019872189</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:03:31.395616055</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:06:38.510911942</th>
+      <td>977200010164323</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsNest1*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>3784633200</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.001503944</th>
+      <td>3784633200</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:01.000000000</th>
+      <td>3784633201</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:01.001503944</th>
+      <td>3784633201</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:02.000000000</th>
+      <td>3784633202</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsNest2*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:03:33.940767765</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:08:28.597375870</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:08:34.070496082</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:08:50.152063847</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:08:50.489439964</th>
+      <td>977200010164323</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsPatch1*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:00:00.000000000</th>
+      <td>3784633200</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:00.001503944</th>
+      <td>3784633200</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:01.000000000</th>
+      <td>3784633201</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:01.001503944</th>
+      <td>3784633201</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:00:02.000000000</th>
+      <td>3784633202</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsPatch2*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:33.719103813</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:34.209599972</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:34.608064175</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:35.006527901</th>
+      <td>977200010163729</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:35.251743793</th>
+      <td>977200010163729</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RfidEventsPatch3*:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rfid</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-12-05 15:02:19.841599941</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:20.271039963</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:20.731232166</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:21.130015849</th>
+      <td>977200010164323</td>
+    </tr>
+    <tr>
+      <th>2023-12-05 15:02:21.896927834</th>
+      <td>977200010164323</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Aeon data file structure on Ceph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-aeon-data-in-python">Reading Aeon data in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminology">Terminology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#social0-1-data-streams">Social0.1 Data Streams</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user/how_to/understanding_aeon_data_architecture_copy.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><p class="sphinx-version"></p>
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+    </p>
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
+    0.16.1.
+    </p></div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><div class="things-in-a-row">
+    <a href="https://neurogears.org/">
+        <img src="../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.datajoint.com/">
+        <img src="../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://wellcome.org/">
+        <img src="../../_static/images/light-logo-wellcome.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-wellcome.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.sainsburywellcome.org/web/">
+        <img src="../../_static/images/light-logo-swc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-swc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/">
+        <img src="../../_static/images/light-logo-ucl.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-ucl.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit">
+        <img src="../../_static/images/light-logo-gatsby.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-gatsby.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ukri.org/councils/bbsrc/">
+        <img src="../../_static/images/light-logo-bbsrc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-bbsrc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.simonsfoundation.org/">
+        <img src="../../_static/images/light-logo-simons.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-simons.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+</div></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

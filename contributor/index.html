@@ -584,16 +584,16 @@ RestructuredText</label><div class="sd-tab-content docutils">
 <section id="updating-the-api-reference">
 <h4>Updating the API reference<a class="headerlink" href="#updating-the-api-reference" title="Link to this heading">#</a></h4>
 <p>The <a class="reference internal" href="../reference/api.html#target-api-reference"><span class="std std-ref">API reference</span></a> is auto-generated as part of the documentation build process.</p>
-<section id="aeon-mecha">
-<h5><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code><a class="headerlink" href="#aeon-mecha" title="Link to this heading">#</a></h5>
-<p>For the <code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code> Python package, the <code class="docutils literal notranslate"><span class="pre">make_mecha_doctree.py</span></code> script generates the <code class="docutils literal notranslate"><span class="pre">src/reference/api/mecha.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/mecha.html#target-mecha-reference"><span class="std std-ref">API reference</span></a>.
-The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#">sphinx-autodoc</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#">sphinx-autosummary</a> extensions are then used to generate the API reference pages for each module listed in <code class="docutils literal notranslate"><span class="pre">mecha.rst</span></code>, based on the docstrings in the source code.
-By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the <code class="docutils literal notranslate"><span class="pre">ignore_modules</span></code> list in the <code class="docutils literal notranslate"><span class="pre">make_mecha_doctree.py</span></code> script.</p>
+<section id="aeon-api">
+<h5><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code><a class="headerlink" href="#aeon-api" title="Link to this heading">#</a></h5>
+<p>For the <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> Python package, the <code class="docutils literal notranslate"><span class="pre">make_api_doctree.py</span></code> script generates the <code class="docutils literal notranslate"><span class="pre">src/reference/api/aeon_api.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/aeon_api.html#target-aeon-api-reference"><span class="std std-ref">API reference</span></a>.
+The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#">sphinx-autodoc</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#">sphinx-autosummary</a> extensions are then used to generate the API reference pages for each module listed in <code class="docutils literal notranslate"><span class="pre">aeon_api.rst</span></code>, based on the docstrings in the source code.
+By default, all modules are documented. If you wish to exclude a module from the API reference, you can add it to the <code class="docutils literal notranslate"><span class="pre">ignore_modules</span></code> list in the <code class="docutils literal notranslate"><span class="pre">make_api_doctree.py</span></code> script.</p>
 </section>
 <section id="aeon-acquisition">
 <h5><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code><a class="headerlink" href="#aeon-acquisition" title="Link to this heading">#</a></h5>
 <p>For the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> Bonsai package, the <code class="docutils literal notranslate"><span class="pre">make_acquisition_doctree.py</span></code> script first calls <a class="reference external" href="https://dotnet.github.io/docfx/index.html"><code class="docutils literal notranslate"><span class="pre">docfx</span></code></a> to generate the API reference pages for each module as Markdown files in <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition/</span></code>, and the table of contents (TOC) in the <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition/toc.yml</span></code> file.
-This TOC is then used to generate the <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/acquisition.html#target-acquisition-reference"><span class="std std-ref">API reference</span></a>.</p>
+This TOC is then used to generate the <code class="docutils literal notranslate"><span class="pre">src/reference/api/acquisition.rst</span></code> file containing the list of modules to be included in the <a class="reference internal" href="../reference/api/aeon_acquisition.html#target-aeon-acquisition-reference"><span class="std std-ref">API reference</span></a>.</p>
 </section>
 </section>
 </section>
@@ -765,7 +765,7 @@ select the <code class="docutils literal notranslate"><span class="pre">Docs</sp
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-api-reference">Updating the API reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-api"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aeon-acquisition"><code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code></a></li>
 </ul>
 </li>

@@ -1,0 +1,6 @@
+﻿swc.aeon.io.video
+=================
+
+.. automodule:: swc.aeon.io.video
+   :members:
+   :undoc-members:

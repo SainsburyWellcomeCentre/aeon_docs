@@ -1,0 +1,6 @@
+﻿swc.aeon.analysis.utils
+=======================
+
+.. automodule:: swc.aeon.analysis.utils
+   :members:
+   :undoc-members:

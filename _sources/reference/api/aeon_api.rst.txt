@@ -1,0 +1,23 @@
+..
+  This file is auto-generated.
+
+.. _target-aeon-api-reference:
+
+``aeon_api``
+==============
+
+.. toctree::
+   :caption: aeon API
+   :maxdepth: 1
+
+.. autosummary::
+   :toctree: aeon_api
+
+   swc.aeon.analysis.movies
+   swc.aeon.analysis.plotting
+   swc.aeon.analysis.utils
+   swc.aeon.io.api
+   swc.aeon.io.reader
+   swc.aeon.io.video
+   swc.aeon.schema.core
+   swc.aeon.schema.streams

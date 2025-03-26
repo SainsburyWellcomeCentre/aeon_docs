@@ -25,6 +25,7 @@ clean:
 	@echo "Removing auto-generated files under 'docs' and 'src'..."
 	@rm -rf $(BUILDDIR)
 	@rm -rf $(SOURCEDIR)/reference/api/
+	@rm -rf $(SOURCEDIR)/xml/
 
 .PHONY: help Makefile copy-examples
 

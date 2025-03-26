@@ -1,128 +1,114 @@
 import subprocess
 from pathlib import Path
 
-import yaml
+from jinja2 import FileSystemLoader
+from jinja2.sandbox import SandboxedEnvironment
+from lxml import etree as ET
 
 
-def run_docfx_metadata(src_path: Path, output_format: str = "markdown"):
-    """
-    Run docfx metadata command to generate YAML files from source code.
-    """
-    subprocess.run(
-        ["dotnet", "docfx", "metadata", "--outputFormat", f"{output_format}"],
-        cwd=src_path,
+def determine_namespace(name, namespaces):
+    """Determine the parent namespace of an element by its name."""
+    # Tokenise the name by "::"
+    tokens = name.split("::")
+    # Prioritise lower-level namespaces
+    sorted_namespaces = sorted(
+        namespaces, key=lambda ns: len(ns.split("::")), reverse=True
+    )
+    for ns in sorted_namespaces:
+        ns_tokens = ns.split("::")
+        if ns_tokens == tokens[: len(ns_tokens)]:
+            return ns
+    return None
+
+
+def get_aeon_namespaces(root):
+    """Get all Aeon namespaces except for Tests."""
+    return root.xpath(
+        ".//compound[@kind='namespace' and starts-with(name, 'Aeon::') and not (starts-with(name, 'Aeon::Tests'))]"
     )
 
 
-def rewrite_section(section: str):
-    """
-    Rewrite a single section of a namespace document as a list-table.
-    """
-    section_title, section_body = section.split("\n\n", 1)
-    section_content = (
-        f":::{{rubric}}{section_title}\n:::"
-        "\n\n::: {list-table}\n:class: acquisition-api-table\n\n"
-    )
-    section_lines = section_body.split("\n\n")
-    # Remove empty lines
-    section_lines = [line for line in section_lines if line.strip()]
-    # Check if description column is required
-    has_description = any([not line.startswith(" [") for line in section_lines])
-    for idx, section_line in enumerate(section_lines):
-        is_description = not section_line.startswith(" [")
-        if is_description:
-            # Description column
-            section_content += f"    - {section_line}\n"
-        else:
-            # Extract link text and URL
-            link_text = section_line.split("[")[1].split("]")[0]
-            link_path = section_line.split("(")[1].split(")")[0]
-            # Reconstruct the link with backticks
-            section_line = f"[`{link_text}`]({link_path})"
-            section_content += f"*   - {section_line}\n"
-        if not has_description:  # Single column table
-            continue
-        # Check if next line is a description line
-        try:
-            next_line = section_lines[idx + 1]
-            if next_line.startswith(" [") and not is_description:
-                # Account for empty description
-                section_content += "    - \n"
-        except IndexError:  # Last line
-            if not is_description:
-                section_content += "    - \n"
-    section_content += ":::\n\n"
-    return section_content
+def generate_section(root, namespace, data_type):
+    """Generate the section for enum, class, or struct."""
+    ns_names = [ns.findtext("name") for ns in get_aeon_namespaces(root)]
+    ns_name = namespace.findtext("name")
+    ns_kind = namespace.get("kind")
+    ns_refid = namespace.get("refid")
+    if data_type == "enum":
+        elements = namespace.findall(f".//member[@kind='{data_type}']")
+    else:
+        elements = root.xpath(
+            f".//compound[@kind='{data_type}' and contains(@refid, '{ns_refid.replace(ns_kind, '')}')]"
+        )
+        elements = [
+            elem
+            for elem in elements
+            if determine_namespace(elem.findtext("name"), ns_names) == ns_name
+        ]
+    if not elements:
+        return None
+    return generate_section_content(elements, data_type, ns_name)
 
 
-def process_namespace(namespace: dict, metadata_path: Path):
-    """
-    Process a single namespace from the toc file.
+def generate_section_content(elements, data_type, namespace_name):
+    """Generate the section content for enum, class, or struct."""
+    content = ""
+    for elem in elements:
+        name = elem.findtext("name")
+        name_formatted = name.replace(f"{namespace_name}::", "").replace("::", ".")
+        content += f"""
+{name_formatted}
+{"^" * len(name_formatted)}
 
-    Specifically, this function returns a table row and a toctree entry
-    for the namespace on the main page.
-    It also rewrites the namespace document and adds a toctree to it.
-    """
-    namespace_name = namespace["name"]
-    namespace_href = namespace.get("href")
-    namespace_items = namespace.get("items")
-    if namespace_href is None or namespace_items is None:
-        return None, None
-    # Generate entry to table on main page that mimics aeon_mecha doc structure
-    table_row = f"*   - [``{namespace_name}``](aeon_acquisition/{namespace_name})\n"
-    # Generate toctree entry
-    toctree_entry = f"    {namespace_name} <aeon_acquisition/{namespace_name}>\n"
-    # Generate toctree for namespace document
-    namespace_path = metadata_path.joinpath(namespace_href)
-    with open(namespace_path, "r+", encoding="utf-8") as nsf:
-        content = nsf.read()
-        sections = content.split("###")
-        content = sections[0]  # Page header
-        for section in sections[1:]:
-            content += rewrite_section(section)
-        content += ":::{toctree}\n   :hidden:\n"
-        # loop through all namespace items
-        for item in namespace_items:
-            item_name = item["name"]
-            item_href = item.get("href")
-            if item_href is None:  # item is category, skip for now
-                continue
-            # item is type, add toctree entry
-            item_path = metadata_path.joinpath(item_href)
-            item_filename = item_path.with_suffix("").name
-            content += f"\n{item_name} <{item_filename}>"
-        content += "\n:::"
-        nsf.seek(0)
-        nsf.write(content)
-        nsf.truncate()
-    return table_row, toctree_entry
+.. doxygen{data_type}:: {name}
+"""
+        if data_type != "enum":
+            content += """   :members:
+   :undoc-members:
+   :allow-dot-graphs:
+"""
+    return content
 
 
 def make_acquisition_doctree():
-    """
-    Create a doctree of all namespaces in aeon_acquisition.
-    """
-    # Generate .md API files from source code
-    src_path = Path("src")
-    run_docfx_metadata(src_path)
-    # Path to main page (src/reference/api/aeon_acquisition.md)
-    metadata_path = src_path.joinpath("reference", "api", "aeon_acquisition")
-    # Get acquisition toc
-    acquisition_toc = yaml.safe_load(metadata_path.joinpath("toc.yml").read_text())
+    """Create a doctree of all namespaces in aeon_acquisition."""
+
+    # Generate xml docs using doxygen
+    subprocess.run(["doxygen"])
+    src_root = Path("src")
+    acquisition_path = src_root / "reference" / "api" / "aeon_acquisition"
+    templates_path = src_root / "_templates"
+    # Create directory for acquisition docs
+    acquisition_path.mkdir(parents=True, exist_ok=True)
+    # Parse the doxygen-generated index.xml file
+    index = ET.parse(src_root / "xml" / "index.xml")
+    root = index.getroot()
     # Get the main page header
-    api_head_path = Path("src") / "_templates" / "api_aeon_acquisition_head.md"
-    api_head = api_head_path.read_text()
-    # Initialise sections
-    table_rows = ":::{list-table}\n:class: acquisition-api-table\n\n"
-    toctree = ":::\n\n:::{toctree}\n    :glob:\n    :hidden:\n\n"
-    # All namespaces are children of the root element
-    for namespace in acquisition_toc:
-        table_row, toctree_entry = process_namespace(namespace, metadata_path)
-        table_rows += table_row
-        toctree += toctree_entry
-    toctree += "\n:::"
-    with open(metadata_path.with_suffix(".md"), "w") as f:
-        f.write(api_head + table_rows + toctree)
+    api_head_path = templates_path / "api_aeon_acquisition_head.rst"
+    api_file_content = api_head_path.read_text()
+    # Get the namespace template
+    env = SandboxedEnvironment(loader=FileSystemLoader(templates_path))
+    ns_template = env.get_template("api_aeon_acquisition_namespace.rst")
+    # For each namespace, add a toc entry to the main page,
+    # and create a page for the namespace
+    with acquisition_path.with_suffix(".rst").open("w") as api_file:
+        for ns in get_aeon_namespaces(root):
+            ns_name = ns.findtext("name")
+            ns_name_formatted = ns_name.replace("::", ".")
+            # Add toc entry to table on main page to mimic aeon_mecha doc structure
+            api_file_content += f"   * - :cs:namespace:`{ns_name_formatted}`\n"
+            with (acquisition_path / f"{ns_name_formatted}.rst").open("w") as ns_file:
+                ns_file.write(
+                    ns_template.render(
+                        name_formatted=ns_name_formatted,
+                        underline="=" * len(ns_name_formatted),
+                        name=ns_name,
+                        enums=generate_section(root, ns, "enum"),
+                        classes=generate_section(root, ns, "class"),
+                        structs=generate_section(root, ns, "struct"),
+                    )
+                )
+        api_file.write(api_file_content)
 
 
 if __name__ == "__main__":

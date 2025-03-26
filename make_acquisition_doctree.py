@@ -58,7 +58,7 @@ def generate_section_content(elements, data_type, namespace_name):
         name_formatted = name.replace(f"{namespace_name}::", "").replace("::", ".")
         content += f"""
 {name_formatted}
-{'^' * len(name_formatted)}
+{"^" * len(name_formatted)}
 
 .. doxygen{data_type}:: {name}
 """
@@ -76,7 +76,7 @@ def make_acquisition_doctree():
     # Generate xml docs using doxygen
     subprocess.run(["doxygen"])
     src_root = Path("src")
-    acquisition_path = src_root / "reference" / "api" / "acquisition"
+    acquisition_path = src_root / "reference" / "api" / "aeon_acquisition"
     templates_path = src_root / "_templates"
     # Create directory for acquisition docs
     acquisition_path.mkdir(parents=True, exist_ok=True)
@@ -84,11 +84,11 @@ def make_acquisition_doctree():
     index = ET.parse(src_root / "xml" / "index.xml")
     root = index.getroot()
     # Get the main page header
-    api_head_path = templates_path / "api_acquisition_head.rst"
+    api_head_path = templates_path / "api_aeon_acquisition_head.rst"
     api_file_content = api_head_path.read_text()
     # Get the namespace template
     env = SandboxedEnvironment(loader=FileSystemLoader(templates_path))
-    ns_template = env.get_template("api_acquisition_namespace.rst")
+    ns_template = env.get_template("api_aeon_acquisition_namespace.rst")
     # For each namespace, add a toc entry to the main page,
     # and create a page for the namespace
     with acquisition_path.with_suffix(".rst").open("w") as api_file:

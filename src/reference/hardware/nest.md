@@ -24,7 +24,7 @@ The nest is typically equipped with bedding materials and enrichment.
 :alt: step1
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-1\. Create the scale support by bolting the acrylic platform (5mm) to the two aluminium extrusions (360mm). 
+1\. Create the scale support by bolting the acrylic platform to the two aluminium extrusions. 
 :::
 :::{figure} ../../images/nest-step2.svg
 :alt: step2
@@ -36,7 +36,7 @@ The nest is typically equipped with bedding materials and enrichment.
 :alt: step3
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-3\. Using 4 acrylic spacers, bolt the scale to the side of the habitat.
+3\. Drill two holes in each aluminium extrusion and using 4 acrylic spacers, bolt the scale to the bottom of the metal framework as shown.
 :::
 ::::
 
@@ -86,7 +86,7 @@ The nest is typically equipped with bedding materials and enrichment.
 :alt: step10
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-10\. Position the nest base and walls onto the habitat, above the scale. The base of the nest will sit directly on the scale held by the 3D printed holders, while the walls will connect to the habitat outer walls.
+10\. Position the nest base and walls onto the habitat, above the scale. The base of the nest sits directly on the scale held by the 3D printed holders, while the walls connect to the habitat outer walls.
 :::
 ::::
 
@@ -108,10 +108,10 @@ The nest is typically equipped with bedding materials and enrichment.
 :alt: step13
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-13\. Bolt the water bottle holder on the side of the nest using angle brackets. Adjust its inclination to fit the spout into the side wall opening.
+13\. Bolt the water bottle holder on the side of the nest using angle brackets. Adjust its inclination to fit the spout into the side wall opening. To prevent unstable scale readings, ensure that the spout does not come into contact with the acrylic.
 :::
 ::::
 
 ## Downloads
-- [Assembly guide](../../downloads/Nest-Guideline-Final-1.pdf)
+- [Assembly guide](../../downloads/Nest-Guideline.pdf)
 - [Bill of materials](../../downloads/Nest-BOM.xlsx)

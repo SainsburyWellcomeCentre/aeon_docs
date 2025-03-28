@@ -5,10 +5,10 @@ A <!--TODO-->[foraging patch](./link/to/acquisition/foraging_patch.md) is a moto
 ## Connections
 1. The output expander is connected to the behaviour machine by mini-USB, which both powers the device and enables communication between the device and computer.
 
-2. The output expander also recieves a common clock signal through a 3.5mm audio jack connection from one of the 'Clock out' ports on the [timestamp_generator](./timestamp_generator.md).
+2. The output expander also recieves a common clock signal through a 3.5mm stereo audio jack connection from one of the 'Clock out' ports on the [timestamp_generator](./timestamp_generator.md).
 
-3. In order to connect and control the behaviour of the <!--TODO-->[feeder assembly](./link/to/feeder_hardware.md), the serial expansion port of the output expander connects to the feeder assembly via a 10-pin COM port (IBC10) direct to a 9-pin serial connection (DB9) on the feeder assembly. Pin 10 is not used. <!--TODO: URGENT: Check if the pinout is needed here-->
+3. The expansion port of the output expander is connected to the magnetic encoder via a 10-pin socket (IBC10) to a 10-pin connection the magnetic encoder component of the feeder.
 
-4. The BNC output, 'Output0' on the output expander is connected to the 'INPUT' BNC port on the feeder.
+4. The BNC output, 'Output0' on the output expander is connected to the 'INPUT' BNC port on the feeder assembly to carry the TTL pulses to deliver pellets or reset the feeder, determined by one of two different pulse widths.
 
-5. The 'OUTPUT' BNC port of the feeder is connected to the pellet detecting IR beam break, and connected to the screwgate terminals of the feeder socket. <!--TODO: URGENT: Check I haven't gotten this mixed up, or if the svg is mixed up-->
+5. The 'OUTPUT' BNC port of the feeder is connected to the screwgate terminals alongside the magnetic encoder socket, in order to receive the beam break events <!--TODO: URGENT: Switch output and input BNCs on .svg-->

@@ -37,7 +37,7 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 :alt: step3
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-3\. To create a thread for the adjustable feet, tap one end of each of the habitat legs (ID 3) and screw the feet into it. Connect the legs to the habitat floor using angle brackets in the locations shown in red. Note: if needed, the adjustable feet allow for levelling of the habitat floor.
+3\. To create a thread for the adjustable feet, tap one end of each of the legs (ID 3) and screw the feet into it. Connect the legs to the habitat floor using angle brackets in the locations shown in red. Note: if needed, the adjustable feet allow for levelling of the floor.
 :::
 ::::
 
@@ -59,13 +59,13 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 :alt: step6
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-6\. Some of the tiles have slots to accommodate the walls of the habitat. The walls are supported by two acrylic wall holders that are attached to the underside of each tile with chloroform. The nest tile is only equipped with 2 smaller wall holders (dotted red lines).
+6\. Some of the tiles have slots to accommodate the walls of the habitat. The walls are supported by two acrylic wall holders that are attached to the underside of each tile with chloroform. The nest tile is only equipped with 2 smaller wall holders (dotted red lines). Note: make a 1.25mm thick and 18mm wide rim all around the bottom of the tiles using a milling machine. This allows them to slot into the honeycomb.
 :::
 :::{figure} ../../images/habitat-step7.svg
 :alt: step7
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-7\. Add the hexagonal floor tiles to the habitat as shown. Tiles A,B and C have a cut out that will accommodate the walls to create a corridor around the habitat.
+7\. Add the hexagonal floor tiles to the habitat as shown. Tiles A, B and C have a cut out that will accommodate the walls to create a corridor.
 :::
 ::::
 
@@ -75,7 +75,7 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 :alt: step8
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-8\. Insertion of the habitat walls. The inner walls are narrower compared to the outer walls.
+8\. Insertion of the walls. The inner walls are narrower compared to the outer walls.
 :::
 :::{figure} ../../images/habitat-step9.svg
 :alt: step9
@@ -98,13 +98,13 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 :alt: step11
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-11\. Tap both ends of 4 aluminium extrusions (ID 10) that will provide support and stability to the habitat. Insert one adjustable foot at each end and connect the extrusion (ID 7) to the main habitat structure with angle brackets as shown. Note: these feet can then be adjusted to apply pressure and stabilise the habitat. We attached 10mm disks to each adjustable foot to distribute the force applied and avoid damaging the ceiling.
+11\. Tap both ends of 4 aluminium extrusions (ID 10) that will provide support and stability to the structure. Insert one adjustable foot at each end and connect the extrusion (ID 7) to the main habitat structure with angle brackets as shown. Note: these feet can then be adjusted to apply pressure and stabilise the habitat. We attached 10mm disks to each adjustable foot to distribute the force applied and avoid damaging the ceiling.
 :::
 :::{figure} ../../images/habitat-step12.svg
 :alt: step12
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-12\. Add 8 support lateral aluminium extrusions (ID 2,9) to provide lateral stability to the habitat.
+12\. Add 8 support lateral aluminium extrusions (ID 2,9) to provide lateral stability.
 :::
 :::{figure} ../../images/habitat-step13.svg
 :alt: step13
@@ -144,13 +144,13 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 :alt: step18
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-18\. Suspend 6 LEDs assemblies from the top most lateral support aluminium extrusions of the habitat. Note: use the adjustable suspension cable to vary the height and the angle of the LEDs as needed.
+18\. Suspend 6 LEDs assemblies from the top most lateral support aluminium extrusions. Note: use the adjustable suspension cable to vary the height and the angle of the LEDs as needed.
 :::
 :::{figure} ../../images/habitat-step19.svg
 :alt: step19
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-19\. Arena fully assembled to be flexibly equipped with a variety of different hardware depending on experimental requirements (see examples in the next section).
+19\. Habitat fully assembled to be flexibly equipped with a variety of different hardware depending on experimental requirements.
 :::
 ::::
 
@@ -171,5 +171,5 @@ The rich and ethologically relevant behavioural displays can be monitored using 
 ::::
 
 ## Downloads
-- [Assembly guide](../../downloads/Habitat-Guideline-Final-1.pdf)
+- [Assembly guide](../../downloads/Habitat-Guideline.pdf)
 - [Bill of materials](../../downloads/Habitat-BOM.xlsx)

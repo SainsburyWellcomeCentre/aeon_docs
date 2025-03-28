@@ -59,7 +59,7 @@ This ensures data files are kept at a manageable size and enables continuous dat
 
 ### Naming/format convention and analysis API compatibility
 The Aeon data architecture is designed to be simple and standardised across Harp devices and data streams. 
-To facilitate this, the [`aeon_mecha`](target-mecha-reference) API provides a comprehensive suite of tools for data ingestion, reading, and analysis. 
+To facilitate this, the [`aeon_mecha`](target-aeon-mecha-reference) API provides a comprehensive suite of tools for data ingestion, reading, and analysis. 
 This ensures that data stored in the standardised format can be efficiently accessed and processed, supporting seamless integration and analysis across different components of the Aeon system.
 
 ### Data streams

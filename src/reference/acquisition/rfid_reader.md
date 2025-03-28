@@ -1,6 +1,6 @@
 (target-module-rfid-reader)=
 # RFID Reader
-To assist in tracking animal behaviour, particularly when multiple animals are present in the arena, unique RFID emitters can be attached or implanted subcutaneously to individual animals, and [Harp RFID reader devices](https://github.com/harp-tech/device.rfidreader) placed at key points of the arena (e.g. entry and exit points, close to a patch).
+To assist in tracking animal behaviour, particularly when multiple animals are present in the [habitat](target-habitat), unique RFID emitters can be attached or implanted subcutaneously to individual animals, and [Harp RFID reader devices](https://github.com/harp-tech/device.rfidreader) placed at key points of the habitat (e.g. entry and exit points, close to a [foraging patch](target-foraging-patch)).
 
 ## Nodes
 ### RfidReader

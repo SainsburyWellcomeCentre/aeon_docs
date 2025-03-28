@@ -2,7 +2,7 @@
 # PelletMonitor 
 The `PelletMonitor (Aeon.Foraging)` node monitors the current state of pellet delivery commands and the beam break.
 Within this node, pellet delivery commands received by the [Harp output expander](harp-tech:api/Harp.OutputExpander) are filtered from the "PatchEvents" `Subject` and successful deliveries monitored through the "PelletDelivered" `Subject` (e.g. "Patch1PelletDelivered"). 
-The `RepeatEverySubject` node ensures this node is only running while an animal is present in the arena. <!-- This is not that clear to me; it seems to only run when a subject has entered, but if you had two subjects and removed one this would it not also stop, despite there being another subject stil present? -->
+The `RepeatEverySubject` node ensures this node is only running while an animal is present in the habitat. <!-- This is not that clear to me; it seems to only run when a subject has entered, but if you had two subjects and removed one this would it not also stop, despite there being another subject stil present? -->
 
 :::workflow
 ![Aeon.Foraging.PelletMonitorWorkflow](../../../workflows/pelletMonitorWorkflow.bonsai)

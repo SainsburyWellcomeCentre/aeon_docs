@@ -1,6 +1,6 @@
 (target-module-nest)=
 # Nest
-The nest module is utilised with a [nest](target-nest) hardware module assembly (consisting of a weighing scale) to provide shelter for animals in the arena and a means to track and measure their weight.
+The nest module is utilised with a [nest](target-nest) hardware module assembly (consisting of a weighing scale) to provide shelter for animals in the [habitat](target-habitat) and a means to track and measure their weight.
 
 ## Nodes
 ### WeightScale

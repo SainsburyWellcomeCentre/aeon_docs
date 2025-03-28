@@ -2,7 +2,7 @@
 # Foraging Patch
 
 The foraging patch module is core to foraging and long-term 24/7 experiments. 
-It is utilised with a [foraging patch](target-foraging-patch) hardware module assembly to provide a means for animals in the arena to obtain food by turning a configurable wheel, simulating a naturalistic digging action. 
+It is utilised with a [foraging patch](target-foraging-patch) hardware module assembly to provide a means for animals in the [habitat](target-habitat) to obtain food by turning a configurable wheel, simulating a naturalistic digging action. 
 
 The primary [`UndergroundFeeder (Aeon.Foraging)`](target-node-undergroundfeeder) node handles the connection to the foraging patch hardware through a [Harp output expander](harp-tech:api/Harp.OutputExpander) and defines the basic functions of the foraging patch.
 

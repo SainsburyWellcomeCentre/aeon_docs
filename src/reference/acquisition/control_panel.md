@@ -15,7 +15,7 @@ These are split into several categories, each implemented in a dedicated `GroupW
 
 1. **PatchActivity**: Tracks the state of the feeders on the rig, including the current threshold, rolling and total distance travelled on the wheels of the feeders wheels, information on the number and timing of food pellet deliveries and time since different subjects visited the different patches. 
 2. **SubjectActivity**: Constructs additional controls for the environment and exposed properties of the workflow, as well as additional visualiser windows. In Aeon, these additional windows are used to display tracking or pose information and monitoring of light levels in the experiment room. 
-3. **EnvironmentState**: Constructs a mashup of a general control panel displaying information and providing control dialogues for the [foraging patches](target-module-foraging-patch), the environment configuration and manual annotation and alert logs grouped into the "ExperimentMetadata" `GroupWorkflow`, as well as experimental subjects entered and removed from the arena and subject weight measurements grouped into the "EnvironmentSubjectState" `GroupWorkflow`
+3. **EnvironmentState**: Constructs a mashup of a general control panel displaying information and providing control dialogues for the [foraging patches](target-module-foraging-patch), the environment configuration and manual annotation and alert logs grouped into the "ExperimentMetadata" `GroupWorkflow`, as well as experimental subjects entered and removed from the habitat and subject weight measurements grouped into the "EnvironmentSubjectState" `GroupWorkflow`
 4. **CameraSelector**: Displays a single image visualiser used to view any camera or other `OpenCV.Net.IplImage`, selected from a list of `Subject`s using the "SubjectActivity" control panel.
 
 Additionally, the `ControlPanel` node enables manual control to start and stop the cameras on the setup through [`KeyDown`](https://bonsai-rx.org/docs/api/Bonsai.Windows.Input.KeyDown.html) nodes cast to 'StartCameras' and 'StopCameras' `Subject`s that trigger or halt acquisition of camera images by the [`CameraController`](target-module-camera-controller). 
@@ -67,7 +67,7 @@ In addition, the [`AnnotationSource`](target-node-annotationsource), [`Environme
 The example below shows the "ExperimentMetadata" `GroupWorkflow` used to construct a control panel for a single foraging patch.
 
 :::workflow
-![ExperimentMetadataWorkflow](../../../workflows/miniAeon/ExperimentMetadata.bonsai)
+![ExperimentMetadataWorkflow](../../../workflows/miniAeon/experimentMetadata.bonsai)
 :::
 
 #### EnvironmentSubjectState

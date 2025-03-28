@@ -11,8 +11,9 @@ To demonstrate Aeon's various features and capabilities, we also provide the fol
 :::{toctree}
 :maxdepth: 1
 :caption: Tutorials
+:glob:
 
-tutorials/aeon_dj_pipeline
+tutorials/*
 :::
 
 :::{toctree}

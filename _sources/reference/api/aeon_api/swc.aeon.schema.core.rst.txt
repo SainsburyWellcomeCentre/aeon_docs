@@ -1,0 +1,6 @@
+﻿swc.aeon.schema.core
+====================
+
+.. automodule:: swc.aeon.schema.core
+   :members:
+   :undoc-members:

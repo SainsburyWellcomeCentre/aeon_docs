@@ -1,0 +1,6 @@
+﻿swc.aeon.io.reader
+==================
+
+.. automodule:: swc.aeon.io.reader
+   :members:
+   :undoc-members:

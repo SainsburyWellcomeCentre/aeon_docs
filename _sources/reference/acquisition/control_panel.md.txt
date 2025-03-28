@@ -40,10 +40,10 @@ and the external workflow:
 ## Usage
 ### PatchActivity
 <!-- TODO: Any general description for the workflow? -->
- The example below shows the "PatchActivity" `GroupWorkflow` used to construct a control panel for a single foraging patch, camera and RFID reader. 
+The example below shows the "PatchActivity" `GroupWorkflow` used to construct a control panel for a single foraging patch, camera and RFID reader. 
 
 :::workflow
-![PatchActivityWorkflow](../../../workflows/miniAeon/patchActivity.bonsai)
+![PatchActivityWorkflow](../../workflows/miniAeon/patchActivity.bonsai)
 :::
 
 
@@ -52,7 +52,7 @@ The "SubjectActivity" `GroupWorkflow` uses an [`ExperimentProperties`](target-no
 Additionally, the results from pose tracking modules ("SubjectPoses") and images from a camera monitoring the status of controlled light sources in the room ("CameraLightMonitor") are subscribed to and organised into [`TableLayoutPanel`s](https://learn.microsoft.com/en-gb/dotnet/api/system.windows.forms.tablelayoutpanel), which then create the full visualiser window.
 
 :::workflow
-![SubjectActivityWorkflow](../../../workflows/miniAeon/subjectActivity.bonsai)
+![SubjectActivityWorkflow](../../workflows/miniAeon/subjectActivity.bonsai)
 :::
 
 ### EnvironmentState
@@ -67,7 +67,7 @@ In addition, the [`AnnotationSource`](target-node-annotationsource), [`Environme
 The example below shows the "ExperimentMetadata" `GroupWorkflow` used to construct a control panel for a single foraging patch.
 
 :::workflow
-![ExperimentMetadataWorkflow](../../../workflows/miniAeon/experimentMetadata.bonsai)
+![ExperimentMetadataWorkflow](../../workflows/miniAeon/experimentMetadata.bonsai)
 :::
 
 #### EnvironmentSubjectState
@@ -91,3 +91,4 @@ The full control panel example used in Aeon, with three foraging patches and cam
 :glob:
 
 control_panel/*
+:::

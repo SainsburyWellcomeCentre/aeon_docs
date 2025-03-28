@@ -341,6 +341,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../hardware/foraging_patch.html">Foraging Patch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware/habitat.html">Habitat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware/nest.html">Nest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/camera.html">Camera Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/camera_controller.html">Camera Controller Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/commutation_translation_system.html">Commutation-Translation System Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/foraging_patch.html">Foraging Patch Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/foraging_patch_output_expander.html">Foraging Patch Output Expander Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/microphone.html">Microphone Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/rfid_reader.html">RFID Reader Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/sound_card.html">Sound Card Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/timestamp_generator.html">Timestamp Generator Wiring Schematic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connections/weighing_scale.html">Weighing Scale Wiring Schematic</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../acquisition.html">Acquisition Modules</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -378,7 +388,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.analysis.plotting.html">swc.aeon.analysis.plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.analysis.utils.html">swc.aeon.analysis.utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.io.api.html">swc.aeon.io.api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.io.reader.html">swc.aeon.io.reader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.io.video.html">swc.aeon.io.video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.schema.core.html">swc.aeon.schema.core</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/aeon_api/swc.aeon.schema.streams.html">swc.aeon.schema.streams</a></li>
 </ul>
 </details></li>
@@ -620,7 +632,7 @@ These include:</p>
 <!-- TODO: Any general description for the workflow? -->
 <p>The example below shows the “PatchActivity” <code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code> used to construct a control panel for a single foraging patch, camera and RFID reader.</p>
 <div class="workflow docutils">
-<p><img alt="PatchActivityWorkflow" src="../workflows/miniAeon/patchActivity.bonsai" /></p>
+<p><img alt="PatchActivityWorkflow" src="../../_images/patchActivity.svg" /></p>
 </div>
 </section>
 <section id="subjectactivity">
@@ -628,7 +640,7 @@ These include:</p>
 <p>The “SubjectActivity” <code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code> uses an <a class="reference internal" href="control_panel/experiment_properties_GUI.html#target-node-experimentproperties"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">ExperimentProperties</span></code></span></a> node to allow online access to exposed properties during an experiment, and a <a class="reference internal" href="control_panel/button_source_GUI.html#target-node-buttonsource"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">ButtonSource</span></code></span></a> node (triggered through a shared <code class="docutils literal notranslate"><span class="pre">Subject</span></code> “ReloadEnvironment”) to generate a labelled button that reloads an environment file.
 Additionally, the results from pose tracking modules (“SubjectPoses”) and images from a camera monitoring the status of controlled light sources in the room (“CameraLightMonitor”) are subscribed to and organised into <a class="reference external" href="https://learn.microsoft.com/en-gb/dotnet/api/system.windows.forms.tablelayoutpanel"><code class="docutils literal notranslate"><span class="pre">TableLayoutPanel</span></code>s</a>, which then create the full visualiser window.</p>
 <div class="workflow docutils">
-<p><img alt="SubjectActivityWorkflow" src="../workflows/miniAeon/subjectActivity.bonsai" /></p>
+<p><img alt="SubjectActivityWorkflow" src="../../_images/subjectActivity.svg" /></p>
 </div>
 </section>
 <section id="environmentstate">
@@ -641,7 +653,7 @@ Patch dispenser events are parsed into “Reset” or manual “Deliver” comma
 <p>In addition, the <a class="reference internal" href="control_panel/annotation_source_GUI.html#target-node-annotationsource"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">AnnotationSource</span></code></span></a>, <a class="reference internal" href="control_panel/environment_state_GUI.html#target-node-environmentstate"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">EnvironmentState</span></code></span></a> and <a class="reference internal" href="control_panel/label_control_GUI.html#target-node-labelcontrol"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LabelControl</span></code></span></a> nodes create the full “ExperimentMetadata” control panel.</p>
 <p>The example below shows the “ExperimentMetadata” <code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code> used to construct a control panel for a single foraging patch.</p>
 <div class="workflow docutils">
-<p><img alt="ExperimentMetadataWorkflow" src="../workflows/miniAeon/experimentMetadata.bonsai" /></p>
+<p><img alt="ExperimentMetadataWorkflow" src="../../_images/experimentMetadata.svg" /></p>
 </div>
 </section>
 <section id="environmentsubjectstate">

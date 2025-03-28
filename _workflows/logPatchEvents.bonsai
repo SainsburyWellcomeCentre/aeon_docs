@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.2"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:aeon-frg="clr-namespace:Aeon.Foraging;assembly=Aeon.Foraging"
+                 xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1Events</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1Dispenser</Name>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+        <Name>Patch1Events</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="aeon-frg:FormatDispenserState">
+          <aeon-frg:Address>200</aeon-frg:Address>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1ManualPellet</Name>
+      </Expression>
+      <Expression xsi:type="harp:Format">
+        <harp:MessageType>Write</harp:MessageType>
+        <harp:Register xsi:type="harp:FormatMessagePayload">
+          <harp:Address>201</harp:Address>
+          <harp:PayloadType>TimestampedU8</harp:PayloadType>
+        </harp:Register>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Patch1MissedPellets</Name>
+      </Expression>
+      <Expression xsi:type="harp:Format">
+        <harp:MessageType>Event</harp:MessageType>
+        <harp:Register xsi:type="harp:FormatMessagePayload">
+          <harp:Address>202</harp:Address>
+          <harp:PayloadType>TimestampedU8</harp:PayloadType>
+        </harp:Register>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogHarpState.bonsai">
+        <LogName>Patch1</LogName>
+        <Heartbeats>Heartbeats</Heartbeats>
+        <ClosingDuration>PT2S</ClosingDuration>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="8" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="8" Label="Source2" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="8" Label="Source3" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source4" />
+      <Edge From="8" To="9" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

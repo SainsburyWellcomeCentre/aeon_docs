@@ -343,6 +343,35 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware/nest.html">Nest</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="acquisition.html">Acquisition Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/activity_tracking.html">Activity Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/alerts.html">Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/camera.html">Spinnaker Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/camera_controller.html">Multi-Camera Controller</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="acquisition/control_panel.html">Control Panel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/annotation_source_GUI.html">AnnotationSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/button_source_GUI.html">ButtonSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/environment_state_GUI.html">EnvironmentState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/experiment_properties_GUI.html">ExperimentProperties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/label_control_GUI.html">LabelControl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/control_panel/subject_database.html">SubjectDatabase <!--TODO: Placeholder content--></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="acquisition/foraging_patch.html">Foraging Patch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/foraging_patch/patch_dispenser.html">PatchDispenser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/foraging_patch/pellet_monitor.html">PelletMonitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/foraging_patch/time_since_last_event.html">TimeSinceLastEvent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acquisition/foraging_patch/time_spent_on_wheel.html">TimeSpentOnWheel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/monitors.html">Device Synchronisation Monitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/nest.html">Nest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/rfid_reader.html">RFID Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/subject_tracking.html">Subject Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acquisition/template.html">[Template] Device Name</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/aeon_api.html"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/aeon_api/swc.aeon.analysis.movies.html">swc.aeon.analysis.movies</a></li>
@@ -548,7 +577,7 @@
 <dl class="simple glossary">
 <dt id="term-Acquisition-Chunk">Acquisition Chunk<a class="headerlink" href="#term-Acquisition-Chunk" title="Link to this term">#</a></dt><dd><p>The event (i.e. all data) over a particular <a class="reference internal" href="#term-Acquisition-Chunk-Duration"><span class="xref std std-term">acquisition chunk duration</span></a>.</p>
 </dd>
-<dt id="term-Acquisition-Chunk-Duration">Acquisition Chunk Duration<a class="headerlink" href="#term-Acquisition-Chunk-Duration" title="Link to this term">#</a></dt><dd><p>The time duration over which datastream files are written out. For experiment 0.1, datastreams were written out in files of 1 hour chunk durations.</p>
+<dt id="term-Acquisition-Chunk-Duration">Acquisition Chunk Duration<a class="headerlink" href="#term-Acquisition-Chunk-Duration" title="Link to this term">#</a></dt><dd><p>The time duration over which datastream files are written out. For experiment 0.1, data streams were written out in files of 1 hour chunk durations.</p>
 </dd>
 <dt id="term-Acquisition-Epoch">Acquisition Epoch<a class="headerlink" href="#term-Acquisition-Epoch" title="Link to this term">#</a></dt><dd><p>The event over the time period when the acquistion computer is on and acquiring data until it is stopped. For experiment 0.1 there are multiple acquisition runs due to Bonsai/Windows being restarted.</p>
 </dd>
@@ -564,7 +593,7 @@
 </dd>
 <dt id="term-Session">Session<a class="headerlink" href="#term-Session" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal is placed in the nesting cage until the time the animal is removed from the nesting cage.</p>
 </dd>
-<dt id="term-Task-Protocol">Task Protocol<a class="headerlink" href="#term-Task-Protocol" title="Link to this term">#</a></dt><dd><p>An integer number and associated string describing a unique behavioral task run in Project Aeon. For experiment 0.1, there were 8 unique behavioral tasks run.</p>
+<dt id="term-Task-Protocol">Task Protocol<a class="headerlink" href="#term-Task-Protocol" title="Link to this term">#</a></dt><dd><p>An integer number and associated string describing a unique behavioural task run in Project Aeon. For experiment 0.1, there were 8 unique behavioural tasks run.</p>
 </dd>
 <dt id="term-Trial">Trial<a class="headerlink" href="#term-Trial" title="Link to this term">#</a></dt><dd><p>For experiment 0.1, the event over the time period when an animal starts moving the wheel on a patch until the time a pellet is delivered. Every experiment 0.1 <a class="reference internal" href="#term-Session"><span class="xref std std-term">session</span></a> ends on incompleted trials.</p>
 </dd>

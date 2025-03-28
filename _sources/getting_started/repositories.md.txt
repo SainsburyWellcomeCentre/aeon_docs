@@ -42,7 +42,7 @@ Source code for actuating a linear drive motor used in Aeon experiments.
 :::{grid-item-card} {fas}`cookie-bite;sd-text-primary` aeon_feeder
 :link: https://github.com/SainsburyWellcomeCentre/aeon_feeder
 :link-type: url
-Source code for pellet delivery via feeders used in Aeon experiments.
+Source code for pellet delivery via foraging patches used in Aeon experiments.
 :::
 ::::
 <!-- TODO: Add aeon_arena -->

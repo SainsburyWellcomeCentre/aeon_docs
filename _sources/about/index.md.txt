@@ -11,7 +11,7 @@ It also requires monitoring over extended periods of time, all while allowing pa
 Aeon is an open-source platform designed to study the neural basis of ethological behaviours over naturalistic timescales, ranging from weeks to months.
 At its core, the setup is a modular, scalable, and programmable habitat in which animals live. 
 The habitat can be equipped with various combinations of [interactive and non-interactive modules](target-hardware),
-including, but not limited to, feeders, nesting areas, microphones, RFID readers, magnetic encoders, weighing scales, and high-speed cameras. 
+including, but not limited to, foraging patches, nesting areas, microphones, RFID readers, magnetic encoders, weighing scales, and high-speed cameras. 
 This allows mimicking of complex and dynamic environments, thereby enabling animals to exhibit different natural behaviours, 
 such as foraging, nesting, escape and social interaction. 
 The large array of sensors in the habitat additionally allows for continuous tracking of animal position, pose and identity, which in turn enables
@@ -30,7 +30,7 @@ If you have any questions or need further information, feel free to reach out to
 
 ## Code of Conduct
 
-Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behavior, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
+Aeon is dedicated to providing a welcoming and positive experience for all its participants. We encourage respectful and considerate behaviour, and we expect our community members to adhere to these principles. Please read our [Code of Conduct](target-code-of-conduct) for more details on our community guidelines and expectations.
 
 :::{toctree}
 :maxdepth: 1

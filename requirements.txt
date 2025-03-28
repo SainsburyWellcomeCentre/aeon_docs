@@ -4,6 +4,7 @@ matplotlib
 opencv-python
 pandas 
 plotly
+harp-python
 
 linkify-it-py
 myst-nb

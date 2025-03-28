@@ -34,7 +34,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4386463d" />
   
   <!-- So that users can add custom icons -->
@@ -53,8 +52,8 @@
     <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reference" href="../reference/index.html" />
-    <link rel="prev" title="Contributor Guide" href="index.html" />
+    <link rel="next" title="Contributing Documentation" href="contributing_documentation.html" />
+    <link rel="prev" title="Contributing Code" href="contributing_code.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -152,7 +151,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="index.html">
-    Contributor Guide
+    Contributor’s Guide
   </a>
 </li>
 
@@ -275,7 +274,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="index.html">
-    Contributor Guide
+    Contributor’s Guide
   </a>
 </li>
 
@@ -337,7 +336,9 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing Code</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Style and Documentation Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -379,7 +380,7 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contributor Guide</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contributor’s Guide</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Style and Documentation Guidelines</span></li>
   </ul>
@@ -400,17 +401,19 @@
                   
   <section id="style-and-documentation-guidelines">
 <span id="target-style-doc-guidelines"></span><h1>Style and Documentation Guidelines<a class="headerlink" href="#style-and-documentation-guidelines" title="Link to this heading">#</a></h1>
-<p>The purpose of this document is to establish Project Aeon code style and documentation guidelines.</p>
-<p>We generally adhere to <a class="reference external" href="https://peps.python.org/pep-0008">pep8</a>, <a class="reference external" href="https://peps.python.org/pep-0257">pep257</a>, and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">google’s style guide</a> for code and docstring style guidelines. We run black, ruff, and pyright to format our Python code, the config settings for which can be found in a repository’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. We also believe in the <a class="reference external" href="https://www.thinkinghard.com/blog/TheREADMEManifesto">readme manifesto</a>, which says that <code class="docutils literal notranslate"><span class="pre">readme</span></code> files should provide at least a general description that covers <em>all</em> of a project’s files, and that one <code class="docutils literal notranslate"><span class="pre">readme</span></code> per subdirectory is generally good practice.</p>
+<p>The purpose of this document is to establish Aeon’s code style and documentation guidelines.</p>
+<p>We generally adhere to <a class="reference external" href="https://peps.python.org/pep-0008">pep8</a>, <a class="reference external" href="https://peps.python.org/pep-0257">pep257</a>, and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">google’s style guide</a> for code and docstring style guidelines.
+We run ruff and pyright to format our Python code, the config settings for which can be found in a repository’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
+We also believe in the <a class="reference external" href="https://www.thinkinghard.com/blog/TheREADMEManifesto">readme manifesto</a>, which says that <code class="docutils literal notranslate"><span class="pre">readme</span></code> files should provide at least a general description that covers <em>all</em> of a project’s files, and that one <code class="docutils literal notranslate"><span class="pre">readme</span></code> per subdirectory is generally good practice.</p>
 <section id="general-guidelines">
-<h2>General Guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">#</a></h2>
+<h2>General guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>All files contain a header that briefly describes the contents within a few sentences.</p></li>
 <li><p>In general, more lines for the sake of clarity is preferred over brevity.</p></li>
 </ul>
 </section>
 <section id="function-and-class-docstrings">
-<h2>Function and Class Docstrings<a class="headerlink" href="#function-and-class-docstrings" title="Link to this heading">#</a></h2>
+<h2>Function and class docstrings<a class="headerlink" href="#function-and-class-docstrings" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Function names should describe the action they perform. Functions have the following sections in the given order:</p>
 <ul>
@@ -459,7 +462,7 @@
 </ul>
 </section>
 <section id="additional-conventions">
-<h2>Additional Conventions<a class="headerlink" href="#additional-conventions" title="Link to this heading">#</a></h2>
+<h2>Additional conventions<a class="headerlink" href="#additional-conventions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Naming conventions:</p>
 <ul>
@@ -467,7 +470,7 @@
 <li><p>Classes are in upper Snake_Case (e.g. <code class="docutils literal notranslate"><span class="pre">Alyx_Panel</span></code>).</p></li>
 <li><p>Prefix ‘n’ is used for integer values e.g. <code class="docutils literal notranslate"><span class="pre">n_items</span></code>.</p></li>
 <li><p>Suffix ‘num’ is used for referring to a particular instance e.g. <code class="docutils literal notranslate"><span class="pre">item_num</span></code>.</p></li>
-<li><p>Suffices that indicate unit measurement are used when using multiple units e.g. <code class="docutils literal notranslate"><span class="pre">wheel_deg</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel_mm</span></code>.</p></li>
+<li><p>Suffixes that indicate unit measurement are used when using multiple units e.g. <code class="docutils literal notranslate"><span class="pre">wheel_deg</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel_mm</span></code>.</p></li>
 <li><p>Reuse of variable names (i.e. mutation) is generally avoided.</p></li>
 <li><p>Variables across related files which share names should share meanings.</p></li>
 </ul>
@@ -491,20 +494,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="contributing_code.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Contributor Guide</p>
+        <p class="prev-next-title">Contributing Code</p>
       </div>
     </a>
     <a class="right-next"
-       href="../reference/index.html"
+       href="contributing_documentation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reference</p>
+        <p class="prev-next-title">Contributing Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,11 +530,11 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General Guidelines</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-and-class-docstrings">Function and Class Docstrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General guidelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-and-class-docstrings">Function and class docstrings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whitespace-conventions">Whitespace conventions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-conventions">Comment conventions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-conventions">Additional Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-conventions">Additional conventions</a></li>
 </ul>
   </nav></div>
 

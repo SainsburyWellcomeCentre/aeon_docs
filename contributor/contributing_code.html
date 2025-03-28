@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributor’s Guide &#8212; Aeon  documentation</title>
+    <title>Contributing Code &#8212; Aeon  documentation</title>
   
   
   
@@ -48,12 +48,12 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contributor/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contributor/contributing_code';</script>
     <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Contributing Code" href="contributing_code.html" />
-    <link rel="prev" title="DataJoint pipeline: Querying data" href="../user/how_to/dj_querying_data.html" />
+    <link rel="next" title="Style and Documentation Guidelines" href="style_and_doc_guidelines.html" />
+    <link rel="prev" title="Contributor’s Guide" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -150,7 +150,7 @@
 
 
 <li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+  <a class="nav-link nav-internal" href="index.html">
     Contributor’s Guide
   </a>
 </li>
@@ -273,7 +273,7 @@
 
 
 <li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+  <a class="nav-link nav-internal" href="index.html">
     Contributor’s Guide
   </a>
 </li>
@@ -335,8 +335,8 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing Code</a></li>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="style_and_doc_guidelines.html">Style and Documentation Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing Documentation</a></li>
 </ul>
@@ -379,7 +379,10 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributor’s Guide</span></li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contributor’s Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing Code</span></li>
   </ul>
 </nav>
 </div>
@@ -396,42 +399,18 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="contributor-s-guide">
-<span id="target-contributor-guide"></span><h1>Contributor’s Guide<a class="headerlink" href="#contributor-s-guide" title="Link to this heading">#</a></h1>
-<section id="software-development-life-cycle-sdlc">
-<h2>Software Development Life Cycle (SDLC)<a class="headerlink" href="#software-development-life-cycle-sdlc" title="Link to this heading">#</a></h2>
-<p>Our SDLC roughly follows the <a class="reference external" href="https://www.tutorialspoint.com/sdlc/sdlc_iterative_model.htm">iterative model</a>.</p>
-</section>
-<section id="versioning">
-<span id="target-contributor-versioning"></span><h2>Versioning<a class="headerlink" href="#versioning" title="Link to this heading">#</a></h2>
-<p>We version all the following, according to <a class="reference external" href="https://semver.org/">SemVer</a> numbering:</p>
-<ul class="simple">
-<li><p>Experiments, by name, including full hardware specs (habitat, I/O devices,
-acquisition computer, etc.)</p></li>
-<li><p>Repositories, including code related to:</p>
-<ul>
-<li><p>Bonsai experiment workflows</p></li>
-<li><p>Quality Control protocols (for raw and preprocessed data)</p></li>
-<li><p>Data processing algorithms</p></li>
-</ul>
-</li>
-<li><p>aeon-db Database</p>
-<ul>
-<li><p>aeon-db tables</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="issue-tracking">
-<h2>Issue tracking<a class="headerlink" href="#issue-tracking" title="Link to this heading">#</a></h2>
-<p>We prioritise and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in ‘aeon_experiments’.</p>
-</section>
-<section id="continuous-integration-ci">
-<h2>Continuous integration (CI)<a class="headerlink" href="#continuous-integration-ci" title="Link to this heading">#</a></h2>
-<p>We use Github Actions to run CI. We run unit tests on Github Virtual Machines on Windows, MacOS, and Ubuntu. We run integration tests on the SWC HPC. Workflows of the CI jobs we run can be found in each repo’s respective <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code> directory.</p>
-<div class="toctree-wrapper compound">
-</div>
-</section>
+  <section id="contributing-code">
+<span id="target-contributing-code"></span><h1>Contributing Code<a class="headerlink" href="#contributing-code" title="Link to this heading">#</a></h1>
+<p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">github flow</a> (which is adapted from the more general
+<a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">gitflow</a>).</p>
+<p>In brief, each of our repos has ‘main’ and ‘prod’ branches. Feature and bug fix branches are branched off of ‘main’, with Pull Requests sent back into ‘main’. ‘main’ contains the full commit history of the project, up to the latest stable commit. Upon merges into ‘main’, a squash merge is performed into ‘prod’, such that ‘prod’ contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges. ‘prod’ thus serves as a “production” branch to allow for easier readability of project history and easier reversion of uncaught bug commits. At certain agreed upon timepoints we create “stable releases” (available in the “releases” section of the repository) which serve as a snapshot of the code at the time, version numbered according to <a class="reference external" href="https://semver.org/">SemVer</a>.</p>
+<p>When contributing to any repository, the change to be made should first be discussed in a Github Discussion or a Github Issue. Thereafter, contributors should create a new branch (branched off of ‘main’) that contains the changes/additions they wish to make, and then create a pull request for merging this branch into ‘main’.</p>
+<p>All pull requests will be reviewed by the <a class="reference internal" href="../about/index.html#target-project-maintainers"><span class="std std-ref">project maintainers</span></a>. Minimally, maintainers should follow the below steps when reviewing pull requests:</p>
+<ol class="arabic simple">
+<li><p>Ensure new code adheres to the <a class="reference internal" href="style_and_doc_guidelines.html#target-style-doc-guidelines"><span class="std std-ref">style and documentation guidelines</span></a>, is covered by a test, and passes a build test. These can all be checked via CI.</p></li>
+<li><p>As necessary, ensure <code class="docutils literal notranslate"><span class="pre">changelog</span></code>, <code class="docutils literal notranslate"><span class="pre">readme</span></code>, config and doc files are updated.</p></li>
+<li><p>When a branch is ready to be merged back into ‘main’, always make sure to first pull ‘main’ locally, then rebase the feature branch onto ‘main’ (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into ‘prod’ can be handled via CI. E.g., see <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_mecha/blob/main/.github/workflows/squash_merge_to_prod.yml">here</a></p></li>
+</ol>
 </section>
 
 
@@ -445,20 +424,20 @@ acquisition computer, etc.)</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../user/how_to/dj_querying_data.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">DataJoint pipeline: Querying data</p>
+        <p class="prev-next-title">Contributor’s Guide</p>
       </div>
     </a>
     <a class="right-next"
-       href="contributing_code.html"
+       href="style_and_doc_guidelines.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributing Code</p>
+        <p class="prev-next-title">Style and Documentation Guidelines</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -474,25 +453,10 @@ acquisition computer, etc.)</p></li>
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">Versioning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-tracking">Issue tracking</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration-ci">Continuous integration (CI)</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/contributor/index.md.txt"
+      <li><a href="../_sources/contributor/contributing_code.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

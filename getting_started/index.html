@@ -34,7 +34,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4386463d" />
   
   <!-- So that users can add custom icons -->
@@ -53,7 +52,7 @@
     <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="next" title="Multi-Animal Tracking" href="multianimal_tracking.html" />
     <link rel="prev" title="Aeon" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,7 +151,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../contributor/index.html">
-    Contributor Guide
+    Contributor’s Guide
   </a>
 </li>
 
@@ -275,7 +274,7 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../contributor/index.html">
-    Contributor Guide
+    Contributor’s Guide
   </a>
 </li>
 
@@ -337,6 +336,9 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="multianimal_tracking.html">Multi-Animal Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="npx_recording.html">Neuropixels Recordings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repositories.html">Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 </div>
@@ -406,8 +408,8 @@ Equipped with various <a class="reference internal" href="../reference/hardware.
 </ul>
 <p>Further information about the project can be found in the
 <a class="reference internal" href="../about/index.html#target-about"><span class="std std-ref">About</span></a> section.</p>
-<section id="tutorials">
-<span id="target-tutorials"></span><h2>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h2>
+<section id="key-features">
+<h2>Key features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -418,7 +420,7 @@ Equipped with various <a class="reference internal" href="../reference/hardware.
 <p class="sd-card-text">Online tracking of multiple animals in the Aeon habitat.</p>
 </div>
 <img alt="" class="sd-card-img-bottom" src="../_images/getting-started-ma.png" />
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="../user/tutorials/multianimal_tracking.html#target-multianimal-tracking"><span class="std std-ref">Multi-animal tracking</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="multianimal_tracking.html#target-multianimal-tracking"><span class="std std-ref">Multi-Animal Tracking</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -428,76 +430,9 @@ Equipped with various <a class="reference internal" href="../reference/hardware.
 <p class="sd-card-text">Week-long recording and analysis of Neuropixels data.</p>
 </div>
 <img alt="" class="sd-card-img-bottom" src="../_images/getting-started-npx.png" />
-<a class="sd-stretched-link sd-hide-link-text reference internal" href="../user/tutorials/npx_recording.html#target-npx-recording"><span class="std std-ref">Neuropixels recordings</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="npx_recording.html#target-npx-recording"><span class="std std-ref">Neuropixels Recordings</span></a></div>
 </div>
 </div>
-</div>
-</section>
-<section id="repositories">
-<span id="target-repositories"></span><h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading">#</a></h2>
-<p>The Aeon infrastructure is complex and multi-dimensional, spanning hardware, acquisition software, standard data formats, and a low-level API for data analysis.
-As each of these different components is built using different languages, spanning CAD programs, C# and Python, we organise Aeon into the following repositories:</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<span class="fas fa-database sd-text-primary"></span> aeon_api</div>
-<p class="sd-card-text">Aeon’s main library for interfacing with acquired data</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_api"><span>https://github.com/SainsburyWellcomeCentre/aeon_api</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<span class="fas fa-flask sd-text-primary"></span> aeon_experiments</div>
-<p class="sd-card-text">Aeon experiment workflows written in the Bonsai visual programming language</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments"><span>https://github.com/SainsburyWellcomeCentre/aeon_experiments</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<span class="fas fa-computer sd-text-primary"></span> aeon_acquisition</div>
-<p class="sd-card-text">Source code for the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> Bonsai package used in
-Aeon experiment workflows</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition"><span>https://github.com/SainsburyWellcomeCentre/aeon_acquisition</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<span class="fas fa-gear sd-text-primary"></span> aeon_lineardrive</div>
-<p class="sd-card-text">Source code for actuating a linear drive motor used in Aeon experiments</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_lineardrive"><span>https://github.com/SainsburyWellcomeCentre/aeon_lineardrive</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-<span class="fas fa-cookie-bite sd-text-primary"></span> aeon_feeder</div>
-<p class="sd-card-text">Source code for pellet delivery via feeders used in Aeon experiments</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_feeder"><span>https://github.com/SainsburyWellcomeCentre/aeon_feeder</span></a></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All experiment data is acquired and/or triggered and/or synced by
-<a class="reference external" href="https://www.cf-hw.org/harp">Harp devices</a>.
-Code in the <code class="docutils literal notranslate"><span class="pre">aeon_acquisition</span></code> and <code class="docutils literal notranslate"><span class="pre">aeon_api</span></code> repositories makes use of
-the <a class="reference external" href="https://harp-tech.org/articles/about#">Harp protocol</a> during data acquisition,
-raw data file writing, and raw data file reading.
-See also the documentation on
-<a class="reference external" href="https://harp-tech.org/protocol/Device#">Harp device operation and common registers</a>,
-the <a class="reference external" href="https://harp-tech.org/protocol/BinaryProtocol-8bit#">Harp binary protocol</a>, and
-<a class="reference external" href="https://harp-tech.org/protocol/SynchronizationClock#">Harp clock synchronization</a>.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -524,11 +459,11 @@ the <a class="reference external" href="https://harp-tech.org/protocol/BinaryPro
       </div>
     </a>
     <a class="right-next"
-       href="installation.html"
+       href="multianimal_tracking.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Multi-Animal Tracking</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -551,8 +486,7 @@ the <a class="reference external" href="https://harp-tech.org/protocol/BinaryPro
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repositories">Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key features</a></li>
 </ul>
   </nav></div>
 

@@ -1,6 +1,6 @@
 (target-foraging-patch)=
 # Foraging Patch
-:::{image} ../../images/foraging-patch.png
+:::{image} ../../images/foraging-patch.svg
 :alt: Foraging Patch
 :class: img-hardware-main
 :align: center
@@ -128,7 +128,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step16
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-16\.Screw the electronic box on the side of the foraging patch base (ID 6) and insert the foraging patch electronics. The screws need to be inserted from the inside of the box itself.
+16\. Gently place the magnetic encoder onto its holder (ID 7). The magnet should face the magnetic encoder chip.
 :::
 ::::
 
@@ -138,19 +138,19 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step17
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-17\. Add the Raspberry Pi Pico to the foraging patch electronics.
+17\. Screw the electronic box on the side of the foraging patch base (ID 6) and insert the foraging patch electronics. The screws need to be inserted from the inside of the box itself.
 :::
 :::{figure} ../../images/foraging-patch-step18.svg
 :alt: step18
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-18\. Close the box with the electronic box lid (ID 8).
+18\. Add the Raspberry Pi Pico to the foraging patch electronics.
 :::
 :::{figure} ../../images/foraging-patch-step19.svg
 :alt: step19
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-19\. Gently place the magnetic encoder onto its holder (ID 7). The magnet should face the magnetic encoder chip.
+19\. Close the box with the electronic box lid (ID 8).
 :::
 ::::
 
@@ -160,16 +160,16 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step20
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-20\. Attach the assembled foraging patch to the metal hexagon tile using 6 screws (ID 3).
+20\. Attach the assembled foraging patch to the metal hexagon tile using 6 screws (ID 3). Note: make a 1.25mm thick and 18mm wide rim all around the bottom of the metal hex tile using a milling machine.
 :::
 :::{figure} ../../images/foraging-patch-step21.svg
 :alt: step21
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-21\.To complete the foraging patch, add the foraging patch tile orienting the tile engraving with the foraging patch. Metal tile and foraging patch tile should be flushed and only the wheel exposed.
+21\. To complete the foraging patch, add the tile orienting the tile engraving with the foraging patch. Metal tile and foraging patch tile should be flushed and only the wheel exposed.
 :::
 ::::
 
 ## Downloads
-- [Assembly guide](../../downloads/Foraging-Patch-Guideline-Final-1.pdf)
+- [Assembly guide](../../downloads/Foraging-Patch-Guideline.pdf)
 - [Bill of materials](../../downloads/Foraging-Patch-BOM.xlsx)

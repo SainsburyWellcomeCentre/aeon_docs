@@ -10,6 +10,6 @@ A harp [sound card](https://github.com/harp-tech/device.soundcard/) is used to d
 
 3. An RCA connection to one (for mono) or both (for stereo) ports on the sound card is made to a [harp amplifier](https://github.com/harp-tech/peripheral.audioamp), which it then connected to the terminals of one or more speakers.
 
-4. 24V DC power is provided to the sound card through a 2.1mm barrel jack connector from the PSU.<!--TODO Check this is correct-->
+4. 12V DC power is provided to the sound card through a 2.1mm barrel jack connector from the PSU.<!--TODO Check this is correct-->
 
 5. The sound card also recieves the common clock signal from the timestamp generator via a 3.5mm audio jack connector.

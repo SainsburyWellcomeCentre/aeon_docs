@@ -3,39 +3,39 @@ This section is still under construction. Some information may be incomplete or 
 :::
 
 (target-hardware)=
-# Hardware Overview
+# Hardware Assembly
 The Aeon system consists of a modular, scalable, and programmable habitat equipped with various interactive and non-interactive modules, such as [foraging patches](target-foraging-patch) and [nests](target-nest). 
 Here, you will find comprehensive guidelines and parts lists to help you replicate the main modules or inspire you to create your own. 
 
 ## Main modules
-::::{grid} 1 3 3 3
+::::{grid} 1 2 2 2
 :gutter: 1
 
 :::{grid-item-card} Commutation-translation system
 :link: target-commutation-translation
 :link-type: ref
-:img-bottom: ../images/hardware-overview-linear-commutator.png
+:img-bottom: ../images/commutation-translation-system.svg
 :class-card: module-card
 :::
 
 :::{grid-item-card} Foraging Patch
 :link: target-foraging-patch
 :link-type: ref
-:img-bottom: ../images/hardware-overview-foraging-patch.png
+:img-bottom: ../images/foraging-patch.svg
 :class-card: module-card
 :::
 
 :::{grid-item-card} Habitat
 :link: target-habitat
 :link-type: ref
-:img-bottom: ../images/hardware-overview-habitat.png
+:img-bottom: ../images/habitat.svg
 :class-card: module-card
 :::
 
 :::{grid-item-card} Nest
 :link: target-nest
 :link-type: ref
-:img-bottom: ../images/hardware-overview-nest.png
+:img-bottom: ../images/nest.svg
 :class-card: module-card
 :::
 ::::

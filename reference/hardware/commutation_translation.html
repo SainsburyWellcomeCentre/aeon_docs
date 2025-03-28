@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Foraging Patch" href="foraging_patch.html" />
-    <link rel="prev" title="Hardware Overview" href="../hardware.html" />
+    <link rel="prev" title="Hardware Assembly" href="../hardware.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -337,7 +337,7 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../hardware.html">Hardware Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../hardware.html">Hardware Assembly</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Commutation-Translation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="foraging_patch.html">Foraging Patch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="habitat.html">Habitat</a></li>
@@ -527,7 +527,7 @@
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Reference</a></li>
     
     
-    <li class="breadcrumb-item"><a href="../hardware.html" class="nav-link">Hardware Overview</a></li>
+    <li class="breadcrumb-item"><a href="../hardware.html" class="nav-link">Hardware Assembly</a></li>
     
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Commutation-Translation System</span></li>
   </ul>
@@ -548,18 +548,126 @@
                   
   <section id="commutation-translation-system">
 <span id="target-commutation-translation"></span><h1>Commutation-Translation System<a class="headerlink" href="#commutation-translation-system" title="Link to this heading">#</a></h1>
+<img alt="Commutation Translation System" class="img-hardware-main align-center" src="../../_images/commutation-translation-system.svg" />
 <p>To minimise the tethering cable’s interference with natural behaviour and prevent tangling during extended periods of recording, the Neuropixels commutation-translation system integrates the <a class="reference external" href="https://open-ephys.org/commutator-info">ONIX commutator</a> with a servo motor-powered linear actuator, enabling closed-loop adjustment based on the animal’s 2D position and head direction.</p>
 <section id="parts-list">
 <h2>Parts list<a class="headerlink" href="#parts-list" title="Link to this heading">#</a></h2>
+<img alt="Parts1" class="align-center" src="../../_images/commutation-translation-system-partlist.svg" />
 </section>
 <section id="assembly-guide">
 <h2>Assembly guide<a class="headerlink" href="#assembly-guide" title="Link to this heading">#</a></h2>
+<section id="chute">
+<h3>Chute<a class="headerlink" href="#chute" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 1-3</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id1">
+<img alt="step1" class="img-hardware-steps" src="../../_images/commutation-translation-system-step1.svg" />
+<figcaption>
+<p><span class="caption-text">1. Assemble the cable chute by joining the acrylic base and sides.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id2">
+<img alt="step2" class="img-hardware-steps" src="../../_images/commutation-translation-system-step2.svg" />
+<figcaption>
+<p><span class="caption-text">2. Assemble the front cable chute support to the end of the chute as shown.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id3">
+<img alt="step3" class="img-hardware-steps" src="../../_images/commutation-translation-system-step3.svg" />
+<figcaption>
+<p><span class="caption-text">3. Attach the support to the end of the chute as shown. This will be connected to the aluminium extrusions. Step 1-3 require chloroform.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="linear-stage">
+<h3>Linear stage<a class="headerlink" href="#linear-stage" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 4-10</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id4">
+<img alt="step4" class="img-hardware-steps" src="../../_images/commutation-translation-system-step4.svg" />
+<figcaption>
+<p><span class="caption-text">4. Prepare the 3D printed adaptor as shown.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id5">
+<img alt="step5" class="img-hardware-steps" src="../../_images/commutation-translation-system-step5.svg" />
+<figcaption>
+<p><span class="caption-text">5. Attach the adaptor to the sliding carriage of the linear actuator (ID 1).</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id6">
+<img alt="step6" class="img-hardware-steps" src="../../_images/commutation-translation-system-step6.svg" />
+<figcaption>
+<p><span class="caption-text">6. Bolt the commutator to the adaptor (ID 2, ID 3).</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id7">
+<img alt="step7" class="img-hardware-steps" src="../../_images/commutation-translation-system-step7.svg" />
+<figcaption>
+<p><span class="caption-text">7. Assemble the motor to the 3D printed motor bracket (ID 4).</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id8">
+<img alt="step8" class="img-hardware-steps" src="../../_images/commutation-translation-system-step8.svg" />
+<figcaption>
+<p><span class="caption-text">8. Slide the coupler onto the motor drive shaft and tighten the grab screw.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id9">
+<img alt="step9" class="img-hardware-steps" src="../../_images/commutation-translation-system-step9.svg" />
+<figcaption>
+<p><span class="caption-text">9. Insert the motor bracket and coupler assembly onto the linear rail shaft and tighten the other coupler grab screw onto it.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id10">
+<img alt="step10" class="img-hardware-steps" src="../../_images/commutation-translation-system-step10.svg" />
+<figcaption>
+<p><span class="caption-text">10. Bolt a cable chain to the adaptor plate and to the 3D printed stopper (ID 5).</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="mounting">
+<h3>Mounting<a class="headerlink" href="#mounting" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 11-14</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id11">
+<img alt="step11" class="img-hardware-steps" src="../../_images/commutation-translation-system-step11.svg" />
+<figcaption>
+<p><span class="caption-text">11. Drill a hole in the middle of the aluminium extrusions and equip the linear rail groove with 3 insertion nuts. Bolt the aluminium extrusion to the rail.
+Note: the chain cable stopper and motor bracket are bolted onto one of the three extrusions (ID 6).</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id12">
+<img alt="step12" class="img-hardware-steps" src="../../_images/commutation-translation-system-step12.svg" />
+<figcaption>
+<p><span class="caption-text">12. Connect the cable chute to the assembled actuator via the front support by bolting to the extrusion.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id13">
+<img alt="step13" class="img-hardware-steps" src="../../_images/commutation-translation-system-step13.svg" />
+<figcaption>
+<p><span class="caption-text">13. Attach the chute side support to the chute itself and bolt it to the middle aluminum extrusion.</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id14">
+<img alt="step14" class="img-hardware-steps" src="../../_images/commutation-translation-system-step14.svg" />
+<figcaption>
+<p><span class="caption-text">14. Attach the commutation system to the top of the Aeon habitat using three angle brackets. The positon should ensure that the cable falls in the centre of the habitat.</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
 </section>
 <section id="downloads">
 <h2>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference download internal" download="" href="../../_downloads/596afd27e002b61d8609f7a12b743b39/Linear-Commutator-Guideline-Final-1.pdf"><span class="xref download myst">Assembly guide</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../_downloads/b2e936ebda71e0ed30641ffbb8918970/Lienar-Commutator-BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/7f47a53c583abcbf9f917631608a8d0d/Commutation-Translation-System-Guideline.pdf"><span class="xref download myst">Assembly guide</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../_downloads/312fc475325700342041b14cd682a3de/Commutation-Translation-System-BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -580,7 +688,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Hardware Overview</p>
+        <p class="prev-next-title">Hardware Assembly</p>
       </div>
     </a>
     <a class="right-next"
@@ -612,7 +720,12 @@
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parts-list">Parts list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly-guide">Assembly guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly-guide">Assembly guide</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chute">Chute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-stage">Linear stage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mounting">Mounting</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads">Downloads</a></li>
 </ul>
   </nav></div>

@@ -3,7 +3,7 @@
 
 Aeon is an open-source platform designed to study the neural basis of natural behaviours over naturalistic timescales, from weeks to months. 
 It features a modular, scalable, and programmable habitat where animals live. 
-Equipped with various [interactive and non-interactive modules](target-hardware) like feeders, nesting areas, microphones, RFID readers, and high-speed cameras, this setup mimics complex environments, allowing 
+Equipped with various [interactive and non-interactive modules](target-hardware) like foraging patches, nesting areas, microphones, RFID readers, and high-speed cameras, this setup mimics complex environments, allowing 
 - animals to exhibit natural behaviours such as foraging, nesting, and social interaction, and
 - continuous tracking of animal position, pose, and identity, providing a means to quantify the animal's behavioural dynamics and internal states at millisecond resolution. 
 

@@ -6,7 +6,7 @@ This reference manual details all software and hardware components, and a glossa
 ::::{grid} 1 2 2 2
 :gutter: 3 
 
-:::{grid-item-card} Hardware Overview
+:::{grid-item-card} Hardware Assembly
 :link: target-hardware
 :link-type: ref
 :img-bottom: ../images/noun-hardware-setup-6046729.svg
@@ -18,6 +18,13 @@ This reference manual details all software and hardware components, and a glossa
 :link-type: ref
 :img-bottom: ../images/noun-code-6878936.svg
 :class-img-bottom: .sd-img-bottom-small 
+:::
+
+:::{grid-item-card} Acquisition Modules
+:link: target-acquisition-modules
+:link-type: ref
+:img-bottom: ../images/noun-timeline-5147845.svg
+:class-img-bottom: .sd-img-bottom-small
 :::
 
 :::{grid-item-card} Data Contract
@@ -40,6 +47,7 @@ This reference manual details all software and hardware components, and a glossa
 :hidden:
 
 hardware
+acquisition
 api
 data_contract
 glossary

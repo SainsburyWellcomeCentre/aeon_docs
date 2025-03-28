@@ -49,8 +49,19 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 | [**Micropython Harp device**](https://github.com/SainsburyWellcomeCentre/microharp)       | Ephys linear rail drive         | Linear rail position controller and position sensor reciever  | 1        | 
 | [**Harp SoundCard**](harp-tech:api/Harp.SoundCard.html)                  | SP speaker                      | Control and monitoring of audio speaker                     | 1        | 
 
-## Wiring diagrams
-- [Wiring diagram](../downloads/Example-Wiring-Diagram.pdf)
+## Wiring schematics
+<!-- - [Wiring diagram](../downloads/Example-Wiring-Diagram.pdf) Do we still want this?-->
+- [Camera](target-wiring-camera)
+- [Camera controller](target-wiring-camera-controller)
+- [Commutation-translation system](target-wiring-commutation-translation)
+- [Foraging patch](target-wiring-foraging-patch)
+- [Foraging patch output expander](target-wiring-foraging-patch-output-expander)
+- [Microphone](target-wiring-microphone)
+- [RFID Reader](target-wiring-rfid-reader)
+- [Sound card](target-wiring-sound-card)
+- [Timestamp generator](target-wiring-timestamp-generator)
+- [Weighing scale](target-wiring-weighing-scale)
+
 
 :::{toctree}
 :maxdepth: 1
@@ -58,4 +69,5 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 :glob:
 
 hardware/*
+connections/*
 :::

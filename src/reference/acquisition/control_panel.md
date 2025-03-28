@@ -13,7 +13,7 @@ These are split into several categories, each implemented in a dedicated `GroupW
 ![ControlPanelWorkflow](../../workflows/miniAeon/controlPanel.bonsai)
 :::
 
-1. **PatchActivity**: Tracks the state of the feeders on the rig, including the current threshold, rolling and total distance travelled on the wheels of the feeders wheels, information on the number and timing of food pellet deliveries and time since different subjects visited the different patches. 
+1. **PatchActivity**: Tracks the state of the foraging patches on the rig, including the current threshold, rolling and total distance travelled on the wheels of the foraging patches, information on the number and timing of food pellet deliveries and time since different subjects visited the different patches. 
 2. **SubjectActivity**: Constructs additional controls for the environment and exposed properties of the workflow, as well as additional visualiser windows. In Aeon, these additional windows are used to display tracking or pose information and monitoring of light levels in the experiment room. 
 3. **EnvironmentState**: Constructs a mashup of a general control panel displaying information and providing control dialogues for the [foraging patches](target-module-foraging-patch), the environment configuration and manual annotation and alert logs grouped into the "ExperimentMetadata" `GroupWorkflow`, as well as experimental subjects entered and removed from the habitat and subject weight measurements grouped into the "EnvironmentSubjectState" `GroupWorkflow`
 4. **CameraSelector**: Displays a single image visualiser used to view any camera or other `OpenCV.Net.IplImage`, selected from a list of `Subject`s using the "SubjectActivity" control panel.
@@ -60,7 +60,7 @@ The "EnvironmentState" control panel or visualiser is created by combining the o
 
 #### ExperimentMetadata
 The "ExperimentMetadata" `GroupWorkflow` creates a visualiser window that enables control of basic functions for each [foraging patch](target-module-foraging-patch) in an experiment, through the [control panels](target-node-patchdispenser-control-panel) created by the corresponding[`PatchDispenser`](target-node-patchdispenser) node. 
-Patch dispenser events are parsed into "Reset" or manual "Deliver" command `Subject`s which are used by the [`UndergroundFeeder`](target-node-undergroundfeeder) node to control the behaviour of the feeder hardware.
+Patch dispenser events are parsed into "Reset" or manual "Deliver" command `Subject`s which are used by the [`UndergroundFeeder`](target-node-undergroundfeeder) node to control the behaviour of the foraging patch hardware.
 
 In addition, the [`AnnotationSource`](target-node-annotationsource), [`EnvironmentState`](target-node-environmentstate) and [`LabelControl`](target-node-labelcontrol) nodes create the full "ExperimentMetadata" control panel.
 

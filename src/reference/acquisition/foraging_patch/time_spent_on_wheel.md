@@ -2,7 +2,7 @@
 # TimeSpentOnWheel 
 The `TimeSpentOnWheel (Aeon.Foraging)` node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel.
 <!-- TODO: Fix link to wheelmoving.md -->
-Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the feeder while the wheel is in motion.
+Within this node, the [`WheelMoving (Aeon.Acquisition)`](../../wheelMoving.md) node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the foraging patch while the wheel is in motion.
 
 :::workflow
 ![timeSpentOnWheelWorkflow](../../../workflows/timeSpentOnWheelWorkflow.bonsai)

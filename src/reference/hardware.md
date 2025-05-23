@@ -4,7 +4,7 @@ This section is still under construction. Some information may be incomplete or 
 
 (target-hardware)=
 # Hardware Assembly
-The Aeon system consists of a modular, scalable, and programmable habitat equipped with various interactive and non-interactive modules, such as [foraging patches](target-foraging-patch) and [nests](target-nest). 
+The AEON system consists of a modular, scalable, and programmable habitat equipped with various interactive and non-interactive modules, such as [foraging patches](target-foraging-patch) and [nests](target-nest). 
 Here, you will find comprehensive guidelines and parts lists to help you replicate the main modules or inspire you to create your own. 
 
 ## Main modules

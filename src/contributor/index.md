@@ -21,11 +21,11 @@ We version all the following, according to [SemVer](semver:) numbering:
 
 ## Issue tracking
 
-We prioritise and track dev progress using Github Discussions and Github Issues in Github Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in 'aeon_experiments'.
+We prioritise and track dev progress using GitHub Discussions and GitHub Issues in GitHub Projects. Issues and Discussions should ideally be created in the specific repository appropriate for the Issue/Discussion; all experiment and general Issues and Discussions should be created in 'aeon_experiments'.
 
 ## Continuous integration (CI)
 
-We use Github Actions to run CI. We run unit tests on Github Virtual Machines on Windows, MacOS, and Ubuntu. We run integration tests on the SWC HPC. Workflows of the CI jobs we run can be found in each repo's respective `.github/workflows/` directory.
+We use GitHub Actions to run CI. We run unit tests on GitHub Virtual Machines on Windows, MacOS, and Ubuntu. We run integration tests on the SWC HPC. Workflows of the CI jobs we run can be found in each repo's respective `.github/workflows/` directory.
 
 :::{toctree}
 :maxdepth: 1

@@ -169,7 +169,7 @@ myst_url_schemes = {
     "https": None,
     "ftp": None,
     "mailto": None,
-    "aeon-docs": "https://sainsburywellcomecentre.github.io/aeon_docs/{{path}}",
+    "aeon-docs": "https://aeon.swc.ucl.ac.uk/{{path}}",
     "aeon-docs-github": "https://github.com/SainsburyWellcomeCentre/aeon_docs/{{path}}",
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
     "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",

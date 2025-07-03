@@ -1,7 +1,7 @@
 (target-contributing-documentation)=
 # Contributing Documentation
 The documentation is built via [Sphinx](https://www.sphinx-doc.org/en/master/), 
-and hosted via GitHub Pages at [sainsburywellcomecentre.github.io/aeon_docs/](aeon-docs:). 
+and hosted at [aeon.swc.ucl.ac.uk](aeon-docs:). 
 `src/` is the Sphinx source directory, where you can find the Markdown (`.md`) and RestructuredText (`.rst`) files that make up the documentation. 
 The site is built and deployed from the `gh-pages` branch. 
 This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_deploy.yml`), triggered by the following events:

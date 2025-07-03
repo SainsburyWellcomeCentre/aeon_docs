@@ -1,12 +1,12 @@
 # aeon_docs
 
-This repo contains the source for the [Aeon online documentation](https://sainsburywellcomecentre.github.io/aeon_docs/). 
+This repo contains the source for the [Aeon online documentation](https://aeon.swc.ucl.ac.uk). 
 
 > [!CAUTION] 
 > The documentation is currently under active development and may be incomplete.
 > Please report any issues or suggestions for improvement by [opening an issue](https://github.com/SainsburyWellcomeCentre/aeon_docs/issues).
 
-To contribute to the documentation, please see the [Contributor Guide](https://sainsburywellcomecentre.github.io/aeon_docs/contributor/index.html).
+To contribute to the documentation, please see the [Contributor Guide](https://aeon.swc.ucl.ac.uk/contributor/index.html).
 
 ## Aeon organisation overview
 

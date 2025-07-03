@@ -59,7 +59,7 @@ If you wish to install only the core dependencies, simply drop the `--all-extras
 You must be an SWC `aeon` project member to access Aeon data hosted on 
 SWC's Ceph storage. The required sets of credentials are as follows: 
 - Microsoft Teams: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk), [Gonçalo Lopes](mailto:g.lopes@neurogears.org), or [Dario Campagner](mailto:d.campagner@ucl.ac.uk)
-- SWC GitHub organization: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
+- SWC GitHub organisation: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
 - SWC GitHub `aeon` project: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk) or [Gonçalo Lopes](mailto:g.lopes@neurogears.org)
 - SWC HPC: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
 - `aeon` HPC Linux group: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)

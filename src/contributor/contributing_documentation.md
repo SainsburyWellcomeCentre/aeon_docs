@@ -12,7 +12,7 @@ This is handled by a GitHub actions workflow (`.github/workflows/docs_build_and_
 
 The workflow comprises two jobs: `build_sphinx_docs` and `deploy_sphinx_docs`. 
 The build job is triggered by all the listed events to ensure the documentation build remains intact with new changes. 
-The deployment job is only triggered on manual dispatch or [when a tag is pushed](#deploying-the-documentation).
+The [deployment job](#deploying-the-documentation) is only triggered when a tag is pushed or when the workflow is manually dispatched from the main branch. 
 
 ## Editing the documentation
 To edit the documentation, clone the [`aeon_docs` repository](aeon-docs-github:), and work on a new branch, following the same guidelines as for [code changes](target-contributing-code). 
@@ -224,7 +224,7 @@ linkcheck_allowed_redirects = {
 ## Deploying the documentation
 As mentioned above, the deployment job is triggered by the following events:
 - **Tag push**: for releasing a new version of the documentation
-- **Manual dispatch**: for testing purposes
+- **Manual dispatch from the main branch**: for testing purposes
 
 ### Manual dispatch
 To deploy the documentation manually on GitHub, go to the Actions tab of the repository, 

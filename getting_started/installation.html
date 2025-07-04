@@ -464,8 +464,8 @@ In other words, you only need to install <code class="docutils literal notransla
 SWC’s Ceph storage. The required sets of credentials are as follows:</p>
 <ul class="simple">
 <li><p>Microsoft Teams: contact <a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk">Jai Bhagat</a>, <a class="reference external" href="mailto:g&#46;lopes&#37;&#52;&#48;neurogears&#46;org">Gonçalo Lopes</a>, or <a class="reference external" href="mailto:d&#46;campagner&#37;&#52;&#48;ucl&#46;ac&#46;uk">Dario Campagner</a></p></li>
-<li><p>SWC Github organization: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
-<li><p>SWC Github <code class="docutils literal notranslate"><span class="pre">aeon</span></code> project: contact <a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk">Jai Bhagat</a> or <a class="reference external" href="mailto:g&#46;lopes&#37;&#52;&#48;neurogears&#46;org">Gonçalo Lopes</a></p></li>
+<li><p>SWC GitHub organisation: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
+<li><p>SWC GitHub <code class="docutils literal notranslate"><span class="pre">aeon</span></code> project: contact <a class="reference external" href="mailto:jai&#46;bhagat&#46;21&#37;&#52;&#48;ucl&#46;ac&#46;uk">Jai Bhagat</a> or <a class="reference external" href="mailto:g&#46;lopes&#37;&#52;&#48;neurogears&#46;org">Gonçalo Lopes</a></p></li>
 <li><p>SWC HPC: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aeon</span></code> HPC Linux group: contact <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;swc&#46;ucl&#46;ac&#46;uk">SWC Helpdesk</a></p></li>
 <li><p>Datajoint database username: contact <a class="reference external" href="mailto:thinh&#37;&#52;&#48;vathes&#46;com">Thinh Nguyen</a></p></li>
@@ -480,17 +480,19 @@ requesting this access.</p>
 Local</label><div class="sd-tab-content docutils">
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The links below point to the SWC internal wiki, which is only accessible from within the SWC network (or using VPN).</p>
+<p>The links below point to the SWC Intranet on SharePoint, which is only accessible with a UCL account.</p>
 </div>
-<p>In order to access Aeon data locally, you need to be on the SWC network or connected via VPN. You also need to <a class="reference external" href="https://wiki.ucl.ac.uk/display/SSC/How+to+Mount">mount the Ceph storage on your local machine</a>. The Ceph storage path for different operating systems can be found <a class="reference external" href="https://wiki.ucl.ac.uk/display/SSC/Storage%3A+Ceph">here</a>, replacing <code class="docutils literal notranslate"><span class="pre">xxxxxxxx</span></code> with <code class="docutils literal notranslate"><span class="pre">aeon</span></code>.</p>
+<p>In order to access Aeon data locally, you need to be on the SWC network or connected via VPN.
+You also need to <a class="reference external" href="https://liveuclac.sharepoint.com/sites/SSC/SitePages/SSC-How-to-Mount-137134430.aspx">mount the Ceph storage on your local machine</a>.
+The Ceph storage path for different operating systems can be found <a class="reference external" href="https://liveuclac.sharepoint.com/sites/SSC/SitePages/SSC-Storage-Ceph-198906998.aspx">here</a>, replacing <code class="docutils literal notranslate"><span class="pre">xxxxxxxx</span></code> with <code class="docutils literal notranslate"><span class="pre">aeon</span></code>.</p>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-3">
 Remote</label><div class="sd-tab-content docutils">
-<p>For using an IDE (e.g. VS Code, PyCharm Professional, Jupyter, etc.) to access Aeon data, you will need to configure the connection to SWC’s HPC using SSH.
+<p>For using an IDE (e.g. VS Code, PyCharm Professional) to access Aeon data, you will need to configure the connection to SWC’s HPC using SSH.
 Please ensure you have met all the <a class="reference external" href="https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#prerequisites">prerequisites</a> before proceeding.
-In order to avoid typing the SSH commands each time you log into the HPC, we recommend modifying the SSH config file following this <a class="reference external" href="https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#ssh-config-file">guide</a>.
-The next step is to configure your IDE to connect to the <code class="docutils literal notranslate"><span class="pre">swc-gateway</span></code> node via SSH. These instructions can typically be found in your IDE’s online documentation. Here are the instructions for <a class="reference external" href="https://code.visualstudio.com/docs/remote/ssh">VS Code</a>, and for <a class="reference external" href="https://www.jetbrains.com/help/pycharm/remote-development-overview.html#client_to_server">PyCharm Professional</a>.</p>
+In order to avoid typing the SSH commands each time you log into the HPC, we recommend modifying the SSH config file following <a class="reference external" href="https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#ssh-config-file">this guide</a>.
+The next step is to request an interactive job on the HPC, connect to the assigned compute node, and start a remote development session in your IDE (full details for VS Code can be found in <a class="reference external" href="https://howto.neuroinformatics.dev/programming/vscode-with-slurm-job#">this guide</a>).</p>
 </div>
 </div>
 <p>Raw Aeon data can be accessed using <a class="reference internal" href="#aeon-api"><code class="docutils literal notranslate"><span class="pre">aeon_api</span></code></a>, whereas processed data can be queried from the <a class="reference internal" href="../user/tutorials/aeon_dj_pipeline.html#target-aeon-dj-pipeline"><span class="std std-ref">Aeon DataJoint pipeline</span></a> using <a class="reference internal" href="#aeon-mecha"><code class="docutils literal notranslate"><span class="pre">aeon_mecha</span></code></a>.

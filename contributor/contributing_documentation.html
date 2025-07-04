@@ -402,7 +402,7 @@
   <section id="contributing-documentation">
 <span id="target-contributing-documentation"></span><h1>Contributing Documentation<a class="headerlink" href="#contributing-documentation" title="Link to this heading">#</a></h1>
 <p>The documentation is built via <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>,
-and hosted via GitHub Pages at <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/">sainsburywellcomecentre.github.io/aeon_docs/</a>.
+and hosted at <a class="reference external" href="https://aeon.swc.ucl.ac.uk/">aeon.swc.ucl.ac.uk</a>.
 <code class="docutils literal notranslate"><span class="pre">src/</span></code> is the Sphinx source directory, where you can find the Markdown (<code class="docutils literal notranslate"><span class="pre">.md</span></code>) and RestructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>) files that make up the documentation.
 The site is built and deployed from the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch.
 This is handled by a GitHub actions workflow (<code class="docutils literal notranslate"><span class="pre">.github/workflows/docs_build_and_deploy.yml</span></code>), triggered by the following events:</p>
@@ -414,7 +414,7 @@ This is handled by a GitHub actions workflow (<code class="docutils literal notr
 </ul>
 <p>The workflow comprises two jobs: <code class="docutils literal notranslate"><span class="pre">build_sphinx_docs</span></code> and <code class="docutils literal notranslate"><span class="pre">deploy_sphinx_docs</span></code>.
 The build job is triggered by all the listed events to ensure the documentation build remains intact with new changes.
-The deployment job is only triggered on manual dispatch or <a class="reference internal" href="#deploying-the-documentation">when a tag is pushed</a>.</p>
+The <a class="reference internal" href="#deploying-the-documentation">deployment job</a> is only triggered when a tag is pushed or when the workflow is manually dispatched from the main branch.</p>
 <section id="editing-the-documentation">
 <h2>Editing the documentation<a class="headerlink" href="#editing-the-documentation" title="Link to this heading">#</a></h2>
 <p>To edit the documentation, clone the <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_docs/"><code class="docutils literal notranslate"><span class="pre">aeon_docs</span></code> repository</a>, and work on a new branch, following the same guidelines as for <a class="reference internal" href="contributing_code.html#target-contributing-code"><span class="std std-ref">code changes</span></a>.
@@ -430,7 +430,7 @@ Depending on the file format of the parent file (<code class="docutils literal n
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Markdown</label><div class="sd-tab-content docutils">
-<p>For example, to add <code class="docutils literal notranslate"><span class="pre">new_file.md</span></code> or <code class="docutils literal notranslate"><span class="pre">new_file.rst</span></code> as a subpage of the <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/contributor">Contributor Guide</a>, place the new file in <code class="docutils literal notranslate"><span class="pre">src/contributor/</span></code>.
+<p>For example, to add <code class="docutils literal notranslate"><span class="pre">new_file.md</span></code> or <code class="docutils literal notranslate"><span class="pre">new_file.rst</span></code> as a subpage of the <a class="reference external" href="https://aeon.swc.ucl.ac.uk/contributor">Contributor Guide</a>, place the new file in <code class="docutils literal notranslate"><span class="pre">src/contributor/</span></code>.
 As the parent file is <code class="docutils literal notranslate"><span class="pre">src/contributor/index.md</span></code>, add <code class="docutils literal notranslate"><span class="pre">new_file</span></code> to the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> in the parent file as follows:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>:::{toctree}
 :maxdepth: 1
@@ -439,7 +439,7 @@ As the parent file is <code class="docutils literal notranslate"><span class="pr
 new_file
 </pre></div>
 </div>
-<p>This new page will then be included as a subpage of <a class="reference external" href="https://sainsburywellcomecentre.github.io/aeon_docs/contributor">Contributor Guide</a>.</p>
+<p>This new page will then be included as a subpage of <a class="reference external" href="https://aeon.swc.ucl.ac.uk/contributor">Contributor Guide</a>.</p>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
@@ -631,7 +631,7 @@ you can skip checking the anchors in specific URLs by adding them to
 <p>As mentioned above, the deployment job is triggered by the following events:</p>
 <ul class="simple">
 <li><p><strong>Tag push</strong>: for releasing a new version of the documentation</p></li>
-<li><p><strong>Manual dispatch</strong>: for testing purposes</p></li>
+<li><p><strong>Manual dispatch from the main branch</strong>: for testing purposes</p></li>
 </ul>
 <section id="manual-dispatch">
 <h3>Manual dispatch<a class="headerlink" href="#manual-dispatch" title="Link to this heading">#</a></h3>

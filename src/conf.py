@@ -152,9 +152,10 @@ html_js_files = [
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
-    r"https://liveuclac\.sharepoint\.com/.*",  # UCL internal SharePoint
-    r"http://SubjectExpressionBuilder\.Name",  # Broken URL
-    r"https://learn\.microsoft\.com/dotnet/api/.*",  # 429 Client Error: Too Many Requests for url
+    "https://liveuclac.sharepoint.com/",  # UCL internal SharePoint
+    "http://SubjectExpressionBuilder.Name",  # Broken URL
+    "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
+    "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI
@@ -169,7 +170,7 @@ myst_url_schemes = {
     "https": None,
     "ftp": None,
     "mailto": None,
-    "aeon-docs": "https://sainsburywellcomecentre.github.io/aeon_docs/{{path}}",
+    "aeon-docs": "https://aeon.swc.ucl.ac.uk/{{path}}",
     "aeon-docs-github": "https://github.com/SainsburyWellcomeCentre/aeon_docs/{{path}}",
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
     "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",

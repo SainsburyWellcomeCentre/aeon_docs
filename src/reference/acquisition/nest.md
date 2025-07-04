@@ -58,7 +58,7 @@ Each of these subjects becomes accessible in the Bonsai editor's toolbox anywher
 | Subject name      | Type          | Description                                                                                     |
 |-------------------|---------------|-------------------------------------------------------------------------------------------------|
 | **TareCommands**         | `object`             | Input sequence for tare commands, sent to reset the scale’s weight measurement                 |
-| **GlobalTrigger**        | `object`             | A global trigger that synchronizes with external events or reset triggers for baseline weight. |
+| **GlobalTrigger**        | `object`             | A global trigger that synchronises with external events or reset triggers for baseline weight. |
 | **BaselineWeightTrigger**| `object`             | Specifies the trigger for resetting the baseline weight                                        |
 
 #### Usage

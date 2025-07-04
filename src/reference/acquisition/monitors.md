@@ -52,7 +52,7 @@ An observable sequence of custom `DynamicClass` with the following attributes.
 |-------------------------|--------------------|------------------------------------------------------------------|
 | **MeanTimestamp**       | `double`           | The mean raw timestamp across all input streams                  |
 | **MeanUtcTimestamp**    | `System.DateTime`  | The mean UTC timestamp across all input streams                  |
-| **ExpectedDeviceCount** | `int`              | The number of synchronized input device streams                  |
+| **ExpectedDeviceCount** | `int`              | The number of synchronised input device streams                  |
 | **DeviceCount**         | `long`             | The actual number of devices for which a heartbeat was received  |
 | **MaxDifference**       | `double`           | The largest difference between timestamps from all devices       |
 | **Elements**            | `string`           | The names of the input device streams                            |

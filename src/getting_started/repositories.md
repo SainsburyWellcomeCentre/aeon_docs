@@ -55,5 +55,5 @@ raw data file writing, and raw data file reading.
 See also the documentation on 
 [Harp device operation and common registers](harp-tech:protocol/Device), 
 the [Harp binary protocol](harp-tech:protocol/BinaryProtocol-8bit), and 
-[Harp clock synchronization](harp-tech:protocol/SynchronizationClock).
+[Harp clock synchronisation](harp-tech:protocol/SynchronizationClock).
 :::

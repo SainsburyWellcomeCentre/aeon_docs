@@ -152,9 +152,9 @@ html_js_files = [
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
-    r"https://wiki\.ucl\.ac\.uk/.*",  # This is the UCL internal wiki
-    r"http://SubjectExpressionBuilder.Name",  # Broken URL
-    r"https://learn.microsoft.com/dotnet/api/.*",  # 429 Client Error: Too Many Requests for url
+    r"https://liveuclac\.sharepoint\.com/.*",  # UCL internal SharePoint
+    r"http://SubjectExpressionBuilder\.Name",  # Broken URL
+    r"https://learn\.microsoft\.com/dotnet/api/.*",  # 429 Client Error: Too Many Requests for url
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI
@@ -177,7 +177,8 @@ myst_url_schemes = {
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
     "aeon-api-github": "https://github.com/SainsburyWellcomeCentre/aeon_api/{{path}}",
-    "datajoint": "https://datajoint.com/{{path}}",
+    "datajoint": "https://www.datajoint.com/{{path}}",
+    "datajoint-docs": "https://docs.datajoint.com/{{path}}#{{fragment}}",
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
     "semver": "https://semver.org/",
@@ -185,5 +186,5 @@ myst_url_schemes = {
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",
-    "niu-howto": "https://howto.neuroinformatics.dev/programming/SSH-SWC-cluster#{{fragment}}",
+    "niu-howto": "https://howto.neuroinformatics.dev/programming/{{path}}#{{fragment}}",
 }

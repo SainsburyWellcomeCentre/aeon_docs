@@ -13,6 +13,8 @@ The wheel's pivot is supported by ball bearings for unidirectional rotation and 
 Pellets are stored in an underground hopper and are dispensed onto the wheel via a motor-driven spinning disk. 
 An infrared beam-break sensor detects the pellets as they are delivered.
 
+_Dimensions: L = 190mm, W = 168mm, H = 83mm_
+
 ## Parts list
 :::{image} ../../images/foraging-patch-partlist.svg
 :alt: Parts
@@ -26,7 +28,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step1
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-1\. Trim slightly the motor metal pin using a grinding wheel or a handheld Dremel. Trim until you create a flat surface on the pin. 
+1\. Create a flat surface on the motor shaft by filing it or using a handheld dremel.
 :::
 :::{figure} ../../images/foraging-patch-step2.svg
 :alt: step2
@@ -44,7 +46,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step4
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-4\. Lower the disk into the foraging patch base making sure to orient the grub screw tapped hole toward the flat surface previously created on the motor metal pin (see step 1). Push down the disk until the top of the pin is flushed to the disk itself and use a grub screw (ID 10) to hold the disk in place. Make sure the grub screw touches the flat surface of the trimmed motor pin.
+4\. Lower the disk into the foraging patch base making sure to orient the grub screw tapped hole toward the flat surface previously created on the motor metal pin (see step 1). Push down the disk until the top of the pin is flush to the disk itself and use a grub screw (ID 10) to hold the disk in place. Make sure the grub screw touches the flat surface of the trimmed motor pin.
 :::
 :::{figure} ../../images/foraging-patch-step5.svg
 :alt: step5
@@ -88,7 +90,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step10
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-10\. Insert two parallel pin (ID 13) in the middle holes. If needed, enlarge the holes using a sharp reamer.
+10\. Insert two parallel pin (ID 13) in the middle holes. If needed, enlarge the holes using a reamer.
 :::
 :::{figure} ../../images/foraging-patch-step11.svg
 :alt: step11
@@ -100,7 +102,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step12
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-12\. Insert the shoulder bolt into the wheel hole and tighten it in place using a lock nut. If needed, enlarge the hole using a sharp reamer. Holding the shoulder bolt, insert the magnet holder on the cap and put the neodymium magnet into place (the magnet will hold its position).
+12\. Insert the shoulder bolt into the wheel hole and tighten it in place using a lock nut. If needed, enlarge the hole using a reamer. Holding the shoulder bolt, insert the magnet holder on the cap and put the neodymium magnet into place (the magnet will hold its position).
 :::
 :::{figure} ../../images/foraging-patch-step13.svg
 :alt: step13
@@ -166,7 +168,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 :alt: step21
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-21\. To complete the foraging patch, add the tile orienting the tile engraving with the foraging patch. Metal tile and foraging patch tile should be flushed and only the wheel exposed.
+21\. To complete the foraging patch, add the tile orienting the tile engraving with the foraging patch. Metal tile and foraging patch tile should be flush and only the wheel exposed.
 :::
 ::::
 

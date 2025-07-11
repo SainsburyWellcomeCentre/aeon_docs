@@ -7,6 +7,8 @@
 :::
 To minimise the tethering cable's interference with natural behaviour and prevent tangling during extended periods of recording, the Neuropixels commutation-translation system integrates the [ONIX commutator](https://open-ephys.org/commutator-info) with a servo motor-powered linear actuator, enabling closed-loop adjustment based on the animal's 2D position and head direction. 
 
+_Dimensions: L = 813mm, W = 333mm, H = 290mm_
+
 ## Parts list
 :::{image} ../../images/commutation-translation-system-partlist.svg
 :alt: Parts1
@@ -65,13 +67,13 @@ To minimise the tethering cable's interference with natural behaviour and preven
 :alt: step8
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-8\. Slide the coupler onto the motor drive shaft and tighten the grab screw.
+8\. Slide the coupler onto the motor drive shaft and tighten the grub screw.
 :::
 :::{figure} ../../images/commutation-translation-system-step9.svg
 :alt: step9
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-9\. Insert the motor bracket and coupler assembly onto the linear rail shaft and tighten the other coupler grab screw onto it.
+9\. Insert the motor bracket and coupler assembly onto the linear rail shaft and tighten the other coupler grub screw onto it.
 :::
 :::{figure} ../../images/commutation-translation-system-step10.svg
 :alt: step10
@@ -101,7 +103,7 @@ Note: the chain cable stopper and motor bracket are bolted onto one of the three
 :alt: step13
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-13\. Attach the chute side support to the chute itself and bolt it to the middle aluminum extrusion.
+13\. Attach the chute side support to the chute itself and bolt it to the middle aluminium extrusion.
 :::
 :::{figure} ../../images/commutation-translation-system-step14.svg
 :alt: step14

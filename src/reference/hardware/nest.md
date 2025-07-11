@@ -10,6 +10,8 @@ A nesting box is attached to a scale for precise weight measurement, and it is s
 A water bottle can be suspended on the side of the nesting box, with its spout protruding into the nest through a wall opening. 
 The nest is typically equipped with bedding materials and enrichment. 
 
+_Dimensions: L = 372mm, W = 220mm, H = 405mm_
+
 ## Parts list
 :::{image} ../../images/nest-partlist.svg
 :alt: Parts1
@@ -80,13 +82,13 @@ The nest is typically equipped with bedding materials and enrichment.
 :alt: step9
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-9\. Attach the nest outer walls (red). These will connect to the habitat outer walls.
+9\.  Attach the nest outer walls (red), this will be contiguous with the habitat outer walls.
 :::
 :::{figure} ../../images/nest-step10.svg
 :alt: step10
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-10\. Position the nest base and walls onto the habitat, above the scale. The base of the nest sits directly on the scale held by the 3D printed holders, while the walls connect to the habitat outer walls.
+10\. Position the nest base and walls onto the habitat, above the scale. The base of the nest sits directly on the scale held by the 3D printed holders, while the walls sit and connect to the habitat walls.
 :::
 ::::
 

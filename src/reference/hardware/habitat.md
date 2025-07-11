@@ -12,6 +12,8 @@ The corridor allows for direct access to the nest and to the centre of the habit
 
 The rich and ethologically relevant behavioural displays can be monitored using Infrared lighting and cameras anchored to the metal framework around and above the habitat.
 
+_Dimensions: L = 2660mm, W = 2381mm, H = 2710mm_
+
 ## Parts list
 :::{image} ../../images/habitat-partlist1.svg
 :alt: Parts1

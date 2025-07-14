@@ -63,6 +63,12 @@ Aeon's library for interfacing with the Aeon DataJoint pipeline.
 Contains modules for data ingestion, processing, and analysis using DataJoint.
 :::
 
+:::{grid-item-card} {fas}`location-crosshairs;sd-text-primary` aeon_sleap_processing
+:link: https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing
+:link-type: url
+Aeon's pose and identity tracking pipeline using SLEAP.
+:::
+
 :::{grid-item-card} {fas}`lightbulb;sd-text-primary` aeon_template
 :link: https://github.com/SainsburyWellcomeCentre/aeon_template
 :link-type: url

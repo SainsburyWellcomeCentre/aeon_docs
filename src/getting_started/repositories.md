@@ -26,12 +26,6 @@ Contains modules for loading and processing raw data.
 Source code for the Aeon documentation site, built via Sphinx.
 :::
 
-:::{grid-item-card} {fas}`brain;sd-text-primary` aeon_ephys
-:link: https://github.com/SainsburyWellcomeCentre/aeon_ephys
-:link-type: url
-Source code for electrophysiology acquisition in Aeon experiments.
-:::
-
 :::{grid-item-card} {fas}`flask;sd-text-primary` aeon_experiments
 :link: https://github.com/SainsburyWellcomeCentre/aeon_experiments
 :link-type: url

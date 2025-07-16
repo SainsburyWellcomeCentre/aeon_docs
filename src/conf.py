@@ -156,7 +156,6 @@ linkcheck_ignore = [
     "http://SubjectExpressionBuilder.Name",  # Broken URL
     "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
-    "https://github.com/SainsburyWellcomeCentre/aeon_ephys",  # Temporarily disabled as repo is private
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

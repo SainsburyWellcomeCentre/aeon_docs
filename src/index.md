@@ -37,9 +37,9 @@ Get started
 
 Gain insights into the software and hardware components that make up Aeon.
 
-```{button-ref} reference/index
+```{button-ref} user/aeon_modules
 :color: primary
-To the reference manual
+To Aeon Modules
 ```
 :::
 :::{grid-item}

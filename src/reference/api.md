@@ -8,7 +8,6 @@
 :link: target-aeon-api-reference
 :link-type: ref
 :img-bottom: ../images/api-python-logo.png
-:class-img-bottom: sd-px-2
 :class-card: sd-height-25
 
 This reference guide contains a detailed description of `aeon_api`, Aeon's low-level API.
@@ -18,7 +17,6 @@ This reference guide contains a detailed description of `aeon_api`, Aeon's low-l
 :link: target-aeon-acquisition-reference
 :link-type: ref
 :img-bottom: ../images/api-bonsai-logo.png
-:class-img-bottom: sd-px-2
 :class-card: sd-height-25
 
 This reference guide contains a detailed description of the `aeon_acquisition` API.

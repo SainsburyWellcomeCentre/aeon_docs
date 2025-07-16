@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing Code &#8212; Aeon v0.0.12 documentation</title>
+    <title>Contributing Code &#8212; Aeon v0.0.13 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=909665ef"></script>
+    <script src="../_static/documentation_options.js?v=34eee1f6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <script src="../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Style and Documentation Guidelines" href="style_and_doc_guidelines.html" />
+    <link rel="next" title="Contributing Documentation" href="contributing_documentation.html" />
     <link rel="prev" title="Contributor’s Guide" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.12</p>
+    <p class="title logo__title">Aeon v0.0.13</p>
   
 </a></div>
     
@@ -337,7 +337,6 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="style_and_doc_guidelines.html">Style and Documentation Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing Documentation</a></li>
 </ul>
 </div>
@@ -401,16 +400,106 @@
                   
   <section id="contributing-code">
 <span id="target-contributing-code"></span><h1>Contributing Code<a class="headerlink" href="#contributing-code" title="Link to this heading">#</a></h1>
-<p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">github flow</a> (which is adapted from the more general
-<a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">gitflow</a>).</p>
-<p>In brief, each of our repos has ‘main’ and ‘prod’ branches. Feature and bug fix branches are branched off of ‘main’, with Pull Requests sent back into ‘main’. ‘main’ contains the full commit history of the project, up to the latest stable commit. Upon merges into ‘main’, a squash merge is performed into ‘prod’, such that ‘prod’ contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges. ‘prod’ thus serves as a “production” branch to allow for easier readability of project history and easier reversion of uncaught bug commits. At certain agreed upon timepoints we create “stable releases” (available in the “releases” section of the repository) which serve as a snapshot of the code at the time, version numbered according to <a class="reference external" href="https://semver.org/">SemVer</a>.</p>
-<p>When contributing to any repository, the change to be made should first be discussed in a GitHub Discussion or a GitHub Issue. Thereafter, contributors should create a new branch (branched off of ‘main’) that contains the changes/additions they wish to make, and then create a pull request for merging this branch into ‘main’.</p>
-<p>All pull requests will be reviewed by the <a class="reference internal" href="../about/index.html#target-project-maintainers"><span class="std std-ref">project maintainers</span></a>. Minimally, maintainers should follow the below steps when reviewing pull requests:</p>
+<p>Each repository roughly follows the <a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow">github flow</a>,
+which is adapted from the more general <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">gitflow</a>.</p>
+<p>In brief, each of our repositories has ‘main’ and ‘prod’ branches.
+Feature and bug fix branches are branched off of ‘main’, with Pull Requests sent back into ‘main’.
+‘main’ contains the full commit history of the project, up to the latest stable commit.
+Upon merges into ‘main’, a squash merge is performed into ‘prod’, such that ‘prod’ contains an abbreviated commit history of the project, with commits pertaining only to Pull Request merges.
+‘prod’ thus serves as a “production” branch to allow for easier readability of project history and easier reversion of uncaught bug commits.
+At certain agreed upon timepoints we create “stable releases” (available in the “releases” section of the repository) which serve as a snapshot of the code at the time, version numbered according to <a class="reference external" href="https://semver.org/">SemVer</a>.</p>
+<p>When contributing to any repository, the change to be made should first be discussed in a GitHub Discussion or a GitHub Issue.
+Thereafter, contributors should create a new branch (branched off of ‘main’) that contains the changes/additions they wish to make, and then create a pull request for merging this branch into ‘main’.</p>
+<p>All pull requests will be reviewed by the <a class="reference internal" href="../about/index.html#target-project-maintainers"><span class="std std-ref">project maintainers</span></a>.
+Minimally, maintainers should follow the below steps when reviewing pull requests:</p>
 <ol class="arabic simple">
-<li><p>Ensure new code adheres to the <a class="reference internal" href="style_and_doc_guidelines.html#target-style-doc-guidelines"><span class="std std-ref">style and documentation guidelines</span></a>, is covered by a test, and passes a build test. These can all be checked via CI.</p></li>
+<li><p>Ensure new code adheres to the <a class="reference internal" href="#target-style-doc-guidelines"><span class="std std-ref">style and documentation guidelines</span></a>, is covered by a test, and passes a build test. These can all be checked via CI.</p></li>
 <li><p>As necessary, ensure <code class="docutils literal notranslate"><span class="pre">changelog</span></code>, <code class="docutils literal notranslate"><span class="pre">readme</span></code>, config and doc files are updated.</p></li>
-<li><p>When a branch is ready to be merged back into ‘main’, always make sure to first pull ‘main’ locally, then rebase the feature branch onto ‘main’ (cleaning up any merge conflicts as necessary), before merging the PR. The squash merge into ‘prod’ can be handled via CI. E.g., see <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_mecha/blob/main/.github/workflows/squash_merge_to_prod.yml">here</a></p></li>
+<li><p>When a branch is ready to be merged back into ‘main’, always make sure to first pull ‘main’ locally, then rebase the feature branch onto ‘main’ (cleaning up any merge conflicts as necessary), before merging the Pull Request.
+The squash-merge into ‘prod’ can be handled via CI, e.g. see <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_mecha/blob/main/.github/workflows/squash_merge_to_prod.yml">here</a>.</p></li>
 </ol>
+<section id="style-and-documentation-guidelines">
+<span id="target-style-doc-guidelines"></span><h2>Style and documentation guidelines<a class="headerlink" href="#style-and-documentation-guidelines" title="Link to this heading">#</a></h2>
+<p>We generally adhere to <a class="reference external" href="https://peps.python.org/pep-0008">pep8</a>, <a class="reference external" href="https://peps.python.org/pep-0257">pep257</a>, and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">google’s style guide</a> for code and docstring style guidelines.
+We run ruff and pyright to format our Python code, the config settings for which can be found in a repository’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
+We also believe in the <a class="reference external" href="https://www.thinkinghard.com/blog/TheREADMEManifesto">readme manifesto</a>, which says that <code class="docutils literal notranslate"><span class="pre">readme</span></code> files should provide at least a general description that covers <em>all</em> of a project’s files, and that one <code class="docutils literal notranslate"><span class="pre">readme</span></code> per subdirectory is generally good practice.</p>
+<section id="general-guidelines">
+<h3>General guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All files contain a header that briefly describes the contents within a few sentences.</p></li>
+<li><p>In general, more lines for the sake of clarity is preferred over brevity.</p></li>
+</ul>
+</section>
+<section id="function-and-class-docstrings">
+<h3>Function and class docstrings<a class="headerlink" href="#function-and-class-docstrings" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Function names should describe the action they perform. Functions have the following sections in the given order:</p>
+<ul>
+<li><p>One-line summary description, typically as a verb phrase</p></li>
+<li><p>Long description (optional)</p></li>
+<li><p>Inputs</p></li>
+<li><p>Outputs</p></li>
+<li><p>Examples (optional if included in a separate file)</p></li>
+<li><p>Warnings/Exceptions (optional)</p></li>
+<li><p>Additional notes (optional)</p></li>
+<li><p>See also (optional)</p></li>
+<li><p>Todos (optional)</p></li>
+</ul>
+</li>
+<li><p>Class names should describe the entity they represent. Classes have the following sections in the given order:</p>
+<ul>
+<li><p>One-line summary description, typically as a noun phrase</p></li>
+<li><p>Properties / Attributes</p></li>
+<li><p>Long description (optional)</p></li>
+<li><p>Examples (optional if included in a separate file)</p></li>
+<li><p>Warnings/Exceptions (optional)</p></li>
+<li><p>Additional notes (optional)</p></li>
+<li><p>See also (optional)</p></li>
+<li><p>Todos (optional)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="whitespace-conventions">
+<h3>Whitespace conventions<a class="headerlink" href="#whitespace-conventions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A tab/indent is set at four spaces.</p></li>
+<li><p>Vertical whitespace is used sparingly, but can be used to improve readability between code blocks/sections.</p></li>
+<li><p>Horizontal whitespace is used sparingly, but can be used to improve readability between long and/or complex operations and conditionals.</p></li>
+<li><p>Each line contains no more than 108 characters.</p></li>
+<li><p>Line terminations are LF, not CRLF.</p></li>
+</ul>
+</section>
+<section id="comment-conventions">
+<h3>Comment conventions<a class="headerlink" href="#comment-conventions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Block comments are written as full sentences above the corresponding code.</p></li>
+<li><p>Inline comments are written as a short phrase that starts two spaces after the corresponding code.</p></li>
+<li><p>Code referenced in comments are surrounded by back ticks for readability.</p></li>
+<li><p>Comments are used to describe variables where they are declared.</p></li>
+</ul>
+</section>
+<section id="additional-conventions">
+<h3>Additional conventions<a class="headerlink" href="#additional-conventions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Naming conventions:</p>
+<ul>
+<li><p>Variable and function names are in lower snake_case (e.g. <code class="docutils literal notranslate"><span class="pre">exp_ref</span></code>, <code class="docutils literal notranslate"><span class="pre">infer_parameters</span></code> with a <code class="docutils literal notranslate"><span class="pre">_</span></code> in between each individual word representation).</p></li>
+<li><p>Classes are in upper Snake_Case (e.g. <code class="docutils literal notranslate"><span class="pre">Alyx_Panel</span></code>).</p></li>
+<li><p>Prefix ‘n’ is used for integer values e.g. <code class="docutils literal notranslate"><span class="pre">n_items</span></code>.</p></li>
+<li><p>Suffix ‘num’ is used for referring to a particular instance e.g. <code class="docutils literal notranslate"><span class="pre">item_num</span></code>.</p></li>
+<li><p>Suffixes that indicate unit measurement are used when using multiple units e.g. <code class="docutils literal notranslate"><span class="pre">wheel_deg</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel_mm</span></code>.</p></li>
+<li><p>Reuse of variable names (i.e. mutation) is generally avoided.</p></li>
+<li><p>Variables across related files which share names should share meanings.</p></li>
+</ul>
+</li>
+<li><p>Comments are for explaining <em>what</em> a particular chunk of code does when it may be unintuitive, not for explaining exactly <em>how</em> the code does what it does.</p></li>
+<li><p>Block comments read as a narrative.</p></li>
+<li><p>In function calls, keyword arguments should should be specified when not obvious.</p></li>
+<li><p>Leading underscores are reserved for “private” functions.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
@@ -433,11 +522,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="style_and_doc_guidelines.html"
+       href="contributing_documentation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Style and Documentation Guidelines</p>
+        <p class="prev-next-title">Contributing Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -451,6 +540,25 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-and-documentation-guidelines">Style and documentation guidelines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General guidelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-and-class-docstrings">Function and class docstrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whitespace-conventions">Whitespace conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comment-conventions">Comment conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-conventions">Additional conventions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

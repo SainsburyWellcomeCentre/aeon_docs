@@ -10,27 +10,27 @@ The following diagrams provide a high-level overview of the pipeline's component
 (target-aeon-dj-pipeline-acquisition-fig)=
 :::{figure} ../../images/datajoint_overview_acquisition_related_diagram.svg
 :alt: dj-overview-acquisition
-:target: ../../images/datajoint_overview_acquisition_related_diagram.svg
+:target: ../../_images/datajoint_overview_acquisition_related_diagram.svg
 Data acquisition-related tables.
 :::
 
 (target-aeon-dj-pipeline-streams-fig)=
 :::{figure} ../../images/datajoint_overview_data_stream_diagram.svg
 :alt: dj-overview-streams
-:target: ../../images/datajoint_overview_data_stream_diagram.svg
+:target: ../../_images/datajoint_overview_data_stream_diagram.svg
 Data flow for various data streams.
 :::
 
 :::{figure} ../../images/datajoint_overview_pyrat_related_diagram.svg
 :alt: dj-overview-pyrat
-:target: ../../images/datajoint_overview_pyrat_related_diagram.svg
+:target: ../../_images/datajoint_overview_pyrat_related_diagram.svg
 Pyrat synchronisation process.
 :::
 
 (target-aeon-dj-pipeline-analysis-fig)=
 :::{figure} ../../images/datajoint_analysis_diagram.svg
 :alt: dj-analysis
-:target: ../../images/datajoint_analysis_diagram.svg
+:target: ../../_images/datajoint_analysis_diagram.svg
 Analysis tables.
 :::
 

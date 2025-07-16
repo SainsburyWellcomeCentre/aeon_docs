@@ -6,7 +6,7 @@ They are designed to help you accomplish clearly defined goals.
 Unlike the [tutorials](target-tutorials), which offer a broader, learning-oriented perspective, how-to guides are practical tools for solving real-world problems. 
 
 :::{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :glob:
 
 how_to/*

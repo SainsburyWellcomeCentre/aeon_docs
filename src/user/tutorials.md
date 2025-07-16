@@ -7,7 +7,7 @@ Unlike the [how-to guides](target-how-to), which focus on specific tasks, tutori
 We also provide a [template workflow](aeon-template-github:) to demonstrate the core building blocks of an experimental acquisition system using Aeon.
 
 :::{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :glob:
 
 tutorials/*

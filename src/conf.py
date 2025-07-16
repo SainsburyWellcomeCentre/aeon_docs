@@ -156,6 +156,7 @@ linkcheck_ignore = [
     "http://SubjectExpressionBuilder.Name",  # Broken URL
     "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
+    r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

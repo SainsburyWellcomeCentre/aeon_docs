@@ -1,25 +1,51 @@
 (target-user-guide)=
 # User Guide
-This guide contains tutorials and how-to guides for using Aeon. 
-The tutorials offer a broader, goal-oriented context, and contain end-to-end examples of how Aeon can be used to collect, process and analyse data. 
-The how-to guides offer a more focused, task-oriented context, and provide detailed instructions on how to use specific features or modules of Aeon.
+This user guide is designed to help users understand and utilise Aeon effectively.
+It includes:
+- **Aeon Modules**: Detailed documentation on Aeon's various hardware and 
+software modules, explaining their functionalities and how they integrate within the Aeon ecosystem.
+- **Sample Datasets**: Ready-to-use data for testing and exploration, allowing users to get hands-on experience with Aeon's data pipeline and analysis tools without needing to set up their own experiments.
+- **Tutorials**: Learning-oriented guides to help users build foundational understanding of the Aeon ecosystem
+- **How-to Guides**: Practical, task-specific instructions for common workflows such as setting up the data pipeline and running analyses.
 
-To demonstrate Aeon's various features and capabilities, we also provide the following sample datasets that complement the user guide.
+::::{grid} 1 2 2 2
+:gutter: 3 
 
-- [**Single mouse in a foraging assay**](sample-data-single-mouse-foraging:): A two-hour snippet of a single mouse in a foraging assay consisting of three food patches.
-
-:::{toctree}
-:maxdepth: 1
-:caption: Tutorials
-:glob:
-
-tutorials/*
+:::{grid-item-card} Aeon Modules
+:link: target-aeon-modules
+:link-type: ref
+:img-bottom: ../images/noun-module-7032065.svg
+:class-img-bottom: .sd-img-bottom-small
 :::
 
-:::{toctree}
-:maxdepth: 1
-:caption: How-to Guides
-:glob:
+:::{grid-item-card} Sample Datasets
+:link: target-sample-datasets
+:link-type: ref
+:img-bottom: ../images/noun-sample-data-6079666.svg
+:class-img-bottom: .sd-img-bottom-small
+:::
 
-how_to/*
+:::{grid-item-card} Tutorials
+:link: target-tutorials
+:link-type: ref
+:img-bottom: ../images/noun-learn-2072221.svg
+:class-img-bottom: .sd-img-bottom-small 
+:::
+
+:::{grid-item-card} How-to Guides
+:link: target-how-to
+:link-type: ref
+:img-bottom: ../images/noun-how-7107678.svg
+:class-img-bottom: .sd-img-bottom-small 
+:::
+::::
+
+:::{toctree}
+:maxdepth: 2
+:hidden:
+
+aeon_modules
+sample_datasets
+tutorials
+how_to
 :::

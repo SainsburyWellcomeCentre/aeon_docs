@@ -1,30 +1,17 @@
 (target-reference)=
 # Reference
 
-This reference manual details all software and hardware components, and a glossary of terms used in Aeon. It describes what these components are and how they function. For a comprehensive guide on how to use Aeon, please refer to the [complete documentation](target-home).
+This reference manual describes Aeon's data and acquisition application programming interface (API), data contract, and glossary of terms.
+For a comprehensive guide on how to use Aeon, please refer to the [User Guide](target-user-guide).
 
 ::::{grid} 1 2 2 2
 :gutter: 3 
-
-:::{grid-item-card} Hardware Assembly
-:link: target-hardware
-:link-type: ref
-:img-bottom: ../images/noun-hardware-setup-6046729.svg
-:class-img-bottom: .sd-img-bottom-small
-:::
 
 :::{grid-item-card} API Reference
 :link: target-api-reference
 :link-type: ref
 :img-bottom: ../images/noun-code-6878936.svg
 :class-img-bottom: .sd-img-bottom-small 
-:::
-
-:::{grid-item-card} Acquisition Modules
-:link: target-acquisition-modules
-:link-type: ref
-:img-bottom: ../images/noun-timeline-5147845.svg
-:class-img-bottom: .sd-img-bottom-small
 :::
 
 :::{grid-item-card} Data Contract
@@ -46,8 +33,7 @@ This reference manual details all software and hardware components, and a glossa
 :maxdepth: 2
 :hidden:
 
-hardware
-acquisition
 api
 data_contract
 glossary
+:::

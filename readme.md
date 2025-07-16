@@ -10,7 +10,7 @@ To contribute to the documentation, please see the [Contributor Guide](https://a
 
 ## Aeon organisation overview
 
-Aeon is a collaborative effort to perform behavioural neuroscience experiments where the behaviour and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint.
+Aeon is a collaborative effort to perform behavioural neuroscience experiments where the behaviour and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. Please refer to [our website](https://aeon.swc.ucl.ac.uk/contributor/index.html) for the full list of contributors.
 
 If you are interested in joining this project, please contact the [project maintainers](#project-maintainers).
 
@@ -29,40 +29,7 @@ To be granted these credentials, please send a single email to [all contact part
 
 ## Repositories
 
-### [aeon_api](https://github.com/SainsburyWellcomeCentre/aeon_api)
-
-![aeon_api_env_build_and_tests](https://github.com/SainsburyWellcomeCentre/aeon_api/actions/workflows/build_env_run_tests.yml/badge.svg?branch=main)
-[![aeon_api_tests_code_coverage](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_api/branch/main/graph/badge.svg?token=973EC1CG03)](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_api)
-
-Aeon's low-level library for interfacing with acquired data. Contains Python modules for raw data file io, data querying, and data processing.
-
-### [aeon_mecha](https://github.com/SainsburyWellcomeCentre/aeon_mecha)
-
-![aeon_mecha_env_build_and_tests](https://github.com/SainsburyWellcomeCentre/aeon_mecha/actions/workflows/build_env_run_tests.yml/badge.svg?branch=main)
-[![aeon_mecha_tests_code_coverage](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_mecha/branch/main/graph/badge.svg?token=973EC1CG03)](https://codecov.io/gh/SainsburyWellcomeCentre/aeon_mecha)
-
-Aeon's library for the Aeon DataJoint pipeline. Contains Python modules for Aeon experiment schema definitions, data quality control, data processing, and data ingestion into a DataJoint MySQL database.
-
-### [aeon_experiments](https://github.com/SainsburyWellcomeCentre/aeon_experiments)
-
-Contains experiment workflows written in the Bonsai visual programming language.
-
-### [aeon_acquisition](https://github.com/SainsburyWellcomeCentre/aeon_acquisition)
-
-Contains the source code for the 'aeon_acquisition' Bonsai package, which is heavily used in workflows in 'aeon_experiments'.
-
-### [aeon_lineardrive](https://github.com/SainsburyWellcomeCentre/aeon_lineardrive)
-
-Contains source code for actuating a linear drive motor used in Aeon experiments (designed primarily for moving electrophysiology cabling during freely-moving experiments).
-
-### [aeon_feeder](https://github.com/SainsburyWellcomeCentre/aeon_feeder)
-
-Contains low-level source code for pellet delivery via feeders used in Aeon experiments.
-
-### [aeon_docs](https://github.com/SainsburyWellcomeCentre/aeon_docs)
-
-Contains source code for the Aeon docs site, built via Sphinx. 
-
+Aeon is organised into multiple repositories. The full list of repositories and their descriptions are available in the [Repositories](https://aeon.swc.ucl.ac.uk/getting_started/repositories.html) section of the documentation.
 
 ## Project Maintainers
 

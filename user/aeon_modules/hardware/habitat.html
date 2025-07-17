@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Habitat &#8212; Aeon v0.0.14 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5b12f60e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=ff67713b"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/aeon_modules/hardware/habitat';</script>
+    <script src="../../../_static/js/workflow.js?v=1800024c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Nest" href="nest.html" />
+    <link rel="prev" title="Foraging Patch" href="foraging_patch.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is currently under active development. Please report any issues on <a href='https://github.com/SainsburyWellcomeCentre/aeon_docs/issues'>GitHub</a>.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Aeon v0.0.14</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../aeon_modules.html">Aeon Modules</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../hardware.html">Hardware Assembly</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Habitat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/camera.html">Camera Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/camera_controller.html">Camera Controller Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/commutation_translation_system.html">Commutation-Translation System Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/foraging_patch.html">Foraging Patch Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/foraging_patch_output_expander.html">Foraging Patch Output Expander Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/microphone.html">Microphone Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/rfid_reader.html">RFID Reader Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/sound_card.html">Sound Card Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/timestamp_generator.html">Timestamp Generator Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connections/weighing_scale.html">Weighing Scale Wiring Schematic</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../acquisition.html">Acquisition Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/activity_tracking.html">Activity Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/alerts.html">Alerts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/camera.html">Spinnaker Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/camera_controller.html">Multi-Camera Controller</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../acquisition/control_panel.html">Control Panel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/annotation_source_GUI.html">AnnotationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/button_source_GUI.html">ButtonSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/environment_state_GUI.html">EnvironmentState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/experiment_properties_GUI.html">ExperimentProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/label_control_GUI.html">LabelControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/control_panel/subject_database.html">SubjectDatabase <!--TODO: Placeholder content--></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../acquisition/foraging_patch.html">Foraging Patch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/foraging_patch/patch_dispenser.html">PatchDispenser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/foraging_patch/pellet_monitor.html">PelletMonitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/foraging_patch/time_since_last_event.html">TimeSinceLastEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../acquisition/foraging_patch/time_spent_on_wheel.html">TimeSpentOnWheel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/monitors.html">Device Synchronisation Monitors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/rfid_reader.html">RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acquisition/subject_tracking.html">Subject Tracking</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sample_datasets.html">Sample Datasets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/general_experimental_workflow.html">General Experimental Workflow Infrastructure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how_to.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/dj_querying_data.html">DataJoint pipeline: Querying data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/hmm_example.html">Hidden Markov Model analysis of mouse foraging behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/io_api_example_copy.html">Data access using the low-level API</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../aeon_modules.html" class="nav-link">Aeon Modules</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../hardware.html" class="nav-link">Hardware Assembly</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Habitat</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="habitat">
+<span id="target-habitat"></span><h1>Habitat<a class="headerlink" href="#habitat" title="Link to this heading">#</a></h1>
+<img alt="Habitat" class="img-hardware-main align-center" src="../../../_images/habitat.svg" />
+<p>The Aeon habitat consists of a modular floor made of matte white acrylic hexagonal tiles supported by a metal framework.
+Each tile fits into a hexagonal slot within an underlying acrylic honeycomb grid, which is designed to accommodate various Aeon hexagonal functional modules like the <a class="reference internal" href="nest.html#target-nest"><span class="std std-ref">nest</span></a> and <a class="reference internal" href="foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patch</span></a>.
+The habitat is enclosed by several wall modules (tile with a pair of red tinted acrylic walls) that are connected to create a corridor.
+The corridor allows for direct access to the nest and to the centre of the habitat through openings in some of the walls.</p>
+<p>The rich and ethologically relevant behavioural displays can be monitored using Infrared lighting and cameras anchored to the metal framework around and above the habitat.</p>
+<p><em>Dimensions: L = 2660mm, W = 2381mm, H = 2710mm</em></p>
+<section id="parts-list">
+<h2>Parts list<a class="headerlink" href="#parts-list" title="Link to this heading">#</a></h2>
+<img alt="Parts1" class="align-center" src="../../../_images/habitat-partlist1.svg" />
+</section>
+<section id="assembly-guide">
+<h2>Assembly guide<a class="headerlink" href="#assembly-guide" title="Link to this heading">#</a></h2>
+<section id="base-framework">
+<h3>Base framework<a class="headerlink" href="#base-framework" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 1-3</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id1">
+<img alt="step1" class="img-hardware-steps" src="../../../_images/habitat-step1.svg" />
+<figcaption>
+<p><span class="caption-text">1. Connecting aluminium basic components that constitute the building blocks of the habitat structure.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id2">
+<img alt="step2" class="img-hardware-steps" src="../../../_images/habitat-step2.svg" />
+<figcaption>
+<p><span class="caption-text">2. Place the aluminium extrusions as displayed and connect them with equally spaced shorter extrusions (ID 5,8) to create the habitat floor (see step 1).</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id3">
+<img alt="step3" class="img-hardware-steps" src="../../../_images/habitat-step3.svg" />
+<figcaption>
+<p><span class="caption-text">3. To create a thread for the adjustable feet, tap one end of each of the legs (ID 3) and screw the feet into it. Connect the legs to the habitat floor using angle brackets in the locations shown in red. Note: if needed, the adjustable feet allow for levelling of the floor.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="modular-floor">
+<h3>Modular floor<a class="headerlink" href="#modular-floor" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 4-7</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id4">
+<img alt="step4" class="img-hardware-steps" src="../../../_images/habitat-step4.svg" />
+<figcaption>
+<p><span class="caption-text">4. Connecting and assembly of the acrylic honeycomb that will support the hexagonal floor tiles.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id5">
+<img alt="step5" class="img-hardware-steps" src="../../../_images/habitat-step5.svg" />
+<figcaption>
+<p><span class="caption-text">5. Acrylic honeycomb assembly.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id6">
+<img alt="step6" class="img-hardware-steps" src="../../../_images/habitat-step6.svg" />
+<figcaption>
+<p><span class="caption-text">6. Some of the tiles have slots to accommodate the walls of the habitat. The walls are supported by two acrylic wall holders that are attached to the underside of each tile with chloroform. The nest tile is only equipped with 2 smaller wall holders (dotted red lines). Note: make a 1.25mm thick and 18mm wide rim all around the bottom of the tiles using a milling machine. This allows them to slot into the honeycomb.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id7">
+<img alt="step7" class="img-hardware-steps" src="../../../_images/habitat-step7.svg" />
+<figcaption>
+<p><span class="caption-text">7. Add the hexagonal floor tiles to the habitat as shown. Tiles A, B and C have a cut out that will accommodate the walls to create a corridor.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="modular-walls">
+<h3>Modular walls<a class="headerlink" href="#modular-walls" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 8-10</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id8">
+<img alt="step8" class="img-hardware-steps" src="../../../_images/habitat-step8.svg" />
+<figcaption>
+<p><span class="caption-text">8. Insertion of the walls. The inner walls are narrower compared to the outer walls.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id9">
+<img alt="step9" class="img-hardware-steps" src="../../../_images/habitat-step9.svg" />
+<figcaption>
+<p><span class="caption-text">9. Place inner and outer walls around the habitat. Note: the inner wall with a slot across the middle allows access to the habitat from the nest via the corridor. The nest tile has only an inner wall as the outer one is part of the <a class="reference internal" href="nest.html#target-nest"><span class="std std-ref">nest assembly</span></a>.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id10">
+<img alt="step10" class="img-hardware-steps" src="../../../_images/habitat-step10.svg" />
+<figcaption>
+<p><span class="caption-text">10. Attach the snap-on 3D printed wall joint to stabilise the inner and outer walls.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="support-framework">
+<h3>Support framework<a class="headerlink" href="#support-framework" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 11-13</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id11">
+<img alt="step11" class="img-hardware-steps" src="../../../_images/habitat-step11.svg" />
+<figcaption>
+<p><span class="caption-text">11. Tap both ends of 4 aluminium extrusions (ID 10) that will provide support and stability to the structure. Insert one adjustable foot at each end and connect the extrusion (ID 7) to the main habitat structure with angle brackets as shown. Note: these feet can then be adjusted to apply pressure and stabilise the habitat. We attached 10mm disks to each adjustable foot to distribute the force applied and avoid damaging the ceiling.</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id12">
+<img alt="step12" class="img-hardware-steps" src="../../../_images/habitat-step12.svg" />
+<figcaption>
+<p><span class="caption-text">12. Add 8 support lateral aluminium extrusions (ID 2,9) to provide lateral stability.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id13">
+<img alt="step13" class="img-hardware-steps" src="../../../_images/habitat-step13.svg" />
+<figcaption>
+<p><span class="caption-text">13. Add 3 aluminium extrusions (ID 1) on top of the habitat. This will be used to anchor the top cameras.</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="infrared-illumination">
+<h3>Infrared illumination<a class="headerlink" href="#infrared-illumination" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 14-19</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id14">
+<img alt="step14" class="img-hardware-steps" src="../../../_images/habitat-step14.svg" />
+<figcaption>
+<p><span class="caption-text">14. Assemble the Infrared LEDs extrusions (1m) by first applying a layer of heat resistant silicone onto the base of the extrusions.</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id15">
+<img alt="step15" class="img-hardware-steps" src="../../../_images/habitat-step15.svg" />
+<figcaption>
+<p><span class="caption-text">15. Press 3 IR LEDs strips into the silicon. Note: take care to remove any excess silicon from connection points or the LEDs themselves.</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id16">
+<img alt="step16" class="img-hardware-steps" src="../../../_images/habitat-step16.svg" />
+<figcaption>
+<p><span class="caption-text">16. Cover the LEDs with a diffusive panel.</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id17">
+<img alt="step17" class="img-hardware-steps" src="../../../_images/habitat-step17.svg" />
+<figcaption>
+<p><span class="caption-text">17. Connect two LEDs extrusions with a metal plate and solder the strips. Equip the LEDs extrusion with cable attachment plate, and connect the adjustable suspension cables, two per plate.</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id18">
+<img alt="step18" class="img-hardware-steps" src="../../../_images/habitat-step18.svg" />
+<figcaption>
+<p><span class="caption-text">18. Suspend 6 LEDs assemblies from the top most lateral support aluminium extrusions. Note: use the adjustable suspension cable to vary the height and the angle of the LEDs as needed.</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id19">
+<img alt="step19" class="img-hardware-steps" src="../../../_images/habitat-step19.svg" />
+<figcaption>
+<p><span class="caption-text">19. Habitat fully assembled to be flexibly equipped with a variety of different hardware depending on experimental requirements.</span><a class="headerlink" href="#id19" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+<section id="hardware-add-ons">
+<h3>Hardware add-ons<a class="headerlink" href="#hardware-add-ons" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Steps 20-21</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<figure class="caption-hardware-steps align-default" id="id20">
+<img alt="step20" class="img-hardware-steps" src="../../../_images/habitat-step20.svg" />
+<figcaption>
+<p><span class="caption-text">20. Anchor 9 cameras to the sides and top of the metal framework.</span><a class="headerlink" href="#id20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="caption-hardware-steps align-default" id="id21">
+<img alt="step21" class="img-hardware-steps" src="../../../_images/habitat-step21.svg" />
+<figcaption>
+<p><span class="caption-text">21. Anchor an ultrasound speaker to the top frame.</span><a class="headerlink" href="#id21" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</details></section>
+</section>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../../_downloads/dafd3ca93ce3021d3058cfa2164a9fa0/Habitat-Guideline.pdf"><span class="xref download myst">Assembly guide</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/147cad797826851f0c90b5c39e750c46/Habitat-BOM.xlsx"><span class="xref download myst">Bill of materials</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="foraging_patch.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Foraging Patch</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nest.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nest</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parts-list">Parts list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly-guide">Assembly guide</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-framework">Base framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-floor">Modular floor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-walls">Modular walls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-framework">Support framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infrared-illumination">Infrared illumination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-add-ons">Hardware add-ons</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads">Downloads</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user/aeon_modules/hardware/habitat.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><p class="sphinx-version"></p>
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+    </p>
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
+    0.16.1.
+    </p></div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><div class="things-in-a-row">
+    <a href="https://neurogears.org/">
+        <img src="../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.datajoint.com/">
+        <img src="../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://wellcome.org/">
+        <img src="../../../_static/images/light-logo-wellcome.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-wellcome.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.sainsburywellcome.org/web/">
+        <img src="../../../_static/images/light-logo-swc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-swc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/">
+        <img src="../../../_static/images/light-logo-ucl.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-ucl.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit">
+        <img src="../../../_static/images/light-logo-gatsby.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-gatsby.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ukri.org/councils/bbsrc/">
+        <img src="../../../_static/images/light-logo-bbsrc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-bbsrc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.simonsfoundation.org/">
+        <img src="../../../_static/images/light-logo-simons.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../../_static/images/dark-logo-simons.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+</div></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

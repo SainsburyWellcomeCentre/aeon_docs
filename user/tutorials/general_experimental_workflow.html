@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>General Experimental Workflow Infrastructure &#8212; Aeon v0.0.13 documentation</title>
+    <title>General Experimental Workflow Infrastructure &#8212; Aeon v0.0.14 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=4386463d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5b12f60e" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=34eee1f6"></script>
+    <script src="../../_static/documentation_options.js?v=ff67713b"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <script src="../../_static/js/workflow.js?v=1800024c"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="DataJoint pipeline: Data ingestion and processing" href="../how_to/dj_data_ingestion_and_processing.html" />
+    <link rel="next" title="How-to Guides" href="../how_to.html" />
     <link rel="prev" title="DataJoint pipeline for Aeon" href="aeon_dj_pipeline.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.13</p>
+    <p class="title logo__title">Aeon v0.0.14</p>
   
 </a></div>
     
@@ -335,18 +335,69 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">General Experimental Workflow Infrastructure</a></li>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../aeon_modules.html">Aeon Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/hardware.html">Hardware Assembly</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera.html">Camera Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera_controller.html">Camera Controller Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/commutation_translation_system.html">Commutation-Translation System Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch.html">Foraging Patch Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch_output_expander.html">Foraging Patch Output Expander Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/microphone.html">Microphone Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/rfid_reader.html">RFID Reader Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/sound_card.html">Sound Card Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/timestamp_generator.html">Timestamp Generator Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/weighing_scale.html">Weighing Scale Wiring Schematic</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how_to/dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/dj_querying_data.html">DataJoint pipeline: Querying data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/hmm_example.html">Hidden Markov Model analysis of mouse foraging behaviour</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/io_api_example_copy.html">Data access using the low-level API</a></li>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/acquisition.html">Acquisition Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/activity_tracking.html">Activity Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/alerts.html">Alerts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera.html">Spinnaker Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera_controller.html">Multi-Camera Controller</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/control_panel.html">Control Panel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/annotation_source_GUI.html">AnnotationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/button_source_GUI.html">ButtonSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/environment_state_GUI.html">EnvironmentState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/experiment_properties_GUI.html">ExperimentProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/label_control_GUI.html">LabelControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/subject_database.html">SubjectDatabase <!--TODO: Placeholder content--></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch.html">Foraging Patch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/patch_dispenser.html">PatchDispenser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/pellet_monitor.html">PelletMonitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_since_last_event.html">TimeSinceLastEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_spent_on_wheel.html">TimeSpentOnWheel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/monitors.html">Device Synchronisation Monitors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/rfid_reader.html">RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/subject_tracking.html">Subject Tracking</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../sample_datasets.html">Sample Datasets</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">General Experimental Workflow Infrastructure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../how_to.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/dj_querying_data.html">DataJoint pipeline: Querying data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/hmm_example.html">Hidden Markov Model analysis of mouse foraging behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/io_api_example_copy.html">Data access using the low-level API</a></li>
+</ul>
+</details></li>
 </ul>
 </div>
 </nav></div>
@@ -390,6 +441,9 @@
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
+    
+    <li class="breadcrumb-item"><a href="../tutorials.html" class="nav-link">Tutorials</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">General Experimental Workflow Infrastructure</span></li>
   </ul>
 </nav>
@@ -411,11 +465,11 @@
 <h1>General Experimental Workflow Infrastructure<a class="headerlink" href="#general-experimental-workflow-infrastructure" title="Link to this heading">#</a></h1>
 <p>The Harp hardware eco-system underpins the Aeon system.
 A full setup consists of multiple <a class="reference external" href="https://www.cf-hw.org/harp">Harp</a> devices (e.g. <a class="reference external" href="https://github.com/harp-tech/device.cameracontrollergen2">CameraController</a>, <a class="reference external" href="https://github.com/harp-tech/device.clocksynchronizer">ClockSynchronizer</a>, etc.) and cameras that need to be monitored, controlled, and logged in synchrony.
-This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using <a class="reference internal" href="../../reference/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> nodes in <a class="reference external" href="https://bonsai-rx.org/">Bonsai</a>.</p>
+This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> nodes in <a class="reference external" href="https://bonsai-rx.org/">Bonsai</a>.</p>
 <section id="harp-device-configuration">
 <h2>Harp device configuration<a class="headerlink" href="#harp-device-configuration" title="Link to this heading">#</a></h2>
-<p>Each physical Harp device used in Aeon has a dedicated <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html"><code class="docutils literal notranslate"><span class="pre">IncludeWorkflow</span></code></a> in the <a class="reference internal" href="../../reference/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> package.
-For example, a Harp <a class="reference external" href="https://github.com/harp-tech/device.cameracontrollergen2">CameraController (Gen2)</a> device is controlled by a <a class="reference internal" href="../../reference/acquisition/camera_controller.html#target-node-cameracontroller"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">CameraController</span> <span class="pre">(Aeon.Video)</span></code></span></a> node.
+<p>Each physical Harp device used in Aeon has a dedicated <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html"><code class="docutils literal notranslate"><span class="pre">IncludeWorkflow</span></code></a> in the <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> package.
+For example, a Harp <a class="reference external" href="https://github.com/harp-tech/device.cameracontrollergen2">CameraController (Gen2)</a> device is controlled by a <a class="reference internal" href="../aeon_modules/acquisition/camera_controller.html#target-node-cameracontroller"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">CameraController</span> <span class="pre">(Aeon.Video)</span></code></span></a> node.
 In the main experimental workflow, nodes are each placed in <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Devices</span></code> of the <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.GroupWorkflowBuilder.html"><code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code></a>.
 Upon execution, these nodes connect to the corresponding physical devices and configure their operation settings according to the specified properties of the node.
 Additionally, the triggers and functions of any triggered actions on the device (e.g. delivering a food pellet) as well as any <a class="reference external" href="https://bonsai-rx.org/docs/articles/subjects.html"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a> names used as inputs and outputs to the device are defined here.</p>
@@ -455,7 +509,7 @@ This feature can be used to automatically restore the state of the system follow
 <p>In long-term experiments, it is crucial to maintain stable and consistent hardware and data acquisition.
 When animal subjects are involved, continuous monitoring of their health and status becomes necessary to ensure compliance with legal and ethical standards.
 However, continuous human monitoring is impractical.
-To address this, the Aeon system is equipped with an automated <a class="reference internal" href="../../reference/acquisition/alerts.html#target-module-alerts"><span class="std std-ref">alert</span></a> feature that notifies select groups of people through an incoming webhook service.
+To address this, the Aeon system is equipped with an automated <a class="reference internal" href="../aeon_modules/acquisition/alerts.html#target-module-alerts"><span class="std std-ref">alert</span></a> feature that notifies select groups of people through an incoming webhook service.
 For instance, if a camera stream is lost or if an animal is no longer detected, the system can alert team members via a Microsoft Teams channel or other webhook services.
 This ensures that critical hardware failures and warnings are promptly addressed.</p>
 </section>
@@ -514,11 +568,11 @@ This ensures that data stored in the standardised format can be efficiently acce
       </div>
     </a>
     <a class="right-next"
-       href="../how_to/dj_data_ingestion_and_processing.html"
+       href="../how_to.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DataJoint pipeline: Data ingestion and processing</p>
+        <p class="prev-next-title">How-to Guides</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -90,4 +90,4 @@ The next step is to request an interactive job on the HPC, connect to the assign
 :::::
 
 Raw Aeon data can be accessed using [`aeon_api`](#aeon_api), whereas processed data can be queried from the [Aeon DataJoint pipeline](target-aeon-dj-pipeline) using [`aeon_mecha`](#aeon_mecha). 
-Examples for retrieving and visualising the data can be found in the [User Guide](target-user-guide).
+Examples for retrieving and visualising the data can be found in the [How-to Guides](target-how-to).

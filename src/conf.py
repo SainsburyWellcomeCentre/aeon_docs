@@ -104,8 +104,7 @@ autodoc_default_options = {
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_templates", "reference/acquisition/template.md"]
-
+exclude_patterns = ["_templates", "user/aeon_modules/acquisition/template.md"]
 # Suppress warnings for non-consecutive header level
 suppress_warnings = ["myst.header"]
 
@@ -178,6 +177,7 @@ myst_url_schemes = {
     "aeon-lineardrive-github": "https://github.com/SainsburyWellcomeCentre/aeon_lineardrive/{{path}}",
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
     "aeon-api-github": "https://github.com/SainsburyWellcomeCentre/aeon_api/{{path}}",
+    "aeon-template-github": "https://github.com/SainsburyWellcomeCentre/aeon_template/{{path}}",
     "datajoint": "https://www.datajoint.com/{{path}}",
     "datajoint-docs": "https://docs.datajoint.com/{{path}}#{{fragment}}",
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",

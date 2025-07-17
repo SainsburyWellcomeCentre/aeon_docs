@@ -10,27 +10,27 @@ The following diagrams provide a high-level overview of the pipeline's component
 (target-aeon-dj-pipeline-acquisition-fig)=
 :::{figure} ../../images/datajoint_overview_acquisition_related_diagram.svg
 :alt: dj-overview-acquisition
-:target: ../../images/datajoint_overview_acquisition_related_diagram.svg
+:target: ../../_images/datajoint_overview_acquisition_related_diagram.svg
 Data acquisition-related tables.
 :::
 
 (target-aeon-dj-pipeline-streams-fig)=
 :::{figure} ../../images/datajoint_overview_data_stream_diagram.svg
 :alt: dj-overview-streams
-:target: ../../images/datajoint_overview_data_stream_diagram.svg
+:target: ../../_images/datajoint_overview_data_stream_diagram.svg
 Data flow for various data streams.
 :::
 
 :::{figure} ../../images/datajoint_overview_pyrat_related_diagram.svg
 :alt: dj-overview-pyrat
-:target: ../../images/datajoint_overview_pyrat_related_diagram.svg
+:target: ../../_images/datajoint_overview_pyrat_related_diagram.svg
 Pyrat synchronisation process.
 :::
 
 (target-aeon-dj-pipeline-analysis-fig)=
 :::{figure} ../../images/datajoint_analysis_diagram.svg
 :alt: dj-analysis
-:target: ../../images/datajoint_analysis_diagram.svg
+:target: ../../_images/datajoint_analysis_diagram.svg
 Analysis tables.
 :::
 
@@ -42,6 +42,18 @@ As seen above, the pipeline is structured into hierarchical layers of tables, ea
 + `computed`-tier tables (red): Contains results from automated pipeline computations.
 
 Data flows through the pipeline in a top-down manner, driven by a combination of ingestion and computation routines. This layered organisation facilitates efficient data processing and modular analysis.
+
+## Automatic table definition
+Device tables (e.g. `streams.UndergroundFeeder`) and their corresponding data stream tables (e.g. `streams.UndergroundFeederDeliverPellet`, `streams.UndergroundFeederDepletionState`) are automatically defined and written to `aeon.dj_pipeline.streams.py`.
+
+The automatic table definition follows a four-stage process:
+1. **Schema-driven device discovery**: Experimental schemas (e.g. `social02`) defined in `aeon.schema.schemas.py` specify the available devices and their associated data streams (alongside the reader classes) for each experimental setup.
+2. **Metadata integration**: For each {term}`aquisition epoch <Acquisition Epoch>`, actual device configurations are extracted from the `metadata.yml` file associated with the epoch.
+3. **Catalogue population**: Schema and metadata information are used to populate the catalogue tables (`streams.DeviceType`, `streams.StreamType`, `streams.Device`), which serve as registries to drive the automatic table definition process.
+4. **Dynamic table definition**: `aeon.dj_pipeline.utils.streams_maker.py` then reads from these catalogue tables to define the actual device and stream table classes (e.g. `streams.UndergroundFeeder`, `streams.UndergroundFeederDeliverPellet`, `streams.UndergroundFeederDepletionState`) using predefined templates and writes them to `aeon.dj_pipeline.streams.py`.
+
+This automatic table definition system enables the pipeline to handle diverse experimental setups by defining table classes on-demand based on the actual devices present in each experiment. 
+The actual database tables are then automatically created when DataJoint processes the [`@schema`-decorated](datajoint-docs:core/datajoint-python/latest/design/tables/declare/#defining-a-table) classes.
 
 ## Core tables
 This section provides an overview of the core tables in the Aeon DataJoint pipeline, categorised by their primary function and the type of data they manage.

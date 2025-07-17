@@ -1,11 +1,12 @@
 (target-tutorials)=
 # Tutorials
-These tutorials introduce Aeon's experimental and data pipelines in a goal-oriented, learning-focused way.
-They are designed to help you build foundational understanding&mdash;how the Aeon ecosystem works and how its components relate.
+These tutorials offer a guided introduction to Aeon's experimental and data pipelines.
+They are designed to help you build foundational understanding of how the Aeon ecosystem works and how its components relate.
 
-Unlike the [how-to guides](target-how-to), which focus on specific tasks, tutorials support your broader learning journey.
-We also provide a [template workflow](aeon-template-github:) to demonstrate the core building blocks of an experimental acquisition system using Aeon.
+While the [how-to guides](target-how-to) focus on accomplishing specific tasks, these tutorials support your broader learning journey.
+You can also explore our [template workflow](aeon-template-github:) to see how Aeon's core building blocks come together in a complete experimental acquisition system.
 
+Browse the tutorials below to get started:
 :::{toctree}
 :maxdepth: 1
 :glob:

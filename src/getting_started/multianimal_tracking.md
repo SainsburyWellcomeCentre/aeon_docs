@@ -7,7 +7,8 @@
 
 Online tracking of location, poses and identity of individual animals allows for quantification of natural behaviours.
 :::
-By quantifying position and locomotion speed as well as estimating the poses of multiple animals over weeks, we can identify the emergence of spontaneous behaviours such as foraging, as well as investigate social dynamics and individual strategies and their modulation by environmental influences. This is possible through the multipronged approach using the computer vision software [SLEAP](sleap:) on multiple cameras as well as RFID sensors embedded in a single workflow.
+By quantifying position and locomotion speed as well as estimating the poses of multiple animals over weeks, we can identify the emergence of spontaneous behaviours such as foraging, as well as investigate social dynamics and individual strategies and their modulation by environmental influences. 
+This is possible through the multipronged approach using the computer vision software [SLEAP](sleap:) on multiple cameras and RFID sensors embedded in a single [experimental workflow](target-general-experimental-workflow).
 
 ## Identity Model
 ::::{grid} 2

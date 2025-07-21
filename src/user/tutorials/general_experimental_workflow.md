@@ -1,3 +1,4 @@
+(target-general-experimental-workflow)=
 # General experimental workflow infrastructure
 The Harp hardware eco-system underpins the Aeon system. 
 A full setup consists of multiple [Harp](https://www.cf-hw.org/harp) devices (e.g. [CameraController](https://github.com/harp-tech/device.cameracontrollergen2), [ClockSynchronizer](https://github.com/harp-tech/device.clocksynchronizer), etc.) and cameras that need to be monitored, controlled, and logged in synchrony. 

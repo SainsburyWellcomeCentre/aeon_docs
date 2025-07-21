@@ -10,7 +10,7 @@ Online tracking of location, poses and identity of individual animals allows for
 By quantifying position and locomotion speed as well as estimating the poses of multiple animals over weeks, we can identify the emergence of spontaneous behaviours such as foraging, as well as investigate social dynamics and individual strategies and their modulation by environmental influences. 
 This is possible through the multipronged approach using the computer vision software [SLEAP](sleap:) on multiple cameras and RFID sensors embedded in a single [experimental workflow](target-general-experimental-workflow).
 
-## Identity Model
+## Identity model
 ::::{grid} 2
 :margin: 0
 
@@ -23,13 +23,15 @@ This is possible through the multipronged approach using the computer vision sof
 :columns: 8
 :child-align: center
 
-To enable reliable individual identification, distinctive band patterns are tattooed on the mice's tails as clear and stable markers. Four overhead quadrant cameras capture high-resolution, zoomed-in images of the arena, allowing the experiment-specific SLEAP identity model to track each mouse by recognizing these unique tail patterns. These identity models are trained for each unique set of subjects.
+To enable reliable individual identification, distinctive band patterns are tattooed on the mice's tails as clear and stable markers.
+Four overhead quadrant cameras capture high-resolution, zoomed-in views of the [habitat](target-habitat), allowing the experiment-specific SLEAP identity model to track each mouse based on its unique tail pattern.
+These identity models are trained for each unique set of subjects.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*
 :::
 ::::
 
-## Pose Model
+## Pose model
 ::::{grid} 2
 :margin: 0
 
@@ -42,23 +44,27 @@ To enable reliable individual identification, distinctive band patterns are tatt
 :columns: 8
 :child-align: center
 
-The SLEAP pose model tracks eight body parts along each mouse using an overhead camera with a view of the entire habitat and was designed to be reusable across experiments with similar arena setups.
+The SLEAP pose model tracks eight body parts along each mouse using an overhead camera that captures the entire habitat. 
+Unlike identity models, the pose model is designed to be reusable across experiments with similar setups.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*
 :::
 ::::
 
-## Inference Pipeline
+## Inference pipeline
 :::{figure} ../images/ma-inference-pipeline.png
 :height: 300px
 :alt: multi-animal-tracking
 :::
-The SLEAP identity model runs on all quadrant views, assigning an identity and a likelihood score for each detected mouse. For each mouse, the prediction with the highest likelihood is selected. These selected identities are then projected back onto the full-field camera view, where SLEAP’s pose-inference model estimates multi-point skeletons for each mouse. The final output combines both pose and identity assignments.
+The identity model processes all quadrant views, assigning an identity and a likelihood score to each detected mouse. 
+For each mouse, the prediction with the highest likelihood is selected and projected onto the full-field camera view. 
+The pose model then estimates the pose of each mouse in the full-field view.
+The final output combines both pose and identity assignments.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*
 
-
-## RFID Validation
-Animals are implanted with RFID tags that allow us to quantify their visits to important sites which are equipped with RFID antennae (nest, foraging patches, gates). These RFID detections provide ground truth data for validating identity tracking accuracy.
+## RFID validation
+Each mouse is implanted with an RFID tag, enabling automatic detection of its presence at key locations within the habitat which are equipped with RFID antennae ([nest](target-nest), [foraging patches](target-foraging-patch), gates).
+These RFID detections provide ground-truth data for validating the accuracy of identity tracking.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*

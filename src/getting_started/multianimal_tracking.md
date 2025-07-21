@@ -2,8 +2,9 @@
 # Multi-Animal Tracking
 
 :::{figure} ../images/ma-main.png
-:height: 300px
 :alt: multi-animal-tracking
+:class: img-getting-started-large
+:width: 60%
 
 Online tracking of location, poses and identity of individual animals allows for quantification of natural behaviours.
 :::
@@ -11,51 +12,37 @@ By quantifying position and locomotion speed as well as estimating the poses of 
 This is possible through the multipronged approach using the computer vision software [SLEAP](sleap:) on multiple cameras and RFID sensors embedded in a single [experimental workflow](target-general-experimental-workflow).
 
 ## Identity model
-::::{grid} 2
-:margin: 0
-
-:::{grid-item}
-:columns: 4
-:child-align: center
-![identity-model](../images/ma-identity-model.png)
+:::{image} ../images/ma-identity-model.png
+:alt: sleap-id-model
+:class: img-getting-started-small
+:align: center
 :::
-:::{grid-item}
-:columns: 8
-:child-align: center
 
 To enable reliable individual identification, distinctive band patterns are tattooed on the mice's tails as clear and stable markers.
 Four overhead quadrant cameras capture high-resolution, zoomed-in views of the [habitat](target-habitat), allowing the experiment-specific SLEAP identity model to track each mouse based on its unique tail pattern.
 These identity models are trained for each unique set of subjects.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*
-:::
-::::
 
 ## Pose model
-::::{grid} 2
-:margin: 0
-
-:::{grid-item}
-:columns: 4
-:child-align: center
-![pose-model](../images/ma-pose-model.png)
+:::{image} ../images/ma-pose-model.png
+:alt: sleap-pose-model
+:class: img-getting-started-small
+:align: center
 :::
-:::{grid-item}
-:columns: 8
-:child-align: center
 
 The SLEAP pose model tracks eight body parts along each mouse using an overhead camera that captures the entire habitat. 
 Unlike identity models, the pose model is designed to be reusable across experiments with similar setups.
 
 *Relevant repositories: [aeon_sleap_processing](aeon-sleap-processing-github:)*
-:::
-::::
 
 ## Inference pipeline
-:::{figure} ../images/ma-inference-pipeline.png
-:height: 300px
+:::{image} ../images/ma-inference-pipeline.png
 :alt: multi-animal-tracking
+:class: img-getting-started-large
+:align: center
 :::
+
 The identity model processes all quadrant views, assigning an identity and a likelihood score to each detected mouse. 
 For each mouse, the prediction with the highest likelihood is selected and projected onto the full-field camera view. 
 The pose model then estimates the pose of each mouse in the full-field view.

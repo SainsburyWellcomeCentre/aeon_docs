@@ -48,7 +48,7 @@ Device tables (e.g. `streams.UndergroundFeeder`) and their corresponding data st
 
 The automatic table definition follows a four-stage process:
 1. **Schema-driven device discovery**: Experimental schemas (e.g. `social02`) defined in `aeon.schema.schemas.py` specify the available devices and their associated data streams (alongside the reader classes) for each experimental setup.
-2. **Metadata integration**: For each {term}`aquisition epoch <Acquisition Epoch>`, actual device configurations are extracted from the `metadata.yml` file associated with the epoch.
+2. **Metadata integration**: For each {term}`acquisition epoch <Acquisition Epoch>`, actual device configurations are extracted from the `metadata.yml` file associated with the epoch.
 3. **Catalogue population**: Schema and metadata information are used to populate the catalogue tables (`streams.DeviceType`, `streams.StreamType`, `streams.Device`), which serve as registries to drive the automatic table definition process.
 4. **Dynamic table definition**: `aeon.dj_pipeline.utils.streams_maker.py` then reads from these catalogue tables to define the actual device and stream table classes (e.g. `streams.UndergroundFeeder`, `streams.UndergroundFeederDeliverPellet`, `streams.UndergroundFeederDepletionState`) using predefined templates and writes them to `aeon.dj_pipeline.streams.py`.
 
@@ -60,12 +60,12 @@ This section provides an overview of the core tables in the Aeon DataJoint pipel
 
 (target-aeon-dj-pipeline-acquisition-tables)=
 ### Experiment and data acquisition
-+ `aquisition.Experiment` - This table stores meta information about Aeon experiments, including details such as the lab/room where the experiment is conducted, the participating subjects, and the directory storing the raw data.
++ `acquisition.Experiment` - This table stores meta information about Aeon experiments, including details such as the lab/room where the experiment is conducted, the participating subjects, and the directory storing the raw data.
 
-+ `aquisition.Epoch` - This table records all {term}`aquisition epochs <Acquisition Epoch>`, which are periods reflecting the on/off states of the hardware within the acquisition system, along with their associated configurations for any particular experiment listed in the `aquisition.Experiment` table.
++ `acquisition.Epoch` - This table records all {term}`acquisition epochs <Acquisition Epoch>`, which are periods reflecting the on/off states of the hardware within the acquisition system, along with their associated configurations for any particular experiment listed in the `acquisition.Experiment` table.
 
-+ `aquisition.Chunk` - The raw data acquired through the [acquisition system](target-aeon-acquisition-reference) is stored as a collection of files at hourly intervals, referred to as a {term}`chunk <Acquisition Chunk>`. 
-This table records all time chunks and their associated raw data files for any particular experiment in the `aquisition.Experiment` table. Each chunk must only belong to a single {term}`epoch <Acquisition Epoch>`.
++ `acquisition.Chunk` - The raw data acquired through the [acquisition system](target-aeon-acquisition-reference) is stored as a collection of files at hourly intervals, referred to as a {term}`chunk <Acquisition Chunk>`. 
+This table records all time chunks and their associated raw data files for any particular experiment in the `acquisition.Experiment` table. Each chunk must only belong to a single {term}`epoch <Acquisition Epoch>`.
 
 (target-aeon-dj-pipeline-tracking-tables)=
 ### Video data and position tracking
@@ -90,13 +90,13 @@ Key [part tables](datajoint-docs:core/datajoint-python/0.14/design/tables/master
 
 (target-aeon-dj-pipeline-streams-tables)=
 ### Data streams
-+ `streams.SpinnakerVideoSource` - This table records the placement and operation of a Spinnaker video source in an `aquisition.Experiment`, as well as metadata such as the installation time of the device. It facilitates the collection of video data, including frame counts and timestamps.
++ `streams.SpinnakerVideoSource` - This table records the placement and operation of a Spinnaker video source in an `acquisition.Experiment`, as well as metadata such as the installation time of the device. It facilitates the collection of video data, including frame counts and timestamps.
 
-+ `streams.RfidReader` - This table records the placement and operation of an RFID reader in an `aquisition.Experiment`, as well as the installation time of the device. It facilitates the collection of RFID data, such as RFID tag detection counts, timestamps, and tag IDs.
++ `streams.RfidReader` - This table records the placement and operation of an RFID reader in an `acquisition.Experiment`, as well as the installation time of the device. It facilitates the collection of RFID data, such as RFID tag detection counts, timestamps, and tag IDs.
 
-+ `streams.WeightScale` - This table records the placement and operation of a weighing scale in an `aquisition.Experiment`, including its installation time and any relevant metadata. It facilitates the collection of raw and filtered weight measurements. 
++ `streams.WeightScale` - This table records the placement and operation of a weighing scale in an `acquisition.Experiment`, including its installation time and any relevant metadata. It facilitates the collection of raw and filtered weight measurements. 
 
-+ `streams.UndergroundFeeder` - This table records the operation of an underground food patch in an `aquisition.Experiment`, including its installation time and any relevant metadata. It facilitates the collection of various patch events and states, including beam breaks, pellet deliveries, and depletion states.
++ `streams.UndergroundFeeder` - This table records the operation of an underground food patch in an `acquisition.Experiment`, including its installation time and any relevant metadata. It facilitates the collection of various patch events and states, including beam breaks, pellet deliveries, and depletion states.
 
 ## Pipeline operation: Auto ingestion and processing
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hidden Markov Model analysis of mouse foraging behaviour &#8212; Aeon v0.0.14 documentation</title>
+    <title>Hidden Markov Model analysis of mouse behavioural syntax &#8212; Aeon v0.0.15 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=ff67713b"></script>
+    <script src="../../_static/documentation_options.js?v=5b1ff522"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.14</p>
+    <p class="title logo__title">Aeon v0.0.15</p>
   
 </a></div>
     
@@ -387,14 +387,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../sample_datasets.html">Sample Datasets</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/general_experimental_workflow.html">General Experimental Workflow Infrastructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/general_experimental_workflow.html">General experimental workflow infrastructure</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../how_to.html">How-to Guides</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dj_querying_data.html">DataJoint pipeline: Querying data</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hidden Markov Model analysis of mouse foraging behaviour</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hidden Markov Model analysis of mouse behavioural syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="io_api_example_copy.html">Data access using the low-level API</a></li>
 </ul>
 </details></li>
@@ -444,7 +444,7 @@
     
     <li class="breadcrumb-item"><a href="../how_to.html" class="nav-link">How-to Guides</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Hidden Markov Model analysis of mouse foraging behaviour</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Hidden Markov Model analysis of mouse behavioural syntax</span></li>
   </ul>
 </nav>
 </div>
@@ -461,8 +461,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="hidden-markov-model-analysis-of-mouse-foraging-behaviour">
-<h1>Hidden Markov Model analysis of mouse foraging behaviour<a class="headerlink" href="#hidden-markov-model-analysis-of-mouse-foraging-behaviour" title="Link to this heading">#</a></h1>
+  <section id="hidden-markov-model-analysis-of-mouse-behavioural-syntax">
+<h1>Hidden Markov Model analysis of mouse behavioural syntax<a class="headerlink" href="#hidden-markov-model-analysis-of-mouse-behavioural-syntax" title="Link to this heading">#</a></h1>
 <p>In this example, we fit and apply a Hidden Markov Model (HMM) to infer behavioural syllables from pre-processed mouse tracking data.</p>
 <p>The <a class="reference download internal" download="" href="../../_downloads/15779a0bae26dc7d28015054d653dbbb/hmm_example_mouse_pos.pkl"><span class="xref download myst">sample dataset</span></a> is a two-hour snippet of a single mouse in a foraging assay.
 The mouse was tracked using <a class="reference external" href="https://sleap.ai/#">SLEAP</a> with key body parts annotated as follows:</p>

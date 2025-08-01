@@ -77,7 +77,7 @@ This name will be set to the `Subject` that carries the `FrameEvents` from the [
 :::
 
 ### PoseTracking
-Pose tracking utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) package, to simultaneously track and identify different animals within the habitat.
+Pose tracking utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](bonsai:sleap/index.html) package, to simultaneously track and identify different animals within the habitat.
 
 In Aeon experimental workflows, two linked `IncludeWorkflow`s are provided to give this functionality. 
 The `PoseTracking (Extensions)` node contains the complete data flow and processing workflow for identity and tracking of subjects from video frames captured by the cameras, whereas the `PoseTracking (Aeon.Vision.Sleap)` node is used within this workflow to perform the model inference step of processing. 
@@ -268,5 +268,5 @@ Information on state recovery or persistence requirements, if applicable.
 Explanation of any alert configurations and links to guides or further configuration steps.
 -->
 :::{seealso}
-The [SLEAP](https://sleap.ai/) and [Bonsai.Sleap](https://bonsai-rx.org/sleap/index.html) documentation for more information on training models to be used with the `PoseTracking (Aeon.Vision.Sleap)` node.
+The [SLEAP](https://sleap.ai/) and [Bonsai.Sleap](bonsai:sleap/index.html) documentation for more information on training models to be used with the `PoseTracking (Aeon.Vision.Sleap)` node.
 :::

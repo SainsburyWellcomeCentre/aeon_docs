@@ -18,14 +18,14 @@ These are split into several categories, each implemented in a dedicated `GroupW
 3. **EnvironmentState**: Constructs a mashup of a general control panel displaying information and providing control dialogues for the [foraging patches](target-module-foraging-patch), the environment configuration and manual annotation and alert logs grouped into the "ExperimentMetadata" `GroupWorkflow`, as well as experimental subjects entered and removed from the habitat and subject weight measurements grouped into the "EnvironmentSubjectState" `GroupWorkflow`
 4. **CameraSelector**: Displays a single image visualiser used to view any camera or other `OpenCV.Net.IplImage`, selected from a list of `Subject`s using the "SubjectActivity" control panel.
 
-Additionally, the `ControlPanel` node enables manual control to start and stop the cameras on the setup through [`KeyDown`](https://bonsai-rx.org/docs/api/Bonsai.Windows.Input.KeyDown.html) nodes cast to 'StartCameras' and 'StopCameras' `Subject`s that trigger or halt acquisition of camera images by the [`CameraController`](target-module-camera-controller). 
+Additionally, the `ControlPanel` node enables manual control to start and stop the cameras on the setup through [`KeyDown`](bonsai:docs/api/Bonsai.Windows.Input.KeyDown.html) nodes cast to 'StartCameras' and 'StopCameras' `Subject`s that trigger or halt acquisition of camera images by the [`CameraController`](target-module-camera-controller). 
 Finally, it defines and splits the timestamped entry and exit events of experimental subjects, defined by the [`SubjectDatabase`](target-node-subjectdatabase) inside 'ExperimentMetadata'.
 These events are then utilised by the `RepeatEverySubject` workflow to begin and end subscription to the attached sequence on entry and exit of an experimental subject.
 
 Visualisers and control panel are displayed when the workflow is run from the editor or the CLI. 
 As with any other visualisers in Bonsai, the visibility, position, size and layout configuration are stored and loaded from the workflow's `.bonsai.layout` file, saved with the workflow. 
 
-These control panels are largely supported and configured using in-built functionality provided by nodes in [`Bonsai.GUI`](https://bonsai-rx.org/gui/), but some visualisers are constructed using custom auxiliary nodes for Aeon experiments in the `Aeon.Environment` namespace or as an extension in C#. 
+These control panels are largely supported and configured using in-built functionality provided by nodes in [`Bonsai.GUI`](bonsai:gui/), but some visualisers are constructed using custom auxiliary nodes for Aeon experiments in the `Aeon.Environment` namespace or as an extension in C#. 
 These include:
 
 - [`ExperimentProperties`](target-node-experimentproperties)

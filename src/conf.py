@@ -179,6 +179,8 @@ myst_url_schemes = {
     "aeon-feeder-github": "https://github.com/SainsburyWellcomeCentre/aeon_feeder/{{path}}",
     "aeon-api-github": "https://github.com/SainsburyWellcomeCentre/aeon_api/{{path}}",
     "aeon-template-github": "https://github.com/SainsburyWellcomeCentre/aeon_template/{{path}}",
+    "aeon-sleap-processing-github": "https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/{{path}}",
+    "bonsai": "https://bonsai-rx.org/{{path}}#{{fragment}}",
     "datajoint": "https://www.datajoint.com/{{path}}",
     "datajoint-docs": "https://docs.datajoint.com/{{path}}#{{fragment}}",
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",

@@ -1,7 +1,7 @@
 (target-repositories)=
 # Repositories
 The Aeon infrastructure is complex and multi-dimensional, spanning hardware, acquisition software, standard data formats, and a low-level API for data analysis. 
-As each of these different components is built using different languages, including but not limited to CAD programs, [Bonsai](https://bonsai-rx.org/) and Python, we organise Aeon into the following repositories:
+As each of these different components is built using different languages, including but not limited to CAD programs, [Bonsai](bonsai:) and Python, we organise Aeon into the following repositories:
 
 ::::{grid} 1 2 2 2
 :gutter: 3 

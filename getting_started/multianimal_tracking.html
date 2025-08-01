@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Multi-Animal Tracking &#8212; Aeon v0.0.15 documentation</title>
+    <title>Multi-Animal Tracking &#8212; Aeon v0.0.16 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5b12f60e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=9651da53" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=5b1ff522"></script>
+    <script src="../_static/documentation_options.js?v=6ce77f48"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.15</p>
+    <p class="title logo__title">Aeon v0.0.16</p>
   
 </a></div>
     
@@ -403,60 +403,54 @@
   <section id="multi-animal-tracking">
 <span id="target-multianimal-tracking"></span><h1>Multi-Animal Tracking<a class="headerlink" href="#multi-animal-tracking" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/ma-main.png"><img alt="multi-animal-tracking" src="../_images/ma-main.png" style="height: 300px;" />
+<a class="img-getting-started-large reference internal image-reference" href="../_images/ma-main.png"><img alt="multi-animal-tracking" class="img-getting-started-large" src="../_images/ma-main.png" style="width: 60%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Online tracking of location and identity of individual animals allows for quantification of natural behaviours.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-text">Online tracking of location, poses and identity of individual animals allows for quantification of natural behaviours.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>By quantifying both position as well as locomotion speed of multiple animals over weeks, we can identify the emergence of spontaneous behaviours such as foraging, as well as investigate social dynamics and individual strategies and their modulation by environmental influences.
-This is possible through the multipronged approach using multiple cameras as well as RFID sensors embedded in a single workflow.</p>
-<section id="live-position-tracking">
-<h2>Live position tracking<a class="headerlink" href="#live-position-tracking" title="Link to this heading">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-0 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 sd-align-major-center docutils">
-<p><img alt="live-position-tracking" src="../_images/ma-live-position-tracking.png" /></p>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>An overhead camera with a view of the entire habitat feeds into a Bonsai workflow and
-continuously estimates the animals’ x, y positions, body length, and orientation.</p>
+<p>By quantifying position and locomotion speed as well as estimating the poses of multiple animals over weeks, we can identify the emergence of spontaneous behaviours such as foraging, as well as investigate social dynamics and individual strategies and their modulation by environmental influences.
+This is possible through the multipronged approach using <a class="reference external" href="https://bonsai-rx.org/#">Bonsai</a> and the computer vision software <a class="reference external" href="https://sleap.ai/#">SLEAP</a> on multiple cameras and RFID sensors embedded in a single <a class="reference internal" href="../user/tutorials/general_experimental_workflow.html#target-general-experimental-workflow"><span class="std std-ref">experimental workflow</span></a>.</p>
+<section id="bonsai-centroid-tracking">
+<h2>Bonsai centroid tracking<a class="headerlink" href="#bonsai-centroid-tracking" title="Link to this heading">#</a></h2>
+<p>For simple position tracking, the <a class="reference internal" href="../user/aeon_modules/acquisition/subject_tracking.html#target-node-positiontracking"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PositionTracking</span></code> node</span></a> in the <a class="reference internal" href="../user/aeon_modules/acquisition/subject_tracking.html#target-module-subject-tracking"><span class="std std-ref">subject tracking module</span></a> detects animal centroids using blob detection on masked regions of interest.
+This approach is suitable for single-animal experiments or for generating annotated datasets to train SLEAP models.</p>
 <p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition/">aeon_acquisition</a></em></p>
-</div>
-</div>
-</div>
 </section>
-<section id="identifying-animals">
-<h2>Identifying animals<a class="headerlink" href="#identifying-animals" title="Link to this heading">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-0 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 sd-align-major-center docutils">
-<p><img alt="identifying-animals" src="../_images/ma-identifying-animals.png" /></p>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>When there are multiple animals in the habitat, identity of each animal can be
-determined using computer vision (<a class="reference external" href="https://sleap.ai/#">SLEAP</a>) from the overhead camera using the individual tail tattoos (one
-band, two bands, or none) as features. Furthermore, animals are implanted with RFID tags that
-allow us to quantify their visits to important sites (nest, foraging patches, gates) which are equipped with RFID antennae.</p>
-<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition/">aeon_acquisition</a></em></p>
-</div>
-</div>
-</div>
+<section id="sleap-identity-model">
+<h2>SLEAP identity model<a class="headerlink" href="#sleap-identity-model" title="Link to this heading">#</a></h2>
+<img alt="sleap-id-model" class="img-getting-started-small align-center" src="../_images/ma-identity-model.png" />
+<p>To enable reliable individual identification, distinctive band patterns are tattooed on the mice’s tails as clear and stable markers.
+Top-down view cameras are used to train experiment-specific SLEAP identity models to track each mouse based on its unique tail pattern.
+This can be achieved using either a single overhead full-field camera that captures the entire <a class="reference internal" href="../user/aeon_modules/hardware/habitat.html#target-habitat"><span class="std std-ref">habitat</span></a>, or a set of four overhead quadrant cameras, each capturing a zoomed-in view of approximately one quarter of the habitat with slight overlaps to ensure continuous coverage.
+The latter approach offers improved tracking accuracy by providing higher-resolution views of the mice and their tail patterns.
+These identity models are trained for each unique set of subjects.</p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/">aeon_sleap_processing</a></em></p>
 </section>
-<section id="pose-estimation">
-<h2>Pose estimation<a class="headerlink" href="#pose-estimation" title="Link to this heading">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-0 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-column sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 sd-align-major-center docutils">
-<p><img alt="pose-estimation" src="../_images/ma-pose-estimation.png" /></p>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-8 sd-col-xs-8 sd-col-sm-8 sd-col-md-8 sd-col-lg-8 sd-align-major-center docutils">
-<p>A zoomed-in view of the overhead camera together with side-view cameras at
-behavioural hotspots such as the foraging patches allows for analysis of posture.</p>
-<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition/">aeon_acquisition</a></em></p>
-</div>
-</div>
-</div>
+<section id="sleap-pose-model">
+<h2>SLEAP pose model<a class="headerlink" href="#sleap-pose-model" title="Link to this heading">#</a></h2>
+<img alt="sleap-pose-model" class="img-getting-started-small align-center" src="../_images/ma-pose-model.png" />
+<p>The SLEAP pose model tracks eight body parts along each mouse using overhead cameras (typically the full-field camera).
+Unlike identity models, the pose model is designed to be reusable across experiments with similar setups.</p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/">aeon_sleap_processing</a></em></p>
+</section>
+<section id="inference-pipeline">
+<h2>Inference pipeline<a class="headerlink" href="#inference-pipeline" title="Link to this heading">#</a></h2>
+<img alt="multi-animal-tracking" class="img-getting-started-large align-center" src="../_images/ma-inference-pipeline.png" />
+<p>SLEAP model inference is handled through the <a class="reference internal" href="../user/aeon_modules/acquisition/subject_tracking.html#target-node-posetracking"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PoseTracking</span></code> node</span></a> in the <a class="reference internal" href="../user/aeon_modules/acquisition/subject_tracking.html#target-module-subject-tracking"><span class="std std-ref">subject tracking module</span></a>.
+The identity model processes all quadrant views, assigning an identity and a likelihood score to each detected mouse.
+For each mouse, the prediction with the highest likelihood is selected and projected onto the full-field camera view.
+If zoomed-in quadrant cameras are not available, an identity model trained on the full-field view can be used instead.
+When both models are available, full-field tracking serves as a fallback in frames where quadrant-based tracking fails to detect one or more mice.
+The pose model then estimates the pose of each mouse in the full-field view.
+The final output combines both pose and identity assignments.</p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/">aeon_sleap_processing</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_experiments/">aeon_experiments</a>, <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_acquisition/">aeon_acquisition</a></em></p>
+</section>
+<section id="rfid-validation">
+<h2>RFID validation<a class="headerlink" href="#rfid-validation" title="Link to this heading">#</a></h2>
+<p>Each mouse is implanted with an RFID tag, enabling automatic detection of its presence at key locations within the habitat which are equipped with RFID antennae (<a class="reference internal" href="../user/aeon_modules/hardware/nest.html#target-nest"><span class="std std-ref">nest</span></a>, <a class="reference internal" href="../user/aeon_modules/hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patches</span></a>, gates).
+These RFID detections provide ground-truth data for validating the accuracy of identity tracking.</p>
+<p><em>Relevant repositories: <a class="reference external" href="https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/">aeon_sleap_processing</a></em></p>
 </section>
 </section>
 
@@ -507,9 +501,11 @@ behavioural hotspots such as the foraging patches allows for analysis of posture
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#live-position-tracking">Live position tracking</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-animals">Identifying animals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pose-estimation">Pose estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonsai-centroid-tracking">Bonsai centroid tracking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sleap-identity-model">SLEAP identity model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sleap-pose-model">SLEAP pose model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-pipeline">Inference pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rfid-validation">RFID validation</a></li>
 </ul>
   </nav></div>
 

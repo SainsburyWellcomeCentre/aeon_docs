@@ -71,6 +71,17 @@ html[data-theme=light] {
   height: 8vw; 
 }
 
+.img-getting-started-large {
+  min-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.img-getting-started-small {
+  min-width: 200px;
+  width: 40%;
+  margin-bottom: 1rem;
+}
+
 img.img-hardware-steps {
   max-height: 40vh;
 }

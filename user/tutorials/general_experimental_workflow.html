@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>General experimental workflow infrastructure &#8212; Aeon v0.0.15 documentation</title>
+    <title>General experimental workflow infrastructure &#8212; Aeon v0.0.16 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=5b12f60e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=9651da53" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=5b1ff522"></script>
+    <script src="../../_static/documentation_options.js?v=6ce77f48"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.15</p>
+    <p class="title logo__title">Aeon v0.0.16</p>
   
 </a></div>
     
@@ -462,17 +462,17 @@
                 <article class="bd-article">
                   
   <section id="general-experimental-workflow-infrastructure">
-<h1>General experimental workflow infrastructure<a class="headerlink" href="#general-experimental-workflow-infrastructure" title="Link to this heading">#</a></h1>
+<span id="target-general-experimental-workflow"></span><h1>General experimental workflow infrastructure<a class="headerlink" href="#general-experimental-workflow-infrastructure" title="Link to this heading">#</a></h1>
 <p>The Harp hardware eco-system underpins the Aeon system.
 A full setup consists of multiple <a class="reference external" href="https://www.cf-hw.org/harp">Harp</a> devices (e.g. <a class="reference external" href="https://github.com/harp-tech/device.cameracontrollergen2">CameraController</a>, <a class="reference external" href="https://github.com/harp-tech/device.clocksynchronizer">ClockSynchronizer</a>, etc.) and cameras that need to be monitored, controlled, and logged in synchrony.
-This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> nodes in <a class="reference external" href="https://bonsai-rx.org/">Bonsai</a>.</p>
+This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> nodes in <a class="reference external" href="https://bonsai-rx.org/#">Bonsai</a>.</p>
 <section id="harp-device-configuration">
 <h2>Harp device configuration<a class="headerlink" href="#harp-device-configuration" title="Link to this heading">#</a></h2>
-<p>Each physical Harp device used in Aeon has a dedicated <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html"><code class="docutils literal notranslate"><span class="pre">IncludeWorkflow</span></code></a> in the <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> package.
+<p>Each physical Harp device used in Aeon has a dedicated <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html#"><code class="docutils literal notranslate"><span class="pre">IncludeWorkflow</span></code></a> in the <a class="reference internal" href="../aeon_modules/acquisition.html#target-acquisition-modules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Aeon.Acquisition</span></code></span></a> package.
 For example, a Harp <a class="reference external" href="https://github.com/harp-tech/device.cameracontrollergen2">CameraController (Gen2)</a> device is controlled by a <a class="reference internal" href="../aeon_modules/acquisition/camera_controller.html#target-node-cameracontroller"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">CameraController</span> <span class="pre">(Aeon.Video)</span></code></span></a> node.
-In the main experimental workflow, nodes are each placed in <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Devices</span></code> of the <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.GroupWorkflowBuilder.html"><code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code></a>.
+In the main experimental workflow, nodes are each placed in <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Devices</span></code> of the <a class="reference external" href="https://bonsai-rx.org/docs/api/Bonsai.Expressions.GroupWorkflowBuilder.html#"><code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code></a>.
 Upon execution, these nodes connect to the corresponding physical devices and configure their operation settings according to the specified properties of the node.
-Additionally, the triggers and functions of any triggered actions on the device (e.g. delivering a food pellet) as well as any <a class="reference external" href="https://bonsai-rx.org/docs/articles/subjects.html"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a> names used as inputs and outputs to the device are defined here.</p>
+Additionally, the triggers and functions of any triggered actions on the device (e.g. delivering a food pellet) as well as any <a class="reference external" href="https://bonsai-rx.org/docs/articles/subjects.html#"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a> names used as inputs and outputs to the device are defined here.</p>
 <p>Events emitted by Harp devices are in the form of <code class="docutils literal notranslate"><span class="pre">Harp.HarpMessages</span></code>.
 The full event stream, along with other useful outputs are published to <code class="docutils literal notranslate"><span class="pre">Subjects</span></code> or <code class="docutils literal notranslate"><span class="pre">BehaviorSubjects</span></code>, making them accessible in the Bonsai editor’s toolbox anywhere in the workflow using their names.</p>
 </section>

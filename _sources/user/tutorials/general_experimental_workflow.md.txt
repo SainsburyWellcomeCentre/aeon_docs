@@ -1,14 +1,15 @@
+(target-general-experimental-workflow)=
 # General experimental workflow infrastructure
 The Harp hardware eco-system underpins the Aeon system. 
 A full setup consists of multiple [Harp](https://www.cf-hw.org/harp) devices (e.g. [CameraController](https://github.com/harp-tech/device.cameracontrollergen2), [ClockSynchronizer](https://github.com/harp-tech/device.clocksynchronizer), etc.) and cameras that need to be monitored, controlled, and logged in synchrony. 
-This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using [`Aeon.Acquisition`](target-acquisition-modules) nodes in [Bonsai](https://bonsai-rx.org/).
+This tutorial provides an overview of the experimental workflow infrastructure and the general strategy for designing workflows using [`Aeon.Acquisition`](target-acquisition-modules) nodes in [Bonsai](bonsai:).
 
 ## Harp device configuration
-Each physical Harp device used in Aeon has a dedicated [`IncludeWorkflow`](https://bonsai-rx.org/docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html) in the [`Aeon.Acquisition`](target-acquisition-modules) package. 
+Each physical Harp device used in Aeon has a dedicated [`IncludeWorkflow`](bonsai:docs/api/Bonsai.Expressions.IncludeWorkflowBuilder.html) in the [`Aeon.Acquisition`](target-acquisition-modules) package. 
 For example, a Harp [CameraController (Gen2)](https://github.com/harp-tech/device.cameracontrollergen2) device is controlled by a [`CameraController (Aeon.Video)`](target-node-cameracontroller) node.
-In the main experimental workflow, nodes are each placed in `Metadata` > `Devices` of the [`GroupWorkflow`](https://bonsai-rx.org/docs/api/Bonsai.Expressions.GroupWorkflowBuilder.html). 
+In the main experimental workflow, nodes are each placed in `Metadata` > `Devices` of the [`GroupWorkflow`](bonsai:docs/api/Bonsai.Expressions.GroupWorkflowBuilder.html). 
 Upon execution, these nodes connect to the corresponding physical devices and configure their operation settings according to the specified properties of the node.
-Additionally, the triggers and functions of any triggered actions on the device (e.g. delivering a food pellet) as well as any [`Subject`](https://bonsai-rx.org/docs/articles/subjects.html) names used as inputs and outputs to the device are defined here.
+Additionally, the triggers and functions of any triggered actions on the device (e.g. delivering a food pellet) as well as any [`Subject`](bonsai:docs/articles/subjects.html) names used as inputs and outputs to the device are defined here.
 
 Events emitted by Harp devices are in the form of `Harp.HarpMessages`. 
 The full event stream, along with other useful outputs are published to `Subjects` or `BehaviorSubjects`, making them accessible in the Bonsai editor's toolbox anywhere in the workflow using their names.

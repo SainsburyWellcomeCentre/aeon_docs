@@ -52,6 +52,12 @@ This new page will then be included as a subpage of the parent page.
 :::
 ::::
 
+### Adding a new contributor
+To add a new contributor to the [People](target-people) page, edit the `src/about/people.csv` file to include the contributor's **first name**, **last name**, and **affiliations** under the columns `First`, `Last`, and `Affiliations`. 
+
+During the build process, the `make_people_list.py` script will sort the entries alphabetically by **last name**, then **first name**, and combine the `First` and `Last` columns into a single `Name` column.
+Finally, the script will update the [People](target-people) page with the new, sorted list automatically.
+
 ### Adding Bonsai workflow code
 Bonsai workflows can be inserted using a custom `workflow` container that displays the workflow image and allows the workflow code to be copied. 
 The `.bonsai` workflow file and its corresponding `.svg` file should be placed in the `src/workflows/` directory.

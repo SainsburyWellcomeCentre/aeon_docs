@@ -1,43 +1,34 @@
-import re
+from io import StringIO
+from pathlib import Path
 
 import pandas as pd
-import chardet
-
-def read_csv_safely(filepath):
-    with open(filepath, "rb") as f:
-        raw_data = f.read()
-        detected = chardet.detect(raw_data)
-        encoding = detected["encoding"]
-    return pd.read_csv(filepath, encoding=encoding)
 
 
-# Generate new csv block
-def generate_csv_block(csv_file_path):
-    df = read_csv_safely(csv_file_path)
-    df_sorted = df.sort_values(by=["Last", "First"])
-    df_sorted["Name"] = df_sorted["First"] + " " + df_sorted["Last"]
-    df_sorted = df_sorted.drop(columns=["First", "Last"])
-    col_names = ["Name", "Affiliations"]
-    df_sorted = df_sorted[col_names]
-    new_block = (
-        "```{csv-table}\n"
-        + ":header: >\n:    "
-        + ", ".join([f'"{col}"' for col in col_names])
-        + "\n\n"
-    )
-    for _, row in df_sorted.iterrows():
-        new_block += f'"{row["Name"]}","{row["Affiliations"]}"\n'
-    new_block += "```"
-    return new_block
+def generate_csv_block(csv_file_path: str) -> str:
+    """
+    Generate a markdown-friendly CSV block from the given people.csv file.
+
+    The CSV must have columns: First, Last, Affiliations.
+    Output format:
+        "Full Name","Affiliations"
+    """
+    df = pd.read_csv(csv_file_path, encoding="utf-8-sig")
+    df = df.sort_values(by=["Last", "First"]).copy()
+    df["Name"] = df["First"] + " " + df["Last"]
+    df = df[["Name", "Affiliations"]]
+    buffer = StringIO()
+    df.to_csv(
+        buffer, index=False, header=False, quoting=1, lineterminator="\n"
+    )  # Quote all fields
+    rows = buffer.getvalue().strip()
+    return f'```{{csv-table}}\n:header: >\n:    "Name", "Affiliations"\n\n{rows}\n```'
 
 
 if __name__ == "__main__":
-    new_block = generate_csv_block("src/about/people.csv")
-    with open("src/about/people.md", "r", encoding="utf-8") as f:
-        content = f.read()
-    updated_content = re.sub(
-        r"```{csv-table}.*?```", new_block, content, flags=re.DOTALL
-    )
-    if updated_content != content:
-        with open("src/about/people.md", "w", encoding="utf-8") as f:
-            f.write(updated_content)
+    csv_path = Path("src/about/people.csv")
+    header_path = Path("src/_templates/people_head.md")
+    output_path = Path("src/about/people.md")
+    new_block = generate_csv_block(csv_path)
+    header_text = header_path.read_text(encoding="utf-8")
+    output_text = header_text + new_block
+    output_path.write_text(output_text, encoding="utf-8")

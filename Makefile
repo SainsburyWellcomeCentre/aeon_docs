@@ -25,14 +25,15 @@ clean:
 	@echo "Removing auto-generated files under 'docs' and 'src'..."
 	@rm -rf $(BUILDDIR)
 	@rm -rf $(SOURCEDIR)/reference/api/
+	@rm $(SOURCEDIR)/about/people.md
 
-update-people:
-	@echo "Checking for People list update..."
+generate-people-page:
+	@echo "Generating People page..."
 	@python make_people_list.py
 
 .PHONY: help Makefile copy-examples
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option. $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile $(SOURCEDIR)/reference/api.rst copy-examples update-people
+%: Makefile $(SOURCEDIR)/reference/api.rst copy-examples generate-people-page
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing Documentation &#8212; Aeon v0.0.16 documentation</title>
+    <title>Contributing Documentation &#8212; Aeon  documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=6ce77f48"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.16</p>
+    <p class="title logo__title">Aeon </p>
   
 </a></div>
     
@@ -455,6 +455,12 @@ RestructuredText</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
+<section id="adding-a-new-contributor">
+<h3>Adding a new contributor<a class="headerlink" href="#adding-a-new-contributor" title="Link to this heading">#</a></h3>
+<p>To add a new contributor to the <a class="reference internal" href="../about/people.html#target-people"><span class="std std-ref">People</span></a> page, edit the <code class="docutils literal notranslate"><span class="pre">src/about/people.csv</span></code> file to include the contributor’s <strong>first name</strong>, <strong>last name</strong>, and <strong>affiliations</strong> under the columns <code class="docutils literal notranslate"><span class="pre">First</span></code>, <code class="docutils literal notranslate"><span class="pre">Last</span></code>, and <code class="docutils literal notranslate"><span class="pre">Affiliations</span></code>.</p>
+<p>During the build process, the <code class="docutils literal notranslate"><span class="pre">make_people_list.py</span></code> script will sort the entries alphabetically by <strong>last name</strong>, then <strong>first name</strong>, and combine the <code class="docutils literal notranslate"><span class="pre">First</span></code> and <code class="docutils literal notranslate"><span class="pre">Last</span></code> columns into a single <code class="docutils literal notranslate"><span class="pre">Name</span></code> column.
+Finally, the script will update the <a class="reference internal" href="../about/people.html#target-people"><span class="std std-ref">People</span></a> page with the new, sorted list automatically.</p>
+</section>
 <section id="adding-bonsai-workflow-code">
 <h3>Adding Bonsai workflow code<a class="headerlink" href="#adding-bonsai-workflow-code" title="Link to this heading">#</a></h3>
 <p>Bonsai workflows can be inserted using a custom <code class="docutils literal notranslate"><span class="pre">workflow</span></code> container that displays the workflow image and allows the workflow code to be copied.
@@ -709,6 +715,7 @@ select the <code class="docutils literal notranslate"><span class="pre">Docs</sp
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-the-documentation">Editing the documentation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-page">Adding a new page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-contributor">Adding a new contributor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-bonsai-workflow-code">Adding Bonsai workflow code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-referencing-pages">Cross-referencing pages</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-references">Internal references</a></li>

@@ -19,10 +19,14 @@ if not "%1" == "clean" (
 
 	@echo Copying example notebooks into 'src'...
 	python copy_examples_to_src.py
+
+	@echo Generating People page...
+	python make_people_list.py
 ) else (
 	@echo Removing auto-generated files under 'docs' and 'src'...
 	rmdir /S /Q %BUILDDIR%
     rmdir /S /Q %SOURCEDIR%\reference\api\
+	del %SOURCEDIR%\about\people.md
 )
 
 %SPHINXBUILD% >NUL 2>NUL

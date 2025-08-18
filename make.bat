@@ -19,6 +19,9 @@ if not "%1" == "clean" (
 
 	@echo Copying example notebooks into 'src'...
 	python copy_examples_to_src.py
+
+	@echo Check for People list update...
+	python make_people_list.py
 ) else (
 	@echo Removing auto-generated files under 'docs' and 'src'...
 	rmdir /S /Q %BUILDDIR%

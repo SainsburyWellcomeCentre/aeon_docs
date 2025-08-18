@@ -26,9 +26,13 @@ clean:
 	@rm -rf $(BUILDDIR)
 	@rm -rf $(SOURCEDIR)/reference/api/
 
+update-people:
+	@echo "Checking for People list update..."
+	@python make_people_list.py
+
 .PHONY: help Makefile copy-examples
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option. $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile $(SOURCEDIR)/reference/api.rst copy-examples
+%: Makefile $(SOURCEDIR)/reference/api.rst copy-examples update-people
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

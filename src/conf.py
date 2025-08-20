@@ -155,6 +155,7 @@ linkcheck_ignore = [
     "http://SubjectExpressionBuilder.Name",  # Broken URL
     "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
+    "https://doi.org/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
 ]
 

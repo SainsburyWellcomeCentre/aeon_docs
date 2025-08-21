@@ -79,6 +79,8 @@ myst_enable_extensions = [
     "linkify",
     "deflist",
     "attrs_inline",
+    "amsmath",
+    "dollarmath",
 ]
 
 # Automatically add anchors to markdown headings

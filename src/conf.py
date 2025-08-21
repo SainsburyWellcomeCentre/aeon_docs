@@ -171,6 +171,7 @@ myst_url_schemes = {
     "https": None,
     "ftp": None,
     "mailto": None,
+    "aeon-paper": "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",
     "aeon-docs": "https://aeon.swc.ucl.ac.uk/{{path}}",
     "aeon-docs-github": "https://github.com/SainsburyWellcomeCentre/aeon_docs/{{path}}",
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",

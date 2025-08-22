@@ -43,9 +43,9 @@ For most analyses, using both "raw" and "ingest" datasets provides the cleanest 
 
 (target-precomputed-datasets)=
 ## Precomputed datasets
-These datasets contain outputs derived from full datasets that have already been run through the upstream pipelines.  
-Stored in compact formats (e.g. Parquet, pickle), they are designed to support tutorials and how-to guides without requiring users to re-run heavy preprocessing or analysis steps.  
-While downstream of "raw" and "ingest", they prioritise ease of use and clarity of analysis over full provenance traceability.  
+These datasets contain outputs derived from full datasets that have already been run through the upstream pipelines.
+Stored in compact formats (e.g. Parquet, pickle), they are designed to support tutorials and how-to guides without requiring users to re-run heavy preprocessing or analysis steps.
+While downstream of "raw" and "ingest", they prioritise ease of use and clarity of analysis over full provenance traceability.
 
 - [**Platform paper social analysis datasets**](https://app.globus.org/file-manager?origin_id=48cc1398-b591-4f52-85d2-f68801306d4a&origin_path=%2F): Datasets analysed in the [platform paper](aeon-paper:) social experiments.
 - [**Filtered mouse position data**](../../downloads/hmm_example_mouse_pos.pkl): Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.

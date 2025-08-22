@@ -79,6 +79,8 @@ myst_enable_extensions = [
     "linkify",
     "deflist",
     "attrs_inline",
+    "amsmath",
+    "dollarmath",
 ]
 
 # Automatically add anchors to markdown headings
@@ -156,6 +158,7 @@ linkcheck_ignore = [
     "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
     "https://doi.org/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
+    "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
 ]
 
@@ -171,6 +174,7 @@ myst_url_schemes = {
     "https": None,
     "ftp": None,
     "mailto": None,
+    "aeon-paper": "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",
     "aeon-docs": "https://aeon.swc.ucl.ac.uk/{{path}}",
     "aeon-docs-github": "https://github.com/SainsburyWellcomeCentre/aeon_docs/{{path}}",
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",

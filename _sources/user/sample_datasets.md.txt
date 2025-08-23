@@ -11,6 +11,12 @@ They are selected to support quick inspection, pipeline prototyping, or tooling 
 
 (target-full-datasets)=
 ## Full datasets
+
+```{note}
+The links to the full datasets are temporarily unavailable while we resolve access issues. 
+Please check back later or reach out to the [project maintainers](target-project-maintainers) if you need urgent access.
+```
+
 These datasets contain complete experimental recordings captured across multiple acquisition machines, with sizes generally in the **terabyte (TB)** range.
 Each dataset is labelled by the experiment name (e.g. `social0.2`) followed by the name of the acquisition machine (e.g. `aeon3`).
 
@@ -18,28 +24,11 @@ Each dataset is labelled by the experiment name (e.g. `social0.2`) followed by t
 For most analyses, using both "raw" and "ingest" datasets provides the cleanest and most complete view. 
 
 - **social0.2-aeon3** 
-    - [raw](https://app.globus.org/file-manager?origin_id=18397e02-9a8e-468e-9494-7f80a41727e5&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=35289aa3-af85-44aa-8f95-16167a47fde4&origin_path=%2F)
-
 - **social0.2-aeon4**
-    - [raw](https://app.globus.org/file-manager?origin_id=6dff8570-881d-4116-9c69-4495711be44b&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=ca754f8a-e774-4aa8-b52e-2137d268764d&origin_path=%2F)
-
 - **social0.3-aeon3**
-    - [raw](https://app.globus.org/file-manager?origin_id=788472a1-da5b-41ad-ae2a-855158b9d23d&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=37ce19e9-e0d1-41cb-b29d-51ca7a09d768&origin_path=%2F)
-
 - **social0.3-aeon4**
-    - [raw](https://app.globus.org/file-manager?origin_id=b317a669-5e62-4ecb-b322-072c0ffa5c0a&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=cb5d269f-d351-47aa-bfd1-c34ee4adec0a&origin_path=%2F)
-
 - **social0.4-aeon3**
-    - [raw](https://app.globus.org/file-manager?origin_id=e85c1626-e845-4224-9ec9-6e3465abbb2a&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
-
 - **social0.4-aeon4**
-    - [raw](https://app.globus.org/file-manager?origin_id=a9304184-c573-409c-b161-ddf10ccdacef&origin_path=%2F)
-    - [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
 
 (target-precomputed-datasets)=
 ## Precomputed datasets

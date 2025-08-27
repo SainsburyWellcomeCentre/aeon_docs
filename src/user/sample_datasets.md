@@ -26,7 +26,6 @@ For most analyses, using both "raw" and "ingest" datasets provides the cleanest 
 - **social0.2-aeon3** 
 - **social0.2-aeon4**
 - **social0.3-aeon3**
-- **social0.3-aeon4**
 - **social0.4-aeon3**
 - **social0.4-aeon4**
 
@@ -36,5 +35,6 @@ These datasets contain outputs derived from full datasets that have already been
 Stored in compact formats (e.g. Parquet, pickle), they are designed to support tutorials and how-to guides without requiring users to re-run heavy preprocessing or analysis steps.
 While downstream of "raw" and "ingest", they prioritise ease of use and clarity of analysis over full provenance traceability.
 
-- [**Platform paper social analysis datasets**](https://app.globus.org/file-manager?origin_id=48cc1398-b591-4f52-85d2-f68801306d4a&origin_path=%2F): Datasets analysed in the [platform paper](aeon-paper:) social experiments.
-- [**Filtered mouse position data**](../downloads/hmm_example_mouse_pos.pkl): Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.
+- [**Platform paper social analysis datasets**](https://app.globus.org/file-manager?origin_id=2c09d69d-8ba0-4ca4-9762-7c784949e5c1&origin_path=%2F
+): Datasets analysed in the [platform paper](aeon-paper:) social experiments.
+- [**Filtered mouse position data**](https://app.globus.org/file-manager?origin_id=65b637ce-8146-4305-8cb8-d87b526a9ff6&origin_path=%2F): Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.

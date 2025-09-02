@@ -23,15 +23,15 @@ Each dataset is labelled by the experiment name (e.g. `social0.2`) followed by t
 "raw" datasets include [raw data](target-data-provenance-raw) acquired from _all_ streams used in an experiment, while "ingest" datasets contain only a _subset_ of post-processed, [derived data](target-data-provenance-derived) (typically full-pose position and/or weight data).
 For most analyses, using both "raw" and "ingest" datasets provides the cleanest and most complete view. 
 
-- **social0.2-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=35289aa3-af85-44aa-8f95-16167a47fde4&origin_path=%2F)
+- **Social 0.2**: A foraging assay with three food patches featuring dynamically varying reward rates. Each experiment consists of three periods: _presocial_ (each mouse alone for 3–4 days), _social_ (both mice together for 2 weeks), and _postsocial_ (each mouse alone again for 3–4 days).
+    - **social0.2-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=35289aa3-af85-44aa-8f95-16167a47fde4&origin_path=%2F)
+    - **social0.2-aeon4**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=ca754f8a-e774-4aa8-b52e-2137d268764d&origin_path=%2F)
+- **Social 0.3/0.4**: A variant of the `social 0.2` assay, with three food patches and one dummy patch fixed at the center of the habitat. The reward-rate combinations span a wider range, and the habitat includes two additional gates connecting the outer corridor to the main area. Two wooden balls are also provided as enrichment for the mice to push around. The same three-period structure (_presocial_, _social_, _postsocial_) is used.
+    - **social0.3-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=37ce19e9-e0d1-41cb-b29d-51ca7a09d768&origin_path=%2F)
 
-- **social0.2-aeon4**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=ca754f8a-e774-4aa8-b52e-2137d268764d&origin_path=%2F)
+    - **social0.4-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
 
-- **social0.3-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=37ce19e9-e0d1-41cb-b29d-51ca7a09d768&origin_path=%2F)
-
-- **social0.4-aeon3**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
-
-- **social0.4-aeon4**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
+    - **social0.4-aeon4**: [raw](), [ingest](https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&origin_path=%2F)
 
 (target-precomputed-datasets)=
 ## Precomputed datasets

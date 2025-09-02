@@ -37,4 +37,4 @@ Stored in compact formats (e.g. Parquet, pickle), they are designed to support t
 While downstream of "raw" and "ingest", they prioritise ease of use and clarity of analysis over full provenance traceability.
 
 - [**Platform paper social analysis datasets**](https://app.globus.org/file-manager?origin_id=48cc1398-b591-4f52-85d2-f68801306d4a&origin_path=%2F): Datasets analysed in the [platform paper](aeon-paper:) social experiments.
-- [**Filtered mouse position data**](../../downloads/hmm_example_mouse_pos.pkl): Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.
+- [**Filtered mouse position data**](../downloads/hmm_example_mouse_pos.pkl): Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.

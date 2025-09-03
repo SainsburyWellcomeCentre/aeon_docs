@@ -49,6 +49,7 @@ In alphabetical order:
 "Luke O'Hara","Sainsbury Wellcome Centre - UCL"
 "John O'Keefe","Sainsbury Wellcome Centre - UCL"
 "Tom Otis","Sainsbury Wellcome Centre - UCL"
+"Agostina Palmigiano","Gatsby Computational Neuroscience Unit - UCL"
 "Anaya Pouget","Sainsbury Wellcome Centre - UCL"
 "Joaquin Rapela","Gatsby Computational Neuroscience Unit - UCL"
 "Thomas Ryan","NeuroGEARS Ltd"

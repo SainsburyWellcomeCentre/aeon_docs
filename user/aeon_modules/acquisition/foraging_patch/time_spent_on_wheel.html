@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TimeSpentOnWheel &#8212; Aeon v0.0.16 documentation</title>
+    <title>TimeSpentOnWheel &#8212; Aeon  documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../_static/documentation_options.js?v=6ce77f48"></script>
+    <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.16</p>
+    <p class="title logo__title">Aeon </p>
   
 </a></div>
     
@@ -474,8 +474,8 @@
   <section class="tex2jax_ignore mathjax_ignore" id="timespentonwheel">
 <span id="target-node-timespentonwheel"></span><h1>TimeSpentOnWheel<a class="headerlink" href="#timespentonwheel" title="Link to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">TimeSpentOnWheel</span> <span class="pre">(Aeon.Foraging)</span></code> node monitors the motion of a given foraging wheel and accumulates the total time the animal is actively turning the wheel.</p>
-<!-- TODO: Fix link to wheelmoving.md -->
-<p>Within this node, the <a class="reference internal" href="#../../wheelMoving.md"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">WheelMoving</span> <span class="pre">(Aeon.Acquisition)</span></code></span></a> node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the foraging patch while the wheel is in motion.</p>
+<!-- TODO: Add link to wheelmoving.md when available -->
+<p>Within this node, the <code class="docutils literal notranslate"><span class="pre">WheelMoving</span> <span class="pre">(Aeon.Acquisition)</span></code> node reports whether the wheel is in motion or not, and accumulates the differences between timestamps emitted by the foraging patch while the wheel is in motion.</p>
 <div class="workflow docutils">
 <p><img alt="timeSpentOnWheelWorkflow" src="../../../../_images/timeSpentOnWheelWorkflow.svg" /></p>
 </div>
@@ -537,8 +537,8 @@ Existing subjects published outside of the node, but used for input / trigger
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<!-- TODO: Fix link to RepeatEveryBlock -->
-<p>To reset a <code class="docutils literal notranslate"><span class="pre">TimeSpentOnWheel</span> <span class="pre">(Aeon.Foraging)</span></code> monitor after a block transition, use a <a class="reference internal" href="#./RepeatEveryBlock.md"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">RepeatEveryBlock</span> <span class="pre">(Aeon.Acquisition)</span></code></span></a> node and pass the result to an appropriately named <code class="docutils literal notranslate"><span class="pre">BehaviorSubject</span></code>, e.g. “Patch1TimeSpent”.</p>
+<!-- TODO: Add link to RepeatEveryBlock.md when available -->
+<p>To reset a <code class="docutils literal notranslate"><span class="pre">TimeSpentOnWheel</span> <span class="pre">(Aeon.Foraging)</span></code> monitor after a block transition, use a <code class="docutils literal notranslate"><span class="pre">RepeatEveryBlock</span> <span class="pre">(Aeon.Acquisition)</span></code> node and pass the result to an appropriately named <code class="docutils literal notranslate"><span class="pre">BehaviorSubject</span></code>, e.g. “Patch1TimeSpent”.</p>
 <div class="workflow docutils">
 <p><img alt="timeSpentOnWheel" src="../../../../_images/timeSpentOnWheel.svg" /></p>
 </div>

@@ -1,0 +1,1572 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataJoint pipeline: Computing behavioural bouts &#8212; Aeon  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=9651da53" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how_to/dj_compute_bouts_copy';</script>
+    <script src="../../_static/js/workflow.js?v=1800024c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DataJoint pipeline: Data ingestion and processing" href="dj_data_ingestion_and_processing.html" />
+    <link rel="prev" title="How-to Guides" href="../how_to.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is currently under active development. Please report any issues on <a href='https://github.com/SainsburyWellcomeCentre/aeon_docs/issues'>GitHub</a>.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Aeon </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../aeon_modules.html">Aeon Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/hardware.html">Hardware Assembly</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera.html">Camera Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera_controller.html">Camera Controller Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/commutation_translation_system.html">Commutation-Translation System Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch.html">Foraging Patch Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch_output_expander.html">Foraging Patch Output Expander Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/microphone.html">Microphone Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/rfid_reader.html">RFID Reader Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/sound_card.html">Sound Card Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/timestamp_generator.html">Timestamp Generator Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/weighing_scale.html">Weighing Scale Wiring Schematic</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/acquisition.html">Acquisition Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/activity_tracking.html">Activity Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/alerts.html">Alerts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera.html">Spinnaker Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera_controller.html">Multi-Camera Controller</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/control_panel.html">Control Panel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/annotation_source_GUI.html">AnnotationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/button_source_GUI.html">ButtonSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/environment_state_GUI.html">EnvironmentState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/experiment_properties_GUI.html">ExperimentProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/label_control_GUI.html">LabelControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/subject_database.html">SubjectDatabase <!--TODO: Placeholder content--></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch.html">Foraging Patch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/patch_dispenser.html">PatchDispenser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/pellet_monitor.html">PelletMonitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_since_last_event.html">TimeSinceLastEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_spent_on_wheel.html">TimeSpentOnWheel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/monitors.html">Device Synchronisation Monitors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/rfid_reader.html">RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/subject_tracking.html">Subject Tracking</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../sample_datasets.html">Sample Datasets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/general_experimental_workflow.html">General experimental workflow infrastructure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../how_to.html">How-to Guides</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DataJoint pipeline: Computing behavioural bouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_fetching_data_copy.html">DataJoint pipeline: Fetching data as DataFrames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_querying_data_copy.html">DataJoint pipeline: Querying data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_example.html">Hidden Markov Model analysis of mouse behavioural syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_api_example_copy.html">Data access using the low-level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="social_analysis1_static.html">Platform paper social experiment analysis: Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="social_analysis2.html">Platform paper social experiment analysis: Part 2</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../how_to.html" class="nav-link">How-to Guides</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">DataJoint pipeline: Computing behavioural bouts</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="datajoint-pipeline-computing-behavioural-bouts">
+<span id="target-dj-compute-behav-bouts"></span><h1>DataJoint pipeline: Computing behavioural bouts<a class="headerlink" href="#datajoint-pipeline-computing-behavioural-bouts" title="Link to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This guide assumes you have a <a class="reference internal" href="dj_pipeline_local_deployment.html#target-dj-pipeline-deployment"><span class="std std-ref">DataJoint pipeline deployed</span></a> with <a class="reference internal" href="dj_data_ingestion_and_processing.html#target-dj-data-ingestion-processing"><span class="std std-ref">data already ingested</span></a>.</p>
+</div>
+<p>Using position data from the <a class="reference internal" href="../tutorials/aeon_dj_pipeline.html#target-aeon-dj-pipeline"><span class="std std-ref">Aeon DataJoint pipeline</span></a>, this guide walks through computing <strong>sleep</strong>, <strong>drink</strong>, and <strong>explore</strong> bouts for each subject in a multi-animal setup.</p>
+<p>You can also run this notebook online at <a class="reference external" href="https://works.datajoint.com/"><code class="docutils literal notranslate"><span class="pre">works.datajoint.com</span></code></a> using the following credentials:</p>
+<ul class="simple">
+<li><p>Username: aeondemo</p></li>
+<li><p>Password: aeon_djworks</p></li>
+</ul>
+<p>To access it, go to the Notebook tab at the top and in the File Browser on the left, navigate to <code class="docutils literal notranslate"><span class="pre">ucl-swc_aeon</span> <span class="pre">&gt;</span> <span class="pre">docs</span> <span class="pre">&gt;</span> <span class="pre">examples</span></code>, where this notebook <code class="docutils literal notranslate"><span class="pre">dj_compute_bouts.ipynb</span></code> is located.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples here use the <em>social</em> period of the <a class="reference internal" href="../sample_datasets.html#target-full-datasets"><span class="std std-ref">social0.2-aeon4</span></a> dataset.
+Since the social period spans 2 weeks, we limit retrieval to the first 24 hours to keep the examples concise.</p>
+<p>If you are using a different dataset, be sure to replace the experiment name and parameters in the code below accordingly.</p>
+</div>
+<section id="import-libraries-and-define-variables-and-helper-functions">
+<h2>Import libraries and define variables and helper functions<a class="headerlink" href="#import-libraries-and-define-variables-and-helper-functions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.dj_pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">acquisition</span><span class="p">,</span> <span class="n">streams</span><span class="p">,</span> <span class="n">tracking</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_swaps</span><span class="p">(</span><span class="n">pos_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Detect and remove swaps in the position data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data of a single subject.</span>
+<span class="sd">        max_speed (float): Maximum speed (px/s) threshold over which we assume a swap.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame with swaps removed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span>
+
+    <span class="c1"># Identify jumps</span>
+    <span class="n">jumps</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_speed</span><span class="p">)</span>
+    <span class="n">shift_down</span> <span class="o">=</span> <span class="n">jumps</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">shift_down</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">shift_up</span> <span class="o">=</span> <span class="n">jumps</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">shift_up</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">jumps</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">jump_starts</span> <span class="o">=</span> <span class="n">jumps</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">shift_down</span>
+    <span class="n">jump_ends</span> <span class="o">=</span> <span class="n">jumps</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">shift_up</span>
+    <span class="n">jump_start_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">jump_starts</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">jump_end_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">jump_ends</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">jumps</span><span class="p">):</span>
+        <span class="c1"># Ensure the lengths match</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_end_indices</span><span class="p">):</span>  <span class="c1"># jump-in-progress at start</span>
+            <span class="n">jump_end_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jump_end_indices</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_end_indices</span><span class="p">):</span>  <span class="c1"># jump-in-progress at end</span>
+            <span class="n">jump_start_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Remove jumps by setting speed to nan in jump regions and dropping nans</span>
+        <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">,</span> <span class="n">jump_end_indices</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">pos_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">pos_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pos_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm2px</span> <span class="o">=</span> <span class="mf">5.2</span>  <span class="c1"># 1 cm = 5.2 px roughly for top camera</span>
+<span class="n">nest_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1215</span><span class="p">,</span> <span class="mi">530</span><span class="p">))</span>
+<span class="n">nest_radius</span> <span class="o">=</span> <span class="mi">14</span> <span class="o">*</span> <span class="n">cm2px</span>  <span class="c1"># 14 cm, in px</span>
+<span class="n">exp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;social0.2-aeon4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;presocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-31 11:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;presocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-08 15:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;social_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-09 17:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;social_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-23 12:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postsocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-25 18:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postsocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-02 13:00:00&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]}</span>
+<span class="c1"># Define periods</span>
+<span class="n">periods</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;presocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_end&quot;</span><span class="p">]),</span>
+    <span class="s2">&quot;social&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_end&quot;</span><span class="p">]),</span>
+    <span class="s2">&quot;postsocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_end&quot;</span><span class="p">]),</span>
+<span class="p">}</span>
+<span class="c1"># Select the social period and limit to first 3 days for brevity</span>
+<span class="n">period_name</span> <span class="o">=</span> <span class="s2">&quot;social&quot;</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="n">period_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">end_dt</span> <span class="o">=</span> <span class="n">start_dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fetch-position-data">
+<h2>Fetch position data<a class="headerlink" href="#fetch-position-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period.</span>
+<span class="sd">        period_end (str): End datetime of the time period.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
+<span class="sd">                     Returns an empty DataFrame if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create chunk restriction for the time period</span>
+        <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
+            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Fetch centroid tracking data for the specified period</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
+            <span class="o">&amp;</span> <span class="n">key</span>
+            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
+            <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Clean up the dataframe</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">centroid_df</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+
+<span class="c1"># Load position data</span>
+<span class="c1"># If this takes too long, consider changing end_dt to an earlier time</span>
+<span class="n">position_df</span> <span class="o">=</span> <span class="n">load_position_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="n">float_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;identity_likelihood&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;likelihood&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">float_cols</span><span class="p">:</span>
+    <span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Querying data from 2024-02-09 17:00:00 to 2024-02-10 17:00:00...
+  Retrieved 7162981 rows of position data
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sleep-bouts">
+<h2>Sleep bouts<a class="headerlink" href="#sleep-bouts" title="Link to this heading">#</a></h2>
+<p>Using position data, we can infer sleep bouts for each subject by identifying sustained periods of low movement:</p>
+<ol class="arabic simple">
+<li><p>Divide the data into consecutive 1-minute windows.</p></li>
+<li><p>For each window, compute the maximum displacement between the furthest tracked points.</p></li>
+<li><p>Label windows as sleep if displacement falls below a threshold (<code class="docutils literal notranslate"><span class="pre">move_thresh</span></code>, e.g. 4 cm converted to pixels).</p></li>
+<li><p>Merge adjacent sleep windows into continuous sleep bouts.</p></li>
+<li><p>Exclude bouts shorter than 2 minutes.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sleep_bouts</span><span class="p">(</span>
+    <span class="n">pos_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">subject</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">move_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">cm2px</span><span class="p">,</span>  <span class="c1"># cm -&gt; px</span>
+    <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cm2px</span><span class="p">,</span>  <span class="c1"># cm/s -&gt; px/s</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns sleep bouts for a given animal within the specified position data time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data.</span>
+<span class="sd">        subject (str): Name of the animal to filter by.</span>
+<span class="sd">        move_thresh (float): Movement (in px) threshold to define sleep bouts.</span>
+<span class="sd">        max_speed (float): Maximum speed threshold for excising swaps.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing sleep bouts for the specified animal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="c1"># Set some constants and placeholder `windows_df` which will be combined into `bouts_df`</span>
+    <span class="n">sleep_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;1m&quot;</span><span class="p">)</span>
+    <span class="n">sleep_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create time windows based on start and end time</span>
+    <span class="n">data_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">data_end_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">window_starts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span>
+        <span class="n">start</span><span class="o">=</span><span class="n">data_start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">data_end_time</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">sleep_win</span>
+    <span class="p">)</span>
+
+    <span class="c1"># &lt;s&gt; Process each time window</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing sleep bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">win_start</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
+        <span class="n">win_end</span> <span class="o">=</span> <span class="n">win_start</span> <span class="o">+</span> <span class="n">sleep_win</span>
+        <span class="n">win_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">animal_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">win_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">animal_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">win_end</span><span class="p">)</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">win_data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># skip windows with too little data</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Excise id swaps (based on pos / speed jumps)</span>
+        <span class="c1"># win_data = correct_swaps(win_data, max_speed)</span>
+
+        <span class="c1"># Calculate the displacement - maximum distance between any two points in the window</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">displacement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># If displacement is less than threshold, consider it a sleep bout</span>
+        <span class="k">if</span> <span class="n">displacement</span> <span class="o">&lt;</span> <span class="n">move_thresh</span><span class="p">:</span>
+            <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">sleep_win</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="n">sleep_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">sleep_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+    <span class="c1"># &lt;/s&gt;</span>
+
+    <span class="c1"># &lt;s&gt; Now merge consecutive sleep windows into continuous bouts</span>
+    <span class="k">if</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sleep_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+    <span class="c1"># Initialize the merged bouts dataframe with the first window</span>
+    <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># Iterate through remaining windows and merge consecutive ones</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sleep_windows_df</span><span class="p">)):</span>
+        <span class="n">current_window</span> <span class="o">=</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">last_bout</span> <span class="o">=</span> <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
+            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
+            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># start a new bout</span>
+            <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+    <span class="c1"># &lt;/s&gt;</span>
+
+    <span class="c1"># Set min bout time</span>
+    <span class="n">min_bout_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;2m&quot;</span><span class="p">)</span>
+    <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">sleep_bouts_df</span><span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_bout_time</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">sleep_bouts_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute sleep bouts for each subject</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
+    <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">sleep_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subject_bouts</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">subject_bouts</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">,</span> <span class="n">subject_bouts</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sleep_bouts_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>start</th>
+      <th>end</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 19:04:10.660</td>
+      <td>2024-02-09 19:06:10.660</td>
+      <td>0 days 00:02:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 20:27:10.660</td>
+      <td>2024-02-09 20:29:10.660</td>
+      <td>0 days 00:02:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 21:10:10.660</td>
+      <td>2024-02-09 21:13:10.660</td>
+      <td>0 days 00:03:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 21:16:10.660</td>
+      <td>2024-02-09 22:23:10.660</td>
+      <td>0 days 01:07:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 22:28:10.660</td>
+      <td>2024-02-09 22:33:10.660</td>
+      <td>0 days 00:05:00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 15:12:10.660</td>
+      <td>2024-02-10 15:15:10.660</td>
+      <td>0 days 00:03:00</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 15:16:10.660</td>
+      <td>2024-02-10 15:26:10.660</td>
+      <td>0 days 00:10:00</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 15:28:10.660</td>
+      <td>2024-02-10 15:39:10.660</td>
+      <td>0 days 00:11:00</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 16:06:10.660</td>
+      <td>2024-02-10 16:08:10.660</td>
+      <td>0 days 00:02:00</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 16:55:10.660</td>
+      <td>2024-02-10 17:01:10.660</td>
+      <td>0 days 00:06:00</td>
+    </tr>
+  </tbody>
+</table>
+<p>133 rows × 4 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="drink-bouts">
+<h2>Drink bouts<a class="headerlink" href="#drink-bouts" title="Link to this heading">#</a></h2>
+<p>We define a drink bout as a period when a subject is:</p>
+<ul class="simple">
+<li><p>Near the water spout: The subject’s position is within a set radius (<code class="docutils literal notranslate"><span class="pre">start_radius</span></code>, e.g. 4 cm in pixels) of the spout location.</p></li>
+<li><p>Movement is minimal: During the bout, the subject’s displacement from the initial position stays below a threshold (<code class="docutils literal notranslate"><span class="pre">move_thresh</span></code>, e.g. 2.5 cm in pixels).</p></li>
+<li><p>Duration is within limits: The bout lasts longer than a minimum duration (<code class="docutils literal notranslate"><span class="pre">min_dur</span></code>, e.g. 6 s) and shorter than a maximum duration (<code class="docutils literal notranslate"><span class="pre">max_dur</span></code>, e.g. 90 s).</p></li>
+</ul>
+<p>The bout starts when the subject enters the spout zone and ends when it either moves too much, leaves the zone, or exceeds the maximum duration. Only bouts meeting all criteria are considered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">drink_bouts</span><span class="p">(</span>
+    <span class="n">pos_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">subject</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">spout_loc</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>  <span class="c1"># x,y spout location in px</span>
+    <span class="n">start_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># must be within X cm of spout, in px</span>
+    <span class="n">move_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># during bout must move less than X cm, in px</span>
+    <span class="n">min_dur</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>  <span class="c1"># min duration of bout in seconds</span>
+    <span class="n">max_dur</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span>  <span class="c1"># max duration of bout in seconds</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>  <span class="c1"># cols: subject, start, end, duration, period</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns drink bouts for a given animal within the specified position data time period.&quot;&quot;&quot;</span>
+
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Smooth position data to 100ms intervals - only numeric columns</span>
+    <span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;100ms&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="c1"># Add non-numeric columns back</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subject</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Calculate distance from spout</span>
+    <span class="n">spout_x</span><span class="p">,</span> <span class="n">spout_y</span> <span class="o">=</span> <span class="n">spout_loc</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;dist_to_spout&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Find potential bout starts (within start_radius of spout)</span>
+    <span class="n">near_spout</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;dist_to_spout&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">start_radius</span>
+
+    <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
+        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing drink bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">):</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="c1"># Skip if not near spout</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">near_spout</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Found potential bout start</span>
+        <span class="n">bout_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">bout_start_idx</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="c1"># Track movement during potential bout</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">max_displacement</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Continue while near spout and not moving too much</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">):</span>
+            <span class="n">current_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">elapsed_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">bout_start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+            <span class="c1"># Calculate displacement from bout start position</span>
+            <span class="n">current_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">current_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">displacement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">current_x</span> <span class="o">-</span> <span class="n">start_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">current_y</span> <span class="o">-</span> <span class="n">start_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="p">)</span>
+            <span class="n">max_displacement</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_displacement</span><span class="p">,</span> <span class="n">displacement</span><span class="p">)</span>
+
+            <span class="c1"># Check if bout should end</span>
+            <span class="k">if</span> <span class="n">max_displacement</span> <span class="o">&gt;</span> <span class="n">move_thresh</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">elapsed_time</span> <span class="o">&gt;</span> <span class="n">max_dur</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Determine bout end</span>
+        <span class="n">bout_end_time</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">bout_start_idx</span> <span class="k">else</span> <span class="n">bout_start_time</span>
+        <span class="p">)</span>
+        <span class="n">bout_duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">bout_end_time</span> <span class="o">-</span> <span class="n">bout_start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+        <span class="c1"># Check if bout meets duration criteria</span>
+        <span class="k">if</span> <span class="n">min_dur</span> <span class="o">&lt;</span> <span class="n">bout_duration</span> <span class="o">&lt;</span> <span class="n">max_dur</span><span class="p">:</span>
+            <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">bout_start_time</span><span class="p">,</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">bout_end_time</span><span class="p">,</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">bout_duration</span><span class="p">),</span>
+            <span class="p">}</span>
+            <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">drink_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Move to next potential bout (skip past current bout end)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">drink_bouts_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute drink bouts for each subject</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
+    <span class="n">spout_loc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;aeon3&quot;</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">535</span><span class="p">)</span>
+    <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">drink_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">spout_loc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subject_bouts</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">subject_bouts</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">drink_bouts_df</span><span class="p">,</span> <span class="n">subject_bouts</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drink_bouts_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>start</th>
+      <th>end</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 16:53:55.400</td>
+      <td>2024-02-09 16:54:02.300</td>
+      <td>0 days 00:00:06.900000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:08:33.300</td>
+      <td>2024-02-09 17:08:44.100</td>
+      <td>0 days 00:00:10.800000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:08:44.200</td>
+      <td>2024-02-09 17:08:50.400</td>
+      <td>0 days 00:00:06.200000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:15:14.000</td>
+      <td>2024-02-09 17:15:24.700</td>
+      <td>0 days 00:00:10.700000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:43:53.900</td>
+      <td>2024-02-09 17:44:03.800</td>
+      <td>0 days 00:00:09.900000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:26:44.400</td>
+      <td>2024-02-10 17:27:22.100</td>
+      <td>0 days 00:00:37.700000</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:34:49.400</td>
+      <td>2024-02-10 17:35:19.800</td>
+      <td>0 days 00:00:30.400000</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:40:56.100</td>
+      <td>2024-02-10 17:41:38.900</td>
+      <td>0 days 00:00:42.800000</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:41:51.700</td>
+      <td>2024-02-10 17:42:34.100</td>
+      <td>0 days 00:00:42.400000</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:42:34.200</td>
+      <td>2024-02-10 17:42:58.800</td>
+      <td>0 days 00:00:24.600000</td>
+    </tr>
+  </tbody>
+</table>
+<p>218 rows × 4 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="explore-bouts">
+<h2>Explore bouts<a class="headerlink" href="#explore-bouts" title="Link to this heading">#</a></h2>
+<p>We define an explore bout as a period when a subject is:</p>
+<ul class="simple">
+<li><p>Outside the nest area: More than 50% of tracked positions in a 1-minute window fall outside a defined nest radius (<code class="docutils literal notranslate"><span class="pre">nest_radius</span></code>) from the nest center (<code class="docutils literal notranslate"><span class="pre">nest_center</span></code>).</p></li>
+<li><p>Actively moving: The subject is not stationary and shows exploratory displacement across the window.</p></li>
+<li><p>Sustained over time: Consecutive windows meeting the above criteria are merged into continuous bouts lasting at least 1 minute.</p></li>
+</ul>
+<p>The bout begins when the subject exits the nest area and continues as long as it remains outside and actively moving.
+Consecutive windows marked as explore bouts are merged into longer continuous bouts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given pos_df, animal name, nest xy, return all exploration bouts in df</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">explore_bouts</span><span class="p">(</span>
+    <span class="n">pos_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">subject</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">nest_center</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">nest_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">14</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># 14 cm, in px</span>
+    <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># 100 cm/s, in px/s</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns exploration bouts for a given animal within the specified position data time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data.</span>
+<span class="sd">        subject (str): Name of the animal to filter by.</span>
+<span class="sd">        nest_center (np.ndarray): Coordinates of the nest center.</span>
+<span class="sd">        nest_radius (float): Radius of the nest area (default: 14 cm in px).</span>
+<span class="sd">        max_speed (float): Maximum speed threshold for excising swaps (default: 100 cm/s in px/s).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing exploration bouts for the specified animal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="c1"># Set some constants and placeholder `windows_df` which will be combined into `bouts_df`</span>
+    <span class="n">explore_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;1m&quot;</span><span class="p">)</span>
+    <span class="n">explore_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create time windows based on start and end time</span>
+    <span class="n">data_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">data_end_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">window_starts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span>
+        <span class="n">start</span><span class="o">=</span><span class="n">data_start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">data_end_time</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">explore_win</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Process each time window (use tqdm for progress bar)</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing explore bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">win_start</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
+        <span class="n">win_end</span> <span class="o">=</span> <span class="n">win_start</span> <span class="o">+</span> <span class="n">explore_win</span>
+        <span class="n">win_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">animal_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">win_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">animal_data</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">win_end</span><span class="p">)</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">win_data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># skip windows with too little data</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Remove id swaps (based on pos / speed jumps)</span>
+        <span class="n">win_data</span> <span class="o">=</span> <span class="n">remove_swaps</span><span class="p">(</span><span class="n">win_data</span><span class="p">,</span> <span class="n">max_speed</span><span class="p">)</span>
+
+        <span class="c1"># If majority of time in a window is outside nest, consider it an explore bout</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">distance_from_nest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">frac_out_nest</span> <span class="o">=</span> <span class="p">(</span><span class="n">distance_from_nest</span> <span class="o">&gt;</span> <span class="n">nest_radius</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">win_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frac_out_nest</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">explore_win</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="n">explore_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">explore_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+    
+    <span class="c1"># Merge consecutive explore windows into continuous bouts</span>
+    <span class="k">if</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">explore_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+    <span class="c1"># Initialize the merged bouts dataframe with the first window</span>
+    <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># Iterate through remaining windows and merge consecutive ones</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explore_windows_df</span><span class="p">)):</span>
+        <span class="n">current_window</span> <span class="o">=</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">last_bout</span> <span class="o">=</span> <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
+            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
+            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># start a new bout</span>
+            <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">explore_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">explore_bouts_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
+    <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">explore_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">nest_center</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subject_bouts</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">subject_bouts</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">explore_bouts_df</span><span class="p">,</span> <span class="n">subject_bouts</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">explore_bouts_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>start</th>
+      <th>end</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 16:48:10.660</td>
+      <td>2024-02-09 16:53:10.660</td>
+      <td>0 days 00:05:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 16:54:10.660</td>
+      <td>2024-02-09 17:08:10.660</td>
+      <td>0 days 00:14:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:09:10.660</td>
+      <td>2024-02-09 17:27:10.660</td>
+      <td>0 days 00:18:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:29:10.660</td>
+      <td>2024-02-09 17:43:10.660</td>
+      <td>0 days 00:14:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 17:44:10.660</td>
+      <td>2024-02-09 17:53:10.660</td>
+      <td>0 days 00:09:00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:03:10.660</td>
+      <td>2024-02-10 17:09:10.660</td>
+      <td>0 days 00:06:00</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:17:10.660</td>
+      <td>2024-02-10 17:26:10.660</td>
+      <td>0 days 00:09:00</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:28:10.660</td>
+      <td>2024-02-10 17:34:10.660</td>
+      <td>0 days 00:06:00</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:35:10.660</td>
+      <td>2024-02-10 17:41:10.660</td>
+      <td>0 days 00:06:00</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-10 17:43:10.660</td>
+      <td>2024-02-10 18:00:10.660</td>
+      <td>0 days 00:17:00</td>
+    </tr>
+  </tbody>
+</table>
+<p>136 rows × 4 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../how_to.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How-to Guides</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dj_data_ingestion_and_processing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DataJoint pipeline: Data ingestion and processing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries-and-define-variables-and-helper-functions">Import libraries and define variables and helper functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-position-data">Fetch position data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sleep-bouts">Sleep bouts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drink-bouts">Drink bouts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-bouts">Explore bouts</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user/how_to/dj_compute_bouts_copy.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><p class="sphinx-version"></p>
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+    </p>
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
+    0.16.1.
+    </p></div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><div class="things-in-a-row">
+    <a href="https://neurogears.org/">
+        <img src="../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.datajoint.com/">
+        <img src="../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://wellcome.org/">
+        <img src="../../_static/images/light-logo-wellcome.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-wellcome.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.sainsburywellcome.org/web/">
+        <img src="../../_static/images/light-logo-swc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-swc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/">
+        <img src="../../_static/images/light-logo-ucl.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-ucl.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit">
+        <img src="../../_static/images/light-logo-gatsby.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-gatsby.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ukri.org/councils/bbsrc/">
+        <img src="../../_static/images/light-logo-bbsrc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-bbsrc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.simonsfoundation.org/">
+        <img src="../../_static/images/light-logo-simons.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-simons.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+</div></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

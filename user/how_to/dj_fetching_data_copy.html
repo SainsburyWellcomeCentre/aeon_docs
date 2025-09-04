@@ -1,0 +1,2102 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataJoint pipeline: Fetching data as DataFrames &#8212; Aeon  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=9651da53" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how_to/dj_fetching_data_copy';</script>
+    <script src="../../_static/js/workflow.js?v=1800024c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DataJoint pipeline: On-premises deployment" href="dj_pipeline_local_deployment.html" />
+    <link rel="prev" title="DataJoint pipeline: Data ingestion and processing" href="dj_data_ingestion_and_processing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">This website is currently under active development. Please report any issues on <a href='https://github.com/SainsburyWellcomeCentre/aeon_docs/issues'>GitHub</a>.</div>
+</aside>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Aeon </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributor/index.html">
+    Contributor’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../aeon_modules.html">Aeon Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/hardware.html">Hardware Assembly</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/commutation_translation.html">Commutation-Translation System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html">Foraging Patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/habitat.html">Habitat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/hardware/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera.html">Camera Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/camera_controller.html">Camera Controller Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/commutation_translation_system.html">Commutation-Translation System Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch.html">Foraging Patch Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/foraging_patch_output_expander.html">Foraging Patch Output Expander Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/microphone.html">Microphone Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/rfid_reader.html">RFID Reader Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/sound_card.html">Sound Card Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/timestamp_generator.html">Timestamp Generator Wiring Schematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/connections/weighing_scale.html">Weighing Scale Wiring Schematic</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../aeon_modules/acquisition.html">Acquisition Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/activity_tracking.html">Activity Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/alerts.html">Alerts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera.html">Spinnaker Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/camera_controller.html">Multi-Camera Controller</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/control_panel.html">Control Panel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/annotation_source_GUI.html">AnnotationSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/button_source_GUI.html">ButtonSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/environment_state_GUI.html">EnvironmentState</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/experiment_properties_GUI.html">ExperimentProperties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/label_control_GUI.html">LabelControl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/control_panel/subject_database.html">SubjectDatabase <!--TODO: Placeholder content--></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch.html">Foraging Patch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/patch_dispenser.html">PatchDispenser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/pellet_monitor.html">PelletMonitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_since_last_event.html">TimeSinceLastEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../aeon_modules/acquisition/foraging_patch/time_spent_on_wheel.html">TimeSpentOnWheel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/monitors.html">Device Synchronisation Monitors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/nest.html">Nest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/rfid_reader.html">RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aeon_modules/acquisition/subject_tracking.html">Subject Tracking</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../sample_datasets.html">Sample Datasets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/aeon_dj_pipeline.html">DataJoint pipeline for Aeon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/general_experimental_workflow.html">General experimental workflow infrastructure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../how_to.html">How-to Guides</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dj_compute_bouts_copy.html">DataJoint pipeline: Computing behavioural bouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DataJoint pipeline: Fetching data as DataFrames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dj_querying_data_copy.html">DataJoint pipeline: Querying data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_example.html">Hidden Markov Model analysis of mouse behavioural syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_api_example_copy.html">Data access using the low-level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="social_analysis1_static.html">Platform paper social experiment analysis: Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="social_analysis2.html">Platform paper social experiment analysis: Part 2</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../how_to.html" class="nav-link">How-to Guides</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">DataJoint pipeline: Fetching data as DataFrames</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="datajoint-pipeline-fetching-data-as-dataframes">
+<span id="target-dj-fetching-data"></span><h1>DataJoint pipeline: Fetching data as DataFrames<a class="headerlink" href="#datajoint-pipeline-fetching-data-as-dataframes" title="Link to this heading">#</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This guide assumes you have a <a class="reference internal" href="dj_pipeline_local_deployment.html#target-dj-pipeline-deployment"><span class="std std-ref">DataJoint pipeline deployed</span></a> with <a class="reference internal" href="dj_data_ingestion_and_processing.html#target-dj-data-ingestion-processing"><span class="std std-ref">data already ingested</span></a>.</p>
+</div>
+<p>This guide builds upon the <a class="reference internal" href="dj_querying_data_copy.html#target-dj-querying-data"><span class="std std-ref">Querying data</span></a> guide and provides further examples on fetching various kinds of data as <code class="docutils literal notranslate"><span class="pre">pandas.DataFrames</span></code> from the <a class="reference internal" href="../tutorials/aeon_dj_pipeline.html#target-aeon-dj-pipeline"><span class="std std-ref">Aeon DataJoint pipeline</span></a>.</p>
+<p>You can also run this notebook online at <a class="reference external" href="https://works.datajoint.com/"><code class="docutils literal notranslate"><span class="pre">works.datajoint.com</span></code></a> using the following credentials:</p>
+<ul class="simple">
+<li><p>Username: aeondemo</p></li>
+<li><p>Password: aeon_djworks</p></li>
+</ul>
+<p>To access it, go to the Notebook tab at the top and in the File Browser on the left, navigate to <code class="docutils literal notranslate"><span class="pre">ucl-swc_aeon</span> <span class="pre">&gt;</span> <span class="pre">docs</span> <span class="pre">&gt;</span> <span class="pre">examples</span></code>, where this notebook <code class="docutils literal notranslate"><span class="pre">dj_fetching_data.ipynb</span></code> is located.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples here use the <em>social</em> period of the <a class="reference internal" href="../sample_datasets.html#target-full-datasets"><span class="std std-ref">social0.2-aeon4</span></a> dataset.
+Since the social period spans 2 weeks, we limit retrieval to the first 3 days to keep the examples concise.</p>
+<p>If you are using a different dataset, be sure to replace the experiment name and parameters in the code below accordingly.</p>
+</div>
+<section id="import-libraries-and-define-variables-and-helper-functions">
+<h2>Import libraries and define variables and helper functions<a class="headerlink" href="#import-libraries-and-define-variables-and-helper-functions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.dj_pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">acquisition</span><span class="p">,</span> <span class="n">streams</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">tracking</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aeon.dj_pipeline.analysis.block_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Block</span><span class="p">,</span>
+    <span class="n">BlockAnalysis</span><span class="p">,</span>
+    <span class="n">BlockSubjectAnalysis</span><span class="p">,</span>
+    <span class="n">get_foraging_bouts</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ensure_ts_arr_datetime</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure array is a numpy array of datetime64[ns] type.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;social0.2-aeon4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;presocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-31 11:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;presocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-08 15:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;social_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-09 17:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;social_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-23 12:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postsocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-25 18:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;postsocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-02 13:00:00&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]}</span>
+<span class="c1"># Define periods</span>
+<span class="n">periods</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;presocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_end&quot;</span><span class="p">]),</span>
+    <span class="s2">&quot;social&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_end&quot;</span><span class="p">]),</span>
+    <span class="s2">&quot;postsocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_end&quot;</span><span class="p">]),</span>
+<span class="p">}</span>
+<span class="c1"># Select the social period and limit to first 3 days for brevity</span>
+<span class="n">period_name</span> <span class="o">=</span> <span class="s2">&quot;social&quot;</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="n">period_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">end_dt</span> <span class="o">=</span> <span class="n">start_dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="patch-data">
+<h2>Patch data<a class="headerlink" href="#patch-data" title="Link to this heading">#</a></h2>
+<p>In this section, we will fetch <a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patch</span></a>-related data for each <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">Block</span></a>.
+The data includes:</p>
+<ul class="simple">
+<li><p><strong>patch information</strong>: wheel timestamps, patch rate, and patch offset for each block</p></li>
+<li><p><strong>subject patch data</strong>: subjects’ interactions with patches, including information on their presence in patches (duration, timestamps, RFID detections), pellet consumption (count, timestamps), and wheel movement (distance travelled)</p></li>
+<li><p><strong>subject patch preferences</strong>: preferences of subjects for different patches</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_subject_patch_data</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads subject patch data for a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): The key to filter the subject patch data.</span>
+<span class="sd">        period_start (str): The start time for the period.</span>
+<span class="sd">        period_end (str): The end time for the period.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: A tuple containing:</span>
+<span class="sd">            - patch_info (pd.DataFrame): Information about patches.</span>
+<span class="sd">            - block_subject_patch_data (pd.DataFrame): Data for the specified period.</span>
+<span class="sd">            - block_subject_patch_pref (pd.DataFrame): Preference data for the specified period.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">patch_info</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">BlockAnalysis</span><span class="o">.</span><span class="n">Patch</span><span class="p">()</span>
+        <span class="o">&amp;</span> <span class="n">key</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span>
+        <span class="s2">&quot;block_start&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;patch_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;patch_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;patch_offset&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;wheel_timestamps&quot;</span><span class="p">,</span>
+        <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">block_subject_patch_data</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Patch</span><span class="p">()</span>
+        <span class="o">&amp;</span> <span class="n">key</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+
+    <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Preference</span><span class="p">()</span>
+        <span class="o">&amp;</span> <span class="n">key</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">patch_info</span><span class="p">:</span>
+        <span class="n">patch_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">patch_info</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block_subject_patch_pref</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">patch_info</span><span class="p">,</span> <span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">block_subject_patch_pref</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_patch_info</span><span class="p">,</span> <span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">load_subject_patch_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+
+<span class="c1"># Drop NaNs in preference columns</span>
+<span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;final_preference_by_time&quot;</span><span class="p">,</span> <span class="s2">&quot;final_preference_by_wheel&quot;</span><span class="p">])</span>
+
+<span class="c1"># Validate subject count for pre/post-social blocks</span>
+<span class="k">if</span> <span class="n">period_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;presocial&quot;</span><span class="p">,</span> <span class="s2">&quot;postsocial&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">n_subjects</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n_subjects</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">period_name</span><span class="si">}</span><span class="s2"> blocks have &gt;1 subject. Data may need cleaning.&quot;</span>
+        <span class="p">)</span>
+
+<span class="c1"># Ensure timestamp arrays are datetime64[ns]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_rfid_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_timestamps&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">block_subject_patch_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ensure_ts_arr_datetime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_patch_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>block_start</th>
+      <th>patch_name</th>
+      <th>wheel_timestamps</th>
+      <th>patch_rate</th>
+      <th>patch_offset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-02-09 18:19:04.000000</td>
+      <td>Patch1</td>
+      <td>[2024-02-09T18:19:04.000000000, 2024-02-09T18:...</td>
+      <td>0.0100</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-02-09 18:19:04.000000</td>
+      <td>Patch2</td>
+      <td>[2024-02-09T18:19:04.000000000, 2024-02-09T18:...</td>
+      <td>0.0020</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-02-09 18:19:04.000000</td>
+      <td>Patch3</td>
+      <td>[2024-02-09T18:19:04.000000000, 2024-02-09T18:...</td>
+      <td>0.0033</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-02-09 20:07:25.041984</td>
+      <td>Patch1</td>
+      <td>[2024-02-09T20:07:25.060000000, 2024-02-09T20:...</td>
+      <td>0.0020</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-02-09 20:07:25.041984</td>
+      <td>Patch2</td>
+      <td>[2024-02-09T20:07:25.060000000, 2024-02-09T20:...</td>
+      <td>0.0033</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>2024-02-12 14:31:02.005984</td>
+      <td>Patch2</td>
+      <td>[2024-02-12T14:31:02.020000000, 2024-02-12T14:...</td>
+      <td>0.0033</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>2024-02-12 14:31:02.005984</td>
+      <td>Patch3</td>
+      <td>[2024-02-12T14:31:02.020000000, 2024-02-12T14:...</td>
+      <td>0.0100</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>2024-02-12 16:53:14.000000</td>
+      <td>Patch1</td>
+      <td>[2024-02-12T16:53:14.000000000, 2024-02-12T16:...</td>
+      <td>0.0020</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>2024-02-12 16:53:14.000000</td>
+      <td>Patch2</td>
+      <td>[2024-02-12T16:53:14.000000000, 2024-02-12T16:...</td>
+      <td>0.0100</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>2024-02-12 16:53:14.000000</td>
+      <td>Patch3</td>
+      <td>[2024-02-12T16:53:14.000000000, 2024-02-12T16:...</td>
+      <td>0.0033</td>
+      <td>75.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>114 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_subject_patch_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_name</th>
+      <th>block_start</th>
+      <th>patch_name</th>
+      <th>subject_name</th>
+      <th>in_patch_timestamps</th>
+      <th>in_patch_time</th>
+      <th>in_patch_rfid_timestamps</th>
+      <th>pellet_count</th>
+      <th>pellet_timestamps</th>
+      <th>patch_threshold</th>
+      <th>wheel_cumsum_distance_travelled</th>
+      <th>period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch1</td>
+      <td>BAA-1104048</td>
+      <td>[2024-02-09T18:26:44.600000000, 2024-02-09T18:...</td>
+      <td>756.60</td>
+      <td>[2024-02-09T18:26:45.736672000, 2024-02-09T18:...</td>
+      <td>39</td>
+      <td>[2024-02-09T18:26:50.373504000, 2024-02-09T18:...</td>
+      <td>[125.10144062824004, 125.98842043772429, 133.9...</td>
+      <td>[-0.0, 0.004602223261072957, 0.007670372101788...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch1</td>
+      <td>BAA-1104049</td>
+      <td>[2024-02-09T18:21:10.200000000, 2024-02-09T18:...</td>
+      <td>570.18</td>
+      <td>[2024-02-09T18:21:11.452832000, 2024-02-09T18:...</td>
+      <td>26</td>
+      <td>[2024-02-09T18:28:57.907488000, 2024-02-09T18:...</td>
+      <td>[75.07162358109204, 186.27023735234684, 135.82...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch2</td>
+      <td>BAA-1104048</td>
+      <td>[2024-02-09T18:20:10.400000000, 2024-02-09T18:...</td>
+      <td>123.32</td>
+      <td>[2024-02-09T18:20:12.097312000, 2024-02-09T18:...</td>
+      <td>0</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[-0.0, -0.004602223261073846, -0.0015340744203...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch2</td>
+      <td>BAA-1104049</td>
+      <td>[2024-02-09T18:20:54.600000000, 2024-02-09T18:...</td>
+      <td>226.80</td>
+      <td>[2024-02-09T18:21:30.375328000, 2024-02-09T18:...</td>
+      <td>3</td>
+      <td>[2024-02-09T18:52:14.199488000, 2024-02-09T19:...</td>
+      <td>[1069.4286592499257, 694.8095229017808, 278.84...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch3</td>
+      <td>BAA-1104048</td>
+      <td>[2024-02-09T18:20:03.940000000, 2024-02-09T18:...</td>
+      <td>138.78</td>
+      <td>[2024-02-09T18:25:59.113504000, 2024-02-09T18:...</td>
+      <td>1</td>
+      <td>[2024-02-09T19:30:22.688480000]</td>
+      <td>[331.8480024096391]</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch1</td>
+      <td>BAA-1104049</td>
+      <td>[2024-02-12T17:01:34.760000000, 2024-02-12T17:...</td>
+      <td>94.98</td>
+      <td>[2024-02-12T17:01:35.372416000, 2024-02-12T17:...</td>
+      <td>0</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[-0.0, -0.00920444652214547, -0.00613629768143...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch2</td>
+      <td>BAA-1104048</td>
+      <td>[2024-02-12T16:58:52.540000000, 2024-02-12T16:...</td>
+      <td>627.76</td>
+      <td>[2024-02-12T16:58:53.758496000, 2024-02-12T16:...</td>
+      <td>18</td>
+      <td>[2024-02-12T17:01:47.607488000, 2024-02-12T17:...</td>
+      <td>[128.88388967189582, 98.29740841703715, 138.54...</td>
+      <td>[-0.0, 0.0030681488407182655, 0.00306814884071...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch2</td>
+      <td>BAA-1104049</td>
+      <td>[2024-02-12T16:53:55.360000000, 2024-02-12T16:...</td>
+      <td>1215.12</td>
+      <td>[2024-02-12T16:53:56.698656000, 2024-02-12T16:...</td>
+      <td>34</td>
+      <td>[2024-02-12T16:57:31.338496000, 2024-02-12T16:...</td>
+      <td>[245.09652119007265, 137.19851472663964, 129.5...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch3</td>
+      <td>BAA-1104048</td>
+      <td>[2024-02-12T16:58:45.920000000, 2024-02-12T16:...</td>
+      <td>101.68</td>
+      <td>[2024-02-12T16:58:47.270432000, 2024-02-12T16:...</td>
+      <td>0</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[-0.0, 0.0, -0.006136297681431202, -0.00460222...</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch3</td>
+      <td>BAA-1104049</td>
+      <td>[2024-02-12T17:01:20.200000000, 2024-02-12T17:...</td>
+      <td>48.12</td>
+      <td>[2024-02-12T17:01:22.861888000, 2024-02-12T17:...</td>
+      <td>0</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>social</td>
+    </tr>
+  </tbody>
+</table>
+<p>228 rows × 12 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_subject_patch_pref</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_name</th>
+      <th>block_start</th>
+      <th>patch_name</th>
+      <th>subject_name</th>
+      <th>cumulative_preference_by_wheel</th>
+      <th>cumulative_preference_by_time</th>
+      <th>running_preference_by_time</th>
+      <th>running_preference_by_wheel</th>
+      <th>final_preference_by_wheel</th>
+      <th>final_preference_by_time</th>
+      <th>period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch1</td>
+      <td>BAA-1104048</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.758947</td>
+      <td>0.742711</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch1</td>
+      <td>BAA-1104049</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.548170</td>
+      <td>0.574604</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch2</td>
+      <td>BAA-1104048</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.096201</td>
+      <td>0.121056</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch2</td>
+      <td>BAA-1104049</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.251308</td>
+      <td>0.228560</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:19:04</td>
+      <td>Patch3</td>
+      <td>BAA-1104048</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.144852</td>
+      <td>0.136232</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch1</td>
+      <td>BAA-1104049</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.038067</td>
+      <td>0.069930</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch2</td>
+      <td>BAA-1104048</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.831808</td>
+      <td>0.778163</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch2</td>
+      <td>BAA-1104049</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.955588</td>
+      <td>0.894642</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch3</td>
+      <td>BAA-1104048</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.162096</td>
+      <td>0.126041</td>
+      <td>social</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:53:14</td>
+      <td>Patch3</td>
+      <td>BAA-1104049</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ...</td>
+      <td>0.006345</td>
+      <td>0.035429</td>
+      <td>social</td>
+    </tr>
+  </tbody>
+</table>
+<p>162 rows × 11 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="foraging-bouts">
+<h2>Foraging bouts<a class="headerlink" href="#foraging-bouts" title="Link to this heading">#</a></h2>
+<p>Here we will use the <code class="docutils literal notranslate"><span class="pre">block_analysis.get_foraging_bouts()</span></code> function to retrieve foraging bout data for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">blocks</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_foraging_bouts</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads foraging bout data for blocks falling within a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: Concatenated dataframe of foraging bouts for all matching blocks.</span>
+<span class="sd">                      Returns an empty dataframe with predefined columns if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Fetch block start times within the specified period</span>
+    <span class="n">blocks</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">Block</span> <span class="o">&amp;</span> <span class="n">key</span> <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_end &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Retrieve foraging bouts for each block</span>
+    <span class="n">bouts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">block_start</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+        <span class="n">block_key</span> <span class="o">=</span> <span class="n">key</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;block_start&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">block_start</span><span class="p">)}</span>
+        <span class="n">bouts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_foraging_bouts</span><span class="p">(</span><span class="n">block_key</span><span class="p">,</span> <span class="n">min_pellets</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Return concatenated DataFrame or empty fallback</span>
+    <span class="k">if</span> <span class="n">bouts</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">bouts</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;n_pellets&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+<span class="c1"># Load foraging bouts</span>
+<span class="n">foraging_df</span> <span class="o">=</span> <span class="n">load_foraging_bouts</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foraging_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>start</th>
+      <th>end</th>
+      <th>n_pellets</th>
+      <th>cum_wheel_dist</th>
+      <th>subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-02-09 18:26:07.280</td>
+      <td>2024-02-09 18:27:51.460</td>
+      <td>1</td>
+      <td>458.105303</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-02-09 18:28:26.720</td>
+      <td>2024-02-09 18:30:25.440</td>
+      <td>1</td>
+      <td>464.014558</td>
+      <td>BAA-1104049</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-02-09 18:36:49.760</td>
+      <td>2024-02-09 18:38:21.360</td>
+      <td>2</td>
+      <td>240.621107</td>
+      <td>BAA-1104049</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-02-09 18:39:17.180</td>
+      <td>2024-02-09 18:42:14.880</td>
+      <td>7</td>
+      <td>983.174489</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-02-09 18:43:02.440</td>
+      <td>2024-02-09 18:44:35.480</td>
+      <td>1</td>
+      <td>247.676315</td>
+      <td>BAA-1104049</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>327</th>
+      <td>2024-02-12 16:24:17.660</td>
+      <td>2024-02-12 16:26:56.160</td>
+      <td>3</td>
+      <td>680.642741</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>328</th>
+      <td>2024-02-12 16:30:04.740</td>
+      <td>2024-02-12 16:33:20.300</td>
+      <td>3</td>
+      <td>981.212408</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>329</th>
+      <td>2024-02-12 16:38:32.840</td>
+      <td>2024-02-12 16:43:16.600</td>
+      <td>3</td>
+      <td>2384.391929</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>2024-02-12 16:49:39.380</td>
+      <td>2024-02-12 16:51:38.920</td>
+      <td>1</td>
+      <td>321.695406</td>
+      <td>BAA-1104049</td>
+    </tr>
+    <tr>
+      <th>331</th>
+      <td>2024-02-12 16:51:21.440</td>
+      <td>2024-02-12 16:53:12.640</td>
+      <td>2</td>
+      <td>423.237326</td>
+      <td>BAA-1104048</td>
+    </tr>
+  </tbody>
+</table>
+<p>332 rows × 5 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="rfid-data">
+<h2>RFID data<a class="headerlink" href="#rfid-data" title="Link to this heading">#</a></h2>
+<p>In this experiment, each subject is implanted with a miniature RFID microchip.
+RFID readers are positioned at the <a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patches</span></a>, <a class="reference internal" href="../aeon_modules/hardware/nest.html#target-nest"><span class="std std-ref">nest</span></a>, and <a class="reference internal" href="../aeon_modules/hardware/habitat.html#target-habitat"><span class="std std-ref">gate</span></a>.</p>
+<p>We will fetch the RFID detection data at each reader across all <a class="reference internal" href="../../reference/glossary.html#term-Acquisition-Chunk"><span class="xref std std-term">chunks</span></a> occurring within the first 3 days of the social period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_rfid_events</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads RFID events data for chunks falling within a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing RFID events for the specified period.</span>
+<span class="sd">                      Returns an empty dataframe with predefined columns if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Fetch RFID events within the specified period</span>
+    <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">streams</span><span class="o">.</span><span class="n">RfidReader</span> <span class="o">*</span> <span class="n">streams</span><span class="o">.</span><span class="n">RfidReaderRfidEvents</span>
+        <span class="o">&amp;</span> <span class="n">key</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &gt;= &quot;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &lt;= &quot;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rfid_events_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="c1"># Return empty DataFrame with expected columns if no data found</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;chunk_start&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sample_count&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rfid&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Get subject details for RFID mapping</span>
+    <span class="n">subject_detail</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="n">SubjectDetail</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+    <span class="n">subject_detail</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Create mapping from RFID to subject ID</span>
+    <span class="n">rfid_to_lab_id</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;lab_id&quot;</span><span class="p">],</span> <span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">]))</span>
+
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="n">rfid_to_lab_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rfid</span><span class="p">))</span> <span class="k">for</span> <span class="n">rfid</span> <span class="ow">in</span> <span class="n">rfid_array</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">rfid_array</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Extract experiment_name and chunk_start from the index before resetting</span>
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">idx</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span>
+    <span class="p">]</span>  <span class="c1"># Assuming chunk_start is at index 3</span>
+
+    <span class="c1"># Reset the index and drop the index column</span>
+    <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Reorder columns to put experiment_name first and chunk_start second</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">col</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">columns</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">rfid_events_df</span>
+
+<span class="c1"># Load RFID data</span>
+<span class="n">rfid_df</span> <span class="o">=</span> <span class="n">load_rfid_events</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rfid_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_name</th>
+      <th>chunk_start</th>
+      <th>rfid_reader_name</th>
+      <th>sample_count</th>
+      <th>timestamps</th>
+      <th>rfid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 17:00:00</td>
+      <td>Patch1Rfid</td>
+      <td>844</td>
+      <td>[2024-02-09T17:00:00.483007908, 2024-02-09T17:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 18:00:00</td>
+      <td>Patch1Rfid</td>
+      <td>857</td>
+      <td>[2024-02-09T18:01:41.768191814, 2024-02-09T18:...</td>
+      <td>[BAA-1104049, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 19:00:00</td>
+      <td>Patch1Rfid</td>
+      <td>1262</td>
+      <td>[2024-02-09T19:04:08.140863895, 2024-02-09T19:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 20:00:00</td>
+      <td>Patch1Rfid</td>
+      <td>301</td>
+      <td>[2024-02-09T20:05:47.786528111, 2024-02-09T20:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-09 21:00:00</td>
+      <td>Patch1Rfid</td>
+      <td>0</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 13:00:00</td>
+      <td>Patch3Rfid</td>
+      <td>336</td>
+      <td>[2024-02-12T13:05:10.713151932, 2024-02-12T13:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>434</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 14:00:00</td>
+      <td>Patch3Rfid</td>
+      <td>323</td>
+      <td>[2024-02-12T14:01:47.358272076, 2024-02-12T14:...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 15:00:00</td>
+      <td>Patch3Rfid</td>
+      <td>19</td>
+      <td>[2024-02-12T15:12:24.588128090, 2024-02-12T15:...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>436</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 16:00:00</td>
+      <td>Patch3Rfid</td>
+      <td>139</td>
+      <td>[2024-02-12T16:03:41.951839924, 2024-02-12T16:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>437</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 17:00:00</td>
+      <td>Patch3Rfid</td>
+      <td>183</td>
+      <td>[2024-02-12T17:01:05.555712223, 2024-02-12T17:...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+  </tbody>
+</table>
+<p>438 rows × 6 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="position-data">
+<h2>Position data<a class="headerlink" href="#position-data" title="Link to this heading">#</a></h2>
+<p>In this section, we will fetch SLEAP position data (centroid only) from the <code class="docutils literal notranslate"><span class="pre">tracking.DenoisedTracking</span></code> table for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Acquisition-Chunk"><span class="xref std std-term">chunks</span></a> occurring within the first 3 days of the social period.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The full pose data (all tracked body parts) can be fetched from the <code class="docutils literal notranslate"><span class="pre">tracking.SLEAPTracking.Part</span></code> table.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period.</span>
+<span class="sd">        period_end (str): End datetime of the time period.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
+<span class="sd">                     Returns an empty DataFrame if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create chunk restriction for the time period</span>
+        <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
+            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Fetch centroid tracking data for the specified period</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
+            <span class="o">&amp;</span> <span class="n">key</span>
+            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
+            <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Clean up the dataframe</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">centroid_df</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+
+<span class="c1"># Load position data</span>
+<span class="c1"># If this takes too long, consider changing end_dt to an earlier time</span>
+<span class="n">position_df</span> <span class="o">=</span> <span class="n">load_position_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Querying data from 2024-02-09 17:00:00 to 2024-02-12 17:00:00...
+  Retrieved 20211079 rows of position data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_name</th>
+      <th>identity_name</th>
+      <th>identity_likelihood</th>
+      <th>x</th>
+      <th>y</th>
+      <th>likelihood</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-02-09 16:48:10.660</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>NaN</td>
+      <td>1280.208496</td>
+      <td>550.073364</td>
+      <td>0.971199</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 16:48:10.660</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.102343</td>
+      <td>1232.14624</td>
+      <td>558.113037</td>
+      <td>0.971199</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 16:48:10.680</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.021459</td>
+      <td>1282.991699</td>
+      <td>552.229248</td>
+      <td>0.985731</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 16:48:10.680</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>NaN</td>
+      <td>1232.227051</td>
+      <td>560.120911</td>
+      <td>0.985731</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 16:48:10.700</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>NaN</td>
+      <td>1283.058105</td>
+      <td>552.201538</td>
+      <td>0.963831</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:59:59.460</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.971221</td>
+      <td>1213.701416</td>
+      <td>544.300171</td>
+      <td>0.709776</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:59:59.480</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.997087</td>
+      <td>1211.169434</td>
+      <td>531.434387</td>
+      <td>0.709763</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:59:59.480</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.971762</td>
+      <td>1213.696045</td>
+      <td>544.309204</td>
+      <td>0.709763</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:59:59.500</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.996872</td>
+      <td>1211.168945</td>
+      <td>531.43396</td>
+      <td>0.709618</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:59:59.500</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.971445</td>
+      <td>1213.696045</td>
+      <td>544.309326</td>
+      <td>0.709618</td>
+    </tr>
+  </tbody>
+</table>
+<p>20211079 rows × 6 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="weight-data">
+<h2>Weight data<a class="headerlink" href="#weight-data" title="Link to this heading">#</a></h2>
+<p>A weighing scale integrated into the <a class="reference internal" href="../aeon_modules/hardware/nest.html#target-nest"><span class="std std-ref">nest</span></a> records the weight data for each subject whenever a subject is alone in the nest.</p>
+<p>Here we will fetch the weight data for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Acquisition-Chunk"><span class="xref std std-term">chunks</span></a> occurring within the first 3 days of the social period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_weight_data</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads weight data for a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: Weight data for the specified period.</span>
+<span class="sd">                      Returns an empty dataframe if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">weight_df</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">acquisition</span><span class="o">.</span><span class="n">Environment</span><span class="o">.</span><span class="n">SubjectWeight</span>
+            <span class="o">&amp;</span> <span class="n">key</span>
+            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;chunk_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;chunk_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">weight_df</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">weight_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weight_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Error loading weight data for </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+
+<span class="n">weight_df</span> <span class="o">=</span> <span class="n">load_weight_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>timestamps</th>
+      <th>weight</th>
+      <th>subject_id</th>
+    </tr>
+    <tr>
+      <th>experiment_name</th>
+      <th>chunk_start</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="11" valign="top">social0.2-aeon4</th>
+      <th>2024-02-09 17:00:00</th>
+      <td>[2024-02-09T17:12:29.800000191, 2024-02-09T17:...</td>
+      <td>[23.522316, 23.522316, 23.522316, 23.522316, 2...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 18:00:00</th>
+      <td>[2024-02-09T18:07:53.019999981, 2024-02-09T18:...</td>
+      <td>[25.6000004, 25.6000004, 25.6000004, 25.600000...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 19:00:00</th>
+      <td>[2024-02-09T19:04:08.159999847, 2024-02-09T19:...</td>
+      <td>[27.4697571, 27.4697571, 27.4697571, 27.469757...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 20:00:00</th>
+      <td>[2024-02-09T20:20:22.920000076, 2024-02-09T20:...</td>
+      <td>[31.3124409, 11.8549995]</td>
+      <td>[BAA-1104049, BAA-1104049]</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 21:00:00</th>
+      <td>[2024-02-09T21:08:21.480000019, 2024-02-09T21:...</td>
+      <td>[21.3240242, 21.3240242, 21.3240242, 21.324024...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 13:00:00</th>
+      <td>[2024-02-12T13:01:20.599999905, 2024-02-12T13:...</td>
+      <td>[28.2491455, 28.2541466, 28.2541466, 28.254146...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 14:00:00</th>
+      <td>[2024-02-12T14:15:02.300000191, 2024-02-12T14:...</td>
+      <td>[28.2345123, 28.2345123, 28.2345123, 28.234512...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 15:00:00</th>
+      <td>[2024-02-12T15:12:41.400000095, 2024-02-12T15:...</td>
+      <td>[32.1000023, 32.1000023, 32.1000023, 32.100002...</td>
+      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 16:00:00</th>
+      <td>[2024-02-12T16:12:17.960000038, 2024-02-12T16:...</td>
+      <td>[30.8999977, 30.8999977, 30.8999977, 30.899997...</td>
+      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:00:00</th>
+      <td>[2024-02-12T17:02:20.840000153, 2024-02-12T17:...</td>
+      <td>[30.1764622, 29.99049, 29.99049, 29.99049, 29....</td>
+      <td>[BAA-1104049, BAA-1104048, BAA-1104048, BAA-11...</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dj_data_ingestion_and_processing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DataJoint pipeline: Data ingestion and processing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dj_pipeline_local_deployment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DataJoint pipeline: On-premises deployment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries-and-define-variables-and-helper-functions">Import libraries and define variables and helper functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-data">Patch data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foraging-bouts">Foraging bouts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rfid-data">RFID data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#position-data">Position data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-data">Weight data</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user/how_to/dj_fetching_data_copy.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item"><p class="sphinx-version"></p>
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+    </p>
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
+    0.16.1.
+    </p></div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><div class="things-in-a-row">
+    <a href="https://neurogears.org/">
+        <img src="../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.datajoint.com/">
+        <img src="../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://wellcome.org/">
+        <img src="../../_static/images/light-logo-wellcome.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-wellcome.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.sainsburywellcome.org/web/">
+        <img src="../../_static/images/light-logo-swc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-swc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/">
+        <img src="../../_static/images/light-logo-ucl.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-ucl.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ucl.ac.uk/gatsby/gatsby-computational-neuroscience-unit">
+        <img src="../../_static/images/light-logo-gatsby.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-gatsby.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.ukri.org/councils/bbsrc/">
+        <img src="../../_static/images/light-logo-bbsrc.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-bbsrc.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+    <a href="https://www.simonsfoundation.org/">
+        <img src="../../_static/images/light-logo-simons.png" alt="Sponsors" class="only-light img-sponsor"/>
+        <img src="../../_static/images/dark-logo-simons.png" alt="Sponsors" class="only-dark img-sponsor"/>
+    </a>
+</div></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

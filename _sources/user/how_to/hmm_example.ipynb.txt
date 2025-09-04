@@ -9,7 +9,7 @@
     "\n",
     "In this example, we fit and apply a Hidden Markov Model (HMM) to infer behavioural syllables from pre-processed mouse tracking data.\n",
     "\n",
-    "The [sample dataset](../../downloads/hmm_example_mouse_pos.pkl) is a two-hour snippet of a single mouse in a foraging assay. \n",
+    "The [sample dataset](https://app.globus.org/file-manager?origin_id=65b637ce-8146-4305-8cb8-d87b526a9ff6&origin_path=%2F) is a two-hour snippet of a single mouse in a foraging assay. \n",
     "The mouse was tracked using [SLEAP](sleap:) with key body parts annotated as follows:\n",
     "\n",
     ":::{image} ../../images/hmm-example-mouse-body-parts.png\n",

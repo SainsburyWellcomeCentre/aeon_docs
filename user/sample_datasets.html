@@ -392,10 +392,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="how_to.html">How-to Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="how_to/dj_data_ingestion_and_processing.html">DataJoint pipeline: Data ingestion and processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to/dj_data_loading.html">Helper functions</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="how_to/dj_pipeline_local_deployment.html">DataJoint pipeline: On-premises deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to/dj_querying_data.html">DataJoint pipeline: Querying data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="how_to/hmm_example.html">Hidden Markov Model analysis of mouse behavioural syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="how_to/io_api_example_copy.html">Data access using the low-level API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="how_to/social_analysis1_static.html">Platform paper social experiment analysis: Part 1</a></li>
@@ -477,7 +474,7 @@ They are selected to support quick inspection, pipeline prototyping, or tooling 
 <span id="target-full-datasets"></span><h2>Full datasets<a class="headerlink" href="#full-datasets" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The links to the full datasets are temporarily unavailable while we resolve access issues.
+<p>The links to the “raw” datasets are temporarily unavailable while we resolve access issues.
 Please check back later or reach out to the <a class="reference internal" href="../about/index.html#target-project-maintainers"><span class="std std-ref">project maintainers</span></a> if you need urgent access.</p>
 </div>
 <p>These datasets contain complete experimental recordings captured across multiple acquisition machines, with sizes generally in the <strong>terabyte (TB)</strong> range.
@@ -485,12 +482,19 @@ Each dataset is labelled by the experiment name (e.g. <code class="docutils lite
 <p>“raw” datasets include <a class="reference internal" href="../about/design_considerations.html#target-data-provenance-raw"><span class="std std-ref">raw data</span></a> acquired from <em>all</em> streams used in an experiment, while “ingest” datasets contain only a <em>subset</em> of post-processed, <a class="reference internal" href="../about/design_considerations.html#target-data-provenance-derived"><span class="std std-ref">derived data</span></a> (typically full-pose position and/or weight data).
 For most analyses, using both “raw” and “ingest” datasets provides the cleanest and most complete view.</p>
 <ul class="simple">
-<li><p><strong>social0.2-aeon3</strong></p></li>
-<li><p><strong>social0.2-aeon4</strong></p></li>
-<li><p><strong>social0.3-aeon3</strong></p></li>
-<li><p><strong>social0.3-aeon4</strong></p></li>
-<li><p><strong>social0.4-aeon3</strong></p></li>
-<li><p><strong>social0.4-aeon4</strong></p></li>
+<li><p><strong>Social 0.2</strong>: A foraging assay with three food patches featuring dynamically varying reward rates. Each experiment consists of three periods: <em>presocial</em> (each mouse alone for 3–4 days), <em>social</em> (both mice together for 2 weeks), and <em>postsocial</em> (each mouse alone again for 3–4 days).</p>
+<ul>
+<li><p><strong>social0.2-aeon3</strong>: raw, <a class="reference external" href="https://app.globus.org/file-manager?origin_id=35289aa3-af85-44aa-8f95-16167a47fde4&amp;amp;origin_path=%2F">ingest</a></p></li>
+<li><p><strong>social0.2-aeon4</strong>: raw, <a class="reference external" href="https://app.globus.org/file-manager?origin_id=ca754f8a-e774-4aa8-b52e-2137d268764d&amp;amp;origin_path=%2F">ingest</a></p></li>
+</ul>
+</li>
+<li><p><strong>Social 0.3/0.4</strong>: A variant of the <code class="docutils literal notranslate"><span class="pre">social</span> <span class="pre">0.2</span></code> assay, with three food patches and one dummy patch fixed at the center of the habitat. The reward-rate combinations span a wider range, and the habitat includes two additional gates connecting the outer corridor to the main area. Two wooden balls are also provided as enrichment for the mice to push around. The same three-period structure (<em>presocial</em>, <em>social</em>, <em>postsocial</em>) is used.</p>
+<ul>
+<li><p><strong>social0.3-aeon3</strong>: raw, <a class="reference external" href="https://app.globus.org/file-manager?origin_id=37ce19e9-e0d1-41cb-b29d-51ca7a09d768&amp;amp;origin_path=%2F">ingest</a></p></li>
+<li><p><strong>social0.4-aeon3</strong>: raw, <a class="reference external" href="https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&amp;amp;origin_path=%2F">ingest</a></p></li>
+<li><p><strong>social0.4-aeon4</strong>: raw, <a class="reference external" href="https://app.globus.org/file-manager?origin_id=fd732cba-fbda-47f5-810f-35fca21582e1&amp;amp;origin_path=%2F">ingest</a></p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="precomputed-datasets">
@@ -499,8 +503,8 @@ For most analyses, using both “raw” and “ingest” datasets provides the c
 Stored in compact formats (e.g. Parquet, pickle), they are designed to support tutorials and how-to guides without requiring users to re-run heavy preprocessing or analysis steps.
 While downstream of “raw” and “ingest”, they prioritise ease of use and clarity of analysis over full provenance traceability.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://app.globus.org/file-manager?origin_id=48cc1398-b591-4f52-85d2-f68801306d4a&amp;amp;origin_path=%2F"><strong>Platform paper social analysis datasets</strong></a>: Datasets analysed in the <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2025.07.31.664513">platform paper</a> social experiments.</p></li>
-<li><p><a class="reference download internal" download="" href="../_downloads/15779a0bae26dc7d28015054d653dbbb/hmm_example_mouse_pos.pkl"><span class="xref download myst"><strong>Filtered mouse position data</strong></span></a>: Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.</p></li>
+<li><p><a class="reference external" href="https://app.globus.org/file-manager?origin_id=2c09d69d-8ba0-4ca4-9762-7c784949e5c1&amp;amp;origin_path=%2F"><strong>Platform paper social analysis datasets</strong></a>: Datasets analysed in the <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2025.07.31.664513">platform paper</a> social experiments.</p></li>
+<li><p><a class="reference external" href="https://app.globus.org/file-manager?origin_id=65b637ce-8146-4305-8cb8-d87b526a9ff6&amp;amp;origin_path=%2F"><strong>Filtered mouse position data</strong></a>: Position and kinematic data from a two-hour snippet of a single mouse in a foraging assay.</p></li>
 </ul>
 </section>
 </section>

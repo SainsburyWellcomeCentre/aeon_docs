@@ -31,14 +31,14 @@ To deploy and operate a DataJoint pipeline, you will need the following:
       ```bash
       docker start db
       ```
-2. GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline
+2. `aeon_mecha` GitHub repository containing the [codebase](aeon-mecha-github:) of the DataJoint pipeline.
    - [Install the codebase](target-install-aeon-mecha). No additional modifications are needed to deploy the pipeline locally.
 3. File storage
    - Provide a location for the pipeline to access/store the data files (e.g. a local directory or mounted network storage).
 4. Compute environment
    - Ensure you have a compute environment with the necessary software installed to run the pipeline (e.g. a laptop, local workstation, or an HPC cluster).
 5. Data to be ingested and processed
-   - You can use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline. If you choose to use this sample dataset, ensure that you [switch to the `sfn2024` branch of the codebase](target-install-aeon-mecha).
+   - You can use the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset as a starting point to test the pipeline. If you choose to use this sample dataset, ensure that you [switch to the `aeon_docs` branch of the codebase](target-install-aeon-mecha).
 
 ## Pipeline configuration
 DataJoint requires a configuration file named `dj_local_conf.json`. This file should be located in the root directory of the codebase.

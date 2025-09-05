@@ -26,6 +26,7 @@ clean:
 	@rm -rf $(BUILDDIR)
 	@rm -rf $(SOURCEDIR)/reference/api/
 	@rm $(SOURCEDIR)/about/people.md
+	@rm $(SOURCEDIR)/user/how_to/*_copy.ipynb
 
 generate-people-page:
 	@echo "Generating People page..."

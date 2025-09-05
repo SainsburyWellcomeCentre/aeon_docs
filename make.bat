@@ -27,6 +27,8 @@ if not "%1" == "clean" (
 	rmdir /S /Q %BUILDDIR%
     rmdir /S /Q %SOURCEDIR%\reference\api\
 	del %SOURCEDIR%\about\people.md
+	@echo Removing copied example notebooks from 'src'...
+	del /Q src\user\how_to\*_copy.ipynb
 )
 
 %SPHINXBUILD% >NUL 2>NUL

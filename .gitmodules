@@ -1,7 +1,7 @@
 [submodule "aeon_mecha"]
 	path = aeon_mecha
 	url = https://github.com/SainsburyWellcomeCentre/aeon_mecha
-	branch = djworks-notebooks
+	branch = aeon_docs
 [submodule "aeon_api"]
 	path = aeon_api
 	url = https://github.com/SainsburyWellcomeCentre/aeon_api.git

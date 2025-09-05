@@ -24,11 +24,14 @@ cd aeon_api
 ```sh
 git checkout branch_name
 ```
-To install the package alongside all optional dependencies:
+To install the package and its core dependencies:
+```sh
+uv sync
+```
+If you wish to install all optional dependencies, use the following command instead:
 ```sh
 uv sync --all-extras
 ```
-If you wish to install only the core dependencies, simply drop the `--all-extras` flag from the command above.
 :::
 ::::
 
@@ -46,11 +49,14 @@ cd aeon_mecha
 ```sh
 git checkout branch_name
 ```
-To install the package alongside all optional dependencies:
+To install the package and its core dependencies:
+```sh
+uv sync
+```
+If you wish to install all optional dependencies, use the following command instead:
 ```sh
 uv sync --all-extras
 ```
-If you wish to install only the core dependencies, simply drop the `--all-extras` flag from the command above.
 :::
 ::::
 

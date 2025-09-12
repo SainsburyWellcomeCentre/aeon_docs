@@ -173,5 +173,5 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 ::::
 
 ## Downloads
-- [Assembly guide](../../../downloads/Foraging-Patch-Guideline.pdf)
-- [Bill of materials](../../../downloads/Foraging-Patch-BOM.xlsx)
+- [Assembly guide](https://g-d194c1.3cf00.03c0.data.globus.org/Foraging-Patch-Guideline.pdf)
+- [Bill of materials](https://g-d194c1.3cf00.03c0.data.globus.org/Foraging-Patch-BOM.xlsx)

@@ -115,5 +115,5 @@ _Dimensions: L = 372mm, W = 220mm, H = 405mm_
 ::::
 
 ## Downloads
-- [Assembly guide](../../../downloads/Nest-Guideline.pdf)
-- [Bill of materials](../../../downloads/Nest-BOM.xlsx)
+- [Assembly guide](https://g-d194c1.3cf00.03c0.data.globus.org/Nest-Guideline.pdf)
+- [Bill of materials](https://g-d194c1.3cf00.03c0.data.globus.org/Nest-BOM.xlsx)

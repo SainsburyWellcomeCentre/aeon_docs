@@ -114,5 +114,5 @@ Note: the chain cable stopper and motor bracket are bolted onto one of the three
 ::::
 
 ## Downloads
-- [Assembly guide](../../../downloads/Commutation-Translation-System-Guideline.pdf)
-- [Bill of materials](../../../downloads/Commutation-Translation-System-BOM.xlsx)
+- [Assembly guide](https://g-d194c1.3cf00.03c0.data.globus.org/Commutation-Translation-System-Guideline.pdf)
+- [Bill of materials](https://g-d194c1.3cf00.03c0.data.globus.org/Commutation-Translation-System-BOM.xlsx)

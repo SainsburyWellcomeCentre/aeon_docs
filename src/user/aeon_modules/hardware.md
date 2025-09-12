@@ -50,7 +50,7 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 | [**Harp SoundCard**](harp-tech:api/Harp.SoundCard.html)                  | SP speaker                      | Control and monitoring of audio speaker                     | 1        | 
 
 ## Wiring schematics
-<!-- - [Wiring diagram](../downloads/Example-Wiring-Diagram.pdf) Do we still want this?-->
+<!-- - [Wiring diagram](https://g-d194c1.3cf00.03c0.data.globus.org/Example-Wiring-Diagram.pdf) Do we still want this?-->
 - [Camera](target-wiring-camera)
 - [Camera controller](target-wiring-camera-controller)
 - [Commutation-translation system](target-wiring-commutation-translation)

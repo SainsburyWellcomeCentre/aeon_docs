@@ -175,3 +175,4 @@ _Dimensions: L = 2660mm, W = 2381mm, H = 2710mm_
 ## Downloads
 - [Assembly guide](../../../downloads/Habitat-Guideline.pdf)
 - [Bill of materials](../../../downloads/Habitat-BOM.xlsx)
+- [STEP file](aeon-habitat-github:)

@@ -159,6 +159,7 @@ linkcheck_ignore = [
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
     "https://doi.org/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
     "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
+    r"globus\.org",  # All URLs containing globus.org
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
 ]
 

@@ -1,0 +1,10 @@
+{% extends "!layout.html" %}
+{% block extrahead %}
+  {{ super() }}
+  <!-- Plausible -->
+  <script async src="https://plausible.io/js/pa-aDf9OqQwEhJVOM2YbELvF.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+{% endblock %}

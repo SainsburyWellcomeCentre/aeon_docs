@@ -2,7 +2,7 @@
 # Subject Tracking
 The subject tracking module processes [camera](target-node-spinnakervideosource) frame events to facilitate comprehensive tracking and analysis of animal positions and movements in the [habitat](target-habitat) or within specific regions or areas in the habitat that are of behavioural significance (e.g. [nest](target-module-nest), [foraging patch](target-module-foraging-patch)). 
 It includes nodes such as `PositionTracking` for detecting and tracking blobs (of objects, e.g. animals);
-`PoseTracking`, which leverages [SLEAP's](https://sleap.ai/) multi-animal tracking capabilities, to simultaneously track and identify different animals; and
+`PoseTracking`, which leverages [SLEAP's](sleap:) multi-animal tracking capabilities, to simultaneously track and identify different animals; and
 `RegionTracking` for determining if a tracked object is within a specific region.
 These enable real-time tracking, event triggering, and data logging, making it easier to monitor and analyse animal behaviour in various experimental setups.
 
@@ -79,7 +79,7 @@ This name will be set to the `Subject` that carries the `FrameEvents` from the [
 
 (target-node-posetracking)=
 ### PoseTracking
-Pose tracking utilises [SLEAP](https://sleap.ai/), which is fully integrated with Bonsai through the [Bonsai.Sleap](bonsai:sleap/index.html) package, to simultaneously track and identify different animals within the habitat.
+Pose tracking utilises [SLEAP](sleap:), which is fully integrated with Bonsai through the [Bonsai.Sleap](bonsai:sleap/index.html) package, to simultaneously track and identify different animals within the habitat.
 
 In Aeon experimental workflows, two linked `IncludeWorkflow`s are provided to give this functionality. 
 The `PoseTracking (Extensions)` node contains the complete data flow and processing workflow for identity and tracking of subjects from video frames captured by the cameras, whereas the `PoseTracking (Aeon.Vision.Sleap)` node is used within this workflow to perform the model inference step of processing. 
@@ -118,7 +118,7 @@ Each of these `Subject`s becomes accessible in the Bonsai editor's toolbox anywh
 | **FrameEvents**   | `Harp.Timestamped<Aeon.Acquisition.VideoDataFrame>` | The `Subject` to subscribe to that carries frame events from a chosen camera | 
 
 #### Usage
-The trained model must first be exported to [Protocol buffer (.pb) format](https://protobuf.dev/) using the [`sleap-export`](https://sleap.ai/guides/cli.html#sleap-export) command line interface. 
+The trained model must first be exported to [Protocol buffer (.pb) format](https://protobuf.dev/) using the [`sleap-export`](sleap-legacy:guides/cli.html#sleap-export) command line interface. 
 Next, create a `GroupWorkflow` and give it an appropriate name, e.g. "PoseTracking". 
 Inside, place a `PoseTracking (Aeon.Vision.Sleap)` node, externalise all properties, and connect it to the `WorkflowOutput`.
 
@@ -270,5 +270,5 @@ Information on state recovery or persistence requirements, if applicable.
 Explanation of any alert configurations and links to guides or further configuration steps.
 -->
 :::{seealso}
-The [SLEAP](https://sleap.ai/) and [Bonsai.Sleap](bonsai:sleap/index.html) documentation for more information on training models to be used with the `PoseTracking (Aeon.Vision.Sleap)` node.
+The [SLEAP](sleap:) and [Bonsai.Sleap](bonsai:sleap/index.html) documentation for more information on training models to be used with the `PoseTracking (Aeon.Vision.Sleap)` node.
 :::

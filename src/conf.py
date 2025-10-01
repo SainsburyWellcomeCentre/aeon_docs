@@ -194,6 +194,7 @@ myst_url_schemes = {
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
     "semver": "https://semver.org/",
     "sleap": "https://sleap.ai/{{path}}#{{fragment}}",
+    "sleap-legacy": "http://legacy.sleap.ai/{{path}}#{{fragment}}",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",

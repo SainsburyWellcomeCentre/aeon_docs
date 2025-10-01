@@ -159,6 +159,7 @@ linkcheck_ignore = [
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
     "https://doi.org/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
     "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
+    "http://legacy.sleap.ai/",  # NameResolutionError
     r"globus\.org",  # All URLs containing globus.org
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
 ]
@@ -194,6 +195,7 @@ myst_url_schemes = {
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
     "semver": "https://semver.org/",
     "sleap": "https://sleap.ai/{{path}}#{{fragment}}",
+    "sleap-legacy": "http://legacy.sleap.ai/{{path}}#{{fragment}}",
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",

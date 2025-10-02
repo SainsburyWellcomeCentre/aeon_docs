@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Subject Tracking &#8212; Aeon  documentation</title>
+    <title>Subject Tracking &#8212; Aeon v0.0.19 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/documentation_options.js?v=84fddc8a"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon </p>
+    <p class="title logo__title">Aeon v0.0.19</p>
   
 </a></div>
     
@@ -472,7 +472,7 @@
 <span id="target-module-subject-tracking"></span><h1>Subject Tracking<a class="headerlink" href="#subject-tracking" title="Link to this heading">#</a></h1>
 <p>The subject tracking module processes <a class="reference internal" href="camera.html#target-node-spinnakervideosource"><span class="std std-ref">camera</span></a> frame events to facilitate comprehensive tracking and analysis of animal positions and movements in the <a class="reference internal" href="../hardware/habitat.html#target-habitat"><span class="std std-ref">habitat</span></a> or within specific regions or areas in the habitat that are of behavioural significance (e.g. <a class="reference internal" href="nest.html#target-module-nest"><span class="std std-ref">nest</span></a>, <a class="reference internal" href="foraging_patch.html#target-module-foraging-patch"><span class="std std-ref">foraging patch</span></a>).
 It includes nodes such as <code class="docutils literal notranslate"><span class="pre">PositionTracking</span></code> for detecting and tracking blobs (of objects, e.g. animals);
-<code class="docutils literal notranslate"><span class="pre">PoseTracking</span></code>, which leverages <a class="reference external" href="https://sleap.ai/">SLEAP’s</a> multi-animal tracking capabilities, to simultaneously track and identify different animals; and
+<code class="docutils literal notranslate"><span class="pre">PoseTracking</span></code>, which leverages <a class="reference external" href="https://sleap.ai/#">SLEAP’s</a> multi-animal tracking capabilities, to simultaneously track and identify different animals; and
 <code class="docutils literal notranslate"><span class="pre">RegionTracking</span></code> for determining if a tracked object is within a specific region.
 These enable real-time tracking, event triggering, and data logging, making it easier to monitor and analyse animal behaviour in various experimental setups.</p>
 <section id="nodes">
@@ -593,7 +593,7 @@ This name will be set to the <code class="docutils literal notranslate"><span cl
 </section>
 <section id="posetracking">
 <span id="target-node-posetracking"></span><h3>PoseTracking<a class="headerlink" href="#posetracking" title="Link to this heading">#</a></h3>
-<p>Pose tracking utilises <a class="reference external" href="https://sleap.ai/">SLEAP</a>, which is fully integrated with Bonsai through the <a class="reference external" href="https://bonsai-rx.org/sleap/index.html#">Bonsai.Sleap</a> package, to simultaneously track and identify different animals within the habitat.</p>
+<p>Pose tracking utilises <a class="reference external" href="https://sleap.ai/#">SLEAP</a>, which is fully integrated with Bonsai through the <a class="reference external" href="https://bonsai-rx.org/sleap/index.html#">Bonsai.Sleap</a> package, to simultaneously track and identify different animals within the habitat.</p>
 <p>In Aeon experimental workflows, two linked <code class="docutils literal notranslate"><span class="pre">IncludeWorkflow</span></code>s are provided to give this functionality.
 The <code class="docutils literal notranslate"><span class="pre">PoseTracking</span> <span class="pre">(Extensions)</span></code> node contains the complete data flow and processing workflow for identity and tracking of subjects from video frames captured by the cameras, whereas the <code class="docutils literal notranslate"><span class="pre">PoseTracking</span> <span class="pre">(Aeon.Vision.Sleap)</span></code> node is used within this workflow to perform the model inference step of processing.</p>
 <!-- To be completed
@@ -680,7 +680,7 @@ Each of these <code class="docutils literal notranslate"><span class="pre">Subje
 </section>
 <section id="id5">
 <h4>Usage<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
-<p>The trained model must first be exported to <a class="reference external" href="https://protobuf.dev/">Protocol buffer (.pb) format</a> using the <a class="reference external" href="https://sleap.ai/guides/cli.html#sleap-export"><code class="docutils literal notranslate"><span class="pre">sleap-export</span></code></a> command line interface.
+<p>The trained model must first be exported to <a class="reference external" href="https://protobuf.dev/">Protocol buffer (.pb) format</a> using the <a class="reference external" href="http://legacy.sleap.ai/guides/cli.html#sleap-export"><code class="docutils literal notranslate"><span class="pre">sleap-export</span></code></a> command line interface.
 Next, create a <code class="docutils literal notranslate"><span class="pre">GroupWorkflow</span></code> and give it an appropriate name, e.g. “PoseTracking”.
 Inside, place a <code class="docutils literal notranslate"><span class="pre">PoseTracking</span> <span class="pre">(Aeon.Vision.Sleap)</span></code> node, externalise all properties, and connect it to the <code class="docutils literal notranslate"><span class="pre">WorkflowOutput</span></code>.</p>
 <div class="workflow docutils">
@@ -913,7 +913,7 @@ Explanation of any alert configurations and links to guides or further configura
 -->
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>The <a class="reference external" href="https://sleap.ai/">SLEAP</a> and <a class="reference external" href="https://bonsai-rx.org/sleap/index.html#">Bonsai.Sleap</a> documentation for more information on training models to be used with the <code class="docutils literal notranslate"><span class="pre">PoseTracking</span> <span class="pre">(Aeon.Vision.Sleap)</span></code> node.</p>
+<p>The <a class="reference external" href="https://sleap.ai/#">SLEAP</a> and <a class="reference external" href="https://bonsai-rx.org/sleap/index.html#">Bonsai.Sleap</a> documentation for more information on training models to be used with the <code class="docutils literal notranslate"><span class="pre">PoseTracking</span> <span class="pre">(Aeon.Vision.Sleap)</span></code> node.</p>
 </div>
 </section>
 </section>

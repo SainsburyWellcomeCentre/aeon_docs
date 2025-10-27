@@ -17,7 +17,7 @@ D. Campagner, J. Bhagat, G. Lopes, L. Calcaterra, A. G. Pouget, A. Almeida, T. T
 If you use Aeon datasets in your research, please cite the [platform paper](#platform-paper), except where a dataset provides its own citation.
 
 - Sainsbury Wellcome Centre Foraging Behaviour Working Group. (2024). _Single Mouse Foraging Assay – 2-Hour Sample_ [Data set]. Zenodo. https://doi.org/10.5281/zenodo.13881884
-- [Social 0.2/0.3/0.4 Datasets](target-full-datasets): Full multi-animal social experiments. 
+- [Social 0.2/0.3/0.4 Datasets](target-full-datasets): Full datasets from social experiments. 
 
 ## Research using Aeon
 

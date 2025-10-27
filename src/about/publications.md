@@ -24,15 +24,23 @@ If you use Aeon datasets in your research, please cite the [platform paper](#pla
 Works by the broader community that make use of Aeon. 
 This section includes preprints, published papers, project repositories, and datasets.
 
+:::{note}
+Some links may lead to private repositories that are currently restricted to members of the respective research groups.
+:::
+
+- Sanna Titus (2025). _Bonsai._ [Computer software]. GitHub. https://github.com/sannatitus/Bonsai
 - L. Schwarz (2025). _Social sleaping acquisition._ [Computer software]. GitHub. https://github.com/Lauraschwarz/social_sleaping_acquisition
 - Allen Institute for Neural Dynamics (2024). _Pirouette._ [Computer software]. GitHub. https://github.com/AllenNeuralDynamics/Aind.Behavior.Pirouette
+- Harris Lab (2024). _Hypnose._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/hypnose
+- Sainsbury Wellcome Centre (2024). _Phields._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/PhieldsExperiments
 - Axel Lab (2023). _Delphi._ [Computer software]. GitHub. https://github.com/goatsofnaxos/Delphi
 - Rancz Lab (2022). _Vestibular VR._ [Computer software]. GitHub. https://github.com/neurogears/vestibular-vr
 - Branco Lab (2022). _Cricket Hunt VR._ [Computer software]. GitHub. https://github.com/BrancoLab/CricketHuntVR
-- Harris Lab (2024). _Hypnose._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/hypnose
-- Sainsbury Wellcome Centre (2024). _Phields._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/PhieldsExperiments
 - Sanna Titus (2022). _Spatial Navigation._ [Computer software]. GitHub. https://github.com/sannatitus/spatial_navigation
-<!-- private repos
-- Sainsbury Wellcome Centre (year). _Flexible Navigation Task._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/flexible-navigation-task
-- Keshavarzi Lab (year). _Ring._ [Computer software]. GitHub. https://github.com/Keshavarzi-lab/Ring 
--->
+- Coen Lab (n.d.). _Bonsai Workflows._ [Computer software]. GitHub. https://github.com/coenLab/bonsai-workflows
+- Keshavarzi Lab (n.d.). _Ring._ [Computer software]. GitHub. https://github.com/Keshavarzi-lab/Ring 
+- Sainsbury Wellcome Centre (n.d.). _Flexible Navigation Task._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/flexible-navigation-task
+- Sainsbury Wellcome Centre (n.d.). _Joysick ABCD._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/JoysickABCD
+- Sainsbury Wellcome Centre (n.d.). _ThreatLoop Arena._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/ThreatLoop-arena
+- Sainsbury Wellcome Centre (n.d.). _VR ABCD._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/vr-abcd
+- Saleem Lab (n.d.). _Saleem Lab Software._ [Computer software]. GitHub. https://github.com/saleemLab/

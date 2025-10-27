@@ -162,6 +162,13 @@ linkcheck_ignore = [
     "http://legacy.sleap.ai/",  # NameResolutionError
     r"globus\.org",  # All URLs containing globus.org
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
+    # Private repos
+    "https://github.com/coenLab/bonsai-workflows",
+    "https://github.com/Keshavarzi-lab/Ring",
+    "https://github.com/SainsburyWellcomeCentre/flexible-navigation-task",
+    "https://github.com/SainsburyWellcomeCentre/JoysickABCD",
+    "https://github.com/SainsburyWellcomeCentre/ThreatLoop-arena",
+    "https://github.com/SainsburyWellcomeCentre/vr-abcd",
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

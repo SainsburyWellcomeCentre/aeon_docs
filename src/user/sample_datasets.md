@@ -7,7 +7,7 @@ To demonstrate Aeon's various features and capabilities, we also provide the fol
 These lightweight datasets are curated excerpts from full experiments, typically sized in **gigabytes (GB)**.
 They are selected to support quick inspection, pipeline prototyping, or tooling validation before committing to full dataset downloads.
 
-- [**Single mouse in a foraging assay**](sample-data-single-mouse-foraging:): A two-hour snippet of a single mouse in a foraging assay consisting of three food patches.
+- [**Single Mouse Foraging Assay – 2-Hour Sample**](sample-data-single-mouse-foraging:): A two-hour snippet of a single mouse in a foraging assay consisting of three food patches.
 
 (target-full-datasets)=
 ## Full datasets

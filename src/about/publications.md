@@ -28,6 +28,7 @@ This section includes preprints, published papers, project repositories, and dat
 Some links may lead to private repositories that are currently restricted to members of the respective research groups.
 :::
 
+- Saleem Lab, University College London (2025). _Visual Stimuli._ [Computer software]. GitHub. https://github.com/SaleemLab/VisualStimuli
 - Sanna Titus (2025). _Bonsai._ [Computer software]. GitHub. https://github.com/sannatitus/Bonsai (Branco and Margrie Labs, Sainsbury Wellcome Centre)
 - L. Schwarz (2025). _Social sleaping acquisition._ [Computer software]. GitHub. https://github.com/Lauraschwarz/social_sleaping_acquisition (O'Keefe Lab, Sainsbury Wellcome Centre)
 - Allen Institute for Neural Dynamics (2024). _Pirouette._ [Computer software]. GitHub. https://github.com/AllenNeuralDynamics/Aind.Behavior.Pirouette
@@ -43,4 +44,3 @@ Some links may lead to private repositories that are currently restricted to mem
 - Sainsbury Wellcome Centre (n.d.). _Joysick ABCD._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/JoysickABCD
 - Sainsbury Wellcome Centre (n.d.). _ThreatLoop Arena._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/ThreatLoop-arena
 - Sainsbury Wellcome Centre (n.d.). _VR ABCD._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/vr-abcd
-- Saleem Lab, University College London (n.d.). _Saleem Lab Software._ [Computer software]. GitHub. https://github.com/saleemLab/

@@ -26,7 +26,7 @@ Some links may lead to private repositories that are currently restricted to mem
 - Allen Institute for Neural Dynamics (2024). _Pirouette._ [Computer software]. GitHub. https://github.com/AllenNeuralDynamics/Aind.Behavior.Pirouette
 - Harris Lab, Sainsbury Wellcome Centre (2024). _Hypnose._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/hypnose
 - Sainsbury Wellcome Centre (2024). _Phields._ [Computer software]. GitHub. https://github.com/SainsburyWellcomeCentre/PhieldsExperiments
-- Fink Lab, Northwestern University (2023). _Delphi._ [Computer software]. GitHub. https://github.com/goatsofnaxos/Delphi
+- Axel Lab, The Zuckerman Institute, Columbia University; Schoonover Lab, Allen Institute for Neural Dynamics; Fink Lab, Northwestern University (2023). _Delphi._ [Computer software]. GitHub. https://github.com/goatsofnaxos/Delphi
 - Rancz Lab, Institut de neurobiologie de la méditerranée (2022). _Vestibular VR._ [Computer software]. GitHub. https://github.com/neurogears/vestibular-vr
 - Branco Lab, Sainsbury Wellcome Centre (2022). _Cricket Hunt VR._ [Computer software]. GitHub. https://github.com/BrancoLab/CricketHuntVR
 - Sanna Titus (2022). _Spatial Navigation._ [Computer software]. GitHub. https://github.com/sannatitus/spatial_navigation (Branco and Margrie Labs, Sainsbury Wellcome Centre)

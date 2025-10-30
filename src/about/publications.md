@@ -7,14 +7,14 @@ This section lists preprints, published papers, project repositories, and datase
 - D. Campagner, J. Bhagat, G. Lopes, L. Calcaterra, A. G. Pouget, A. Almeida, T. T. Nguyen, C. H. Lo, T. Ryan, B. Cruz, F. J. Carvalho, Z. Li, A. Erskine, J. Rapela, O. Folsz, M. Marin, J. Ahn, S. Nierwetberg, S. C. Lenzi, J. D. S. Reggiani, SGEN group – SWC GCNU Experimental Neuroethology Group. (2025). _Aeon: an open-source platform to study the neural basis of ethological behaviours over naturalistic timescales._ bioRxiv. https://doi.org/10.1101/2025.07.31.664513
 - J. C. Erlich, M. Rastogi, Q. Yin, I. Orsolic, B. F. Cruz, A. Almeida, C. A. Duan. (2025). _Mice dynamically adapt to opponents in competitive multi-player games._ bioRxiv. https://doi.org/10.1101/2025.02.14.638359
 
-### Datasets
+## Datasets
 
 If you use Aeon [datasets](target-sample-datasets) in your research, please cite the [platform paper](aeon-paper:), except where a dataset provides its own citation.
 
 - [Single Mouse Foraging Assay – 2-Hour Sample](https://doi.org/10.5281/zenodo.13881884)
 - [Social 0.2/0.3/0.4 Datasets](target-full-datasets): Full datasets from social experiments. 
 
-## Research using Aeon
+## Projects using Aeon
 
 :::{note}
 Some links may lead to private repositories that are currently restricted to members of the respective research groups.

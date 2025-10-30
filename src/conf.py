@@ -157,11 +157,18 @@ linkcheck_ignore = [
     "http://SubjectExpressionBuilder.Name",  # Broken URL
     "https://learn.microsoft.com/dotnet/api/",  # 429 Client Error: Too Many Requests for url
     "https://www.sainsburywellcome.org/",  # Occasional ConnectTimeoutError
-    "https://doi.org/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
-    "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",  # 403 Client Error: Forbidden for bioRxiv url
+    "https://doi.org/",  # 403 Client Error: Forbidden for bioRxiv url
+    "https://www.biorxiv.org/",  # 403 Client Error: Forbidden for bioRxiv url
     "http://legacy.sleap.ai/",  # NameResolutionError
     r"globus\.org",  # All URLs containing globus.org
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
+    # Private repos
+    "https://github.com/coenLab/bonsai-workflows",
+    "https://github.com/Keshavarzi-lab/Ring",
+    "https://github.com/SainsburyWellcomeCentre/flexible-navigation-task",
+    "https://github.com/SainsburyWellcomeCentre/JoysickABCD",
+    "https://github.com/SainsburyWellcomeCentre/ThreatLoop-arena",
+    "https://github.com/SainsburyWellcomeCentre/vr-abcd",
 ]
 
 # linkcheck will treat redirections from these source URI:canonical URI

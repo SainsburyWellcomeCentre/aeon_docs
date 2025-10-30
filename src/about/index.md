@@ -37,6 +37,7 @@ Aeon is dedicated to providing a welcoming and positive experience for all its p
 :hidden:
 
 people
+publications
 design_considerations
 code_of_conduct
 license

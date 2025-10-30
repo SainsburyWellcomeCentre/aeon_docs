@@ -18,8 +18,7 @@
     "3. [Run automated ingestion and processing](#target-dj-data-ingestion-processing-step-3): Run routines to ingest data and process it for querying and analysis.\n",
     "\n",
     ":::{note}\n",
-    "This guide uses the [Single mouse in a foraging assay](sample-data-single-mouse-foraging:) sample dataset for the experiment named `social0.2-aeon3`.\n",
-    "<!--TODO: Mention which branch/release of aeon_mecha to use with the sample dataset.--> \n",
+    "This guide uses the [Single Mouse Foraging Assay – 2-Hour Sample](sample-data-single-mouse-foraging:) dataset for the experiment named `social0.2-aeon3`.\n",
     "If you are using a different dataset, please make sure the DataJoint pipeline is correctly configured (e.g. the data directory is correctly specified in the DataJoint configuration file (`dj_local_conf.json`)).\n",
     "You should also replace the experiment name and other parameters in the code below accordingly.\n",
     ":::"

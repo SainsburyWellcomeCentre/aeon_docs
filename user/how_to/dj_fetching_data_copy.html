@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DataJoint pipeline: Fetching data as DataFrames &#8212; Aeon v0.0.20 documentation</title>
+    <title>DataJoint pipeline: Fetching data as DataFrames &#8212; Aeon  documentation</title>
   
   
   
@@ -42,7 +42,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=ae461b50"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.0.20</p>
+    <p class="title logo__title">Aeon </p>
   
 </a></div>
     
@@ -480,26 +480,31 @@
 <p>To access it, go to the Notebook tab at the top and in the File Browser on the left, navigate to <code class="docutils literal notranslate"><span class="pre">ucl-swc_aeon</span> <span class="pre">&gt;</span> <span class="pre">docs</span> <span class="pre">&gt;</span> <span class="pre">examples</span></code>, where this notebook <code class="docutils literal notranslate"><span class="pre">dj_fetching_data.ipynb</span></code> is located.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The examples here use the <em>social</em> period of the <a class="reference internal" href="../sample_datasets.html#target-full-datasets"><span class="std std-ref">social0.2-aeon4</span></a> dataset.
-Since the social period spans 2 weeks, we limit retrieval to the first 3 days to keep the examples concise.</p>
+<p>The examples here use the <em>social</em> period of the <a class="reference internal" href="../sample_datasets.html#target-full-datasets"><span class="std std-ref">social0.2-aeon4</span></a> dataset which spans 2 weeks.
+To keep examples concise, we limit retrieval to the first 3 days for all data types except for position, which is restricted to the first light-dark cycle.</p>
 <p>If you are using a different dataset, be sure to replace the experiment name and parameters in the code below accordingly.</p>
 </div>
 <section id="import-libraries-and-define-variables-and-helper-functions">
 <h2>Import libraries and define variables and helper functions<a class="headerlink" href="#import-libraries-and-define-variables-and-helper-functions" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.cm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">aeon.dj_pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">acquisition</span><span class="p">,</span> <span class="n">streams</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">tracking</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">aeon.dj_pipeline.analysis.block_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">Block</span><span class="p">,</span>
     <span class="n">BlockAnalysis</span><span class="p">,</span>
     <span class="n">BlockSubjectAnalysis</span><span class="p">,</span>
-    <span class="n">get_foraging_bouts</span><span class="p">,</span>
+    <span class="n">BlockForaging</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -513,6 +518,22 @@ Since the social period spans 2 weeks, we limit retrieval to the first 3 days to
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">next_light_dark_cycle</span><span class="p">(</span><span class="n">start_dt</span><span class="p">,</span> <span class="n">light_off</span><span class="p">,</span> <span class="n">light_on</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the nearest 24-hour window aligned with the start of a light/dark cycle. &quot;&quot;&quot;</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">start_dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">light_off_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">(</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">light_on_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">(</span><span class="n">light_on</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">start_dt</span> <span class="o">&lt;</span> <span class="n">light_off_dt</span><span class="p">:</span>
+        <span class="n">new_start_dt</span> <span class="o">=</span> <span class="n">light_off_dt</span>
+    <span class="k">elif</span> <span class="n">start_dt</span> <span class="o">&lt;</span> <span class="n">light_on_dt</span><span class="p">:</span>
+        <span class="n">new_start_dt</span> <span class="o">=</span> <span class="n">light_on_dt</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">next_day</span> <span class="o">=</span> <span class="n">date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">new_start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">next_day</span><span class="p">,</span> <span class="n">time</span><span class="p">(</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">new_end_dt</span> <span class="o">=</span> <span class="n">new_start_dt</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_start_dt</span><span class="p">,</span> <span class="n">new_end_dt</span>
 </pre></div>
 </div>
 </div>
@@ -529,6 +550,11 @@ Since the social period spans 2 weeks, we limit retrieval to the first 3 days to
     <span class="s2">&quot;postsocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-02 13:00:00&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]}</span>
+<span class="n">light_off</span><span class="p">,</span> <span class="n">light_on</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">20</span>  <span class="c1"># 7am to 8pm</span>
+<span class="n">cm2px</span> <span class="o">=</span> <span class="mf">5.2</span>  <span class="c1"># 1 cm = 5.2 px roughly for top camera</span>
+<span class="n">dark_color</span> <span class="o">=</span> <span class="s2">&quot;#555555&quot;</span>
+<span class="n">light_color</span> <span class="o">=</span> <span class="s2">&quot;#CCCCCC&quot;</span>
+
 <span class="c1"># Define periods</span>
 <span class="n">periods</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;presocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_end&quot;</span><span class="p">]),</span>
@@ -545,14 +571,346 @@ Since the social period spans 2 weeks, we limit retrieval to the first 3 days to
 </div>
 </div>
 </section>
+<section id="position-data">
+<h2>Position data<a class="headerlink" href="#position-data" title="Link to this heading">#</a></h2>
+<p>Raw <a class="reference internal" href="../../getting_started/multianimal_tracking.html#target-multianimal-tracking"><span class="std std-ref">multi-animal SLEAP tracking data</span></a> is stored in the <code class="docutils literal notranslate"><span class="pre">tracking.SLEAPTracking</span></code> tables.
+This data undergoes post-processing to denoise trajectories and correct identity swaps, but only for the anchor node—in this case, the centroid.
+The corrected positions are then stored in the <code class="docutils literal notranslate"><span class="pre">tracking.DenoisedTracking</span></code> table.</p>
+<p>Here, we will extract these centroid positions from the <code class="docutils literal notranslate"><span class="pre">tracking.DenoisedTracking</span></code> table for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Acquisition-Chunk"><span class="xref std std-term">chunks</span></a> occurring within the first 24-hour window aligned with the start of a light/dark cycle during the social period.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The full pose data with all tracked body parts can be fetched from the <code class="docutils literal notranslate"><span class="pre">tracking.SLEAPTracking.Part</span></code> table.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period.</span>
+<span class="sd">        period_end (str): End datetime of the time period.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
+<span class="sd">                     Returns an empty DataFrame if no data found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="c1"># Create chunk restriction for the time period</span>
+        <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
+            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
+        <span class="p">)</span>
+        <span class="c1"># Fetch centroid tracking data for the specified period</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
+            <span class="o">&amp;</span> <span class="n">key</span>
+            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
+            <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="c1"># Clean up the dataframe</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()[</span><span class="n">period_start</span><span class="p">:</span><span class="n">period_end</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">centroid_df</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+
+<span class="c1"># Load position data</span>
+<span class="c1"># If this takes too long, consider changing light_dark_cycle_end to an earlier time</span>
+<span class="n">light_dark_cycle_start</span><span class="p">,</span> <span class="n">light_dark_cycle_end</span> <span class="o">=</span> <span class="n">next_light_dark_cycle</span><span class="p">(</span><span class="n">start_dt</span><span class="p">,</span> <span class="n">light_off</span><span class="p">,</span> <span class="n">light_on</span><span class="p">)</span>
+<span class="n">position_df</span> <span class="o">=</span> <span class="n">load_position_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">light_dark_cycle_start</span><span class="p">,</span> <span class="n">light_dark_cycle_end</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Querying data from 2024-02-09 20:00:00 to 2024-02-10 20:00:00...
+  Retrieved 6487333 rows of position data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>experiment_name</th>
+      <th>identity_name</th>
+      <th>identity_likelihood</th>
+      <th>x</th>
+      <th>y</th>
+      <th>likelihood</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-02-09 20:00:00.000</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.999994</td>
+      <td>179.181152</td>
+      <td>597.614685</td>
+      <td>0.977871</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 20:00:00.000</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.999994</td>
+      <td>179.181152</td>
+      <td>597.614685</td>
+      <td>0.977871</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 20:00:00.000</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.94294</td>
+      <td>1237.617676</td>
+      <td>576.79834</td>
+      <td>0.977871</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 20:00:00.000</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.94294</td>
+      <td>1237.617676</td>
+      <td>576.79834</td>
+      <td>0.977871</td>
+    </tr>
+    <tr>
+      <th>2024-02-09 20:00:00.020</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104049</td>
+      <td>0.962744</td>
+      <td>1237.676514</td>
+      <td>576.779053</td>
+      <td>0.981167</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2024-02-10 19:59:59.920</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.040165</td>
+      <td>1208.623779</td>
+      <td>531.122375</td>
+      <td>0.901075</td>
+    </tr>
+    <tr>
+      <th>2024-02-10 19:59:59.940</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.037304</td>
+      <td>1208.618652</td>
+      <td>531.125305</td>
+      <td>0.900917</td>
+    </tr>
+    <tr>
+      <th>2024-02-10 19:59:59.960</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.02502</td>
+      <td>1208.620117</td>
+      <td>531.122009</td>
+      <td>0.90098</td>
+    </tr>
+    <tr>
+      <th>2024-02-10 19:59:59.980</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.028876</td>
+      <td>1208.613281</td>
+      <td>531.119995</td>
+      <td>0.901786</td>
+    </tr>
+    <tr>
+      <th>2024-02-10 20:00:00.000</th>
+      <td>social0.2-aeon4</td>
+      <td>BAA-1104048</td>
+      <td>0.957639</td>
+      <td>1208.57666</td>
+      <td>531.117493</td>
+      <td>0.895605</td>
+    </tr>
+  </tbody>
+</table>
+<p>6487333 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>To visualise movement patterns across circadian phases, we will first downsample the position data to 1-second intervals and then plot each subject’s position data segmented by light and dark periods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample position_df for plotting</span>
+<span class="n">position_df_downsampled</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">position_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;identity_name&quot;</span><span class="p">],</span> <span class="n">group_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span>  <span class="c1"># 1-second intervals</span>
+    <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="c1"># Compute time-of-day and flag dark vs light periods</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span>
+    <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">minute</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">second</span> <span class="o">/</span> <span class="mi">3600</span>
+    <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="mi">3600</span>
+<span class="p">)</span>
+<span class="c1"># Detect light/dark transitions and assign period IDs</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">light_off</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
+    <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">light_on</span>
+<span class="p">)</span>
+<span class="n">first_dark</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
+<span class="n">shifted</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">first_dark</span><span class="p">)</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_change&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">shifted</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;light_change&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">n_subj</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
+<span class="n">n_per</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="c1"># Create subplot grid</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="n">n_subj</span><span class="p">,</span>
+    <span class="n">ncols</span><span class="o">=</span><span class="n">n_per</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_per</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_subj</span><span class="p">),</span>
+    <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">squeeze</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subjects</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_per</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">identity_name</span> <span class="o">==</span> <span class="n">subj</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">light_id</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">sub</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+            <span class="k">continue</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">dark_color</span> <span class="k">if</span> <span class="n">sub</span><span class="o">.</span><span class="n">is_dark</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="n">light_color</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sub</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span>
+            <span class="p">)</span>
+
+<span class="c1"># Add scale bar to bottom-right subplot</span>
+<span class="n">last_ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">length_px</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cm2px</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">last_ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">last_ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">xmax</span> <span class="o">-</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">length_px</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">)</span>
+<span class="n">last_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">,</span> <span class="n">y0</span><span class="p">],</span> <span class="s2">&quot;k-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">last_ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">y0</span> <span class="o">-</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">),</span>
+    <span class="s2">&quot;0.2 m&quot;</span><span class="p">,</span>
+    <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Downsampled position data across first 24-hour window</span><span class="se">\n</span><span class="s2">aligned with the start of a light/dark cycle.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/be35da2f9226beca5b82a00bbcdc0015767c247b0b023535e6fd68697b4cfb3b.png" src="../../_images/be35da2f9226beca5b82a00bbcdc0015767c247b0b023535e6fd68697b4cfb3b.png" />
+</div>
+</div>
+</section>
 <section id="patch-data">
 <h2>Patch data<a class="headerlink" href="#patch-data" title="Link to this heading">#</a></h2>
-<p>In this section, we will fetch <a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patch</span></a>-related data for each <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">Block</span></a>.
+<p>For each <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">Block</span></a>, we also compute and store <a class="reference internal" href="../aeon_modules/hardware/foraging_patch.html#target-foraging-patch"><span class="std std-ref">foraging patch</span></a>-related data.
 The data includes:</p>
 <ul class="simple">
-<li><p><strong>patch information</strong>: wheel timestamps, patch rate, and patch offset for each block</p></li>
-<li><p><strong>subject patch data</strong>: subjects’ interactions with patches, including information on their presence in patches (duration, timestamps, RFID detections), pellet consumption (count, timestamps), and wheel movement (distance travelled)</p></li>
-<li><p><strong>subject patch preferences</strong>: preferences of subjects for different patches</p></li>
+<li><p><strong>patch information</strong> (<code class="docutils literal notranslate"><span class="pre">block_analysis.BlockAnalysis.Patch</span></code>): wheel timestamps, patch rate, and patch offset for each block</p></li>
+<li><p><strong>subject patch data</strong> (<code class="docutils literal notranslate"><span class="pre">block_analysis.BlockSubjectAnalysis.Patch</span></code>): subjects’ interactions with patches, including information on their presence in patches (duration, timestamps, RFID detections), pellet consumption (count, timestamps), and wheel movement (distance travelled)</p></li>
+<li><p><strong>subject patch preferences</strong> (<code class="docutils literal notranslate"><span class="pre">block_analysis.BlockSubjectAnalysis.Preference</span></code>): preferences of subjects for different patches</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,30 +943,24 @@ The data includes:</p>
         <span class="s2">&quot;wheel_timestamps&quot;</span><span class="p">,</span>
         <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
-
     <span class="n">block_subject_patch_data</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Patch</span><span class="p">()</span>
         <span class="o">&amp;</span> <span class="n">key</span>
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
     <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
-
     <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Preference</span><span class="p">()</span>
         <span class="o">&amp;</span> <span class="n">key</span>
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
     <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="n">patch_info</span><span class="p">:</span>
         <span class="n">patch_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">patch_info</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
         <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block_subject_patch_pref</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
         <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="n">patch_info</span><span class="p">,</span> <span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">block_subject_patch_pref</span>
 </pre></div>
 </div>
@@ -617,10 +969,8 @@ The data includes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_patch_info</span><span class="p">,</span> <span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">load_subject_patch_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
-
 <span class="c1"># Drop NaNs in preference columns</span>
 <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;final_preference_by_time&quot;</span><span class="p">,</span> <span class="s2">&quot;final_preference_by_wheel&quot;</span><span class="p">])</span>
-
 <span class="c1"># Validate subject count for pre/post-social blocks</span>
 <span class="k">if</span> <span class="n">period_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;presocial&quot;</span><span class="p">,</span> <span class="s2">&quot;postsocial&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
     <span class="n">n_subjects</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
@@ -628,7 +978,6 @@ The data includes:</p>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">period_name</span><span class="si">}</span><span class="s2"> blocks have &gt;1 subject. Data may need cleaning.&quot;</span>
         <span class="p">)</span>
-
 <span class="c1"># Ensure timestamp arrays are datetime64[ns]</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_rfid_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_timestamps&quot;</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -973,6 +1322,114 @@ The data includes:</p>
 <p>228 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>To visualise wheel distance spun by each subject at each foraging patch, we downsample the raw cumulative traces by computing the absolute difference between consecutive distance values and retaining only those points where the change exceeds 0.5 cm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_seconds</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># wheel sampling interval</span>
+<span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Flatten and downsample</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">subject_name</span><span class="p">,</span> <span class="n">patch</span><span class="p">),</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;patch_name&quot;</span><span class="p">]):</span>
+    <span class="n">grp</span> <span class="o">=</span> <span class="n">grp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">bs_val</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">block_start</span><span class="p">,</span> <span class="n">grp</span><span class="o">.</span><span class="n">wheel_cumsum_distance_travelled</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">offs</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt_seconds</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;timedelta64[ns]&quot;</span><span class="p">)</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="n">bs_val</span><span class="p">)</span> <span class="o">+</span> <span class="n">offs</span>
+        <span class="n">dists</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">+</span> <span class="n">offset</span>
+        <span class="n">offset</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Downsample: keep points where Δ &gt; 0.5</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">diffs</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+        <span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">dists</span><span class="p">[</span><span class="n">mask</span><span class="p">]):</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span>
+                <span class="s2">&quot;distance_m&quot;</span><span class="p">:</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject_name</span><span class="p">,</span>
+                <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="n">patch</span>
+            <span class="p">})</span>
+
+<span class="c1"># Build long-form DataFrame</span>
+<span class="n">flat_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">flat_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance_m&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;patch&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Distance spun on wheel (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wheel Distance Over Time&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f76c6c68956e1d199ba07287b2dfa56b5e295c6d4cbffa851c9aa7ebd6bf2915.png" src="../../_images/f76c6c68956e1d199ba07287b2dfa56b5e295c6d4cbffa851c9aa7ebd6bf2915.png" />
+</div>
+</div>
+<p>We can also plot the pellet delivery events for each subject.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">block_subject_patch_data</span><span class="p">[[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;patch_name&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">]]</span>
+    <span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)$&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span>
+    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">dark_color</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Patch&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;subject_name = &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pellet Delivery Raster by Subject&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9fbcf9c8adc65540f5dd43bbdce219f917e95ef1107ea41c7ec98256d382b775.png" src="../../_images/9fbcf9c8adc65540f5dd43bbdce219f917e95ef1107ea41c7ec98256d382b775.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_subject_patch_pref</span>
@@ -1174,12 +1631,11 @@ The data includes:</p>
 </section>
 <section id="foraging-bouts">
 <h2>Foraging bouts<a class="headerlink" href="#foraging-bouts" title="Link to this heading">#</a></h2>
-<p>Here we will use the <code class="docutils literal notranslate"><span class="pre">block_analysis.get_foraging_bouts()</span></code> function to retrieve foraging bout data for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">blocks</span></a>.</p>
+<p>Based on <code class="docutils literal notranslate"><span class="pre">block_analysis.BlockSubjectAnalysis.Patch</span></code>, foraging bouts—defined as time intervals in which a subject initiates at least 3 pellet deliveries and rotates the patch wheel by at least one full turn within a 60-second period—are identified and stored in the <code class="docutils literal notranslate"><span class="pre">block_analysis.BlockForaging.Bout</span></code> table.</p>
+<p>We will now retrieve the foraging bouts for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Block"><span class="xref std std-term">blocks</span></a> from this table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_foraging_bouts</span><span class="p">(</span>
-    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_foraging_bouts</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads foraging bout data for blocks falling within a specified time period.</span>
 
 <span class="sd">    Args:</span>
@@ -1188,26 +1644,21 @@ The data includes:</p>
 <span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame: Concatenated dataframe of foraging bouts for all matching blocks.</span>
+<span class="sd">        pd.DataFrame: Dataframe of foraging bouts for all matching blocks.</span>
 <span class="sd">                      Returns an empty dataframe with predefined columns if no data found.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Fetch block start times within the specified period</span>
-    <span class="n">blocks</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">Block</span> <span class="o">&amp;</span> <span class="n">key</span> <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_end &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Retrieve foraging bouts for each block</span>
-    <span class="n">bouts</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">block_start</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
-        <span class="n">block_key</span> <span class="o">=</span> <span class="n">key</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;block_start&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">block_start</span><span class="p">)}</span>
-        <span class="n">bouts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_foraging_bouts</span><span class="p">(</span><span class="n">block_key</span><span class="p">,</span> <span class="n">min_pellets</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-    <span class="c1"># Return concatenated DataFrame or empty fallback</span>
-    <span class="k">if</span> <span class="n">bouts</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">bouts</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Fetch bouts within the specified period</span>
+    <span class="n">bouts_dict</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">Block</span> <span class="o">*</span> <span class="n">BlockForaging</span><span class="o">.</span><span class="n">Bout</span>
+        <span class="o">&amp;</span> <span class="n">key</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_end &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_start&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_end&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_count&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">bouts_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bouts_dict</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;bout_start&quot;</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;n_pellets&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">]</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_start&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_end&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_count&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">]</span>
         <span class="p">)</span>
 
 <span class="c1"># Load foraging bouts</span>
@@ -1241,53 +1692,53 @@ The data includes:</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>start</th>
-      <th>end</th>
-      <th>n_pellets</th>
+      <th>subject_name</th>
+      <th>bout_start</th>
+      <th>bout_end</th>
+      <th>pellet_count</th>
       <th>cum_wheel_dist</th>
-      <th>subject</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2024-02-09 18:26:07.280</td>
-      <td>2024-02-09 18:27:51.460</td>
-      <td>1</td>
-      <td>458.105303</td>
       <td>BAA-1104048</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2024-02-09 18:28:26.720</td>
-      <td>2024-02-09 18:30:25.440</td>
-      <td>1</td>
-      <td>464.014558</td>
-      <td>BAA-1104049</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2024-02-09 18:36:49.760</td>
-      <td>2024-02-09 18:38:21.360</td>
-      <td>2</td>
-      <td>240.621107</td>
-      <td>BAA-1104049</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>2024-02-09 18:39:17.180</td>
       <td>2024-02-09 18:42:14.880</td>
       <td>7</td>
-      <td>983.174489</td>
-      <td>BAA-1104048</td>
+      <td>983.174</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>2024-02-09 18:43:02.440</td>
-      <td>2024-02-09 18:44:35.480</td>
-      <td>1</td>
-      <td>247.676315</td>
+      <th>1</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 18:48:14.880</td>
+      <td>2024-02-09 18:50:11.720</td>
+      <td>3</td>
+      <td>512.637</td>
+    </tr>
+    <tr>
+      <th>5</th>
       <td>BAA-1104049</td>
+      <td>2024-02-09 18:50:01.360</td>
+      <td>2024-02-09 18:54:16.560</td>
+      <td>8</td>
+      <td>1899.180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-09 19:03:35.840</td>
+      <td>2024-02-09 19:07:51.260</td>
+      <td>11</td>
+      <td>1979.470</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>BAA-1104049</td>
+      <td>2024-02-09 19:09:47.100</td>
+      <td>2024-02-09 19:11:58.200</td>
+      <td>4</td>
+      <td>510.634</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1298,49 +1749,84 @@ The data includes:</p>
       <td>...</td>
     </tr>
     <tr>
-      <th>327</th>
+      <th>151</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-12 16:03:42.420</td>
+      <td>2024-02-12 16:08:18.900</td>
+      <td>7</td>
+      <td>1275.080</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>BAA-1104048</td>
+      <td>2024-02-12 16:17:47.480</td>
+      <td>2024-02-12 16:21:39.080</td>
+      <td>4</td>
+      <td>1078.850</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>BAA-1104048</td>
       <td>2024-02-12 16:24:17.660</td>
       <td>2024-02-12 16:26:56.160</td>
       <td>3</td>
-      <td>680.642741</td>
-      <td>BAA-1104048</td>
+      <td>680.643</td>
     </tr>
     <tr>
-      <th>328</th>
+      <th>154</th>
+      <td>BAA-1104048</td>
       <td>2024-02-12 16:30:04.740</td>
       <td>2024-02-12 16:33:20.300</td>
       <td>3</td>
-      <td>981.212408</td>
-      <td>BAA-1104048</td>
+      <td>981.212</td>
     </tr>
     <tr>
-      <th>329</th>
+      <th>155</th>
+      <td>BAA-1104048</td>
       <td>2024-02-12 16:38:32.840</td>
       <td>2024-02-12 16:43:16.600</td>
       <td>3</td>
-      <td>2384.391929</td>
-      <td>BAA-1104048</td>
-    </tr>
-    <tr>
-      <th>330</th>
-      <td>2024-02-12 16:49:39.380</td>
-      <td>2024-02-12 16:51:38.920</td>
-      <td>1</td>
-      <td>321.695406</td>
-      <td>BAA-1104049</td>
-    </tr>
-    <tr>
-      <th>331</th>
-      <td>2024-02-12 16:51:21.440</td>
-      <td>2024-02-12 16:53:12.640</td>
-      <td>2</td>
-      <td>423.237326</td>
-      <td>BAA-1104048</td>
+      <td>2384.390</td>
     </tr>
   </tbody>
 </table>
-<p>332 rows × 5 columns</p>
+<p>159 rows × 5 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s2">&quot;viridis&quot;</span><span class="p">]</span>  <span class="c1"># or &quot;plasma&quot;, &quot;magma&quot;, &quot;Greys&quot;</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subjects</span><span class="p">):</span>
+    <span class="n">bouts</span> <span class="o">=</span> <span class="n">foraging_df</span><span class="p">[</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subj</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">bouts</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
+            <span class="n">xmin</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;bout_start&quot;</span><span class="p">],</span>
+            <span class="n">xmax</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;bout_end&quot;</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">70</span>
+            <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Foraging Bouts&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pellet Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a03640ad57e7726b21b2d39b6e3ce75a78c7788e27490f1a2a47d8bba223861c.png" src="../../_images/a03640ad57e7726b21b2d39b6e3ce75a78c7788e27490f1a2a47d8bba223861c.png" />
+</div>
 </div>
 </section>
 <section id="rfid-data">
@@ -1371,7 +1857,6 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &gt;= &quot;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
         <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &lt;= &quot;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
     <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rfid_events_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="c1"># Return empty DataFrame with expected columns if no data found</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -1384,28 +1869,22 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
                 <span class="s2">&quot;rfid&quot;</span><span class="p">,</span>
             <span class="p">]</span>
         <span class="p">)</span>
-
     <span class="c1"># Get subject details for RFID mapping</span>
     <span class="n">subject_detail</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="n">SubjectDetail</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
     <span class="n">subject_detail</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
     <span class="c1"># Create mapping from RFID to subject ID</span>
     <span class="n">rfid_to_lab_id</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;lab_id&quot;</span><span class="p">],</span> <span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">]))</span>
-
     <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="n">rfid_to_lab_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rfid</span><span class="p">))</span> <span class="k">for</span> <span class="n">rfid</span> <span class="ow">in</span> <span class="n">rfid_array</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">rfid_array</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span>
     <span class="p">]</span>
-
     <span class="c1"># Extract experiment_name and chunk_start from the index before resetting</span>
     <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
     <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">idx</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span>
     <span class="p">]</span>  <span class="c1"># Assuming chunk_start is at index 3</span>
-
     <span class="c1"># Reset the index and drop the index column</span>
     <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
     <span class="c1"># Reorder columns to put experiment_name first and chunk_start second</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
         <span class="n">col</span>
@@ -1413,11 +1892,13 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
         <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span>
     <span class="p">]</span>
     <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
-
     <span class="k">return</span> <span class="n">rfid_events_df</span>
 
 <span class="c1"># Load RFID data</span>
 <span class="n">rfid_df</span> <span class="o">=</span> <span class="n">load_rfid_events</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+<span class="n">rfid_df</span> <span class="o">=</span> <span class="n">rfid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;rfid&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">rfid_df</span> <span class="o">=</span> <span class="n">rfid_df</span><span class="p">[</span><span class="o">~</span><span class="n">rfid_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -1451,55 +1932,57 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
       <th>chunk_start</th>
       <th>rfid_reader_name</th>
       <th>sample_count</th>
-      <th>timestamps</th>
       <th>rfid</th>
+    </tr>
+    <tr>
+      <th>timestamps</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>2024-02-09 17:00:00.483007908</th>
       <td>social0.2-aeon4</td>
       <td>2024-02-09 17:00:00</td>
       <td>Patch1Rfid</td>
       <td>844</td>
-      <td>[2024-02-09T17:00:00.483007908, 2024-02-09T17:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2024-02-09 17:00:14.564960003</th>
       <td>social0.2-aeon4</td>
-      <td>2024-02-09 18:00:00</td>
-      <td>Patch1Rfid</td>
-      <td>857</td>
-      <td>[2024-02-09T18:01:41.768191814, 2024-02-09T18:...</td>
-      <td>[BAA-1104049, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <td>2024-02-09 17:00:00</td>
+      <td>NestRfid2</td>
+      <td>85</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>2024-02-09 17:00:15.526688099</th>
       <td>social0.2-aeon4</td>
-      <td>2024-02-09 19:00:00</td>
-      <td>Patch1Rfid</td>
-      <td>1262</td>
-      <td>[2024-02-09T19:04:08.140863895, 2024-02-09T19:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <td>2024-02-09 17:00:00</td>
+      <td>GateRfid</td>
+      <td>926</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2024-02-09 17:00:34.330624104</th>
       <td>social0.2-aeon4</td>
-      <td>2024-02-09 20:00:00</td>
-      <td>Patch1Rfid</td>
-      <td>301</td>
-      <td>[2024-02-09T20:05:47.786528111, 2024-02-09T20:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <td>2024-02-09 17:00:00</td>
+      <td>NestRfid1</td>
+      <td>163</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2024-02-09 17:00:40.345920086</th>
       <td>social0.2-aeon4</td>
-      <td>2024-02-09 21:00:00</td>
-      <td>Patch1Rfid</td>
-      <td>0</td>
-      <td>[]</td>
-      <td>[]</td>
+      <td>2024-02-09 17:00:00</td>
+      <td>GateRfid</td>
+      <td>926</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1508,298 +1991,76 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>433</th>
-      <td>social0.2-aeon4</td>
-      <td>2024-02-12 13:00:00</td>
-      <td>Patch3Rfid</td>
-      <td>336</td>
-      <td>[2024-02-12T13:05:10.713151932, 2024-02-12T13:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
-    </tr>
-    <tr>
-      <th>434</th>
-      <td>social0.2-aeon4</td>
-      <td>2024-02-12 14:00:00</td>
-      <td>Patch3Rfid</td>
-      <td>323</td>
-      <td>[2024-02-12T14:01:47.358272076, 2024-02-12T14:...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
-    </tr>
-    <tr>
-      <th>435</th>
-      <td>social0.2-aeon4</td>
-      <td>2024-02-12 15:00:00</td>
-      <td>Patch3Rfid</td>
-      <td>19</td>
-      <td>[2024-02-12T15:12:24.588128090, 2024-02-12T15:...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
-    </tr>
-    <tr>
-      <th>436</th>
-      <td>social0.2-aeon4</td>
-      <td>2024-02-12 16:00:00</td>
-      <td>Patch3Rfid</td>
-      <td>139</td>
-      <td>[2024-02-12T16:03:41.951839924, 2024-02-12T16:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
-    </tr>
-    <tr>
-      <th>437</th>
+      <th>2024-02-12 17:48:49.640480042</th>
       <td>social0.2-aeon4</td>
       <td>2024-02-12 17:00:00</td>
-      <td>Patch3Rfid</td>
-      <td>183</td>
-      <td>[2024-02-12T17:01:05.555712223, 2024-02-12T17:...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <td>GateRfid</td>
+      <td>1990</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:48:50.048992157</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 17:00:00</td>
+      <td>GateRfid</td>
+      <td>1990</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:48:50.416895866</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 17:00:00</td>
+      <td>GateRfid</td>
+      <td>1990</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:48:50.815360069</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 17:00:00</td>
+      <td>GateRfid</td>
+      <td>1990</td>
+      <td>BAA-1104048</td>
+    </tr>
+    <tr>
+      <th>2024-02-12 17:49:00.042943954</th>
+      <td>social0.2-aeon4</td>
+      <td>2024-02-12 17:00:00</td>
+      <td>NestRfid1</td>
+      <td>28</td>
+      <td>BAA-1104048</td>
     </tr>
   </tbody>
 </table>
-<p>438 rows × 6 columns</p>
+<p>149763 rows × 5 columns</p>
 </div></div></div>
-</div>
-</section>
-<section id="position-data">
-<h2>Position data<a class="headerlink" href="#position-data" title="Link to this heading">#</a></h2>
-<p>In this section, we will fetch SLEAP position data (centroid only) from the <code class="docutils literal notranslate"><span class="pre">tracking.DenoisedTracking</span></code> table for each subject across all <a class="reference internal" href="../../reference/glossary.html#term-Acquisition-Chunk"><span class="xref std std-term">chunks</span></a> occurring within the first 3 days of the social period.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The full pose data (all tracked body parts) can be fetched from the <code class="docutils literal notranslate"><span class="pre">tracking.SLEAPTracking.Part</span></code> table.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
-    <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
-<span class="sd">        period_start (str): Start datetime of the time period.</span>
-<span class="sd">        period_end (str): End datetime of the time period.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
-<span class="sd">                     Returns an empty DataFrame if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Create chunk restriction for the time period</span>
-        <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
-            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Fetch centroid tracking data for the specified period</span>
-        <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
-            <span class="o">&amp;</span> <span class="n">key</span>
-            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
-            <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
-
-        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
-            <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
-            <span class="p">}</span>
-        <span class="p">)</span>
-        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
-            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
-        <span class="p">)</span>
-        <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
-            <span class="p">[</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
-            <span class="p">]</span>
-        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Clean up the dataframe</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">centroid_df</span>
-
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-
-
-<span class="c1"># Load position data</span>
-<span class="c1"># If this takes too long, consider changing end_dt to an earlier time</span>
-<span class="n">position_df</span> <span class="o">=</span> <span class="n">load_position_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">rfid_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;rfid&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>         <span class="c1"># vertical tick</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>              <span class="c1"># marker size</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;RFID Reader&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RFID Ping Raster by Reader and Subject&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.97</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Querying data from 2024-02-09 17:00:00 to 2024-02-12 17:00:00...
-  Retrieved 20211079 rows of position data
-</pre></div>
+<img alt="../../_images/cc25b9d882ad7f04d231d7393d89d2954d664071c7dbf936a83397006d7df637.png" src="../../_images/cc25b9d882ad7f04d231d7393d89d2954d664071c7dbf936a83397006d7df637.png" />
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position_df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>experiment_name</th>
-      <th>identity_name</th>
-      <th>identity_likelihood</th>
-      <th>x</th>
-      <th>y</th>
-      <th>likelihood</th>
-    </tr>
-    <tr>
-      <th>time</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2024-02-09 16:48:10.660</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104048</td>
-      <td>NaN</td>
-      <td>1280.208496</td>
-      <td>550.073364</td>
-      <td>0.971199</td>
-    </tr>
-    <tr>
-      <th>2024-02-09 16:48:10.660</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104049</td>
-      <td>0.102343</td>
-      <td>1232.14624</td>
-      <td>558.113037</td>
-      <td>0.971199</td>
-    </tr>
-    <tr>
-      <th>2024-02-09 16:48:10.680</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104049</td>
-      <td>0.021459</td>
-      <td>1282.991699</td>
-      <td>552.229248</td>
-      <td>0.985731</td>
-    </tr>
-    <tr>
-      <th>2024-02-09 16:48:10.680</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104048</td>
-      <td>NaN</td>
-      <td>1232.227051</td>
-      <td>560.120911</td>
-      <td>0.985731</td>
-    </tr>
-    <tr>
-      <th>2024-02-09 16:48:10.700</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104048</td>
-      <td>NaN</td>
-      <td>1283.058105</td>
-      <td>552.201538</td>
-      <td>0.963831</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2024-02-12 17:59:59.460</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104049</td>
-      <td>0.971221</td>
-      <td>1213.701416</td>
-      <td>544.300171</td>
-      <td>0.709776</td>
-    </tr>
-    <tr>
-      <th>2024-02-12 17:59:59.480</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104048</td>
-      <td>0.997087</td>
-      <td>1211.169434</td>
-      <td>531.434387</td>
-      <td>0.709763</td>
-    </tr>
-    <tr>
-      <th>2024-02-12 17:59:59.480</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104049</td>
-      <td>0.971762</td>
-      <td>1213.696045</td>
-      <td>544.309204</td>
-      <td>0.709763</td>
-    </tr>
-    <tr>
-      <th>2024-02-12 17:59:59.500</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104048</td>
-      <td>0.996872</td>
-      <td>1211.168945</td>
-      <td>531.43396</td>
-      <td>0.709618</td>
-    </tr>
-    <tr>
-      <th>2024-02-12 17:59:59.500</th>
-      <td>social0.2-aeon4</td>
-      <td>BAA-1104049</td>
-      <td>0.971445</td>
-      <td>1213.696045</td>
-      <td>544.309326</td>
-      <td>0.709618</td>
-    </tr>
-  </tbody>
-</table>
-<p>20211079 rows × 6 columns</p>
-</div></div></div>
 </div>
 </section>
 <section id="weight-data">
@@ -1838,6 +2099,12 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
 
 
 <span class="n">weight_df</span> <span class="o">=</span> <span class="n">load_weight_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
+<span class="n">weight_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">weight_df</span>
+    <span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1867,91 +2134,101 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th></th>
-      <th>timestamps</th>
       <th>weight</th>
       <th>subject_id</th>
     </tr>
     <tr>
-      <th>experiment_name</th>
-      <th>chunk_start</th>
-      <th></th>
+      <th>timestamps</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="11" valign="top">social0.2-aeon4</th>
-      <th>2024-02-09 17:00:00</th>
-      <td>[2024-02-09T17:12:29.800000191, 2024-02-09T17:...</td>
-      <td>[23.522316, 23.522316, 23.522316, 23.522316, 2...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+      <th>2024-02-09 17:12:29.800000191</th>
+      <td>23.522316</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
-      <th>2024-02-09 18:00:00</th>
-      <td>[2024-02-09T18:07:53.019999981, 2024-02-09T18:...</td>
-      <td>[25.6000004, 25.6000004, 25.6000004, 25.600000...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <th>2024-02-09 17:12:29.900000095</th>
+      <td>23.522316</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
-      <th>2024-02-09 19:00:00</th>
-      <td>[2024-02-09T19:04:08.159999847, 2024-02-09T19:...</td>
-      <td>[27.4697571, 27.4697571, 27.4697571, 27.469757...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+      <th>2024-02-09 17:12:29.960000038</th>
+      <td>23.522316</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
-      <th>2024-02-09 20:00:00</th>
-      <td>[2024-02-09T20:20:22.920000076, 2024-02-09T20:...</td>
-      <td>[31.3124409, 11.8549995]</td>
-      <td>[BAA-1104049, BAA-1104049]</td>
+      <th>2024-02-09 17:12:30.039999962</th>
+      <td>23.522316</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
-      <th>2024-02-09 21:00:00</th>
-      <td>[2024-02-09T21:08:21.480000019, 2024-02-09T21:...</td>
-      <td>[21.3240242, 21.3240242, 21.3240242, 21.324024...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <th>2024-02-09 17:12:30.139999866</th>
+      <td>23.522316</td>
+      <td>BAA-1104049</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>2024-02-12 13:00:00</th>
-      <td>[2024-02-12T13:01:20.599999905, 2024-02-12T13:...</td>
-      <td>[28.2491455, 28.2541466, 28.2541466, 28.254146...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+      <th>2024-02-12 17:41:37.019999981</th>
+      <td>24.553659</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>2024-02-12 14:00:00</th>
-      <td>[2024-02-12T14:15:02.300000191, 2024-02-12T14:...</td>
-      <td>[28.2345123, 28.2345123, 28.2345123, 28.234512...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+      <th>2024-02-12 17:41:37.099999905</th>
+      <td>24.553659</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>2024-02-12 15:00:00</th>
-      <td>[2024-02-12T15:12:41.400000095, 2024-02-12T15:...</td>
-      <td>[32.1000023, 32.1000023, 32.1000023, 32.100002...</td>
-      <td>[BAA-1104048, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <th>2024-02-12 17:41:37.199999809</th>
+      <td>24.553659</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>2024-02-12 16:00:00</th>
-      <td>[2024-02-12T16:12:17.960000038, 2024-02-12T16:...</td>
-      <td>[30.8999977, 30.8999977, 30.8999977, 30.899997...</td>
-      <td>[BAA-1104049, BAA-1104049, BAA-1104049, BAA-11...</td>
+      <th>2024-02-12 17:41:37.260000229</th>
+      <td>24.553659</td>
+      <td>BAA-1104048</td>
     </tr>
     <tr>
-      <th>2024-02-12 17:00:00</th>
-      <td>[2024-02-12T17:02:20.840000153, 2024-02-12T17:...</td>
-      <td>[30.1764622, 29.99049, 29.99049, 29.99049, 29....</td>
-      <td>[BAA-1104049, BAA-1104048, BAA-1104048, BAA-11...</td>
+      <th>2024-02-12 17:47:25.719999790</th>
+      <td>29.904999</td>
+      <td>BAA-1104049</td>
     </tr>
   </tbody>
 </table>
-<p>73 rows × 3 columns</p>
+<p>112235 rows × 2 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Subject Weights Over Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Weight&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0a856c40a735e18b683982bc402622286541ee10d632f35c83cb1ed2e212f2f0.png" src="../../_images/0a856c40a735e18b683982bc402622286541ee10d632f35c83cb1ed2e212f2f0.png" />
+</div>
 </div>
 </section>
 </section>
@@ -2004,10 +2281,10 @@ RFID readers are positioned at the <a class="reference internal" href="../aeon_m
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries-and-define-variables-and-helper-functions">Import libraries and define variables and helper functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#position-data">Position data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-data">Patch data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foraging-bouts">Foraging bouts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rfid-data">RFID data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#position-data">Position data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-data">Weight data</a></li>
 </ul>
   </nav></div>

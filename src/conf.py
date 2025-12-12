@@ -19,7 +19,7 @@ sys.path.extend(
     [
         os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
-        os.path.abspath("../aeon_api/"),
+        os.path.abspath("../aeon_api/src/"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -59,12 +59,12 @@ github_url = f"https://github.com/{organisation.replace(' ', '')}/aeon_docs"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.githubpages",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "sphinx.ext.autodoc",
     "sphinx_autodoc_typehints",
     "myst_nb",
     "sphinx_design",
@@ -102,6 +102,8 @@ autodoc_default_options = {
     "show-inheritance": True,
     "undoc-members": True,
 }
+# sphinx-autodoc-typehints settings
+always_use_bars_union = True
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

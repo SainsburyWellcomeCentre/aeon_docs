@@ -89,6 +89,11 @@ myst_heading_anchors = 6
 # Set the Markdown format to myst
 myst_render_markdown_format = "myst"
 
+# Add metadata for HTML output
+myst_html_meta = {
+    "google-site-verification": "0jmRr1sRMbm36KKyq5U3ssZCf9viPpmz0HkmHLNQP84",
+}
+
 # Disable notebook execution
 nb_execution_mode = "off"
 

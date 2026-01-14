@@ -193,6 +193,7 @@ linkcheck_ignore = [
 linkcheck_allowed_redirects = {
     r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+    r"https://works.datajoint.com/.*": r"https://works.datajoint.com/organizations*",
 }
 
 myst_url_schemes = {
@@ -201,7 +202,6 @@ myst_url_schemes = {
     "ftp": None,
     "mailto": None,
     "aeon-paper": "https://www.biorxiv.org/content/10.1101/2025.07.31.664513",
-    "aeon-docs": "https://aeon.swc.ucl.ac.uk/{{path}}",
     "aeon-docs-github": "https://github.com/SainsburyWellcomeCentre/aeon_docs/{{path}}",
     "aeon-mecha-github": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/{{path}}",
     "aeon-acquisition-github": "https://github.com/SainsburyWellcomeCentre/aeon_acquisition/{{path}}",

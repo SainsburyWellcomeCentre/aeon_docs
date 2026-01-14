@@ -2,7 +2,7 @@
 # Commutation-Translation System Wiring Schematic
 <!-- TODO:  Add link to controller device.md -->
 The position of the [commutation-translation system](target-commutation-translation) is updated in real time, using tracking information from the Bonsai workflow to maintain a constant slack level on a cable connected to a mounted headstage on a freely moving animal. 
-In Aeon, this is currently bridged from the behaviour machine by a bespoke controller device that implements the [Harp](harp-tech:) protocol in μPython ([μHarp](https://github.com/SainsburyWellcomeCentre/microharp)). 
+In Aeon, this is currently bridged from the behaviour machine by a bespoke controller device that implements the [Harp](harp-tech:) protocol in μPython ([μHarp](https://github.com/SainsburyWellcomeCentre/micropython-microharp)). 
 
 ## Connections
 

@@ -193,6 +193,7 @@ linkcheck_ignore = [
 linkcheck_allowed_redirects = {
     r"https://doi\.org/10\.5281/zenodo\..*": r"https://zenodo\.org/records/.*",
     r"https://zenodo\.org/doi/.*": r"https://zenodo\.org/records/.*",
+    r"https://works.datajoint.com/.*": r"https://works.datajoint.com/organizations*",
 }
 
 myst_url_schemes = {

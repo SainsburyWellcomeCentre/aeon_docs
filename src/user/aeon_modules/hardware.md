@@ -46,7 +46,7 @@ Here, you will find comprehensive guidelines and parts lists to help you replica
 | [**Harp Output Expander**](harp-tech:api/Harp.OutputExpander.html)                  |  Foraging Patches (Feeders)      | Expander module to connect foraging patch to Harp system. 1 per patch | 4        |
 | [**Harp CameraController Gen2**](harp-tech:api/Harp.CameraControllerGen2.html)    | Cameras                         | Controller to trigger all cameras in the habitat                | 1        |
 | [**Harp Timestamp Generator Gen3**](harp-tech:api/Harp.TimestampGeneratorGen3.html) | Habitat (Synchronises all devices)| Synchronises all Harp devices in the habitat                    | 1        |
-| [**Micropython Harp device**](https://github.com/SainsburyWellcomeCentre/microharp)       | Ephys linear rail drive         | Linear rail position controller and position sensor reciever  | 1        | 
+| [**Micropython Harp device**](https://github.com/SainsburyWellcomeCentre/micropython-microharp)       | Ephys linear rail drive         | Linear rail position controller and position sensor reciever  | 1        | 
 | [**Harp SoundCard**](harp-tech:api/Harp.SoundCard.html)                  | SP speaker                      | Control and monitoring of audio speaker                     | 1        | 
 
 ## Wiring schematics

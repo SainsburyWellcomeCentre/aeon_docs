@@ -69,6 +69,7 @@ extensions = [
     "myst_nb",
     "sphinx_design",
     "sphinx_copybutton",
+    "sphinx_sitemap",
     "convertworkflow",
 ]
 
@@ -147,6 +148,17 @@ html_theme_options = {
     "footer_start": ["footer_start"],
     "footer_end": ["footer_end"],
 }
+
+# Configure sitemap generation
+html_baseurl = "https://aeon.swc.ucl.ac.uk/"
+html_extra_path = ["robots.txt"]
+sitemap_url_scheme = "{link}"
+sitemap_excludes = [
+    "search.html",
+    "genindex.html",
+    "py-modindex.html",
+]
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".

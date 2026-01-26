@@ -67,7 +67,7 @@ jobs:
       # needs to have sphinx.ext.githubpages in conf.py extensions list
       - name: Building documentation
         shell: bash
-        run: make html
+        run: make dirhtml
 
       - name: Upload the content for deployment
         uses: actions/upload-artifact@v6
@@ -102,4 +102,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/html/
+          publish_dir: ./docs/dirhtml/

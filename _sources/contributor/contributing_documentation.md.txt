@@ -150,7 +150,7 @@ To build the documentation locally, first make sure you have cloned the [`aeon_d
 The following commands should be run from the root directory of the repository.
 
 :::{note}
-Windows PowerShell users should prepend `make` commands with `.\` (e.g. `.\make html`).
+Windows PowerShell users should prepend `make` commands with `.\` (e.g. `.\make dirhtml`).
 :::
 
 Create a `conda` environment with the required dependencies and activate it:
@@ -183,13 +183,13 @@ git submodule update --remote
 
 Finally, build the documentation:
 ```bash
-make html
+make dirhtml
 ```
-You can view the local build by opening `docs/html/index.html` in a browser.
+You can view the local build by opening `docs/dirhtml/index.html` in a browser.
 
 To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
 ```bash
-make clean && make html
+make clean && make dirhtml
 ```
 
 To check that external URLs are correctly resolved, run:

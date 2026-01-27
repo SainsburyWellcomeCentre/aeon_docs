@@ -160,6 +160,17 @@ sitemap_excludes = [
     "py-modindex/index.html",
 ]
 
+# Configure redirects for pages mentioned in the Aeon paper
+redirects = {
+    "user/aeon_modules.html": "/user/aeon_modules/",
+    "user/tutorials/general_experimental_workflow.html": "/user/tutorials/general_experimental_workflow/",
+    "getting_started/repositories.html": "/getting_started/repositories/",
+    "user/aeon_modules/hardware.html": "/user/aeon_modules/hardware/",
+    "user/how_to.html": "/user/how_to/",
+    "user/sample_datasets.html": "/user/sample_datasets/",
+    "about/people.html": "/about/people/",
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".

@@ -70,6 +70,7 @@ extensions = [
     "sphinx_design",
     "sphinx_copybutton",
     "sphinx_sitemap",
+    "sphinx_reredirects",
     "convertworkflow",
 ]
 
@@ -154,9 +155,9 @@ html_baseurl = "https://aeon.swc.ucl.ac.uk/"
 html_extra_path = ["robots.txt"]
 sitemap_url_scheme = "{link}"
 sitemap_excludes = [
-    "search.html",
-    "genindex.html",
-    "py-modindex.html",
+    "search/index.html",
+    "genindex/index.html",
+    "py-modindex/index.html",
 ]
 
 # Add any paths that contain custom static files (such as style sheets) here,

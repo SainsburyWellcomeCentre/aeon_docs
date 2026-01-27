@@ -13,3 +13,4 @@ sphinx-autodoc-typehints
 sphinx-copybutton
 sphinx-design
 sphinx-sitemap
+sphinx-reredirects

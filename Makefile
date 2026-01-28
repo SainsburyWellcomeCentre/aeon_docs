@@ -1,5 +1,4 @@
-# Minimal makefile for Sphinx documentation
-#
+# makefile for Sphinx documentation
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
@@ -38,3 +37,8 @@ generate-people-page:
 # "make mode" option. $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile $(SOURCEDIR)/reference/api.rst copy-examples generate-people-page
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+	# Remove CNAME file from output to prevent setting custom domain on GH Pages
+	@rm -f $(BUILDDIR)/CNAME
+	@rm -f $(BUILDDIR)/html/CNAME
+	@rm -f $(BUILDDIR)/dirhtml/CNAME

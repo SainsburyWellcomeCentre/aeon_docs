@@ -26,7 +26,7 @@ if not "%1" == "clean" (
 	@echo Removing auto-generated files under 'docs' and 'src'...
 	rmdir /S /Q %BUILDDIR%
     rmdir /S /Q %SOURCEDIR%\reference\api\
-	del %SOURCEDIR%\about\people.md
+	del /Q %SOURCEDIR%\about\people.md
 	@echo Removing copied example notebooks from 'src'...
 	del /Q src\user\how_to\*_copy.ipynb
 )
@@ -45,6 +45,12 @@ if errorlevel 9009 (
 )
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+
+REM Remove CNAME file from output to prevent setting custom domain on GH Pages
+if exist %BUILDDIR%\CNAME del %BUILDDIR%\CNAME
+if exist %BUILDDIR%\dirhtml\CNAME del %BUILDDIR%\dirhtml\CNAME
+if exist %BUILDDIR%\html\CNAME del %BUILDDIR%\html\CNAME
+
 goto end
 
 :help

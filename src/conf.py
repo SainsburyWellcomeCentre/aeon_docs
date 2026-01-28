@@ -156,9 +156,9 @@ html_baseurl = "https://aeon.swc.ucl.ac.uk/"
 html_extra_path = ["robots.txt"]
 sitemap_url_scheme = "{link}"
 sitemap_excludes = [
-    "search/index.html",
-    "genindex/index.html",
-    "py-modindex/index.html",
+    "search/",
+    "genindex/",
+    "py-modindex/",
 ]
 
 # Configure redirects for pages mentioned in the Aeon paper

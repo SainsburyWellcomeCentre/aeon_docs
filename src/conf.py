@@ -72,6 +72,7 @@ extensions = [
     "sphinx_sitemap",
     "sphinx_reredirects",
     "convertworkflow",
+    "notfound.extension",
 ]
 
 # Configure the myst parser to enable cool markdown features
@@ -237,3 +238,19 @@ myst_url_schemes = {
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",
     "niu-howto": "https://howto.neuroinformatics.dev/programming/{{path}}#{{fragment}}",
 }
+
+# Configure 404 page
+notfound_context = {
+    "title": "Page Not Found",
+    "body": """
+<h1>Page Not Found</h1>
+
+<p>Sorry, we couldn't locate the page you were looking for.</p>
+<p>The Aeon site is updated from time to time, which means some older links may no longer point to the right place.</p> 
+<p>Try using the search box or head back to the homepage.</p>
+""",
+}
+
+# needed for GH pages (vs readthedocs),
+# because we have no '/<language>/<version>/' in the URL
+notfound_urls_prefix = None

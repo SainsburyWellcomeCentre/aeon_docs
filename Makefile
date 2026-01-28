@@ -38,6 +38,9 @@ generate-people-page:
 %: Makefile $(SOURCEDIR)/reference/api.rst copy-examples generate-people-page
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+	# Copy 404/index.html to root of dirhtml for GH Pages
+	@cp "$(BUILDDIR)/dirhtml/404/index.html" "$(BUILDDIR)/dirhtml/404.html" 2>/dev/null || true
+	
 	# Remove CNAME file from output to prevent setting custom domain on GH Pages
 	@rm -f $(BUILDDIR)/CNAME
 	@rm -f $(BUILDDIR)/html/CNAME

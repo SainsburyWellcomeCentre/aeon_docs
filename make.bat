@@ -44,6 +44,9 @@ if "%1" == "clean" (
 
 	%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 	
+	REM Copy 404/index.html to root of dirhtml for GH Pages
+	if exist %BUILDDIR%\dirhtml\404\index.html copy %BUILDDIR%\dirhtml\404\index.html %BUILDDIR%\dirhtml\404.html
+
 	REM Remove CNAME file from output to prevent setting custom domain on GH Pages
 	if exist %BUILDDIR%\CNAME del %BUILDDIR%\CNAME
 	if exist %BUILDDIR%\dirhtml\CNAME del %BUILDDIR%\dirhtml\CNAME

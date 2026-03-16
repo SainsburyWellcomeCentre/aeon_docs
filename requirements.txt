@@ -1,10 +1,11 @@
-# minimum dependencies to build aeon_mecha docs
+# minimum dependencies to build aeon_api docs
 dotmap
 matplotlib
 opencv-python
 pandas 
 plotly
 harp-python
+pandas-stubs
 
 linkify-it-py
 myst-nb

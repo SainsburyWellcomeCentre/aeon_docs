@@ -155,7 +155,7 @@ Windows PowerShell users should prepend `make` commands with `.\` (e.g. `.\make 
 
 Create a `conda` environment with the required dependencies and activate it:
 ```bash
-conda create -n aeon_docs python dotnet=8 -c conda-forge
+conda create -n aeon_docs python dotnet -c conda-forge
 conda activate aeon_docs
 ```
 

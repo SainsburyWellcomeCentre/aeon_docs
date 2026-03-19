@@ -10,35 +10,34 @@ To contribute to the documentation, please see the [Contributor Guide](https://a
 
 ## Aeon organisation overview
 
-Aeon is a collaborative effort to perform behavioural neuroscience experiments where the behaviour and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. Please refer to [our website](https://aeon.swc.ucl.ac.uk/contributor/index.html) for the full list of contributors.
+Aeon is a collaborative effort to perform behavioural neuroscience experiments where the behaviour and neural activity of freely moving animals engaging in a complex task are continuously recorded. This project is contributed to by researchers and support staff at UCL's SWC, Neurogears, and Datajoint. Please refer to [our website](https://aeon.swc.ucl.ac.uk/about/people/) for the full list of contributors.
 
 If you are interested in joining this project, please contact the [project maintainers](#project-maintainers).
 
-## Credentials
+## Access requirements
+The following accounts and access permissions are required for Aeon project members:
 
-Below are the required sets of credentials for Aeon members:
+- Microsoft Teams
+- SWC GitHub organisation
+- SWC GitHub `aeon` team
+- SWC HPC account
+- `aeon` Linux group on SWC HPC
+- Datajoint database account
 
-- Microsoft Teams: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk), [Gonçalo Lopes](mailto:g.lopes@neurogears.org), or [Dario Campagner](mailto:d.campagner@ucl.ac.uk)
-- SWC Github organization: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- SWC Github `aeon` project: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk) or [Gonçalo Lopes](mailto:g.lopes@neurogears.org)
-- SWC HPC: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- `aeon` HPC Linux group: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- Datajoint database username: contact [Thinh Nguyen](mailto:thinh@vathes.com)
-
-To be granted these credentials, please send a single email to [all contact parties](mailto:jai.bhagat.21@ucl.ac.uk,g.lopes@neurogears.org,d.campagner@ucl.ac.uk,helpdesk@swc.ucl.ac.uk,thinh@vathes.com?subject=Request%20for%20Aeon%20credentials) requesting this access.
+To request access, please contact [swc-aeon@ucl.ac.uk](mailto:swc-aeon@ucl.ac.uk?subject=Request%20for%20Aeon%20access).
 
 ## Repositories
 
 Aeon is organised into multiple repositories. The full list of repositories and their descriptions are available in the [Repositories](https://aeon.swc.ucl.ac.uk/getting_started/repositories.html) section of the documentation.
 
-## Project Maintainers
+## Project maintainers
 
 - Jai Bhagat (jai.bhagat.21@ucl.ac.uk)
 - Gonçalo Lopes (g.lopes@neurogears.org)
 - Dario Campagner (d.campagner@ucl.ac.uk)
 - Chang Huan Lo (changhuan.lo@ucl.ac.uk)
 
-## Citation Policy
+## Citation policy
 
 If you use Aeon in your work, please cite it as below:
 

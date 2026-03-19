@@ -9,7 +9,7 @@ This section lists preprints, published papers, project repositories, and datase
 
 ## Datasets
 
-If you use Aeon [datasets](target-sample-datasets) in your research, please cite the [platform paper](aeon-paper:), except where a dataset provides its own citation.
+If you use Aeon [datasets](target-datasets) in your research, please cite the [platform paper](aeon-paper:), except where a dataset provides its own citation.
 
 - [Single Mouse Foraging Assay – 2-Hour Sample](https://doi.org/10.5281/zenodo.13881884)
 - [Social 0.2/0.3/0.4 Datasets](target-full-datasets): Full datasets from social experiments. 

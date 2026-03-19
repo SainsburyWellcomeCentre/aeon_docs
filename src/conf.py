@@ -164,7 +164,7 @@ redirects = {
     "getting_started/repositories.html": "/getting_started/repositories/",
     "user/aeon_modules/hardware.html": "/user/aeon_modules/hardware/",
     "user/how_to.html": "/user/how_to/",
-    "user/sample_datasets.html": "/user/sample_datasets/",
+    "user/sample_datasets.html": "/user/datasets/",
     "about/people.html": "/about/people/",
 }
 

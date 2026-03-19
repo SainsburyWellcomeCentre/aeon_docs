@@ -14,8 +14,8 @@ This user guide is designed to help users understand and utilise Aeon effectivel
 Detailed documentation on Aeon's hardware and software modules.
 :::
 
-:::{grid-item-card} Sample Datasets
-:link: target-sample-datasets
+:::{grid-item-card} Datasets
+:link: target-datasets
 :link-type: ref
 :img-bottom: ../images/noun-sample-data-6079666.svg
 :class-img-bottom: .sd-img-bottom-small
@@ -47,7 +47,7 @@ Practical, task-specific instructions for common workflows in Aeon.
 :hidden:
 
 aeon_modules
-sample_datasets
+datasets
 tutorials
 how_to
 :::

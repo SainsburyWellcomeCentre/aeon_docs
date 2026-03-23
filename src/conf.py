@@ -186,7 +186,7 @@ linkcheck_ignore = [
     "https://doi.org/",  # 403 Client Error: Forbidden for bioRxiv url
     "https://www.biorxiv.org/",  # 403 Client Error: Forbidden for bioRxiv url
     "http://legacy.sleap.ai/",  # NameResolutionError
-    r"globus\.org",  # All URLs containing globus.org
+    r"https?://[^/]*globus\.org",  # All URLs containing globus.org
     r"(?:\.\./)+_images/.*",  # Internal image references that get remapped during build
     # Private repos
     "https://github.com/coenLab/bonsai-workflows",

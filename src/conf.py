@@ -106,7 +106,7 @@ templates_path = ["_templates"]
 autosummary_generate = True
 autodoc_default_options = {
     "members": True,
-    "inherited-members": True,
+    "inherited-members": "BaseModel",  # exclude Pydantic BaseModel methods
     "show-inheritance": True,
     "undoc-members": True,
 }

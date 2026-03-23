@@ -1,11 +1,12 @@
 # minimum dependencies to build aeon_api docs
 dotmap
+harp-python
 matplotlib
 opencv-python
-pandas 
-plotly
-harp-python
+pandas
 pandas-stubs
+pydantic
+pydantic-yaml
 
 linkify-it-py
 myst-nb

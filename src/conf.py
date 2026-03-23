@@ -179,6 +179,13 @@ html_js_files = [
     "js/workflow.js",  # javascript for embedded workflows
 ]
 
+intersphinx_mapping = {
+    "pandas": ("https://pandas.pydata.org/docs/", None),
+    "python": ("https://docs.python.org/3", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
+    "pydantic": ("https://docs.pydantic.dev/latest/", None),
+}
+
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [
     "https://liveuclac.sharepoint.com/",  # UCL internal SharePoint

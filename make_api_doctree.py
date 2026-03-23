@@ -7,16 +7,16 @@ ignore_modules = []
 
 def make_api_doctree():
     """
-    Create a doctree of all modules in aeon_api/swc/aeon.
+    Create a doctree of all modules in aeon_api/src/swc/aeon.
     """
     doctree = ""
-    api_path = Path("aeon_api") / "swc" / "aeon"
+    api_path = Path("aeon_api") / "src" / "swc" / "aeon"
     for path in sorted(api_path.rglob("*.py")):
         if path.name.startswith("_"):
             continue
         # Convert file path to module name
         full = str(path.with_suffix("")).replace(os.sep, ".")
-        full = ".".join(full.split(".")[1:])
+        full = ".".join(full.split(".")[2:])
         if not any(full.startswith(ignore_module) for ignore_module in ignore_modules):
             doctree += f"   {full}\n"
     # Get the main page header

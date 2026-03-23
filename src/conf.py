@@ -19,7 +19,7 @@ sys.path.extend(
     [
         os.path.abspath("."),
         os.path.abspath("../aeon_mecha/"),
-        os.path.abspath("../aeon_api/"),
+        os.path.abspath("../aeon_api/src/"),
         os.path.abspath("../aeon_acquisition"),
         os.path.abspath("../aeon_experiments"),
     ]
@@ -59,12 +59,12 @@ github_url = f"https://github.com/{organisation.replace(' ', '')}/aeon_docs"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.githubpages",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "sphinx.ext.autodoc",
     "sphinx_autodoc_typehints",
     "myst_nb",
     "sphinx_design",
@@ -106,10 +106,12 @@ templates_path = ["_templates"]
 autosummary_generate = True
 autodoc_default_options = {
     "members": True,
-    "inherited-members": True,
+    "inherited-members": "BaseModel",  # exclude Pydantic BaseModel methods
     "show-inheritance": True,
     "undoc-members": True,
 }
+# sphinx-autodoc-typehints settings
+always_use_bars_union = True
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -176,6 +178,13 @@ html_css_files = ["css/custom.css"]
 html_js_files = [
     "js/workflow.js",  # javascript for embedded workflows
 ]
+
+intersphinx_mapping = {
+    "pandas": ("https://pandas.pydata.org/docs/", None),
+    "python": ("https://docs.python.org/3", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
+    "pydantic": ("https://docs.pydantic.dev/latest/", None),
+}
 
 # linkcheck will skip checking these URLs entirely
 linkcheck_ignore = [

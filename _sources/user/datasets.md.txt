@@ -1,5 +1,5 @@
-(target-sample-datasets)=
-# Sample Datasets
+(target-datasets)=
+# Datasets
 To demonstrate Aeon's various features and capabilities, we also provide the following datasets that complement the [tutorials](target-tutorials) and [how-to guides](target-how-to).
 
 (target-short-datasets)=

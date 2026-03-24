@@ -4,6 +4,7 @@ Namespace: [Aeon.Acquisition](Aeon.Acquisition.md)
 Assembly: Aeon.Acquisition.dll  
 
 ```csharp
+[Obsolete]
 [Combinator]
 [WorkflowElementCategory(ElementCategory.Transform)]
 public class FormatDate

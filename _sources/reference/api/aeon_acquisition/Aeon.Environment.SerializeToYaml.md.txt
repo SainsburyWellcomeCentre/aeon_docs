@@ -6,8 +6,8 @@ Assembly: Aeon.Environment.dll
 Serializes a sequence of data model objects into YAML strings.
 
 ```csharp
-[Combinator]
 [WorkflowElementCategory(ElementCategory.Transform)]
+[Combinator]
 public class SerializeToYaml
 ```
 

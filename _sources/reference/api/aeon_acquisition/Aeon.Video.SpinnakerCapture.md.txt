@@ -79,6 +79,8 @@ public double Gain { get; set; }
 
 ### <a id="Aeon_Video_SpinnakerCapture_Configure_SpinnakerNET_IManagedCamera_"></a> Configure\(IManagedCamera\)
 
+Configures the acquisition mode on the selected camera.
+
 ```csharp
 protected override void Configure(IManagedCamera camera)
 ```
@@ -86,6 +88,14 @@ protected override void Configure(IManagedCamera camera)
 #### Parameters
 
 `camera` IManagedCamera
+
+The camera to configure.
+
+#### Exceptions
+
+ [InvalidOperationException](https://learn.microsoft.com/dotnet/api/system.invalidoperationexception)
+
+Unable to configure the camera acquisition mode.
 
 ### <a id="Aeon_Video_SpinnakerCapture_Generate__1_System_IObservable_Bonsai_Harp_Timestamped___0___"></a> Generate<TPayload\>\(IObservable<Timestamped<TPayload\>\>\)
 

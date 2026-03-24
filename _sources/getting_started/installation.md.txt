@@ -62,18 +62,17 @@ uv sync --all-extras
 
 ## SWC Ceph data access
 :::{important}
-You must be an SWC `aeon` project member to access Aeon data hosted on 
-SWC's Ceph storage. The required sets of credentials are as follows: 
-- Microsoft Teams: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk), [Gonçalo Lopes](mailto:g.lopes@neurogears.org), or [Dario Campagner](mailto:d.campagner@ucl.ac.uk)
-- SWC GitHub organisation: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- SWC GitHub `aeon` project: contact [Jai Bhagat](mailto:jai.bhagat.21@ucl.ac.uk) or [Gonçalo Lopes](mailto:g.lopes@neurogears.org)
-- SWC HPC: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- `aeon` HPC Linux group: contact [SWC Helpdesk](mailto:helpdesk@swc.ucl.ac.uk)
-- Datajoint database username: contact [Thinh Nguyen](mailto:thinh@vathes.com)
+You must be an SWC `aeon` project member to access Aeon data hosted on SWC's Ceph storage. 
+To obtain access, you will need the following accounts and access permissions:
 
-To be granted these credentials, please send a single email to 
-[all contact parties](mailto:jai.bhagat.21@ucl.ac.uk,g.lopes@neurogears.org,d.campagner@ucl.ac.uk,helpdesk@swc.ucl.ac.uk,thinh@vathes.com?subject=Request%20for%20Aeon%20credentials) 
-requesting this access.
+- Microsoft Teams
+- SWC GitHub organisation
+- SWC GitHub `aeon` team
+- SWC HPC account
+- `aeon` Linux group on SWC HPC
+- Datajoint database account
+
+To request access, please contact us at [swc-aeon@ucl.ac.uk](mailto:swc-aeon@ucl.ac.uk?subject=Request%20for%20Aeon%20access).
 :::
 
 :::::{tab-set}

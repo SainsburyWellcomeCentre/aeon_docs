@@ -19,5 +19,10 @@
    swc.aeon.io.api
    swc.aeon.io.reader
    swc.aeon.io.video
+   swc.aeon.schema.base
    swc.aeon.schema.core
+   swc.aeon.schema.environment
+   swc.aeon.schema.foraging
+   swc.aeon.schema.harp
    swc.aeon.schema.streams
+   swc.aeon.schema.video

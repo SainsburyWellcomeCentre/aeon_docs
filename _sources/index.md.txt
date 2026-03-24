@@ -57,9 +57,9 @@ To Aeon Modules
 :columns: 8
 :child-align: center
 :padding: 0 0 5 0
-<p class="h4">Explore the sample data</p>
+<p class="h4">Explore Aeon data</p>
 
-Learn more about how Aeon data is acquired, stored and processed through the sample data and example analysis notebooks.
+Learn how Aeon data is acquired, stored, and processed through the user guide and shared datasets.
 
 ```{button-ref} user/index
 :color: primary

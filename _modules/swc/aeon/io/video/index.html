@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>swc.aeon.io.video &#8212; Aeon  documentation</title>
+    <title>swc.aeon.io.video &#8212; Aeon v0.1.0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
 <link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=9651da53" />
@@ -41,7 +41,7 @@
   <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../../../../_static/documentation_options.js?v=94888234"></script>
     <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
   
   
   
-    <p class="title logo__title">Aeon </p>
+    <p class="title logo__title">Aeon v0.1.0</p>
   
 </a></div>
     
@@ -392,17 +392,22 @@
   <h1>Source code for swc.aeon.io.video</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Module for reading and writing video files using OpenCV.&quot;&quot;&quot;</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cv2.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatLike</span>
 
 
 <div class="viewcode-block" id="frames">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.io.video/#swc.aeon.io.video.frames">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">frames</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frames</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">MatLike</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts the raw frames corresponding to the provided video metadata.</span>
 
-<span class="sd">    :param DataFrame data:</span>
-<span class="sd">        A pandas DataFrame where each row specifies video acquisition path and frame number.</span>
-<span class="sd">    :return:</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data: A DataFrame where each row specifies video acquisition path and frame number.</span>
+
+<span class="sd">    Returns:</span>
 <span class="sd">        An object to iterate over numpy arrays for each row in the DataFrame,</span>
 <span class="sd">        containing the raw video frame data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -434,22 +439,22 @@
 
 <div class="viewcode-block" id="export">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.io.video/#swc.aeon.io.video.export">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">fourcc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span><span class="n">frames</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">MatLike</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fps</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Exports the specified frame sequence to a new video file.</span>
 
-<span class="sd">    :param iterable frames: An object to iterate over the raw video frame data.</span>
-<span class="sd">    :param str file: The path to the exported video file.</span>
-<span class="sd">    :param fps: The frame rate of the exported video.</span>
-<span class="sd">    :param optional fourcc:</span>
-<span class="sd">        Specifies the four character code of the codec used to compress the frames.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        frames: An object to iterate over the raw video frame data.</span>
+<span class="sd">        filename: The path to the exported video file.</span>
+<span class="sd">        fps: The frame rate of the exported video.</span>
+<span class="sd">        fourcc: Specifies the four character code of the codec used to compress the frames.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">writer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">fourcc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-                <span class="n">writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="o">.</span><span class="n">fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">&quot;mp4v&quot;</span><span class="p">)</span>
+                <span class="n">writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">writer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -493,7 +498,7 @@
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="sphinx-version"></p>
-    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 9.0.4.
+    Created using <a href="https://sphinx-doc.org/">Sphinx</a> 9.1.0.
     <br/>
     </p>
     <p class="theme-version">

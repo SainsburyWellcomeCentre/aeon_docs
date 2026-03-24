@@ -9,9 +9,11 @@
 *   - [`AeonAudio`](Aeon.Acquisition.AeonAudio.md)
 *   - [`AvailableDiskSpace`](Aeon.Acquisition.AvailableDiskSpace.md)
 *   - [`AvailableMemory`](Aeon.Acquisition.AvailableMemory.md)
+*   - [`CreateGroup`](Aeon.Acquisition.CreateGroup.md)
 *   - [`CreateLogMessage`](Aeon.Acquisition.CreateLogMessage.md)
 *   - [`CreateRepository`](Aeon.Acquisition.CreateRepository.md)
 *   - [`FormatDate`](Aeon.Acquisition.FormatDate.md)
+*   - [`FormatDateTimeIso8601`](Aeon.Acquisition.FormatDateTimeIso8601.md)
 *   - [`FormatJson`](Aeon.Acquisition.FormatJson.md)
 *   - [`FormatLogMessage`](Aeon.Acquisition.FormatLogMessage.md)
 *   - [`GetDataPath`](Aeon.Acquisition.GetDataPath.md)
@@ -30,6 +32,7 @@
 *   - [`StateRecoverySubject<T\>`](Aeon.Acquisition.StateRecoverySubject\-1.md)
 *   - [`StripSubstring`](Aeon.Acquisition.StripSubstring.md)
 *   - [`ThrowException`](Aeon.Acquisition.ThrowException.md)
+*   - [`TruncateDateTime`](Aeon.Acquisition.TruncateDateTime.md)
 :::
 
 :::{rubric} Enums
@@ -47,9 +50,11 @@
 AeonAudio <Aeon.Acquisition.AeonAudio>
 AvailableDiskSpace <Aeon.Acquisition.AvailableDiskSpace>
 AvailableMemory <Aeon.Acquisition.AvailableMemory>
+CreateGroup <Aeon.Acquisition.CreateGroup>
 CreateLogMessage <Aeon.Acquisition.CreateLogMessage>
 CreateRepository <Aeon.Acquisition.CreateRepository>
 FormatDate <Aeon.Acquisition.FormatDate>
+FormatDateTimeIso8601 <Aeon.Acquisition.FormatDateTimeIso8601>
 FormatJson <Aeon.Acquisition.FormatJson>
 FormatLogMessage <Aeon.Acquisition.FormatLogMessage>
 GetDataPath <Aeon.Acquisition.GetDataPath>
@@ -68,5 +73,6 @@ StateRecoverySubject <Aeon.Acquisition.StateRecoverySubject>
 StateRecoverySubject<T> <Aeon.Acquisition.StateRecoverySubject-1>
 StripSubstring <Aeon.Acquisition.StripSubstring>
 ThrowException <Aeon.Acquisition.ThrowException>
+TruncateDateTime <Aeon.Acquisition.TruncateDateTime>
 PriorityLevel <Aeon.Acquisition.PriorityLevel>
 :::

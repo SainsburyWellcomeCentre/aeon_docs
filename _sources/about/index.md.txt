@@ -18,7 +18,7 @@ The large array of sensors in the habitat additionally allows for continuous tra
 multidimensional quantification of behavioural dynamics and internal states at millisecond resolution.
 
 For an in-depth look at the unique challenges and opportunities presented by the datasets collected in Aeon, please refer to our [Design Considerations](target-design-considerations).
-If you have any questions or need further information, feel free to reach out to the [project maintainers](target-project-maintainers).
+If you have any questions or need further information, please contact us at swc-aeon@ucl.ac.uk.
 
 (target-project-maintainers)=
 ## Project Maintainers

@@ -1,0 +1,41 @@
+# <a id="Aeon_Video_CreateVideoDataFrame"></a> Class CreateVideoDataFrame
+
+Namespace: [Aeon.Video](Aeon.Video.md)  
+Assembly: Aeon.Video.dll  
+
+```csharp
+[Combinator]
+public class CreateVideoDataFrame
+```
+
+#### Inheritance
+
+[object](https://learn.microsoft.com/dotnet/api/system.object) ← 
+[CreateVideoDataFrame](Aeon.Video.CreateVideoDataFrame.md)
+
+#### Inherited Members
+
+[object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring), 
+[object.Equals\(object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\)), 
+[object.Equals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.equals\#system\-object\-equals\(system\-object\-system\-object\)), 
+[object.ReferenceEquals\(object, object\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
+[object.GetHashCode\(\)](https://learn.microsoft.com/dotnet/api/system.object.gethashcode), 
+[object.GetType\(\)](https://learn.microsoft.com/dotnet/api/system.object.gettype), 
+[object.MemberwiseClone\(\)](https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone)
+
+## Methods
+
+### <a id="Aeon_Video_CreateVideoDataFrame_Process_System_IObservable_System_Tuple_OpenCV_Net_IplImage_Aeon_Video_VideoChunkData___"></a> Process\(IObservable<Tuple<IplImage, VideoChunkData\>\>\)
+
+```csharp
+public IObservable<VideoDataFrame> Process(IObservable<Tuple<IplImage, VideoChunkData>> source)
+```
+
+#### Parameters
+
+`source` [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[Tuple](https://learn.microsoft.com/dotnet/api/system.tuple\-2)<IplImage, [VideoChunkData](Aeon.Video.VideoChunkData.md)\>\>
+
+#### Returns
+
+ [IObservable](https://learn.microsoft.com/dotnet/api/system.iobservable\-1)<[VideoDataFrame](Aeon.Video.VideoDataFrame.md)\>
+

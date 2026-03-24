@@ -1,0 +1,6 @@
+﻿swc.aeon.schema.video
+=====================
+
+.. automodule:: swc.aeon.schema.video
+   :members:
+   :undoc-members:

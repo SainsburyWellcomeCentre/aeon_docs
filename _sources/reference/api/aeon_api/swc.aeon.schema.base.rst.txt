@@ -1,0 +1,6 @@
+﻿swc.aeon.schema.base
+====================
+
+.. automodule:: swc.aeon.schema.base
+   :members:
+   :undoc-members:

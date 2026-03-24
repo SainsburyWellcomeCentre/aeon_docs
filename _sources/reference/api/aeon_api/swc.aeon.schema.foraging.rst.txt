@@ -1,0 +1,6 @@
+﻿swc.aeon.schema.foraging
+========================
+
+.. automodule:: swc.aeon.schema.foraging
+   :members:
+   :undoc-members:

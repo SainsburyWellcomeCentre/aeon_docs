@@ -33,7 +33,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.x
+          global-json-file: ./aeon_acquisition/global.json
 
       - name: Setup DocFX
         run: dotnet tool restore

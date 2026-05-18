@@ -62,6 +62,11 @@ html[data-theme=light] {
    4. Image Styles
    ========================== */
 
+/* Remove white bg in SVG to match surrounding div in light mode */
+html[data-theme=light] img[src$=".svg"] {
+  mix-blend-mode: multiply;
+}
+
 /* Invert SVG line art in dark mode */
 /* screen blend removes the inverted black bg */
 html[data-theme=dark] img[src$=".svg"] {

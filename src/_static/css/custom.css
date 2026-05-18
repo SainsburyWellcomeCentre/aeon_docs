@@ -83,7 +83,7 @@ html[data-theme=light] {
 }
 
 img.img-hardware-steps {
-  max-height: 40vh;
+  width: 100%;
 }
 
 img.img-hardware-main {

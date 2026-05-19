@@ -146,28 +146,18 @@ For the `aeon_acquisition` Bonsai package, the `make_acquisition_doctree.py` scr
 This TOC is then used to generate the `src/reference/api/acquisition.rst` file containing the list of modules to be included in the [API reference](target-aeon-acquisition-reference).
 
 ## Building the documentation locally
-To build the documentation locally, first make sure you have cloned the [`aeon_docs` repository](aeon-docs-github:). 
+To build the documentation locally, first make sure you have cloned the [`aeon_docs` repository](aeon-docs-github:) and installed [pixi](https://pixi.prefix.dev/).
 The following commands should be run from the root directory of the repository.
 
-:::{note}
-Windows PowerShell users should prepend `make` commands with `.\` (e.g. `.\make dirhtml`).
-:::
-
-Create a `conda` environment with the required dependencies and activate it:
+Install all dependencies (Python packages and .NET):
 ```bash
-conda create -n aeon_docs python dotnet=8 -c conda-forge
-conda activate aeon_docs
+pixi install
 ```
 
 Make the `docfx` tool available in the environment:
 ```bash
-dotnet tool restore
+pixi run setup-dotnet
 ```
-
-From the root of the repository, install the requirements for building the documentation:
-```bash
-pip install -r requirements.txt
-``` 
 
 Then, populate submodules:
 ```bash
@@ -183,18 +173,24 @@ git submodule update --remote
 
 Finally, build the documentation:
 ```bash
-make dirhtml
+pixi run build
 ```
+
 You can view the local build by opening `docs/dirhtml/index.html` in a browser.
 
-To apply new changes to the documentation, remove all automatically generated files and folders, and rebuild:
+:::{note}
+If the build fails with `A compatible .NET SDK was not found`, check that the `dotnet` version in `pyproject.toml`
+matches the version in `aeon_acquisition/global.json`, and update the constraint in `pyproject.toml` if needed.
+:::
+
+To clear all generated files and folders, and rebuild the documentation from scratch:
 ```bash
-make clean dirhtml
+pixi run clean-build
 ```
 
 To check that external URLs are correctly resolved, run:
 ```bash
-make linkcheck
+pixi run linkcheck
 ```
 
 If the linkcheck step incorrectly marks URLs with valid anchors as broken, 

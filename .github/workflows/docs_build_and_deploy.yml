@@ -43,7 +43,6 @@ jobs:
       - name: Check external links
         run: pixi run linkcheck
 
-      # needs to have sphinx.ext.githubpages in conf.py extensions list
       - name: Build documentation
         run: pixi run build
 

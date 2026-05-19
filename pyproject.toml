@@ -1,0 +1,41 @@
+[project]
+name = "aeon-docs"
+description = "Documentation for Aeon: an open-source platform to study the neural basis of ethological behaviours over naturalistic timescales."
+requires-python = ">=3.11"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.md"]
+readme = "README.md"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
+[tool.pixi.dependencies]
+# dotnet major version must mirror aeon_acquisition/global.json; update as needed
+python = ">=3.11"
+dotnet = "8.*"
+
+[tool.pixi.pypi-dependencies]
+dotmap = "*"
+harp-python = "*"
+matplotlib = "*"
+opencv-python = "*"
+pandas = "*"
+pandas-stubs = "*"
+pydantic = "*"
+pydantic-yaml = "*"
+linkify-it-py = "*"
+myst-nb = "*"
+pydata-sphinx-theme = "*"
+sphinx-autodoc-typehints = "*"
+sphinx-copybutton = "*"
+sphinx-design = "*"
+sphinx-sitemap = "*"
+sphinx-reredirects = "*"
+sphinx-notfound-page = "*"
+
+[tool.pixi.tasks]
+setup-dotnet = "dotnet tool restore"
+build = "make dirhtml"
+clean-build = "make clean dirhtml"
+linkcheck = "make linkcheck"

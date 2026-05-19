@@ -31,50 +31,21 @@ jobs:
           submodules: true # Enable automatic checkout of all submodules
           fetch-tags: true # For determining the latest tag in conf.py
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+      - name: Setup pixi
+        uses: prefix-dev/setup-pixi@v0.9.4
         with:
-          global-json-file: ./aeon_acquisition/global.json
-
+          cache: true
+          cache-write: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+    
       - name: Setup DocFX
-        run: dotnet tool restore
-        
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: 3.13
-
-      - name: Upgrade pip
-        shell: bash
-        run: |
-          # install pip=>20.1 to use "pip cache dir"
-          python3 -m pip install --upgrade pip
-
-      - name: Get pip cache dir
-        shell: bash
-        id: pip-cache
-        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache dependencies
-        uses: actions/cache@v5
-        with:
-          path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        shell: bash
-        run: python3 -m pip install -r ./requirements.txt
+        run: pixi run setup-dotnet
 
       - name: Check external links
-        shell: bash
-        run: make linkcheck
+        run: pixi run linkcheck
 
       # needs to have sphinx.ext.githubpages in conf.py extensions list
-      - name: Building documentation
-        shell: bash
-        run: make dirhtml
+      - name: Build documentation
+        run: pixi run build
 
       - name: Upload the content for deployment
         uses: actions/upload-artifact@v7

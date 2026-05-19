@@ -61,6 +61,23 @@ html[data-theme=light] {
 /* ==========================
    4. Image Styles
    ========================== */
+
+/* Remove white bg in SVG to match surrounding div in light mode */
+html[data-theme=light] img[src$=".svg"] {
+  mix-blend-mode: multiply;
+}
+
+/* Invert SVG line art in dark mode */
+/* screen blend removes the inverted black bg */
+html[data-theme=dark] img[src$=".svg"] {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+
+/* Hover needs a bg so mix-blend-mode: screen can blend */
+html[data-theme=dark] .sd-card-hover:hover {
+  background-color: var(--pst-color-background);
+}
 .sd-card-img-bottom {
   object-fit: contain;
   padding: 1rem !important;
@@ -83,7 +100,7 @@ html[data-theme=light] {
 }
 
 img.img-hardware-steps {
-  max-height: 40vh;
+  width: 100%;
 }
 
 img.img-hardware-main {

@@ -29,13 +29,14 @@
         ]
       }
     ],
-
     "xref": [
       "https://horizongir.github.io/opencv.net/xrefmap.yml",
       "https://horizongir.github.io/ZedGraph/xrefmap.yml",
       "https://horizongir.github.io/opentk/xrefmap.yml",
       "https://horizongir.github.io/reactive/xrefmap.yml",
-      "https://bonsai-rx.org/sleap/xrefmap.yml"
+      "https://bonsai-rx.org/sleap/xrefmap.yml",
+      "https://bonsai-rx.org/docs/xrefmap.yml",
+      "https://harp-tech.org/xrefmap.yml"
     ]
   }
 }

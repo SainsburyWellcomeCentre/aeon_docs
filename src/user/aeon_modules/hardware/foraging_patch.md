@@ -155,7 +155,7 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 19\. Close the box with the electronic box lid (ID 8).
 :::
 :::{note}
-For v1.1.0, steps 18-19 above are replaced by the following step. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases) for details.
+For [v1.1.0](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases/tag/v1.1.0), steps 18-19 above are replaced by the following step. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases) for details.
 :::
 :::{figure} ../../../images/foraging-patch-step18a.svg
 :alt: step18a-19a

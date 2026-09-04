@@ -232,7 +232,7 @@ myst_url_schemes = {
     "aeon-template-github": "https://github.com/SainsburyWellcomeCentre/aeon_template/{{path}}",
     "aeon-sleap-processing-github": "https://github.com/SainsburyWellcomeCentre/aeon_sleap_processing/{{path}}",
     "bonsai": "https://bonsai-rx.org/{{path}}#{{fragment}}",
-    "datajoint": "https://www.datajoint.com/{{path}}",
+    "datajoint": "https://datajoint.com/{{path}}",
     "datajoint-docs": "https://docs.datajoint.com/{{path}}#{{fragment}}",
     "sample-data-single-mouse-foraging": "https://doi.org/10.5281/zenodo.13881884",
     "myst-parser": "https://myst-parser.readthedocs.io/en/latest/{{path}}#{{fragment}}",
@@ -242,7 +242,7 @@ myst_url_schemes = {
     "harp-tech": "https://harp-tech.org/{{path}}#{{fragment}}",
     "python-pep": "https://peps.python.org/pep-{{path}}",
     "sphinx-doc": "https://www.sphinx-doc.org/en/master/usage/{{path}}#{{fragment}}",
-    "niu-howto": "https://howto.neuroinformatics.dev/programming/{{path}}#{{fragment}}",
+    "niu-howto": "https://neuroinformatics.dev/howto/programming/{{path}}#{{fragment}}",
 }
 
 # Configure 404 page

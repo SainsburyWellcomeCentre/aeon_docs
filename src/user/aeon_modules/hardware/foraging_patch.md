@@ -154,6 +154,15 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 :figclass: caption-hardware-steps
 19\. Close the box with the electronic box lid (ID 8).
 :::
+:::{note}
+For [v1.1.0](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases/tag/v1.1.0), steps 18-19 above are replaced by the following step. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases) for details.
+:::
+:::{figure} ../../../images/foraging-patch-step18a.svg
+:alt: step18a-19a
+:class: img-hardware-steps
+:figclass: caption-hardware-steps
+18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid.
+:::
 ::::
 
 ### Foraging patch tile
@@ -173,5 +182,5 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 ::::
 
 ## Downloads
-- [Assembly guide](https://g-d194c1.3cf00.03c0.data.globus.org/Foraging-Patch-Guideline.pdf)
+- [Assembly guide](https://g-d194c1.3cf00.03c0.data.globus.org/Foraging-Patch-Guideline-V1_1_0.pdf)
 - [Bill of materials](https://g-d194c1.3cf00.03c0.data.globus.org/Foraging-Patch-BOM.xlsx)

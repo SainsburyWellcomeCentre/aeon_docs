@@ -135,15 +135,13 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 ::::
 
 ### Electronics
-::::::{dropdown} Steps 17-19
+::::{dropdown} Steps 17-19
 :::{figure} ../../../images/foraging-patch-step17.svg
 :alt: step17
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
 17\. Screw the electronic box on the side of the foraging patch base (ID 6) and insert the foraging patch electronics. The screws need to be inserted from the inside of the box itself.
 :::
-:::::{tab-set}
-::::{tab-item} v1.0.0
 :::{figure} ../../../images/foraging-patch-step18.svg
 :alt: step18
 :class: img-hardware-steps
@@ -156,17 +154,16 @@ _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 :figclass: caption-hardware-steps
 19\. Close the box with the electronic box lid (ID 8).
 :::
-::::
-::::{tab-item} v1.1.0
+:::{note}
+For v1.1.0, steps 18-19 above are replaced by the following step. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases) for details.
+:::
 :::{figure} ../../../images/foraging-patch-step18a.svg
 :alt: step18a-19a
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases) for details.
+18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid.
 :::
 ::::
-:::::
-::::::
 
 ### Foraging patch tile
 ::::{dropdown} Steps 20-21

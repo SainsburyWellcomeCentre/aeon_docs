@@ -167,7 +167,7 @@ The differences in hardware and assembly procedures between these versions are h
 :alt: step18a-19a
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid. See the [release notes](aeon-feeder-github:releases/tag/v1.1.0) for details.
+18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid. See the [release notes](aeon-feeder-github:releases) for details.
 :::
 ::::
 :::::

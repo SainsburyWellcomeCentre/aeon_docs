@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="0jmRr1sRMbm36KKyq5U3ssZCf9viPpmz0HkmHLNQP84" name="google-site-verification" />
 
-    <title>DataJoint pipeline: Fetching data as DataFrames &#8212; Aeon v0.1.1 documentation</title>
+    <title>DataJoint pipeline: Fetching data as DataFrames &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -38,12 +38,12 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -224,8 +231,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -321,11 +327,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -338,8 +351,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -348,7 +360,8 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
   <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
@@ -537,15 +550,15 @@ To keep examples concise, we limit retrieval to the first 3 days for all data ty
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ensure_ts_arr_datetime</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure array is a numpy array of datetime64[ns] type.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Ensure array is a numpy array of datetime64[ns] type."""</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"datetime64[ns]"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"datetime64[ns]"</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">next_light_dark_cycle</span><span class="p">(</span><span class="n">start_dt</span><span class="p">,</span> <span class="n">light_off</span><span class="p">,</span> <span class="n">light_on</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the nearest 24-hour window aligned with the start of a light/dark cycle. &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return the nearest 24-hour window aligned with the start of a light/dark cycle. """</span>
     <span class="n">date</span> <span class="o">=</span> <span class="n">start_dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
     <span class="n">light_off_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">(</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">light_on_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">(</span><span class="n">light_on</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
@@ -565,30 +578,30 @@ To keep examples concise, we limit retrieval to the first 3 days for all data ty
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;social0.2-aeon4&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;presocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-31 11:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;presocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-08 15:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;social_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-09 17:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;social_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-23 12:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;postsocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-25 18:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;postsocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-02 13:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"social0.2-aeon4"</span><span class="p">,</span>
+    <span class="s2">"presocial_start"</span><span class="p">:</span> <span class="s2">"2024-01-31 11:00:00"</span><span class="p">,</span>
+    <span class="s2">"presocial_end"</span><span class="p">:</span> <span class="s2">"2024-02-08 15:00:00"</span><span class="p">,</span>
+    <span class="s2">"social_start"</span><span class="p">:</span> <span class="s2">"2024-02-09 17:00:00"</span><span class="p">,</span>
+    <span class="s2">"social_end"</span><span class="p">:</span> <span class="s2">"2024-02-23 12:00:00"</span><span class="p">,</span>
+    <span class="s2">"postsocial_start"</span><span class="p">:</span> <span class="s2">"2024-02-25 18:00:00"</span><span class="p">,</span>
+    <span class="s2">"postsocial_end"</span><span class="p">:</span> <span class="s2">"2024-03-02 13:00:00"</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]}</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"experiment_name"</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]}</span>
 <span class="n">light_off</span><span class="p">,</span> <span class="n">light_on</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">20</span>  <span class="c1"># 7am to 8pm</span>
 <span class="n">cm2px</span> <span class="o">=</span> <span class="mf">5.2</span>  <span class="c1"># 1 cm = 5.2 px roughly for top camera</span>
-<span class="n">dark_color</span> <span class="o">=</span> <span class="s2">&quot;#555555&quot;</span>
-<span class="n">light_color</span> <span class="o">=</span> <span class="s2">&quot;#CCCCCC&quot;</span>
+<span class="n">dark_color</span> <span class="o">=</span> <span class="s2">"#555555"</span>
+<span class="n">light_color</span> <span class="o">=</span> <span class="s2">"#CCCCCC"</span>
 
 <span class="c1"># Define periods</span>
 <span class="n">periods</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;presocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_end&quot;</span><span class="p">]),</span>
-    <span class="s2">&quot;social&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_end&quot;</span><span class="p">]),</span>
-    <span class="s2">&quot;postsocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_end&quot;</span><span class="p">]),</span>
+    <span class="s2">"presocial"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"presocial_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"presocial_end"</span><span class="p">]),</span>
+    <span class="s2">"social"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"social_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"social_end"</span><span class="p">]),</span>
+    <span class="s2">"postsocial"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"postsocial_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"postsocial_end"</span><span class="p">]),</span>
 <span class="p">}</span>
 <span class="c1"># Select the social period and limit to first 3 days for brevity</span>
-<span class="n">period_name</span> <span class="o">=</span> <span class="s2">&quot;social&quot;</span>
+<span class="n">period_name</span> <span class="o">=</span> <span class="s2">"social"</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="n">period_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
 <span class="n">end_dt</span> <span class="o">=</span> <span class="n">start_dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -610,65 +623,65 @@ The corrected positions are then stored in the <code class="docutils literal not
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
     <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads position data (centroid tracking) for a specified time period.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {"experiment_name": "Exp1"}).</span>
 <span class="sd">        period_start (str): Start datetime of the time period.</span>
 <span class="sd">        period_end (str): End datetime of the time period.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
 <span class="sd">                     Returns an empty DataFrame if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
         <span class="c1"># Create chunk restriction for the time period</span>
         <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
-            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
+            <span class="n">key</span><span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
         <span class="p">)</span>
         <span class="c1"># Fetch centroid tracking data for the specified period</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
             <span class="o">&amp;</span> <span class="n">key</span>
-            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
+            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">"spinnaker_video_source_name"</span><span class="p">:</span> <span class="s2">"CameraTop"</span><span class="p">}</span>
             <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
             <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">"subject_name"</span><span class="p">:</span> <span class="s2">"identity_name"</span><span class="p">,</span>
+                <span class="s2">"timestamps"</span><span class="p">:</span> <span class="s2">"time"</span><span class="p">,</span>
+                <span class="s2">"subject_likelihood"</span><span class="p">:</span> <span class="s2">"identity_likelihood"</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
-            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="s2">"time"</span><span class="p">,</span> <span class="s2">"identity_likelihood"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"likelihood"</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
             <span class="p">[</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">"time"</span><span class="p">,</span>
+                <span class="s2">"experiment_name"</span><span class="p">,</span>
+                <span class="s2">"identity_name"</span><span class="p">,</span>
+                <span class="s2">"identity_likelihood"</span><span class="p">,</span>
+                <span class="s2">"x"</span><span class="p">,</span>
+                <span class="s2">"y"</span><span class="p">,</span>
+                <span class="s2">"likelihood"</span><span class="p">,</span>
             <span class="p">]</span>
-        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
         <span class="c1"># Clean up the dataframe</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"spinnaker_video_source_name"</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"spinnaker_video_source_name"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()[</span><span class="n">period_start</span><span class="p">:</span><span class="n">period_end</span><span class="p">]</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"  No data found for the specified period"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">centroid_df</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">"  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'experiment_name'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> "</span>
+            <span class="sa">f</span><span class="s2">"to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -839,27 +852,27 @@ The corrected positions are then stored in the <code class="docutils literal not
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample position_df for plotting</span>
 <span class="n">position_df_downsampled</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">position_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;identity_name&quot;</span><span class="p">],</span> <span class="n">group_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span>  <span class="c1"># 1-second intervals</span>
+    <span class="n">position_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"identity_name"</span><span class="p">],</span> <span class="n">group_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">"1s"</span><span class="p">)</span>  <span class="c1"># 1-second intervals</span>
     <span class="o">.</span><span class="n">first</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="c1"># Compute time-of-day and flag dark vs light periods</span>
-<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"tod"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span>
     <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">minute</span> <span class="o">/</span> <span class="mi">60</span>
     <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">second</span> <span class="o">/</span> <span class="mi">3600</span>
     <span class="o">+</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="mi">3600</span>
 <span class="p">)</span>
 <span class="c1"># Detect light/dark transitions and assign period IDs</span>
-<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">light_off</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
-    <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;tod&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">light_on</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"is_dark"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"tod"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">light_off</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
+    <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"tod"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">light_on</span>
 <span class="p">)</span>
-<span class="n">first_dark</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
-<span class="n">shifted</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">first_dark</span><span class="p">)</span>
-<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_change&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;is_dark&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">shifted</span>
-<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;identity_name&quot;</span><span class="p">)[</span><span class="s2">&quot;light_change&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">first_dark</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"identity_name"</span><span class="p">)[</span><span class="s2">"is_dark"</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">"first"</span><span class="p">)</span>
+<span class="n">shifted</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"identity_name"</span><span class="p">)[</span><span class="s2">"is_dark"</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">first_dark</span><span class="p">)</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"light_change"</span><span class="p">]</span> <span class="o">=</span> <span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"is_dark"</span><span class="p">]</span> <span class="o">!=</span> <span class="n">shifted</span>
+<span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"light_id"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">position_df_downsampled</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"identity_name"</span><span class="p">)[</span><span class="s2">"light_change"</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -868,9 +881,9 @@ The corrected positions are then stored in the <code class="docutils literal not
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup</span>
-<span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 <span class="n">n_subj</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
-<span class="n">n_per</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">&quot;light_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">n_per</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">position_df_downsampled</span><span class="p">[</span><span class="s2">"light_id"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="c1"># Create subplot grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
     <span class="n">nrows</span><span class="o">=</span><span class="n">n_subj</span><span class="p">,</span>
@@ -890,12 +903,12 @@ The corrected positions are then stored in the <code class="docutils literal not
             <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
             <span class="k">continue</span>
         <span class="n">col</span> <span class="o">=</span> <span class="n">dark_color</span> <span class="k">if</span> <span class="n">sub</span><span class="o">.</span><span class="n">is_dark</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="n">light_color</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sub</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sub</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">,</span> <span class="s2">"box"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-                <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span>
+                <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">subj</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"right"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span>
             <span class="p">)</span>
 
 <span class="c1"># Add scale bar to bottom-right subplot</span>
@@ -906,17 +919,17 @@ The corrected positions are then stored in the <code class="docutils literal not
 <span class="n">x1</span> <span class="o">=</span> <span class="n">xmax</span> <span class="o">-</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">length_px</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">)</span>
-<span class="n">last_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">,</span> <span class="n">y0</span><span class="p">],</span> <span class="s2">&quot;k-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">last_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">,</span> <span class="n">y0</span><span class="p">],</span> <span class="s2">"k-"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">last_ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
     <span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">y0</span> <span class="o">-</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">),</span>
-    <span class="s2">&quot;0.2 m&quot;</span><span class="p">,</span>
-    <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
-    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+    <span class="s2">"0.2 m"</span><span class="p">,</span>
+    <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
     <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Downsampled position data across first 24-hour window</span><span class="se">\n</span><span class="s2">aligned with the start of a light/dark cycle.&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Downsampled position data across first 24-hour window</span><span class="se">\n</span><span class="s2">aligned with the start of a light/dark cycle."</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -941,7 +954,7 @@ The data includes:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_subject_patch_data</span><span class="p">(</span>
     <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads subject patch data for a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads subject patch data for a specified time period.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        key (dict): The key to filter the subject patch data.</span>
@@ -953,32 +966,32 @@ The data includes:</p>
 <span class="sd">            - patch_info (pd.DataFrame): Information about patches.</span>
 <span class="sd">            - block_subject_patch_data (pd.DataFrame): Data for the specified period.</span>
 <span class="sd">            - block_subject_patch_pref (pd.DataFrame): Preference data for the specified period.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">patch_info</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">BlockAnalysis</span><span class="o">.</span><span class="n">Patch</span><span class="p">()</span>
         <span class="o">&amp;</span> <span class="n">key</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &gt;= '</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &lt;= '</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">'"</span>
     <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span>
-        <span class="s2">&quot;block_start&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;patch_name&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;patch_rate&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;patch_offset&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wheel_timestamps&quot;</span><span class="p">,</span>
+        <span class="s2">"block_start"</span><span class="p">,</span>
+        <span class="s2">"patch_name"</span><span class="p">,</span>
+        <span class="s2">"patch_rate"</span><span class="p">,</span>
+        <span class="s2">"patch_offset"</span><span class="p">,</span>
+        <span class="s2">"wheel_timestamps"</span><span class="p">,</span>
         <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">block_subject_patch_data</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Patch</span><span class="p">()</span>
         <span class="o">&amp;</span> <span class="n">key</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &gt;= '</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &lt;= '</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">'"</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
     <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">BlockSubjectAnalysis</span><span class="o">.</span><span class="n">Preference</span><span class="p">()</span>
         <span class="o">&amp;</span> <span class="n">key</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &gt;= '</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &lt;= '</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">'"</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">patch_info</span><span class="p">:</span>
         <span class="n">patch_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">patch_info</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
@@ -994,16 +1007,16 @@ The data includes:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">block_patch_info</span><span class="p">,</span> <span class="n">block_subject_patch_data</span><span class="p">,</span> <span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">load_subject_patch_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
 <span class="c1"># Drop NaNs in preference columns</span>
-<span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;final_preference_by_time&quot;</span><span class="p">,</span> <span class="s2">&quot;final_preference_by_wheel&quot;</span><span class="p">])</span>
+<span class="n">block_subject_patch_pref</span> <span class="o">=</span> <span class="n">block_subject_patch_pref</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"final_preference_by_time"</span><span class="p">,</span> <span class="s2">"final_preference_by_wheel"</span><span class="p">])</span>
 <span class="c1"># Validate subject count for pre/post-social blocks</span>
-<span class="k">if</span> <span class="n">period_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;presocial&quot;</span><span class="p">,</span> <span class="s2">&quot;postsocial&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-    <span class="n">n_subjects</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">period_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"presocial"</span><span class="p">,</span> <span class="s2">"postsocial"</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">n_subjects</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"block_start"</span><span class="p">)[</span><span class="s2">"subject_name"</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n_subjects</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">period_name</span><span class="si">}</span><span class="s2"> blocks have &gt;1 subject. Data may need cleaning.&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">exp</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">period_name</span><span class="si">}</span><span class="s2"> blocks have &gt;1 subject. Data may need cleaning."</span>
         <span class="p">)</span>
 <span class="c1"># Ensure timestamp arrays are datetime64[ns]</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_rfid_timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;in_patch_timestamps&quot;</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"pellet_timestamps"</span><span class="p">,</span> <span class="s2">"in_patch_rfid_timestamps"</span><span class="p">,</span> <span class="s2">"in_patch_timestamps"</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">block_subject_patch_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">block_subject_patch_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ensure_ts_arr_datetime</span><span class="p">)</span>
 </pre></div>
@@ -1352,13 +1365,13 @@ The data includes:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_seconds</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># wheel sampling interval</span>
 <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># Flatten and downsample</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">subject_name</span><span class="p">,</span> <span class="n">patch</span><span class="p">),</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;patch_name&quot;</span><span class="p">]):</span>
-    <span class="n">grp</span> <span class="o">=</span> <span class="n">grp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;block_start&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">subject_name</span><span class="p">,</span> <span class="n">patch</span><span class="p">),</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">block_subject_patch_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"subject_name"</span><span class="p">,</span> <span class="s2">"patch_name"</span><span class="p">]):</span>
+    <span class="n">grp</span> <span class="o">=</span> <span class="n">grp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"block_start"</span><span class="p">)</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">bs_val</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">block_start</span><span class="p">,</span> <span class="n">grp</span><span class="o">.</span><span class="n">wheel_cumsum_distance_travelled</span><span class="p">):</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span>
-        <span class="n">offs</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt_seconds</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;timedelta64[ns]&quot;</span><span class="p">)</span>
+        <span class="n">offs</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt_seconds</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"timedelta64[ns]"</span><span class="p">)</span>
         <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="n">bs_val</span><span class="p">)</span> <span class="o">+</span> <span class="n">offs</span>
         <span class="n">dists</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">+</span> <span class="n">offset</span>
         <span class="n">offset</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1368,10 +1381,10 @@ The data includes:</p>
         <span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">dists</span><span class="p">[</span><span class="n">mask</span><span class="p">]):</span>
             <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span>
-                <span class="s2">&quot;distance_m&quot;</span><span class="p">:</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject_name</span><span class="p">,</span>
-                <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="n">patch</span>
+                <span class="s2">"time"</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span>
+                <span class="s2">"distance_m"</span><span class="p">:</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject_name</span><span class="p">,</span>
+                <span class="s2">"patch"</span><span class="p">:</span> <span class="n">patch</span>
             <span class="p">})</span>
 
 <span class="c1"># Build long-form DataFrame</span>
@@ -1385,15 +1398,15 @@ The data includes:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">flat_df</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance_m&quot;</span><span class="p">,</span>
-    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span>
-    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;patch&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"distance_m"</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">"subject"</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">"patch"</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Distance spun on wheel (m)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Wheel Distance Over Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Distance spun on wheel (m)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Wheel Distance Over Time"</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1408,14 +1421,14 @@ The data includes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">block_subject_patch_data</span><span class="p">[[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;patch_name&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">]]</span>
-    <span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">])</span>
+    <span class="n">block_subject_patch_data</span><span class="p">[[</span><span class="s2">"subject_name"</span><span class="p">,</span> <span class="s2">"patch_name"</span><span class="p">,</span> <span class="s2">"pellet_timestamps"</span><span class="p">]]</span>
+    <span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">"pellet_timestamps"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"pellet_timestamps"</span><span class="p">])</span>
     <span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)$&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"pellet_timestamps"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"pellet_timestamps"</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"patch_idx"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"patch_name"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d+)$"</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"patch_idx"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"patch_idx"</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"patch_idx"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -1424,27 +1437,27 @@ The data includes:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span>
     <span class="n">df</span><span class="p">,</span>
-    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">"subject_name"</span><span class="p">,</span>
     <span class="n">col_wrap</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">aspect</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
     <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pellet_timestamps&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;patch_idx&quot;</span><span class="p">,</span>
-    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"pellet_timestamps"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"patch_idx"</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">"|"</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="n">dark_color</span><span class="p">,</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Patch&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Patch"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;subject_name = &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"subject_name = "</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
 <span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pellet Delivery Raster by Subject&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Pellet Delivery Raster by Subject"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1660,29 +1673,29 @@ The data includes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_foraging_bouts</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads foraging bout data for blocks falling within a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads foraging bout data for blocks falling within a specified time period.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
-<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
-<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {"experiment_name": "Exp1"}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: Dataframe of foraging bouts for all matching blocks.</span>
 <span class="sd">                      Returns an empty dataframe with predefined columns if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Fetch bouts within the specified period</span>
     <span class="n">bouts_dict</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">Block</span> <span class="o">*</span> <span class="n">BlockForaging</span><span class="o">.</span><span class="n">Bout</span>
         <span class="o">&amp;</span> <span class="n">key</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;block_end &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_start&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_end&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_count&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_start &gt;= '</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"block_end &lt;= '</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">'"</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">"subject_name"</span><span class="p">,</span> <span class="s2">"bout_start"</span><span class="p">,</span> <span class="s2">"bout_end"</span><span class="p">,</span> <span class="s2">"pellet_count"</span><span class="p">,</span> <span class="s2">"cum_wheel_dist"</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">bouts_dict</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bouts_dict</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;bout_start&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bouts_dict</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"bout_start"</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_start&quot;</span><span class="p">,</span> <span class="s2">&quot;bout_end&quot;</span><span class="p">,</span> <span class="s2">&quot;pellet_count&quot;</span><span class="p">,</span> <span class="s2">&quot;cum_wheel_dist&quot;</span><span class="p">]</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject_name"</span><span class="p">,</span> <span class="s2">"bout_start"</span><span class="p">,</span> <span class="s2">"bout_end"</span><span class="p">,</span> <span class="s2">"pellet_count"</span><span class="p">,</span> <span class="s2">"cum_wheel_dist"</span><span class="p">]</span>
         <span class="p">)</span>
 
 <span class="c1"># Load foraging bouts</span>
@@ -1819,30 +1832,30 @@ The data includes:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s2">&quot;viridis&quot;</span><span class="p">]</span>  <span class="c1"># or &quot;plasma&quot;, &quot;magma&quot;, &quot;Greys&quot;</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">"subject_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s2">"viridis"</span><span class="p">]</span>  <span class="c1"># or "plasma", "magma", "Greys"</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">"pellet_count"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">"pellet_count"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subjects</span><span class="p">):</span>
-    <span class="n">bouts</span> <span class="o">=</span> <span class="n">foraging_df</span><span class="p">[</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">&quot;subject_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subj</span><span class="p">]</span>
+    <span class="n">bouts</span> <span class="o">=</span> <span class="n">foraging_df</span><span class="p">[</span><span class="n">foraging_df</span><span class="p">[</span><span class="s2">"subject_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">subj</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">bouts</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;pellet_count&quot;</span><span class="p">]))</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"pellet_count"</span><span class="p">]))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span>
             <span class="n">y</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
-            <span class="n">xmin</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;bout_start&quot;</span><span class="p">],</span>
-            <span class="n">xmax</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;bout_end&quot;</span><span class="p">],</span>
+            <span class="n">xmin</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">"bout_start"</span><span class="p">],</span>
+            <span class="n">xmax</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">"bout_end"</span><span class="p">],</span>
             <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
             <span class="n">linewidth</span><span class="o">=</span><span class="mi">70</span>
             <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Foraging Bouts&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Foraging Bouts"</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">"both"</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">sm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pellet Count&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Pellet Count"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1863,66 +1876,66 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_rfid_events</span><span class="p">(</span>
     <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads RFID events data for chunks falling within a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads RFID events data for chunks falling within a specified time period.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
-<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
-<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {"experiment_name": "Exp1"}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame containing RFID events for the specified period.</span>
 <span class="sd">                      Returns an empty dataframe with predefined columns if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Fetch RFID events within the specified period</span>
     <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">streams</span><span class="o">.</span><span class="n">RfidReader</span> <span class="o">*</span> <span class="n">streams</span><span class="o">.</span><span class="n">RfidReaderRfidEvents</span>
         <span class="o">&amp;</span> <span class="n">key</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &gt;= &quot;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
-        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">&#39;chunk_start &lt;= &quot;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">'chunk_start &gt;= "</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s1">"'</span>
+        <span class="o">&amp;</span> <span class="sa">f</span><span class="s1">'chunk_start &lt;= "</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s1">"'</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rfid_events_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="c1"># Return empty DataFrame with expected columns if no data found</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
             <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
-                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;chunk_start&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;sample_count&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;rfid&quot;</span><span class="p">,</span>
+                <span class="s2">"experiment_name"</span><span class="p">,</span>
+                <span class="s2">"chunk_start"</span><span class="p">,</span>
+                <span class="s2">"rfid_reader_name"</span><span class="p">,</span>
+                <span class="s2">"sample_count"</span><span class="p">,</span>
+                <span class="s2">"timestamps"</span><span class="p">,</span>
+                <span class="s2">"rfid"</span><span class="p">,</span>
             <span class="p">]</span>
         <span class="p">)</span>
     <span class="c1"># Get subject details for RFID mapping</span>
-    <span class="n">subject_detail</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="n">SubjectDetail</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+    <span class="n">subject_detail</span> <span class="o">=</span> <span class="n">subject</span><span class="o">.</span><span class="n">SubjectDetail</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
     <span class="n">subject_detail</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># Create mapping from RFID to subject ID</span>
-    <span class="n">rfid_to_lab_id</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;lab_id&quot;</span><span class="p">],</span> <span class="n">subject_detail</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">]))</span>
-    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">rfid_to_lab_id</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">subject_detail</span><span class="p">[</span><span class="s2">"lab_id"</span><span class="p">],</span> <span class="n">subject_detail</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">]))</span>
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">"rfid"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="n">rfid_to_lab_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rfid</span><span class="p">))</span> <span class="k">for</span> <span class="n">rfid</span> <span class="ow">in</span> <span class="n">rfid_array</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">rfid_array</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;rfid&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">rfid_array</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">"rfid"</span><span class="p">]</span>
     <span class="p">]</span>
     <span class="c1"># Extract experiment_name and chunk_start from the index before resetting</span>
-    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">rfid_events_df</span><span class="p">[</span><span class="s2">"chunk_start"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">idx</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">index</span>
     <span class="p">]</span>  <span class="c1"># Assuming chunk_start is at index 3</span>
     <span class="c1"># Reset the index and drop the index column</span>
     <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># Reorder columns to put experiment_name first and chunk_start second</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">,</span> <span class="s2">"chunk_start"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span>
         <span class="n">col</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rfid_events_df</span><span class="o">.</span><span class="n">columns</span>
-        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;chunk_start&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">,</span> <span class="s2">"chunk_start"</span><span class="p">]</span>
     <span class="p">]</span>
     <span class="n">rfid_events_df</span> <span class="o">=</span> <span class="n">rfid_events_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">rfid_events_df</span>
 
 <span class="c1"># Load RFID data</span>
 <span class="n">rfid_df</span> <span class="o">=</span> <span class="n">load_rfid_events</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
-<span class="n">rfid_df</span> <span class="o">=</span> <span class="n">rfid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;rfid&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">rfid_df</span> <span class="o">=</span> <span class="n">rfid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">"timestamps"</span><span class="p">,</span> <span class="s2">"rfid"</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"timestamps"</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">rfid_df</span> <span class="o">=</span> <span class="n">rfid_df</span><span class="p">[</span><span class="o">~</span><span class="n">rfid_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
-<span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="n">rfid_df</span><span class="p">[</span><span class="s2">"rfid_reader_name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">"rfid_reader_name"</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">rfid_df</span><span class="p">[</span><span class="s2">"rfid_reader_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -2066,16 +2079,16 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">rfid_df</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rfid_reader_name&quot;</span><span class="p">,</span>
-    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;rfid&quot;</span><span class="p">,</span>
-    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span>         <span class="c1"># vertical tick</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"timestamps"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"rfid_reader_name"</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">"rfid"</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">"|"</span><span class="p">,</span>         <span class="c1"># vertical tick</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>              <span class="c1"># marker size</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;RFID Reader&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RFID Ping Raster by Reader and Subject&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.97</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"RFID Reader"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"RFID Ping Raster by Reader and Subject"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Subject ID"</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.97</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2096,28 +2109,28 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_weight_data</span><span class="p">(</span>
     <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads weight data for a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads weight data for a specified time period.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
-<span class="sd">        period_start (str): Start datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
-<span class="sd">        period_end (str): End datetime of the time period (format: &#39;%Y-%m-%d %H:%M:%S&#39;).</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {"experiment_name": "Exp1"}).</span>
+<span class="sd">        period_start (str): Start datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
+<span class="sd">        period_end (str): End datetime of the time period (format: '%Y-%m-%d %H:%M:%S').</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: Weight data for the specified period.</span>
 <span class="sd">                      Returns an empty dataframe if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">weight_df</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">acquisition</span><span class="o">.</span><span class="n">Environment</span><span class="o">.</span><span class="n">SubjectWeight</span>
             <span class="o">&amp;</span> <span class="n">key</span>
-            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;chunk_start &gt;= &#39;</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">&quot;chunk_start &lt;= &#39;</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"chunk_start &gt;= '</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2">'"</span>
+            <span class="o">&amp;</span> <span class="sa">f</span><span class="s2">"chunk_start &lt;= '</span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="s2">"timestamps"</span><span class="p">,</span> <span class="s2">"weight"</span><span class="p">,</span> <span class="s2">"subject_id"</span><span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">weight_df</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">weight_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weight_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Error loading weight data for </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">"Error loading weight data for </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -2125,8 +2138,8 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
 <span class="n">weight_df</span> <span class="o">=</span> <span class="n">load_weight_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span>
 <span class="n">weight_df</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">weight_df</span>
-    <span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;subject_id&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamps&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="s2">"timestamps"</span><span class="p">,</span> <span class="s2">"weight"</span><span class="p">,</span> <span class="s2">"subject_id"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"timestamps"</span><span class="p">)</span>
     <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
@@ -2233,17 +2246,17 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timestamps&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span>
-    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
-    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"timestamps"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"weight"</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">"subject_id"</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
     <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Subject Weights Over Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Weight&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Subject Weights Over Time"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Weight"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Subject ID"</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2335,8 +2348,8 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2350,7 +2363,7 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -2364,7 +2377,7 @@ RFID readers are positioned at the <a class="reference internal" href="../../aeo
         <img src="../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

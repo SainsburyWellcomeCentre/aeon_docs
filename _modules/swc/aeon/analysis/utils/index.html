@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>swc.aeon.analysis.utils &#8212; Aeon v0.1.1 documentation</title>
+    <title>swc.aeon.analysis.utils &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -26,8 +26,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -36,12 +36,12 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -134,7 +134,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -203,11 +203,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -220,8 +227,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -315,11 +321,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -332,8 +345,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -397,7 +409,7 @@
                 <article class="bd-article">
                   
   <h1>Source code for swc.aeon.analysis.utils</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Helper functions for data analysis and visualization.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Helper functions for data analysis and visualization."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -406,14 +418,14 @@
 <div class="viewcode-block" id="distancetravelled">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.distancetravelled">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">distancetravelled</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the total distance travelled on the wheel.</span>
+<span class="w">    </span><span class="sd">"""Calculates the total distance travelled on the wheel.</span>
 
 <span class="sd">    Takes into account the wheel radius and the total number of turns in both directions across time.</span>
 
 <span class="sd">    :param Series angle: A series of magnetic encoder measurements.</span>
 <span class="sd">    :param float radius: The radius of the wheel, in metric units.</span>
 <span class="sd">    :return: The total distance travelled on the wheel, in metric units.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">maxvalue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">jumpthreshold</span> <span class="o">=</span> <span class="n">maxvalue</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="n">turns</span> <span class="o">=</span> <span class="n">angle</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
@@ -428,8 +440,8 @@
 
 <div class="viewcode-block" id="visits">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.visits">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">visits</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="s2">&quot;Enter&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="s2">&quot;Exit&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes duration, onset and offset times from paired events.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">visits</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="s2">"Enter"</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="s2">"Exit"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Computes duration, onset and offset times from paired events.</span>
 
 <span class="sd">    Allows for missing data by trying to match event onset times with subsequent offset times.</span>
 <span class="sd">    If the match fails, event offset metadata is filled with NaN. Any additional metadata columns</span>
@@ -439,36 +451,36 @@
 <span class="sd">    :param str, optional onset: The label used to identify event onsets.</span>
 <span class="sd">    :param str, optional offset: The label used to identify event offsets.</span>
 <span class="sd">    :return: A pandas data frame containing duration and metadata for each visit.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">lonset</span> <span class="o">=</span> <span class="n">onset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">loffset</span> <span class="o">=</span> <span class="n">offset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">lsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">lonset</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">rsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">loffset</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">id_onset</span> <span class="o">=</span> <span class="s2">&quot;id&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
-    <span class="n">event_onset</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
-    <span class="n">event_offset</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span> <span class="o">+</span> <span class="n">rsuffix</span>
-    <span class="n">time_onset</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="o">+</span> <span class="n">lsuffix</span>
-    <span class="n">time_offset</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="o">+</span> <span class="n">rsuffix</span>
+    <span class="n">lsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"_</span><span class="si">{</span><span class="n">lonset</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">rsuffix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"_</span><span class="si">{</span><span class="n">loffset</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">id_onset</span> <span class="o">=</span> <span class="s2">"id"</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">event_onset</span> <span class="o">=</span> <span class="s2">"event"</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">event_offset</span> <span class="o">=</span> <span class="s2">"event"</span> <span class="o">+</span> <span class="n">rsuffix</span>
+    <span class="n">time_onset</span> <span class="o">=</span> <span class="s2">"time"</span> <span class="o">+</span> <span class="n">lsuffix</span>
+    <span class="n">time_offset</span> <span class="o">=</span> <span class="s2">"time"</span> <span class="o">+</span> <span class="n">rsuffix</span>
 
     <span class="c1"># find all possible onset / offset pairs</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     <span class="n">data_onset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="n">onset</span><span class="p">]</span>
     <span class="n">data_offset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="n">offset</span><span class="p">]</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_onset</span><span class="p">,</span> <span class="n">data_offset</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="n">lsuffix</span><span class="p">,</span> <span class="n">rsuffix</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_onset</span><span class="p">,</span> <span class="n">data_offset</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="n">lsuffix</span><span class="p">,</span> <span class="n">rsuffix</span><span class="p">))</span>
 
     <span class="c1"># valid pairings have the smallest positive duration</span>
-    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">time_offset</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">time_onset</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">time_offset</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">time_onset</span><span class="p">]</span>
     <span class="n">valid_visits</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_visits</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">time_onset</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_visits</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">time_onset</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">])</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
 
     <span class="c1"># duplicate offsets indicate missing data from previous pairing</span>
-    <span class="n">missing_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">time_offset</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+    <span class="n">missing_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">time_offset</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"last"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">missing_data</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">missing_data</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">rsuffix</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">missing_data</span><span class="p">,</span> <span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">rsuffix</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span>
     <span class="c1"># rename columns and sort data</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">time_onset</span><span class="p">:</span> <span class="n">lonset</span><span class="p">,</span> <span class="n">id_onset</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">time_offset</span><span class="p">:</span> <span class="n">loffset</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">lonset</span><span class="p">,</span> <span class="n">loffset</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]]</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">time_onset</span><span class="p">:</span> <span class="n">lonset</span><span class="p">,</span> <span class="n">id_onset</span><span class="p">:</span> <span class="s2">"id"</span><span class="p">,</span> <span class="n">time_offset</span><span class="p">:</span> <span class="n">loffset</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">"_"</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">lonset</span><span class="p">,</span> <span class="n">loffset</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]]</span>
     <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">event_onset</span><span class="p">,</span> <span class="n">event_offset</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -479,7 +491,7 @@
 <div class="viewcode-block" id="rate">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.rate">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the continuous event rate from a discrete event sequence.</span>
+<span class="w">    </span><span class="sd">"""Computes the continuous event rate from a discrete event sequence.</span>
 
 <span class="sd">    The window size and sampling frequency can be specified.</span>
 
@@ -494,14 +506,14 @@
 <span class="sd">      The size of the smoothing kernel applied to the continuous rate output.</span>
 <span class="sd">    :param bool, optional center: Specifies whether to center the convolution kernels.</span>
 <span class="sd">    :return: A Series containing the continuous event rate over time.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">counts</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">rate</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="k">if</span> <span class="n">smooth</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
 
@@ -512,7 +524,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">get_events_rates</span><span class="p">(</span>
     <span class="n">events</span><span class="p">,</span> <span class="n">window_len_sec</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">unit_len_sec</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the event rate from a sequence of events over a specified window.</span>
+<span class="w">    </span><span class="sd">"""Computes the event rate from a sequence of events over a specified window.</span>
 
 <span class="sd">    :param Series events: The discrete sequence of events, with timestamps in seconds as index.</span>
 <span class="sd">    :param int window_len_sec: The length of the window over which the event rate is estimated.</span>
@@ -523,11 +535,11 @@
 <span class="sd">    :param int, optional smooth: The size of the smoothing kernel applied to the continuous rate output.</span>
 <span class="sd">    :param bool, optional center: Specifies whether to center the convolution kernels.</span>
 <span class="sd">    :return: A Series containing the continuous event rate over time.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># events is an array with the time (in seconds) of event occurence</span>
     <span class="c1"># window_len_sec is the size of the window over which the event rate is estimated</span>
     <span class="c1"># unit_len_sec is the length of one sample point</span>
-    <span class="n">window_len_sec_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">window_len_sec</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">S&quot;</span>
+    <span class="n">window_len_sec_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">window_len_sec</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">S"</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">events</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="n">counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -548,7 +560,7 @@
 <div class="viewcode-block" id="sessiontime">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.sessiontime">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">sessiontime</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts absolute to relative time, with optional reference starting time.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Converts absolute to relative time, with optional reference starting time."""</span>
     <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">index</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">60</span></div>
@@ -558,22 +570,22 @@
 <div class="viewcode-block" id="distance">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.distance">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the euclidean distance to a specified target.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">position</span><span class="p">[[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]]</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
+<span class="w">    </span><span class="sd">"""Computes the euclidean distance to a specified target."""</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">position</span><span class="p">[[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">]]</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="activepatch">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.analysis.utils/#swc.aeon.analysis.utils.activepatch">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">activepatch</span><span class="p">(</span><span class="n">wheel</span><span class="p">,</span> <span class="n">in_patch</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes a decision boundary for when a patch is active based on wheel movement.</span>
+<span class="w">    </span><span class="sd">"""Computes a decision boundary for when a patch is active based on wheel movement.</span>
 
 <span class="sd">    :param Series wheel: A pandas Series containing the cumulative distance travelled on the wheel.</span>
 <span class="sd">    :param Series in_patch: A Series of type bool containing whether the specified patch may be active.</span>
 <span class="sd">    :return: A pandas Series specifying for each timepoint whether the patch is active.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">exit_patch</span> <span class="o">=</span> <span class="n">in_patch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span>
-    <span class="n">in_wheel</span> <span class="o">=</span> <span class="p">(</span><span class="n">wheel</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">in_patch</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pad&quot;</span><span class="p">)</span>
+    <span class="n">in_wheel</span> <span class="o">=</span> <span class="p">(</span><span class="n">wheel</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">"1s"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">in_patch</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pad"</span><span class="p">)</span>
     <span class="n">epochs</span> <span class="o">=</span> <span class="n">exit_patch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">in_wheel</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
 
@@ -606,8 +618,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -621,7 +633,7 @@
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -635,7 +647,7 @@
         <img src="../../../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

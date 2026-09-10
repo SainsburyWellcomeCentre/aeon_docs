@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="0jmRr1sRMbm36KKyq5U3ssZCf9viPpmz0HkmHLNQP84" name="google-site-verification" />
 
-    <title>DataJoint pipeline: Computing behavioural bouts &#8212; Aeon v0.1.1 documentation</title>
+    <title>DataJoint pipeline: Computing behavioural bouts &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -28,8 +28,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -38,12 +38,12 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -207,11 +207,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -224,8 +231,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -321,11 +327,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -338,8 +351,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -348,7 +360,8 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
   <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
@@ -526,7 +539,7 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_swaps</span><span class="p">(</span><span class="n">pos_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Detect and remove swaps in the position data.</span>
+<span class="w">    </span><span class="sd">"""Detect and remove swaps in the position data.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data of a single subject.</span>
@@ -534,13 +547,13 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame with swaps removed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-    <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">pos_df</span><span class="p">[</span><span class="s2">"inst_speed"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span>
     <span class="c1"># Identify jumps</span>
-    <span class="n">jumps</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_speed</span><span class="p">)</span>
+    <span class="n">jumps</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">"inst_speed"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_speed</span><span class="p">)</span>
     <span class="n">shift_down</span> <span class="o">=</span> <span class="n">jumps</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">shift_down</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">shift_up</span> <span class="o">=</span> <span class="n">jumps</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -557,8 +570,8 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
             <span class="n">jump_start_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="c1"># Remove jumps by setting speed to nan in jump regions and dropping nans</span>
         <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">jump_start_indices</span><span class="p">,</span> <span class="n">jump_end_indices</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-            <span class="n">pos_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="s2">&quot;inst_speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-        <span class="n">pos_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;inst_speed&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">pos_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span><span class="n">pos_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="s2">"inst_speed"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">pos_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"inst_speed"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pos_df</span>
 </pre></div>
 </div>
@@ -570,25 +583,25 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <span class="n">nest_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1215</span><span class="p">,</span> <span class="mi">530</span><span class="p">))</span>
 <span class="n">nest_radius</span> <span class="o">=</span> <span class="mi">14</span> <span class="o">*</span> <span class="n">cm2px</span>  <span class="c1"># 14 cm, in px</span>
 <span class="n">exp</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;social0.2-aeon4&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;presocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-31 11:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;presocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-08 15:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;social_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-09 17:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;social_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-23 12:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;postsocial_start&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-02-25 18:00:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;postsocial_end&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-03-02 13:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"social0.2-aeon4"</span><span class="p">,</span>
+    <span class="s2">"presocial_start"</span><span class="p">:</span> <span class="s2">"2024-01-31 11:00:00"</span><span class="p">,</span>
+    <span class="s2">"presocial_end"</span><span class="p">:</span> <span class="s2">"2024-02-08 15:00:00"</span><span class="p">,</span>
+    <span class="s2">"social_start"</span><span class="p">:</span> <span class="s2">"2024-02-09 17:00:00"</span><span class="p">,</span>
+    <span class="s2">"social_end"</span><span class="p">:</span> <span class="s2">"2024-02-23 12:00:00"</span><span class="p">,</span>
+    <span class="s2">"postsocial_start"</span><span class="p">:</span> <span class="s2">"2024-02-25 18:00:00"</span><span class="p">,</span>
+    <span class="s2">"postsocial_end"</span><span class="p">:</span> <span class="s2">"2024-03-02 13:00:00"</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]}</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"experiment_name"</span><span class="p">:</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]}</span>
 <span class="c1"># Define periods</span>
 <span class="n">periods</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;presocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;presocial_end&quot;</span><span class="p">]),</span>
-    <span class="s2">&quot;social&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;social_end&quot;</span><span class="p">]),</span>
-    <span class="s2">&quot;postsocial&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_start&quot;</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;postsocial_end&quot;</span><span class="p">]),</span>
+    <span class="s2">"presocial"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"presocial_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"presocial_end"</span><span class="p">]),</span>
+    <span class="s2">"social"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"social_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"social_end"</span><span class="p">]),</span>
+    <span class="s2">"postsocial"</span><span class="p">:</span> <span class="p">(</span><span class="n">exp</span><span class="p">[</span><span class="s2">"postsocial_start"</span><span class="p">],</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"postsocial_end"</span><span class="p">]),</span>
 <span class="p">}</span>
 <span class="c1"># Select the social period and limit to first day for brevity</span>
-<span class="n">period_name</span> <span class="o">=</span> <span class="s2">&quot;social&quot;</span>
+<span class="n">period_name</span> <span class="o">=</span> <span class="s2">"social"</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">periods</span><span class="p">[</span><span class="n">period_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">start_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
 <span class="n">end_dt</span> <span class="o">=</span> <span class="n">start_dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -602,64 +615,64 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_position_data</span><span class="p">(</span>
     <span class="n">key</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">period_start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period_end</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads position data (centroid tracking) for a specified time period.</span>
+<span class="w">    </span><span class="sd">"""Loads position data (centroid tracking) for a specified time period.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (dict): Key to identify experiment data (e.g., {&quot;experiment_name&quot;: &quot;Exp1&quot;}).</span>
+<span class="sd">        key (dict): Key to identify experiment data (e.g., {"experiment_name": "Exp1"}).</span>
 <span class="sd">        period_start (str): Start datetime of the time period.</span>
 <span class="sd">        period_end (str): End datetime of the time period.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame containing position data for the specified period.</span>
 <span class="sd">                     Returns an empty DataFrame if no data found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Querying data from </span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
         <span class="c1"># Create chunk restriction for the time period</span>
         <span class="n">chunk_restriction</span> <span class="o">=</span> <span class="n">acquisition</span><span class="o">.</span><span class="n">create_chunk_restriction</span><span class="p">(</span>
-            <span class="n">key</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
+            <span class="n">key</span><span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">],</span> <span class="n">period_start</span><span class="p">,</span> <span class="n">period_end</span>
         <span class="p">)</span>
         <span class="c1"># Fetch centroid tracking data for the specified period</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">streams</span><span class="o">.</span><span class="n">SpinnakerVideoSource</span> <span class="o">*</span> <span class="n">tracking</span><span class="o">.</span><span class="n">DenoisedTracking</span><span class="o">.</span><span class="n">Subject</span>
             <span class="o">&amp;</span> <span class="n">key</span>
-            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CameraTop&quot;</span><span class="p">}</span>
+            <span class="o">&amp;</span> <span class="p">{</span><span class="s2">"spinnaker_video_source_name"</span><span class="p">:</span> <span class="s2">"CameraTop"</span><span class="p">}</span>
             <span class="o">&amp;</span> <span class="n">chunk_restriction</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;frame&quot;</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"frame"</span><span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
             <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;subject_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;subject_likelihood&quot;</span><span class="p">:</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">"subject_name"</span><span class="p">:</span> <span class="s2">"identity_name"</span><span class="p">,</span>
+                <span class="s2">"timestamps"</span><span class="p">:</span> <span class="s2">"time"</span><span class="p">,</span>
+                <span class="s2">"subject_likelihood"</span><span class="p">:</span> <span class="s2">"identity_likelihood"</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span>
-            <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;likelihood&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="s2">"time"</span><span class="p">,</span> <span class="s2">"identity_likelihood"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"likelihood"</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="n">centroid_df</span> <span class="o">=</span> <span class="n">centroid_df</span><span class="p">[</span>
             <span class="p">[</span>
-                <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;experiment_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_name&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;identity_likelihood&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;x&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;likelihood&quot;</span><span class="p">,</span>
+                <span class="s2">"time"</span><span class="p">,</span>
+                <span class="s2">"experiment_name"</span><span class="p">,</span>
+                <span class="s2">"identity_name"</span><span class="p">,</span>
+                <span class="s2">"identity_likelihood"</span><span class="p">,</span>
+                <span class="s2">"x"</span><span class="p">,</span>
+                <span class="s2">"y"</span><span class="p">,</span>
+                <span class="s2">"likelihood"</span><span class="p">,</span>
             <span class="p">]</span>
-        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
         <span class="c1"># Clean up the dataframe</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;spinnaker_video_source_name&quot;</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;spinnaker_video_source_name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">"spinnaker_video_source_name"</span> <span class="ow">in</span> <span class="n">centroid_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">centroid_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"spinnaker_video_source_name"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">centroid_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows of position data"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  No data found for the specified period&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"  No data found for the specified period"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">centroid_df</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">"  Error loading position data for </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'experiment_name'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">period_start</span><span class="si">}</span><span class="s2"> "</span>
+            <span class="sa">f</span><span class="s2">"to </span><span class="si">{</span><span class="n">period_end</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
@@ -668,9 +681,9 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <span class="c1"># If this takes too long, consider changing end_dt to an earlier time</span>
 <span class="n">position_df</span> <span class="o">=</span> <span class="n">load_position_data</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
-<span class="n">float_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;identity_likelihood&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;likelihood&#39;</span><span class="p">]</span>
+<span class="n">float_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'identity_likelihood'</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'likelihood'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">float_cols</span><span class="p">:</span>
-    <span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+    <span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">position_df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -792,7 +805,7 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
     <span class="n">move_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">cm2px</span><span class="p">,</span>  <span class="c1"># cm -&gt; px</span>
     <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cm2px</span><span class="p">,</span>  <span class="c1"># cm/s -&gt; px/s</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns sleep bouts for a given animal within the specified position data time period.</span>
+<span class="w">    </span><span class="sd">"""Returns sleep bouts for a given animal within the specified position data time period.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data.</span>
@@ -802,15 +815,15 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame containing sleep bouts for the specified animal.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="sd">    """</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="c1"># Set some constants and placeholder `windows_df` which will be combined into `bouts_df`</span>
-    <span class="n">sleep_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;1m&quot;</span><span class="p">)</span>
+    <span class="n">sleep_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">"1m"</span><span class="p">)</span>
     <span class="n">sleep_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
     <span class="p">)</span>
     <span class="c1"># Create time windows based on start and end time</span>
     <span class="n">data_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -819,7 +832,7 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
         <span class="n">start</span><span class="o">=</span><span class="n">data_start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">data_end_time</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">sleep_win</span>
     <span class="p">)</span>
     <span class="c1"># Process each time window</span>
-    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing sleep bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Processing sleep bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2"> "</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">win_start</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
         <span class="n">win_end</span> <span class="o">=</span> <span class="n">win_start</span> <span class="o">+</span> <span class="n">sleep_win</span>
         <span class="n">win_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span>
@@ -830,31 +843,31 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
         <span class="c1"># Excise id swaps (based on pos / speed jumps)</span>
         <span class="c1"># win_data = remove_swaps(win_data, max_speed)</span>
         <span class="c1"># Calculate the displacement - maximum distance between any two points in the window</span>
-        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
         <span class="n">displacement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="c1"># If displacement is less than threshold, consider it a sleep bout</span>
         <span class="k">if</span> <span class="n">displacement</span> <span class="o">&lt;</span> <span class="n">move_thresh</span><span class="p">:</span>
             <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">sleep_win</span><span class="p">,</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">sleep_win</span><span class="p">,</span>
             <span class="p">}</span>
             <span class="n">sleep_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">sleep_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
     <span class="c1"># Merge consecutive sleep windows into continuous bouts</span>
     <span class="k">if</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sleep_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">])</span>
     <span class="c1"># Initialize the merged bouts dataframe with the first window</span>
     <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"start"</span><span class="p">],</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"end"</span><span class="p">],</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"duration"</span><span class="p">],</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">)</span>
@@ -862,25 +875,25 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sleep_windows_df</span><span class="p">)):</span>
         <span class="n">current_window</span> <span class="o">=</span> <span class="n">sleep_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">last_bout</span> <span class="o">=</span> <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
-            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
-            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"start"</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">"end"</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
+            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"end"</span><span class="p">]</span>
+            <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sleep_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"end"</span><span class="p">]</span> <span class="o">-</span> <span class="n">sleep_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"start"</span><span class="p">]</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># start a new bout</span>
             <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"start"</span><span class="p">],</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"end"</span><span class="p">],</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">],</span>
             <span class="p">}</span>
             <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
     
     <span class="c1"># Set min bout time</span>
-    <span class="n">min_bout_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;2m&quot;</span><span class="p">)</span>
-    <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">sleep_bouts_df</span><span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_bout_time</span><span class="p">]</span>
+    <span class="n">min_bout_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">"2m"</span><span class="p">)</span>
+    <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">sleep_bouts_df</span><span class="p">[</span><span class="n">sleep_bouts_df</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_bout_time</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">sleep_bouts_df</span>
 </pre></div>
 </div>
@@ -889,9 +902,9 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute sleep bouts for each subject</span>
-<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">sleep_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
     <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">sleep_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">)</span>
@@ -1038,31 +1051,31 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
     <span class="n">min_dur</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>  <span class="c1"># min duration of bout in seconds</span>
     <span class="n">max_dur</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span>  <span class="c1"># max duration of bout in seconds</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>  <span class="c1"># cols: subject, start, end, duration, period</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns drink bouts for a given animal within the specified position data time period.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns drink bouts for a given animal within the specified position data time period."""</span>
 
-    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">])</span>
     <span class="c1"># Smooth position data to 100ms intervals - only numeric columns</span>
     <span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;100ms&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">"100ms"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
     <span class="n">animal_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
     <span class="c1"># Add non-numeric columns back</span>
-    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subject</span>
-    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">subject</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="s2">"experiment_name"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="c1"># Calculate distance from spout</span>
     <span class="n">spout_x</span><span class="p">,</span> <span class="n">spout_y</span> <span class="o">=</span> <span class="n">spout_loc</span>
-    <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;dist_to_spout&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
-        <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">animal_data</span><span class="p">[</span><span class="s2">"dist_to_spout"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">animal_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="n">spout_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="p">)</span>
     <span class="c1"># Find potential bout starts (within start_radius of spout)</span>
-    <span class="n">near_spout</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;dist_to_spout&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">start_radius</span>
+    <span class="n">near_spout</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">"dist_to_spout"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">start_radius</span>
     <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
     <span class="p">)</span>
     <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
-        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing drink bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Processing drink bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">"</span>
     <span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_data</span><span class="p">):</span>
@@ -1075,8 +1088,8 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
         <span class="n">bout_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">bout_start_idx</span> <span class="o">=</span> <span class="n">i</span>
         <span class="c1"># Track movement during potential bout</span>
-        <span class="n">start_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">start_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
         <span class="n">max_displacement</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="c1"># Continue while near spout and not moving too much</span>
@@ -1084,8 +1097,8 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
             <span class="n">current_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">bout_start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
             <span class="c1"># Calculate displacement from bout start position</span>
-            <span class="n">current_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-            <span class="n">current_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">current_x</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">current_y</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">displacement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
                 <span class="p">(</span><span class="n">current_x</span> <span class="o">-</span> <span class="n">start_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">current_y</span> <span class="o">-</span> <span class="n">start_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
             <span class="p">)</span>
@@ -1104,10 +1117,10 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
         <span class="c1"># Check if bout meets duration criteria</span>
         <span class="k">if</span> <span class="n">min_dur</span> <span class="o">&lt;</span> <span class="n">bout_duration</span> <span class="o">&lt;</span> <span class="n">max_dur</span><span class="p">:</span>
             <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">bout_start_time</span><span class="p">,</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">bout_end_time</span><span class="p">,</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">bout_duration</span><span class="p">),</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">bout_start_time</span><span class="p">,</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">bout_end_time</span><span class="p">,</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">bout_duration</span><span class="p">),</span>
             <span class="p">}</span>
             <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">drink_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
@@ -1123,12 +1136,12 @@ Since the social period spans 2 weeks, we limit retrieval to the first 24 hours 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute drink bouts for each subject</span>
-<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
-    <span class="n">spout_loc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;aeon3&quot;</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">535</span><span class="p">)</span>
+    <span class="n">spout_loc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"aeon3"</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">535</span><span class="p">)</span>
     <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">drink_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">spout_loc</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">subject_bouts</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">subject_bouts</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
         <span class="n">drink_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
@@ -1273,7 +1286,7 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
     <span class="n">nest_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">14</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># 14 cm, in px</span>
     <span class="n">max_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">5.2</span><span class="p">,</span>  <span class="c1"># 100 cm/s, in px/s</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns exploration bouts for a given animal within the specified position data time period.</span>
+<span class="w">    </span><span class="sd">"""Returns exploration bouts for a given animal within the specified position data time period.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        pos_df (pd.DataFrame): DataFrame containing position data.</span>
@@ -1284,15 +1297,15 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pd.DataFrame: DataFrame containing exploration bouts for the specified animal.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="sd">    """</span>
+    <span class="n">animal_data</span> <span class="o">=</span> <span class="n">pos_df</span><span class="p">[</span><span class="n">pos_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">subject</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No position data found for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="c1"># Set some constants and placeholder `windows_df` which will be combined into `bouts_df`</span>
-    <span class="n">explore_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">&quot;1m&quot;</span><span class="p">)</span>
+    <span class="n">explore_win</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s2">"1m"</span><span class="p">)</span>
     <span class="n">explore_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
     <span class="p">)</span>
     <span class="c1"># Create time windows based on start and end time</span>
     <span class="n">data_start_time</span> <span class="o">=</span> <span class="n">animal_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -1301,7 +1314,7 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
         <span class="n">start</span><span class="o">=</span><span class="n">data_start_time</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">data_end_time</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">explore_win</span>
     <span class="p">)</span>
     <span class="c1"># Process each time window (use tqdm for progress bar)</span>
-    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Processing explore bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">window_starts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Processing explore bouts for </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">win_start</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
         <span class="n">win_end</span> <span class="o">=</span> <span class="n">win_start</span> <span class="o">+</span> <span class="n">explore_win</span>
         <span class="n">win_data</span> <span class="o">=</span> <span class="n">animal_data</span><span class="p">[</span>
@@ -1312,31 +1325,31 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
         <span class="c1"># Remove id swaps (based on pos / speed jumps)</span>
         <span class="n">win_data</span> <span class="o">=</span> <span class="n">remove_swaps</span><span class="p">(</span><span class="n">win_data</span><span class="p">,</span> <span class="n">max_speed</span><span class="p">)</span>
         <span class="c1"># If majority of time in a window is outside nest, consider it an explore bout</span>
-        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">win_data</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="n">nest_center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">distance_from_nest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">frac_out_nest</span> <span class="o">=</span> <span class="p">(</span><span class="n">distance_from_nest</span> <span class="o">&gt;</span> <span class="n">nest_radius</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">win_data</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">frac_out_nest</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">explore_win</span><span class="p">,</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">win_start</span><span class="p">,</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">win_end</span><span class="p">,</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">explore_win</span><span class="p">,</span>
             <span class="p">}</span>
             <span class="n">explore_windows_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">explore_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
     <span class="c1"># Merge consecutive explore windows into continuous bouts</span>
     <span class="k">if</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">explore_windows_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">])</span>
     <span class="c1"># Initialize the merged bouts dataframe with the first window</span>
     <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
         <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"start"</span><span class="p">],</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"end"</span><span class="p">],</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"duration"</span><span class="p">],</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">)</span>
@@ -1344,17 +1357,17 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explore_windows_df</span><span class="p">)):</span>
         <span class="n">current_window</span> <span class="o">=</span> <span class="n">explore_windows_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">last_bout</span> <span class="o">=</span> <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
-            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
-            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"start"</span><span class="p">]</span> <span class="o">==</span> <span class="n">last_bout</span><span class="p">[</span><span class="s2">"end"</span><span class="p">]:</span>  <span class="c1"># continue bout</span>
+            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"end"</span><span class="p">]</span>
+            <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">explore_bouts_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"end"</span><span class="p">]</span> <span class="o">-</span> <span class="n">explore_bouts_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"start"</span><span class="p">]</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># start a new bout</span>
             <span class="n">new_bout</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
-                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span>
+                <span class="s2">"subject"</span><span class="p">:</span> <span class="n">subject</span><span class="p">,</span>
+                <span class="s2">"start"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"start"</span><span class="p">],</span>
+                <span class="s2">"end"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"end"</span><span class="p">],</span>
+                <span class="s2">"duration"</span><span class="p">:</span> <span class="n">current_window</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">],</span>
             <span class="p">}</span>
             <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">explore_bouts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_bout</span><span class="p">])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
@@ -1366,9 +1379,9 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">&quot;identity_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="n">position_df</span><span class="p">[</span><span class="s2">"identity_name"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">explore_bouts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"duration"</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="k">for</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">subjects</span><span class="p">:</span>
     <span class="n">subject_bouts</span> <span class="o">=</span> <span class="n">explore_bouts</span><span class="p">(</span><span class="n">position_df</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">nest_center</span><span class="p">)</span>
@@ -1578,8 +1591,8 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1593,7 +1606,7 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -1607,7 +1620,7 @@ Consecutive windows marked as explore bouts are merged into longer continuous bo
         <img src="../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

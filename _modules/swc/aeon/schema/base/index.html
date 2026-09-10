@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>swc.aeon.schema.base &#8212; Aeon v0.1.1 documentation</title>
+    <title>swc.aeon.schema.base &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -26,8 +26,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -36,12 +36,12 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -134,7 +134,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -203,11 +203,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -220,8 +227,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -315,11 +321,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -332,8 +345,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -397,7 +409,7 @@
                 <article class="bd-article">
                   
   <h1>Source code for swc.aeon.schema.base</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Base classes for defining experiment configuration and data models.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Base classes for defining experiment configuration and data models."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -416,7 +428,7 @@
 <div class="viewcode-block" id="BaseSchema">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.BaseSchema">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">BaseSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base class for all experiment configuration and data models.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""The base class for all experiment configuration and data models."""</span>
 
     <span class="n">model_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span>
         <span class="n">alias_generator</span><span class="o">=</span><span class="n">to_camel</span><span class="p">,</span>
@@ -426,8 +438,8 @@
         <span class="n">from_attributes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
 
-    <span class="n">_container_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="n">_container</span><span class="p">:</span> <span class="s2">&quot;BaseSchema | None&quot;</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_container_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">_container</span><span class="p">:</span> <span class="s2">"BaseSchema | None"</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_join_pattern_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern_prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_container_prefix</span>
@@ -441,7 +453,7 @@
 
         <span class="k">return</span> <span class="n">pattern_prefix</span>
 
-    <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
+    <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"after"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_validate_container_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">model_fields</span><span class="p">:</span>
             <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -460,12 +472,12 @@
 <div class="viewcode-block" id="Experiment">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.Experiment">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Experiment</span><span class="p">(</span><span class="n">BaseSchema</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base class for creating experiment models.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""The base class for creating experiment models."""</span>
 
-    <span class="n">workflow</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Path to the workflow running the experiment.&quot;</span><span class="p">)</span>
-    <span class="n">commit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Commit hash of the experiment repo.&quot;</span><span class="p">)</span>
+    <span class="n">workflow</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Path to the workflow running the experiment."</span><span class="p">)</span>
+    <span class="n">commit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Commit hash of the experiment repo."</span><span class="p">)</span>
     <span class="n">repository_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The URL of the git repository used to version experiment source code.&quot;</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"The URL of the git repository used to version experiment source code."</span>
     <span class="p">)</span></div>
 
 
@@ -473,48 +485,48 @@
 <div class="viewcode-block" id="Dataset">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.Dataset">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Dataset</span><span class="p">(</span><span class="n">BaseSchema</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base class for creating dataset models.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""The base class for creating dataset models."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_join_pattern_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern_prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_container_prefix</span><span class="p">,</span> <span class="n">pattern_prefix</span><span class="p">)</span></div>
 
 
 
-<span class="n">ModelT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;ModelT&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">BaseSchema</span><span class="p">)</span>
+<span class="n">ModelT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"ModelT"</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">BaseSchema</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Metadata">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.Metadata">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Metadata</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extracts metadata information from all epochs in the dataset.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Extracts metadata information from all epochs in the dataset."""</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ModelT</span><span class="p">],</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;Metadata&quot;</span><span class="p">):</span>  <span class="c1"># noqa: A002</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the reader object with the specified model type and optional pattern.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="s2">&quot;epoch&quot;</span><span class="p">],</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ModelT</span><span class="p">],</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">"Metadata"</span><span class="p">):</span>  <span class="c1"># noqa: A002</span>
+<span class="w">        </span><span class="sd">"""Initialize the reader object with the specified model type and optional pattern."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"metadata"</span><span class="p">,</span> <span class="s2">"epoch"</span><span class="p">],</span> <span class="n">extension</span><span class="o">=</span><span class="s2">"json"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">TypeAdapter</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Metadata.read">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.Metadata.read">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns metadata for the epoch associated with the specified file.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Returns metadata for the epoch associated with the specified file."""</span>
         <span class="n">epoch_str</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">date_str</span><span class="p">,</span> <span class="n">time_str</span> <span class="o">=</span> <span class="n">epoch_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
-        <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">date_str</span> <span class="o">+</span> <span class="s2">&quot;T&quot;</span> <span class="o">+</span> <span class="n">time_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">))</span>
+        <span class="n">date_str</span><span class="p">,</span> <span class="n">time_str</span> <span class="o">=</span> <span class="n">epoch_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"T"</span><span class="p">)</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">date_str</span> <span class="o">+</span> <span class="s2">"T"</span> <span class="o">+</span> <span class="n">time_str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">":"</span><span class="p">))</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">validate_json</span><span class="p">(</span><span class="n">metadata</span><span class="p">)],</span> <span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">epoch_str</span><span class="p">]}</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"metadata"</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">validate_json</span><span class="p">(</span><span class="n">metadata</span><span class="p">)],</span> <span class="s2">"epoch"</span><span class="p">:</span> <span class="p">[</span><span class="n">epoch_str</span><span class="p">]}</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
 </div>
 
 
 
-<span class="n">_SelfBaseSchema</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_SelfBaseSchema&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">BaseSchema</span><span class="p">)</span>
-<span class="n">_ReaderT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_ReaderT&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Reader</span><span class="p">)</span>
+<span class="n">_SelfBaseSchema</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"_SelfBaseSchema"</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">BaseSchema</span><span class="p">)</span>
+<span class="n">_ReaderT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"_ReaderT"</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Reader</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="data_reader">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.base/#swc.aeon.schema.base.data_reader">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">data_reader</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_SelfBaseSchema</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">_ReaderT</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">cached_property</span><span class="p">[</span><span class="n">_ReaderT</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decorator to include a data reader as `cached_property` in experiment dataset models.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Decorator to include a data reader as `cached_property` in experiment dataset models."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">_SelfBaseSchema</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_ReaderT</span><span class="p">:</span>
         <span class="n">pattern_prefix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_pattern_prefix</span><span class="p">()</span>  <span class="c1"># pyright: ignore[reportPrivateUsage]</span>
@@ -551,8 +563,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -566,7 +578,7 @@
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -580,7 +592,7 @@
         <img src="../../../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

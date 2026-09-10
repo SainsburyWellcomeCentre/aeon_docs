@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>swc.aeon.schema.foraging &#8212; Aeon v0.1.1 documentation</title>
+    <title>swc.aeon.schema.foraging &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -37,12 +37,12 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -206,11 +206,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -223,8 +230,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -320,11 +326,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -337,8 +350,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -347,7 +359,8 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
   <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
@@ -633,8 +646,8 @@
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.capitalize">
 <span class="sig-name descname"><span class="pre">capitalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.capitalize" title="Link to this definition">#</a></dt>
 <dd><p>Return a capitalized version of the string.</p>
-<p>More specifically, make the first character have upper case and the rest lower
-case.</p>
+<p>More specifically, make the first character have upper case and the
+rest lower case.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -647,14 +660,16 @@ case.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.center">
 <span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillchar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.center" title="Link to this definition">#</a></dt>
 <dd><p>Return a centered string of length width.</p>
-<p>Padding is done using the specified fill character (default is a space).</p>
+<p>Padding is done using the specified fill character (default is
+a space).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.count">
 <span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.count" title="Link to this definition">#</a></dt>
 <dd><p>Return the number of non-overlapping occurrences of substring sub in string S[start:end].</p>
-<p>Optional arguments start and end are interpreted as in slice notation.</p>
+<p>Optional arguments start and end are interpreted as in slice
+notation.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -666,8 +681,8 @@ case.</p>
 </dd>
 <dt>errors</dt><dd><p>The error handling scheme to use for encoding errors.
 The default is ‘strict’ meaning that encoding errors raise a
-UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and
-‘xmlcharrefreplace’ as well as any other name registered with
+UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’
+and ‘xmlcharrefreplace’ as well as any other name registered with
 codecs.register_error that can handle UnicodeEncodeErrors.</p>
 </dd>
 </dl>
@@ -698,8 +713,8 @@ codecs.register_error that can handle UnicodeEncodeErrors.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.find" title="Link to this definition">#</a></dt>
 <dd><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p>
-<p>Optional arguments start and end are interpreted as in slice notation.
-Return -1 on failure.</p>
+<p>Optional arguments start and end are interpreted as in slice
+notation.  Return -1 on failure.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -720,24 +735,24 @@ The substitutions are identified by braces (‘{’ and ‘}’).</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.index">
 <span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.index" title="Link to this definition">#</a></dt>
 <dd><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p>
-<p>Optional arguments start and end are interpreted as in slice notation.
-Raises ValueError when the substring is not found.</p>
+<p>Optional arguments start and end are interpreted as in slice
+notation.  Raises ValueError when the substring is not found.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isalnum">
 <span class="sig-name descname"><span class="pre">isalnum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isalnum" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is an alpha-numeric string, False otherwise.</p>
-<p>A string is alpha-numeric if all characters in the string are alpha-numeric and
-there is at least one character in the string.</p>
+<p>A string is alpha-numeric if all characters in the string are
+alpha-numeric and there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isalpha">
 <span class="sig-name descname"><span class="pre">isalpha</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isalpha" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is an alphabetic string, False otherwise.</p>
-<p>A string is alphabetic if all characters in the string are alphabetic and there
-is at least one character in the string.</p>
+<p>A string is alphabetic if all characters in the string are
+alphabetic and there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -752,40 +767,40 @@ Empty string is ASCII too.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isdecimal">
 <span class="sig-name descname"><span class="pre">isdecimal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isdecimal" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a decimal string, False otherwise.</p>
-<p>A string is a decimal string if all characters in the string are decimal and
-there is at least one character in the string.</p>
+<p>A string is a decimal string if all characters in the string are
+decimal and there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isdigit">
 <span class="sig-name descname"><span class="pre">isdigit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isdigit" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a digit string, False otherwise.</p>
-<p>A string is a digit string if all characters in the string are digits and there
-is at least one character in the string.</p>
+<p>A string is a digit string if all characters in the string are
+digits and there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isidentifier">
 <span class="sig-name descname"><span class="pre">isidentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isidentifier" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a valid Python identifier, False otherwise.</p>
-<p>Call keyword.iskeyword(s) to test whether string s is a reserved identifier,
-such as “def” or “class”.</p>
+<p>Call keyword.iskeyword(s) to test whether string s is a reserved
+identifier, such as “def” or “class”.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.islower">
 <span class="sig-name descname"><span class="pre">islower</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.islower" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a lowercase string, False otherwise.</p>
-<p>A string is lowercase if all cased characters in the string are lowercase and
-there is at least one cased character in the string.</p>
+<p>A string is lowercase if all cased characters in the string are
+lowercase and there is at least one cased character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isnumeric">
 <span class="sig-name descname"><span class="pre">isnumeric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isnumeric" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a numeric string, False otherwise.</p>
-<p>A string is numeric if all characters in the string are numeric and there is at
-least one character in the string.</p>
+<p>A string is numeric if all characters in the string are numeric and
+there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -799,8 +814,8 @@ least one character in the string.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isspace">
 <span class="sig-name descname"><span class="pre">isspace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isspace" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is a whitespace string, False otherwise.</p>
-<p>A string is whitespace if all characters in the string are whitespace and there
-is at least one character in the string.</p>
+<p>A string is whitespace if all characters in the string are
+whitespace and there is at least one character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -815,16 +830,16 @@ follow uncased characters and lowercase characters only cased ones.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.isupper">
 <span class="sig-name descname"><span class="pre">isupper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.isupper" title="Link to this definition">#</a></dt>
 <dd><p>Return True if the string is an uppercase string, False otherwise.</p>
-<p>A string is uppercase if all cased characters in the string are uppercase and
-there is at least one cased character in the string.</p>
+<p>A string is uppercase if all cased characters in the string are
+uppercase and there is at least one cased character in the string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.join">
 <span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.join" title="Link to this definition">#</a></dt>
 <dd><p>Concatenate any number of strings.</p>
-<p>The string whose method is called is inserted in between each given string.
-The result is returned as a new string.</p>
+<p>The string whose method is called is inserted in between each given
+string.  The result is returned as a new string.</p>
 <p>Example: ‘.’.join([‘ab’, ‘pq’, ‘rs’]) -&gt; ‘ab.pq.rs’</p>
 </dd></dl>
 
@@ -832,7 +847,8 @@ The result is returned as a new string.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.ljust">
 <span class="sig-name descname"><span class="pre">ljust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillchar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.ljust" title="Link to this definition">#</a></dt>
 <dd><p>Return a left-justified string of length width.</p>
-<p>Padding is done using the specified fill character (default is a space).</p>
+<p>Padding is done using the specified fill character (default is
+a space).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -852,41 +868,43 @@ The result is returned as a new string.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.maketrans">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">maketrans</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.maketrans" title="Link to this definition">#</a></dt>
 <dd><p>Return a translation table usable for str.translate().</p>
-<p>If there is only one argument, it must be a dictionary mapping Unicode
-ordinals (integers) or characters to Unicode ordinals, strings or None.
-Character keys will be then converted to ordinals.
-If there are two arguments, they must be strings of equal length, and
-in the resulting dictionary, each character in x will be mapped to the
-character at the same position in y. If there is a third argument, it
-must be a string, whose characters will be mapped to None in the result.</p>
+<p>If there is only one argument, it must be a dictionary mapping
+Unicode ordinals (integers) or characters to Unicode ordinals,
+strings or None.  Character keys will be then converted to ordinals.
+If there are two arguments, they must be strings of equal length,
+and in the resulting dictionary, each character in x will be mapped
+to the character at the same position in y.  If there is a third
+argument, it must be a string, whose characters will be mapped to
+None in the result.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.partition">
 <span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sep</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.partition" title="Link to this definition">#</a></dt>
 <dd><p>Partition the string into three parts using the given separator.</p>
-<p>This will search for the separator in the string.  If the separator is found,
-returns a 3-tuple containing the part before the separator, the separator
-itself, and the part after it.</p>
-<p>If the separator is not found, returns a 3-tuple containing the original string
-and two empty strings.</p>
+<p>This will search for the separator in the string.  If the separator
+is found, returns a 3-tuple containing the part before the
+separator, the separator itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing
+the original string and two empty strings.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.removeprefix">
 <span class="sig-name descname"><span class="pre">removeprefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.removeprefix" title="Link to this definition">#</a></dt>
 <dd><p>Return a str with the given prefix string removed if present.</p>
-<p>If the string starts with the prefix string, return string[len(prefix):].
-Otherwise, return a copy of the original string.</p>
+<p>If the string starts with the prefix string, return
+string[len(prefix):].  Otherwise, return a copy of the original
+string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.removesuffix">
 <span class="sig-name descname"><span class="pre">removesuffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.removesuffix" title="Link to this definition">#</a></dt>
 <dd><p>Return a str with the given suffix string removed if present.</p>
-<p>If the string ends with the suffix string and that suffix is not empty,
-return string[:-len(suffix)]. Otherwise, return a copy of the original
-string.</p>
+<p>If the string ends with the suffix string and that suffix is not
+empty, return string[:-len(suffix)].  Otherwise, return a copy of
+the original string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -908,34 +926,36 @@ replaced.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.rfind">
 <span class="sig-name descname"><span class="pre">rfind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.rfind" title="Link to this definition">#</a></dt>
 <dd><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p>
-<p>Optional arguments start and end are interpreted as in slice notation.
-Return -1 on failure.</p>
+<p>Optional arguments start and end are interpreted as in slice
+notation.  Return -1 on failure.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.rindex">
 <span class="sig-name descname"><span class="pre">rindex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.rindex" title="Link to this definition">#</a></dt>
 <dd><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p>
-<p>Optional arguments start and end are interpreted as in slice notation.
-Raises ValueError when the substring is not found.</p>
+<p>Optional arguments start and end are interpreted as in slice
+notation.  Raises ValueError when the substring is not found.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.rjust">
 <span class="sig-name descname"><span class="pre">rjust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillchar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.rjust" title="Link to this definition">#</a></dt>
 <dd><p>Return a right-justified string of length width.</p>
-<p>Padding is done using the specified fill character (default is a space).</p>
+<p>Padding is done using the specified fill character (default is
+a space).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.rpartition">
 <span class="sig-name descname"><span class="pre">rpartition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sep</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.rpartition" title="Link to this definition">#</a></dt>
 <dd><p>Partition the string into three parts using the given separator.</p>
-<p>This will search for the separator in the string, starting at the end. If
-the separator is found, returns a 3-tuple containing the part before the
-separator, the separator itself, and the part after it.</p>
-<p>If the separator is not found, returns a 3-tuple containing two empty strings
-and the original string.</p>
+<p>This will search for the separator in the string, starting at the
+end.  If the separator is found, returns a 3-tuple containing the
+part before the separator, the separator itself, and the part after
+it.</p>
+<p>If the separator is not found, returns a 3-tuple containing two
+empty strings and the original string.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -945,9 +965,9 @@ and the original string.</p>
 <blockquote>
 <div><dl>
 <dt>sep</dt><dd><p>The separator used to split the string.</p>
-<p>When set to None (the default value), will split on any whitespace
-character (including n r t f and spaces) and will discard
-empty strings from the result.</p>
+<p>When set to None (the default value), will split on any
+whitespace character (including n r t f and spaces) and
+will discard empty strings from the result.</p>
 </dd>
 <dt>maxsplit</dt><dd><p>Maximum number of splits.
 -1 (the default value) means no limit.</p>
@@ -971,9 +991,9 @@ empty strings from the result.</p>
 <blockquote>
 <div><dl>
 <dt>sep</dt><dd><p>The separator used to split the string.</p>
-<p>When set to None (the default value), will split on any whitespace
-character (including n r t f and spaces) and will discard
-empty strings from the result.</p>
+<p>When set to None (the default value), will split on any
+whitespace character (including n r t f and spaces) and
+will discard empty strings from the result.</p>
 </dd>
 <dt>maxsplit</dt><dd><p>Maximum number of splits.
 -1 (the default value) means no limit.</p>
@@ -981,17 +1001,17 @@ empty strings from the result.</p>
 </dl>
 </div></blockquote>
 <p>Splitting starts at the front of the string and works to the end.</p>
-<p>Note, str.split() is mainly useful for data that has been intentionally
-delimited.  With natural text that includes punctuation, consider using
-the regular expression module.</p>
+<p>Note, str.split() is mainly useful for data that has been
+intentionally delimited.  With natural text that includes
+punctuation, consider using the regular expression module.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.splitlines">
 <span class="sig-name descname"><span class="pre">splitlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keepends</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.splitlines" title="Link to this definition">#</a></dt>
 <dd><p>Return a list of the lines in the string, breaking at line boundaries.</p>
-<p>Line breaks are not included in the resulting list unless keepends is given and
-true.</p>
+<p>Line breaks are not included in the resulting list unless keepends
+is given and true.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1025,8 +1045,8 @@ true.</p>
 <dt class="sig sig-object py" id="swc.aeon.schema.foraging.FeederCommand.title">
 <span class="sig-name descname"><span class="pre">title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swc.aeon.schema.foraging.FeederCommand.title" title="Link to this definition">#</a></dt>
 <dd><p>Return a version of the string where each word is titlecased.</p>
-<p>More specifically, words start with uppercased characters and all remaining
-cased characters have lower case.</p>
+<p>More specifically, words start with uppercased characters and all
+remaining cased characters have lower case.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1035,14 +1055,15 @@ cased characters have lower case.</p>
 <dd><p>Replace each character in the string using the given translation table.</p>
 <blockquote>
 <div><dl class="simple">
-<dt>table</dt><dd><p>Translation table, which must be a mapping of Unicode ordinals to
-Unicode ordinals, strings, or None.</p>
+<dt>table</dt><dd><p>Translation table, which must be a mapping of Unicode ordinals
+to Unicode ordinals, strings, or None.</p>
 </dd>
 </dl>
 </div></blockquote>
-<p>The table must implement lookup/indexing via __getitem__, for instance a
-dictionary or list.  If this operation raises LookupError, the character is
-left untouched.  Characters mapped to None are deleted.</p>
+<p>The table must implement lookup/indexing via __getitem__, for
+instance a dictionary or list.  If this operation raises
+LookupError, the character is left untouched.  Characters mapped to
+None are deleted.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1258,8 +1279,8 @@ left untouched.  Characters mapped to None are deleted.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1273,7 +1294,7 @@ left untouched.  Characters mapped to None are deleted.</p>
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -1287,7 +1308,7 @@ left untouched.  Characters mapped to None are deleted.</p>
         <img src="../../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

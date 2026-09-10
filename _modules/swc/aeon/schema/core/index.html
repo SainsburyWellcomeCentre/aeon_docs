@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>swc.aeon.schema.core &#8212; Aeon v0.1.1 documentation</title>
+    <title>swc.aeon.schema.core &#8212; Aeon v0.1.2 documentation</title>
   
   
   
@@ -26,8 +26,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -36,12 +36,12 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=9ec55afc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../../../_static/documentation_options.js?v=864ebe2e"></script>
+    <script src="../../../../../_static/documentation_options.js?v=b104fa00"></script>
     <script src="../../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -134,7 +134,7 @@
   
   
   
-    <p class="title logo__title">Aeon v0.1.1</p>
+    <p class="title logo__title">Aeon v0.1.2</p>
   
 </a></div>
     
@@ -203,11 +203,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -220,8 +227,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
       
@@ -315,11 +321,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -332,8 +345,7 @@
           
           
           
-          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/SainsburyWellcomeCentre/aeon_docs" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
 </ul></div>
         
@@ -397,7 +409,7 @@
                 <article class="bd-article">
                   
   <h1>Source code for swc.aeon.schema.core</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Schema definition for core Harp data streams.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Schema definition for core Harp data streams."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">swc.aeon.io.reader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_reader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">swc.aeon.schema.streams</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">StreamGroup</span>
@@ -406,54 +418,54 @@
 <div class="viewcode-block" id="Heartbeat">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Heartbeat">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Heartbeat</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Heartbeat event for Harp devices.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Heartbeat event for Harp devices."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Heartbeat stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_8_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the Heartbeat stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Heartbeat</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_8_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="Video">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Video">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Video</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Video frame metadata.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Video frame metadata."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Video stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the Video stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="Position">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Position">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Position tracking data for the specified camera.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Position tracking data for the specified camera."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Position stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the Position stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Position</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_200_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="Encoder">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Encoder">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Encoder</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wheel magnetic encoder data.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Wheel magnetic encoder data."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Encoder stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_90_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the Encoder stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Encoder</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_90_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="Environment">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Environment">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">(</span><span class="n">StreamGroup</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for environment mode and subjects.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Metadata for environment mode and subjects."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Environment stream group.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Initializes the Environment stream group."""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">EnvironmentState</span><span class="p">,</span> <span class="n">SubjectState</span><span class="p">)</span></div>
 
 
@@ -461,43 +473,43 @@
 <div class="viewcode-block" id="EnvironmentState">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.EnvironmentState">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">EnvironmentState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Environment state log.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Environment state log."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the EnvironmentState stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_EnvironmentState_*&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the EnvironmentState stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_EnvironmentState_*"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"state"</span><span class="p">]))</span></div>
 
 
 
 <div class="viewcode-block" id="SubjectState">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.SubjectState">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SubjectState</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subject state log.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Subject state log."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialises the SubjectState stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_SubjectState_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initialises the SubjectState stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Subject</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_SubjectState_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="MessageLog">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.MessageLog">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">MessageLog</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Message log data.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Message log data."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the MessageLog stream.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_MessageLog_*&quot;</span><span class="p">))</span></div>
+<span class="w">        </span><span class="sd">"""Initializes the MessageLog stream."""</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">_MessageLog_*"</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="Metadata">
 <a class="viewcode-back" href="../../../../../reference/api/aeon_api/swc.aeon.schema.core/#swc.aeon.schema.core.Metadata">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Metadata</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for acquisition epochs.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Metadata for acquisition epochs."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the Metadata stream.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Initializes the Metadata stream."""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_reader</span><span class="o">.</span><span class="n">Metadata</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span></div>
 
 </pre></div>
@@ -529,8 +541,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -544,7 +556,7 @@
     <p class="theme-version">
     Built with the
     <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a>
-    0.17.1.
+    0.21.0.
     </p></div>
       
     </div>
@@ -558,7 +570,7 @@
         <img src="../../../../../_static/images/light-logo-neurogears.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-neurogears.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>
-    <a href="https://www.datajoint.com/">
+    <a href="https://datajoint.com/">
         <img src="../../../../../_static/images/light-logo-datajoint.png" alt="Sponsors" class="only-light img-sponsor"/>
         <img src="../../../../../_static/images/dark-logo-datajoint.png" alt="Sponsors" class="only-dark img-sponsor"/>
     </a>

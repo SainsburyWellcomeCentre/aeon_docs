@@ -16,7 +16,7 @@ An infrared beam-break sensor detects the pellets as they are delivered.
 _Dimensions: L = 190mm, W = 168mm, H = 83mm_
 
 :::{note}
-There are two versions of the foraging patch: [v1.0.0](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases/tag/v1.0.0) and [v1.1.0](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases/tag/v1.1.0). 
+There are two versions of the foraging patch: [v1.0.0](aeon-feeder-github:releases/tag/v1.0.0) and [v1.1.0](aeon-feeder-github:releases/tag/v1.1.0). 
 The differences in hardware and assembly procedures between these versions are highlighted in [steps 17–19](#electronics) of the assembly guide below.
 :::
 
@@ -167,7 +167,7 @@ The differences in hardware and assembly procedures between these versions are h
 :alt: step18a-19a
 :class: img-hardware-steps
 :figclass: caption-hardware-steps
-18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid. See the [release notes](https://github.com/SainsburyWellcomeCentre/aeon_feeder/releases/tag/v1.1.0) for details.
+18a/19a\. Rotate the Raspberry Pi Pico 180° and close the box with the appropriate lid. See the [release notes](aeon-feeder-github:releases/tag/v1.1.0) for details.
 :::
 ::::
 :::::
